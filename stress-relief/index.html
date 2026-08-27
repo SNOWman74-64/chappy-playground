@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover, user-scalable=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, viewport-fit=cover, user-scalable=no" />
   <meta name="theme-color" content="#08111f" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -11,494 +11,151 @@
     :root {
       color-scheme: dark;
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      --bg: #06101c;
-      --panel: rgba(12, 22, 38, .78);
-      --line: rgba(255,255,255,.10);
-      --text: #f8fafc;
-      --muted: #8da0b8;
-      --accent: #7dd3fc;
+      --bg:#06101c; --panel:rgba(12,22,38,.78); --line:rgba(255,255,255,.10);
+      --text:#f8fafc; --muted:#8da0b8; --accent:#7dd3fc;
     }
-
-    * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-
-    html, body {
-      width: 100%;
-      height: 100%;
-      margin: 0;
-      overflow: hidden;
-      overscroll-behavior: none;
-      background: var(--bg);
-      -webkit-text-size-adjust: 100%;
-    }
-
+    * { box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+    html,body { width:100%; height:100%; margin:0; overflow:hidden; overscroll-behavior:none; background:var(--bg); -webkit-text-size-adjust:100%; }
     body {
-      color: var(--text);
-      background:
-        radial-gradient(circle at 12% 0%, rgba(56,189,248,.16), transparent 32%),
-        radial-gradient(circle at 92% 10%, rgba(167,139,250,.16), transparent 34%),
-        linear-gradient(180deg, #0b1727 0%, #06101c 72%, #040912 100%);
+      color:var(--text); user-select:none; -webkit-user-select:none; -webkit-touch-callout:none; touch-action:none;
+      background:radial-gradient(circle at 12% 0%,rgba(56,189,248,.16),transparent 32%),radial-gradient(circle at 92% 10%,rgba(167,139,250,.16),transparent 34%),linear-gradient(180deg,#0b1727 0%,#06101c 72%,#040912 100%);
     }
+    button,a { font:inherit; color:inherit; -webkit-user-select:none; user-select:none; -webkit-touch-callout:none; touch-action:manipulation; }
+    button { border:0; }
+    .app { height:100dvh; display:grid; grid-template-rows:auto auto minmax(0,1fr) auto; gap:9px; padding:max(9px,env(safe-area-inset-top)) 11px max(9px,env(safe-area-inset-bottom)); }
+    .topbar { min-height:42px; display:grid; grid-template-columns:42px 1fr 42px; align-items:center; gap:8px; }
+    .icon-btn { width:42px; height:42px; display:grid; place-items:center; border:1px solid var(--line); border-radius:14px; background:rgba(15,23,42,.62); text-decoration:none; }
+    .title { text-align:center; min-width:0; }
+    .title small { display:block; color:var(--accent); font-size:9px; font-weight:900; letter-spacing:.14em; }
+    .title strong { display:block; margin-top:1px; font-size:18px; }
+    .tabs { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:4px; padding:4px; border:1px solid var(--line); border-radius:16px; background:rgba(8,16,30,.7); }
+    .tab { min-width:0; height:40px; border-radius:11px; background:transparent; color:var(--muted); font-size:10px; font-weight:800; }
+    .tab.active { background:rgba(255,255,255,.10); color:#fff; }
+    .stage { min-height:0; position:relative; overflow:hidden; border:1px solid var(--line); border-radius:26px; background:radial-gradient(circle at 50% 0%,rgba(255,255,255,.055),transparent 42%),rgba(8,15,28,.74); }
+    .mode { position:absolute; inset:0; display:grid; grid-template-rows:auto minmax(0,1fr); gap:6px; padding:14px; opacity:0; pointer-events:none; transform:translateY(8px) scale(.99); transition:.18s ease; }
+    .mode.active { opacity:1; pointer-events:auto; transform:none; }
+    .mode-copy { text-align:center; pointer-events:none; }
+    .mode-copy strong { display:block; font-size:17px; }
+    .mode-copy span { display:block; margin-top:2px; color:var(--muted); font-size:10px; line-height:1.35; }
+    .play { min-height:0; display:grid; place-items:center; touch-action:none; }
+    .footer { min-height:34px; display:flex; align-items:center; justify-content:center; color:#64748b; font-size:10px; }
 
-    body, button, .interactive {
-      -webkit-user-select: none;
-      user-select: none;
-      -webkit-touch-callout: none;
-    }
+    .pop-board { width:min(100%,330px); aspect-ratio:5/6; display:grid; grid-template-columns:repeat(5,1fr); gap:8px; padding:14px; border-radius:28px; background:linear-gradient(145deg,rgba(56,189,248,.22),rgba(139,92,246,.22)); }
+    .pop { aspect-ratio:1; border-radius:50%; background:linear-gradient(145deg,#7dd3fc,#7568ed); box-shadow:inset 7px 7px 10px rgba(255,255,255,.2),inset -8px -9px 13px rgba(18,23,72,.35),0 7px 12px rgba(0,0,0,.22); transition:.1s ease; }
+    .pop.pressed { transform:scale(.88); filter:brightness(.75); box-shadow:inset 8px 9px 18px rgba(3,7,18,.5); }
 
-    img { -webkit-user-drag: none; user-drag: none; }
-    button, a { font: inherit; color: inherit; }
-    button { border: 0; cursor: pointer; }
+    .bubble-sheet { width:min(100%,345px); height:min(100%,420px); display:grid; grid-template-columns:repeat(6,1fr); align-content:center; gap:7px; padding:13px; border:1px solid rgba(224,242,254,.14); border-radius:26px; background:rgba(186,230,253,.06); }
+    .bubble { aspect-ratio:1; border-radius:50%; border:1px solid rgba(224,242,254,.24); background:radial-gradient(circle at 30% 25%,rgba(255,255,255,.55) 0 8%,transparent 9%),radial-gradient(circle,rgba(125,211,252,.18),rgba(14,116,144,.11)); box-shadow:inset -7px -9px 12px rgba(8,47,73,.16),0 5px 9px rgba(0,0,0,.13); transition:.1s ease; }
+    .bubble.popped { transform:scale(.7); opacity:.3; filter:grayscale(1); }
 
-    .app {
-      width: 100%;
-      height: 100dvh;
-      display: grid;
-      grid-template-rows: auto auto minmax(0,1fr) auto;
-      gap: 9px;
-      padding:
-        max(9px, env(safe-area-inset-top))
-        10px
-        max(9px, env(safe-area-inset-bottom));
-      overflow: hidden;
-      touch-action: none;
-    }
-
-    .topbar {
-      min-height: 40px;
-      display: grid;
-      grid-template-columns: 40px minmax(0,1fr) 40px;
-      gap: 8px;
-      align-items: center;
-    }
-
-    .icon-btn {
-      width: 40px;
-      height: 40px;
-      display: grid;
-      place-items: center;
-      border: 1px solid var(--line);
-      border-radius: 13px;
-      background: rgba(15,23,42,.62);
-      text-decoration: none;
-      box-shadow: inset 0 1px rgba(255,255,255,.05);
-    }
-
-    .icon-btn:active { transform: scale(.95); }
-
-    .title { text-align: center; min-width: 0; }
-    .title small { display: block; color: var(--accent); font-size: 9px; font-weight: 900; letter-spacing: .15em; text-transform: uppercase; }
-    .title h1 { margin: 1px 0 0; font-size: 18px; letter-spacing: -.025em; }
-
-    .tabs {
-      display: grid;
-      grid-template-columns: repeat(5, minmax(0,1fr));
-      gap: 5px;
-      padding: 5px;
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      background: rgba(8,16,29,.66);
-      backdrop-filter: blur(14px);
-    }
-
-    .tab {
-      height: 40px;
-      min-width: 0;
-      padding: 0 3px;
-      border-radius: 11px;
-      background: transparent;
-      color: var(--muted);
-      font-size: 10px;
-      font-weight: 800;
-      white-space: nowrap;
-    }
-
-    .tab:active { transform: scale(.95); }
-    .tab.active { background: rgba(255,255,255,.10); color: #fff; box-shadow: inset 0 1px rgba(255,255,255,.08); }
-
-    .stage {
-      min-height: 0;
-      position: relative;
-      overflow: hidden;
-      border: 1px solid var(--line);
-      border-radius: 25px;
-      background:
-        radial-gradient(circle at 50% 0%, rgba(255,255,255,.055), transparent 42%),
-        rgba(7,14,26,.72);
-      box-shadow: 0 20px 70px rgba(0,0,0,.26), inset 0 1px rgba(255,255,255,.04);
-    }
-
-    .mode {
-      position: absolute;
-      inset: 0;
-      display: grid;
-      grid-template-rows: auto minmax(0,1fr);
-      gap: 7px;
-      padding: clamp(11px, 3.3vw, 18px);
-      opacity: 0;
-      pointer-events: none;
-      transform: translateY(7px) scale(.993);
-      transition: opacity .16s ease, transform .16s ease;
-    }
-
-    .mode.active { opacity: 1; pointer-events: auto; transform: none; }
-    .copy { text-align: center; pointer-events: none; }
-    .copy strong { display: block; font-size: clamp(15px,4.4vw,18px); letter-spacing: -.02em; }
-    .copy span { display: block; margin-top: 2px; color: var(--muted); font-size: 10px; line-height: 1.3; }
-    .play { min-height: 0; display: grid; place-items: center; }
-
-    /* Pop It */
-    .pop-board {
-      width: min(100%, 315px);
-      max-height: 100%;
-      aspect-ratio: 5 / 6;
-      display: grid;
-      grid-template-columns: repeat(5,1fr);
-      gap: clamp(6px,2.1vw,9px);
-      padding: clamp(10px,2.8vw,15px);
-      border-radius: 28px;
-      background: linear-gradient(150deg, rgba(125,211,252,.22), rgba(167,139,250,.22));
-      border: 1px solid rgba(255,255,255,.10);
-      box-shadow: inset 0 8px 26px rgba(255,255,255,.05), inset 0 -16px 28px rgba(0,0,0,.17);
-    }
-
-    .pop-dot {
-      aspect-ratio: 1;
-      border-radius: 50%;
-      background: linear-gradient(145deg,#71d7f5,#7068ed);
-      box-shadow: inset 6px 6px 9px rgba(255,255,255,.20), inset -7px -8px 12px rgba(18,23,72,.34), 0 6px 10px rgba(0,0,0,.24);
-      transition: .10s ease;
-    }
-    .pop-dot:nth-child(4n+2){background:linear-gradient(145deg,#90def7,#8b70ec)}
-    .pop-dot:nth-child(4n+3){background:linear-gradient(145deg,#90e4d0,#4f92e9)}
-    .pop-dot:nth-child(4n+4){background:linear-gradient(145deg,#b6a3fa,#5577ea)}
-    .pop-dot.pressed { transform: scale(.88); filter: saturate(.72) brightness(.78); box-shadow: inset 7px 8px 16px rgba(3,7,18,.52); }
-
-    /* Bubble wrap */
-    .bubble-sheet {
-      width: min(100%,330px);
-      max-height: 100%;
-      aspect-ratio: 6 / 7;
-      display: grid;
-      grid-template-columns: repeat(6,1fr);
-      gap: clamp(5px,1.8vw,8px);
-      padding: 11px;
-      border-radius: 25px;
-      background: linear-gradient(160deg,rgba(219,234,254,.10),rgba(125,211,252,.05));
-      border: 1px solid rgba(224,242,254,.13);
-    }
-
-    .bubble {
-      aspect-ratio: 1;
-      border: 1px solid rgba(224,242,254,.24);
-      border-radius: 50%;
-      background: radial-gradient(circle at 32% 27%,rgba(255,255,255,.52) 0 8%,transparent 9%), radial-gradient(circle at 40% 35%,rgba(186,230,253,.22),rgba(56,189,248,.08) 58%,rgba(14,116,144,.12));
-      box-shadow: inset -6px -8px 11px rgba(8,47,73,.16), inset 4px 5px 9px rgba(255,255,255,.13),0 4px 8px rgba(0,0,0,.13);
-      transition: .09s ease;
-    }
-    .bubble.popped { transform: scale(.69); opacity: .30; filter: grayscale(.8); box-shadow: inset 3px 3px 7px rgba(0,0,0,.32); }
-
-    /* Ball */
     .ball-zone { width:100%; height:100%; display:grid; place-items:center; position:relative; }
-    .ball-shadow { position:absolute; width:min(46vw,180px); height:25px; border-radius:50%; background:rgba(0,0,0,.3); filter:blur(9px); transform:translateY(min(32vw,126px)); transition:.15s ease; }
-    .stress-ball {
-      width:min(56vw,220px); aspect-ratio:1; border-radius:50%; position:relative; transform-origin:50% 72%;
-      background: radial-gradient(circle at 34% 28%,rgba(255,255,255,.46),transparent 12%), radial-gradient(circle at 42% 36%,#9ae6b4 0 12%,#34d399 48%,#059669 100%);
-      box-shadow: inset -21px -24px 29px rgba(3,78,61,.32), inset 12px 14px 24px rgba(255,255,255,.10),0 33px 45px rgba(0,0,0,.27);
-      transition: transform .15s cubic-bezier(.2,.9,.2,1),border-radius .15s ease,filter .15s ease;
-    }
+    .ball-shadow { position:absolute; width:min(48vw,185px); height:28px; border-radius:50%; background:rgba(0,0,0,.3); filter:blur(9px); transform:translateY(min(35vw,132px)); transition:.15s ease; }
+    .stress-ball { width:min(58vw,225px); aspect-ratio:1; border-radius:50%; position:relative; background:radial-gradient(circle at 34% 28%,rgba(255,255,255,.48),transparent 12%),radial-gradient(circle at 42% 36%,#9ae6b4,#34d399 48%,#059669); box-shadow:inset -22px -25px 30px rgba(3,78,61,.32),0 35px 48px rgba(0,0,0,.27); transition:.14s ease; }
     .stress-ball::after { content:"HOLD"; position:absolute; inset:0; display:grid; place-items:center; font-size:13px; font-weight:900; letter-spacing:.15em; color:rgba(236,253,245,.78); }
-    .stress-ball.squeeze { transform:scaleX(1.18) scaleY(.70) translateY(19px); border-radius:45% 55% 44% 56% / 60% 60% 40% 40%; filter:saturate(1.2) brightness(.92); }
-    .ball-zone.squeezing .ball-shadow { width:min(62vw,240px); transform:translateY(min(28vw,110px)); opacity:.46; }
+    .stress-ball.squeeze { transform:scaleX(1.18) scaleY(.72) translateY(18px); border-radius:45% 55% 44% 56%/60% 60% 40% 40%; }
+    .ball-zone.squeezing .ball-shadow { width:min(63vw,245px); transform:translateY(min(31vw,116px)); }
 
-    /* Spinner */
     .spinner-zone { width:100%; height:100%; display:grid; place-items:center; position:relative; }
-    .spinner { width:min(60vw,235px); aspect-ratio:1; position:relative; will-change:transform; filter:drop-shadow(0 24px 29px rgba(0,0,0,.32)); }
-    .spinner-arm { position:absolute; left:50%; top:50%; width:44%; height:30%; border-radius:999px; background:linear-gradient(135deg,#64748b,#cbd5e1 45%,#475569); transform-origin:0 50%; box-shadow:inset 0 2px rgba(255,255,255,.28),inset 0 -4px 8px rgba(15,23,42,.32); }
-    .spinner-arm:nth-child(1){transform:translateY(-50%) rotate(0)}
-    .spinner-arm:nth-child(2){transform:translateY(-50%) rotate(120deg)}
-    .spinner-arm:nth-child(3){transform:translateY(-50%) rotate(240deg)}
-    .spinner-arm::after { content:""; position:absolute; right:7%; top:50%; width:39%; aspect-ratio:1; border-radius:50%; transform:translateY(-50%); background:radial-gradient(circle,#0f172a 0 29%,#94a3b8 31% 48%,#334155 51% 100%); }
-    .spinner-center { position:absolute; left:50%; top:50%; width:30%; aspect-ratio:1; transform:translate(-50%,-50%); border-radius:50%; background:radial-gradient(circle at 38% 34%,#e2e8f0,#64748b 58%,#1e293b); border:4px solid rgba(15,23,42,.72); z-index:2; }
-    .spin-hint { position:absolute; bottom:4%; color:var(--muted); font-size:10px; font-weight:700; pointer-events:none; }
+    .spinner { width:min(62vw,240px); aspect-ratio:1; position:relative; will-change:transform; filter:drop-shadow(0 25px 30px rgba(0,0,0,.32)); }
+    .arm { position:absolute; left:50%; top:50%; width:44%; height:30%; border-radius:999px; background:linear-gradient(135deg,#64748b,#cbd5e1 45%,#475569); transform-origin:0 50%; }
+    .arm:nth-child(1){transform:translateY(-50%) rotate(0deg)} .arm:nth-child(2){transform:translateY(-50%) rotate(120deg)} .arm:nth-child(3){transform:translateY(-50%) rotate(240deg)}
+    .arm::after { content:""; position:absolute; right:7%; top:50%; width:39%; aspect-ratio:1; border-radius:50%; transform:translateY(-50%); background:radial-gradient(circle,#0f172a 0 29%,#94a3b8 31% 48%,#334155 51%); }
+    .center { position:absolute; left:50%; top:50%; width:30%; aspect-ratio:1; transform:translate(-50%,-50%); border-radius:50%; background:radial-gradient(circle at 38% 34%,#e2e8f0,#64748b 58%,#1e293b); border:4px solid rgba(15,23,42,.72); z-index:2; }
 
-    /* Mechanical keyboard */
-    .keyboard-wrap { width:100%; height:100%; display:grid; place-items:center; }
-    .keyboard {
-      width:min(100%,390px);
-      padding:clamp(9px,2.4vw,13px);
-      border-radius:22px;
-      border:1px solid rgba(255,255,255,.11);
-      background:linear-gradient(155deg,#202b3b,#111925 58%,#0b111b);
-      box-shadow: inset 0 2px rgba(255,255,255,.06), inset 0 -12px 25px rgba(0,0,0,.30), 0 24px 40px rgba(0,0,0,.26);
-      transform:perspective(700px) rotateX(4deg);
-    }
-    .key-row { display:flex; gap:clamp(4px,1.1vw,6px); margin-bottom:clamp(4px,1.1vw,6px); }
-    .key-row:last-child{margin-bottom:0}
-    .key {
-      flex:1 1 0;
-      min-width:0;
-      height:clamp(38px,10vw,48px);
-      border-radius:8px;
-      border:1px solid rgba(255,255,255,.08);
-      background:linear-gradient(180deg,#4b5566 0%,#303a49 58%,#202835 100%);
-      color:#eef2f7;
-      font-size:clamp(9px,2.6vw,12px);
-      font-weight:800;
-      box-shadow: inset 0 2px rgba(255,255,255,.13), 0 4px 0 #0b1018, 0 6px 8px rgba(0,0,0,.35);
-      transform:translateY(0);
-      transition:transform .045s ease,box-shadow .045s ease,filter .045s ease;
-    }
-    .key.wide { flex:1.5 1 0; }
-    .key.space { flex:4.8 1 0; }
-    .key.accent { background:linear-gradient(180deg,#64748b,#3c4858 60%,#27313e); }
-    .key.down { transform:translateY(4px); box-shadow:inset 0 2px 8px rgba(0,0,0,.30),0 1px 0 #0b1018; filter:brightness(.86); }
-
-    .footer {
-      min-height:30px;
-      display:grid;
-      grid-template-columns:minmax(0,1fr) auto;
-      align-items:center;
-      gap:8px;
-      color:#71839a;
-      font-size:10px;
-    }
-    .footer span { overflow:hidden; white-space:nowrap; text-overflow:ellipsis; }
-    .sound-pill { min-height:30px; padding:0 11px; border:1px solid var(--line); border-radius:999px; background:rgba(15,23,42,.58); color:#cbd5e1; font-size:10px; font-weight:800; }
-
-    @media (max-height: 620px) {
-      .app { gap:6px; padding-top:max(6px,env(safe-area-inset-top)); padding-bottom:max(6px,env(safe-area-inset-bottom)); }
-      .topbar{min-height:34px}.icon-btn{width:34px;height:34px;border-radius:11px}.topbar{grid-template-columns:34px minmax(0,1fr) 34px}
-      .title h1{font-size:15px}.title small{font-size:8px}.tabs{padding:4px}.tab{height:34px;font-size:9px}.mode{padding:9px}.copy span{display:none}.copy strong{font-size:14px}.footer{min-height:25px}.sound-pill{min-height:25px}
-      .key{height:32px}
-    }
-
-    @media (prefers-reduced-motion: reduce) { *,*::before,*::after{transition-duration:.001ms!important;animation-duration:.001ms!important} }
+    .keyboard { width:min(100%,360px); padding:12px; border-radius:22px; background:linear-gradient(180deg,#151b23,#0b1017); border:1px solid rgba(255,255,255,.08); box-shadow:0 22px 45px rgba(0,0,0,.28),inset 0 1px rgba(255,255,255,.05); }
+    .key-row { display:grid; gap:6px; margin-bottom:6px; grid-template-columns:repeat(10,1fr); }
+    .key-row:last-child { margin-bottom:0; }
+    .key { min-width:0; height:42px; border-radius:8px; background:linear-gradient(180deg,#3a424c,#222831); color:#e5edf5; font-size:11px; font-weight:800; box-shadow:inset 0 1px rgba(255,255,255,.12),0 5px 0 #11161d,0 7px 10px rgba(0,0,0,.25); transform:translateY(0); transition:transform .035s ease,box-shadow .035s ease,background .035s ease; }
+    .key:active,.key.down { transform:translateY(4px); box-shadow:inset 0 1px rgba(255,255,255,.06),0 1px 0 #11161d; background:linear-gradient(180deg,#2b323b,#1d232a); }
+    .key.wide { grid-column:span 2; } .key.space { grid-column:span 5; }
+    @media (max-width:350px){ .key{height:38px;font-size:10px}.keyboard{padding:9px}.key-row{gap:4px;margin-bottom:4px} }
+    @media (prefers-reduced-motion:reduce){ *{animation:none!important;transition:none!important} }
   </style>
 </head>
 <body>
-  <main class="app" id="app">
+  <main class="app">
     <header class="topbar">
-      <a class="icon-btn interactive" href="../" aria-label="Playgroundに戻る">←</a>
-      <div class="title"><small>stress relief lab</small><h1>Fidget Room</h1></div>
-      <button class="icon-btn interactive" id="reset" type="button" aria-label="現在の玩具をリセット">↻</button>
+      <a class="icon-btn" href="../" aria-label="戻る">‹</a>
+      <div class="title"><small>STRESS RELIEF</small><strong>Fidget Room</strong></div>
+      <button class="icon-btn" id="soundBtn" type="button" aria-label="音の切り替え">♪</button>
     </header>
 
-    <nav class="tabs" aria-label="玩具を切り替える">
-      <button class="tab active interactive" type="button" data-mode="pop">Pop</button>
-      <button class="tab interactive" type="button" data-mode="bubble">Bubble</button>
-      <button class="tab interactive" type="button" data-mode="ball">Ball</button>
-      <button class="tab interactive" type="button" data-mode="spin">Spin</button>
-      <button class="tab interactive" type="button" data-mode="keys">Keys</button>
+    <nav class="tabs" aria-label="フィジェット切り替え">
+      <button class="tab active" data-mode="pop" type="button">Pop</button>
+      <button class="tab" data-mode="bubble" type="button">Bubble</button>
+      <button class="tab" data-mode="ball" type="button">Ball</button>
+      <button class="tab" data-mode="spinner" type="button">Spin</button>
+      <button class="tab" data-mode="keys" type="button">Keys</button>
     </nav>
 
     <section class="stage">
-      <article class="mode active" data-panel="pop">
-        <div class="copy"><strong>Pop It</strong><span>好きなだけ押す。全部埋まったら自動で復活。</span></div>
-        <div class="play"><div class="pop-board" id="popBoard"></div></div>
-      </article>
-
-      <article class="mode" data-panel="bubble">
-        <div class="copy"><strong>Infinite Bubble Wrap</strong><span>プチプチ。全部割ると新品に戻る。</span></div>
-        <div class="play"><div class="bubble-sheet" id="bubbleSheet"></div></div>
-      </article>
-
-      <article class="mode" data-panel="ball">
-        <div class="copy"><strong>Stress Ball</strong><span>押している間だけ、ぐにっと潰れる。</span></div>
-        <div class="play"><div class="ball-zone" id="ballZone"><div class="ball-shadow"></div><button class="stress-ball interactive" id="stressBall" type="button" aria-label="ストレスボールを握る"></button></div></div>
-      </article>
-
-      <article class="mode" data-panel="spin">
-        <div class="copy"><strong>Fidget Spinner</strong><span>指で弾く。勢いに応じて回転する。</span></div>
-        <div class="play"><div class="spinner-zone interactive" id="spinnerZone"><div class="spinner" id="spinner"><div class="spinner-arm"></div><div class="spinner-arm"></div><div class="spinner-arm"></div><div class="spinner-center"></div></div><div class="spin-hint">FLICK TO SPIN</div></div></div>
-      </article>
-
-      <article class="mode" data-panel="keys">
-        <div class="copy"><strong>Mechanical Keys</strong><span>メカニカルっぽい「コトッ＋カチッ」をひたすら打つ。</span></div>
-        <div class="play"><div class="keyboard-wrap"><div class="keyboard" id="keyboard" aria-label="デジタルメカニカルキーボード">
-          <div class="key-row"><button class="key accent" data-key="Esc">ESC</button><button class="key" data-key="1">1</button><button class="key" data-key="2">2</button><button class="key" data-key="3">3</button><button class="key" data-key="4">4</button><button class="key" data-key="5">5</button><button class="key" data-key="6">6</button></div>
-          <div class="key-row"><button class="key wide accent" data-key="Tab">TAB</button><button class="key" data-key="Q">Q</button><button class="key" data-key="W">W</button><button class="key" data-key="E">E</button><button class="key" data-key="R">R</button><button class="key" data-key="T">T</button></div>
-          <div class="key-row"><button class="key wide accent" data-key="CapsLock">CAPS</button><button class="key" data-key="A">A</button><button class="key" data-key="S">S</button><button class="key" data-key="D">D</button><button class="key" data-key="F">F</button><button class="key" data-key="G">G</button></div>
-          <div class="key-row"><button class="key wide accent" data-key="Shift">SHIFT</button><button class="key" data-key="Z">Z</button><button class="key" data-key="X">X</button><button class="key" data-key="C">C</button><button class="key" data-key="V">V</button><button class="key" data-key="B">B</button></div>
-          <div class="key-row"><button class="key accent" data-key="Control">CTRL</button><button class="key accent" data-key="Alt">ALT</button><button class="key space" data-key=" ">SPACE</button><button class="key accent" data-key="Enter">↵</button></div>
-        </div></div></div>
-      </article>
+      <section class="mode active" data-panel="pop"><div class="mode-copy"><strong>Pop It</strong><span>タップして全部へこませる</span></div><div class="play"><div class="pop-board" id="popBoard"></div></div></section>
+      <section class="mode" data-panel="bubble"><div class="mode-copy"><strong>Bubble Wrap</strong><span>無限プチプチ。全部割ると復活</span></div><div class="play"><div class="bubble-sheet" id="bubbleSheet"></div></div></section>
+      <section class="mode" data-panel="ball"><div class="mode-copy"><strong>Stress Ball</strong><span>押している間だけ、ぎゅっと潰れる</span></div><div class="play"><div class="ball-zone" id="ballZone"><div class="ball-shadow"></div><button class="stress-ball" id="stressBall" type="button" aria-label="ストレスボール"></button></div></div></section>
+      <section class="mode" data-panel="spinner"><div class="mode-copy"><strong>Fidget Spinner</strong><span>指で横に弾くと回る</span></div><div class="play"><div class="spinner-zone" id="spinnerZone"><div class="spinner" id="spinner"><i class="arm"></i><i class="arm"></i><i class="arm"></i><i class="center"></i></div></div></div></section>
+      <section class="mode" data-panel="keys"><div class="mode-copy"><strong>Mechanical Keys</strong><span>カチッ、コトッ。好きなだけ連打</span></div><div class="play"><div class="keyboard" id="keyboard"></div></div></section>
     </section>
 
-    <footer class="footer"><span>no zoom · no accidental selection · mobile first</span><button class="sound-pill interactive" id="soundToggle" type="button">SOUND ON</button></footer>
+    <footer class="footer">tap · press · flick · no scroll</footer>
   </main>
 
   <script>
-    const app = document.querySelector('#app');
-    const tabs = [...document.querySelectorAll('.tab')];
-    const panels = [...document.querySelectorAll('.mode')];
-    const soundToggle = document.querySelector('#soundToggle');
-    const resetButton = document.querySelector('#reset');
-    let activeMode = 'pop';
     let soundOn = true;
     let audioCtx = null;
-
-    // Mobile app guards: no double-tap zoom, no iOS gesture zoom, no context menu on the toy surface.
-    document.addEventListener('dblclick', e => e.preventDefault(), { passive: false });
-    document.addEventListener('gesturestart', e => e.preventDefault(), { passive: false });
-    app.addEventListener('contextmenu', e => e.preventDefault());
-
-    function ensureAudio() {
+    const soundBtn = document.querySelector('#soundBtn');
+    const getAudio = () => {
       if (!soundOn) return null;
       if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
       if (audioCtx.state === 'suspended') audioCtx.resume();
       return audioCtx;
+    };
+    const vibrate = ms => { try { navigator.vibrate?.(ms); } catch (_) {} };
+    function blip(freq=180,duration=.06,volume=.08,type='sine'){
+      const c=getAudio(); if(!c)return; const o=c.createOscillator(),g=c.createGain();
+      o.type=type; o.frequency.setValueAtTime(freq,c.currentTime); g.gain.setValueAtTime(volume,c.currentTime); g.gain.exponentialRampToValueAtTime(.001,c.currentTime+duration);
+      o.connect(g).connect(c.destination); o.start(); o.stop(c.currentTime+duration);
     }
-
-    function haptic(ms = 8) { if (navigator.vibrate) navigator.vibrate(ms); }
-
-    function softPop(pitch = 180, length = .07, amount = .075) {
-      const ctx = ensureAudio(); if (!ctx) return;
-      const osc = ctx.createOscillator();
-      const gain = ctx.createGain();
-      osc.type = 'sine';
-      osc.frequency.setValueAtTime(pitch, ctx.currentTime);
-      osc.frequency.exponentialRampToValueAtTime(Math.max(55, pitch * .55), ctx.currentTime + length);
-      gain.gain.setValueAtTime(amount, ctx.currentTime);
-      gain.gain.exponentialRampToValueAtTime(.0001, ctx.currentTime + length);
-      osc.connect(gain).connect(ctx.destination);
-      osc.start(); osc.stop(ctx.currentTime + length);
+    function noise(duration=.025,volume=.035){
+      const c=getAudio(); if(!c)return; const len=Math.max(1,Math.floor(c.sampleRate*duration)); const b=c.createBuffer(1,len,c.sampleRate); const d=b.getChannelData(0);
+      for(let i=0;i<len;i++) d[i]=(Math.random()*2-1)*Math.pow(1-i/len,2);
+      const s=c.createBufferSource(),g=c.createGain(); s.buffer=b; g.gain.value=volume; s.connect(g).connect(c.destination); s.start();
     }
-
-    function mechanicalKeySound(weight = 1) {
-      const ctx = ensureAudio(); if (!ctx) return;
-      const now = ctx.currentTime;
-      const master = ctx.createGain();
-      master.gain.value = .34;
-      master.connect(ctx.destination);
-
-      // Low body / "thock".
-      const body = ctx.createOscillator();
-      const bodyGain = ctx.createGain();
-      body.type = 'triangle';
-      const base = 88 + Math.random() * 18 - (weight - 1) * 7;
-      body.frequency.setValueAtTime(base, now);
-      body.frequency.exponentialRampToValueAtTime(58, now + .055);
-      bodyGain.gain.setValueAtTime(.15, now);
-      bodyGain.gain.exponentialRampToValueAtTime(.0001, now + .075);
-      body.connect(bodyGain).connect(master);
-      body.start(now); body.stop(now + .08);
-
-      // Switch click: short filtered noise.
-      const len = Math.floor(ctx.sampleRate * .025);
-      const buffer = ctx.createBuffer(1, len, ctx.sampleRate);
-      const data = buffer.getChannelData(0);
-      for (let i = 0; i < len; i++) data[i] = (Math.random() * 2 - 1) * Math.exp(-i / (len * .14));
-      const noise = ctx.createBufferSource();
-      const filter = ctx.createBiquadFilter();
-      const clickGain = ctx.createGain();
-      noise.buffer = buffer;
-      filter.type = 'bandpass';
-      filter.frequency.value = 2200 + Math.random() * 650;
-      filter.Q.value = 1.1;
-      clickGain.gain.setValueAtTime(.13, now);
-      clickGain.gain.exponentialRampToValueAtTime(.0001, now + .028);
-      noise.connect(filter).connect(clickGain).connect(master);
-      noise.start(now);
-
-      // Tiny case resonance, different every press so repeated taps feel less synthetic.
-      const caseOsc = ctx.createOscillator();
-      const caseGain = ctx.createGain();
-      caseOsc.type = 'sine';
-      caseOsc.frequency.value = 330 + Math.random() * 80;
-      caseGain.gain.setValueAtTime(.022, now + .008);
-      caseGain.gain.exponentialRampToValueAtTime(.0001, now + .045);
-      caseOsc.connect(caseGain).connect(master);
-      caseOsc.start(now + .006); caseOsc.stop(now + .05);
+    function mechanical(isWide=false){
+      const base=isWide?105:125; blip(base+Math.random()*18,.055,isWide?.065:.05,'triangle'); noise(.018,isWide?.055:.045); setTimeout(()=>blip((isWide?190:230)+Math.random()*35,.026,.025,'square'),8);
     }
+    soundBtn.addEventListener('click',()=>{ soundOn=!soundOn; soundBtn.textContent=soundOn?'♪':'×'; if(soundOn) getAudio(); });
 
-    function setMode(mode) {
-      activeMode = mode;
-      tabs.forEach(t => t.classList.toggle('active', t.dataset.mode === mode));
-      panels.forEach(p => p.classList.toggle('active', p.dataset.panel === mode));
-      ensureAudio();
-    }
-    tabs.forEach(t => t.addEventListener('click', () => setMode(t.dataset.mode)));
+    const tabs=[...document.querySelectorAll('.tab')]; const panels=[...document.querySelectorAll('.mode')];
+    tabs.forEach(t=>t.addEventListener('click',()=>{ tabs.forEach(x=>x.classList.toggle('active',x===t)); panels.forEach(p=>p.classList.toggle('active',p.dataset.panel===t.dataset.mode)); blip(260,.025,.025,'triangle'); }));
 
-    soundToggle.addEventListener('click', () => {
-      soundOn = !soundOn;
-      soundToggle.textContent = soundOn ? 'SOUND ON' : 'SOUND OFF';
-      if (soundOn) ensureAudio();
-    });
+    const popBoard=document.querySelector('#popBoard');
+    for(let i=0;i<30;i++){ const b=document.createElement('button'); b.type='button'; b.className='pop'; b.setAttribute('aria-label','Pop'); b.addEventListener('click',()=>{ b.classList.toggle('pressed'); blip(b.classList.contains('pressed')?150:210,.045,.05,'sine'); vibrate(8); }); popBoard.appendChild(b); }
 
-    // Pop It
-    const popBoard = document.querySelector('#popBoard');
-    function buildPop() {
-      popBoard.replaceChildren();
-      for (let i=0;i<30;i++) {
-        const b=document.createElement('button'); b.type='button'; b.className='pop-dot interactive'; b.setAttribute('aria-label','Pop');
-        b.addEventListener('pointerdown', () => {
-          if (b.classList.contains('pressed')) return;
-          b.classList.add('pressed'); softPop(145 + Math.random()*70, .065, .065); haptic(7);
-          if ([...popBoard.children].every(x=>x.classList.contains('pressed'))) setTimeout(buildPop, 320);
-        });
-        popBoard.append(b);
-      }
-    }
-    buildPop();
+    const bubbleSheet=document.querySelector('#bubbleSheet'); let popped=0;
+    function resetBubbles(){ popped=0; [...bubbleSheet.children].forEach(b=>b.classList.remove('popped')); }
+    for(let i=0;i<36;i++){ const b=document.createElement('button'); b.type='button'; b.className='bubble'; b.setAttribute('aria-label','Bubble'); b.addEventListener('click',()=>{ if(b.classList.contains('popped'))return; b.classList.add('popped'); popped++; noise(.018,.045); blip(125+Math.random()*50,.035,.028,'triangle'); vibrate(7); if(popped===36)setTimeout(resetBubbles,420); }); bubbleSheet.appendChild(b); }
 
-    // Bubble wrap
-    const bubbleSheet = document.querySelector('#bubbleSheet');
-    function buildBubbles() {
-      bubbleSheet.replaceChildren();
-      for(let i=0;i<42;i++) {
-        const b=document.createElement('button'); b.type='button'; b.className='bubble interactive'; b.setAttribute('aria-label','Bubble');
-        b.addEventListener('pointerdown',()=>{
-          if(b.classList.contains('popped'))return;
-          b.classList.add('popped'); softPop(235+Math.random()*80,.045,.055); haptic(9);
-          if([...bubbleSheet.children].every(x=>x.classList.contains('popped'))) setTimeout(buildBubbles,300);
-        });
-        bubbleSheet.append(b);
-      }
-    }
-    buildBubbles();
+    const stressBall=document.querySelector('#stressBall'),ballZone=document.querySelector('#ballZone');
+    const squeeze=()=>{ stressBall.classList.add('squeeze'); ballZone.classList.add('squeezing'); blip(92,.12,.045,'sine'); vibrate(18); };
+    const release=()=>{ stressBall.classList.remove('squeeze'); ballZone.classList.remove('squeezing'); };
+    stressBall.addEventListener('pointerdown',e=>{ e.preventDefault(); stressBall.setPointerCapture?.(e.pointerId); squeeze(); }); stressBall.addEventListener('pointerup',release); stressBall.addEventListener('pointercancel',release);
 
-    // Stress ball
-    const stressBall=document.querySelector('#stressBall'); const ballZone=document.querySelector('#ballZone');
-    function squeeze(on){stressBall.classList.toggle('squeeze',on);ballZone.classList.toggle('squeezing',on);if(on){softPop(92,.14,.05);haptic(13)}}
-    stressBall.addEventListener('pointerdown',e=>{stressBall.setPointerCapture?.(e.pointerId);squeeze(true)});
-    ['pointerup','pointercancel','lostpointercapture'].forEach(ev=>stressBall.addEventListener(ev,()=>squeeze(false)));
+    const spinner=document.querySelector('#spinner'),spinnerZone=document.querySelector('#spinnerZone'); let angle=0,velocity=0,lastX=0,lastT=0,raf=0;
+    function spinLoop(){ angle+=velocity; velocity*=.985; spinner.style.transform=`rotate(${angle}deg)`; if(Math.abs(velocity)>.02){ if(Math.abs(velocity)>2 && Math.random()<.08) blip(80+Math.min(120,Math.abs(velocity)*5),.018,.008,'sine'); raf=requestAnimationFrame(spinLoop); } else raf=0; }
+    spinnerZone.addEventListener('pointerdown',e=>{ e.preventDefault(); lastX=e.clientX; lastT=performance.now(); spinnerZone.setPointerCapture?.(e.pointerId); if(raf){cancelAnimationFrame(raf);raf=0;} });
+    spinnerZone.addEventListener('pointermove',e=>{ if(!spinnerZone.hasPointerCapture?.(e.pointerId))return; const now=performance.now(),dx=e.clientX-lastX,dt=Math.max(1,now-lastT); angle+=dx*.7; velocity=dx/dt*22; spinner.style.transform=`rotate(${angle}deg)`; lastX=e.clientX; lastT=now; });
+    spinnerZone.addEventListener('pointerup',()=>{ velocity=Math.max(-18,Math.min(18,velocity)); if(!raf)raf=requestAnimationFrame(spinLoop); vibrate(10); });
 
-    // Spinner: velocity from swipe distance/time, then friction.
-    const spinner=document.querySelector('#spinner'); const spinnerZone=document.querySelector('#spinnerZone');
-    let angle=0,velocity=0,raf=0,startX=0,startY=0,startT=0;
-    function animateSpinner(){angle+=velocity;velocity*=.986;spinner.style.transform=`rotate(${angle}deg)`;if(Math.abs(velocity)>.03){raf=requestAnimationFrame(animateSpinner)}else{velocity=0;raf=0}}
-    spinnerZone.addEventListener('pointerdown',e=>{startX=e.clientX;startY=e.clientY;startT=performance.now();spinnerZone.setPointerCapture?.(e.pointerId)});
-    spinnerZone.addEventListener('pointerup',e=>{
-      const dt=Math.max(40,performance.now()-startT); const dx=e.clientX-startX,dy=e.clientY-startY; const dist=Math.hypot(dx,dy);
-      if(dist<8){velocity+=8}else{velocity+=Math.min(28,dist/dt*18)*(dx+dy>=0?1:-1)}
-      softPop(110,.05,.035);haptic(7);if(!raf)raf=requestAnimationFrame(animateSpinner);
-    });
+    const keyboard=document.querySelector('#keyboard');
+    const rows=[['Q','W','E','R','T','Y','U','I','O','P'],['A','S','D','F','G','H','J','K','L','↵'],['⇧','Z','X','C','V','B','N','M','⌫'],['CTRL','ALT','SPACE','FN']];
+    rows.forEach((labels,ri)=>{ const row=document.createElement('div'); row.className='key-row'; labels.forEach(label=>{ const k=document.createElement('button'); k.type='button'; k.className='key'; if(ri===2&&(label==='⇧'||label==='⌫'))k.classList.add('wide'); if(label==='SPACE')k.classList.add('space'); if(ri===3&&label!=='SPACE')k.classList.add('wide'); k.textContent=label; const wide=label==='SPACE'||label==='↵'||label==='⇧'||label==='⌫'; k.addEventListener('pointerdown',e=>{ e.preventDefault(); k.classList.add('down'); mechanical(wide); vibrate(wide?9:6); }); ['pointerup','pointercancel','pointerleave'].forEach(ev=>k.addEventListener(ev,()=>k.classList.remove('down'))); row.appendChild(k); }); keyboard.appendChild(row); });
 
-    // Mechanical keyboard
-    const keys=[...document.querySelectorAll('.key')];
-    function pressKey(key, weight=1){
-      key.classList.add('down'); mechanicalKeySound(weight); haptic(5);
-      clearTimeout(key._upTimer); key._upTimer=setTimeout(()=>key.classList.remove('down'),72);
-    }
-    keys.forEach(key=>{
-      const weight=key.classList.contains('space')?1.35:key.classList.contains('wide')?1.15:1;
-      key.addEventListener('pointerdown',()=>pressKey(key,weight));
-    });
-    window.addEventListener('keydown',e=>{
-      if(activeMode!=='keys'||e.repeat)return;
-      const wanted=e.key.length===1?e.key.toUpperCase():e.key;
-      const key=keys.find(k=>{const v=k.dataset.key;return (v.length===1?v.toUpperCase():v)===wanted});
-      if(key){e.preventDefault();pressKey(key,key.classList.contains('space')?1.35:key.classList.contains('wide')?1.15:1)}
-    });
-
-    resetButton.addEventListener('click',()=>{
-      if(activeMode==='pop')buildPop();
-      if(activeMode==='bubble')buildBubbles();
-      if(activeMode==='ball')squeeze(false);
-      if(activeMode==='spin'){velocity=0;angle=0;if(raf)cancelAnimationFrame(raf);raf=0;spinner.style.transform='rotate(0deg)'}
-      if(activeMode==='keys')keys.forEach(k=>k.classList.remove('down'));
-      haptic(5);
-    });
+    // iOS Safari gesture guards: keep app interactions, kill browser zoom/select gestures.
+    ['gesturestart','gesturechange','gestureend'].forEach(type=>document.addEventListener(type,e=>e.preventDefault(),{passive:false}));
+    document.addEventListener('dblclick',e=>e.preventDefault(),{passive:false});
+    let lastTouchEnd=0;
+    document.addEventListener('touchend',e=>{ const now=Date.now(); if(now-lastTouchEnd<=320)e.preventDefault(); lastTouchEnd=now; },{passive:false});
+    document.addEventListener('contextmenu',e=>e.preventDefault());
   </script>
 </body>
 </html>
