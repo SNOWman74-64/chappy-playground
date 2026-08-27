@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover, user-scalable=no" />
+  <meta name="theme-color" content="#050807" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <title>ROOT // CARD PROTOCOL</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      --bg:#030604;
+      --panel:#07100b;
+      --line:#17351f;
+      --line2:#224d2d;
+      --text:#b7ffc8;
+      --muted:#6ea87a;
+      --dim:#3e6a49;
+      --accent:#53ff7c;
+      --warn:#ffc857;
+      --bad:#ff6b6b;
+      --cyan:#63d8ff;
+    }
+    * { box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+    html, body { width:100%; height:100%; margin:0; overflow:hidden; overscroll-behavior:none; background:var(--bg); }
+    body { color:var(--text); user-select:none; -webkit-user-select:none; -webkit-touch-callout:none; touch-action:manipulation; }
+    button { font:inherit; color:inherit; }
+    .app {
+      height:100dvh;
+      display:grid;
+      grid-template-rows:auto auto minmax(0,1fr) auto;
+      gap:8px;
+      padding:max(8px,env(safe-area-inset-top)) 8px max(8px,env(safe-area-inset-bottom));
+      background:
+        linear-gradient(rgba(83,255,124,.018) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(83,255,124,.014) 1px, transparent 1px),
+        radial-gradient(circle at 50% -10%, rgba(83,255,124,.08), transparent 36%),
+        #030604;
+      background-size:18px 18px,18px 18px,auto,auto;
+    }
+    .topbar, .status, .terminal, .hand { border:1px solid var(--line); background:rgba(5,12,8,.9); box-shadow:inset 0 0 24px rgba(83,255,124,.025); }
+    .topbar { min-height:46px; display:grid; grid-template-columns:36px minmax(0,1fr) auto; align-items:center; gap:8px; padding:6px 8px; }
+    .back { width:34px; height:34px; border:1px solid var(--line); background:#061009; display:grid; place-items:center; text-decoration:none; color:var(--muted); }
+    .title { min-width:0; }
+    .title strong { display:block; color:var(--accent); font-size:13px; letter-spacing:.04em; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+    .title span { display:block; margin-top:2px; color:var(--dim); font-size:9px; }
+    .turn { color:var(--muted); font-size:10px; white-space:nowrap; }
+
+    .status { display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line); }
+    .node { background:#050b07; padding:7px 9px; min-width:0; }
+    .node-head { display:flex; justify-content:space-between; gap:8px; align-items:baseline; }
+    .node-name { color:var(--muted); font-size:10px; }
+    .node-hp { font-size:12px; font-weight:800; color:var(--text); }
+    .bars { display:grid; grid-template-columns:1fr auto; gap:8px; align-items:center; margin-top:6px; }
+    .bar { height:5px; border:1px solid var(--line2); background:#020403; overflow:hidden; }
+    .fill { height:100%; background:var(--accent); transition:width .2s ease; }
+    .enemy .fill { background:var(--bad); }
+    .resource { color:var(--dim); font-size:9px; white-space:nowrap; }
+
+    .terminal { min-height:0; display:grid; grid-template-rows:minmax(0,1fr) auto; overflow:hidden; }
+    .log { min-height:0; overflow:auto; padding:8px 9px 4px; scrollbar-width:none; }
+    .log::-webkit-scrollbar { display:none; }
+    .line { margin:0 0 5px; font-size:10px; line-height:1.35; color:var(--muted); white-space:pre-wrap; word-break:break-word; }
+    .line.sys { color:var(--dim); }
+    .line.you { color:var(--accent); }
+    .line.cpu { color:var(--bad); }
+    .line.warn { color:var(--warn); }
+    .prompt { border-top:1px solid var(--line); padding:7px 9px; color:var(--accent); font-size:10px; min-height:31px; display:flex; align-items:center; gap:6px; }
+    .cursor { width:7px; height:13px; background:var(--accent); animation:blink 1s steps(1) infinite; opacity:.9; }
+    @keyframes blink { 50% { opacity:0; } }
+
+    .hand { display:grid; grid-template-rows:auto minmax(0,1fr) auto; gap:6px; padding:7px; min-height:0; }
+    .hand-head { display:flex; justify-content:space-between; gap:8px; align-items:center; color:var(--dim); font-size:9px; }
+    .cards { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:5px; min-height:0; }
+    .card {
+      min-width:0;
+      border:1px solid var(--line2);
+      background:linear-gradient(180deg,#09160d,#050a07);
+      padding:7px 5px;
+      display:grid;
+      grid-template-rows:auto auto minmax(0,1fr) auto;
+      gap:4px;
+      text-align:left;
+      position:relative;
+      overflow:hidden;
+    }
+    .card:active { transform:translateY(1px); background:#0b1a10; }
+    .card[disabled] { opacity:.32; filter:grayscale(.8); }
+    .cost { color:var(--cyan); font-size:9px; font-weight:800; }
+    .card-name { color:var(--text); font-size:9px; line-height:1.15; font-weight:800; overflow-wrap:anywhere; }
+    .desc { color:var(--dim); font-size:8px; line-height:1.25; }
+    .tag { color:var(--muted); font-size:7px; letter-spacing:.05em; text-transform:uppercase; }
+    .card.attack { border-color:#5c2a2a; }
+    .card.defense { border-color:#31523b; }
+    .card.utility { border-color:#295267; }
+    .card.chaos { border-color:#6b5630; }
+
+    .actions { display:grid; grid-template-columns:1fr auto; gap:6px; }
+    .energy { min-height:38px; border:1px solid var(--line); display:flex; align-items:center; padding:0 9px; color:var(--muted); font-size:10px; }
+    .energy b { color:var(--cyan); margin-left:5px; }
+    .end-btn, .restart-btn { min-height:38px; border:1px solid var(--line2); background:#0a160d; color:var(--accent); padding:0 12px; font-weight:800; font-size:10px; }
+    .end-btn:active,.restart-btn:active { background:#102316; }
+
+    .overlay { position:absolute; inset:0; display:grid; place-items:center; background:rgba(1,4,2,.88); padding:18px; z-index:20; }
+    .result { width:min(100%,360px); border:1px solid var(--line2); background:#040906; padding:18px; box-shadow:0 0 50px rgba(83,255,124,.08); }
+    .result h2 { margin:0 0 10px; color:var(--accent); font-size:17px; }
+    .result.lose h2 { color:var(--bad); }
+    .result p { margin:0 0 14px; color:var(--muted); font-size:10px; line-height:1.55; }
+    .restart-btn { width:100%; }
+
+    @media (max-width:360px) {
+      .cards { gap:3px; }
+      .card { padding:6px 4px; }
+      .card-name { font-size:8px; }
+      .desc { font-size:7px; }
+    }
+    @media (prefers-reduced-motion:reduce) { *,*::before,*::after { animation:none!important; transition:none!important; } }
+  </style>
+</head>
+<body>
+  <div class="app" id="app">
+    <header class="topbar">
+      <a class="back" href="../" aria-label="戻る">←</a>
+      <div class="title"><strong>ROOT // CARD PROTOCOL</strong><span>local duel daemon · v0.4</span></div>
+      <div class="turn" id="turnLabel">TURN 1</div>
+    </header>
+
+    <section class="status">
+      <div class="node player">
+        <div class="node-head"><span class="node-name">you@localhost</span><span class="node-hp" id="playerHp">30 HP</span></div>
+        <div class="bars"><div class="bar"><div class="fill" id="playerHpBar" style="width:100%"></div></div><span class="resource" id="playerBlock">BLOCK 0</span></div>
+      </div>
+      <div class="node enemy">
+        <div class="node-head"><span class="node-name">cpu@node-07</span><span class="node-hp" id="enemyHp">30 HP</span></div>
+        <div class="bars"><div class="bar"><div class="fill" id="enemyHpBar" style="width:100%"></div></div><span class="resource" id="enemyBlock">BLOCK 0</span></div>
+      </div>
+    </section>
+
+    <section class="terminal">
+      <div class="log" id="log" aria-live="polite"></div>
+      <div class="prompt"><span>root@duel:~$</span><span id="promptText">select_card</span><span class="cursor"></span></div>
+    </section>
+
+    <section class="hand">
+      <div class="hand-head"><span>[HAND]</span><span id="deckInfo">deck: --</span></div>
+      <div class="cards" id="cards"></div>
+      <div class="actions">
+        <div class="energy">CPU CYCLES <b id="energy">3 / 3</b></div>
+        <button class="end-btn" id="endTurn" type="button">END TURN</button>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const CARD_POOL = [
+      {name:'OVERCLOCK', cost:1, type:'attack', tag:'attack', desc:'deal 4 dmg', effect:s=>damageEnemy(s,4)},
+      {name:'PORT SCAN', cost:1, type:'utility', tag:'intel', desc:'draw 1 / next hit +2', effect:s=>{s.playerBuff+=2; drawCard(s); logLine('[OK] exposed weak service. next attack +2','you')}},
+      {name:'FIREWALL', cost:1, type:'defense', tag:'defense', desc:'gain 5 block', effect:s=>{s.playerBlock+=5; logLine('[OK] firewall rules applied. block +5','you')}},
+      {name:'ROLLBACK', cost:2, type:'defense', tag:'recovery', desc:'heal 5', effect:s=>{s.playerHp=Math.min(30,s.playerHp+5); logLine('[OK] snapshot restored. hp +5','you')}},
+      {name:'MEMORY LEAK', cost:2, type:'attack', tag:'debuff', desc:'deal 5 / cpu energy -1', effect:s=>{damageEnemy(s,5); s.enemyEnergyPenalty=Math.min(2,s.enemyEnergyPenalty+1); logLine('[WARN] remote heap degrading','warn')}},
+      {name:'GARBAGE COLLECT', cost:1, type:'utility', tag:'utility', desc:'remove debuff / block 2', effect:s=>{s.playerBlock+=2; s.playerHeat=Math.max(0,s.playerHeat-2); logLine('[OK] runtime stabilized','you')}},
+      {name:'FORK BOMB', cost:3, type:'chaos', tag:'chaos', desc:'deal 12 / self 4', effect:s=>{damageEnemy(s,12); damagePlayer(s,4,true); logLine('[WARN] process table saturated','warn')}},
+      {name:'KERNEL PANIC', cost:3, type:'chaos', tag:'chaos', desc:'50%: deal 16, else self 7', effect:s=>{if(Math.random()<.5){damageEnemy(s,16);logLine('[CRIT] remote kernel panic','you')}else{damagePlayer(s,7,true);logLine('[FAIL] panic propagated locally','cpu')}}},
+      {name:'ZERO-DAY', cost:2, type:'attack', tag:'attack', desc:'ignore block / deal 7', effect:s=>{directEnemy(s,7);logLine('[OK] exploit bypassed defense','you')}},
+      {name:'SANDBOX', cost:1, type:'defense', tag:'defense', desc:'block 3 / next cpu attack -2', effect:s=>{s.playerBlock+=3;s.enemyWeak+=2;logLine('[OK] hostile process isolated','you')}},
+      {name:'CACHE HIT', cost:0, type:'utility', tag:'utility', desc:'gain 1 cycle', effect:s=>{s.energy=Math.min(5,s.energy+1);logLine('[OK] cache hit. cycle +1','you')}},
+      {name:'SEGFAULT', cost:2, type:'attack', tag:'attack', desc:'deal 8 if no enemy block, else 3', effect:s=>{damageEnemy(s,s.enemyBlock===0?8:3)}}
+    ];
+
+    const ENEMY_MOVES = [
+      {name:'brute_force', weight:4, fn:s=>cpuAttack(s,5)},
+      {name:'rate_limit', weight:3, fn:s=>{s.enemyBlock+=5; logLine('cpu@node-07$ rate_limit --block 5','cpu')}},
+      {name:'packet_storm', weight:3, fn:s=>cpuAttack(s,7)},
+      {name:'trace_route', weight:2, fn:s=>{s.enemyBlock+=3; s.enemyPower=Math.min(4,s.enemyPower+1); logLine('cpu@node-07$ trace_route --optimize','cpu')}},
+      {name:'memory_poison', weight:2, fn:s=>{cpuAttack(s,3); s.playerHeat+=2; logLine('[WARN] player runtime heat +2','warn')}}
+    ];
+
+    const state = {};
+    function reset(){
+      Object.assign(state,{playerHp:30,enemyHp:30,playerBlock:0,enemyBlock:0,energy:3,maxEnergy:3,turn:1,deck:[],discard:[],hand:[],playerBuff:0,enemyEnergyPenalty:0,enemyWeak:0,enemyPower:0,playerHeat:0,ended:false});
+      state.deck = shuffle([...CARD_POOL,...CARD_POOL.slice(0,8)].map((c,i)=>({...c,uid:i+'-'+Math.random()})));
+      clearLog();
+      logLine('booting duel-daemon...','sys');
+      logLine('[OK] cpu@node-07 connected','sys');
+      logLine('[INFO] reduce remote integrity to 0','sys');
+      startTurn();
+    }
+    const $=id=>document.getElementById(id);
+    function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+    function clearLog(){ $('log').innerHTML=''; }
+    function logLine(text,cls=''){const p=document.createElement('p');p.className='line '+cls;p.textContent=text;$('log').appendChild(p);$('log').scrollTop=$('log').scrollHeight}
+    function drawCard(s){ if(!s.deck.length){s.deck=shuffle(s.discard.splice(0));logLine('[SYS] discard recycled into deck','sys')} if(s.deck.length && s.hand.length<7)s.hand.push(s.deck.pop()) }
+    function drawToFive(){ while(state.hand.length<5) drawCard(state); }
+    function startTurn(){
+      if(state.ended)return;
+      state.playerBlock=0;
+      state.energy=Math.max(1,state.maxEnergy - Math.min(1,state.playerHeat>4?1:0));
+      drawToFive();
+      logLine(`\n# TURN ${state.turn}`,'sys');
+      logLine(`root@duel:~$ cycles=${state.energy}`,'you');
+      render();
+    }
+    function playCard(index){
+      if(state.ended)return;
+      const c=state.hand[index]; if(!c || c.cost>state.energy)return;
+      state.energy-=c.cost;
+      logLine(`root@duel:~$ execute ${c.name.toLowerCase().replaceAll(' ','_')} --cost ${c.cost}`,'you');
+      c.effect(state);
+      state.discard.push(c); state.hand.splice(index,1);
+      checkEnd(); if(!state.ended) render();
+    }
+    function damageEnemy(s,amount){ amount += s.playerBuff; s.playerBuff=0; const blocked=Math.min(s.enemyBlock,amount); s.enemyBlock-=blocked; const dealt=amount-blocked; s.enemyHp=Math.max(0,s.enemyHp-dealt); logLine(`[DMG] remote -${dealt}${blocked?` / blocked ${blocked}`:''}`,'you') }
+    function directEnemy(s,amount){s.enemyHp=Math.max(0,s.enemyHp-amount);logLine(`[DMG] remote -${amount} (direct)`,'you')}
+    function damagePlayer(s,amount,direct=false){if(!direct){const blocked=Math.min(s.playerBlock,amount);s.playerBlock-=blocked;amount-=blocked} s.playerHp=Math.max(0,s.playerHp-amount); logLine(`[DMG] localhost -${amount}`,'cpu')}
+    function cpuAttack(s,base){const amt=Math.max(0,base+s.enemyPower-s.enemyWeak);s.enemyWeak=0;logLine(`cpu@node-07$ exploit --damage ${amt}`,'cpu');damagePlayer(s,amt)}
+    function enemyTurn(){
+      if(state.ended)return;
+      $('promptText').textContent='cpu_thinking...'; renderCards(true);
+      setTimeout(()=>{
+        state.enemyBlock=0;
+        const move=pickEnemyMove(); move.fn(state);
+        if(state.enemyEnergyPenalty>0){logLine(`[OK] cpu cycles throttled -${state.enemyEnergyPenalty}`,'you'); if(Math.random()<.5) state.enemyEnergyPenalty--}
+        if(state.playerHeat>0) state.playerHeat--;
+        checkEnd();
+        if(!state.ended){state.turn++; $('promptText').textContent='select_card'; startTurn()}
+      },420);
+    }
+    function pickEnemyMove(){const total=ENEMY_MOVES.reduce((n,m)=>n+m.weight,0);let r=Math.random()*total;for(const m of ENEMY_MOVES){r-=m.weight;if(r<=0)return m}return ENEMY_MOVES[0]}
+    function endTurn(){ if(state.ended)return; state.discard.push(...state.hand.splice(0)); logLine('root@duel:~$ end_turn','you'); enemyTurn(); }
+    function checkEnd(){
+      if(state.enemyHp<=0){finish(true);return true}
+      if(state.playerHp<=0){finish(false);return true}
+      return false;
+    }
+    function finish(win){state.ended=true;render();const ov=document.createElement('div');ov.className='overlay';ov.innerHTML=`<div class="result ${win?'':'lose'}"><h2>${win?'ROOT ACCESS GRANTED':'CONNECTION TERMINATED'}</h2><p>${win?'cpu@node-07 のintegrityを0にした。プロトコル勝利。':'localhost が落ちた。ログを読んで、次のセッションでデッキ運用を変えよう。'}</p><button class="restart-btn" type="button">RESTART SESSION</button></div>`;document.body.appendChild(ov);ov.querySelector('button').addEventListener('click',()=>{ov.remove();reset()})}
+    function render(){
+      $('turnLabel').textContent='TURN '+state.turn;
+      $('playerHp').textContent=state.playerHp+' HP'; $('enemyHp').textContent=state.enemyHp+' HP';
+      $('playerHpBar').style.width=(state.playerHp/30*100)+'%'; $('enemyHpBar').style.width=(state.enemyHp/30*100)+'%';
+      $('playerBlock').textContent='BLOCK '+state.playerBlock; $('enemyBlock').textContent='BLOCK '+state.enemyBlock;
+      $('energy').textContent=state.energy+' / '+state.maxEnergy;
+      $('deckInfo').textContent=`deck:${state.deck.length} discard:${state.discard.length}`;
+      renderCards(false);
+    }
+    function renderCards(lock){
+      const root=$('cards'); root.innerHTML='';
+      state.hand.forEach((c,i)=>{const b=document.createElement('button');b.type='button';b.className='card '+c.type;b.disabled=lock||c.cost>state.energy;b.innerHTML=`<span class="cost">${c.cost}C</span><span class="card-name">${c.name}</span><span class="desc">${c.desc}</span><span class="tag">${c.tag}</span>`;b.addEventListener('click',()=>playCard(i));root.appendChild(b)});
+    }
+    $('endTurn').addEventListener('click',endTurn);
+    document.addEventListener('gesturestart',e=>e.preventDefault(),{passive:false});
+    document.addEventListener('gesturechange',e=>e.preventDefault(),{passive:false});
+    document.addEventListener('gestureend',e=>e.preventDefault(),{passive:false});
+    let lastTouchEnd=0;
+    document.addEventListener('touchend',e=>{const now=Date.now();if(now-lastTouchEnd<=300)e.preventDefault();lastTouchEnd=now},{passive:false});
+    document.addEventListener('contextmenu',e=>e.preventDefault());
+    reset();
+  </script>
+</body>
+</html>
