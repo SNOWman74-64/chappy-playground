@@ -6,172 +6,30 @@
   <meta name="theme-color" content="#0b1020" />
   <title>Chappy Playground</title>
   <style>
-    :root {
-      color-scheme: dark;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #08101d;
-      color: #f8fafc;
-    }
-
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      min-height: 100svh;
-      padding: max(24px, env(safe-area-inset-top)) 18px max(28px, env(safe-area-inset-bottom));
-      background:
-        radial-gradient(circle at 10% 0%, rgba(56,189,248,.16), transparent 28%),
-        radial-gradient(circle at 100% 8%, rgba(167,139,250,.18), transparent 32%),
-        linear-gradient(180deg, #101a2d 0%, #08101d 100%);
-    }
-
-    main {
-      width: min(100%, 520px);
-      margin: 0 auto;
-    }
-
-    .badge {
-      display: inline-flex;
-      padding: 7px 11px;
-      border: 1px solid rgba(125,211,252,.14);
-      border-radius: 999px;
-      background: rgba(56,189,248,.09);
-      color: #bae6fd;
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: .10em;
-      text-transform: uppercase;
-    }
-
-    h1 {
-      margin: 18px 0 10px;
-      font-size: clamp(38px, 11vw, 62px);
-      line-height: .94;
-      letter-spacing: -.055em;
-    }
-
-    .lead {
-      margin: 0;
-      max-width: 420px;
-      color: #94a3b8;
-      font-size: 14px;
-      line-height: 1.7;
-    }
-
-    .section-title {
-      margin: 30px 0 12px;
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 12px;
-    }
-
-    .section-title strong {
-      font-size: 13px;
-      letter-spacing: .04em;
-    }
-
-    .section-title span {
-      color: #64748b;
-      font-size: 11px;
-    }
-
-    .apps {
-      display: grid;
-      gap: 12px;
-    }
-
-    .app-card {
-      display: grid;
-      grid-template-columns: 64px minmax(0, 1fr) auto;
-      align-items: center;
-      gap: 14px;
-      min-height: 94px;
-      padding: 14px;
-      border: 1px solid rgba(255,255,255,.10);
-      border-radius: 23px;
-      color: inherit;
-      text-decoration: none;
-      background: rgba(15,23,42,.64);
-      box-shadow: 0 18px 50px rgba(0,0,0,.18), inset 0 1px rgba(255,255,255,.04);
-      backdrop-filter: blur(16px);
-      transition: transform .14s ease, border-color .14s ease, background .14s ease;
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    .app-card:active {
-      transform: scale(.985);
-      background: rgba(30,41,59,.72);
-    }
-
-    .app-icon {
-      width: 64px;
-      aspect-ratio: 1;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 5px;
-      padding: 10px;
-      border-radius: 19px;
-      background: linear-gradient(145deg, #38bdf8, #8b5cf6);
-      box-shadow: inset 0 1px rgba(255,255,255,.24), 0 9px 18px rgba(56,189,248,.12);
-    }
-
-    .app-icon i {
-      display: block;
-      aspect-ratio: 1;
-      border-radius: 50%;
-      background: rgba(255,255,255,.52);
-      box-shadow: inset -2px -2px 4px rgba(30,41,59,.22);
-    }
-
-    .app-info {
-      min-width: 0;
-    }
-
-    .app-no {
-      display: block;
-      margin-bottom: 3px;
-      color: #7dd3fc;
-      font-size: 10px;
-      font-weight: 900;
-      letter-spacing: .12em;
-    }
-
-    .app-info strong {
-      display: block;
-      font-size: 18px;
-      letter-spacing: -.025em;
-    }
-
-    .app-info p {
-      margin: 4px 0 0;
-      color: #94a3b8;
-      font-size: 11px;
-      line-height: 1.45;
-    }
-
-    .arrow {
-      color: #64748b;
-      font-size: 22px;
-      padding-right: 4px;
-    }
-
-    .empty-card {
-      min-height: 78px;
-      display: grid;
-      place-items: center;
-      border: 1px dashed rgba(255,255,255,.09);
-      border-radius: 22px;
-      color: #475569;
-      font-size: 11px;
-    }
-
-    footer {
-      margin-top: 22px;
-      text-align: center;
-      color: #475569;
-      font-size: 10px;
-    }
+    :root { color-scheme: dark; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background:#08101d; color:#f8fafc; }
+    * { box-sizing:border-box; }
+    body { margin:0; min-height:100svh; padding:max(24px,env(safe-area-inset-top)) 18px max(28px,env(safe-area-inset-bottom)); background:radial-gradient(circle at 10% 0%,rgba(56,189,248,.16),transparent 28%),radial-gradient(circle at 100% 8%,rgba(167,139,250,.18),transparent 32%),linear-gradient(180deg,#101a2d 0%,#08101d 100%); }
+    main { width:min(100%,520px); margin:0 auto; }
+    .badge { display:inline-flex; padding:7px 11px; border:1px solid rgba(125,211,252,.14); border-radius:999px; background:rgba(56,189,248,.09); color:#bae6fd; font-size:11px; font-weight:800; letter-spacing:.10em; text-transform:uppercase; }
+    h1 { margin:18px 0 10px; font-size:clamp(38px,11vw,62px); line-height:.94; letter-spacing:-.055em; }
+    .lead { margin:0; max-width:420px; color:#94a3b8; font-size:14px; line-height:1.7; }
+    .section-title { margin:30px 0 12px; display:flex; align-items:baseline; justify-content:space-between; gap:12px; }
+    .section-title strong { font-size:13px; letter-spacing:.04em; }
+    .section-title span { color:#64748b; font-size:11px; }
+    .apps { display:grid; gap:12px; }
+    .app-card { display:grid; grid-template-columns:64px minmax(0,1fr) auto; align-items:center; gap:14px; min-height:94px; padding:14px; border:1px solid rgba(255,255,255,.10); border-radius:23px; color:inherit; text-decoration:none; background:rgba(15,23,42,.64); box-shadow:0 18px 50px rgba(0,0,0,.18),inset 0 1px rgba(255,255,255,.04); backdrop-filter:blur(16px); transition:transform .14s ease,border-color .14s ease,background .14s ease; -webkit-tap-highlight-color:transparent; }
+    .app-card:active { transform:scale(.985); background:rgba(30,41,59,.72); }
+    .app-icon { width:64px; aspect-ratio:1; display:grid; grid-template-columns:repeat(3,1fr); gap:5px; padding:10px; border-radius:19px; background:linear-gradient(145deg,#38bdf8,#8b5cf6); box-shadow:inset 0 1px rgba(255,255,255,.24),0 9px 18px rgba(56,189,248,.12); }
+    .app-icon i { display:block; aspect-ratio:1; border-radius:50%; background:rgba(255,255,255,.52); box-shadow:inset -2px -2px 4px rgba(30,41,59,.22); }
+    .app-icon.dial { display:grid; place-items:center; padding:0; background:linear-gradient(145deg,#26372f,#7ECB9B); }
+    .app-icon.dial::before { content:"32"; display:grid; place-items:center; width:42px; aspect-ratio:1; border-radius:50%; background:#1F2325; border:2px solid rgba(236,240,238,.18); color:#ECF0EE; font-size:17px; font-weight:900; box-shadow:inset 0 0 0 5px rgba(126,203,155,.12); }
+    .app-info { min-width:0; }
+    .app-no { display:block; margin-bottom:3px; color:#7dd3fc; font-size:10px; font-weight:900; letter-spacing:.12em; }
+    .app-info strong { display:block; font-size:18px; letter-spacing:-.025em; }
+    .app-info p { margin:4px 0 0; color:#94a3b8; font-size:11px; line-height:1.45; }
+    .arrow { color:#64748b; font-size:22px; padding-right:4px; }
+    .empty-card { min-height:78px; display:grid; place-items:center; border:1px dashed rgba(255,255,255,.09); border-radius:22px; color:#475569; font-size:11px; }
+    footer { margin-top:22px; text-align:center; color:#475569; font-size:10px; }
   </style>
 </head>
 <body>
@@ -180,23 +38,18 @@
     <h1>Chappy<br />Playground</h1>
     <p class="lead">チャットから直接作った、小さいWebアプリの置き場。気に入ったものだけ後から育てる。</p>
 
-    <div class="section-title">
-      <strong>PLAYGROUND APPS</strong>
-      <span>1 app</span>
-    </div>
+    <div class="section-title"><strong>PLAYGROUND APPS</strong><span>2 apps</span></div>
 
     <section class="apps" aria-label="アプリ一覧">
       <a class="app-card" href="./stress-relief/">
-        <div class="app-icon" aria-hidden="true">
-          <i></i><i></i><i></i>
-          <i></i><i></i><i></i>
-          <i></i><i></i><i></i>
-        </div>
-        <div class="app-info">
-          <span class="app-no">#01</span>
-          <strong>Fidget Room</strong>
-          <p>Pop It、プチプチ、ストレスボール、スピナーをスマホで。</p>
-        </div>
+        <div class="app-icon" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="app-info"><span class="app-no">#01</span><strong>Fidget Room</strong><p>Pop It、プチプチ、ストレスボール、スピナー、メカニカルキー。</p></div>
+        <span class="arrow">›</span>
+      </a>
+
+      <a class="app-card" href="./liftlog-dial/">
+        <div class="app-icon dial" aria-hidden="true"></div>
+        <div class="app-info"><span class="app-no">#02 · REACT</span><strong>LIFTLOG Dial</strong><p>Claude Artifact由来の重量ダイヤルUIをReactのままPagesへ移植した実験。</p></div>
         <span class="arrow">›</span>
       </a>
 
