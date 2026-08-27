@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover, user-scalable=no" />
+  <meta name="theme-color" content="#07110d" />
+  <title>Midnight AI Lab</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      --bg: #030806;
+      --panel: #07110d;
+      --panel2: #0b1712;
+      --line: #173325;
+      --text: #d7ffe8;
+      --muted: #739683;
+      --green: #68f5a4;
+      --cyan: #6de8ff;
+      --amber: #ffd36a;
+      --red: #ff7d83;
+    }
+
+    * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+    html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; overscroll-behavior: none; background: var(--bg); }
+    body { color: var(--text); -webkit-touch-callout: none; -webkit-user-select: none; user-select: none; touch-action: manipulation; }
+    button { font: inherit; color: inherit; }
+
+    .app {
+      width: 100%;
+      height: 100dvh;
+      display: grid;
+      grid-template-rows: auto auto minmax(0, 1fr) auto;
+      gap: 8px;
+      padding: max(10px, env(safe-area-inset-top)) 10px max(10px, env(safe-area-inset-bottom));
+      background:
+        linear-gradient(rgba(104,245,164,.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(104,245,164,.02) 1px, transparent 1px),
+        radial-gradient(circle at 50% -10%, rgba(104,245,164,.08), transparent 35%),
+        #030806;
+      background-size: 22px 22px, 22px 22px, auto, auto;
+    }
+
+    .terminal {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(5, 13, 9, .93);
+      box-shadow: inset 0 1px rgba(255,255,255,.025), 0 18px 50px rgba(0,0,0,.25);
+    }
+
+    .titlebar {
+      min-height: 44px;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 9px;
+      padding: 8px 11px;
+    }
+
+    .lights { display: flex; gap: 6px; }
+    .light { width: 8px; height: 8px; border-radius: 50%; background: #274237; }
+    .light:nth-child(1) { background: #d56c73; }
+    .light:nth-child(2) { background: #d5b865; }
+    .light:nth-child(3) { background: #65c88c; }
+    .title { min-width: 0; font-size: 11px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .clock { font-size: 10px; color: #507060; }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0,1fr));
+      gap: 6px;
+      padding: 7px;
+    }
+
+    .stat { min-width: 0; padding: 7px 8px; border: 1px solid #10291d; border-radius: 10px; background: #06100b; }
+    .stat span { display: block; font-size: 8px; color: #5f816d; letter-spacing: .06em; }
+    .stat strong { display: block; margin-top: 3px; font-size: 12px; color: var(--green); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .stat.warn strong { color: var(--amber); }
+    .stat.danger strong { color: var(--red); }
+
+    .screen { min-height: 0; display: grid; grid-template-rows: auto minmax(0,1fr); overflow: hidden; }
+    .screen-head { display: flex; justify-content: space-between; gap: 8px; align-items: center; padding: 9px 11px 7px; border-bottom: 1px solid #10291d; }
+    .prompt { color: var(--green); font-size: 11px; font-weight: 800; }
+    .goal { color: #597864; font-size: 9px; text-align: right; }
+
+    .log { min-height: 0; overflow-y: auto; padding: 10px 11px 14px; scrollbar-width: none; -webkit-overflow-scrolling: touch; user-select: text; -webkit-user-select: text; }
+    .log::-webkit-scrollbar { display: none; }
+    .line { margin: 0 0 5px; font-size: 11px; line-height: 1.46; white-space: pre-wrap; word-break: break-word; }
+    .line.sys { color: #5e8170; }
+    .line.good { color: var(--green); }
+    .line.bad { color: var(--red); }
+    .line.warn { color: var(--amber); }
+    .line.user { color: var(--cyan); }
+    .cursor::after { content: "▋"; margin-left: 4px; color: var(--green); animation: blink 1s steps(1) infinite; }
+    @keyframes blink { 50% { opacity: 0; } }
+
+    .command-wrap { padding: 8px; }
+    .turn-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin: 0 2px 7px; }
+    .turn-head span { color: #5f816d; font-size: 9px; }
+    .turn-head strong { color: var(--text); font-size: 10px; }
+
+    .commands { display: grid; gap: 6px; }
+    .cmd {
+      width: 100%;
+      min-height: 52px;
+      display: grid;
+      grid-template-columns: auto minmax(0,1fr) auto;
+      gap: 8px;
+      align-items: center;
+      padding: 8px 10px;
+      border: 1px solid #173325;
+      border-radius: 11px;
+      background: #07130d;
+      text-align: left;
+      cursor: pointer;
+      touch-action: manipulation;
+    }
+    .cmd:active { transform: scale(.988); background: #0b1b13; }
+    .cmd code { color: var(--green); font-size: 10px; }
+    .cmd div { min-width: 0; }
+    .cmd strong { display: block; font-size: 10px; color: #d5f6e1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .cmd small { display: block; margin-top: 2px; font-size: 8px; color: #607d6b; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .risk { font-size: 8px; padding: 3px 5px; border-radius: 999px; border: 1px solid #244432; color: #6e987e; }
+    .risk.med { color: var(--amber); border-color: #594b20; }
+    .risk.high { color: var(--red); border-color: #5e2529; }
+
+    .overlay { position: absolute; inset: 0; display: none; place-items: center; padding: 20px; background: rgba(0,0,0,.78); z-index: 10; }
+    .overlay.show { display: grid; }
+    .result { width: min(100%, 390px); padding: 18px; border: 1px solid #22553a; border-radius: 16px; background: #06110b; }
+    .result .ascii { margin: 0; color: var(--green); font-size: 9px; line-height: 1.25; white-space: pre; overflow: hidden; }
+    .result h2 { margin: 13px 0 6px; font-size: 18px; color: var(--green); }
+    .result p { margin: 0 0 14px; color: #779688; font-size: 10px; line-height: 1.55; }
+    .restart { width: 100%; min-height: 46px; border: 1px solid #2b6b48; border-radius: 10px; background: #0c2316; color: var(--green); font-weight: 800; }
+
+    @media (min-width: 700px) {
+      .app { width: 430px; margin: 0 auto; border-left: 1px solid #0d2117; border-right: 1px solid #0d2117; }
+    }
+    @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+  </style>
+</head>
+<body>
+  <main class="app" id="app">
+    <section class="terminal titlebar">
+      <div class="lights" aria-hidden="true"><i class="light"></i><i class="light"></i><i class="light"></i></div>
+      <div class="title">snowman@midnight-ai-lab:~/agent</div>
+      <div class="clock" id="clock">02:xx</div>
+    </section>
+
+    <section class="terminal stats" aria-label="リソース">
+      <div class="stat" id="vramBox"><span>VRAM</span><strong id="vram">8 / 8GB</strong></div>
+      <div class="stat" id="ramBox"><span>RAM</span><strong id="ram">32GB</strong></div>
+      <div class="stat" id="moneyBox"><span>FUNDS</span><strong id="money">¥12k</strong></div>
+      <div class="stat" id="stabilityBox"><span>STABLE</span><strong id="stability">82%</strong></div>
+    </section>
+
+    <section class="terminal screen">
+      <div class="screen-head">
+        <span class="prompt">$ ./build-local-agent.sh</span>
+        <span class="goal">GOAL: LOCAL AGENT ONLINE</span>
+      </div>
+      <div class="log" id="log" aria-live="polite"></div>
+    </section>
+
+    <section class="terminal command-wrap">
+      <div class="turn-head"><span id="turn">TURN 1 / 10</span><strong id="phase">BOOTSTRAP</strong></div>
+      <div class="commands" id="commands"></div>
+    </section>
+  </main>
+
+  <div class="overlay" id="overlay">
+    <div class="result">
+      <pre class="ascii" id="ascii"></pre>
+      <h2 id="resultTitle"></h2>
+      <p id="resultText"></p>
+      <button class="restart" id="restart" type="button">./retry.sh</button>
+    </div>
+  </div>
+
+  <script>
+    (() => {
+      const $ = (s) => document.querySelector(s);
+      const logEl = $('#log');
+      const commandsEl = $('#commands');
+      const overlay = $('#overlay');
+      const resultTitle = $('#resultTitle');
+      const resultText = $('#resultText');
+      const ascii = $('#ascii');
+
+      const cards = [
+        {cmd:'quantize --q4_k_m', name:'Qwenを4bit量子化', desc:'VRAMを節約して推論速度を確保', risk:'LOW', d:{vram:-2,ram:+3,money:0,stable:+5,progress:+12}, msg:'quantization complete: model fits comfortably.'},
+        {cmd:'offload --layers 18', name:'RAMオフロード', desc:'VRAM不足をRAMで受ける', risk:'LOW', d:{vram:-1,ram:+9,money:0,stable:+3,progress:+8}, msg:'18 layers moved to system RAM.'},
+        {cmd:'git clone shady-fast-llm', name:'怪しい高速化repoを試す', desc:'当たれば爆速、外すと地獄', risk:'HIGH', random:true},
+        {cmd:'buy --used 3090', name:'中古3090を買う', desc:'VRAM 24GB。ただし財布が死ぬ', risk:'MED', d:{vram:+16,ram:0,money:-9,stable:+2,progress:+18}, msg:'RTX 3090 detected. wallet critically low.'},
+        {cmd:'enable --kv-cache-q8', name:'KV Cacheを量子化', desc:'長文コンテキストを現実的にする', risk:'LOW', d:{vram:-1,ram:+1,money:0,stable:+4,progress:+10}, msg:'KV cache q8 enabled. context window expanded.'},
+        {cmd:'agent --tool-use', name:'ツール実行を有効化', desc:'エージェント化に必須だが事故率UP', risk:'MED', d:{vram:+1,ram:+2,money:0,stable:-8,progress:+16}, msg:'tool use enabled. sandbox recommended.'},
+        {cmd:'sandbox --strict', name:'サンドボックスを固める', desc:'速度は落ちるが安定性が上がる', risk:'LOW', d:{vram:0,ram:+1,money:0,stable:+14,progress:+6}, msg:'sandbox policy: strict. dangerous writes denied.'},
+        {cmd:'compile --flash-attn', name:'Flash Attentionをビルド', desc:'成功すれば推論が軽くなる', risk:'MED', random:true},
+        {cmd:'context --250k', name:'250k contextを欲張る', desc:'夢はある。RAMはない。', risk:'HIGH', d:{vram:+2,ram:+22,money:0,stable:-15,progress:+14}, msg:'context=250k requested. memory pressure rising.'},
+        {cmd:'coffee --black', name:'ブラックコーヒー補給', desc:'資源は増えないが人間が安定する', risk:'LOW', d:{vram:0,ram:0,money:-1,stable:+9,progress:+2}, msg:'operator caffeine level restored.'},
+        {cmd:'benchmark --decode', name:'ベンチマークを取る', desc:'無駄な構成を見つけて最適化', risk:'LOW', d:{vram:0,ram:0,money:0,stable:+4,progress:+9}, msg:'benchmark: bottleneck identified and tuned.'},
+        {cmd:'mtp --experimental', name:'実験的MTPを有効化', desc:'速いかもしれない。壊れるかもしれない。', risk:'HIGH', random:true},
+        {cmd:'prune --unused-tools', name:'不要ツールを削る', desc:'シンプル化して事故面積を減らす', risk:'LOW', d:{vram:0,ram:-2,money:0,stable:+10,progress:+5}, msg:'unused tool adapters removed.'}
+      ];
+
+      let state;
+      let used = new Set();
+
+      function reset() {
+        state = {turn:1, vram:6, ram:12, money:12, stable:82, progress:0};
+        used = new Set();
+        overlay.classList.remove('show');
+        logEl.innerHTML = '';
+        add('MIDNIGHT AI LAB v0.3.0', 'good');
+        add('hardware: RTX 5060 Ti 8GB / RAM 32GB / Windows 11', 'sys');
+        add('objective: autonomous local coding agent', 'sys');
+        add('warning: budget and patience are finite resources.', 'warn');
+        add('select one command.', 'sys cursor');
+        render();
+      }
+
+      function add(text, cls='sys') {
+        const p = document.createElement('p');
+        p.className = `line ${cls}`;
+        p.textContent = text;
+        logEl.appendChild(p);
+        logEl.scrollTop = logEl.scrollHeight;
+      }
+
+      function clamp(n,a,b){ return Math.min(b, Math.max(a,n)); }
+
+      function applyDelta(d) {
+        state.vram += d.vram || 0;
+        state.ram += d.ram || 0;
+        state.money += d.money || 0;
+        state.stable += d.stable || 0;
+        state.progress += d.progress || 0;
+      }
+
+      function resolve(card) {
+        add(`$ ${card.cmd}`, 'user');
+        let msg = card.msg;
+        if (card.random) {
+          const good = Math.random() > (card.risk === 'HIGH' ? .52 : .38);
+          if (card.cmd.includes('shady')) {
+            if (good) { applyDelta({vram:-1,ram:0,money:0,stable:-2,progress:+20}); msg='unexpectedly legit. decode speed +31%.'; }
+            else { applyDelta({vram:+1,ram:+5,money:0,stable:-18,progress:+3}); msg='dependency conflict. CUDA runtime crying.'; }
+          } else if (card.cmd.includes('flash')) {
+            if (good) { applyDelta({vram:-1,ram:0,money:0,stable:+1,progress:+15}); msg='flash-attn compiled successfully.'; }
+            else { applyDelta({vram:0,ram:0,money:0,stable:-10,progress:+2}); msg='build failed: version mismatch.'; }
+          } else {
+            if (good) { applyDelta({vram:0,ram:+1,money:0,stable:-4,progress:+18}); msg='experimental path works. somehow.'; }
+            else { applyDelta({vram:+1,ram:+4,money:0,stable:-20,progress:+1}); msg='experimental feature destabilized runtime.'; }
+          }
+        } else {
+          applyDelta(card.d);
+        }
+
+        state.stable = clamp(state.stable, 0, 100);
+        state.progress = clamp(state.progress, 0, 100);
+        add(msg, state.stable < 35 ? 'bad' : 'good');
+        used.add(card.cmd);
+        state.turn++;
+
+        if (state.vram > 8) add(`WARN: VRAM pressure ${state.vram}/8GB`, 'warn');
+        if (state.ram > 32) add(`WARN: RAM allocation ${state.ram}/32GB`, 'warn');
+        if (state.money < 0) add('WARN: funds below zero. credit card trembling.', 'warn');
+
+        if (state.stable <= 0 || state.ram > 40 || state.vram > 14 || state.money < -3) return finish(false, 'SYSTEM CRASH');
+        if (state.progress >= 100 && state.stable >= 30) return finish(true, 'LOCAL AGENT ONLINE');
+        if (state.turn > 10) return finish(state.progress >= 78 && state.stable >= 35, state.progress >= 78 ? 'AGENT ONLINE (UNSTABLE)' : 'BUILD INCOMPLETE');
+        render();
+      }
+
+      function pickCards() {
+        let pool = cards.filter(c => !used.has(c.cmd));
+        if (pool.length < 3) pool = cards;
+        return [...pool].sort(() => Math.random() - .5).slice(0,3);
+      }
+
+      function render() {
+        $('#vram').textContent = `${state.vram} / 8GB`;
+        $('#ram').textContent = `${state.ram}GB`;
+        $('#money').textContent = `¥${state.money}k`;
+        $('#stability').textContent = `${state.stable}%`;
+        $('#turn').textContent = `TURN ${state.turn} / 10`;
+        $('#phase').textContent = state.progress < 35 ? 'BOOTSTRAP' : state.progress < 70 ? 'INTEGRATION' : 'AGENTIZATION';
+
+        setClass('#vramBox', state.vram > 10 ? 'danger' : state.vram > 8 ? 'warn' : '');
+        setClass('#ramBox', state.ram > 32 ? 'danger' : state.ram > 26 ? 'warn' : '');
+        setClass('#moneyBox', state.money < 0 ? 'danger' : state.money < 4 ? 'warn' : '');
+        setClass('#stabilityBox', state.stable < 25 ? 'danger' : state.stable < 50 ? 'warn' : '');
+
+        commandsEl.innerHTML = '';
+        pickCards().forEach((card, i) => {
+          const b = document.createElement('button');
+          b.className = 'cmd';
+          b.type = 'button';
+          b.innerHTML = `<code>[${i+1}]</code><div><strong>${card.name}</strong><small>${card.cmd} · ${card.desc}</small></div><span class="risk ${card.risk==='MED'?'med':card.risk==='HIGH'?'high':''}">${card.risk}</span>`;
+          b.addEventListener('click', () => resolve(card));
+          commandsEl.appendChild(b);
+        });
+      }
+
+      function setClass(selector, cls) {
+        const el = $(selector);
+        el.classList.remove('warn','danger');
+        if (cls) el.classList.add(cls);
+      }
+
+      function finish(win, title) {
+        add(win ? 'agent boot sequence complete.' : 'fatal: build terminated.', win ? 'good' : 'bad');
+        resultTitle.textContent = title;
+        resultTitle.style.color = win ? 'var(--green)' : 'var(--red)';
+        resultText.textContent = win
+          ? `完成度 ${state.progress}% / 安定性 ${state.stable}% 。ローカルAIエージェントは一応起動した。次の問題は「何をやらせるか」。`
+          : `完成度 ${state.progress}% / 安定性 ${state.stable}% 。欲張りすぎた構成は深夜に爆発する。`;
+        ascii.textContent = win
+          ? '   __    ____  ____  _  _  ____\n  /__\\  (_  _)(  _ \\( \/ )(  __)\n /(__)\\   )(   )   / )  /  ) _)\n(__)(__) (__) (__\\_)(__/  (____)\n\n      [ ONLINE ]'
+          : '  _____ ___ _____ _    _\n |  ___/ _ \\_   _/ \\  | |\n | |_ | |_| || | / _ \\ | |\n |  _||  _  || |/ ___ \\|_|\n |_|  |_| |_||_/_/   \\_(_)\n\n      [ HALTED ]';
+        overlay.classList.add('show');
+      }
+
+      $('#restart').addEventListener('click', reset);
+      document.addEventListener('contextmenu', e => e.preventDefault());
+      document.addEventListener('gesturestart', e => e.preventDefault(), {passive:false});
+      document.addEventListener('gesturechange', e => e.preventDefault(), {passive:false});
+      document.addEventListener('gestureend', e => e.preventDefault(), {passive:false});
+      let lastTouchEnd = 0;
+      document.addEventListener('touchend', e => { const now = Date.now(); if (now - lastTouchEnd <= 280) e.preventDefault(); lastTouchEnd = now; }, {passive:false});
+
+      const now = new Date();
+      $('#clock').textContent = `${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}`;
+      reset();
+    })();
+  </script>
+</body>
+</html>
