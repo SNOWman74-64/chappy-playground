@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover, user-scalable=no" />
+  <meta name="theme-color" content="#16191A" />
+  <title>LIFTLOG Dial Prototype</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    html,body,#root{margin:0;min-height:100%;background:#0b0d0e}
+    html{overscroll-behavior:none;-webkit-text-size-adjust:100%}
+    body{overflow:hidden;-webkit-touch-callout:none}
+    button,.no-select{-webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent}
+    input{-webkit-user-select:text;user-select:text}
+    #boot{min-height:100dvh;display:grid;place-items:center;color:#98A5A2;font:600 14px system-ui}
+  </style>
+  <script type="importmap">
+  {
+    "imports": {
+      "react": "https://esm.sh/react@18.3.1",
+      "react-dom/client": "https://esm.sh/react-dom@18.3.1/client?external=react",
+      "lucide-react": "https://esm.sh/lucide-react@0.468.0?external=react"
+    }
+  }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/@babel/standalone@7.25.9/babel.min.js"></script>
+</head>
+<body>
+  <div id="root"><div id="boot">React prototype loading…</div></div>
+
+  <script type="text/babel" data-type="module" data-presets="react">
+    import React, { useState, useRef, useEffect, useMemo, useCallback } from "react";
+    import { createRoot } from "react-dom/client";
+    import { Search, X, Plus, Minus, Home, Dumbbell, BarChart3, Settings2 } from "lucide-react";
+
+    const T = {
+      bg: "#16191A", surface: "#1F2325", surface2: "#262B2C", line: "#2F3537",
+      text: "#ECF0EE", subtext: "#98A5A2", faint: "#66716F", accent: "#7ECB9B",
+      accentSoft: "#1E3129", pr: "#E9B872", destructive: "#D98878"
+    };
+
+    const WEIGHTS = [20,22,24,26,28,30,32,34,36,38,40];
+    const DEFAULT_INDEX = WEIGHTS.indexOf(32);
+    const DEFAULT_PREV_WEIGHT = 30;
+    const MAX_WEIGHT = 36;
+    const TICK_SPACING = 60;
+    const FOCUS_TICK_SPACING = 52;
+    const EX_SPACING = 168;
+    const BEST_1RM = 42.0;
+    const BODY_PARTS = [
+      {key:"chest",label:"胸"},{key:"back",label:"背中"},{key:"shoulder",label:"肩"},{key:"arm",label:"腕"},{key:"leg",label:"脚"}
+    ];
+    const EXERCISES = {
+      chest:["インクラインダンベルプレス","ベンチプレス","チェストプレス","ダンベルフライ","ケーブルクロスオーバー"],
+      back:["ラットプルダウン","ベントオーバーロウ","デッドリフト","シーテッドロウ","懸垂"],
+      shoulder:["ショルダープレス","サイドレイズ","リアデルト","アップライトロウ","フロントレイズ"],
+      arm:["バーベルカール","トライセプスエクステンション","ハンマーカール","ディップス","プリーチャーカール"],
+      leg:["スクワット","レッグプレス","レッグカール","レッグエクステンション","ルーマニアンデッドリフト"]
+    };
+    const INITIAL_SETS = [
+      {id:"main",tag:"MAIN",weight:32,reps:8},
+      {id:"drop1",tag:"DROP",weight:26,reps:10},
+      {id:"drop2",tag:"DROP",weight:22,reps:12}
+    ];
+    const DETENT = {precisionMaxSpeed:.15,precisionDuration:150,normalMaxSpeed:.6,normalExtraMin:1,normalExtraMax:3,normalExtraFactor:4,normalDuration:230,strongExtraMin:4,strongExtraMax:8,strongExtraFactor:4.5,strongDuration:200,magnetRadius:.34,magnetStrengthPrev:.52,magnetStrengthMax:.68};
+    const FOCUS_DETENT = {precisionMaxSpeed:.12,precisionDuration:130,normalMaxSpeed:.55,normalExtraMin:1,normalExtraMax:2,normalExtraFactor:2.6,normalDuration:190,strongExtraMin:2,strongExtraMax:4,strongExtraFactor:2.2,strongDuration:170};
+
+    const clamp=(v,min,max)=>Math.min(max,Math.max(min,v));
+    const round2=v=>Math.round(v*100)/100;
+    const estOneRm=(w,r)=>Math.round(w*(1+r/30)*10)/10;
+    const depthStyle=(distance)=>{const d=Math.abs(distance);return {scale:clamp(1-d*.24,.58,1),opacity:clamp(1-d*.46,.28,1),translateY:clamp(d*6,0,14),weight:Math.round(clamp(900-d*260,500,900))}};
+    const formatFine=(v)=>{const s=v.toFixed(2);return s.endsWith("0")?s.slice(0,-1):s};
+    function findBracket(arr,value){const idx=arr.findIndex(x=>Math.abs(x-value)<.001);if(idx>=0)return[idx>0?arr[idx-1]:value-2,idx<arr.length-1?arr[idx+1]:value+2];let lower=arr[0],upper=arr[arr.length-1];for(const x of arr){if(x<=value)lower=x;if(x>=value){upper=x;break}}return[lower,upper]}
+    function buildFineValues(arr,current){const[lower,upper]=findBracket(arr,current);const gap=Math.min(current-lower,upper-current)||2;const step=gap<=2.25?.5:gap<=5?1.25:2.5;const count=Math.max(1,Math.round((upper-lower)/step));return Array.from({length:count+1},(_,k)=>round2(lower+k*step))}
+    function locateOffset(arr,v){const exact=arr.findIndex(x=>Math.abs(x-v)<.001);if(exact>=0)return exact;let loIdx=0,loVal=arr[0],hiIdx=arr.length-1,hiVal=arr[arr.length-1];for(let i=0;i<arr.length;i++){if(arr[i]<=v){loIdx=i;loVal=arr[i]}if(arr[i]>=v){hiIdx=i;hiVal=arr[i];break}}return hiIdx===loIdx?loIdx:loIdx+(v-loVal)/(hiVal-loVal)}
+    function createDragHandlers({dragRef,offsetRef,tickSpacing,min,max,onDragging,onRelease}){
+      const onPointerDown=e=>{const d=dragRef.current;d.active=true;d.intent=null;d.startX=e.clientX;d.startY=e.clientY;d.startOffset=offsetRef.current;d.samples=[{x:e.clientX,t:performance.now()}]};
+      const onPointerMove=e=>{const d=dragRef.current;if(!d.active)return;const dx=e.clientX-d.startX,dy=e.clientY-d.startY;if(d.intent===null){if(Math.abs(dx)<10&&Math.abs(dy)<10)return;if(Math.abs(dx)>Math.abs(dy)*1.15){d.intent="horizontal";try{e.currentTarget.setPointerCapture(e.pointerId)}catch(_){}}else{d.intent="vertical";d.active=false;return}}if(d.intent!=="horizontal")return;e.preventDefault();const now=performance.now();d.samples.push({x:e.clientX,t:now});while(d.samples.length>2&&now-d.samples[0].t>80)d.samples.shift();onDragging(clamp(d.startOffset-dx/tickSpacing,min,max),d.samples)};
+      const onPointerUp=()=>{const d=dragRef.current;if(!d.active)return;d.active=false;if(d.intent!=="horizontal"){d.intent=null;return}const first=d.samples[0],last=d.samples[d.samples.length-1],dt=Math.max(1,last.t-first.t);onRelease((last.x-first.x)/dt);d.intent=null};
+      return{onPointerDown,onPointerMove,onPointerUp};
+    }
+
+    function LiftlogDialPrototype(){
+      const[bodyPart,setBodyPart]=useState("chest");
+      const[exerciseIndex,setExerciseIndex]=useState(0);
+      const[offsetEx,setOffsetEx]=useState(0);
+      const[transitionMsEx,setTransitionMsEx]=useState(0);
+      const[sheetOpen,setSheetOpen]=useState(false);
+      const[query,setQuery]=useState("");
+      const[sets,setSets]=useState(()=>INITIAL_SETS.map(s=>({...s})));
+      const[activeSetId,setActiveSetId]=useState("main");
+      const[offset,setOffset]=useState(DEFAULT_INDEX);
+      const[transitionMs,setTransitionMs]=useState(0);
+      const[dialWeights,setDialWeights]=useState(()=>WEIGHTS.slice());
+      const[prevWeight,setPrevWeight]=useState(DEFAULT_PREV_WEIGHT);
+      const[pendingFineValue,setPendingFineValue]=useState(null);
+      const[focusMode,setFocusMode]=useState(false);
+      const[fineValues,setFineValues]=useState([]);
+      const[focusOffset,setFocusOffset]=useState(0);
+      const[focusTransitionMs,setFocusTransitionMs]=useState(0);
+      const[toast,setToast]=useState(null);
+      const[pulse,setPulse]=useState(null);
+      const exerciseList=EXERCISES[bodyPart];
+
+      const offsetRef=useRef(offset); useEffect(()=>{offsetRef.current=offset},[offset]);
+      const offsetExRef=useRef(offsetEx); useEffect(()=>{offsetExRef.current=offsetEx},[offsetEx]);
+      const activeSetIdRef=useRef(activeSetId); useEffect(()=>{activeSetIdRef.current=activeSetId},[activeSetId]);
+      const dialWeightsRef=useRef(dialWeights); useEffect(()=>{dialWeightsRef.current=dialWeights},[dialWeights]);
+      const prevWeightRef=useRef(prevWeight); useEffect(()=>{prevWeightRef.current=prevWeight},[prevWeight]);
+      const focusOffsetRef=useRef(focusOffset); useEffect(()=>{focusOffsetRef.current=focusOffset},[focusOffset]);
+      const dialDragRef=useRef({active:false,intent:null,samples:[]});
+      const carouselDragRef=useRef({active:false,intent:null,samples:[]});
+      const focusDragRef=useRef({active:false,intent:null,samples:[]});
+
+      const resetRecordState=useCallback((duration=220)=>{setSets(INITIAL_SETS.map(s=>({...s})));setActiveSetId("main");setTransitionMs(duration);setOffset(DEFAULT_INDEX);setDialWeights(WEIGHTS.slice());setPrevWeight(DEFAULT_PREV_WEIGHT);setPendingFineValue(null);setFocusMode(false)},[]);
+      const selectBodyPart=key=>{if(key===bodyPart)return;setBodyPart(key);setExerciseIndex(0);setTransitionMsEx(180);setOffsetEx(0);resetRecordState(220)};
+      const applyExerciseChange=useCallback((idx,duration=220)=>{setExerciseIndex(idx);setTransitionMsEx(duration);setOffsetEx(idx);resetRecordState(duration)},[resetRecordState]);
+      const handleCarouselDragging=useCallback(raw=>{setTransitionMsEx(0);setOffsetEx(raw)},[]);
+      const handleCarouselRelease=useCallback(()=>applyExerciseChange(clamp(Math.round(offsetExRef.current),0,exerciseList.length-1),220),[exerciseList.length,applyExerciseChange]);
+      const carouselHandlers=useMemo(()=>createDragHandlers({dragRef:carouselDragRef,offsetRef:offsetExRef,tickSpacing:EX_SPACING,min:0,max:exerciseList.length-1,onDragging:handleCarouselDragging,onRelease:handleCarouselRelease}),[exerciseList.length,handleCarouselDragging,handleCarouselRelease]);
+      const handleCarouselItemClick=idx=>{if(idx===Math.round(offsetExRef.current))setSheetOpen(true);else applyExerciseChange(idx,220)};
+
+      const handleDialDragging=useCallback((raw,samples)=>{const first=samples[0],last=samples[samples.length-1],speed=Math.abs((last.x-first.x)/Math.max(1,last.t-first.t));let adjusted=raw;if(speed<DETENT.precisionMaxSpeed){const arr=dialWeightsRef.current;for(const li of [arr.indexOf(prevWeightRef.current),arr.indexOf(MAX_WEIGHT)]){if(li<0)continue;const dist=Math.abs(adjusted-li);if(dist<DETENT.magnetRadius){const strength=li===arr.indexOf(MAX_WEIGHT)?DETENT.magnetStrengthMax:DETENT.magnetStrengthPrev;adjusted+= (li-adjusted)*strength*(1-dist/DETENT.magnetRadius)}}}setTransitionMs(0);setOffset(adjusted)},[]);
+      const handleDialRelease=useCallback(vpx=>{const arr=dialWeightsRef.current,speed=Math.abs(vpx),offsetVelocity=-vpx/TICK_SPACING,current=offsetRef.current;let target,duration;if(speed<DETENT.precisionMaxSpeed){target=Math.round(current);duration=DETENT.precisionDuration}else if(speed<DETENT.normalMaxSpeed){const dir=offsetVelocity>0?1:-1;target=Math.round(current)+dir*clamp(Math.round(speed*DETENT.normalExtraFactor),DETENT.normalExtraMin,DETENT.normalExtraMax);duration=DETENT.normalDuration}else{const dir=offsetVelocity>0?1:-1;target=Math.round(current)+dir*clamp(Math.round(speed*DETENT.strongExtraFactor),DETENT.strongExtraMin,DETENT.strongExtraMax);duration=DETENT.strongDuration}target=clamp(target,0,arr.length-1);setTransitionMs(duration);setOffset(target);setPendingFineValue(null);setSets(prev=>prev.map(s=>s.id===activeSetIdRef.current?{...s,weight:arr[target]}:s))},[]);
+      const dialHandlers=useMemo(()=>createDragHandlers({dragRef:dialDragRef,offsetRef,tickSpacing:TICK_SPACING,min:0,max:dialWeights.length-1,onDragging:handleDialDragging,onRelease:handleDialRelease}),[dialWeights.length,handleDialDragging,handleDialRelease]);
+      const nudgeWeight=dir=>{const target=clamp(Math.round(offsetRef.current)+dir,0,dialWeights.length-1);setTransitionMs(150);setOffset(target);setPendingFineValue(null);setSets(prev=>prev.map(s=>s.id===activeSetId?{...s,weight:dialWeights[target]}:s))};
+      const selectSet=id=>{if(id===activeSetId)return;const row=sets.find(s=>s.id===id);setActiveSetId(id);const idx=dialWeights.indexOf(row.weight);setTransitionMs(260);setPendingFineValue(null);setOffset(idx>=0?idx:DEFAULT_INDEX)};
+      const nudgeReps=dir=>setSets(prev=>prev.map(s=>s.id===activeSetId?{...s,reps:clamp(s.reps+dir,1,30)}:s));
+
+      const displayedIndex=clamp(Math.round(offset),0,dialWeights.length-1);
+      const coarseWeight=dialWeights[displayedIndex];
+      const displayedWeight=pendingFineValue!==null?pendingFineValue:coarseWeight;
+      const activeSet=sets.find(s=>s.id===activeSetId);
+      const displayedReps=activeSet.reps;
+      const prCandidate=displayedWeight>MAX_WEIGHT;
+      const prDiff=Math.round((displayedWeight-MAX_WEIGHT)*10)/10;
+      const est1rm=estOneRm(displayedWeight,displayedReps);
+      const currentExerciseName=exerciseList[exerciseIndex]||exerciseList[0];
+
+      const enterFocusMode=()=>{const values=buildFineValues(dialWeights,displayedWeight);let startIdx=values.findIndex(v=>Math.abs(v-displayedWeight)<.01);if(startIdx<0)startIdx=values.reduce((best,v,i)=>Math.abs(v-displayedWeight)<Math.abs(values[best]-displayedWeight)?i:best,0);setFineValues(values);setFocusOffset(startIdx);setFocusTransitionMs(0);setFocusMode(true)};
+      const exitFocusMode=commit=>{if(commit&&fineValues.length){const idx=clamp(Math.round(focusOffsetRef.current),0,fineValues.length-1),v=fineValues[idx],virtual=clamp(locateOffset(dialWeights,v),0,dialWeights.length-1);setPendingFineValue(v);setTransitionMs(260);setOffset(virtual);setSets(prev=>prev.map(s=>s.id===activeSetId?{...s,weight:v}:s))}setFocusMode(false)};
+      const handleFocusDragging=useCallback(raw=>{setFocusTransitionMs(0);setFocusOffset(raw)},[]);
+      const handleFocusRelease=useCallback(vpx=>{const speed=Math.abs(vpx),vel=-vpx/FOCUS_TICK_SPACING,current=focusOffsetRef.current;let target,duration;if(speed<FOCUS_DETENT.precisionMaxSpeed){target=Math.round(current);duration=FOCUS_DETENT.precisionDuration}else if(speed<FOCUS_DETENT.normalMaxSpeed){const dir=vel>0?1:-1;target=Math.round(current)+dir*clamp(Math.round(speed*FOCUS_DETENT.normalExtraFactor),FOCUS_DETENT.normalExtraMin,FOCUS_DETENT.normalExtraMax);duration=FOCUS_DETENT.normalDuration}else{const dir=vel>0?1:-1;target=Math.round(current)+dir*clamp(Math.round(speed*FOCUS_DETENT.strongExtraFactor),FOCUS_DETENT.strongExtraMin,FOCUS_DETENT.strongExtraMax);duration=FOCUS_DETENT.strongDuration}target=clamp(target,0,fineValues.length-1);setFocusTransitionMs(duration);setFocusOffset(target)},[fineValues.length]);
+      const focusHandlers=useMemo(()=>createDragHandlers({dragRef:focusDragRef,offsetRef:focusOffsetRef,tickSpacing:FOCUS_TICK_SPACING,min:0,max:Math.max(0,fineValues.length-1),onDragging:handleFocusDragging,onRelease:handleFocusRelease}),[fineValues.length,handleFocusDragging,handleFocusRelease]);
+
+      const prevRoundedRef=useRef(displayedIndex);
+      useEffect(()=>{const prevIdx=dialWeights.indexOf(prevWeight),maxIdx=dialWeights.indexOf(MAX_WEIGHT);if(prevRoundedRef.current!==displayedIndex){if(displayedIndex===prevIdx)setPulse("prev");else if(displayedIndex===maxIdx)setPulse("max");prevRoundedRef.current=displayedIndex}},[displayedIndex,dialWeights,prevWeight]);
+      useEffect(()=>{if(!pulse)return;const t=setTimeout(()=>setPulse(null),260);return()=>clearTimeout(t)},[pulse]);
+
+      const allExercises=useMemo(()=>Object.entries(EXERCISES).flatMap(([part,list])=>list.map((name,idx)=>({part,idx,name}))),[]);
+      const filteredExercises=useMemo(()=>{const q=query.trim();return q?allExercises.filter(e=>e.name.includes(q)):allExercises},[allExercises,query]);
+      const selectFromSheet=(part,idx)=>{setBodyPart(part);setExerciseIndex(idx);setOffsetEx(idx);setTransitionMsEx(0);resetRecordState(220);setSheetOpen(false);setQuery("")};
+      const handleRecord=()=>{const isNewFineValue=!dialWeights.includes(displayedWeight);setToast(prCandidate?`NEW PR 更新 — ${displayedWeight}kg`:"セットを記録しました");if(isNewFineValue){const newArr=[...dialWeights,displayedWeight].sort((a,b)=>a-b);setDialWeights(newArr);setPrevWeight(displayedWeight);setOffset(newArr.indexOf(displayedWeight));setTransitionMs(200);setPendingFineValue(null)}};
+      useEffect(()=>{if(!toast)return;const t=setTimeout(()=>setToast(null),1800);return()=>clearTimeout(t)},[toast]);
+
+      return <div className="page-outer no-select">
+        <style>{CSS}</style>
+        <div className="phone">
+          <div className={"scroll-area"+(focusMode?" dimmed":"")}>
+            <div className="topbar"><span className="topbar-eyebrow">RECORD</span><span className="topbar-title">{BODY_PARTS.find(b=>b.key===bodyPart)?.label} ・ トレーニング記録</span></div>
+            <div className="rail">{BODY_PARTS.map(bp=><button key={bp.key} className={"rail-pill"+(bp.key===bodyPart?" active":"")} onClick={()=>selectBodyPart(bp.key)}>{bp.label}</button>)}</div>
+            <div className="carousel-section">
+              <div className="carousel-track" style={{touchAction:"pan-y"}} onPointerDown={carouselHandlers.onPointerDown} onPointerMove={carouselHandlers.onPointerMove} onPointerUp={carouselHandlers.onPointerUp} onPointerCancel={carouselHandlers.onPointerUp}>
+                {exerciseList.map((name,i)=>{const distance=i-offsetEx,ds=depthStyle(distance),focused=Math.round(offsetEx)===i;return <button key={name} className={"carousel-item"+(focused?" is-focused":"")} style={{transform:`translateX(calc(-50% + ${distance*EX_SPACING}px)) translateY(${ds.translateY}px) scale(${ds.scale})`,opacity:ds.opacity,fontWeight:ds.weight,transitionDuration:transitionMsEx+"ms"}} onClick={()=>handleCarouselItemClick(i)}>{name}</button>})}
+              </div>
+              <button className="search-fab" onClick={()=>setSheetOpen(true)} aria-label="種目を検索"><Search size={16}/></button>
+            </div>
+            <div className="hero">
+              <div className="exercise-name">{currentExerciseName}</div><div className="prev-line">前回 {prevWeight}kg × 8rep</div>
+              <div className="weight-row"><button className="stepper-btn" onClick={()=>nudgeWeight(-1)}><Minus size={16}/></button><button className="weight-value" onClick={enterFocusMode}><span className="num">{displayedWeight}</span><span className="unit">kg</span></button><button className="stepper-btn" onClick={()=>nudgeWeight(1)}><Plus size={16}/></button></div>
+              <div className={"pr-badge"+(prCandidate?" show":"")}>PR候補 ・ MAX +{prDiff}kg</div>
+              <div className="dial-track" style={{touchAction:"pan-y"}} tabIndex={0} onPointerDown={e=>{setPendingFineValue(null);dialHandlers.onPointerDown(e)}} onPointerMove={dialHandlers.onPointerMove} onPointerUp={dialHandlers.onPointerUp} onPointerCancel={dialHandlers.onPointerUp} onKeyDown={e=>{if(e.key==="ArrowRight")nudgeWeight(1);if(e.key==="ArrowLeft")nudgeWeight(-1)}}>
+                {dialWeights.map((w,i)=>{const distance=i-offset,ds=depthStyle(distance),isPrev=w===prevWeight,isMax=w===MAX_WEIGHT,numOpacity=clamp((Math.abs(distance)-.12)/.4,0,1),isPulsing=(isPrev&&pulse==="prev")||(isMax&&pulse==="max");return <div key={w} className={"tick"+(isPrev?" is-prev":"")+(isMax?" is-max":"")} style={{transform:`translateX(calc(-50% + ${distance*TICK_SPACING}px)) translateY(${ds.translateY}px) scale(${ds.scale})`,opacity:ds.opacity,transitionDuration:transitionMs+"ms"}}><div className="tick-num" style={{opacity:numOpacity,fontWeight:ds.weight}}>{w}</div><div className={"tick-mark"+(isPulsing?" pulse":"")}/><div className="tick-caption">{isPrev?"PREV":isMax?"MAX":" "}</div></div>})}
+                <div className="center-indicator"><div className="center-spacer"/><div className="center-bar"/><div className="center-caption">CURRENT</div></div>
+              </div>
+            </div>
+            <div className="rep-row"><button className="rep-btn" onClick={()=>nudgeReps(-1)}><Minus size={16}/></button><div className="rep-value">{displayedReps} <span>REP</span></div><button className="rep-btn" onClick={()=>nudgeReps(1)}><Plus size={16}/></button></div>
+            <div className="sets-section"><div className="section-eyebrow">セット ・ タップで編集対象を切替</div><div className="sets-list">{sets.map(s=>{const active=s.id===activeSetId,w=active?displayedWeight:s.weight,r=active?displayedReps:s.reps;return <button key={s.id} className={"set-row"+(active?" active":"")} onClick={()=>selectSet(s.id)}><span className={"set-tag "+(s.tag==="MAIN"?"main":"drop")}>{s.tag}</span><span className="set-value">{w}kg × {r}</span></button>})}</div></div>
+            <div className="stats-row"><div className="stat"><span className="stat-label">推定1RM</span><span className="stat-value">{est1rm.toFixed(1)}kg</span></div><div className="stat-divider"/><div className="stat"><span className="stat-label">1RM BEST</span><span className="stat-value">{BEST_1RM.toFixed(1)}kg</span></div></div>
+            <button className="cta-btn" onClick={handleRecord}>種目を追加 / 記録</button><div className="bottom-spacer"/>
+          </div>
+          <div className={"bottom-nav"+(focusMode?" dimmed":"")}><button className="nav-item"><Home size={19}/><span>ホーム</span></button><button className="nav-item active"><Dumbbell size={19}/><span>記録</span></button><button className="nav-item"><BarChart3 size={19}/><span>履歴</span></button><button className="nav-item"><Settings2 size={19}/><span>設定</span></button></div>
+          {sheetOpen&&<div className="sheet-backdrop" onClick={()=>setSheetOpen(false)}><div className="sheet" onClick={e=>e.stopPropagation()}><div className="sheet-handle"/><div className="sheet-header"><div className="sheet-search-box"><Search size={16} color={T.faint}/><input className="sheet-search-input" placeholder="種目を検索" value={query} onChange={e=>setQuery(e.target.value)} autoFocus/></div><button className="sheet-close" onClick={()=>setSheetOpen(false)}><X size={18}/></button></div><div className="sheet-list">{filteredExercises.map(e=><button key={e.part+e.name} className="sheet-item" onClick={()=>selectFromSheet(e.part,e.idx)}><span>{e.name}</span><span className="sheet-item-part">{BODY_PARTS.find(b=>b.key===e.part)?.label}</span></button>)}{filteredExercises.length===0&&<div className="sheet-empty">該当する種目がありません</div>}</div></div></div>}
+          {focusMode&&<div className="focus-backdrop" onClick={()=>exitFocusMode(true)}><div className="focus-panel" onClick={e=>e.stopPropagation()}><div className="focus-label">FOCUS MODE ・ 精密調整</div><div className="weight-value focus-readout"><span className="num">{formatFine(fineValues[clamp(Math.round(focusOffset),0,Math.max(0,fineValues.length-1))]??displayedWeight)}</span><span className="unit">kg</span></div><div className="dial-track" style={{touchAction:"pan-y"}} onPointerDown={focusHandlers.onPointerDown} onPointerMove={focusHandlers.onPointerMove} onPointerUp={focusHandlers.onPointerUp} onPointerCancel={focusHandlers.onPointerUp}>{fineValues.map((v,i)=>{const distance=i-focusOffset,ds=depthStyle(distance),isPrev=Math.abs(v-prevWeight)<.001,isMax=Math.abs(v-MAX_WEIGHT)<.001,numOpacity=clamp((Math.abs(distance)-.12)/.4,0,1);return <div key={v} className={"tick"+(isPrev?" is-prev":"")+(isMax?" is-max":"")} style={{transform:`translateX(calc(-50% + ${distance*FOCUS_TICK_SPACING}px)) translateY(${ds.translateY}px) scale(${ds.scale})`,opacity:ds.opacity,transitionDuration:focusTransitionMs+"ms"}}><div className="tick-num" style={{opacity:numOpacity,fontWeight:ds.weight}}>{formatFine(v)}</div><div className="tick-mark"/><div className="tick-caption">{isPrev?"PREV":isMax?"MAX":" "}</div></div>})}<div className="center-indicator"><div className="center-spacer"/><div className="center-bar"/><div className="center-caption">CURRENT</div></div></div><button className="cta-btn focus-done-btn" onClick={()=>exitFocusMode(true)}>完了</button></div></div>}
+          {toast&&<div className="toast">{toast}</div>}
+        </div>
+      </div>;
+    }
+
+    const CSS = `
+      *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}button,input{font-family:inherit}.page-outer{min-height:100dvh;width:100%;display:flex;justify-content:center;background:#0b0d0e;padding:20px 10px;font-family:'Zen Maru Gothic','Hiragino Maru Gothic ProN',system-ui,sans-serif}.phone{width:100%;max-width:428px;height:calc(100dvh - 40px);background:${T.bg};color:${T.text};border-radius:30px;overflow:hidden;position:relative;display:flex;flex-direction:column;border:1px solid rgba(255,255,255,.05);box-shadow:0 24px 70px rgba(0,0,0,.55)}.scroll-area{flex:1;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:18px 18px 8px;transition:opacity .26s ease,filter .26s ease}.scroll-area.dimmed,.bottom-nav.dimmed{opacity:.26;filter:saturate(.65);pointer-events:none}.topbar{display:flex;flex-direction:column;gap:2px;margin-bottom:16px}.topbar-eyebrow{font-size:11px;letter-spacing:.14em;color:${T.accent};font-weight:700}.topbar-title{font-size:15px;color:${T.subtext};font-weight:500}.rail{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;margin-bottom:18px;scrollbar-width:none}.rail::-webkit-scrollbar{display:none}.rail-pill{flex-shrink:0;background:transparent;border:1px solid ${T.line};color:${T.subtext};border-radius:999px;padding:8px 18px;font-size:14px;font-weight:500}.rail-pill.active{background:${T.accentSoft};border-color:${T.accent};color:${T.accent};font-weight:700}.carousel-section{position:relative;margin-bottom:22px}.carousel-track{position:relative;height:68px;overflow:hidden}.carousel-item{position:absolute;top:6px;left:50%;background:transparent;border:0;color:${T.text};line-height:1.3;text-align:center;will-change:transform,opacity;transition-property:transform,opacity;transition-timing-function:cubic-bezier(.22,1,.36,1)}.carousel-item.is-focused{width:220px;font-size:18px;white-space:normal}.carousel-item:not(.is-focused){width:108px;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.search-fab{position:absolute;right:0;top:0;width:32px;height:32px;border-radius:50%;background:${T.surface2};border:1px solid ${T.line};color:${T.subtext};display:flex;align-items:center;justify-content:center}.hero{background:${T.surface};border-radius:20px;padding:20px 16px 14px;margin-bottom:16px}.exercise-name{font-size:16px;font-weight:800;text-align:center}.prev-line{font-size:13px;color:${T.subtext};text-align:center;margin-bottom:6px}.weight-row{display:flex;align-items:center;justify-content:center;gap:18px}.stepper-btn,.rep-btn{width:40px;height:40px;border-radius:50%;background:${T.surface2};border:1px solid ${T.line};color:${T.subtext};display:flex;align-items:center;justify-content:center}.weight-value{background:transparent;border:0;display:flex;align-items:baseline;gap:4px;color:${T.text};min-width:120px;justify-content:center}.weight-value .num{font-size:52px;font-weight:900;line-height:1}.weight-value .unit{font-size:16px;color:${T.subtext};font-weight:700}.pr-badge{height:0;overflow:hidden;opacity:0;transform:scale(.9);margin:0 auto;width:fit-content;text-align:center;font-size:12px;font-weight:700;color:${T.pr};background:rgba(233,184,114,.12);border:1px solid rgba(233,184,114,.4);border-radius:999px;padding:0 12px;transition:.2s}.pr-badge.show{height:26px;line-height:24px;opacity:1;transform:scale(1);margin:6px auto 10px}.dial-track{position:relative;height:92px;margin-top:14px;outline:0}.tick{position:absolute;top:0;left:50%;width:60px;display:flex;flex-direction:column;align-items:center;gap:7px;will-change:transform,opacity;transition-property:transform,opacity;transition-timing-function:cubic-bezier(.22,1,.36,1)}.tick-num{font-size:20px;height:24px;line-height:24px}.tick-mark{width:4px;height:4px;border-radius:50%;background:${T.line}}.tick.is-prev .tick-mark{width:8px;height:8px;background:${T.subtext}}.tick.is-max .tick-mark{width:8px;height:8px;border-radius:2px;background:${T.pr};transform:rotate(45deg)}.tick-mark.pulse{animation:pulse .26s ease-out}@keyframes pulse{50%{transform:scale(1.7)}}.tick-caption,.center-caption{font-size:10px;letter-spacing:.08em;color:${T.faint};height:12px;line-height:12px}.tick.is-prev .tick-caption{color:${T.subtext};font-weight:700}.tick.is-max .tick-caption{color:${T.pr};font-weight:700}.center-indicator{position:absolute;left:50%;top:0;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:7px;pointer-events:none}.center-spacer{height:24px}.center-bar{width:2px;height:16px;background:${T.accent};border-radius:1px}.center-caption{color:${T.accent};font-weight:700}.rep-row{display:flex;align-items:center;justify-content:center;gap:22px;padding:6px 0 20px}.rep-value{font-size:20px;font-weight:800;min-width:90px;text-align:center}.rep-value span{font-size:12px;color:${T.subtext};font-weight:600}.sets-section{margin-bottom:18px}.section-eyebrow{font-size:11px;color:${T.faint};letter-spacing:.06em;margin-bottom:8px}.sets-list{display:flex;flex-direction:column}.set-row{display:flex;align-items:center;gap:12px;background:transparent;border:0;border-top:1px solid ${T.line};padding:12px 6px;color:${T.text};text-align:left;border-radius:10px}.set-row.active{background:${T.accentSoft}}.set-tag{font-size:10px;font-weight:800;letter-spacing:.06em;padding:3px 8px;border-radius:6px;border:1px solid ${T.line};color:${T.faint}}.set-tag.main{color:${T.accent};border-color:${T.accent}}.set-value{font-size:15px;font-weight:600}.stats-row{display:flex;align-items:center;background:${T.surface};border-radius:16px;padding:14px 0;margin-bottom:16px}.stat{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px}.stat-label{font-size:11px;color:${T.subtext}}.stat-value{font-size:18px;font-weight:800}.stat-divider{width:1px;height:28px;background:${T.line}}.cta-btn{width:100%;background:${T.accent};color:#14201A;border:0;border-radius:14px;padding:15px 0;font-size:15px;font-weight:800}.bottom-spacer{height:4px}.bottom-nav{display:flex;border-top:1px solid ${T.line};background:${T.bg};padding:8px 4px calc(8px + env(safe-area-inset-bottom,0px))}.nav-item{flex:1;background:transparent;border:0;color:${T.faint};display:flex;flex-direction:column;align-items:center;gap:3px;font-size:10px;padding:6px 0}.nav-item.active{color:${T.accent}}.sheet-backdrop,.focus-backdrop{position:absolute;inset:0;background:rgba(10,12,12,.6);z-index:40}.sheet-backdrop{display:flex;align-items:flex-end}.sheet{width:100%;max-height:72%;background:${T.surface};border-radius:22px 22px 0 0;display:flex;flex-direction:column;border-top:1px solid ${T.line}}.sheet-handle{width:36px;height:4px;border-radius:2px;background:${T.line};margin:10px auto 6px}.sheet-header{display:flex;align-items:center;gap:10px;padding:4px 16px 12px}.sheet-search-box{flex:1;display:flex;align-items:center;gap:8px;background:${T.surface2};border:1px solid ${T.line};border-radius:12px;padding:10px 12px}.sheet-search-input{flex:1;background:transparent;border:0;color:${T.text};font-size:16px;outline:0}.sheet-close{width:32px;height:32px;border-radius:50%;background:${T.surface2};border:1px solid ${T.line};color:${T.subtext};display:flex;align-items:center;justify-content:center}.sheet-list{overflow-y:auto;padding:0 10px 18px}.sheet-item{width:100%;display:flex;align-items:center;justify-content:space-between;background:transparent;border:0;border-radius:10px;padding:13px 10px;color:${T.text};font-size:14px;font-weight:600;text-align:left}.sheet-item-part{font-size:11px;color:${T.faint};font-weight:500}.sheet-empty{text-align:center;color:${T.faint};font-size:13px;padding:30px 0}.focus-backdrop{display:flex;align-items:center;justify-content:center;padding:0 20px;z-index:60}.focus-panel{width:100%;max-width:360px;background:${T.surface};border:1px solid ${T.line};border-radius:24px;padding:26px 18px 22px;display:flex;flex-direction:column;align-items:center;gap:6px}.focus-label{font-size:11px;letter-spacing:.12em;color:${T.accent};font-weight:700;margin-bottom:6px}.focus-readout .num{font-size:44px}.focus-done-btn{margin-top:20px}.toast{position:absolute;left:50%;bottom:88px;transform:translateX(-50%);background:${T.surface2};border:1px solid ${T.line};color:${T.text};font-size:13px;font-weight:600;padding:10px 18px;border-radius:999px;z-index:80;white-space:nowrap}button:focus-visible,input:focus-visible,.dial-track:focus-visible{outline:2px solid ${T.accent};outline-offset:2px}@media(max-width:380px){.page-outer{padding:0}.phone{height:100dvh;border-radius:0;border:0}.scroll-area{padding:14px 14px 6px}}@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+    `;
+
+    createRoot(document.getElementById("root")).render(<LiftlogDialPrototype/>);
+  </script>
+</body>
+</html>
