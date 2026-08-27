@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#111827" />
+  <title>Chappy Playground</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #0b1020;
+      color: #f8fafc;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100svh;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      background:
+        radial-gradient(circle at top, rgba(99,102,241,.26), transparent 38%),
+        linear-gradient(180deg, #111827 0%, #0b1020 100%);
+    }
+
+    main {
+      width: min(100%, 460px);
+      padding: 28px;
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: 28px;
+      background: rgba(15,23,42,.76);
+      box-shadow: 0 24px 80px rgba(0,0,0,.35);
+      backdrop-filter: blur(18px);
+    }
+
+    .badge {
+      display: inline-flex;
+      padding: 7px 11px;
+      border-radius: 999px;
+      background: rgba(99,102,241,.16);
+      color: #c7d2fe;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 18px 0 8px;
+      font-size: clamp(34px, 10vw, 54px);
+      line-height: .98;
+      letter-spacing: -.05em;
+    }
+
+    p {
+      margin: 0;
+      color: #94a3b8;
+      line-height: 1.65;
+    }
+
+    .counter {
+      margin-top: 28px;
+      padding: 22px;
+      border-radius: 22px;
+      background: rgba(255,255,255,.055);
+      text-align: center;
+    }
+
+    .count {
+      display: block;
+      margin: 4px 0 16px;
+      font-size: 64px;
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -.04em;
+    }
+
+    button {
+      width: 100%;
+      min-height: 54px;
+      border: 0;
+      border-radius: 16px;
+      background: #f8fafc;
+      color: #111827;
+      font: inherit;
+      font-weight: 800;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      transition: transform .12s ease, opacity .12s ease;
+    }
+
+    button:active { transform: scale(.98); opacity: .88; }
+
+    .footer {
+      margin-top: 18px;
+      font-size: 12px;
+      text-align: center;
+      color: #64748b;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <span class="badge">GitHub Pages test</span>
+    <h1>Chappy<br />Playground</h1>
+    <p>暇つぶしで作った小さいWebアプリを置いていく実験場。スマホからそのまま動作確認できる。</p>
+
+    <section class="counter" aria-label="カウンターデモ">
+      <span class="count" id="count">0</span>
+      <button id="addButton" type="button">+1 してみる</button>
+    </section>
+
+    <div class="footer">main branch / mobile first</div>
+  </main>
+
+  <script>
+    const count = document.querySelector('#count');
+    const button = document.querySelector('#addButton');
+    let value = 0;
+
+    button.addEventListener('click', () => {
+      value += 1;
+      count.textContent = value;
+    });
+  </script>
+</body>
+</html>
