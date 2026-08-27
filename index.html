@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#111827" />
+  <meta name="theme-color" content="#0b1020" />
   <title>Chappy Playground</title>
   <style>
     :root {
       color-scheme: dark;
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #0b1020;
+      background: #08101d;
       color: #f8fafc;
     }
 
@@ -18,113 +18,192 @@
     body {
       margin: 0;
       min-height: 100svh;
-      display: grid;
-      place-items: center;
-      padding: 24px;
+      padding: max(24px, env(safe-area-inset-top)) 18px max(28px, env(safe-area-inset-bottom));
       background:
-        radial-gradient(circle at top, rgba(99,102,241,.26), transparent 38%),
-        linear-gradient(180deg, #111827 0%, #0b1020 100%);
+        radial-gradient(circle at 10% 0%, rgba(56,189,248,.16), transparent 28%),
+        radial-gradient(circle at 100% 8%, rgba(167,139,250,.18), transparent 32%),
+        linear-gradient(180deg, #101a2d 0%, #08101d 100%);
     }
 
     main {
-      width: min(100%, 460px);
-      padding: 28px;
-      border: 1px solid rgba(255,255,255,.10);
-      border-radius: 28px;
-      background: rgba(15,23,42,.76);
-      box-shadow: 0 24px 80px rgba(0,0,0,.35);
-      backdrop-filter: blur(18px);
+      width: min(100%, 520px);
+      margin: 0 auto;
     }
 
     .badge {
       display: inline-flex;
       padding: 7px 11px;
+      border: 1px solid rgba(125,211,252,.14);
       border-radius: 999px;
-      background: rgba(99,102,241,.16);
-      color: #c7d2fe;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: .06em;
+      background: rgba(56,189,248,.09);
+      color: #bae6fd;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .10em;
       text-transform: uppercase;
     }
 
     h1 {
-      margin: 18px 0 8px;
-      font-size: clamp(34px, 10vw, 54px);
-      line-height: .98;
-      letter-spacing: -.05em;
+      margin: 18px 0 10px;
+      font-size: clamp(38px, 11vw, 62px);
+      line-height: .94;
+      letter-spacing: -.055em;
     }
 
-    p {
+    .lead {
       margin: 0;
+      max-width: 420px;
       color: #94a3b8;
-      line-height: 1.65;
+      font-size: 14px;
+      line-height: 1.7;
     }
 
-    .counter {
-      margin-top: 28px;
-      padding: 22px;
-      border-radius: 22px;
-      background: rgba(255,255,255,.055);
-      text-align: center;
+    .section-title {
+      margin: 30px 0 12px;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
     }
 
-    .count {
-      display: block;
-      margin: 4px 0 16px;
-      font-size: 64px;
-      font-weight: 800;
-      line-height: 1;
-      letter-spacing: -.04em;
+    .section-title strong {
+      font-size: 13px;
+      letter-spacing: .04em;
     }
 
-    button {
-      width: 100%;
-      min-height: 54px;
-      border: 0;
-      border-radius: 16px;
-      background: #f8fafc;
-      color: #111827;
-      font: inherit;
-      font-weight: 800;
-      cursor: pointer;
-      -webkit-tap-highlight-color: transparent;
-      transition: transform .12s ease, opacity .12s ease;
-    }
-
-    button:active { transform: scale(.98); opacity: .88; }
-
-    .footer {
-      margin-top: 18px;
-      font-size: 12px;
-      text-align: center;
+    .section-title span {
       color: #64748b;
+      font-size: 11px;
+    }
+
+    .apps {
+      display: grid;
+      gap: 12px;
+    }
+
+    .app-card {
+      display: grid;
+      grid-template-columns: 64px minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 14px;
+      min-height: 94px;
+      padding: 14px;
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: 23px;
+      color: inherit;
+      text-decoration: none;
+      background: rgba(15,23,42,.64);
+      box-shadow: 0 18px 50px rgba(0,0,0,.18), inset 0 1px rgba(255,255,255,.04);
+      backdrop-filter: blur(16px);
+      transition: transform .14s ease, border-color .14s ease, background .14s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .app-card:active {
+      transform: scale(.985);
+      background: rgba(30,41,59,.72);
+    }
+
+    .app-icon {
+      width: 64px;
+      aspect-ratio: 1;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 5px;
+      padding: 10px;
+      border-radius: 19px;
+      background: linear-gradient(145deg, #38bdf8, #8b5cf6);
+      box-shadow: inset 0 1px rgba(255,255,255,.24), 0 9px 18px rgba(56,189,248,.12);
+    }
+
+    .app-icon i {
+      display: block;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: rgba(255,255,255,.52);
+      box-shadow: inset -2px -2px 4px rgba(30,41,59,.22);
+    }
+
+    .app-info {
+      min-width: 0;
+    }
+
+    .app-no {
+      display: block;
+      margin-bottom: 3px;
+      color: #7dd3fc;
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: .12em;
+    }
+
+    .app-info strong {
+      display: block;
+      font-size: 18px;
+      letter-spacing: -.025em;
+    }
+
+    .app-info p {
+      margin: 4px 0 0;
+      color: #94a3b8;
+      font-size: 11px;
+      line-height: 1.45;
+    }
+
+    .arrow {
+      color: #64748b;
+      font-size: 22px;
+      padding-right: 4px;
+    }
+
+    .empty-card {
+      min-height: 78px;
+      display: grid;
+      place-items: center;
+      border: 1px dashed rgba(255,255,255,.09);
+      border-radius: 22px;
+      color: #475569;
+      font-size: 11px;
+    }
+
+    footer {
+      margin-top: 22px;
+      text-align: center;
+      color: #475569;
+      font-size: 10px;
     }
   </style>
 </head>
 <body>
   <main>
-    <span class="badge">GitHub Pages test</span>
+    <span class="badge">GitHub Pages · Mobile First</span>
     <h1>Chappy<br />Playground</h1>
-    <p>暇つぶしで作った小さいWebアプリを置いていく実験場。スマホからそのまま動作確認できる。</p>
+    <p class="lead">チャットから直接作った、小さいWebアプリの置き場。気に入ったものだけ後から育てる。</p>
 
-    <section class="counter" aria-label="カウンターデモ">
-      <span class="count" id="count">0</span>
-      <button id="addButton" type="button">+1 してみる</button>
+    <div class="section-title">
+      <strong>PLAYGROUND APPS</strong>
+      <span>1 app</span>
+    </div>
+
+    <section class="apps" aria-label="アプリ一覧">
+      <a class="app-card" href="./stress-relief/">
+        <div class="app-icon" aria-hidden="true">
+          <i></i><i></i><i></i>
+          <i></i><i></i><i></i>
+          <i></i><i></i><i></i>
+        </div>
+        <div class="app-info">
+          <span class="app-no">#01</span>
+          <strong>Fidget Room</strong>
+          <p>Pop It、プチプチ、ストレスボール、スピナーをスマホで。</p>
+        </div>
+        <span class="arrow">›</span>
+      </a>
+
+      <div class="empty-card">次の暇つぶしアプリ用スペース</div>
     </section>
 
-    <div class="footer">main branch / mobile first</div>
+    <footer>SNOWman74-64 / chappy-playground</footer>
   </main>
-
-  <script>
-    const count = document.querySelector('#count');
-    const button = document.querySelector('#addButton');
-    let value = 0;
-
-    button.addEventListener('click', () => {
-      value += 1;
-      count.textContent = value;
-    });
-  </script>
 </body>
 </html>
