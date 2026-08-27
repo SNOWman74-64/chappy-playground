@@ -23,6 +23,8 @@
     .app-icon i { display:block; aspect-ratio:1; border-radius:50%; background:rgba(255,255,255,.52); box-shadow:inset -2px -2px 4px rgba(30,41,59,.22); }
     .app-icon.dial { display:grid; place-items:center; padding:0; background:linear-gradient(145deg,#26372f,#7ECB9B); }
     .app-icon.dial::before { content:"32"; display:grid; place-items:center; width:42px; aspect-ratio:1; border-radius:50%; background:#1F2325; border:2px solid rgba(236,240,238,.18); color:#ECF0EE; font-size:17px; font-weight:900; box-shadow:inset 0 0 0 5px rgba(126,203,155,.12); }
+    .app-icon.terminal { display:grid; place-items:center; padding:0; background:linear-gradient(145deg,#06110b,#174329); border:1px solid rgba(104,245,164,.16); }
+    .app-icon.terminal::before { content:">_"; color:#68f5a4; font:900 20px/1 "SFMono-Regular",Consolas,monospace; text-shadow:0 0 12px rgba(104,245,164,.35); }
     .app-info { min-width:0; }
     .app-no { display:block; margin-bottom:3px; color:#7dd3fc; font-size:10px; font-weight:900; letter-spacing:.12em; }
     .app-info strong { display:block; font-size:18px; letter-spacing:-.025em; }
@@ -38,7 +40,7 @@
     <h1>Chappy<br />Playground</h1>
     <p class="lead">チャットから直接作った、小さいWebアプリの置き場。気に入ったものだけ後から育てる。</p>
 
-    <div class="section-title"><strong>PLAYGROUND APPS</strong><span>2 apps</span></div>
+    <div class="section-title"><strong>PLAYGROUND APPS</strong><span>3 apps</span></div>
 
     <section class="apps" aria-label="アプリ一覧">
       <a class="app-card" href="./stress-relief/">
@@ -50,6 +52,12 @@
       <a class="app-card" href="./liftlog-dial/">
         <div class="app-icon dial" aria-hidden="true"></div>
         <div class="app-info"><span class="app-no">#02 · REACT</span><strong>LIFTLOG Dial</strong><p>Claude Artifact由来の重量ダイヤルUIをReactのままPagesへ移植した実験。</p></div>
+        <span class="arrow">›</span>
+      </a>
+
+      <a class="app-card" href="./ai-lab/">
+        <div class="app-icon terminal" aria-hidden="true"></div>
+        <div class="app-info"><span class="app-no">#03 · GAME</span><strong>Midnight AI Lab</strong><p>VRAM・RAM・資金・安定性をやりくりしてローカルAIエージェントを起動する。</p></div>
         <span class="arrow">›</span>
       </a>
 
