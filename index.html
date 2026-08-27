@@ -25,6 +25,8 @@
     .app-icon.dial::before { content:"32"; display:grid; place-items:center; width:42px; aspect-ratio:1; border-radius:50%; background:#1F2325; border:2px solid rgba(236,240,238,.18); color:#ECF0EE; font-size:17px; font-weight:900; box-shadow:inset 0 0 0 5px rgba(126,203,155,.12); }
     .app-icon.terminal { display:grid; place-items:center; padding:0; background:linear-gradient(145deg,#06110b,#174329); border:1px solid rgba(104,245,164,.16); }
     .app-icon.terminal::before { content:">_"; color:#68f5a4; font:900 20px/1 "SFMono-Regular",Consolas,monospace; text-shadow:0 0 12px rgba(104,245,164,.35); }
+    .app-icon.cards { display:grid; place-items:center; padding:0; background:linear-gradient(145deg,#0a100c,#223c29); border:1px solid rgba(83,255,124,.18); }
+    .app-icon.cards::before { content:"[]"; color:#53ff7c; font:900 19px/1 "SFMono-Regular",Consolas,monospace; letter-spacing:-.12em; text-shadow:0 0 12px rgba(83,255,124,.28); }
     .app-info { min-width:0; }
     .app-no { display:block; margin-bottom:3px; color:#7dd3fc; font-size:10px; font-weight:900; letter-spacing:.12em; }
     .app-info strong { display:block; font-size:18px; letter-spacing:-.025em; }
@@ -40,7 +42,7 @@
     <h1>Chappy<br />Playground</h1>
     <p class="lead">チャットから直接作った、小さいWebアプリの置き場。気に入ったものだけ後から育てる。</p>
 
-    <div class="section-title"><strong>PLAYGROUND APPS</strong><span>3 apps</span></div>
+    <div class="section-title"><strong>PLAYGROUND APPS</strong><span>4 apps</span></div>
 
     <section class="apps" aria-label="アプリ一覧">
       <a class="app-card" href="./stress-relief/">
@@ -58,6 +60,12 @@
       <a class="app-card" href="./ai-lab/">
         <div class="app-icon terminal" aria-hidden="true"></div>
         <div class="app-info"><span class="app-no">#03 · GAME</span><strong>Midnight AI Lab</strong><p>VRAM・RAM・資金・安定性をやりくりしてローカルAIエージェントを起動する。</p></div>
+        <span class="arrow">›</span>
+      </a>
+
+      <a class="app-card" href="./root-card/">
+        <div class="app-icon cards" aria-hidden="true"></div>
+        <div class="app-info"><span class="app-no">#04 · CARD GAME</span><strong>ROOT // CARD PROTOCOL</strong><p>CPUと1vs1。システム用語カードで攻撃・防御・妨害を回すターミナル対戦。</p></div>
         <span class="arrow">›</span>
       </a>
 
