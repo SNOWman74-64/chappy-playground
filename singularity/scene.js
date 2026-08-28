@@ -93,7 +93,9 @@ export function createUniverse({ stage, particleCount, backgroundStarCount, dpr,
   scene.fog = new THREE.FogExp2(0x02040a, 0.022);
 
   const camera = new THREE.PerspectiveCamera(48, 1, 0.05, 100);
-  camera.position.set(0, 2.2, 11.8);
+  const baseCameraY = isMobile ? 3.0 : 2.2;
+  const baseCameraZ = isMobile ? 18.0 : 13.5;
+  camera.position.set(0, baseCameraY, baseCameraZ);
 
   const galaxyGroup = new THREE.Group();
   galaxyGroup.rotation.x = -0.18;
@@ -212,10 +214,11 @@ export function createUniverse({ stage, particleCount, backgroundStarCount, dpr,
     lensPass.uniforms.uStrength.value = 0.16 + collapse * 0.42 + burst * 0.14;
 
     const targetX = pointer.x * 1.05 + gyro.x * 0.82;
-    const targetY = 2.2 + pointer.y * 0.48 + gyro.y * 0.36;
+    const targetY = baseCameraY + pointer.y * 0.48 + gyro.y * 0.36;
     camera.position.x += (targetX - camera.position.x) * Math.min(1, delta * 2.6);
     camera.position.y += (targetY - camera.position.y) * Math.min(1, delta * 2.6);
-    camera.position.z += ((11.8 - collapse * 1.9 + burst * 1.2) - camera.position.z) * Math.min(1, delta * 2.4);
+    const collapseZoom = isMobile ? 3.2 : 2.0;
+    camera.position.z += ((baseCameraZ - collapse * collapseZoom + burst * 1.2) - camera.position.z) * Math.min(1, delta * 2.4);
     camera.lookAt(0, 0, 0);
 
     galaxyGroup.rotation.y += delta * (0.025 + collapse * 0.16);
