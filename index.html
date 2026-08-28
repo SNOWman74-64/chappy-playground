@@ -29,6 +29,8 @@
     .app-icon.cards::before { content:"[]"; color:#53ff7c; font:900 19px/1 "SFMono-Regular",Consolas,monospace; letter-spacing:-.12em; text-shadow:0 0 12px rgba(83,255,124,.28); }
     .app-icon.water { display:grid; place-items:center; padding:0; background:linear-gradient(145deg,#c9f4ff,#55c5eb); border:1px solid rgba(255,255,255,.48); }
     .app-icon.water::before { content:"◎"; display:grid; place-items:center; width:42px; aspect-ratio:1; border-radius:50%; border:5px solid #ff7b9c; color:#ffda64; font:900 20px/1 system-ui; box-shadow:0 0 0 4px rgba(255,255,255,.24),inset 0 0 12px rgba(255,255,255,.48); }
+    .app-icon.marble { display:grid; place-items:center; padding:0; background:linear-gradient(145deg,#d7bd83,#9d7337); border:1px solid rgba(255,242,203,.38); }
+    .app-icon.marble::before { content:"●"; display:grid; place-items:center; width:42px; aspect-ratio:1; border-radius:10px; background:#eadcae; color:#8f999c; border:3px solid #765526; font-size:23px; text-shadow:-3px -3px 3px #fff,3px 3px 4px #344043; }
     .app-info { min-width:0; }
     .app-no { display:block; margin-bottom:3px; color:#7dd3fc; font-size:10px; font-weight:900; letter-spacing:.12em; }
     .app-info strong { display:block; font-size:18px; letter-spacing:-.025em; }
@@ -44,42 +46,20 @@
     <h1>Chappy<br />Playground</h1>
     <p class="lead">チャットから直接作った、小さいWebアプリの置き場。気に入ったものだけ後から育てる。</p>
 
-    <div class="section-title"><strong>PLAYGROUND APPS</strong><span>5 apps</span></div>
+    <div class="section-title"><strong>PLAYGROUND APPS</strong><span>6 apps</span></div>
 
     <section class="apps" aria-label="アプリ一覧">
       <a class="app-card" href="./stress-relief/">
         <div class="app-icon" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-        <div class="app-info"><span class="app-no">#01</span><strong>Fidget Room</strong><p>Pop It、プチプチ、ストレスボール、スピナー、メカニカルキー。</p></div>
-        <span class="arrow">›</span>
+        <div class="app-info"><span class="app-no">#01</span><strong>Fidget Room</strong><p>Pop It、プチプチ、ストレスボール、スピナー、メカニカルキー。</p></div><span class="arrow">›</span>
       </a>
-
-      <a class="app-card" href="./liftlog-dial/">
-        <div class="app-icon dial" aria-hidden="true"></div>
-        <div class="app-info"><span class="app-no">#02 · REACT</span><strong>LIFTLOG Dial</strong><p>Claude Artifact由来の重量ダイヤルUIをReactのままPagesへ移植した実験。</p></div>
-        <span class="arrow">›</span>
-      </a>
-
-      <a class="app-card" href="./ai-lab/">
-        <div class="app-icon terminal" aria-hidden="true"></div>
-        <div class="app-info"><span class="app-no">#03 · GAME</span><strong>Midnight AI Lab</strong><p>VRAM・RAM・資金・安定性をやりくりしてローカルAIエージェントを起動する。</p></div>
-        <span class="arrow">›</span>
-      </a>
-
-      <a class="app-card" href="./root-card/">
-        <div class="app-icon cards" aria-hidden="true"></div>
-        <div class="app-info"><span class="app-no">#04 · CARD GAME</span><strong>ROOT // CARD PROTOCOL</strong><p>CPUと1vs1。システム用語カードで攻撃・防御・妨害を回すターミナル対戦。</p></div>
-        <span class="arrow">›</span>
-      </a>
-
-      <a class="app-card" href="./water-rings/">
-        <div class="app-icon water" aria-hidden="true"></div>
-        <div class="app-info"><span class="app-no">#05 · POCKET TOY</span><strong>Water Ring Toss</strong><p>左右のポンプで水流を起こして、6つのリングを3本の杭にかける昔のおもちゃ風。</p></div>
-        <span class="arrow">›</span>
-      </a>
-
+      <a class="app-card" href="./liftlog-dial/"><div class="app-icon dial" aria-hidden="true"></div><div class="app-info"><span class="app-no">#02 · REACT</span><strong>LIFTLOG Dial</strong><p>Claude Artifact由来の重量ダイヤルUIをReactのままPagesへ移植した実験。</p></div><span class="arrow">›</span></a>
+      <a class="app-card" href="./ai-lab/"><div class="app-icon terminal" aria-hidden="true"></div><div class="app-info"><span class="app-no">#03 · GAME</span><strong>Midnight AI Lab</strong><p>VRAM・RAM・資金・安定性をやりくりしてローカルAIエージェントを起動する。</p></div><span class="arrow">›</span></a>
+      <a class="app-card" href="./root-card/"><div class="app-icon cards" aria-hidden="true"></div><div class="app-info"><span class="app-no">#04 · CARD GAME</span><strong>ROOT // CARD PROTOCOL</strong><p>CPUと1vs1。システム用語カードで攻撃・防御・妨害を回すターミナル対戦。</p></div><span class="arrow">›</span></a>
+      <a class="app-card" href="./water-rings/"><div class="app-icon water" aria-hidden="true"></div><div class="app-info"><span class="app-no">#05 · POCKET TOY</span><strong>Water Ring Toss</strong><p>左右のポンプで水流を起こして、6つのリングを3本の杭にかける昔のおもちゃ風。</p></div><span class="arrow">›</span></a>
+      <a class="app-card" href="./marble-maze/"><div class="app-icon marble" aria-hidden="true"></div><div class="app-info"><span class="app-no">#06 · POCKET TOY</span><strong>Marble Maze</strong><p>スマホを傾けるか指で盤面を傾けて、銀玉を穴を避けながらGOALへ運ぶ。</p></div><span class="arrow">›</span></a>
       <div class="empty-card">次の暇つぶしアプリ用スペース</div>
     </section>
-
     <footer>SNOWman74-64 / chappy-playground</footer>
   </main>
 </body>
