@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover, user-scalable=no" />
+  <meta name="theme-color" content="#7dd3fc" />
+  <title>Water Ring Toss</title>
+  <style>
+    :root{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#0f2740;background:#bcecff}
+    *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+    html,body{margin:0;width:100%;height:100%;overflow:hidden;overscroll-behavior:none;background:linear-gradient(180deg,#c8f2ff,#91dcf7 52%,#73c6e7)}
+    body{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;touch-action:none}
+    button{font:inherit;color:inherit;-webkit-user-select:none;user-select:none;touch-action:manipulation}
+    .app{height:100dvh;display:grid;grid-template-rows:auto minmax(0,1fr) auto;gap:10px;padding:max(10px,env(safe-area-inset-top)) 12px max(10px,env(safe-area-inset-bottom))}
+    .top{display:grid;grid-template-columns:44px 1fr 74px;gap:8px;align-items:center}.back,.reset{height:44px;border:0;border-radius:14px;background:rgba(255,255,255,.58);box-shadow:inset 0 1px rgba(255,255,255,.7),0 6px 18px rgba(19,78,109,.12);text-decoration:none;display:grid;place-items:center;font-weight:800}.reset{font-size:12px}.title{text-align:center;min-width:0}.eyebrow{display:block;font-size:10px;font-weight:900;letter-spacing:.14em;color:#28799f}.title strong{display:block;font-size:18px;letter-spacing:-.02em}.score{font-size:11px;color:#3b708a;margin-top:2px}
+    .tank{position:relative;min-height:0;border-radius:30px;border:2px solid rgba(255,255,255,.75);overflow:hidden;background:linear-gradient(180deg,rgba(237,252,255,.65),rgba(118,210,241,.36));box-shadow:inset 0 0 0 5px rgba(255,255,255,.2),inset 0 -26px 60px rgba(0,95,143,.16),0 18px 45px rgba(39,116,150,.18)}
+    .tank:before{content:"";position:absolute;inset:0;background:linear-gradient(110deg,rgba(255,255,255,.48),transparent 20%,transparent 68%,rgba(255,255,255,.22));pointer-events:none;z-index:2}.tank:after{content:"";position:absolute;left:8%;right:8%;top:2%;height:9%;border-radius:50%;border-top:2px solid rgba(255,255,255,.6);opacity:.75;pointer-events:none;z-index:2}
+    canvas{display:block;width:100%;height:100%;touch-action:none}
+    .hint{position:absolute;left:50%;top:12px;transform:translateX(-50%);z-index:3;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.55);font-size:10px;font-weight:800;color:#39738f;pointer-events:none;white-space:nowrap}
+    .controls{display:grid;grid-template-columns:1fr auto 1fr;gap:10px;align-items:center}.pump{height:68px;border:0;border-radius:22px;background:linear-gradient(180deg,#f9fdff,#d6f5ff);box-shadow:inset 0 -7px 0 rgba(70,160,197,.15),0 8px 20px rgba(28,98,132,.16);font-size:14px;font-weight:900;letter-spacing:.04em}.pump:active,.pump.down{transform:translateY(4px);box-shadow:inset 0 -3px 0 rgba(70,160,197,.16),0 4px 12px rgba(28,98,132,.14)}.center-note{text-align:center;font-size:10px;color:#4d7d94;line-height:1.4;min-width:72px}.center-note strong{display:block;font-size:12px;color:#24627f}
+    @media(max-height:650px){.app{gap:7px}.pump{height:58px}.top{grid-template-columns:40px 1fr 68px}.back,.reset{height:40px}.title strong{font-size:16px}}
+  </style>
+</head>
+<body>
+  <main class="app">
+    <header class="top">
+      <a class="back" href="../" aria-label="戻る">←</a>
+      <div class="title"><span class="eyebrow">POCKET WATER TOY</span><strong>Water Ring Toss</strong><div class="score" id="score">SCORE 0 / 6</div></div>
+      <button class="reset" id="reset" type="button">RESET</button>
+    </header>
+
+    <section class="tank" id="tank" aria-label="水中輪投げゲーム">
+      <div class="hint">左右のポンプでリングを浮かせる</div>
+      <canvas id="game"></canvas>
+    </section>
+
+    <section class="controls">
+      <button class="pump" id="leftPump" type="button">◀ LEFT PUMP</button>
+      <div class="center-note"><strong>6 RINGS</strong>全部かければCLEAR</div>
+      <button class="pump" id="rightPump" type="button">RIGHT PUMP ▶</button>
+    </section>
+  </main>
+
+  <script>
+    (()=>{
+      const canvas=document.getElementById('game'); const tank=document.getElementById('tank'); const ctx=canvas.getContext('2d');
+      const scoreEl=document.getElementById('score'); const resetBtn=document.getElementById('reset'); const leftBtn=document.getElementById('leftPump'); const rightBtn=document.getElementById('rightPump');
+      let W=0,H=0,dpr=1,last=performance.now(),score=0,clearShown=false; const rings=[],bubbles=[];
+      const pegs=[{x:.31,y:.64,h:.19},{x:.5,y:.57,h:.26},{x:.69,y:.64,h:.19}];
+      function resize(){const r=tank.getBoundingClientRect(); dpr=Math.min(devicePixelRatio||1,2); W=Math.max(1,r.width);H=Math.max(1,r.height);canvas.width=Math.round(W*dpr);canvas.height=Math.round(H*dpr);canvas.style.width=W+'px';canvas.style.height=H+'px';ctx.setTransform(dpr,0,0,dpr,0,0)}
+      function reset(){rings.length=0;bubbles.length=0;score=0;clearShown=false;scoreEl.textContent='SCORE 0 / 6';for(let i=0;i<6;i++){rings.push({x:W*(.22+i*.11),y:H*(.79+(i%2)*.035),vx:0,vy:0,rot:Math.random()*Math.PI,vr:(Math.random()-.5)*.02,r:15+Math.random()*2,c:['#ff6b8f','#ffd166','#8b5cf6','#3dd6d0','#ff8c42','#67a7ff'][i],hooked:false,peg:-1})}}
+      function pump(side){const sourceX=side==='left'?W*.18:W*.82;for(const r of rings){if(r.hooked)continue;const dx=r.x-sourceX;const power=Math.max(0,1-Math.abs(dx)/(W*.55));r.vy-=110*power;r.vx+=(side==='left'?1:-1)*(18+30*power)+(Math.random()-.5)*10;r.vr+=(Math.random()-.5)*.04}for(let i=0;i<14;i++)bubbles.push({x:sourceX+(Math.random()-.5)*24,y:H*.88+Math.random()*10,vx:(Math.random()-.5)*16+(side==='left'?8:-8),vy:-50-Math.random()*65,r:2+Math.random()*5,a:.45+Math.random()*.35});if(navigator.vibrate)navigator.vibrate(12)}
+      function bind(btn,side){['pointerdown'].forEach(ev=>btn.addEventListener(ev,e=>{e.preventDefault();btn.classList.add('down');pump(side)}));['pointerup','pointercancel','pointerleave'].forEach(ev=>btn.addEventListener(ev,()=>btn.classList.remove('down')))}
+      bind(leftBtn,'left');bind(rightBtn,'right'); resetBtn.addEventListener('click',reset);
+      function update(dt){const floor=H*.875;for(const b of bubbles){b.x+=b.vx*dt;b.y+=b.vy*dt;b.vy-=8*dt;b.a-=.22*dt}for(let i=bubbles.length-1;i>=0;i--)if(bubbles[i].y<-20||bubbles[i].a<=0)bubbles.splice(i,1);
+        for(const r of rings){if(r.hooked)continue;r.vy+=42*dt;r.vx*=Math.pow(.985,dt*60);r.vy*=Math.pow(.992,dt*60);r.x+=r.vx*dt;r.y+=r.vy*dt;r.rot+=r.vr*dt*60;r.vr*=.994;
+          if(r.x<r.r+8){r.x=r.r+8;r.vx=Math.abs(r.vx)*.65} if(r.x>W-r.r-8){r.x=W-r.r-8;r.vx=-Math.abs(r.vx)*.65} if(r.y<r.r+18){r.y=r.r+18;r.vy=Math.abs(r.vy)*.45}
+          if(r.y>floor-r.r*.5){r.y=floor-r.r*.5;r.vy=-Math.abs(r.vy)*.22;r.vx*=.88}
+          pegs.forEach((p,pi)=>{const px=W*p.x, base=H*.86, top=base-H*p.h;const near=Math.abs(r.x-px)<r.r*.72;const falling=r.vy>0;const vertical=r.y>top-5&&r.y<top+24;if(near&&falling&&vertical&&Math.abs(r.vx)<65){r.hooked=true;r.peg=pi;r.x=px;r.y=top+10;r.vx=r.vy=0;r.vr=0;score++;scoreEl.textContent='SCORE '+score+' / 6';if(navigator.vibrate)navigator.vibrate([20,25,35]);if(score===6){clearShown=true;}}})
+        }
+      }
+      function draw(){ctx.clearRect(0,0,W,H);const grad=ctx.createLinearGradient(0,0,0,H);grad.addColorStop(0,'rgba(236,251,255,.18)');grad.addColorStop(1,'rgba(59,176,218,.16)');ctx.fillStyle=grad;ctx.fillRect(0,0,W,H);
+        ctx.strokeStyle='rgba(255,255,255,.23)';ctx.lineWidth=1;for(let y=60;y<H;y+=46){ctx.beginPath();ctx.moveTo(0,y);ctx.quadraticCurveTo(W*.5,y+5*Math.sin(y*.04),W,y);ctx.stroke()}
+        const base=H*.86;ctx.fillStyle='rgba(46,121,150,.18)';ctx.fillRect(0,base,W,H-base);pegs.forEach((p,i)=>{const x=W*p.x,top=base-H*p.h;ctx.lineCap='round';ctx.strokeStyle=i===1?'#ff8c6a':'#ffd36a';ctx.lineWidth=9;ctx.beginPath();ctx.moveTo(x,base+4);ctx.lineTo(x,top);ctx.stroke();ctx.fillStyle='rgba(255,255,255,.65)';ctx.beginPath();ctx.arc(x,top,4,0,Math.PI*2);ctx.fill()});
+        for(const b of bubbles){ctx.globalAlpha=Math.max(0,b.a);ctx.strokeStyle='rgba(255,255,255,.8)';ctx.lineWidth=1;ctx.beginPath();ctx.arc(b.x,b.y,b.r,0,Math.PI*2);ctx.stroke()}ctx.globalAlpha=1;
+        for(const r of rings){ctx.save();ctx.translate(r.x,r.y);ctx.rotate(r.rot);ctx.strokeStyle=r.c;ctx.lineWidth=5;ctx.shadowColor='rgba(255,255,255,.55)';ctx.shadowBlur=3;ctx.beginPath();ctx.ellipse(0,0,r.r,r.r*.72,0,0,Math.PI*2);ctx.stroke();ctx.shadowBlur=0;ctx.strokeStyle='rgba(255,255,255,.48)';ctx.lineWidth=1.5;ctx.beginPath();ctx.ellipse(-2,-2,r.r-2,r.r*.72-2,0,Math.PI,Math.PI*1.65);ctx.stroke();ctx.restore()}
+        if(clearShown){ctx.fillStyle='rgba(6,32,49,.58)';ctx.fillRect(0,0,W,H);ctx.textAlign='center';ctx.fillStyle='#fff';ctx.font='900 28px system-ui';ctx.fillText('CLEAR!',W/2,H*.43);ctx.font='700 13px system-ui';ctx.fillStyle='#bff2ff';ctx.fillText('ALL RINGS HOOKED',W/2,H*.48)}
+      }
+      function loop(now){const dt=Math.min(.033,(now-last)/1000);last=now;update(dt);draw();requestAnimationFrame(loop)}
+      new ResizeObserver(()=>{resize();reset()}).observe(tank);resize();reset();requestAnimationFrame(loop);
+      document.addEventListener('gesturestart',e=>e.preventDefault(),{passive:false});let lastTouch=0;document.addEventListener('touchend',e=>{const now=Date.now();if(now-lastTouch<320)e.preventDefault();lastTouch=now},{passive:false});document.addEventListener('contextmenu',e=>e.preventDefault());
+    })();
+  </script>
+</body>
+</html>
