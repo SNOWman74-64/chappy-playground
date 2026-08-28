@@ -62,7 +62,7 @@
         <button class="diff" data-diff="hard" type="button">HARD · 9×11</button>
       </div>
       <div class="help">
-        <div><b>端末を傾けて銀玉をGOALへ。</b><br><small>緑のYOUマーカーが現在地。迷路はseed付きランダム生成で、安全な正解ルートは必ず残る。</small></div>
+        <div><b>端末を傾けて銀玉をGOALへ。</b><br><small>緑のYOUマーカーが現在地。盤面全体が常に見える固定俯瞰カメラ。</small></div>
         <button class="tilt" id="tilt" type="button">傾き操作 ON</button>
       </div>
     </div>
@@ -105,6 +105,7 @@ let seed=randomSeed();
 let rng;
 let scene,camera,renderer,world,staticBody,ballBody,ballCollider,ballMesh,locatorRing,boardGroup;
 let currentMaze=null,startCell=null,goalCell=null,holeCells=[];
+let currentBoardW=1,currentBoardD=1;
 let tilt={x:0,z:0},deviceTilt=false,orientationBound=false,baseBeta=null,baseGamma=null;
 let drag=false,dragStart=null,dragTilt={x:0,z:0};
 let finished=false,falling=false,resetTimer=0,last=performance.now(),accumulator=0;
@@ -193,9 +194,8 @@ function buildWorld(){
   seedEl.textContent=`${cfg.label} · ${seed}`;
   finished=false;falling=false;resetTimer=0;statusEl.textContent='START → GOAL';messageEl.classList.remove('show');
 
-  scene=new THREE.Scene();scene.background=new THREE.Color(0x2a2118);scene.fog=new THREE.Fog(0x2a2118,11,22);
-  camera=new THREE.PerspectiveCamera(38,1,.1,50);
-  const maxDim=Math.max(cfg.cols,cfg.rows);camera.position.set(0,maxDim*.92,maxDim*.72);camera.lookAt(0,0,0);
+  scene=new THREE.Scene();scene.background=new THREE.Color(0x2a2118);scene.fog=new THREE.Fog(0x2a2118,22,60);
+  camera=new THREE.PerspectiveCamera(36,1,.1,80);
   renderer=new THREE.WebGLRenderer({antialias:true,powerPreference:'high-performance'});renderer.setPixelRatio(Math.min(devicePixelRatio||1,2));renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFSoftShadowMap;renderer.outputColorSpace=THREE.SRGBColorSpace;view.appendChild(renderer.domElement);
   scene.add(new THREE.HemisphereLight(0xfff2cf,0x493421,2.25));const sun=new THREE.DirectionalLight(0xffffff,3.1);sun.position.set(-4,9,6);sun.castShadow=true;sun.shadow.mapSize.set(1024,1024);sun.shadow.camera.left=-7;sun.shadow.camera.right=7;sun.shadow.camera.top=8;sun.shadow.camera.bottom=-8;scene.add(sun);
 
@@ -204,7 +204,7 @@ function buildWorld(){
   const wallMat=new THREE.MeshStandardMaterial({color:0x8e6331,roughness:.58,metalness:.03});
   const darkMat=new THREE.MeshStandardMaterial({color:0x1d1712,roughness:.92});
   const rimMat=new THREE.MeshStandardMaterial({color:0x69451f,roughness:.6});
-  const boardW=cfg.cols*CELL,boardD=cfg.rows*CELL;
+  const boardW=cfg.cols*CELL,boardD=cfg.rows*CELL;currentBoardW=boardW;currentBoardD=boardD;
   addBoxMesh(boardW+.38,FLOOR_T,boardD+.38,0,-FLOOR_T/2-.02,0,wood,false);
   addBoxMesh(boardW+.58,.22,.18,0,.11,-boardD/2-.2,rimMat);addBoxMesh(boardW+.58,.22,.18,0,.11,boardD/2+.2,rimMat);addBoxMesh(.18,.22,boardD+.58,-boardW/2-.2,.11,0,rimMat);addBoxMesh(.18,.22,boardD+.58,boardW/2+.2,.11,0,rimMat);
   addStaticCollider((boardW+.58)/2,.28,.09,0,.28,-boardD/2-.2);addStaticCollider((boardW+.58)/2,.28,.09,0,.28,boardD/2+.2);addStaticCollider(.09,.28,(boardD+.58)/2,-boardW/2-.2,.28,0);addStaticCollider(.09,.28,(boardD+.58)/2,boardW/2+.2,.28,0);
@@ -256,10 +256,24 @@ function updatePlayerLocator(t,now){
 }
 function render(now=performance.now()){
   if(!renderer)return;const t=ballBody?.translation(),q=ballBody?.rotation();if(t&&ballMesh){ballMesh.position.set(t.x,t.y,t.z);ballMesh.quaternion.set(q.x,q.y,q.z,q.w)}
-  const control=deviceTilt?tilt:dragTilt;camera.position.x+=(control.x*.9-camera.position.x)*.025;camera.lookAt(0,0,0);updatePlayerLocator(t,now);renderer.render(scene,camera);
+  camera.lookAt(0,0,0);updatePlayerLocator(t,now);renderer.render(scene,camera);
 }
 function loop(now){requestAnimationFrame(loop);let dt=Math.min(.05,(now-last)/1000);last=now;accumulator+=dt;while(accumulator>=fixedStep){physicsStep();accumulator-=fixedStep}render(now)}
-function resize(){if(!renderer)return;const r=view.getBoundingClientRect();if(r.width<2||r.height<2)return;renderer.setSize(r.width,r.height,false);camera.aspect=r.width/r.height;camera.updateProjectionMatrix()}
+function fitCamera(){
+  if(!camera)return;
+  const aspect=Math.max(.35,camera.aspect||1);
+  const vHalf=THREE.MathUtils.degToRad(camera.fov*.5);
+  const hHalf=Math.atan(Math.tan(vHalf)*aspect);
+  const halfW=currentBoardW/2+.58,halfD=currentBoardD/2+.58;
+  const distW=halfW/Math.tan(Math.max(.12,hHalf));
+  const distD=halfD/Math.tan(Math.max(.12,vHalf));
+  const distance=Math.max(distW,distD)*1.18;
+  const dir=new THREE.Vector3(0,1.42,.50).normalize();
+  camera.position.copy(dir.multiplyScalar(distance));
+  camera.lookAt(0,0,0);
+  camera.updateProjectionMatrix();
+}
+function resize(){if(!renderer)return;const r=view.getBoundingClientRect();if(r.width<2||r.height<2)return;renderer.setSize(r.width,r.height,false);camera.aspect=r.width/r.height;fitCamera()}
 
 shell.addEventListener('pointerdown',e=>{if(e.target.closest('button,a'))return;drag=true;dragStart={x:e.clientX,y:e.clientY};shell.setPointerCapture?.(e.pointerId)});
 shell.addEventListener('pointermove',e=>{if(!drag)return;dragTilt.x=Math.max(-1,Math.min(1,(e.clientX-dragStart.x)/95));dragTilt.z=Math.max(-1,Math.min(1,(e.clientY-dragStart.y)/95))});
