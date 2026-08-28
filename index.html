@@ -6,8 +6,8 @@
   <meta name="theme-color" content="#0b1020" />
   <title>Chappy Playground</title>
   <style>
-    :root { color-scheme: dark; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background:#08101d; color:#f8fafc; }
-    * { box-sizing:border-box; }
+    :root { color-scheme:dark; font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; background:#08101d; color:#f8fafc; }
+    * { box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
     body { margin:0; min-height:100svh; padding:max(24px,env(safe-area-inset-top)) 18px max(28px,env(safe-area-inset-bottom)); background:radial-gradient(circle at 10% 0%,rgba(56,189,248,.16),transparent 28%),radial-gradient(circle at 100% 8%,rgba(167,139,250,.18),transparent 32%),linear-gradient(180deg,#101a2d 0%,#08101d 100%); }
     main { width:min(100%,520px); margin:0 auto; }
     .badge { display:inline-flex; padding:7px 11px; border:1px solid rgba(125,211,252,.14); border-radius:999px; background:rgba(56,189,248,.09); color:#bae6fd; font-size:11px; font-weight:800; letter-spacing:.10em; text-transform:uppercase; }
@@ -17,23 +17,28 @@
     .section-title strong { font-size:13px; letter-spacing:.04em; }
     .section-title span { color:#64748b; font-size:11px; }
     .apps { display:grid; gap:12px; }
-    .app-card { display:grid; grid-template-columns:64px minmax(0,1fr) auto; align-items:center; gap:14px; min-height:94px; padding:14px; border:1px solid rgba(255,255,255,.10); border-radius:23px; color:inherit; text-decoration:none; background:rgba(15,23,42,.64); box-shadow:0 18px 50px rgba(0,0,0,.18),inset 0 1px rgba(255,255,255,.04); backdrop-filter:blur(16px); transition:transform .14s ease,border-color .14s ease,background .14s ease; -webkit-tap-highlight-color:transparent; }
+    .app-card { display:grid; grid-template-columns:64px minmax(0,1fr) auto; align-items:center; gap:14px; min-height:94px; padding:14px; border:1px solid rgba(255,255,255,.10); border-radius:23px; color:inherit; text-decoration:none; background:rgba(15,23,42,.64); box-shadow:0 18px 50px rgba(0,0,0,.18),inset 0 1px rgba(255,255,255,.04); backdrop-filter:blur(16px); transition:transform .14s ease,background .14s ease; }
     .app-card:active { transform:scale(.985); background:rgba(30,41,59,.72); }
-    .app-icon { width:64px; aspect-ratio:1; display:grid; grid-template-columns:repeat(3,1fr); gap:5px; padding:10px; border-radius:19px; background:linear-gradient(145deg,#38bdf8,#8b5cf6); box-shadow:inset 0 1px rgba(255,255,255,.24),0 9px 18px rgba(56,189,248,.12); }
-    .app-icon i { display:block; aspect-ratio:1; border-radius:50%; background:rgba(255,255,255,.52); box-shadow:inset -2px -2px 4px rgba(30,41,59,.22); }
-    .app-icon.dial { display:grid; place-items:center; padding:0; background:linear-gradient(145deg,#26372f,#7ECB9B); }
+    .app-icon { width:64px; aspect-ratio:1; border-radius:19px; box-shadow:inset 0 1px rgba(255,255,255,.24),0 9px 18px rgba(56,189,248,.12); }
+    .app-icon.fidget { display:grid; grid-template-columns:repeat(3,1fr); gap:5px; padding:10px; background:linear-gradient(145deg,#38bdf8,#8b5cf6); }
+    .app-icon.fidget i { display:block; aspect-ratio:1; border-radius:50%; background:rgba(255,255,255,.52); box-shadow:inset -2px -2px 4px rgba(30,41,59,.22); }
+    .app-icon.dial,.app-icon.terminal,.app-icon.cards,.app-icon.water,.app-icon.marble,.app-icon.hunt,.app-icon.singularity { position:relative; display:grid; place-items:center; overflow:hidden; }
+    .app-icon.dial { background:linear-gradient(145deg,#26372f,#7ECB9B); }
     .app-icon.dial::before { content:"32"; display:grid; place-items:center; width:42px; aspect-ratio:1; border-radius:50%; background:#1F2325; border:2px solid rgba(236,240,238,.18); color:#ECF0EE; font-size:17px; font-weight:900; box-shadow:inset 0 0 0 5px rgba(126,203,155,.12); }
-    .app-icon.terminal { display:grid; place-items:center; padding:0; background:linear-gradient(145deg,#06110b,#174329); border:1px solid rgba(104,245,164,.16); }
+    .app-icon.terminal { background:linear-gradient(145deg,#06110b,#174329); border:1px solid rgba(104,245,164,.16); }
     .app-icon.terminal::before { content:">_"; color:#68f5a4; font:900 20px/1 "SFMono-Regular",Consolas,monospace; text-shadow:0 0 12px rgba(104,245,164,.35); }
-    .app-icon.cards { display:grid; place-items:center; padding:0; background:linear-gradient(145deg,#0a100c,#223c29); border:1px solid rgba(83,255,124,.18); }
+    .app-icon.cards { background:linear-gradient(145deg,#0a100c,#223c29); border:1px solid rgba(83,255,124,.18); }
     .app-icon.cards::before { content:"[]"; color:#53ff7c; font:900 19px/1 "SFMono-Regular",Consolas,monospace; letter-spacing:-.12em; text-shadow:0 0 12px rgba(83,255,124,.28); }
-    .app-icon.water { display:grid; place-items:center; padding:0; background:linear-gradient(145deg,#c9f4ff,#55c5eb); border:1px solid rgba(255,255,255,.48); }
+    .app-icon.water { background:linear-gradient(145deg,#c9f4ff,#55c5eb); border:1px solid rgba(255,255,255,.48); }
     .app-icon.water::before { content:"◎"; display:grid; place-items:center; width:42px; aspect-ratio:1; border-radius:50%; border:5px solid #ff7b9c; color:#ffda64; font:900 20px/1 system-ui; box-shadow:0 0 0 4px rgba(255,255,255,.24),inset 0 0 12px rgba(255,255,255,.48); }
-    .app-icon.marble { display:grid; place-items:center; padding:0; background:linear-gradient(145deg,#d7bd83,#9d7337); border:1px solid rgba(255,242,203,.38); }
+    .app-icon.marble { background:linear-gradient(145deg,#d7bd83,#9d7337); border:1px solid rgba(255,242,203,.38); }
     .app-icon.marble::before { content:"●"; display:grid; place-items:center; width:42px; aspect-ratio:1; border-radius:10px; background:#eadcae; color:#8f999c; border:3px solid #765526; font-size:23px; text-shadow:-3px -3px 3px #fff,3px 3px 4px #344043; }
-    .app-icon.hunt { position:relative; display:grid; place-items:center; padding:0; overflow:hidden; background:linear-gradient(145deg,#172219,#51633d); border:1px solid rgba(194,218,139,.28); }
+    .app-icon.hunt { background:linear-gradient(145deg,#172219,#51633d); border:1px solid rgba(194,218,139,.28); }
     .app-icon.hunt::before { content:"●  · ·"; color:#f4d35e; font:900 16px/1 ui-monospace,monospace; letter-spacing:.08em; text-shadow:0 0 8px rgba(244,211,94,.35); }
     .app-icon.hunt::after { content:"●"; position:absolute; right:8px; bottom:8px; color:#f05b61; font-size:19px; text-shadow:0 0 8px rgba(240,91,97,.38); }
+    .app-icon.singularity { background:radial-gradient(circle at 50% 50%,#000 0 17%,#6a2fbd 19%,#5de9ff 24%,#0a1024 33%,#02040b 72%); border:1px solid rgba(125,211,252,.22); box-shadow:inset 0 0 18px rgba(139,92,246,.25),0 8px 24px rgba(82,58,196,.22); }
+    .app-icon.singularity::before { content:""; width:48px; height:15px; border-radius:50%; border:3px solid rgba(117,231,255,.88); transform:rotate(-18deg); box-shadow:0 0 13px rgba(103,232,249,.75),inset 0 0 8px rgba(167,139,250,.45); }
+    .app-icon.singularity::after { content:"✦"; position:absolute; top:8px; right:9px; color:#fff; font-size:12px; text-shadow:0 0 10px #fff; }
     .app-info { min-width:0; }
     .app-no { display:block; margin-bottom:3px; color:#7dd3fc; font-size:10px; font-weight:900; letter-spacing:.12em; }
     .app-info strong { display:block; font-size:18px; letter-spacing:-.025em; }
@@ -48,15 +53,16 @@
     <span class="badge">GitHub Pages · Mobile First</span>
     <h1>Chappy<br />Playground</h1>
     <p class="lead">チャットから直接作った、小さいWebアプリの置き場。気に入ったものだけ後から育てる。</p>
-    <div class="section-title"><strong>PLAYGROUND APPS</strong><span>7 apps</span></div>
+    <div class="section-title"><strong>PLAYGROUND APPS</strong><span>8 apps</span></div>
     <section class="apps" aria-label="アプリ一覧">
-      <a class="app-card" href="./stress-relief/"><div class="app-icon" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="app-info"><span class="app-no">#01</span><strong>Fidget Room</strong><p>Pop It、プチプチ、ストレスボール、スピナー、メカニカルキー。</p></div><span class="arrow">›</span></a>
+      <a class="app-card" href="./stress-relief/"><div class="app-icon fidget" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="app-info"><span class="app-no">#01</span><strong>Fidget Room</strong><p>Pop It、プチプチ、ストレスボール、スピナー、メカニカルキー。</p></div><span class="arrow">›</span></a>
       <a class="app-card" href="./liftlog-dial/"><div class="app-icon dial" aria-hidden="true"></div><div class="app-info"><span class="app-no">#02 · REACT</span><strong>LIFTLOG Dial</strong><p>Claude Artifact由来の重量ダイヤルUIをReactのままPagesへ移植した実験。</p></div><span class="arrow">›</span></a>
       <a class="app-card" href="./ai-lab/"><div class="app-icon terminal" aria-hidden="true"></div><div class="app-info"><span class="app-no">#03 · GAME</span><strong>Midnight AI Lab</strong><p>VRAM・RAM・資金・安定性をやりくりしてローカルAIエージェントを起動する。</p></div><span class="arrow">›</span></a>
       <a class="app-card" href="./root-card/"><div class="app-icon cards" aria-hidden="true"></div><div class="app-info"><span class="app-no">#04 · CARD GAME</span><strong>ROOT // CARD PROTOCOL</strong><p>CPUと1vs1。システム用語カードで攻撃・防御・妨害を回すターミナル対戦。</p></div><span class="arrow">›</span></a>
       <a class="app-card" href="./water-rings/"><div class="app-icon water" aria-hidden="true"></div><div class="app-info"><span class="app-no">#05 · POCKET TOY</span><strong>Water Ring Toss</strong><p>左右のポンプで水流を起こして、6つのリングを3本の杭にかける昔のおもちゃ風。</p></div><span class="arrow">›</span></a>
       <a class="app-card" href="./marble-maze/?v=force-1"><div class="app-icon marble" aria-hidden="true"></div><div class="app-info"><span class="app-no">#06 · THREE + RAPIER</span><strong>Marble Maze 3D</strong><p>3D物理の銀玉迷路。seed付きランダム生成＋ジャイロ操作で毎回違う盤面を攻略する。</p></div><span class="arrow">›</span></a>
       <a class="app-card" href="./marble-hunt/"><div class="app-icon hunt" aria-hidden="true"></div><div class="app-info"><span class="app-no">#07 · CHASE GAME</span><strong>MARBLE HUNT</strong><p>ランダム迷路で敵AIから逃げながらコイン回収。BIG COIN中は追う側に逆転する。</p></div><span class="arrow">›</span></a>
+      <a class="app-card" href="./singularity/?v=1"><div class="app-icon singularity" aria-hidden="true"></div><div class="app-info"><span class="app-no">#08 · GLSL / WEB AUDIO</span><strong>SINGULARITY</strong><p>1.5万粒子のGPU銀河。長押しで重力崩壊し、超新星・音・ジャイロ・重力レンズまでコードだけで生成。</p></div><span class="arrow">›</span></a>
       <div class="empty-card">次の暇つぶしアプリ用スペース</div>
     </section>
     <footer>SNOWman74-64 / chappy-playground</footer>
