@@ -22,12 +22,14 @@
     .app-icon { width:64px; aspect-ratio:1; border-radius:19px; box-shadow:inset 0 1px rgba(255,255,255,.24),0 9px 18px rgba(56,189,248,.12); }
     .app-icon.fidget { display:grid; grid-template-columns:repeat(3,1fr); gap:5px; padding:10px; background:linear-gradient(145deg,#38bdf8,#8b5cf6); }
     .app-icon.fidget i { display:block; aspect-ratio:1; border-radius:50%; background:rgba(255,255,255,.52); box-shadow:inset -2px -2px 4px rgba(30,41,59,.22); }
-    .app-icon.dial,.app-icon.workbench,.app-icon.terminal,.app-icon.cards,.app-icon.water,.app-icon.marble,.app-icon.hunt,.app-icon.singularity,.app-icon.yohaku { position:relative; display:grid; place-items:center; overflow:hidden; }
+    .app-icon.dial,.app-icon.workbench,.app-icon.motion,.app-icon.terminal,.app-icon.cards,.app-icon.water,.app-icon.marble,.app-icon.hunt,.app-icon.singularity,.app-icon.yohaku { position:relative; display:grid; place-items:center; overflow:hidden; }
     .app-icon.dial { background:linear-gradient(145deg,#26372f,#7ECB9B); }
     .app-icon.dial::before { content:"32"; display:grid; place-items:center; width:42px; aspect-ratio:1; border-radius:50%; background:#1F2325; border:2px solid rgba(236,240,238,.18); color:#ECF0EE; font-size:17px; font-weight:900; box-shadow:inset 0 0 0 5px rgba(126,203,155,.12); }
     .app-icon.workbench { background:linear-gradient(145deg,#eff7f1,#b7dec3); }
     .app-icon.workbench::before { content:"28"; color:#17211b; font-size:24px; font-weight:950; letter-spacing:-.05em; }
     .app-icon.workbench::after { content:"KG"; position:absolute; right:9px; bottom:9px; color:#15803d; font-size:8px; font-weight:900; letter-spacing:.08em; }
+    .app-icon.motion { grid-template-columns:repeat(3,9px); grid-template-rows:repeat(2,16px); gap:5px; background:linear-gradient(145deg,#f2f7f3,#aed8ba); }
+    .app-icon.motion::before { content:""; width:9px; height:13px; border-radius:2px; background:#15803d; box-shadow:14px -3px #65a978,28px 3px #15803d,0 21px #65a978,14px 18px #15803d,28px 23px #65a978; }
     .app-icon.terminal { background:linear-gradient(145deg,#06110b,#174329); border:1px solid rgba(104,245,164,.16); }
     .app-icon.terminal::before { content:">_"; color:#68f5a4; font:900 20px/1 "SFMono-Regular",Consolas,monospace; text-shadow:0 0 12px rgba(104,245,164,.35); }
     .app-icon.cards { background:linear-gradient(145deg,#0a100c,#223c29); border:1px solid rgba(83,255,124,.18); }
@@ -59,7 +61,7 @@
     <span class="badge">GitHub Pages · Mobile First</span>
     <h1>Chappy<br />Playground</h1>
     <p class="lead">チャットから直接作った、小さいWebアプリの置き場。気に入ったものだけ後から育てる。</p>
-    <div class="section-title"><strong>PLAYGROUND APPS</strong><span>10 apps</span></div>
+    <div class="section-title"><strong>PLAYGROUND APPS</strong><span>11 apps</span></div>
     <section class="apps" aria-label="アプリ一覧">
       <a class="app-card" href="./stress-relief/"><div class="app-icon fidget" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="app-info"><span class="app-no">#01</span><strong>Fidget Room</strong><p>Pop It、プチプチ、ストレスボール、スピナー、メカニカルキー。</p></div><span class="arrow">›</span></a>
       <a class="app-card" href="./liftlog-dial/"><div class="app-icon dial" aria-hidden="true"></div><div class="app-info"><span class="app-no">#02 · REACT</span><strong>LIFTLOG Dial</strong><p>Claude Artifact由来の重量ダイヤルUIをReactのままPagesへ移植した実験。</p></div><span class="arrow">›</span></a>
@@ -71,6 +73,7 @@
       <a class="app-card" href="./singularity/?v=1"><div class="app-icon singularity" aria-hidden="true"></div><div class="app-info"><span class="app-no">#08 · GLSL / WEB AUDIO</span><strong>SINGULARITY</strong><p>1.5万粒子のGPU銀河。長押しで重力崩壊し、超新星・音・ジャイロ・重力レンズまでコードだけで生成。</p></div><span class="arrow">›</span></a>
       <a class="app-card" href="./liftlog-record/"><div class="app-icon workbench" aria-hidden="true"></div><div class="app-info"><span class="app-no">#09 · UI MOCK</span><strong>LIFTLOG Record</strong><p>余白・区切り線・状態差で組み立てた、カードレス寄りの記録ワークベンチ。</p></div><span class="arrow">›</span></a>
       <a class="app-card" href="./yohaku-diary/?v=1"><div class="app-icon yohaku" aria-hidden="true"></div><div class="app-info"><span class="app-no">#10 · PERSONAL ZINE</span><strong>余白で暮らす。</strong><p>「もし私に生活があったら」を書いた、夜・雨・会話・散らかったメモの架空の日常ブログ。</p></div><span class="arrow">›</span></a>
+      <a class="app-card" href="./liftlog-motion-showcase/"><div class="app-icon motion" aria-hidden="true"></div><div class="app-info"><span class="app-no">#11 · UI MOTION</span><strong>LIFTLOG Motion Showcase</strong><p>6画面を同じ土台で比較する、操作と状態変化にだけ応答するモーション見本。</p></div><span class="arrow">›</span></a>
       <div class="empty-card">次の暇つぶしアプリ用スペース</div>
     </section>
     <footer>SNOWman74-64 / chappy-playground</footer>

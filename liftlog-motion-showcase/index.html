@@ -1,0 +1,603 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#f4f6f5" />
+  <title>LIFTLOG Motion Showcase</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f4f6f5;
+      --surface: #ffffff;
+      --work: #f0f5f1;
+      --text: #17211b;
+      --muted: #6c7770;
+      --line: #d8dfda;
+      --accent: #15803d;
+      --accent-soft: #e5f2e8;
+      --gold: #a86f12;
+      --gold-soft: #faf1da;
+      --danger: #a4483c;
+      --ease: cubic-bezier(.2, .82, .24, 1);
+      --shadow: 0 20px 60px rgba(23, 37, 29, .08);
+    }
+
+    * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+    html { background: var(--bg); }
+    body {
+      margin: 0;
+      min-width: 320px;
+      min-height: 100svh;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, "Noto Sans JP", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    button { color: inherit; font: inherit; cursor: pointer; }
+    svg { display: block; }
+    h1, h2, h3, p { margin: 0; }
+    [hidden] { display: none !important; }
+
+    .phone {
+      width: min(100%, 430px);
+      min-height: 100svh;
+      margin: 0 auto;
+      overflow: hidden;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+    .topbar {
+      min-height: 60px;
+      padding: max(10px, env(safe-area-inset-top)) 16px 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--line);
+    }
+    .brand { font-size: 18px; font-weight: 900; letter-spacing: -.035em; }
+    .showcase-label { color: var(--muted); font-size: 9px; font-weight: 800; letter-spacing: .08em; }
+    .content { min-height: calc(100svh - 138px); padding: 0 16px 98px; }
+    .screen { display: none; }
+    .screen.active { display: block; animation: screenIn .16s var(--ease); }
+    @keyframes screenIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+
+    .page-head {
+      min-height: 84px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      border-bottom: 1px solid var(--line);
+    }
+    .eyebrow { color: var(--accent); font-size: 9px; font-weight: 900; letter-spacing: .11em; }
+    .page-head h1 { margin-top: 3px; font-size: 25px; line-height: 1; letter-spacing: -.04em; }
+    .head-action {
+      min-width: 48px;
+      min-height: 44px;
+      padding: 0 4px;
+      border: 0;
+      background: transparent;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 800;
+    }
+    .head-action.active { color: var(--accent); }
+    .section { padding-top: 18px; }
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 12px; padding-bottom: 9px; }
+    .section-head h2 { font-size: 16px; letter-spacing: -.02em; }
+    .section-sub { margin-top: 3px; color: var(--muted); font-size: 10px; line-height: 1.45; }
+    .motion-hint {
+      min-height: 42px;
+      margin-top: 16px;
+      padding: 10px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 10px;
+      line-height: 1.45;
+    }
+    .motion-hint b { color: var(--accent); font-size: 9px; letter-spacing: .07em; white-space: nowrap; }
+    .segmented { position: relative; display: grid; border-bottom: 1px solid var(--line); }
+    .segmented.two { grid-template-columns: repeat(2, 1fr); }
+    .segmented.three { grid-template-columns: repeat(3, 1fr); }
+    .segmented button {
+      min-height: 46px;
+      border: 0;
+      background: transparent;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+    }
+    .segmented button.active { color: var(--accent); }
+    .segmented .indicator {
+      position: absolute;
+      left: 0;
+      bottom: -1px;
+      width: var(--indicator-width, 50%);
+      height: 3px;
+      border-radius: 999px;
+      background: var(--accent);
+      transform: translateX(calc(var(--index, 0) * 100%));
+      transition: transform .22s var(--ease);
+      pointer-events: none;
+    }
+
+    /* Record */
+    .record-work {
+      margin-inline: -16px;
+      padding: 16px;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: var(--work);
+    }
+    .record-title { display: flex; align-items: start; justify-content: space-between; gap: 10px; }
+    .record-title h2 { margin-top: 3px; font-size: 18px; line-height: 1.25; letter-spacing: -.025em; }
+    .form-link { min-height: 44px; border: 0; background: transparent; color: var(--muted); font-size: 10px; font-weight: 750; }
+    .weight-row { display: grid; grid-template-columns: 52px 1fr 52px; align-items: center; gap: 10px; padding: 16px 0 6px; }
+    .step {
+      width: 52px;
+      height: 52px;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      background: var(--surface);
+      font-size: 22px;
+      transition: transform .1s ease, background .1s ease;
+    }
+    .step:active { transform: scale(.9); background: var(--accent-soft); }
+    .weight { text-align: center; font-size: 42px; line-height: 1; font-weight: 950; letter-spacing: -.055em; font-variant-numeric: tabular-nums; }
+    .weight small { margin-left: 4px; color: var(--muted); font-size: 13px; font-weight: 750; letter-spacing: 0; }
+    .landmarks { text-align: center; color: var(--muted); font-size: 10px; }
+    .landmarks b { color: var(--gold); }
+    .set-grid { min-height: 64px; margin-top: 14px; display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .set-value { display: grid; place-items: center; align-content: center; }
+    .set-value + .set-value { border-left: 1px solid var(--line); }
+    .set-value b { font-size: 21px; }
+    .set-value span { margin-top: 2px; color: var(--muted); font-size: 9px; font-weight: 900; letter-spacing: .1em; }
+    .drop-row { width: 100%; min-height: 46px; display: flex; align-items: center; justify-content: space-between; border: 0; border-bottom: 1px solid var(--line); background: transparent; color: var(--muted); font-size: 11px; font-weight: 800; }
+    .save-button {
+      width: 100%;
+      min-height: 54px;
+      margin-top: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      border: 0;
+      border-radius: 8px;
+      background: var(--text);
+      color: #fff;
+      font-weight: 900;
+      transition: background .2s ease, transform .12s ease;
+    }
+    .save-button:active { transform: scale(.985); }
+    .save-button.success { background: var(--accent); }
+    .save-icon { width: 21px; height: 21px; overflow: visible; }
+    .save-icon path { fill: none; stroke: currentColor; stroke-width: 2.1; stroke-linecap: round; stroke-linejoin: round; }
+    .save-disk { transform-origin: center; transition: opacity .13s ease, transform .2s var(--ease); }
+    .save-check { opacity: 0; stroke-dasharray: 28; stroke-dashoffset: 28; transition: opacity .1s ease, stroke-dashoffset .26s var(--ease) .04s; }
+    .save-button.success .save-disk { opacity: 0; transform: scale(.72) rotate(-8deg); }
+    .save-button.success .save-check { opacity: 1; stroke-dashoffset: 0; }
+
+    /* Plan */
+    .week { position: relative; display: grid; grid-template-columns: repeat(7, 1fr); border-bottom: 1px solid var(--line); }
+    .day { min-height: 58px; display: grid; place-items: center; align-content: center; gap: 4px; border: 0; background: transparent; color: var(--muted); font-size: 9px; font-weight: 800; }
+    .day span { width: 28px; height: 28px; display: grid; place-items: center; border-radius: 50%; color: var(--text); font-size: 11px; }
+    .day.rest span { color: var(--muted); }
+    .day.active { color: var(--accent); }
+    .day.active span { background: var(--accent-soft); color: var(--accent); }
+    .week-indicator {
+      position: absolute;
+      left: 0;
+      bottom: -1px;
+      width: calc(100% / 7);
+      height: 3px;
+      background: var(--accent);
+      transform: translateX(calc(var(--day, 2) * 100%));
+      transition: transform .22s var(--ease);
+    }
+    .plan-summary { min-height: 74px; padding: 14px 0; display: flex; align-items: end; justify-content: space-between; border-bottom: 1px solid var(--line); }
+    .plan-summary span { color: var(--accent); font-size: 9px; font-weight: 900; letter-spacing: .1em; }
+    .plan-summary h2 { margin-top: 3px; font-size: 22px; }
+    .plan-summary p { color: var(--muted); font-size: 10px; }
+    .plan-list { border-top: 1px solid var(--line); }
+    .plan-row {
+      min-height: 64px;
+      display: grid;
+      grid-template-columns: 34px minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 9px;
+      border-bottom: 1px solid var(--line);
+      background: var(--surface);
+      transition: transform .2s var(--ease), box-shadow .2s ease, background .2s ease, padding .2s ease;
+    }
+    .plan-list.editing { margin-inline: -8px; padding: 0 8px; background: var(--work); }
+    .plan-list.editing .plan-row { padding-inline: 5px; }
+    .plan-row.lifted {
+      z-index: 2;
+      position: relative;
+      transform: translateY(-5px) scale(1.01);
+      background: var(--surface);
+      box-shadow: 0 9px 22px rgba(23, 37, 29, .13);
+    }
+    .drag-handle { min-width: 34px; min-height: 44px; display: grid; place-items: center; border: 0; background: transparent; color: var(--muted); font-size: 18px; letter-spacing: -4px; opacity: .35; }
+    .editing .drag-handle { color: var(--accent); opacity: 1; }
+    .plan-name { font-size: 13px; font-weight: 800; }
+    .plan-meta { margin-top: 3px; color: var(--muted); font-size: 10px; }
+    .plan-order { color: var(--muted); font-size: 10px; }
+
+    /* History */
+    .date-nav { min-height: 48px; display: grid; grid-template-columns: 44px 1fr 44px; align-items: center; border-bottom: 1px solid var(--line); }
+    .date-nav button { min-height: 44px; border: 0; background: transparent; color: var(--muted); font-size: 18px; }
+    .date-current { color: var(--text) !important; font-size: 13px !important; font-weight: 850; }
+    .history-primary { padding: 17px 0 14px; border-bottom: 1px solid var(--line); }
+    .history-primary span { color: var(--muted); font-size: 10px; }
+    .history-primary h2 { margin-top: 4px; font-size: 23px; }
+    .history-summary { min-height: 64px; margin-top: 13px; display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .history-summary div { display: grid; place-items: center; align-content: center; }
+    .history-summary div + div { border-left: 1px solid var(--line); }
+    .history-summary b { font-size: 15px; }
+    .history-summary small { margin-top: 3px; color: var(--muted); font-size: 9px; }
+    .exercise-list { border-top: 1px solid var(--line); }
+    .exercise-row { width: 100%; min-height: 62px; padding: 6px 0; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 12px; border: 0; border-bottom: 1px solid var(--line); background: transparent; text-align: left; }
+    .exercise-name { display: block; font-size: 13px; font-weight: 800; }
+    .exercise-meta { display: block; margin-top: 3px; color: var(--muted); font-size: 10px; }
+    .exercise-value { font-size: 13px; font-weight: 850; text-align: right; }
+    .exercise-value span { display: block; margin-top: 3px; color: var(--muted); font-size: 10px; font-weight: 550; }
+    .history-detail { display: grid; grid-template-rows: 0fr; opacity: 0; border-bottom: 0 solid var(--line); transition: grid-template-rows .24s var(--ease), opacity .16s ease, border-width .2s ease; }
+    .history-detail.open { grid-template-rows: 1fr; opacity: 1; border-bottom-width: 1px; }
+    .history-detail-inner { overflow: hidden; }
+    .trend-chart { height: 100px; padding-top: 11px; }
+    .trend-chart svg { width: 100%; height: 82px; overflow: visible; }
+    .trend-grid { stroke: var(--line); stroke-width: 1; }
+    .trend-path { fill: none; stroke: var(--accent); stroke-width: 2.7; stroke-linecap: round; stroke-linejoin: round; path-length: 1; stroke-dasharray: 1; stroke-dashoffset: 1; }
+    .history-detail.open .trend-path { animation: drawLine .44s var(--ease) forwards; }
+    .trend-dot { fill: var(--surface); stroke: var(--accent); stroke-width: 2; opacity: 0; transform-box: fill-box; transform-origin: center; }
+    .history-detail.open .trend-dot { animation: dotIn .2s var(--ease) .3s forwards; }
+    .trend-dot.current { fill: var(--accent); }
+    .trend-label { fill: var(--muted); font-size: 9px; }
+    @keyframes drawLine { to { stroke-dashoffset: 0; } }
+    @keyframes dotIn { from { opacity: 0; transform: scale(.5); } to { opacity: 1; transform: scale(1); } }
+
+    /* Body composition */
+    .metric-primary { padding: 18px 0 12px; }
+    .metric-label { color: var(--muted); font-size: 10px; }
+    .metric-row { display: flex; align-items: end; justify-content: space-between; gap: 12px; }
+    .metric-value { margin-top: 3px; font-size: 43px; line-height: 1; font-weight: 950; letter-spacing: -.055em; font-variant-numeric: tabular-nums; }
+    .metric-value small { margin-left: 4px; color: var(--muted); font-size: 14px; font-weight: 750; letter-spacing: 0; }
+    .metric-change { padding-bottom: 3px; color: var(--accent); font-size: 11px; font-weight: 850; text-align: right; }
+    .metric-change span { display: block; margin-top: 3px; color: var(--muted); font-size: 9px; font-weight: 550; }
+    .metric-primary.updating .metric-value, .metric-primary.updating .metric-change { animation: metricSwap .22s var(--ease); }
+    @keyframes metricSwap { 0% { opacity: 0; transform: translateY(5px); } 100% { opacity: 1; transform: none; } }
+    .body-chart { position: relative; height: 220px; margin-inline: -4px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .body-chart svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .body-grid { stroke: var(--line); stroke-width: 1; }
+    .body-area { fill: var(--accent-soft); }
+    .body-line { fill: none; stroke: var(--accent); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    .metric-graph { opacity: 0; transform: translateY(5px); transition: opacity .2s ease, transform .22s var(--ease); }
+    .metric-graph.active { opacity: 1; transform: none; }
+    .body-dot { fill: var(--surface); stroke: var(--accent); stroke-width: 2.5; }
+    .body-dot.latest { fill: var(--accent); }
+    .axis { fill: var(--muted); font-size: 9px; }
+    .body-secondary { min-height: 58px; display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1px solid var(--line); }
+    .body-secondary div { display: grid; place-items: center; align-content: center; }
+    .body-secondary div + div { border-left: 1px solid var(--line); }
+    .body-secondary span { color: var(--muted); font-size: 9px; }
+    .body-secondary b { margin-top: 3px; font-size: 14px; }
+
+    /* PR */
+    .pr-primary { padding: 18px 0 13px; border-bottom: 1px solid var(--line); }
+    .pr-title-row { display: flex; align-items: end; justify-content: space-between; gap: 12px; }
+    .pr-label { color: var(--accent); font-size: 9px; font-weight: 900; letter-spacing: .07em; }
+    .pr-value { margin-top: 3px; font-size: 43px; line-height: 1; font-weight: 950; letter-spacing: -.055em; font-variant-numeric: tabular-nums; }
+    .pr-value small { margin-left: 4px; color: var(--muted); font-size: 14px; font-weight: 750; letter-spacing: 0; }
+    .pr-date { color: var(--muted); font-size: 9px; text-align: right; }
+    .pr-date b { display: block; margin-bottom: 3px; color: var(--text); font-size: 11px; }
+    .pr-celebration { position: relative; width: 56px; height: 56px; margin: 15px auto 7px; display: grid; place-items: center; color: var(--gold); }
+    .trophy { width: 38px; height: 38px; }
+    .trophy path { fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .spark { position: absolute; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); opacity: 0; }
+    .spark.s1 { left: 2px; top: 10px; }
+    .spark.s2 { right: 2px; top: 7px; }
+    .spark.s3 { right: 5px; bottom: 7px; }
+    .pr-primary.celebrate .trophy { animation: trophyLift .48s var(--ease); }
+    .pr-primary.celebrate .spark { animation: sparkOut .42s var(--ease) .08s; }
+    .pr-primary.celebrate .pr-value { animation: prValue .42s var(--ease); }
+    @keyframes trophyLift { 0% { transform: translateY(0) scale(1); } 46% { transform: translateY(-5px) scale(1.07); } 100% { transform: none; } }
+    @keyframes sparkOut { 0% { opacity: 0; transform: scale(.2); } 50% { opacity: .9; } 100% { opacity: 0; transform: scale(1.25); } }
+    @keyframes prValue { 0% { color: var(--text); } 45% { color: var(--gold); } 100% { color: var(--text); } }
+    .pr-copy { text-align: center; }
+    .pr-copy b { display: block; font-size: 14px; }
+    .pr-copy span { display: block; margin-top: 3px; color: var(--muted); font-size: 10px; }
+    .pr-trigger { width: 100%; min-height: 50px; margin-top: 14px; border: 1px solid var(--accent); border-radius: 8px; background: var(--surface); color: var(--accent); font-weight: 900; }
+    .record-list { margin-top: 18px; border-top: 1px solid var(--line); }
+    .record-item { min-height: 56px; display: grid; grid-template-columns: 1fr auto; align-items: center; border-bottom: 1px solid var(--line); }
+    .record-item span { color: var(--muted); font-size: 10px; }
+    .record-item b { display: block; margin-bottom: 2px; color: var(--text); font-size: 12px; }
+    .record-item strong { font-size: 14px; }
+
+    /* Stats */
+    .stats-primary { padding: 18px 0 12px; }
+    .stats-label { color: var(--muted); font-size: 10px; }
+    .stats-row { display: flex; align-items: end; justify-content: space-between; gap: 12px; }
+    .stats-value { margin-top: 3px; font-size: 42px; line-height: 1; font-weight: 950; letter-spacing: -.055em; font-variant-numeric: tabular-nums; }
+    .stats-value small { margin-left: 4px; color: var(--muted); font-size: 13px; font-weight: 750; letter-spacing: 0; }
+    .stats-delta { color: var(--accent); font-size: 11px; font-weight: 850; }
+    .bar-chart { height: 230px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .bar-chart svg { width: 100%; height: 100%; overflow: visible; }
+    .chart-grid { stroke: var(--line); stroke-width: 1; }
+    .bar { fill: var(--accent-soft); stroke: var(--accent); stroke-width: 1; transform-box: fill-box; transform-origin: center bottom; transform: scaleY(var(--scale, .5)); transition: transform .34s var(--ease); }
+    .bar.current { fill: var(--accent); }
+    .bar-chart.replay .bar { transition: none; transform: scaleY(.04); }
+    .stats-secondary { min-height: 70px; display: grid; grid-template-columns: repeat(3, 1fr); border-bottom: 1px solid var(--line); }
+    .stats-secondary div { display: grid; place-items: center; align-content: center; }
+    .stats-secondary div + div { border-left: 1px solid var(--line); }
+    .stats-secondary span { color: var(--muted); font-size: 9px; }
+    .stats-secondary b { margin-top: 3px; font-size: 14px; }
+
+    .bottom-nav {
+      position: fixed;
+      z-index: 20;
+      left: 50%;
+      bottom: 0;
+      width: min(100%, 430px);
+      height: calc(78px + env(safe-area-inset-bottom));
+      padding-bottom: env(safe-area-inset-bottom);
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      transform: translateX(-50%);
+      border-top: 1px solid var(--line);
+      background: rgba(255, 255, 255, .96);
+      backdrop-filter: blur(14px);
+    }
+    .nav-button { min-width: 0; border: 0; background: transparent; color: var(--muted); font-size: 9px; font-weight: 800; }
+    .nav-button span { display: block; margin-top: 3px; }
+    .nav-button svg { width: 23px; height: 23px; margin: 0 auto; }
+    .nav-button path, .nav-button line, .nav-button rect, .nav-button circle, .nav-button polyline { fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .nav-button.active { color: var(--accent); }
+
+    button:focus-visible { outline: 3px solid rgba(21, 128, 61, .24); outline-offset: 2px; }
+
+    @media (min-width: 431px) {
+      body { padding: 24px 0; }
+      .phone { min-height: calc(100svh - 48px); border-radius: 20px; }
+      .content { min-height: calc(100svh - 186px); }
+      .bottom-nav { bottom: 24px; border-radius: 0 0 20px 20px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation: none !important; transition: none !important; }
+      .trend-path { stroke-dashoffset: 0; }
+      .trend-dot { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="phone">
+    <header class="topbar">
+      <div class="brand">LIFTLOG</div>
+      <div class="showcase-label">MOTION SHOWCASE · 6 SCREENS</div>
+    </header>
+
+    <main class="content">
+      <section class="screen active" data-screen="record" aria-labelledby="recordTitle">
+        <div class="page-head"><div><div class="eyebrow">RECORD</div><h1 id="recordTitle">記録</h1></div><button class="head-action" type="button">8/29 SAT</button></div>
+        <div class="segmented two"><button class="active" type="button">筋トレ</button><button type="button">有酸素</button><span class="indicator" aria-hidden="true"></span></div>
+        <section class="record-work">
+          <div class="record-title"><div><div class="eyebrow">CURRENT EXERCISE</div><h2>インクラインダンベルプレス</h2></div><button class="form-link" type="button">フォーム解説</button></div>
+          <div class="weight-row"><button class="step" type="button" aria-label="重量を下げる">−</button><div class="weight">28<small>kg</small></div><button class="step" type="button" aria-label="重量を上げる">＋</button></div>
+          <div class="landmarks">前回 <b>28kg</b>　・　MAX 32kg</div>
+          <div class="set-grid"><div class="set-value"><b>3</b><span>SET</span></div><div class="set-value"><b>10</b><span>REP</span></div></div>
+          <button class="drop-row" type="button"><span>Drop Set</span><span>追加 ＋</span></button>
+          <button class="save-button" id="saveRecord" type="button">
+            <svg class="save-icon" viewBox="0 0 24 24" aria-hidden="true"><path class="save-disk" d="M5 3h12l2 2v16H5zM8 3v6h8V3M8 14h8v7"/><path class="save-check" d="m5 12 4 4 10-10"/></svg>
+            <span>この種目を記録</span>
+          </button>
+        </section>
+        <div class="motion-hint"><b>MOTION 01</b><span>保存を押すと、操作の完了に合わせてアイコンがチェックへ変わります。</span></div>
+      </section>
+
+      <section class="screen" data-screen="plan" aria-labelledby="planTitle">
+        <div class="page-head"><div><div class="eyebrow">WEEKLY PLAN</div><h1 id="planTitle">計画</h1></div><button class="head-action" id="editPlan" type="button" aria-pressed="false">並べ替え</button></div>
+        <div class="week" id="weekTabs">
+          <button class="day" type="button"><small>MON</small><span>27</span></button><button class="day rest" type="button"><small>TUE</small><span>28</span></button><button class="day active" type="button"><small>WED</small><span>29</span></button><button class="day" type="button"><small>THU</small><span>30</span></button><button class="day rest" type="button"><small>FRI</small><span>31</span></button><button class="day" type="button"><small>SAT</small><span>1</span></button><button class="day rest" type="button"><small>SUN</small><span>2</span></button>
+          <span class="week-indicator" aria-hidden="true"></span>
+        </div>
+        <div class="plan-summary"><div><span>TODAY</span><h2>水曜日</h2></div><p>胸・腕　4種目</p></div>
+        <section class="section"><div class="section-head"><div><h2>トレーニング</h2><p class="section-sub" id="planHelp">並べ替えを押すと編集面になります</p></div></div>
+          <div class="plan-list" id="planList">
+            <div class="plan-row"><button class="drag-handle" type="button" aria-label="ベンチプレスを持ち上げる">≡</button><div><div class="plan-name">ベンチプレス</div><div class="plan-meta">75kg・3 SET × 8 REP</div></div><span class="plan-order">01</span></div>
+            <div class="plan-row"><button class="drag-handle" type="button" aria-label="インクラインダンベルプレスを持ち上げる">≡</button><div><div class="plan-name">インクラインDBプレス</div><div class="plan-meta">28kg・3 SET × 10 REP</div></div><span class="plan-order">02</span></div>
+            <div class="plan-row"><button class="drag-handle" type="button" aria-label="ダンベルフライを持ち上げる">≡</button><div><div class="plan-name">ダンベルフライ</div><div class="plan-meta">18kg・3 SET × 12 REP</div></div><span class="plan-order">03</span></div>
+          </div>
+        </section>
+        <div class="motion-hint"><b>MOTION 02</b><span>編集時だけ作業面を出し、≡を押した行だけ数px持ち上げます。</span></div>
+      </section>
+
+      <section class="screen" data-screen="history" aria-labelledby="historyTitle">
+        <div class="page-head"><div><div class="eyebrow">HISTORY</div><h1 id="historyTitle">履歴</h1></div><button class="head-action" type="button">AI分析</button></div>
+        <div class="date-nav"><button type="button" aria-label="前日">‹</button><button class="date-current" type="button">8月29日（土）</button><button type="button" aria-label="翌日">›</button></div>
+        <section class="history-primary"><span>8月29日のトレーニング</span><h2>胸・腕</h2><div class="history-summary"><div><b>4</b><small>種目</small></div><div><b>12</b><small>SET</small></div><div><b>5,420</b><small>VOLUME</small></div></div></section>
+        <section class="section"><div class="section-head"><div><h2>筋トレ</h2><p class="section-sub">種目を押すと重量推移を表示</p></div></div>
+          <div class="exercise-list">
+            <button class="exercise-row" id="historyExercise" type="button" aria-expanded="false"><span><span class="exercise-name">ベンチプレス</span><span class="exercise-meta">3 SET × 8 REP</span></span><span class="exercise-value">75kg<span>推定1RM 95kg</span></span></button>
+            <div class="history-detail" id="historyDetail"><div class="history-detail-inner"><div class="trend-chart"><svg viewBox="0 0 340 82" aria-label="ベンチプレスの重量推移"><line class="trend-grid" x1="8" y1="62" x2="332" y2="62"/><path class="trend-path" pathLength="1" d="M8 62 L72 55 L136 48 L200 39 L264 31 L332 21"/><circle class="trend-dot" cx="8" cy="62" r="3"/><circle class="trend-dot" cx="72" cy="55" r="3"/><circle class="trend-dot" cx="136" cy="48" r="3"/><circle class="trend-dot" cx="200" cy="39" r="3"/><circle class="trend-dot" cx="264" cy="31" r="3"/><circle class="trend-dot current" cx="332" cy="21" r="4"/><text class="trend-label" x="8" y="78">6/21</text><text class="trend-label" x="332" y="78" text-anchor="end">8/29</text><text class="trend-label" x="332" y="14" text-anchor="end">75kg</text></svg></div></div></div>
+            <button class="exercise-row" type="button"><span><span class="exercise-name">インクラインDBプレス</span><span class="exercise-meta">3 SET × 10 REP</span></span><span class="exercise-value">28kg<span>推定1RM 37kg</span></span></button>
+          </div>
+        </section>
+        <div class="motion-hint"><b>MOTION 03</b><span>ベンチプレスを開くと、過去から今日へグラフ線が描画されます。</span></div>
+      </section>
+
+      <section class="screen" data-screen="body" aria-labelledby="bodyTitle">
+        <div class="page-head"><div><div class="eyebrow">BODY COMPOSITION</div><h1 id="bodyTitle">体組成</h1></div><button class="head-action" type="button">記録する</button></div>
+        <div class="segmented two" id="metricTabs"><button class="active" type="button" data-metric="weight">体重</button><button type="button" data-metric="fat">体脂肪率</button><span class="indicator" aria-hidden="true"></span></div>
+        <section class="metric-primary" id="metricPrimary"><div class="metric-label" id="metricLabel">最新の体重</div><div class="metric-row"><div class="metric-value"><span id="metricValue">72.4</span><small id="metricUnit">kg</small></div><div class="metric-change" id="metricChange">−0.6kg<span>前回 8/22</span></div></div></section>
+        <div class="body-chart">
+          <svg viewBox="0 0 360 220" aria-hidden="true"><line class="body-grid" x1="22" y1="52" x2="346" y2="52"/><line class="body-grid" x1="22" y1="110" x2="346" y2="110"/><line class="body-grid" x1="22" y1="168" x2="346" y2="168"/><text class="axis" x="22" y="202">5月</text><text class="axis" x="340" y="202" text-anchor="end">8月</text></svg>
+          <svg class="metric-graph active" data-graph="weight" viewBox="0 0 360 220" aria-label="体重の推移"><path class="body-area" d="M22 75 L76 86 L130 94 L184 114 L238 128 L292 143 L346 157 L346 185 L22 185 Z"/><path class="body-line" d="M22 75 L76 86 L130 94 L184 114 L238 128 L292 143 L346 157"/><circle class="body-dot" cx="22" cy="75" r="4"/><circle class="body-dot" cx="130" cy="94" r="4"/><circle class="body-dot" cx="238" cy="128" r="4"/><circle class="body-dot latest" cx="346" cy="157" r="5"/></svg>
+          <svg class="metric-graph" data-graph="fat" viewBox="0 0 360 220" aria-label="体脂肪率の推移"><path class="body-area" d="M22 92 L76 97 L130 91 L184 118 L238 123 L292 137 L346 148 L346 185 L22 185 Z"/><path class="body-line" d="M22 92 L76 97 L130 91 L184 118 L238 123 L292 137 L346 148"/><circle class="body-dot" cx="22" cy="92" r="4"/><circle class="body-dot" cx="130" cy="91" r="4"/><circle class="body-dot" cx="238" cy="123" r="4"/><circle class="body-dot latest" cx="346" cy="148" r="5"/></svg>
+        </div>
+        <div class="body-secondary"><div><span>BMI</span><b>23.2</b></div><div><span>開始時から</span><b>−4.8kg</b></div></div>
+        <div class="motion-hint"><b>MOTION 04</b><span>指標の切替に合わせて、代表値と対応するグラフだけを短く入れ替えます。</span></div>
+      </section>
+
+      <section class="screen" data-screen="pr" aria-labelledby="prTitle">
+        <div class="page-head"><div><div class="eyebrow">PERSONAL RECORD</div><h1 id="prTitle">PR</h1></div><button class="head-action" type="button">種目変更</button></div>
+        <section class="pr-primary" id="prPrimary">
+          <div class="pr-title-row"><div><div class="pr-label">歴代最高 推定1RM</div><div class="pr-value"><span id="prValue">95.0</span><small>kg</small></div></div><div class="pr-date"><b id="prSet">75kg × 8rep</b><span id="prDate">2026/08/29</span></div></div>
+          <div class="pr-celebration" aria-hidden="true"><span class="spark s1"></span><span class="spark s2"></span><span class="spark s3"></span><svg class="trophy" viewBox="0 0 40 40"><path d="M12 7h16v8a8 8 0 0 1-16 0zM12 10H7v3a7 7 0 0 0 7 7M28 10h5v3a7 7 0 0 1-7 7M20 23v7M14 34h12M16 30h8"/></svg></div>
+          <div class="pr-copy"><b id="prMessage">ベンチプレス</b><span id="prSub">次の記録更新を待っています</span></div>
+          <button class="pr-trigger" id="prTrigger" type="button">新PRのモーションを再生</button>
+        </section>
+        <div class="record-list"><div class="record-item"><span><b>2026/08/29</b>75kg × 8rep</span><strong>95.0kg</strong></div><div class="record-item"><span><b>2026/08/12</b>72.5kg × 8rep</span><strong>91.8kg</strong></div></div>
+        <div class="motion-hint"><b>MOTION 05</b><span>新PRの瞬間だけ、トロフィーと記録値が控えめに応答します。</span></div>
+      </section>
+
+      <section class="screen" data-screen="stats" aria-labelledby="statsTitle">
+        <div class="page-head"><div><div class="eyebrow">STATISTICS</div><h1 id="statsTitle">統計</h1></div><button class="head-action" type="button">種目別</button></div>
+        <div class="segmented three" id="periodTabs" style="--indicator-width:33.333%;--index:1"><button type="button" data-period="week">1週間</button><button class="active" type="button" data-period="month">1か月</button><button type="button" data-period="quarter">3か月</button><span class="indicator" aria-hidden="true"></span></div>
+        <section class="stats-primary"><div class="stats-label">トレーニングボリューム</div><div class="stats-row"><div class="stats-value"><span id="statsValue">26,840</span><small>kg</small></div><div class="stats-delta" id="statsDelta">＋8.4%</div></div></section>
+        <div class="bar-chart" id="barChart"><svg viewBox="0 0 360 230" aria-label="期間別トレーニングボリューム"><line class="chart-grid" x1="24" y1="190" x2="346" y2="190"/><line class="chart-grid" x1="24" y1="110" x2="346" y2="110"/><rect class="bar" x="36" y="30" width="38" height="160" rx="3" style="--scale:.46"/><rect class="bar" x="98" y="30" width="38" height="160" rx="3" style="--scale:.68"/><rect class="bar" x="160" y="30" width="38" height="160" rx="3" style="--scale:.55"/><rect class="bar" x="222" y="30" width="38" height="160" rx="3" style="--scale:.82"/><rect class="bar current" x="284" y="30" width="38" height="160" rx="3" style="--scale:.96"/><text class="axis" x="55" y="210" text-anchor="middle">W1</text><text class="axis" x="117" y="210" text-anchor="middle">W2</text><text class="axis" x="179" y="210" text-anchor="middle">W3</text><text class="axis" x="241" y="210" text-anchor="middle">W4</text><text class="axis" x="303" y="210" text-anchor="middle">NOW</text></svg></div>
+        <div class="stats-secondary"><div><span>セッション</span><b id="sessions">16</b></div><div><span>セット</span><b id="sets">142</b></div><div><span>時間</span><b id="hours">18.4h</b></div></div>
+        <div class="motion-hint"><b>MOTION 06</b><span>期間を変えた時だけ、比較軸を保ったまま棒が新しい値まで伸びます。</span></div>
+      </section>
+    </main>
+  </div>
+
+  <nav class="bottom-nav" aria-label="画面を選択">
+    <button class="nav-button active" type="button" data-target="record" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9 4V2h6v2M9 9h6M9 13h6M9 17h4"/></svg><span>記録</span></button>
+    <button class="nav-button" type="button" data-target="plan"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4M16 3v4M4 9h16M8 13h2M14 13h2M8 17h2"/></svg><span>計画</span></button>
+    <button class="nav-button" type="button" data-target="history"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 7H2V4M3 7a9 9 0 1 1-1 6M12 7v5l3 2"/></svg><span>履歴</span></button>
+    <button class="nav-button" type="button" data-target="body"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 7h14M12 3v18M5 7l-3 6h6zM19 7l-3 6h6zM8 21h8"/></svg><span>体組成</span></button>
+    <button class="nav-button" type="button" data-target="pr"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4h10v5a5 5 0 0 1-10 0zM7 6H4v2a4 4 0 0 0 4 4M17 6h3v2a4 4 0 0 1-4 4M12 14v4M8 21h8M9 18h6"/></svg><span>PR</span></button>
+    <button class="nav-button" type="button" data-target="stats"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h16M7 18v-6M12 18V7M17 18v-8"/></svg><span>統計</span></button>
+  </nav>
+
+  <script>
+    const $$ = selector => [...document.querySelectorAll(selector)];
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    $$('.nav-button').forEach(button => button.addEventListener('click', () => {
+      const target = button.dataset.target;
+      $$('.nav-button').forEach(item => {
+        const active = item === button;
+        item.classList.toggle('active', active);
+        active ? item.setAttribute('aria-current', 'page') : item.removeAttribute('aria-current');
+      });
+      $$('.screen').forEach(screen => screen.classList.toggle('active', screen.dataset.screen === target));
+      window.scrollTo({ top: 0, behavior: reducedMotion.matches ? 'auto' : 'smooth' });
+    }));
+
+    const saveRecord = document.getElementById('saveRecord');
+    let saveTimer;
+    saveRecord.addEventListener('click', () => {
+      clearTimeout(saveTimer);
+      saveRecord.classList.remove('success');
+      saveRecord.querySelector('span').textContent = 'この種目を記録';
+      void saveRecord.offsetWidth;
+      saveRecord.classList.add('success');
+      saveRecord.querySelector('span').textContent = '記録しました';
+      saveTimer = setTimeout(() => {
+        saveRecord.classList.remove('success');
+        saveRecord.querySelector('span').textContent = 'この種目を記録';
+      }, 1600);
+    });
+
+    const weekTabs = document.getElementById('weekTabs');
+    $$('#weekTabs .day').forEach((day, index) => day.addEventListener('click', () => {
+      $$('#weekTabs .day').forEach(item => item.classList.toggle('active', item === day));
+      weekTabs.style.setProperty('--day', index);
+    }));
+
+    const editPlan = document.getElementById('editPlan');
+    const planList = document.getElementById('planList');
+    const planHelp = document.getElementById('planHelp');
+    editPlan.addEventListener('click', () => {
+      const editing = !planList.classList.contains('editing');
+      planList.classList.toggle('editing', editing);
+      editPlan.classList.toggle('active', editing);
+      editPlan.setAttribute('aria-pressed', String(editing));
+      editPlan.textContent = editing ? '完了' : '並べ替え';
+      planHelp.textContent = editing ? '≡を押すと対象行だけ持ち上がります' : '並べ替えを押すと編集面になります';
+      $$('.plan-row').forEach(row => row.classList.remove('lifted'));
+    });
+    $$('.drag-handle').forEach(handle => handle.addEventListener('click', () => {
+      if (!planList.classList.contains('editing')) {
+        editPlan.click();
+      }
+      const row = handle.closest('.plan-row');
+      $$('.plan-row').forEach(item => item.classList.toggle('lifted', item === row));
+      window.setTimeout(() => row.classList.remove('lifted'), 850);
+    }));
+
+    const historyExercise = document.getElementById('historyExercise');
+    const historyDetail = document.getElementById('historyDetail');
+    historyExercise.addEventListener('click', () => {
+      const open = !historyDetail.classList.contains('open');
+      historyDetail.classList.toggle('open', open);
+      historyExercise.setAttribute('aria-expanded', String(open));
+    });
+
+    const metricData = {
+      weight: { label: '最新の体重', value: '72.4', unit: 'kg', change: '−0.6kg' },
+      fat: { label: '最新の体脂肪率', value: '16.8', unit: '%', change: '−0.3pt' }
+    };
+    const metricTabs = document.getElementById('metricTabs');
+    const metricPrimary = document.getElementById('metricPrimary');
+    $$('#metricTabs button').forEach((button, index) => button.addEventListener('click', () => {
+      if (button.classList.contains('active')) return;
+      $$('#metricTabs button').forEach(item => item.classList.toggle('active', item === button));
+      metricTabs.style.setProperty('--index', index);
+      const metric = button.dataset.metric;
+      const data = metricData[metric];
+      document.getElementById('metricLabel').textContent = data.label;
+      document.getElementById('metricValue').textContent = data.value;
+      document.getElementById('metricUnit').textContent = data.unit;
+      document.getElementById('metricChange').innerHTML = `${data.change}<span>前回 8/22</span>`;
+      $$('.metric-graph').forEach(graph => graph.classList.toggle('active', graph.dataset.graph === metric));
+      metricPrimary.classList.remove('updating');
+      void metricPrimary.offsetWidth;
+      metricPrimary.classList.add('updating');
+    }));
+
+    const prPrimary = document.getElementById('prPrimary');
+    document.getElementById('prTrigger').addEventListener('click', () => {
+      document.getElementById('prValue').textContent = '97.5';
+      document.getElementById('prSet').textContent = '77.5kg × 8rep';
+      document.getElementById('prDate').textContent = 'NEW RECORD';
+      document.getElementById('prMessage').textContent = '自己ベスト更新';
+      document.getElementById('prSub').textContent = '前回の推定1RMから ＋2.5kg';
+      prPrimary.classList.remove('celebrate');
+      void prPrimary.offsetWidth;
+      prPrimary.classList.add('celebrate');
+    });
+
+    const statsData = {
+      week: { value: '6,740', delta: '＋3.1%', bars: [.38, .54, .31, .66, .78], sessions: '4', sets: '36', hours: '4.6h' },
+      month: { value: '26,840', delta: '＋8.4%', bars: [.46, .68, .55, .82, .96], sessions: '16', sets: '142', hours: '18.4h' },
+      quarter: { value: '78,260', delta: '＋12.7%', bars: [.52, .63, .71, .79, .92], sessions: '47', sets: '421', hours: '54.8h' }
+    };
+    const periodTabs = document.getElementById('periodTabs');
+    const barChart = document.getElementById('barChart');
+    $$('#periodTabs button').forEach((button, index) => button.addEventListener('click', () => {
+      const data = statsData[button.dataset.period];
+      $$('#periodTabs button').forEach(item => item.classList.toggle('active', item === button));
+      periodTabs.style.setProperty('--index', index);
+      document.getElementById('statsValue').textContent = data.value;
+      document.getElementById('statsDelta').textContent = data.delta;
+      document.getElementById('sessions').textContent = data.sessions;
+      document.getElementById('sets').textContent = data.sets;
+      document.getElementById('hours').textContent = data.hours;
+      if (!reducedMotion.matches) {
+        barChart.classList.add('replay');
+        void barChart.offsetWidth;
+        barChart.classList.remove('replay');
+      }
+      $$('.bar').forEach((bar, barIndex) => bar.style.setProperty('--scale', data.bars[barIndex]));
+    }));
+  </script>
+</body>
+</html>
