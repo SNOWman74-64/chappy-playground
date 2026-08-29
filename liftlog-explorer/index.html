@@ -4,432 +4,117 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no" />
   <meta name="theme-color" content="#050706" />
-  <title>LIFTLOG Soft Exercise Explorer</title>
+  <title>LIFTLOG Exercise Bubble Map</title>
   <style>
-    :root {
-      color-scheme: dark;
-      --bg:#050706;
-      --ink:#f3f6f4;
-      --muted:#8d9891;
-      --panel:rgba(25,29,27,.90);
-      --line:rgba(255,255,255,.13);
-      --accent:#79d89d;
-    }
-    * { box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
-    html,body { margin:0; min-width:320px; min-height:100%; background:var(--bg); color:var(--ink); overflow:hidden; }
-    body { font-family:Inter,"Noto Sans JP",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
-    button { font:inherit; color:inherit; }
-    .app { position:relative; width:min(100%,430px); height:100svh; margin:0 auto; overflow:hidden; background:#050706; }
-    canvas { position:absolute; inset:0; width:100%; height:100%; touch-action:none; }
-
-    .topbar {
-      position:absolute; z-index:20; inset:max(12px,env(safe-area-inset-top)) 14px auto;
-      display:grid; grid-template-columns:48px 1fr 48px; align-items:center; gap:10px;
-      pointer-events:none;
-    }
-    .round {
-      width:48px; height:48px; border-radius:50%; border:1px solid rgba(255,255,255,.18);
-      background:rgba(20,23,21,.84); box-shadow:0 9px 30px rgba(0,0,0,.28),inset 0 1px rgba(255,255,255,.10);
-      backdrop-filter:blur(12px); cursor:pointer; pointer-events:auto; font-size:24px;
-    }
-    .brand { text-align:center; text-shadow:0 2px 18px #000; }
-    .brand small { display:block; color:rgba(255,255,255,.56); font-size:8px; font-weight:900; letter-spacing:.18em; }
-    .brand strong { display:block; margin-top:3px; font-size:14px; font-weight:900; letter-spacing:-.03em; }
-
-    .muscles {
-      position:absolute; z-index:18; left:12px; right:12px; top:calc(max(12px,env(safe-area-inset-top)) + 59px);
-      display:flex; gap:6px; overflow:auto; padding:3px 2px 12px; scrollbar-width:none; pointer-events:auto;
-      mask-image:linear-gradient(90deg,transparent,#000 14px,#000 calc(100% - 14px),transparent);
-    }
-    .muscles::-webkit-scrollbar { display:none; }
-    .chip {
-      flex:0 0 auto; min-height:31px; padding:0 11px; border-radius:999px;
-      border:1px solid rgba(255,255,255,.12); background:rgba(10,12,11,.62); color:rgba(255,255,255,.58);
-      backdrop-filter:blur(10px); font-size:10px; font-weight:850; cursor:pointer;
-    }
-    .chip.active { color:#fff; border-color:color-mix(in srgb,var(--c) 75%,white 25%); box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--c) 45%,transparent); }
-    .chip i { display:inline-block; width:7px; height:7px; margin-right:6px; border-radius:50%; background:var(--c); }
-
-    .tip {
-      position:absolute; z-index:8; top:calc(max(12px,env(safe-area-inset-top)) + 105px); left:50%; transform:translateX(-50%);
-      color:rgba(255,255,255,.46); font-size:9px; white-space:nowrap; pointer-events:none; text-shadow:0 2px 12px #000;
-      transition:opacity .25s ease;
-    }
-    .tip.hide { opacity:0; }
-
-    .detail {
-      position:absolute; z-index:25; left:14px; right:14px; bottom:max(14px,env(safe-area-inset-bottom));
-      min-height:122px; padding:15px 80px 15px 17px; border:1px solid rgba(255,255,255,.10); border-radius:28px;
-      background:var(--panel); box-shadow:0 20px 70px rgba(0,0,0,.36),inset 0 1px rgba(255,255,255,.06);
-      backdrop-filter:blur(22px); transform:translateY(calc(100% + 32px)); opacity:0; transition:transform .32s cubic-bezier(.2,.85,.25,1),opacity .2s ease;
-      pointer-events:none;
-    }
-    .detail.show { transform:translateY(0); opacity:1; pointer-events:auto; }
-    .eyebrow { color:var(--bubble-color,var(--accent)); font-size:9px; font-weight:950; letter-spacing:.15em; }
-    .detail h1 { margin:5px 0 0; font-size:21px; line-height:1.07; letter-spacing:-.045em; }
-    .meta { display:flex; flex-wrap:wrap; gap:5px 12px; margin-top:9px; color:var(--muted); font-size:9px; }
-    .meta b { color:var(--ink); font-size:11px; }
-    .choose {
-      position:absolute; right:13px; top:50%; transform:translateY(-50%); width:58px; height:58px; border-radius:50%; border:0;
-      background:rgba(255,255,255,.13); font-size:26px; cursor:pointer;
-    }
-    .mini-form { position:absolute; right:83px; top:14px; width:48px; height:48px; opacity:.84; pointer-events:none; display:none; }
-
-    .badge {
-      position:absolute; z-index:10; right:13px; bottom:calc(max(14px,env(safe-area-inset-bottom)) + 132px);
-      padding:6px 9px; border-radius:999px; background:rgba(5,7,6,.64); color:rgba(255,255,255,.48);
-      border:1px solid rgba(255,255,255,.08); font-size:8px; font-weight:800; backdrop-filter:blur(9px); pointer-events:none;
-    }
-
-    .toast {
-      position:absolute; z-index:40; left:50%; bottom:calc(max(14px,env(safe-area-inset-bottom)) + 148px); transform:translate(-50%,14px);
-      padding:10px 14px; border-radius:999px; background:#f5f7f5; color:#101411; font-size:10px; font-weight:900;
-      opacity:0; pointer-events:none; transition:.2s ease; white-space:nowrap;
-    }
-    .toast.show { opacity:1; transform:translate(-50%,0); }
-
-    @media (min-width:431px) {
-      body { display:grid; place-items:center; background:#0c100e; }
-      .app { height:min(920px,calc(100svh - 32px)); border:1px solid rgba(255,255,255,.12); border-radius:30px; box-shadow:0 30px 90px rgba(0,0,0,.32); }
-    }
+    :root{color-scheme:dark;--bg:#050706;--ink:#f4f7f5;--muted:#8f9892;--panel:rgba(27,30,28,.91);--line:rgba(255,255,255,.12)}
+    *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+    html,body{margin:0;min-width:320px;min-height:100%;overflow:hidden;background:var(--bg);color:var(--ink)}
+    body{font-family:Inter,"Noto Sans JP",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+    button{font:inherit;color:inherit}
+    .app{position:relative;width:min(100%,430px);height:100svh;margin:0 auto;overflow:hidden;background:#050706}
+    canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none}
+    .topbar{position:absolute;z-index:20;inset:max(12px,env(safe-area-inset-top)) 14px auto;display:grid;grid-template-columns:48px 1fr 48px;align-items:center;gap:10px;pointer-events:none}
+    .round{width:48px;height:48px;border-radius:50%;border:1px solid rgba(255,255,255,.18);background:rgba(20,23,21,.84);box-shadow:0 9px 30px rgba(0,0,0,.28),inset 0 1px rgba(255,255,255,.1);backdrop-filter:blur(12px);cursor:pointer;pointer-events:auto;font-size:24px}
+    .brand{text-align:center;text-shadow:0 2px 18px #000}.brand small{display:block;color:rgba(255,255,255,.52);font-size:8px;font-weight:900;letter-spacing:.18em}.brand strong{display:block;margin-top:3px;font-size:14px;font-weight:900;letter-spacing:-.03em}
+    .muscles{position:absolute;z-index:18;left:12px;right:12px;top:calc(max(12px,env(safe-area-inset-top)) + 59px);display:flex;gap:6px;overflow:auto;padding:3px 2px 12px;scrollbar-width:none;pointer-events:auto;mask-image:linear-gradient(90deg,transparent,#000 14px,#000 calc(100% - 14px),transparent)}
+    .muscles::-webkit-scrollbar{display:none}.chip{flex:0 0 auto;min-height:31px;padding:0 11px;border-radius:999px;border:1px solid rgba(255,255,255,.12);background:rgba(10,12,11,.62);color:rgba(255,255,255,.58);backdrop-filter:blur(10px);font-size:10px;font-weight:850;cursor:pointer}.chip.active{color:#fff;border-color:color-mix(in srgb,var(--c) 75%,white 25%);box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--c) 45%,transparent)}.chip i{display:inline-block;width:7px;height:7px;margin-right:6px;border-radius:50%;background:var(--c)}
+    .tip{position:absolute;z-index:8;top:calc(max(12px,env(safe-area-inset-top)) + 107px);left:50%;transform:translateX(-50%);color:rgba(255,255,255,.42);font-size:9px;white-space:nowrap;pointer-events:none;text-shadow:0 2px 12px #000;transition:opacity .2s}.tip.hide{opacity:0}
+    .center-mark{position:absolute;z-index:7;left:50%;top:50%;width:16px;height:16px;transform:translate(-50%,-50%);border:1px solid rgba(255,255,255,.13);border-radius:50%;pointer-events:none;opacity:.5}.center-mark:before,.center-mark:after{content:"";position:absolute;background:rgba(255,255,255,.12)}.center-mark:before{width:1px;height:26px;left:7px;top:-6px}.center-mark:after{height:1px;width:26px;top:7px;left:-6px}
+    .detail{position:absolute;z-index:25;left:14px;right:14px;bottom:max(14px,env(safe-area-inset-bottom));min-height:118px;padding:15px 78px 15px 17px;border:1px solid rgba(255,255,255,.1);border-radius:28px;background:var(--panel);box-shadow:0 20px 70px rgba(0,0,0,.36),inset 0 1px rgba(255,255,255,.06);backdrop-filter:blur(22px);transform:translateY(calc(100% + 32px));opacity:0;transition:transform .3s cubic-bezier(.2,.85,.25,1),opacity .2s;pointer-events:none}.detail.show{transform:translateY(0);opacity:1;pointer-events:auto}.eyebrow{color:var(--bubble-color,#79d89d);font-size:9px;font-weight:950;letter-spacing:.15em}.detail h1{margin:5px 0 0;font-size:21px;line-height:1.07;letter-spacing:-.045em}.meta{display:flex;flex-wrap:wrap;gap:5px 12px;margin-top:9px;color:var(--muted);font-size:9px}.meta b{color:var(--ink);font-size:11px}.choose{position:absolute;right:13px;top:50%;transform:translateY(-50%);width:58px;height:58px;border-radius:50%;border:0;background:rgba(255,255,255,.13);font-size:26px;cursor:pointer}
+    .badge{position:absolute;z-index:10;right:13px;bottom:calc(max(14px,env(safe-area-inset-bottom)) + 128px);padding:6px 9px;border-radius:999px;background:rgba(5,7,6,.62);color:rgba(255,255,255,.42);border:1px solid rgba(255,255,255,.08);font-size:8px;font-weight:800;backdrop-filter:blur(9px);pointer-events:none}
+    .toast{position:absolute;z-index:40;left:50%;bottom:calc(max(14px,env(safe-area-inset-bottom)) + 144px);transform:translate(-50%,14px);padding:10px 14px;border-radius:999px;background:#f5f7f5;color:#101411;font-size:10px;font-weight:900;opacity:0;pointer-events:none;transition:.2s;white-space:nowrap}.toast.show{opacity:1;transform:translate(-50%,0)}
+    @media (min-width:431px){body{display:grid;place-items:center;background:#0c100e}.app{height:min(920px,calc(100svh - 32px));border:1px solid rgba(255,255,255,.12);border-radius:30px;box-shadow:0 30px 90px rgba(0,0,0,.32)}}
   </style>
 </head>
 <body>
 <div class="app" id="app">
   <canvas id="canvas" aria-label="筋トレ種目を泡で探索するマップ"></canvas>
-
-  <div class="topbar">
-    <button class="round" id="back" aria-label="戻る">‹</button>
-    <div class="brand"><small>LIFTLOG LAB</small><strong>SOFT EXERCISE MAP</strong></div>
-    <button class="round" id="reset" aria-label="表示をリセット">⌕</button>
-  </div>
-
+  <div class="topbar"><button class="round" id="back" aria-label="戻る">‹</button><div class="brand"><small>LIFTLOG LAB</small><strong>EXERCISE BUBBLE MAP</strong></div><button class="round" id="reset" aria-label="表示をリセット">⌕</button></div>
   <div class="muscles" id="muscles"></div>
-  <div class="tip" id="tip">上下にドラッグして探索 · 泡をタップするとフォーカス</div>
-  <div class="badge">SOFT BODY / SPRING CAMERA</div>
-
-  <section class="detail" id="detail" aria-live="polite">
-    <div class="eyebrow" id="detailPart">BACK · 背中</div>
-    <h1 id="detailName">ラットプルダウン</h1>
-    <div class="meta"><span>前回 <b id="detailPrev">72.5kg × 10</b></span><span>主力 <b id="detailRole">広背筋</b></span></div>
-    <button class="choose" id="choose" aria-label="この種目を選択">→</button>
-  </section>
+  <div class="tip" id="tip">自由にドラッグ · 中央に寄せると少しズーム · タップで選択</div>
+  <div class="center-mark" aria-hidden="true"></div>
+  <div class="badge">PACKED / FREE PAN</div>
+  <section class="detail" id="detail" aria-live="polite"><div class="eyebrow" id="detailPart">BACK · 背中</div><h1 id="detailName">ラットプルダウン</h1><div class="meta"><span>前回 <b id="detailPrev">72.5kg × 10</b></span><span>主力 <b id="detailRole">広背筋</b></span></div><button class="choose" id="choose" aria-label="この種目を選択">→</button></section>
   <div class="toast" id="toast">この種目を選択する想定です</div>
 </div>
-
 <script>
-(() => {
-  const canvas = document.getElementById('canvas');
-  const ctx = canvas.getContext('2d');
-  const app = document.getElementById('app');
-  const detail = document.getElementById('detail');
-  const tip = document.getElementById('tip');
-  const toast = document.getElementById('toast');
-  const colors = {胸:'#f66f65',背中:'#74baf0',肩:'#f0c95f',腕:'#bc91e5',脚:'#70d79d',体幹:'#6fd6d0'};
-  const partEn = {胸:'CHEST',背中:'BACK',肩:'SHOULDER',腕:'ARMS',脚:'LEGS',体幹:'CORE'};
-
-  const raw = [
-    ['ベンチプレス','胸','胸全体','70kg × 8',105,210,69],
-    ['インクライン\nダンベルプレス','胸','上部胸','28kg × 10',265,175,78],
-    ['ダンベルフライ','胸','胸ストレッチ','18kg × 12',385,270,60],
-    ['チェストプレス','胸','胸全体','60kg × 10',115,345,59],
-    ['ケーブルクロス','胸','胸内側','22.5kg × 12',275,330,64],
-
-    ['ラットプルダウン','背中','広背筋','72.5kg × 10',205,500,80],
-    ['シーテッドロー','背中','背中中央','60kg × 10',70,500,66],
-    ['ワンハンドロー','背中','広背筋','30kg × 10',350,480,68],
-    ['ストレートアーム\nプルダウン','背中','広背筋','30kg × 12',115,625,62],
-    ['ベントオーバーロー','背中','背中全体','55kg × 8',285,625,72],
-
-    ['ショルダープレス','肩','前・中部','22kg × 7',95,790,70],
-    ['サイドレイズ','肩','中部','8kg × 16',255,765,67],
-    ['リアデルト\nマシン','肩','後部','47.5kg × 8',380,805,59],
-    ['フロントレイズ','肩','前部','8kg × 12',165,900,58],
-
-    ['インクラインカール','腕','二頭','12kg × 7',80,1040,68],
-    ['ケーブル\nプレスダウン','腕','三頭','27.5kg × 12',245,1030,74],
-    ['ハンマーカール','腕','腕橈骨筋','12kg × 10',382,1000,59],
-    ['スカルクラッシャー','腕','三頭','20kg × 10',125,1155,61],
-
-    ['スクワット','脚','脚全体','70kg × 8',90,1315,79],
-    ['レッグ\nエクステンション','脚','大腿四頭筋','80kg × 15',265,1285,74],
-    ['レッグカール','脚','ハム','75kg × 8',390,1360,62],
-    ['ブルガリアン\nスクワット','脚','脚全体','20kg × 10',165,1450,67],
-
-    ['プランク','体幹','腹部','60秒',85,1605,65],
-    ['ハンギング\nレッグレイズ','体幹','腹部','12rep',250,1585,72],
-    ['アブローラー','体幹','腹部','10rep',390,1645,61]
+(()=>{
+  const canvas=document.getElementById('canvas'),ctx=canvas.getContext('2d'),app=document.getElementById('app');
+  const detail=document.getElementById('detail'),tip=document.getElementById('tip'),toast=document.getElementById('toast');
+  const colors={胸:'#f66f65',背中:'#74baf0',肩:'#f0c95f',腕:'#bc91e5',脚:'#70d79d',体幹:'#6fd6d0'};
+  const partEn={胸:'CHEST',背中:'BACK',肩:'SHOULDER',腕:'ARMS',脚:'LEGS',体幹:'CORE'};
+  const data=[
+    ['ベンチプレス','胸','胸全体','70kg × 8',78],['インクライン\nダンベルプレス','胸','上部胸','28kg × 10',82],['ダンベルフライ','胸','胸ストレッチ','18kg × 12',68],['チェストプレス','胸','胸全体','60kg × 10',70],['ケーブルクロス','胸','胸内側','22.5kg × 12',66],
+    ['ラットプルダウン','背中','広背筋','72.5kg × 10',84],['シーテッドロー','背中','背中中央','60kg × 10',74],['ワンハンドロー','背中','広背筋','30kg × 10',72],['ストレートアーム\nプルダウン','背中','広背筋','30kg × 12',67],['ベントオーバーロー','背中','背中全体','55kg × 8',76],
+    ['ショルダープレス','肩','前・中部','22kg × 7',76],['サイドレイズ','肩','中部','8kg × 16',72],['リアデルト\nマシン','肩','後部','47.5kg × 8',68],['フロントレイズ','肩','前部','8kg × 12',64],
+    ['インクラインカール','腕','二頭','12kg × 7',72],['ケーブル\nプレスダウン','腕','三頭','27.5kg × 12',76],['ハンマーカール','腕','腕橈骨筋','12kg × 10',67],['スカルクラッシャー','腕','三頭','20kg × 10',66],
+    ['スクワット','脚','脚全体','70kg × 8',84],['レッグ\nエクステンション','脚','大腿四頭筋','80kg × 15',79],['レッグカール','脚','ハム','75kg × 8',70],['ブルガリアン\nスクワット','脚','脚全体','20kg × 10',73],
+    ['プランク','体幹','腹部','60秒',70],['ハンギング\nレッグレイズ','体幹','腹部','12rep',75],['アブローラー','体幹','腹部','10rep',68]
   ];
 
-  const bubbles = raw.map((d,i) => ({
-    id:i, name:d[0], part:d[1], role:d[2], prev:d[3],
-    ax:d[4], ay:d[5], x:d[4], y:d[5], vx:0, vy:0,
-    baseR:d[6], r:d[6], vr:0, wobble:Math.random()*Math.PI*2,
-    color:colors[d[1]], phase:Math.random()*6.28
-  }));
+  const world={w:650,h:1620};
+  const bubbles=[];
+  const cols=[84,220,356,492,628];
+  let y=165,index=0;
+  const groupRows={胸:2,背中:2,肩:2,腕:2,脚:2,体幹:1};
+  Object.keys(groupRows).forEach(part=>{
+    const items=data.filter(d=>d[1]===part);
+    let localRow=0,localCol=0;
+    items.forEach((d,i)=>{
+      const r=d[4];
+      localRow=Math.floor(i/3); localCol=i%3;
+      const x=[106,326,546][localCol] + (localRow%2?45:0);
+      const yy=y+localRow*150;
+      bubbles.push({id:index++,name:d[0],part:d[1],role:d[2],prev:d[3],r,baseR:r,x,y:yy,color:colors[d[1]],seed:Math.random()*10});
+    });
+    y+=Math.ceil(items.length/3)*150+32;
+  });
+  world.h=Math.max(1420,y+120);
 
   let W=0,H=0,dpr=1;
-  const world = {width:460,height:1790};
-  const camera = {x:world.width/2,y:520,tx:world.width/2,ty:520,scale:1,tscale:1,vx:0,vy:0,vs:0};
-  let selected=null, filter=null;
-  let pointerDown=false, moved=false, startY=0, lastY=0, lastTime=0, cameraStartY=0, panVelocity=0;
-  let toastTimer;
+  const camera={x:world.w/2,y:510,tx:world.w/2,ty:510,vx:0,vy:0};
+  let selected=null,filter=null,dragging=false,moved=false,lastX=0,lastY=0,startX=0,startY=0,toastTimer;
 
-  function resize(){
-    const rect=app.getBoundingClientRect();
-    W=rect.width; H=rect.height; dpr=Math.min(devicePixelRatio||1,2);
-    canvas.width=Math.round(W*dpr); canvas.height=Math.round(H*dpr);
-    canvas.style.width=W+'px'; canvas.style.height=H+'px';
-    ctx.setTransform(dpr,0,0,dpr,0,0);
-  }
-  addEventListener('resize',resize); resize();
+  function resize(){const r=app.getBoundingClientRect();W=r.width;H=r.height;dpr=Math.min(devicePixelRatio||1,2);canvas.width=Math.round(W*dpr);canvas.height=Math.round(H*dpr);canvas.style.width=W+'px';canvas.style.height=H+'px';ctx.setTransform(dpr,0,0,dpr,0,0)}
+  addEventListener('resize',resize);resize();
 
-  function screenToWorld(sx,sy){
-    return {
-      x:(sx-W/2)/camera.scale+camera.x,
-      y:(sy-H/2)/camera.scale+camera.y
-    };
-  }
-  function worldToScreen(x,y){
-    return {x:(x-camera.x)*camera.scale+W/2,y:(y-camera.y)*camera.scale+H/2};
-  }
+  function clampCamera(){const mx=W/2+35,my=H/2+35;camera.tx=Math.max(mx,Math.min(world.w-mx,camera.tx));camera.ty=Math.max(my,Math.min(world.h-my,camera.ty))}
+  function worldToScreen(x,y){return{x:x-camera.x+W/2,y:y-camera.y+H/2}}
+  function screenToWorld(x,y){return{x:x-W/2+camera.x,y:y-H/2+camera.y}}
 
-  function buildChips(){
-    const host=document.getElementById('muscles');
-    Object.keys(colors).forEach(part=>{
-      const b=document.createElement('button'); b.className='chip'; b.style.setProperty('--c',colors[part]);
-      b.innerHTML=`<i></i>${part}`;
-      b.onclick=()=>{
-        filter=filter===part?null:part;
-        selected=null; detail.classList.remove('show');
-        [...host.children].forEach(el=>el.classList.toggle('active',el===b&&filter));
-        if(filter){
-          const nodes=bubbles.filter(n=>n.part===filter);
-          camera.tx=world.width/2; camera.ty=nodes.reduce((s,n)=>s+n.ay,0)/nodes.length; camera.tscale=1.02;
-        } else { camera.tx=world.width/2; camera.ty=520; camera.tscale=1; }
-      };
-      host.appendChild(b);
-    });
-  }
-  buildChips();
+  function buildChips(){const host=document.getElementById('muscles');Object.keys(colors).forEach(part=>{const b=document.createElement('button');b.className='chip';b.style.setProperty('--c',colors[part]);b.innerHTML=`<i></i>${part}`;b.onclick=()=>{filter=filter===part?null:part;selected=null;detail.classList.remove('show');[...host.children].forEach(el=>el.classList.toggle('active',el===b&&filter));if(filter){const ns=bubbles.filter(n=>n.part===filter);camera.tx=ns.reduce((s,n)=>s+n.x,0)/ns.length;camera.ty=ns.reduce((s,n)=>s+n.y,0)/ns.length;clampCamera()}};host.appendChild(b)})}buildChips();
 
-  function selectBubble(b){
-    selected=b;
-    filter=null;
-    [...document.getElementById('muscles').children].forEach(el=>el.classList.remove('active'));
-    camera.tx=b.x; camera.ty=b.y+42; camera.tscale=1.18;
-    detail.style.setProperty('--bubble-color',b.color);
-    document.getElementById('detailPart').textContent=`${partEn[b.part]} · ${b.part}`;
-    document.getElementById('detailName').textContent=b.name.replace('\n','');
-    document.getElementById('detailPrev').textContent=b.prev;
-    document.getElementById('detailRole').textContent=b.role;
-    detail.classList.add('show'); tip.classList.add('hide');
-  }
+  function focus(n){selected=n;camera.tx=n.x;camera.ty=n.y;clampCamera();document.getElementById('detailPart').textContent=`${partEn[n.part]} · ${n.part}`;document.getElementById('detailPart').style.color=n.color;document.getElementById('detailName').textContent=n.name.replace(/\n/g,' ');document.getElementById('detailPrev').textContent=n.prev;document.getElementById('detailRole').textContent=n.role;detail.style.setProperty('--bubble-color',n.color);detail.classList.add('show');tip.classList.add('hide')}
 
-  function clearSelection(){
-    selected=null; detail.classList.remove('show'); tip.classList.remove('hide'); camera.tscale=1;
-  }
+  function nearestToCenter(){let best=null,bestD=Infinity;for(const n of bubbles){if(filter&&n.part!==filter)continue;const p=worldToScreen(n.x,n.y),d=Math.hypot(p.x-W/2,p.y-H/2);if(d<bestD){bestD=d;best=n}}return best}
 
-  function spring(value,velocity,target,k=.08,d=.78){
-    velocity+=(target-value)*k; velocity*=d; value+=velocity; return [value,velocity];
-  }
+  function roundedBlobPath(n,r){const pts=20;ctx.beginPath();for(let i=0;i<pts;i++){const a=i/pts*Math.PI*2;const wobble=1+Math.sin(a*3+n.seed)*.018+Math.sin(a*5+n.seed*.7)*.012;const x=n.x+Math.cos(a)*r*wobble,y=n.y+Math.sin(a)*r*wobble;if(i===0)ctx.moveTo(x,y);else ctx.lineTo(x,y)}ctx.closePath()}
 
-  function simulate(dt){
-    // Anchor spring and tiny breathing drift.
-    bubbles.forEach((b,i)=>{
-      const visible=!filter||b.part===filter;
-      const targetR=visible ? b.baseR*(selected===b?1.48:1) : b.baseR*.76;
-      [b.r,b.vr]=spring(b.r,b.vr,targetR,selected===b?.055:.035,.76);
-      const t=performance.now()/1000;
-      const driftX=Math.sin(t*.55+b.phase)*2.2;
-      const driftY=Math.cos(t*.47+b.phase)*2.0;
-      b.vx+=(b.ax+driftX-b.x)*.0055;
-      b.vy+=(b.ay+driftY-b.y)*.0055;
-      b.vx*=.88; b.vy*=.88;
-      b.x+=b.vx; b.y+=b.vy;
-    });
-
-    // Collision = selected bubble physically pushes its neighbors away.
-    for(let i=0;i<bubbles.length;i++){
-      for(let j=i+1;j<bubbles.length;j++){
-        const a=bubbles[i], b=bubbles[j];
-        if(filter && a.part!==filter && b.part!==filter) continue;
-        let dx=b.x-a.x, dy=b.y-a.y;
-        let dist=Math.hypot(dx,dy)||.001;
-        const padding=7;
-        const min=a.r+b.r+padding;
-        if(dist<min){
-          const overlap=min-dist;
-          const nx=dx/dist, ny=dy/dist;
-          const aFixed=selected===a?0.18:1;
-          const bFixed=selected===b?0.18:1;
-          const total=aFixed+bFixed;
-          const push=overlap*.11;
-          a.vx-=nx*push*(aFixed/total); a.vy-=ny*push*(aFixed/total);
-          b.vx+=nx*push*(bFixed/total); b.vy+=ny*push*(bFixed/total);
-        }
-      }
-    }
-
-    // Keep world somewhat bounded.
-    bubbles.forEach(b=>{
-      const pad=b.r+4;
-      if(b.x<pad){b.x=pad;b.vx=Math.abs(b.vx)*.4}
-      if(b.x>world.width-pad){b.x=world.width-pad;b.vx=-Math.abs(b.vx)*.4}
-      if(b.y<pad){b.y=pad;b.vy=Math.abs(b.vy)*.4}
-      if(b.y>world.height-pad){b.y=world.height-pad;b.vy=-Math.abs(b.vy)*.4}
-    });
-
-    // Spring camera.
-    [camera.x,camera.vx]=spring(camera.x,camera.vx,camera.tx,.055,.80);
-    [camera.y,camera.vy]=spring(camera.y,camera.vy,camera.ty,.055,.80);
-    [camera.scale,camera.vs]=spring(camera.scale,camera.vs,camera.tscale,.06,.82);
-    const half=H/(2*camera.scale);
-    camera.y=Math.max(half-40,Math.min(world.height-half+70,camera.y));
-  }
-
-  function localDeform(b,angle){
-    let factor=1;
-    const t=performance.now()/1000;
-    factor+=Math.sin(angle*3+t*1.35+b.phase)*.020;
-    factor+=Math.cos(angle*5-t*.9+b.phase)*.012;
-    for(const other of bubbles){
-      if(other===b) continue;
-      const dx=other.x-b.x, dy=other.y-b.y;
-      const dist=Math.hypot(dx,dy)||1;
-      const overlap=b.r+other.r+12-dist;
-      if(overlap<=0) continue;
-      const dir=Math.atan2(dy,dx);
-      let da=Math.atan2(Math.sin(angle-dir),Math.cos(angle-dir));
-      const influence=Math.exp(-(da*da)/.18);
-      factor-=Math.min(.13,overlap/(b.r*5))*influence;
-    }
-    if(selected===b){
-      factor+=Math.sin(angle*2+t*1.7)*.025;
-    }
-    return Math.max(.82,factor);
-  }
-
-  function bubblePath(b){
-    const pts=[]; const N=18;
-    for(let i=0;i<N;i++){
-      const a=(i/N)*Math.PI*2;
-      const rr=b.r*localDeform(b,a);
-      pts.push([b.x+Math.cos(a)*rr,b.y+Math.sin(a)*rr]);
-    }
-    ctx.beginPath();
-    for(let i=0;i<N;i++){
-      const p=pts[i], n=pts[(i+1)%N];
-      const mx=(p[0]+n[0])/2, my=(p[1]+n[1])/2;
-      if(i===0) ctx.moveTo(mx,my); else ctx.quadraticCurveTo(p[0],p[1],mx,my);
-    }
-    const p=pts[0], n=pts[1];
-    ctx.quadraticCurveTo(p[0],p[1],(p[0]+n[0])/2,(p[1]+n[1])/2);
-    ctx.closePath();
-  }
-
-  function wrapText(text,maxChars){
-    const manual=text.split('\n');
-    if(manual.length>1)return manual;
-    if(text.length<=maxChars)return [text];
-    const mid=Math.ceil(text.length/2); return [text.slice(0,mid),text.slice(mid)];
-  }
-
-  function draw(){
-    ctx.clearRect(0,0,W,H);
-    ctx.save();
-    ctx.translate(W/2,H/2); ctx.scale(camera.scale,camera.scale); ctx.translate(-camera.x,-camera.y);
-
-    const ordered=[...bubbles].sort((a,b)=>(selected===a?1:0)-(selected===b?1:0));
-    for(const b of ordered){
-      const dim=filter&&b.part!==filter;
-      ctx.save(); ctx.globalAlpha=dim?.11:1;
-
-      bubblePath(b);
-      const grad=ctx.createRadialGradient(b.x-b.r*.28,b.y-b.r*.30,b.r*.08,b.x,b.y,b.r*1.08);
-      grad.addColorStop(0,mix(b.color,'#ffffff',.18));
-      grad.addColorStop(.58,b.color);
-      grad.addColorStop(1,mix(b.color,'#000000',.12));
-      ctx.fillStyle=grad;
-      ctx.shadowColor='rgba(0,0,0,.28)'; ctx.shadowBlur=selected===b?28:12; ctx.shadowOffsetY=7; ctx.fill();
-
-      if(selected===b){
-        ctx.lineWidth=3/camera.scale; ctx.strokeStyle='rgba(255,255,255,.88)'; ctx.stroke();
-      }
-
-      ctx.shadowColor='transparent';
-      ctx.fillStyle='#07100b';
-      ctx.textAlign='center'; ctx.textBaseline='middle';
-      const font=Math.max(11,Math.min(16,b.r*.19));
-      ctx.font=`900 ${font}px Inter, "Noto Sans JP", system-ui, sans-serif`;
-      const lines=wrapText(b.name,b.r>72?9:7);
-      const lh=font*1.12;
-      lines.forEach((line,i)=>ctx.fillText(line,b.x,b.y+(i-(lines.length-1)/2)*lh));
-      ctx.restore();
-    }
+  function drawBubble(n){if(filter&&n.part!==filter)return;const s=worldToScreen(n.x,n.y);const dist=Math.hypot(s.x-W/2,s.y-H/2);const centerBoost=Math.max(0,1-dist/210);const selectedBoost=selected===n?0.18:0;const scale=1+centerBoost*.10+selectedBoost;const r=n.baseR*scale;
+    ctx.save();ctx.translate(W/2-camera.x,H/2-camera.y);
+    roundedBlobPath(n,r);
+    const grad=ctx.createLinearGradient(n.x-r,n.y-r,n.x+r,n.y+r);grad.addColorStop(0,lighten(n.color,18));grad.addColorStop(1,darken(n.color,8));ctx.fillStyle=grad;ctx.fill();
+    if(selected===n){ctx.lineWidth=3;ctx.strokeStyle='rgba(255,255,255,.9)';ctx.stroke()}
     ctx.restore();
+    if(s.x<-r||s.x>W+r||s.y<-r||s.y>H+r)return;
+    ctx.save();ctx.translate(s.x,s.y);ctx.fillStyle='#0b0d0c';ctx.textAlign='center';ctx.textBaseline='middle';ctx.font=`900 ${Math.max(11,Math.min(16,r*.18))}px Inter, Noto Sans JP, sans-serif`;wrapText(n.name.replace(/\n/g,' '),0,-2,r*1.45,Math.max(13,r*.21));ctx.restore();
   }
 
-  function mix(a,b,p){
-    const ah=parseInt(a.slice(1),16), bh=parseInt(b.slice(1),16);
-    const ar=ah>>16, ag=ah>>8&255, ab=ah&255, br=bh>>16, bg=bh>>8&255, bb=bh&255;
-    return '#'+((1<<24)+((ar+(br-ar)*p)<<16)+((ag+(bg-ag)*p)<<8)+(ab+(bb-ab)*p|0)).toString(16).slice(1);
-  }
+  function wrapText(text,x,y,maxWidth,lineHeight){const chars=[...text];let line='',lines=[];for(const ch of chars){const test=line+ch;if(ctx.measureText(test).width>maxWidth&&line){lines.push(line);line=ch}else line=test}if(line)lines.push(line);lines=lines.slice(0,3);const total=(lines.length-1)*lineHeight;lines.forEach((l,i)=>ctx.fillText(l,x,y-total/2+i*lineHeight))}
+  function hexToRgb(hex){const v=parseInt(hex.slice(1),16);return[(v>>16)&255,(v>>8)&255,v&255]}
+  function lighten(hex,p){const [r,g,b]=hexToRgb(hex),q=p/100;return`rgb(${Math.round(r+(255-r)*q)},${Math.round(g+(255-g)*q)},${Math.round(b+(255-b)*q)})`}
+  function darken(hex,p){const [r,g,b]=hexToRgb(hex),q=1-p/100;return`rgb(${Math.round(r*q)},${Math.round(g*q)},${Math.round(b*q)})`}
 
-  function findBubble(sx,sy){
-    const p=screenToWorld(sx,sy);
-    return [...bubbles].reverse().find(b=>(!filter||b.part===filter)&&Math.hypot(p.x-b.x,p.y-b.y)<=b.r*1.06);
-  }
+  function animate(){camera.x+=(camera.tx-camera.x)*.14;camera.y+=(camera.ty-camera.y)*.14;ctx.clearRect(0,0,W,H);for(const n of bubbles)drawBubble(n);requestAnimationFrame(animate)}animate();
 
-  canvas.addEventListener('pointerdown',e=>{
-    pointerDown=true; moved=false; startY=lastY=e.clientY; lastTime=performance.now(); cameraStartY=camera.ty; panVelocity=0;
-    canvas.setPointerCapture(e.pointerId);
-  });
-  canvas.addEventListener('pointermove',e=>{
-    if(!pointerDown)return;
-    const dy=e.clientY-startY;
-    if(Math.abs(dy)>6)moved=true;
-    if(moved){
-      const now=performance.now(), dt=Math.max(8,now-lastTime);
-      panVelocity=(e.clientY-lastY)/dt*16;
-      camera.ty=cameraStartY-dy/camera.scale;
-      camera.tx=world.width/2; camera.tscale=1;
-      selected=null; detail.classList.remove('show'); tip.classList.add('hide');
-      lastY=e.clientY; lastTime=now;
-    }
-  });
-  canvas.addEventListener('pointerup',e=>{
-    if(!pointerDown)return; pointerDown=false;
-    if(!moved){
-      const rect=canvas.getBoundingClientRect();
-      const b=findBubble(e.clientX-rect.left,e.clientY-rect.top);
-      if(b){ if(selected===b){ showToast(`${b.name.replace('\n','')} を選択する想定`); } else selectBubble(b); }
-      else clearSelection();
-    } else {
-      camera.ty-=panVelocity*7;
-    }
-  });
-  canvas.addEventListener('pointercancel',()=>pointerDown=false);
+  canvas.addEventListener('pointerdown',e=>{dragging=true;moved=false;startX=lastX=e.clientX;startY=lastY=e.clientY;canvas.setPointerCapture(e.pointerId);detail.classList.remove('show');selected=null});
+  canvas.addEventListener('pointermove',e=>{if(!dragging)return;const dx=e.clientX-lastX,dy=e.clientY-lastY;if(Math.hypot(e.clientX-startX,e.clientY-startY)>5)moved=true;camera.tx-=dx;camera.ty-=dy;camera.x=camera.tx;camera.y=camera.ty;lastX=e.clientX;lastY=e.clientY;clampCamera();tip.classList.add('hide')});
+  canvas.addEventListener('pointerup',e=>{if(!dragging)return;dragging=false;canvas.releasePointerCapture(e.pointerId);if(!moved){const w=screenToWorld(e.clientX-app.getBoundingClientRect().left,e.clientY-app.getBoundingClientRect().top);let hit=null,best=Infinity;for(const n of bubbles){if(filter&&n.part!==filter)continue;const d=Math.hypot(w.x-n.x,w.y-n.y);if(d<n.baseR*1.25&&d<best){best=d;hit=n}}if(hit)focus(hit)}else{const near=nearestToCenter();if(near){selected=near;setTimeout(()=>{if(!dragging&&selected===near)focus(near)},120)}}});
+  canvas.addEventListener('pointercancel',()=>dragging=false);
 
-  document.getElementById('reset').onclick=()=>{
-    filter=null; selected=null; detail.classList.remove('show'); tip.classList.remove('hide');
-    [...document.getElementById('muscles').children].forEach(el=>el.classList.remove('active'));
-    camera.tx=world.width/2; camera.ty=520; camera.tscale=1;
-  };
-  document.getElementById('back').onclick=()=>history.length>1?history.back():location.assign('../');
-  document.getElementById('choose').onclick=()=>selected&&showToast(`${selected.name.replace('\n','')} を記録画面へ渡す想定`);
-
-  function showToast(text){
-    clearTimeout(toastTimer); toast.textContent=text; toast.classList.add('show');
-    toastTimer=setTimeout(()=>toast.classList.remove('show'),1500);
-  }
-
-  let last=performance.now();
-  function frame(now){
-    const dt=Math.min(32,now-last); last=now;
-    simulate(dt); draw(); requestAnimationFrame(frame);
-  }
-  requestAnimationFrame(frame);
+  document.getElementById('reset').onclick=()=>{filter=null;selected=null;camera.tx=world.w/2;camera.ty=510;document.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));detail.classList.remove('show');tip.classList.remove('hide')};
+  document.getElementById('back').onclick=()=>history.length>1?history.back():location.href='../';
+  document.getElementById('choose').onclick=()=>{clearTimeout(toastTimer);toast.classList.add('show');toastTimer=setTimeout(()=>toast.classList.remove('show'),1700)};
 })();
 </script>
 </body>
