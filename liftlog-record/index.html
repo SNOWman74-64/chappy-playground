@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#f4f6f5" />
+  <title>LIFTLOG Record Workbench Mock</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #f4f6f5;
+      --surface: #fff;
+      --soft: #f2f6f3;
+      --text: #17211b;
+      --muted: #6c7770;
+      --line: #d8dfda;
+      --accent: #15803d;
+      --orange: #b45309;
+      --shadow: 0 12px 36px rgba(23, 37, 29, .08);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-width: 320px;
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, "Noto Sans JP", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    button { font: inherit; -webkit-tap-highlight-color: transparent; }
+    .phone { width: min(100%, 430px); min-height: 100vh; margin: 0 auto; background: var(--surface); box-shadow: var(--shadow); }
+    .topbar {
+      min-height: 58px;
+      padding: max(10px, env(safe-area-inset-top)) 16px 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--line);
+    }
+    .brand { font-size: 18px; font-weight: 850; letter-spacing: -.02em; }
+    .mock-label { color: var(--muted); font-size: 10px; }
+    main { padding: 12px 16px calc(28px + env(safe-area-inset-bottom)); }
+    h1, h2, p { margin: 0; }
+
+    .mode-line {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 46px;
+      margin-bottom: 10px;
+      border-bottom: 1px solid var(--line);
+    }
+    .mode-line button { min-height: 45px; border: 0; border-bottom: 3px solid transparent; background: transparent; color: var(--muted); font-size: 13px; font-weight: 750; cursor: pointer; }
+    .mode-line button.active { border-bottom-color: var(--accent); color: var(--accent); }
+
+    .date-line {
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .date-line strong { color: var(--text); font-size: 14px; }
+    .date-line button { min-width: 44px; min-height: 44px; border: 0; background: transparent; color: var(--muted); cursor: pointer; }
+
+    .current {
+      margin-inline: -16px;
+      padding: 14px 16px 18px;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: var(--soft);
+    }
+    .current-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; margin-bottom: 8px; }
+    .eyebrow { color: var(--accent); font-size: 10px; font-weight: 800; letter-spacing: .08em; }
+    .current h1 { margin-top: 3px; font-size: 18px; line-height: 1.3; letter-spacing: -.02em; }
+    .guide { min-height: 44px; padding: 0 4px; border: 0; background: transparent; color: var(--muted); font-size: 11px; font-weight: 750; white-space: nowrap; cursor: pointer; }
+
+    .utility-row {
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 11px;
+    }
+    .utility-row button { min-height: 44px; padding: 0 6px; border: 0; background: transparent; color: var(--muted); cursor: pointer; }
+
+    .weight-head {
+      display: grid;
+      grid-template-columns: 56px minmax(0, 1fr) 56px;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 0 5px;
+    }
+    .step {
+      width: 52px;
+      height: 52px;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      background: var(--surface);
+      color: var(--text);
+      font-size: 24px;
+      cursor: pointer;
+    }
+    .weight { text-align: center; font-size: 38px; font-weight: 900; letter-spacing: -.045em; font-variant-numeric: tabular-nums; }
+    .weight small { margin-left: 4px; color: var(--muted); font-size: 14px; font-weight: 700; letter-spacing: 0; }
+    .landmarks { display: flex; justify-content: center; gap: 14px; color: var(--muted); font-size: 10px; }
+    .landmarks b { color: var(--orange); font-weight: 800; }
+
+    .dial {
+      height: 68px;
+      margin: 9px 0 12px;
+      display: grid;
+      grid-template-columns: repeat(13, 1fr);
+      align-items: end;
+      overflow: hidden;
+      border-bottom: 1px solid var(--line);
+      touch-action: pan-y;
+    }
+    .tick { height: 12px; border-left: 1px solid var(--muted); opacity: .42; }
+    .tick:nth-child(odd) { height: 19px; }
+    .tick:nth-child(7) { height: 46px; border-color: var(--accent); border-width: 2px; opacity: 1; }
+
+    .setrep { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--line); border: 1px solid var(--line); }
+    .value {
+      min-height: 58px;
+      padding: 6px 8px;
+      display: grid;
+      grid-template-columns: auto 44px minmax(24px, auto) 44px;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--surface);
+    }
+    .value span { color: var(--muted); font-size: 10px; font-weight: 750; }
+    .value strong { font-size: 23px; font-variant-numeric: tabular-nums; text-align: center; }
+    .value button { width: 44px; height: 44px; border: 0; background: transparent; color: var(--muted); font-size: 20px; cursor: pointer; }
+
+    .drop-row {
+      width: 100%;
+      min-height: 48px;
+      margin-top: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border: 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: transparent;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .drop-row b { color: var(--text); }
+
+    .record-current {
+      width: 100%;
+      min-height: 52px;
+      margin-top: 12px;
+      border: 0;
+      border-radius: 10px;
+      background: var(--text);
+      color: var(--surface);
+      font-weight: 850;
+      cursor: pointer;
+    }
+
+    .session { padding-top: 18px; }
+    .session-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; padding-bottom: 10px; }
+    .session h2 { font-size: 17px; }
+    .session-sub { margin-top: 2px; color: var(--muted); font-size: 11px; }
+    .progress { color: var(--muted); font-size: 11px; text-align: right; }
+    .progress strong { display: block; color: var(--accent); font-size: 15px; }
+    .list { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .row {
+      width: 100%;
+      min-height: 58px;
+      padding: 7px 0;
+      display: grid;
+      grid-template-columns: 28px minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 8px;
+      border: 0;
+      border-bottom: 1px solid var(--line);
+      background: transparent;
+      color: inherit;
+      text-align: left;
+      cursor: pointer;
+    }
+    .row:last-child { border-bottom: 0; }
+    .row.active { background: var(--soft); }
+    .status { width: 24px; height: 24px; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 50%; color: var(--muted); font-size: 11px; font-weight: 800; }
+    .row.done .status { border-color: var(--accent); background: var(--accent); color: #fff; }
+    .row.active .status { border-color: var(--accent); color: var(--accent); }
+    .row-name { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 13px; font-weight: 750; }
+    .row-meta { display: block; margin-top: 2px; color: var(--muted); font-size: 10px; }
+    .tag { color: var(--muted); font-size: 10px; font-weight: 750; }
+    .row.active .tag { color: var(--accent); }
+
+    .add-exercise { width: 100%; min-height: 48px; border: 0; border-bottom: 1px solid var(--line); background: transparent; color: var(--accent); text-align: left; font-size: 12px; font-weight: 800; cursor: pointer; }
+    .save-session { width: 100%; min-height: 50px; margin-top: 16px; border: 1px solid var(--text); border-radius: 10px; background: var(--surface); color: var(--text); font-weight: 850; cursor: pointer; }
+    .note { margin-top: 8px; color: var(--muted); font-size: 10px; line-height: 1.45; text-align: center; }
+
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: max(16px, env(safe-area-inset-bottom));
+      transform: translate(-50%, 16px);
+      width: min(calc(100% - 32px), 398px);
+      min-height: 48px;
+      padding: 12px 14px;
+      border-radius: 10px;
+      background: #17211b;
+      color: #fff;
+      font-size: 12px;
+      text-align: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: .2s ease;
+      z-index: 10;
+    }
+    .toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+    button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg:#0e1210; --surface:#151a17; --soft:#1b241e; --text:#edf4ef; --muted:#9aa69f; --line:#313a34; --accent:#58c77a; --shadow:none; }
+      .record-current { color:#152018; background:#e7efe9; }
+    }
+    @media (min-width: 431px) {
+      body { padding: 24px 0; }
+      .phone { min-height: calc(100vh - 48px); border-radius: 20px; overflow: hidden; }
+    }
+  </style>
+</head>
+<body>
+  <div class="phone">
+    <header class="topbar"><div class="brand">LIFTLOG</div><div class="mock-label">RECORD WORKBENCH MOCK</div></header>
+    <main>
+      <div class="mode-line"><button class="active" type="button">筋トレ</button><button type="button">有酸素</button></div>
+      <div class="date-line"><button type="button" aria-label="前日">‹</button><strong>8月29日（金）</strong><button type="button" aria-label="翌日">›</button></div>
+
+      <section class="current" id="current">
+        <div class="current-head">
+          <div><div class="eyebrow">CURRENT EXERCISE</div><h1 id="currentName">インクラインダンベルプレス</h1></div>
+          <button class="guide" type="button">フォーム解説</button>
+        </div>
+        <div class="utility-row"><span>ダンベル・胸</span><button type="button">グリップなし</button></div>
+
+        <div class="weight-head">
+          <button class="step minus" type="button" aria-label="重量を下げる">−</button>
+          <div class="weight"><span id="weight">28</span><small>kg</small></div>
+          <button class="step plus" type="button" aria-label="重量を上げる">＋</button>
+        </div>
+        <div class="landmarks"><span>● 前回 <b>28kg</b></span><span>◆ MAX 32kg</span></div>
+        <div class="dial" aria-label="重量ダイアル">
+          <span class="tick"></span><span class="tick"></span><span class="tick"></span><span class="tick"></span><span class="tick"></span><span class="tick"></span><span class="tick"></span><span class="tick"></span><span class="tick"></span><span class="tick"></span><span class="tick"></span><span class="tick"></span><span class="tick"></span>
+        </div>
+
+        <div class="setrep">
+          <div class="value" data-min="1"><span>SET</span><button type="button" aria-label="セットを減らす">−</button><strong>3</strong><button type="button" aria-label="セットを増やす">＋</button></div>
+          <div class="value" data-min="1"><span>REP</span><button type="button" aria-label="レップを減らす">−</button><strong>10</strong><button type="button" aria-label="レップを増やす">＋</button></div>
+        </div>
+        <button class="drop-row" type="button" id="dropSet"><b>Drop Set</b><span>追加 ＋</span></button>
+        <button class="record-current" type="button" id="recordCurrent">この種目を記録</button>
+      </section>
+
+      <section class="session">
+        <header class="session-head">
+          <div><h2>今日のセッション</h2><p class="session-sub">予定と実施を同じ流れで確認</p></div>
+          <div class="progress"><strong id="progress">1 / 4</strong>実施済み</div>
+        </header>
+        <div class="list" id="sessionList">
+          <button class="row done" type="button" data-state="done" data-name="ベンチプレス" data-weight="75"><span class="status">✓</span><span><span class="row-name">ベンチプレス</span><span class="row-meta">75 kg・3 SET × 8 REP</span></span><span class="tag">実施済み</span></button>
+          <button class="row active" type="button" data-state="active" data-name="インクラインダンベルプレス" data-weight="28"><span class="status">2</span><span><span class="row-name">インクラインダンベルプレス</span><span class="row-meta">前回 28 kg・3 × 10</span></span><span class="tag">入力中</span></button>
+          <button class="row" type="button" data-state="planned" data-name="ダンベルフライ" data-weight="18"><span class="status">3</span><span><span class="row-name">ダンベルフライ</span><span class="row-meta">前回 18 kg・3 × 12</span></span><span class="tag">予定</span></button>
+          <button class="row" type="button" data-state="planned" data-name="ケーブルプレスダウン" data-weight="27.5"><span class="status">4</span><span><span class="row-name">ケーブルプレスダウン</span><span class="row-meta">前回 27.5 kg・3 × 12</span></span><span class="tag">予定</span></button>
+        </div>
+        <button class="add-exercise" type="button" id="addExercise">＋ 予定外の種目を追加</button>
+        <button class="save-session" type="button" id="saveSession">セッションを保存</button>
+        <p class="note">保存非接続モックです。未実施予定は実績に含めません。</p>
+      </section>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status">モックのため保存していません</div>
+
+  <script>
+    const list = document.getElementById("sessionList");
+    const currentName = document.getElementById("currentName");
+    const weight = document.getElementById("weight");
+    const toast = document.getElementById("toast");
+    let toastTimer;
+
+    function showToast(text) {
+      clearTimeout(toastTimer);
+      toast.textContent = text;
+      toast.classList.add("show");
+      toastTimer = setTimeout(() => toast.classList.remove("show"), 1800);
+    }
+
+    function refreshRows() {
+      const rows = [...list.querySelectorAll(".row")];
+      rows.forEach((row, index) => {
+        const state = row.dataset.state;
+        row.classList.toggle("done", state === "done");
+        row.classList.toggle("active", state === "active");
+        row.querySelector(".status").textContent = state === "done" ? "✓" : String(index + 1);
+        row.querySelector(".tag").textContent = state === "done" ? "実施済み" : state === "active" ? "入力中" : "予定";
+      });
+      document.getElementById("progress").textContent = `${rows.filter(row => row.dataset.state === "done").length} / ${rows.length}`;
+    }
+
+    function selectRow(row, scroll = true) {
+      if (row.dataset.state === "done") return;
+      const active = list.querySelector('[data-state="active"]');
+      if (active && active !== row) active.dataset.state = "planned";
+      row.dataset.state = "active";
+      currentName.textContent = row.dataset.name;
+      weight.textContent = row.dataset.weight;
+      refreshRows();
+      if (scroll) document.getElementById("current").scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    list.addEventListener("click", event => {
+      const row = event.target.closest(".row");
+      if (row) selectRow(row);
+    });
+
+    document.querySelector(".minus").addEventListener("click", () => weight.textContent = String(Math.max(0, Number(weight.textContent) - 2)));
+    document.querySelector(".plus").addEventListener("click", () => weight.textContent = String(Number(weight.textContent) + 2));
+    document.querySelectorAll(".value").forEach(control => {
+      const buttons = control.querySelectorAll("button");
+      const value = control.querySelector("strong");
+      buttons[0].addEventListener("click", () => value.textContent = String(Math.max(Number(control.dataset.min), Number(value.textContent) - 1)));
+      buttons[1].addEventListener("click", () => value.textContent = String(Number(value.textContent) + 1));
+    });
+    document.getElementById("dropSet").addEventListener("click", () => showToast("Drop Set入力を展開する想定です"));
+
+    document.getElementById("recordCurrent").addEventListener("click", () => {
+      const active = list.querySelector('[data-state="active"]');
+      if (!active) return;
+      const [sets, reps] = [...document.querySelectorAll(".value strong")].map(node => node.textContent);
+      active.dataset.state = "done";
+      active.dataset.weight = weight.textContent;
+      active.querySelector(".row-meta").textContent = `${weight.textContent} kg・${sets} SET × ${reps} REP`;
+      const rows = [...list.querySelectorAll(".row")];
+      const activeIndex = rows.indexOf(active);
+      const next = rows.slice(activeIndex + 1).find(row => row.dataset.state === "planned")
+        || rows.find(row => row.dataset.state === "planned");
+      if (next) selectRow(next, false);
+      refreshRows();
+    });
+
+    document.getElementById("addExercise").addEventListener("click", () => showToast("既存の種目選択へ接続する想定です"));
+    document.getElementById("saveSession").addEventListener("click", () => {
+      const done = list.querySelectorAll('[data-state="done"]').length;
+      showToast(`モック：実施済み${done}種目だけを保存対象にします`);
+    });
+  </script>
+</body>
+</html>
