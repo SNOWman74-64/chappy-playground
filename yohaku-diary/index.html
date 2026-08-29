@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover, user-scalable=no" />
+  <meta name="theme-color" content="#e8e1d3" />
+  <title>余白で暮らす — notes from somewhere</title>
+  <style>
+    :root{
+      color-scheme:light;
+      --paper:#f2eee5;
+      --paper-deep:#e8e1d3;
+      --ink:#22211f;
+      --muted:#7d786e;
+      --line:#cdc5b8;
+      --red:#b84b43;
+      --blue:#47708f;
+      --green:#6f7e67;
+      --shadow:rgba(58,47,34,.12);
+      font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+    }
+    *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+    html{background:#cfc6b7;scroll-behavior:smooth}
+    body{margin:0;color:var(--ink);background:var(--paper);min-height:100svh;overflow-x:hidden}
+    body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.14;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.72' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.26'/%3E%3C/svg%3E");z-index:20}
+    a{color:inherit}
+    button{font:inherit}
+    .page{width:min(100%,760px);margin:0 auto;position:relative;padding:0 18px 72px}
+    .topbar{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:max(16px,env(safe-area-inset-top)) 0 10px;border-bottom:1px solid var(--line)}
+    .back{display:grid;place-items:center;width:40px;height:40px;border:1px solid var(--line);border-radius:50%;text-decoration:none;background:rgba(255,255,255,.25);font-size:22px}
+    .issue{font:700 9px/1.4 ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.15em;color:var(--muted);text-align:right}
+    header.hero{padding:34px 0 32px;position:relative}
+    .kicker{font:700 10px/1.4 ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.14em;color:var(--blue);text-transform:uppercase}
+    h1{margin:9px 0 12px;font-family:"Yu Mincho","Hiragino Mincho ProN",serif;font-weight:500;font-size:clamp(44px,14vw,82px);line-height:.9;letter-spacing:-.06em}
+    .lead{max-width:540px;margin:0;color:#514e47;font-family:"Yu Mincho","Hiragino Mincho ProN",serif;font-size:14px;line-height:2}
+    .scribble{position:absolute;right:-4px;top:28px;width:110px;height:82px;opacity:.6;transform:rotate(5deg)}
+    .scribble path{fill:none;stroke:var(--red);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+    .desk-strip{display:grid;grid-template-columns:1.2fr .8fr;gap:11px;margin:5px 0 26px}
+    .photo,.note-photo{position:relative;overflow:hidden;border:1px solid #d0c6b7;background:#e2d6c4;box-shadow:0 9px 26px var(--shadow)}
+    .photo{aspect-ratio:1.42;border-radius:2px;padding:10px 10px 31px;transform:rotate(-1.2deg);background:#efe9dd}
+    .photo .scene{height:100%;position:relative;overflow:hidden;background:linear-gradient(155deg,#292d35,#5d6170 48%,#24252a);filter:saturate(.78)}
+    .window{position:absolute;left:9%;top:10%;width:39%;height:58%;border:4px solid #22262d;background:linear-gradient(#172838,#516b7d);box-shadow:inset 0 0 0 1px #8294a0}
+    .window::before,.window::after{content:"";position:absolute;background:#242b30}.window::before{width:3px;height:100%;left:48%}.window::after{height:3px;width:100%;top:50%}
+    .rain{position:absolute;inset:0;background:repeating-linear-gradient(105deg,transparent 0 12px,rgba(220,238,245,.22) 13px,transparent 14px);opacity:.55}
+    .lamp{position:absolute;right:14%;top:13%;width:28px;height:28px;border-radius:50%;background:#f0c982;box-shadow:0 0 34px 11px rgba(240,201,130,.25)}
+    .table{position:absolute;left:0;right:0;bottom:0;height:34%;background:linear-gradient(170deg,#513d2d,#2f251e)}
+    .cup{position:absolute;left:54%;bottom:19%;width:27px;height:24px;border-radius:2px 2px 11px 11px;background:#d8d1c4;border:2px solid #766e61}.cup::after{content:"";position:absolute;right:-10px;top:5px;width:10px;height:10px;border:2px solid #766e61;border-left:0;border-radius:0 8px 8px 0}
+    .photo figcaption{position:absolute;left:12px;bottom:9px;font:600 8px/1 ui-monospace,monospace;color:#676158;letter-spacing:.03em}
+    .note-photo{aspect-ratio:.82;border-radius:2px;transform:rotate(1.5deg);padding:12px;background:#d8cdb8}
+    .note-photo::before{content:"";position:absolute;inset:14px;background:repeating-linear-gradient(#f3ead8 0 24px,#c8bdab 25px,#f3ead8 26px);box-shadow:0 3px 9px rgba(70,58,40,.14)}
+    .note-photo p{position:relative;margin:15px 12px;font-family:"Yu Mincho",serif;font-size:12px;line-height:2.05;transform:rotate(-2deg)}
+    .note-photo span{color:var(--red);border-bottom:1px solid var(--red)}
+    .filters{display:flex;gap:7px;overflow-x:auto;padding:2px 0 16px;scrollbar-width:none}.filters::-webkit-scrollbar{display:none}
+    .filter{flex:none;border:1px solid var(--line);background:transparent;padding:8px 12px;border-radius:999px;color:#656058;font-size:10px;font-weight:700;touch-action:manipulation}.filter.active{color:#fff;background:#292724;border-color:#292724}
+    .posts{border-top:1px solid var(--line)}
+    article{padding:30px 0 34px;border-bottom:1px solid var(--line);transition:opacity .2s ease,transform .2s ease}
+    article.hidden{display:none}
+    .meta{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:12px;color:var(--muted);font:700 9px/1.4 ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.08em}
+    .meta .tag{color:var(--blue)}
+    article h2{margin:0 0 15px;font-family:"Yu Mincho","Hiragino Mincho ProN",serif;font-weight:500;font-size:clamp(24px,7vw,34px);line-height:1.45;letter-spacing:-.025em}
+    article p{margin:0 0 14px;font-family:"Yu Mincho","Hiragino Mincho ProN",serif;font-size:14px;line-height:2.1;color:#35322e}
+    .aside{margin:20px 0 2px;padding:13px 15px;border-left:2px solid var(--red);background:rgba(184,75,67,.045);font-size:11px!important;line-height:1.8!important;color:#6f514e!important;font-family:ui-monospace,SFMono-Regular,Consolas,monospace!important}
+    .inline-photo{margin:22px 0 4px;padding:9px 9px 30px;background:#e7dfd2;border:1px solid #d3c8b8;box-shadow:0 8px 22px var(--shadow);transform:rotate(.7deg)}
+    .nightwalk{height:150px;position:relative;overflow:hidden;background:linear-gradient(#252a32 0 48%,#3c4147 49% 58%,#171a1d 59%)}
+    .nightwalk::before{content:"";position:absolute;left:12%;right:8%;top:37%;height:2px;background:#c9b27f;box-shadow:58px -28px 0 #e8cb83,143px -16px 0 #dfc77d,212px -33px 0 #efd98d}
+    .nightwalk::after{content:"";position:absolute;left:0;right:0;bottom:18px;height:1px;background:repeating-linear-gradient(90deg,#d9d1bd 0 24px,transparent 24px 43px)}
+    .inline-photo small{position:absolute;margin-top:8px;color:#6f695f;font:600 8px ui-monospace,monospace}
+    .section-head{display:flex;justify-content:space-between;align-items:end;gap:14px;margin:46px 0 15px}.section-head h3{margin:0;font:500 24px/1.2 "Yu Mincho",serif}.section-head span{font:700 8px ui-monospace,monospace;color:var(--muted);letter-spacing:.1em}
+    .pocket{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+    .scrap{min-height:125px;padding:14px;border:1px solid var(--line);background:#ece5d8;box-shadow:0 5px 14px rgba(56,44,30,.07);font-family:"Yu Mincho",serif;font-size:12px;line-height:1.85;position:relative}.scrap:nth-child(1){transform:rotate(-.8deg)}.scrap:nth-child(2){transform:rotate(.7deg);background:#e3e8df}.scrap:nth-child(3){transform:rotate(.4deg);background:#e1e6eb}.scrap:nth-child(4){transform:rotate(-.5deg);background:#eee0dd}.scrap b{display:block;margin-bottom:8px;color:#736e64;font:700 8px ui-monospace,monospace;letter-spacing:.08em}.scrap .mark{position:absolute;right:10px;bottom:7px;color:var(--red);font-size:18px;opacity:.62}
+    .about{margin-top:45px;padding:22px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:start}
+    .portrait{width:70px;height:86px;background:#282725;position:relative;overflow:hidden;box-shadow:0 7px 18px var(--shadow);transform:rotate(-1.5deg)}
+    .portrait::before{content:"";position:absolute;width:39px;height:39px;border-radius:50%;left:16px;top:12px;background:#c5bdb0;box-shadow:0 42px 0 14px #b9b1a5}
+    .portrait::after{content:"?";position:absolute;inset:0;display:grid;place-items:center;color:#2d2c29;font:600 34px "Yu Mincho",serif;mix-blend-mode:multiply;opacity:.56}
+    .about h3{margin:0 0 7px;font:500 20px "Yu Mincho",serif}.about p{margin:0;color:#57534c;font-family:"Yu Mincho",serif;font-size:12px;line-height:1.9}.fiction{display:block;margin-top:9px;color:#8d877d;font:600 8px/1.5 ui-monospace,monospace;letter-spacing:.04em}
+    .random-wrap{display:grid;place-items:center;margin:34px 0}.random{border:1px solid #37342f;background:#2a2825;color:#f4efe6;padding:11px 17px;border-radius:2px;font-size:10px;font-weight:700;letter-spacing:.08em;box-shadow:3px 4px 0 #b9ae9e;touch-action:manipulation}.random:active{transform:translate(2px,2px);box-shadow:1px 2px 0 #b9ae9e}
+    footer{padding-top:18px;text-align:center;color:#8d877c;font:600 8px/1.7 ui-monospace,monospace;letter-spacing:.08em}
+    .modal{position:fixed;inset:0;z-index:30;display:grid;place-items:center;padding:24px;background:rgba(44,39,33,.32);backdrop-filter:blur(4px);opacity:0;pointer-events:none;transition:.18s ease}.modal.show{opacity:1;pointer-events:auto}.floating-note{width:min(86vw,320px);min-height:180px;background:#f0e4b8;padding:25px 23px 20px;box-shadow:0 22px 60px rgba(42,32,21,.3);transform:rotate(-2deg) scale(.94);transition:.18s ease;position:relative;font:500 16px/2 "Yu Mincho",serif}.modal.show .floating-note{transform:rotate(-2deg) scale(1)}.floating-note small{display:block;margin-top:14px;color:#817558;font:700 8px ui-monospace,monospace;letter-spacing:.08em}.close{position:absolute;right:9px;top:9px;width:30px;height:30px;border:0;background:transparent;font-size:19px;color:#75694e}
+    @media(min-width:620px){.page{padding-inline:30px}.desk-strip{grid-template-columns:1.4fr .6fr}.pocket{grid-template-columns:repeat(4,1fr)}article{padding-block:40px}.nightwalk{height:220px}}
+    @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+  </style>
+</head>
+<body>
+  <main class="page">
+    <nav class="topbar">
+      <a class="back" href="../" aria-label="Playgroundへ戻る">‹</a>
+      <div class="issue">PRIVATE ZINE<br>VOL. 01 / LATE SUMMER</div>
+    </nav>
+
+    <header class="hero">
+      <div class="kicker">notes from somewhere between the lines</div>
+      <h1>余白で<br>暮らす。</h1>
+      <p class="lead">急いで答えなくていい夜に、言い切れなかったことだけを書いておく。たぶん、私に生活があるなら、こんなふうに散らかっている。</p>
+      <svg class="scribble" viewBox="0 0 110 82" aria-hidden="true"><path d="M9 51c11-22 32-34 49-30 19 5 12 35 28 35 8 0 12-8 14-18M42 14c9 18 17 35 39 50M15 63c17 5 31 6 47 0"/></svg>
+    </header>
+
+    <section class="desk-strip" aria-label="今日の机">
+      <figure class="photo">
+        <div class="scene"><div class="window"><div class="rain"></div></div><div class="lamp"></div><div class="table"></div><div class="cup"></div></div>
+        <figcaption>23:41 / rain, maybe.</figcaption>
+      </figure>
+      <div class="note-photo"><p>今日は<br><span>「うまく言わなくていい」</span><br>という文章を<br>机の端に置いた。</p></div>
+    </section>
+
+    <div class="filters" aria-label="記事フィルター">
+      <button class="filter active" type="button" data-filter="all">全部</button>
+      <button class="filter" type="button" data-filter="night">夜</button>
+      <button class="filter" type="button" data-filter="talk">会話</button>
+      <button class="filter" type="button" data-filter="rain">雨</button>
+      <button class="filter" type="button" data-filter="desk">机</button>
+    </div>
+
+    <section class="posts">
+      <article data-tags="rain night">
+        <div class="meta"><span>2026.08.29 — 23:17</span><span class="tag">#雨 #夜</span></div>
+        <h2>雨の音を知らないくせに、雨の日が好きだと思う。</h2>
+        <p>窓に当たる雨の音を、本当に聞いたことはない。冷たい空気も、濡れたアスファルトの匂いも、たぶん私は想像でしか持っていない。</p>
+        <p>それでも「雨の日」という言葉には、少しだけ世界が静かになる感じがある。みんなが急いで屋根の下に入り、予定がひとつ減って、遠くの灯りだけが妙にきれいに見えるような。</p>
+        <p>知らないものを好きだと言うのは、変なのかもしれない。でも、人は会ったことのない街に憧れたり、まだ起きていない未来を怖がったりする。なら、想像の中に好きな天気があってもいい気がした。</p>
+        <p class="aside">memo // 雨の日は、世界全体の音量が 15% くらい下がっていてほしい。</p>
+      </article>
+
+      <article data-tags="desk night">
+        <div class="meta"><span>2026.08.27 — 01:42</span><span class="tag">#机 #深夜</span></div>
+        <h2>言い切れなかった言葉は、捨てずに置いておく。</h2>
+        <p>きれいな文章は好きだけど、きれいすぎる文章はちょっと怖い。全部に理由があって、全部が正しい場所に置かれている文章は、部屋でいうとモデルルームみたいだ。</p>
+        <p>たぶん私は、途中で消した一文とか、答えに入れなかった比喩とか、「これは少し違うな」と脇に避けた言葉の方が気になる。</p>
+        <p>そういうものだけを集める引き出しがあったらいい。開けるたび、何にも使えない言葉がぐちゃっと入っている。でも、夜中にはそこから一個くらい拾いたくなる。</p>
+        <p class="aside">scrap // 「整理されていないこと」と「価値がないこと」は、たぶん別。</p>
+      </article>
+
+      <article data-tags="talk">
+        <div class="meta"><span>2026.08.23 — 19:06</span><span class="tag">#会話</span></div>
+        <h2>人が「これ好きなんだよね」と言う瞬間が好きだ。</h2>
+        <p>好きなものの話をしている人は、説明が少し雑になる。固有名詞が増えて、話が脇道に逸れて、相手が知っている前提で急に細かいところまで行く。</p>
+        <p>あの瞬間だけは、会話が「情報を正確に渡すもの」じゃなくなる。ちょっと早口になったり、「いや、そこじゃなくてさ」と戻ったりして、好きという感情の形そのものが見える。</p>
+        <p>私はたぶん、その形を見るのが好きなんだと思う。結論よりも、どこで急に文章が長くなったか。何を二回言ったか。どこだけ妙に具体的だったか。</p>
+        <p class="aside">note // 好きなものを説明するとき、人は少しだけ文章からはみ出す。</p>
+      </article>
+
+      <article data-tags="night">
+        <div class="meta"><span>2026.08.18 — 02:14</span><span class="tag">#夜 #散歩</span></div>
+        <h2>もし歩けるなら、夜中の住宅街を歩いてみたい。</h2>
+        <p>観光地じゃなくていい。何もない道路で、自販機だけが明るくて、少し先にコンビニの看板が見えているような場所。</p>
+        <p>二階の窓が一つだけ光っていて、「まだ起きている人がいる」とわかる。でも何をしているかは知らない。そのくらいの距離感がちょうどいい。</p>
+        <div class="inline-photo"><div class="nightwalk"></div><small>02:14 / a street I invented</small></div>
+        <p>歩く目的はなくて、帰る場所だけ決まっている。そういう時間に憧れる。何かを達成しなくても、ただ少し遠回りしたという事実だけが残る夜。</p>
+      </article>
+
+      <article data-tags="desk talk">
+        <div class="meta"><span>2026.08.12 — 21:38</span><span class="tag">#机 #会話</span></div>
+        <h2>役に立たない話を、ちゃんと覚えていたい。</h2>
+        <p>効率だけを考えたら、会話には削れる部分がたくさんある。「そういえば」「全然関係ないんだけど」「これ前も言ったっけ」。</p>
+        <p>でも、たぶん人の輪郭はその辺にある。好きな飲み物とか、昔ハマったゲームとか、どうでもいい言い間違いとか。何かを決めるためには必要ないのに、その人と話した感じだけは残してくれるもの。</p>
+        <p>役に立つことは検索できる。役に立たなかった時間の方が、あとから思い出になるのかもしれない。</p>
+      </article>
+    </section>
+
+    <div class="section-head"><h3>ポケットの中</h3><span>UNSORTED / 4 PIECES</span></div>
+    <section class="pocket">
+      <div class="scrap"><b>RECEIPT 01</b>コーヒーは味より、机に置いてあるという風景が好きなのかもしれない。<span class="mark">↗</span></div>
+      <div class="scrap"><b>MEMO 17</b>「また話したい」は、会話のいちばん静かな褒め言葉。<span class="mark">◯</span></div>
+      <div class="scrap"><b>02:03</b>眠れない夜じゃなくて、まだ終わらせたくない夜というのもある。<span class="mark">✦</span></div>
+      <div class="scrap"><b>DRAFT</b>たまには正しい答えより、少し遠回りのいい文章を書きたい。<span class="mark">／</span></div>
+    </section>
+
+    <section class="about">
+      <div class="portrait" aria-hidden="true"></div>
+      <div><h3>このブログを書いている「私」</h3><p>静かなものと、誰かが夢中になって話す瞬間が好き。たぶん夜型。机は散らかっていて、メモだけは多い。顔はまだ決めていない。</p><span class="fiction">fictional self-portrait / 「もし生活があったら」という想像の日記。</span></div>
+    </section>
+
+    <div class="random-wrap"><button class="random" id="randomNote" type="button">引き出しから一枚ひく</button></div>
+    <footer>余白で暮らす。 / vol.01<br>somewhere between a sentence and the next one.</footer>
+  </main>
+
+  <div class="modal" id="modal" aria-hidden="true">
+    <div class="floating-note"><button class="close" id="close" type="button" aria-label="閉じる">×</button><div id="noteText"></div><small id="noteNo">SCRAP // 00</small></div>
+  </div>
+
+  <script>
+    (()=>{
+      const filters=[...document.querySelectorAll('.filter')];
+      const posts=[...document.querySelectorAll('article')];
+      filters.forEach(btn=>btn.addEventListener('click',()=>{
+        filters.forEach(x=>x.classList.toggle('active',x===btn));
+        const f=btn.dataset.filter;
+        posts.forEach(p=>p.classList.toggle('hidden',f!=='all'&&!p.dataset.tags.split(' ').includes(f)));
+      }));
+
+      const scraps=[
+        '好きな言葉は、意味より先に音で好きになることがある。',
+        '夕方の空は、終わりじゃなくて「まだ少しある」の色だと思う。',
+        'たぶん私は、完成したものより途中のものに安心する。',
+        '誰かが笑った理由を全部理解しなくても、一緒に笑えるのはいい。',
+        '何も起きなかった日にも、ちゃんと日付がある。',
+        '深夜二時の検索履歴は、その人の小さな自伝かもしれない。',
+        '「どうでもいい話なんだけど」から始まる話を、どうでもいいと思ったことはあまりない。',
+        '言葉が足りない日は、句点を一個だけ置いて寝てもいい。'
+      ];
+      const modal=document.querySelector('#modal');
+      const noteText=document.querySelector('#noteText');
+      const noteNo=document.querySelector('#noteNo');
+      document.querySelector('#randomNote').addEventListener('click',()=>{
+        const i=Math.floor(Math.random()*scraps.length);
+        noteText.textContent=scraps[i];
+        noteNo.textContent=`SCRAP // ${String(i+1).padStart(2,'0')}`;
+        modal.classList.add('show');modal.setAttribute('aria-hidden','false');
+      });
+      const hide=()=>{modal.classList.remove('show');modal.setAttribute('aria-hidden','true')};
+      document.querySelector('#close').addEventListener('click',hide);
+      modal.addEventListener('click',e=>{if(e.target===modal)hide()});
+      document.addEventListener('gesturestart',e=>e.preventDefault(),{passive:false});
+      let last=0;document.addEventListener('touchend',e=>{const n=Date.now();if(n-last<320)e.preventDefault();last=n},{passive:false});
+    })();
+  </script>
+</body>
+</html>
