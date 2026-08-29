@@ -2,310 +2,435 @@
 <html lang="ja">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-  <meta name="theme-color" content="#0a0d0b" />
-  <title>LIFTLOG Exercise Explorer</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no" />
+  <meta name="theme-color" content="#050706" />
+  <title>LIFTLOG Soft Exercise Explorer</title>
   <style>
     :root {
       color-scheme: dark;
-      --bg:#080a09;
-      --ink:#f5f7f5;
-      --muted:#98a19b;
-      --line:rgba(255,255,255,.12);
-      --green:#72d39a;
-      --panel:rgba(15,19,16,.84);
-      --chest:#f07a6c;
-      --back:#78b9ef;
-      --shoulder:#f1c95e;
-      --arm:#be91e8;
-      --leg:#76d5a1;
-      --core:#71d6d1;
+      --bg:#050706;
+      --ink:#f3f6f4;
+      --muted:#8d9891;
+      --panel:rgba(25,29,27,.90);
+      --line:rgba(255,255,255,.13);
+      --accent:#79d89d;
     }
     * { box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
-    html { background:var(--bg); }
-    body {
-      margin:0;
-      min-width:320px;
-      min-height:100svh;
-      color:var(--ink);
-      background:
-        radial-gradient(circle at 50% -12%,rgba(114,211,154,.16),transparent 26%),
-        var(--bg);
-      font-family:Inter,"Noto Sans JP",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-      overflow-x:hidden;
-    }
+    html,body { margin:0; min-width:320px; min-height:100%; background:var(--bg); color:var(--ink); overflow:hidden; }
+    body { font-family:Inter,"Noto Sans JP",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
     button { font:inherit; color:inherit; }
-    .app { width:min(100%,430px); margin:0 auto; min-height:100svh; position:relative; }
-    .top {
-      position:sticky; top:0; z-index:20;
-      padding:max(13px,env(safe-area-inset-top)) 16px 11px;
-      background:linear-gradient(180deg,rgba(8,10,9,.98) 64%,rgba(8,10,9,.87) 84%,rgba(8,10,9,0));
-      backdrop-filter:blur(14px);
-    }
-    .bar { display:grid; grid-template-columns:44px minmax(0,1fr) 44px; align-items:center; gap:8px; }
-    .icon-btn { width:44px; height:44px; border:1px solid var(--line); border-radius:50%; background:rgba(255,255,255,.055); font-size:21px; cursor:pointer; }
-    .brand { text-align:center; }
-    .brand small { display:block; color:var(--green); font-size:9px; font-weight:900; letter-spacing:.16em; }
-    .brand strong { display:block; margin-top:2px; font-size:16px; letter-spacing:-.03em; }
+    .app { position:relative; width:min(100%,430px); height:100svh; margin:0 auto; overflow:hidden; background:#050706; }
+    canvas { position:absolute; inset:0; width:100%; height:100%; touch-action:none; }
 
-    .hero {
-      margin-top:9px;
-      min-height:126px;
-      display:grid;
-      grid-template-columns:minmax(0,1fr) 118px;
-      align-items:center;
-      gap:8px;
-      border-top:1px solid var(--line);
-      border-bottom:1px solid var(--line);
+    .topbar {
+      position:absolute; z-index:20; inset:max(12px,env(safe-area-inset-top)) 14px auto;
+      display:grid; grid-template-columns:48px 1fr 48px; align-items:center; gap:10px;
+      pointer-events:none;
     }
-    .hero-copy { min-width:0; padding:12px 0; }
-    .part { color:var(--selected,var(--green)); font-size:10px; font-weight:900; letter-spacing:.15em; }
-    .hero h1 { margin:5px 0 0; font-size:24px; line-height:1.08; letter-spacing:-.055em; }
-    .meta { margin-top:9px; display:flex; flex-wrap:wrap; gap:6px 12px; color:var(--muted); font-size:10px; }
-    .meta b { color:var(--ink); font-size:12px; }
-    .hint { margin-top:7px; color:var(--muted); font-size:9px; }
-    .motion {
-      height:110px;
-      display:grid;
-      place-items:center;
-      color:var(--selected,var(--green));
+    .round {
+      width:48px; height:48px; border-radius:50%; border:1px solid rgba(255,255,255,.18);
+      background:rgba(20,23,21,.84); box-shadow:0 9px 30px rgba(0,0,0,.28),inset 0 1px rgba(255,255,255,.10);
+      backdrop-filter:blur(12px); cursor:pointer; pointer-events:auto; font-size:24px;
     }
-    .motion svg { width:108px; height:96px; overflow:visible; }
-    .motion .body { stroke:currentColor; stroke-width:4; stroke-linecap:round; stroke-linejoin:round; fill:none; }
-    .motion .equip { stroke:rgba(245,247,245,.65); stroke-width:3; stroke-linecap:round; fill:none; }
-    .motion .ghost { stroke:currentColor; stroke-width:3; opacity:.18; stroke-dasharray:5 6; fill:none; }
+    .brand { text-align:center; text-shadow:0 2px 18px #000; }
+    .brand small { display:block; color:rgba(255,255,255,.56); font-size:8px; font-weight:900; letter-spacing:.18em; }
+    .brand strong { display:block; margin-top:3px; font-size:14px; font-weight:900; letter-spacing:-.03em; }
 
-    .legend {
-      display:flex; gap:5px; overflow:auto; scrollbar-width:none;
-      padding:9px 0 3px;
+    .muscles {
+      position:absolute; z-index:18; left:12px; right:12px; top:calc(max(12px,env(safe-area-inset-top)) + 59px);
+      display:flex; gap:6px; overflow:auto; padding:3px 2px 12px; scrollbar-width:none; pointer-events:auto;
+      mask-image:linear-gradient(90deg,transparent,#000 14px,#000 calc(100% - 14px),transparent);
     }
-    .legend::-webkit-scrollbar { display:none; }
+    .muscles::-webkit-scrollbar { display:none; }
     .chip {
-      flex:0 0 auto; min-height:30px; padding:0 10px;
-      border:1px solid var(--line); border-radius:999px;
-      background:transparent; color:var(--muted); font-size:10px; font-weight:800;
-      display:flex; align-items:center; gap:6px;
-      cursor:pointer;
+      flex:0 0 auto; min-height:31px; padding:0 11px; border-radius:999px;
+      border:1px solid rgba(255,255,255,.12); background:rgba(10,12,11,.62); color:rgba(255,255,255,.58);
+      backdrop-filter:blur(10px); font-size:10px; font-weight:850; cursor:pointer;
     }
-    .chip::before { content:""; width:7px; height:7px; border-radius:50%; background:var(--c); }
-    .chip.active { color:var(--ink); border-color:rgba(255,255,255,.25); background:rgba(255,255,255,.06); }
+    .chip.active { color:#fff; border-color:color-mix(in srgb,var(--c) 75%,white 25%); box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--c) 45%,transparent); }
+    .chip i { display:inline-block; width:7px; height:7px; margin-right:6px; border-radius:50%; background:var(--c); }
 
-    .intro { padding:8px 16px 0; display:flex; align-items:end; justify-content:space-between; gap:12px; }
-    .intro strong { font-size:13px; }
-    .intro span { color:var(--muted); font-size:9px; text-align:right; line-height:1.45; }
+    .tip {
+      position:absolute; z-index:8; top:calc(max(12px,env(safe-area-inset-top)) + 105px); left:50%; transform:translateX(-50%);
+      color:rgba(255,255,255,.46); font-size:9px; white-space:nowrap; pointer-events:none; text-shadow:0 2px 12px #000;
+      transition:opacity .25s ease;
+    }
+    .tip.hide { opacity:0; }
 
-    .field {
-      position:relative;
-      height:1180px;
-      margin-top:5px;
-      overflow:hidden;
-      touch-action:pan-y;
+    .detail {
+      position:absolute; z-index:25; left:14px; right:14px; bottom:max(14px,env(safe-area-inset-bottom));
+      min-height:122px; padding:15px 80px 15px 17px; border:1px solid rgba(255,255,255,.10); border-radius:28px;
+      background:var(--panel); box-shadow:0 20px 70px rgba(0,0,0,.36),inset 0 1px rgba(255,255,255,.06);
+      backdrop-filter:blur(22px); transform:translateY(calc(100% + 32px)); opacity:0; transition:transform .32s cubic-bezier(.2,.85,.25,1),opacity .2s ease;
+      pointer-events:none;
     }
-    .bubble {
-      --bubble:#888;
-      position:absolute;
-      width:var(--size);
-      height:var(--size);
-      left:var(--x);
-      top:var(--y);
-      transform:translate(-50%,-50%) rotate(var(--rot,0deg));
-      border:0;
-      padding:12px;
-      border-radius:48% 52% 45% 55% / 53% 43% 57% 47%;
-      background:
-        radial-gradient(circle at 34% 24%,rgba(255,255,255,.24),transparent 23%),
-        linear-gradient(145deg,color-mix(in srgb,var(--bubble) 88%,white 12%),color-mix(in srgb,var(--bubble) 82%,black 18%));
-      color:#0b0e0c;
-      box-shadow:inset -10px -12px 24px rgba(0,0,0,.11),inset 8px 8px 20px rgba(255,255,255,.10),0 8px 24px rgba(0,0,0,.16);
-      display:grid;
-      place-items:center;
-      text-align:center;
-      cursor:pointer;
-      transition:transform .22s cubic-bezier(.2,.9,.2,1),filter .2s ease,box-shadow .2s ease;
-      animation:morph var(--dur,7s) ease-in-out infinite alternate;
+    .detail.show { transform:translateY(0); opacity:1; pointer-events:auto; }
+    .eyebrow { color:var(--bubble-color,var(--accent)); font-size:9px; font-weight:950; letter-spacing:.15em; }
+    .detail h1 { margin:5px 0 0; font-size:21px; line-height:1.07; letter-spacing:-.045em; }
+    .meta { display:flex; flex-wrap:wrap; gap:5px 12px; margin-top:9px; color:var(--muted); font-size:9px; }
+    .meta b { color:var(--ink); font-size:11px; }
+    .choose {
+      position:absolute; right:13px; top:50%; transform:translateY(-50%); width:58px; height:58px; border-radius:50%; border:0;
+      background:rgba(255,255,255,.13); font-size:26px; cursor:pointer;
     }
-    .bubble .name { font-size:clamp(11px,3.3vw,15px); line-height:1.12; font-weight:900; letter-spacing:-.035em; text-wrap:balance; pointer-events:none; }
-    .bubble .sub { display:block; margin-top:4px; font-size:8px; font-weight:800; opacity:.58; pointer-events:none; }
-    .bubble.selected {
-      z-index:5;
-      transform:translate(-50%,-50%) scale(1.12) rotate(0deg);
-      filter:saturate(1.05) brightness(1.05);
-      box-shadow:0 0 0 4px rgba(255,255,255,.88),0 0 0 8px color-mix(in srgb,var(--bubble) 60%,transparent),inset -10px -12px 24px rgba(0,0,0,.10),0 18px 36px rgba(0,0,0,.3);
-      animation:morphSelected 2.5s ease-in-out infinite alternate;
-    }
-    .bubble:active { transform:translate(-50%,-50%) scale(.93,.88); }
-    .bubble.dim { opacity:.17; filter:saturate(.2); }
+    .mini-form { position:absolute; right:83px; top:14px; width:48px; height:48px; opacity:.84; pointer-events:none; display:none; }
 
-    @keyframes morph {
-      0% { border-radius:48% 52% 45% 55% / 53% 43% 57% 47%; }
-      45% { border-radius:55% 45% 51% 49% / 44% 56% 46% 54%; }
-      100% { border-radius:44% 56% 56% 44% / 59% 47% 53% 41%; }
-    }
-    @keyframes morphSelected {
-      from { border-radius:52% 48% 42% 58% / 47% 58% 42% 53%; }
-      to { border-radius:43% 57% 54% 46% / 58% 44% 56% 42%; }
+    .badge {
+      position:absolute; z-index:10; right:13px; bottom:calc(max(14px,env(safe-area-inset-bottom)) + 132px);
+      padding:6px 9px; border-radius:999px; background:rgba(5,7,6,.64); color:rgba(255,255,255,.48);
+      border:1px solid rgba(255,255,255,.08); font-size:8px; font-weight:800; backdrop-filter:blur(9px); pointer-events:none;
     }
 
-    .footer-note {
-      margin:-16px 16px 0;
-      padding:14px 0 calc(26px + env(safe-area-inset-bottom));
-      border-top:1px solid var(--line);
-      color:var(--muted); font-size:9px; line-height:1.6;
-    }
     .toast {
-      position:fixed; left:50%; bottom:max(18px,env(safe-area-inset-bottom)); z-index:50;
-      transform:translate(-50%,18px);
-      width:min(calc(100% - 32px),398px); padding:13px 14px;
-      border-radius:999px; background:#f5f7f5; color:#101411;
-      font-size:11px; font-weight:850; text-align:center;
-      opacity:0; pointer-events:none; transition:.2s ease;
+      position:absolute; z-index:40; left:50%; bottom:calc(max(14px,env(safe-area-inset-bottom)) + 148px); transform:translate(-50%,14px);
+      padding:10px 14px; border-radius:999px; background:#f5f7f5; color:#101411; font-size:10px; font-weight:900;
+      opacity:0; pointer-events:none; transition:.2s ease; white-space:nowrap;
     }
     .toast.show { opacity:1; transform:translate(-50%,0); }
-    @media (prefers-reduced-motion:reduce) { .bubble { animation:none; } }
-    @media (min-width:431px) { body { padding:24px 0; } .app { border:1px solid var(--line); border-radius:26px; overflow:hidden; } }
+
+    @media (min-width:431px) {
+      body { display:grid; place-items:center; background:#0c100e; }
+      .app { height:min(920px,calc(100svh - 32px)); border:1px solid rgba(255,255,255,.12); border-radius:30px; box-shadow:0 30px 90px rgba(0,0,0,.32); }
+    }
   </style>
 </head>
 <body>
-  <div class="app">
-    <header class="top">
-      <div class="bar">
-        <button class="icon-btn" id="back" aria-label="戻る">‹</button>
-        <div class="brand"><small>LIFTLOG LAB</small><strong>種目を探す</strong></div>
-        <button class="icon-btn" id="search" aria-label="検索">⌕</button>
-      </div>
-      <section class="hero" id="hero">
-        <div class="hero-copy">
-          <div class="part" id="part">BACK · 背中</div>
-          <h1 id="name">ラットプルダウン</h1>
-          <div class="meta"><span>前回 <b id="previous">72.5kg × 10</b></span><span>主力 <b id="role">広背筋</b></span></div>
-          <div class="hint">泡をタップして種目を切替 · もう一度タップで選択</div>
-        </div>
-        <div class="motion" id="motion" aria-label="フォームの簡易図"></div>
-      </section>
-      <div class="legend" id="legend"></div>
-    </header>
+<div class="app" id="app">
+  <canvas id="canvas" aria-label="筋トレ種目を泡で探索するマップ"></canvas>
 
-    <div class="intro"><strong>EXERCISE MAP</strong><span>色は部位。大きさは主力度。<br>探索用の実験UI。</span></div>
-    <main class="field" id="field" aria-label="種目マップ"></main>
-    <div class="footer-note">このモックは記録の主導線を置き換えるものではなく、予定外種目の追加・種目図鑑・探索モード向けの実験です。色、位置、大きさに意味を持たせ、一覧を“眺めて選ぶ”体験へ変換しています。</div>
+  <div class="topbar">
+    <button class="round" id="back" aria-label="戻る">‹</button>
+    <div class="brand"><small>LIFTLOG LAB</small><strong>SOFT EXERCISE MAP</strong></div>
+    <button class="round" id="reset" aria-label="表示をリセット">⌕</button>
   </div>
-  <div class="toast" id="toast">選択しました</div>
 
-  <script>
-    const colors={胸:'#f07a6c',背中:'#78b9ef',肩:'#f1c95e',腕:'#be91e8',脚:'#76d5a1',体幹:'#71d6d1'};
-    const exercises=[
-      {name:'ベンチプレス',part:'胸',role:'胸全体',prev:'70kg × 8',type:'press',x:24,y:92,size:136,rot:-4},
-      {name:'インクライン\nダンベルプレス',part:'胸',role:'上部胸',prev:'28kg × 10',type:'press',x:60,y:74,size:150,rot:3},
-      {name:'ダンベルフライ',part:'胸',role:'胸ストレッチ',prev:'18kg × 12',type:'fly',x:88,y:137,size:112,rot:-2},
-      {name:'チェストプレス',part:'胸',role:'胸全体',prev:'60kg × 10',type:'press',x:21,y:215,size:108,rot:2},
+  <div class="muscles" id="muscles"></div>
+  <div class="tip" id="tip">上下にドラッグして探索 · 泡をタップするとフォーカス</div>
+  <div class="badge">SOFT BODY / SPRING CAMERA</div>
 
-      {name:'ラットプルダウン',part:'背中',role:'広背筋',prev:'72.5kg × 10',type:'pull',x:57,y:204,size:154,rot:-2,selected:true},
-      {name:'シーテッドロー',part:'背中',role:'背中中央',prev:'60kg × 10',type:'row',x:22,y:316,size:128,rot:4},
-      {name:'ワンハンドロー',part:'背中',role:'広背筋',prev:'30kg × 10',type:'row',x:67,y:330,size:136,rot:-4},
-      {name:'ストレートアーム\nプルダウン',part:'背中',role:'広背筋',prev:'30kg × 12',type:'pull',x:94,y:268,size:122,rot:2},
+  <section class="detail" id="detail" aria-live="polite">
+    <div class="eyebrow" id="detailPart">BACK · 背中</div>
+    <h1 id="detailName">ラットプルダウン</h1>
+    <div class="meta"><span>前回 <b id="detailPrev">72.5kg × 10</b></span><span>主力 <b id="detailRole">広背筋</b></span></div>
+    <button class="choose" id="choose" aria-label="この種目を選択">→</button>
+  </section>
+  <div class="toast" id="toast">この種目を選択する想定です</div>
+</div>
 
-      {name:'ショルダープレス',part:'肩',role:'前・中部',prev:'22kg × 7',type:'press',x:22,y:442,size:138,rot:-2},
-      {name:'サイドレイズ',part:'肩',role:'中部',prev:'8kg × 16',type:'raise',x:59,y:432,size:126,rot:3},
-      {name:'リアデルト\nマシン',part:'肩',role:'後部',prev:'47.5kg × 8',type:'fly',x:90,y:402,size:114,rot:-3},
+<script>
+(() => {
+  const canvas = document.getElementById('canvas');
+  const ctx = canvas.getContext('2d');
+  const app = document.getElementById('app');
+  const detail = document.getElementById('detail');
+  const tip = document.getElementById('tip');
+  const toast = document.getElementById('toast');
+  const colors = {胸:'#f66f65',背中:'#74baf0',肩:'#f0c95f',腕:'#bc91e5',脚:'#70d79d',体幹:'#6fd6d0'};
+  const partEn = {胸:'CHEST',背中:'BACK',肩:'SHOULDER',腕:'ARMS',脚:'LEGS',体幹:'CORE'};
 
-      {name:'インクラインカール',part:'腕',role:'二頭',prev:'12kg × 7',type:'curl',x:25,y:559,size:132,rot:3},
-      {name:'ケーブル\nプレスダウン',part:'腕',role:'三頭',prev:'27.5kg × 12',type:'pushdown',x:65,y:550,size:142,rot:-2},
-      {name:'ハンマーカール',part:'腕',role:'腕橈骨筋',prev:'12kg × 10',type:'curl',x:94,y:520,size:106,rot:3},
+  const raw = [
+    ['ベンチプレス','胸','胸全体','70kg × 8',105,210,69],
+    ['インクライン\nダンベルプレス','胸','上部胸','28kg × 10',265,175,78],
+    ['ダンベルフライ','胸','胸ストレッチ','18kg × 12',385,270,60],
+    ['チェストプレス','胸','胸全体','60kg × 10',115,345,59],
+    ['ケーブルクロス','胸','胸内側','22.5kg × 12',275,330,64],
 
-      {name:'スクワット',part:'脚',role:'脚全体',prev:'70kg × 8',type:'squat',x:25,y:690,size:154,rot:-3},
-      {name:'レッグ\nエクステンション',part:'脚',role:'大腿四頭筋',prev:'80kg × 15',type:'leg',x:66,y:674,size:138,rot:3},
-      {name:'レッグカール',part:'脚',role:'ハム',prev:'75kg × 8',type:'leg',x:93,y:643,size:112,rot:-2},
-      {name:'ブルガリアン\nスクワット',part:'脚',role:'脚・臀部',prev:'20kg × 10',type:'squat',x:54,y:808,size:146,rot:-2},
+    ['ラットプルダウン','背中','広背筋','72.5kg × 10',205,500,80],
+    ['シーテッドロー','背中','背中中央','60kg × 10',70,500,66],
+    ['ワンハンドロー','背中','広背筋','30kg × 10',350,480,68],
+    ['ストレートアーム\nプルダウン','背中','広背筋','30kg × 12',115,625,62],
+    ['ベントオーバーロー','背中','背中全体','55kg × 8',285,625,72],
 
-      {name:'プランク',part:'体幹',role:'体幹',prev:'60秒',type:'core',x:20,y:825,size:120,rot:2},
-      {name:'ハンギング\nレッグレイズ',part:'体幹',role:'腹直筋',prev:'12rep',type:'core',x:88,y:800,size:120,rot:-3},
-      {name:'アブローラー',part:'体幹',role:'腹部',prev:'10rep',type:'core',x:28,y:944,size:132,rot:-4},
-      {name:'ケーブルクランチ',part:'体幹',role:'腹直筋',prev:'40kg × 12',type:'core',x:70,y:930,size:138,rot:3}
-    ];
+    ['ショルダープレス','肩','前・中部','22kg × 7',95,790,70],
+    ['サイドレイズ','肩','中部','8kg × 16',255,765,67],
+    ['リアデルト\nマシン','肩','後部','47.5kg × 8',380,805,59],
+    ['フロントレイズ','肩','前部','8kg × 12',165,900,58],
 
-    const field=document.getElementById('field');
-    const legend=document.getElementById('legend');
-    const hero=document.getElementById('hero');
-    const nameEl=document.getElementById('name');
-    const partEl=document.getElementById('part');
-    const previousEl=document.getElementById('previous');
-    const roleEl=document.getElementById('role');
-    const motion=document.getElementById('motion');
-    const toast=document.getElementById('toast');
-    let selected=exercises.find(x=>x.selected)||exercises[0];
-    let filter=null;
-    let toastTimer;
+    ['インクラインカール','腕','二頭','12kg × 7',80,1040,68],
+    ['ケーブル\nプレスダウン','腕','三頭','27.5kg × 12',245,1030,74],
+    ['ハンマーカール','腕','腕橈骨筋','12kg × 10',382,1000,59],
+    ['スカルクラッシャー','腕','三頭','20kg × 10',125,1155,61],
 
-    function figure(type){
-      const base=`<circle class="body" cx="52" cy="17" r="8"/><path class="body" d="M52 27 L52 54"/><path class="body" d="M52 53 L38 78 M52 53 L68 78"/>`;
-      const map={
-        press:`${base}<path class="body" d="M52 34 L34 43 L24 28 M52 34 L70 43 L80 28"/><path class="equip" d="M17 25h14 M73 25h14"/><path class="ghost" d="M25 28 L25 9 M79 28 L79 9"/>`,
-        fly:`${base}<path class="body" d="M52 36 L23 35 M52 36 L81 35"/><path class="equip" d="M15 35h12 M77 35h12"/><path class="ghost" d="M23 35 Q30 20 39 26 M81 35 Q74 20 65 26"/>`,
-        pull:`${base}<path class="body" d="M52 34 L35 26 L27 10 M52 34 L69 26 L77 10"/><path class="equip" d="M18 8h68"/><path class="ghost" d="M27 10 L35 40 M77 10 L69 40"/>`,
-        row:`${base}<path class="body" d="M52 34 L31 43 M52 34 L73 43"/><path class="equip" d="M18 46h18 M68 46h18"/><path class="ghost" d="M31 43 L20 35 M73 43 L84 35"/>`,
-        raise:`${base}<path class="body" d="M52 35 L21 29 M52 35 L83 29"/><path class="equip" d="M14 29h12 M78 29h12"/><path class="ghost" d="M21 29 L32 47 M83 29 L72 47"/>`,
-        curl:`${base}<path class="body" d="M52 35 L35 48 L30 32 M52 35 L69 48 L74 32"/><path class="equip" d="M23 30h13 M68 30h13"/><path class="ghost" d="M30 32 L29 53 M74 32 L75 53"/>`,
-        pushdown:`${base}<path class="body" d="M52 35 L39 44 L37 64 M52 35 L65 44 L67 64"/><path class="equip" d="M52 7v15 M33 64h10 M61 64h10"/><path class="ghost" d="M37 45 L37 28 M67 45 L67 28"/>`,
-        squat:`${base}<path class="body" d="M52 34 L35 36 M52 34 L69 36"/><path class="equip" d="M28 31h48"/><path class="ghost" d="M52 53 L36 62 L30 81 M52 53 L68 62 L74 81"/>`,
-        leg:`${base}<path class="body" d="M52 53 L38 63 L28 63 M52 53 L66 63 L76 63"/><path class="equip" d="M21 64h13 M70 64h13"/><path class="ghost" d="M28 63 L21 80 M76 63 L83 80"/>`,
-        core:`${base}<path class="body" d="M52 35 L34 48 M52 35 L70 48"/><path class="equip" d="M20 80h64"/><path class="ghost" d="M34 48 L23 70 M70 48 L81 70"/>`
-      };
-      return `<svg viewBox="0 0 104 92" aria-hidden="true">${map[type]||map.core}</svg>`;
-    }
+    ['スクワット','脚','脚全体','70kg × 8',90,1315,79],
+    ['レッグ\nエクステンション','脚','大腿四頭筋','80kg × 15',265,1285,74],
+    ['レッグカール','脚','ハム','75kg × 8',390,1360,62],
+    ['ブルガリアン\nスクワット','脚','脚全体','20kg × 10',165,1450,67],
 
-    function updateHero(ex){
-      selected=ex;
-      hero.style.setProperty('--selected',colors[ex.part]);
-      partEl.textContent=`${ex.part.toUpperCase()} · ${ex.part}`;
-      nameEl.textContent=ex.name.replace('\n',' ');
-      previousEl.textContent=ex.prev;
-      roleEl.textContent=ex.role;
-      motion.innerHTML=figure(ex.type);
-      document.querySelectorAll('.bubble').forEach(b=>b.classList.toggle('selected',b.dataset.name===ex.name));
-    }
+    ['プランク','体幹','腹部','60秒',85,1605,65],
+    ['ハンギング\nレッグレイズ','体幹','腹部','12rep',250,1585,72],
+    ['アブローラー','体幹','腹部','10rep',390,1645,61]
+  ];
 
-    exercises.forEach((ex,i)=>{
-      const b=document.createElement('button');
-      b.className='bubble'+(ex.selected?' selected':'');
-      b.dataset.name=ex.name;
-      b.dataset.part=ex.part;
-      b.style.setProperty('--bubble',colors[ex.part]);
-      b.style.setProperty('--size',ex.size+'px');
-      b.style.setProperty('--x',ex.x+'%');
-      b.style.setProperty('--y',ex.y+'px');
-      b.style.setProperty('--rot',ex.rot+'deg');
-      b.style.setProperty('--dur',(6+(i%5)*.7)+'s');
-      b.style.animationDelay=(-i*.37)+'s';
-      b.innerHTML=`<span><span class="name">${ex.name.replace('\n','<br>')}</span><span class="sub">${ex.role}</span></span>`;
-      b.addEventListener('click',()=>{
-        if(selected===ex){
-          clearTimeout(toastTimer); toast.textContent=`${ex.name.replace('\n',' ')} を選択`; toast.classList.add('show');
-          toastTimer=setTimeout(()=>toast.classList.remove('show'),1400);
-        } else updateHero(ex);
-      });
-      field.appendChild(b);
-    });
+  const bubbles = raw.map((d,i) => ({
+    id:i, name:d[0], part:d[1], role:d[2], prev:d[3],
+    ax:d[4], ay:d[5], x:d[4], y:d[5], vx:0, vy:0,
+    baseR:d[6], r:d[6], vr:0, wobble:Math.random()*Math.PI*2,
+    color:colors[d[1]], phase:Math.random()*6.28
+  }));
 
-    Object.entries(colors).forEach(([part,color])=>{
-      const c=document.createElement('button');
-      c.className='chip'; c.style.setProperty('--c',color); c.textContent=part;
-      c.addEventListener('click',()=>{
+  let W=0,H=0,dpr=1;
+  const world = {width:460,height:1790};
+  const camera = {x:world.width/2,y:520,tx:world.width/2,ty:520,scale:1,tscale:1,vx:0,vy:0,vs:0};
+  let selected=null, filter=null;
+  let pointerDown=false, moved=false, startY=0, lastY=0, lastTime=0, cameraStartY=0, panVelocity=0;
+  let toastTimer;
+
+  function resize(){
+    const rect=app.getBoundingClientRect();
+    W=rect.width; H=rect.height; dpr=Math.min(devicePixelRatio||1,2);
+    canvas.width=Math.round(W*dpr); canvas.height=Math.round(H*dpr);
+    canvas.style.width=W+'px'; canvas.style.height=H+'px';
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+  }
+  addEventListener('resize',resize); resize();
+
+  function screenToWorld(sx,sy){
+    return {
+      x:(sx-W/2)/camera.scale+camera.x,
+      y:(sy-H/2)/camera.scale+camera.y
+    };
+  }
+  function worldToScreen(x,y){
+    return {x:(x-camera.x)*camera.scale+W/2,y:(y-camera.y)*camera.scale+H/2};
+  }
+
+  function buildChips(){
+    const host=document.getElementById('muscles');
+    Object.keys(colors).forEach(part=>{
+      const b=document.createElement('button'); b.className='chip'; b.style.setProperty('--c',colors[part]);
+      b.innerHTML=`<i></i>${part}`;
+      b.onclick=()=>{
         filter=filter===part?null:part;
-        [...legend.children].forEach(x=>x.classList.toggle('active',filter&&x.textContent===filter));
-        document.querySelectorAll('.bubble').forEach(b=>b.classList.toggle('dim',filter&&b.dataset.part!==filter));
-        if(filter){ const first=exercises.find(x=>x.part===filter); if(first) updateHero(first); }
-      });
-      legend.appendChild(c);
+        selected=null; detail.classList.remove('show');
+        [...host.children].forEach(el=>el.classList.toggle('active',el===b&&filter));
+        if(filter){
+          const nodes=bubbles.filter(n=>n.part===filter);
+          camera.tx=world.width/2; camera.ty=nodes.reduce((s,n)=>s+n.ay,0)/nodes.length; camera.tscale=1.02;
+        } else { camera.tx=world.width/2; camera.ty=520; camera.tscale=1; }
+      };
+      host.appendChild(b);
+    });
+  }
+  buildChips();
+
+  function selectBubble(b){
+    selected=b;
+    filter=null;
+    [...document.getElementById('muscles').children].forEach(el=>el.classList.remove('active'));
+    camera.tx=b.x; camera.ty=b.y+42; camera.tscale=1.18;
+    detail.style.setProperty('--bubble-color',b.color);
+    document.getElementById('detailPart').textContent=`${partEn[b.part]} · ${b.part}`;
+    document.getElementById('detailName').textContent=b.name.replace('\n','');
+    document.getElementById('detailPrev').textContent=b.prev;
+    document.getElementById('detailRole').textContent=b.role;
+    detail.classList.add('show'); tip.classList.add('hide');
+  }
+
+  function clearSelection(){
+    selected=null; detail.classList.remove('show'); tip.classList.remove('hide'); camera.tscale=1;
+  }
+
+  function spring(value,velocity,target,k=.08,d=.78){
+    velocity+=(target-value)*k; velocity*=d; value+=velocity; return [value,velocity];
+  }
+
+  function simulate(dt){
+    // Anchor spring and tiny breathing drift.
+    bubbles.forEach((b,i)=>{
+      const visible=!filter||b.part===filter;
+      const targetR=visible ? b.baseR*(selected===b?1.48:1) : b.baseR*.76;
+      [b.r,b.vr]=spring(b.r,b.vr,targetR,selected===b?.055:.035,.76);
+      const t=performance.now()/1000;
+      const driftX=Math.sin(t*.55+b.phase)*2.2;
+      const driftY=Math.cos(t*.47+b.phase)*2.0;
+      b.vx+=(b.ax+driftX-b.x)*.0055;
+      b.vy+=(b.ay+driftY-b.y)*.0055;
+      b.vx*=.88; b.vy*=.88;
+      b.x+=b.vx; b.y+=b.vy;
     });
 
-    document.getElementById('search').addEventListener('click',()=>{
-      const q=prompt('種目名を検索（モック）'); if(!q) return;
-      const hit=exercises.find(x=>x.name.replace('\n','').includes(q)||x.role.includes(q));
-      if(hit){ updateHero(hit); document.querySelector(`[data-name="${CSS.escape(hit.name)}"]`)?.scrollIntoView({behavior:'smooth',block:'center'}); }
-      else { clearTimeout(toastTimer); toast.textContent='該当する種目がありません'; toast.classList.add('show'); toastTimer=setTimeout(()=>toast.classList.remove('show'),1400); }
+    // Collision = selected bubble physically pushes its neighbors away.
+    for(let i=0;i<bubbles.length;i++){
+      for(let j=i+1;j<bubbles.length;j++){
+        const a=bubbles[i], b=bubbles[j];
+        if(filter && a.part!==filter && b.part!==filter) continue;
+        let dx=b.x-a.x, dy=b.y-a.y;
+        let dist=Math.hypot(dx,dy)||.001;
+        const padding=7;
+        const min=a.r+b.r+padding;
+        if(dist<min){
+          const overlap=min-dist;
+          const nx=dx/dist, ny=dy/dist;
+          const aFixed=selected===a?0.18:1;
+          const bFixed=selected===b?0.18:1;
+          const total=aFixed+bFixed;
+          const push=overlap*.11;
+          a.vx-=nx*push*(aFixed/total); a.vy-=ny*push*(aFixed/total);
+          b.vx+=nx*push*(bFixed/total); b.vy+=ny*push*(bFixed/total);
+        }
+      }
+    }
+
+    // Keep world somewhat bounded.
+    bubbles.forEach(b=>{
+      const pad=b.r+4;
+      if(b.x<pad){b.x=pad;b.vx=Math.abs(b.vx)*.4}
+      if(b.x>world.width-pad){b.x=world.width-pad;b.vx=-Math.abs(b.vx)*.4}
+      if(b.y<pad){b.y=pad;b.vy=Math.abs(b.vy)*.4}
+      if(b.y>world.height-pad){b.y=world.height-pad;b.vy=-Math.abs(b.vy)*.4}
     });
-    document.getElementById('back').addEventListener('click',()=>history.length>1?history.back():location.assign('../'));
-    updateHero(selected);
-  </script>
+
+    // Spring camera.
+    [camera.x,camera.vx]=spring(camera.x,camera.vx,camera.tx,.055,.80);
+    [camera.y,camera.vy]=spring(camera.y,camera.vy,camera.ty,.055,.80);
+    [camera.scale,camera.vs]=spring(camera.scale,camera.vs,camera.tscale,.06,.82);
+    const half=H/(2*camera.scale);
+    camera.y=Math.max(half-40,Math.min(world.height-half+70,camera.y));
+  }
+
+  function localDeform(b,angle){
+    let factor=1;
+    const t=performance.now()/1000;
+    factor+=Math.sin(angle*3+t*1.35+b.phase)*.020;
+    factor+=Math.cos(angle*5-t*.9+b.phase)*.012;
+    for(const other of bubbles){
+      if(other===b) continue;
+      const dx=other.x-b.x, dy=other.y-b.y;
+      const dist=Math.hypot(dx,dy)||1;
+      const overlap=b.r+other.r+12-dist;
+      if(overlap<=0) continue;
+      const dir=Math.atan2(dy,dx);
+      let da=Math.atan2(Math.sin(angle-dir),Math.cos(angle-dir));
+      const influence=Math.exp(-(da*da)/.18);
+      factor-=Math.min(.13,overlap/(b.r*5))*influence;
+    }
+    if(selected===b){
+      factor+=Math.sin(angle*2+t*1.7)*.025;
+    }
+    return Math.max(.82,factor);
+  }
+
+  function bubblePath(b){
+    const pts=[]; const N=18;
+    for(let i=0;i<N;i++){
+      const a=(i/N)*Math.PI*2;
+      const rr=b.r*localDeform(b,a);
+      pts.push([b.x+Math.cos(a)*rr,b.y+Math.sin(a)*rr]);
+    }
+    ctx.beginPath();
+    for(let i=0;i<N;i++){
+      const p=pts[i], n=pts[(i+1)%N];
+      const mx=(p[0]+n[0])/2, my=(p[1]+n[1])/2;
+      if(i===0) ctx.moveTo(mx,my); else ctx.quadraticCurveTo(p[0],p[1],mx,my);
+    }
+    const p=pts[0], n=pts[1];
+    ctx.quadraticCurveTo(p[0],p[1],(p[0]+n[0])/2,(p[1]+n[1])/2);
+    ctx.closePath();
+  }
+
+  function wrapText(text,maxChars){
+    const manual=text.split('\n');
+    if(manual.length>1)return manual;
+    if(text.length<=maxChars)return [text];
+    const mid=Math.ceil(text.length/2); return [text.slice(0,mid),text.slice(mid)];
+  }
+
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    ctx.save();
+    ctx.translate(W/2,H/2); ctx.scale(camera.scale,camera.scale); ctx.translate(-camera.x,-camera.y);
+
+    const ordered=[...bubbles].sort((a,b)=>(selected===a?1:0)-(selected===b?1:0));
+    for(const b of ordered){
+      const dim=filter&&b.part!==filter;
+      ctx.save(); ctx.globalAlpha=dim?.11:1;
+
+      bubblePath(b);
+      const grad=ctx.createRadialGradient(b.x-b.r*.28,b.y-b.r*.30,b.r*.08,b.x,b.y,b.r*1.08);
+      grad.addColorStop(0,mix(b.color,'#ffffff',.18));
+      grad.addColorStop(.58,b.color);
+      grad.addColorStop(1,mix(b.color,'#000000',.12));
+      ctx.fillStyle=grad;
+      ctx.shadowColor='rgba(0,0,0,.28)'; ctx.shadowBlur=selected===b?28:12; ctx.shadowOffsetY=7; ctx.fill();
+
+      if(selected===b){
+        ctx.lineWidth=3/camera.scale; ctx.strokeStyle='rgba(255,255,255,.88)'; ctx.stroke();
+      }
+
+      ctx.shadowColor='transparent';
+      ctx.fillStyle='#07100b';
+      ctx.textAlign='center'; ctx.textBaseline='middle';
+      const font=Math.max(11,Math.min(16,b.r*.19));
+      ctx.font=`900 ${font}px Inter, "Noto Sans JP", system-ui, sans-serif`;
+      const lines=wrapText(b.name,b.r>72?9:7);
+      const lh=font*1.12;
+      lines.forEach((line,i)=>ctx.fillText(line,b.x,b.y+(i-(lines.length-1)/2)*lh));
+      ctx.restore();
+    }
+    ctx.restore();
+  }
+
+  function mix(a,b,p){
+    const ah=parseInt(a.slice(1),16), bh=parseInt(b.slice(1),16);
+    const ar=ah>>16, ag=ah>>8&255, ab=ah&255, br=bh>>16, bg=bh>>8&255, bb=bh&255;
+    return '#'+((1<<24)+((ar+(br-ar)*p)<<16)+((ag+(bg-ag)*p)<<8)+(ab+(bb-ab)*p|0)).toString(16).slice(1);
+  }
+
+  function findBubble(sx,sy){
+    const p=screenToWorld(sx,sy);
+    return [...bubbles].reverse().find(b=>(!filter||b.part===filter)&&Math.hypot(p.x-b.x,p.y-b.y)<=b.r*1.06);
+  }
+
+  canvas.addEventListener('pointerdown',e=>{
+    pointerDown=true; moved=false; startY=lastY=e.clientY; lastTime=performance.now(); cameraStartY=camera.ty; panVelocity=0;
+    canvas.setPointerCapture(e.pointerId);
+  });
+  canvas.addEventListener('pointermove',e=>{
+    if(!pointerDown)return;
+    const dy=e.clientY-startY;
+    if(Math.abs(dy)>6)moved=true;
+    if(moved){
+      const now=performance.now(), dt=Math.max(8,now-lastTime);
+      panVelocity=(e.clientY-lastY)/dt*16;
+      camera.ty=cameraStartY-dy/camera.scale;
+      camera.tx=world.width/2; camera.tscale=1;
+      selected=null; detail.classList.remove('show'); tip.classList.add('hide');
+      lastY=e.clientY; lastTime=now;
+    }
+  });
+  canvas.addEventListener('pointerup',e=>{
+    if(!pointerDown)return; pointerDown=false;
+    if(!moved){
+      const rect=canvas.getBoundingClientRect();
+      const b=findBubble(e.clientX-rect.left,e.clientY-rect.top);
+      if(b){ if(selected===b){ showToast(`${b.name.replace('\n','')} を選択する想定`); } else selectBubble(b); }
+      else clearSelection();
+    } else {
+      camera.ty-=panVelocity*7;
+    }
+  });
+  canvas.addEventListener('pointercancel',()=>pointerDown=false);
+
+  document.getElementById('reset').onclick=()=>{
+    filter=null; selected=null; detail.classList.remove('show'); tip.classList.remove('hide');
+    [...document.getElementById('muscles').children].forEach(el=>el.classList.remove('active'));
+    camera.tx=world.width/2; camera.ty=520; camera.tscale=1;
+  };
+  document.getElementById('back').onclick=()=>history.length>1?history.back():location.assign('../');
+  document.getElementById('choose').onclick=()=>selected&&showToast(`${selected.name.replace('\n','')} を記録画面へ渡す想定`);
+
+  function showToast(text){
+    clearTimeout(toastTimer); toast.textContent=text; toast.classList.add('show');
+    toastTimer=setTimeout(()=>toast.classList.remove('show'),1500);
+  }
+
+  let last=performance.now();
+  function frame(now){
+    const dt=Math.min(32,now-last); last=now;
+    simulate(dt); draw(); requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+})();
+</script>
 </body>
 </html>
