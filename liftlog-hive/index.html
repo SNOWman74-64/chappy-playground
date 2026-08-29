@@ -3,73 +3,200 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no" />
-<meta name="theme-color" content="#050706" />
-<title>LIFTLOG Hive Explorer</title>
+<meta name="theme-color" content="#070908" />
+<title>LIFTLOG Honeycomb Exercise Map</title>
 <style>
-:root{color-scheme:dark;--bg:#050706;--ink:#f4f7f5;--muted:#8f9892;--panel:rgba(24,27,25,.92);--line:rgba(255,255,255,.11);--accent:#7ad99f}
+:root{
+  color-scheme:dark;
+  --bg:#070908;--ink:#f5f7f6;--muted:#9ba39e;--line:rgba(255,255,255,.10);
+  --panel:rgba(22,25,23,.92);--panel-strong:rgba(18,21,19,.97);
+}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-html,body{margin:0;min-width:320px;min-height:100%;overflow:hidden;background:var(--bg);color:var(--ink)}
+html,body{margin:0;min-width:320px;min-height:100%;overflow:hidden;background:#070908;color:var(--ink)}
 body{font-family:Inter,"Noto Sans JP",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-button{font:inherit;color:inherit}.app{position:relative;width:min(100%,430px);height:100svh;margin:0 auto;overflow:hidden;background:radial-gradient(circle at 50% -10%,rgba(122,217,159,.11),transparent 25%),#050706}
-canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none}
-.topbar{position:absolute;z-index:20;inset:max(12px,env(safe-area-inset-top)) 14px auto;display:grid;grid-template-columns:48px 1fr 48px;align-items:center;gap:10px;pointer-events:none}.round{width:48px;height:48px;border-radius:50%;border:1px solid rgba(255,255,255,.15);background:rgba(20,23,21,.82);box-shadow:0 10px 34px rgba(0,0,0,.26),inset 0 1px rgba(255,255,255,.08);backdrop-filter:blur(12px);cursor:pointer;pointer-events:auto;font-size:24px}.brand{text-align:center;text-shadow:0 2px 18px #000}.brand small{display:block;color:rgba(255,255,255,.48);font-size:8px;font-weight:900;letter-spacing:.18em}.brand strong{display:block;margin-top:3px;font-size:14px;font-weight:900;letter-spacing:-.03em}
-.legend{position:absolute;z-index:18;left:12px;right:12px;top:calc(max(12px,env(safe-area-inset-top)) + 60px);display:flex;gap:6px;overflow:auto;padding:2px 2px 12px;scrollbar-width:none;pointer-events:auto;mask-image:linear-gradient(90deg,transparent,#000 12px,#000 calc(100% - 12px),transparent)}.legend::-webkit-scrollbar{display:none}.chip{flex:0 0 auto;min-height:31px;padding:0 11px;border-radius:999px;border:1px solid rgba(255,255,255,.1);background:rgba(9,11,10,.62);color:rgba(255,255,255,.56);backdrop-filter:blur(9px);font-size:10px;font-weight:850;cursor:pointer}.chip.active{color:#fff;border-color:color-mix(in srgb,var(--c) 72%,white 28%)}.chip i{display:inline-block;width:7px;height:7px;margin-right:6px;border-radius:50%;background:var(--c)}
-.tip{position:absolute;z-index:8;top:calc(max(12px,env(safe-area-inset-top)) + 108px);left:50%;transform:translateX(-50%);color:rgba(255,255,255,.42);font-size:9px;white-space:nowrap;pointer-events:none;text-shadow:0 2px 12px #000;transition:opacity .2s}.tip.hide{opacity:0}
-.detail{position:absolute;z-index:25;left:14px;right:14px;bottom:max(14px,env(safe-area-inset-bottom));min-height:128px;padding:15px 78px 15px 17px;border:1px solid rgba(255,255,255,.09);border-radius:28px;background:var(--panel);box-shadow:0 20px 70px rgba(0,0,0,.34),inset 0 1px rgba(255,255,255,.05);backdrop-filter:blur(22px);transform:translateY(calc(100% + 32px));opacity:0;transition:transform .3s cubic-bezier(.2,.85,.25,1),opacity .2s ease;pointer-events:none}.detail.show{transform:translateY(0);opacity:1;pointer-events:auto}.eyebrow{color:var(--bubble-color,var(--accent));font-size:9px;font-weight:950;letter-spacing:.15em}.detail h1{margin:5px 0 0;font-size:21px;line-height:1.07;letter-spacing:-.045em}.meta{display:flex;flex-wrap:wrap;gap:5px 12px;margin-top:9px;color:var(--muted);font-size:9px}.meta b{color:var(--ink);font-size:11px}.choose{position:absolute;right:13px;top:50%;transform:translateY(-50%);width:58px;height:58px;border-radius:50%;border:0;background:rgba(255,255,255,.13);font-size:26px;cursor:pointer}.mode-badge{position:absolute;z-index:10;right:13px;bottom:calc(max(14px,env(safe-area-inset-bottom)) + 137px);padding:6px 9px;border-radius:999px;background:rgba(5,7,6,.62);color:rgba(255,255,255,.44);border:1px solid rgba(255,255,255,.07);font-size:8px;font-weight:800;backdrop-filter:blur(9px);pointer-events:none}
-.toast{position:absolute;z-index:40;left:50%;bottom:calc(max(14px,env(safe-area-inset-bottom)) + 148px);transform:translate(-50%,14px);padding:10px 14px;border-radius:999px;background:#f5f7f5;color:#101411;font-size:10px;font-weight:900;opacity:0;pointer-events:none;transition:.2s;white-space:nowrap}.toast.show{opacity:1;transform:translate(-50%,0)}
-@media(min-width:431px){body{display:grid;place-items:center;background:#0c100e}.app{height:min(920px,calc(100svh - 32px));border:1px solid rgba(255,255,255,.11);border-radius:30px;box-shadow:0 30px 90px rgba(0,0,0,.32)}}
+button,input{font:inherit;color:inherit}
+button{cursor:pointer}
+.app{position:relative;width:min(100%,430px);height:100svh;margin:0 auto;overflow:hidden;background:#070908}
+.viewport{position:absolute;inset:0;overflow:hidden;touch-action:none;background:radial-gradient(circle at 50% 35%,rgba(255,255,255,.035),transparent 45%),#070908}
+.world{position:absolute;left:0;top:0;width:1450px;height:1720px;will-change:transform;transform-origin:0 0}
+.hex{position:absolute;width:164px;height:142px;transform:translate(-50%,-50%);transition:transform .28s cubic-bezier(.2,.86,.25,1),filter .24s ease,opacity .24s ease;will-change:transform,filter}
+.hex svg{width:100%;height:100%;overflow:visible;display:block}
+.hex polygon{stroke:rgba(4,7,5,.78);stroke-width:4;vector-effect:non-scaling-stroke;transition:stroke .22s ease,filter .22s ease}
+.hex::after{content:"";position:absolute;inset:11% 12%;border-radius:26px;background:linear-gradient(145deg,rgba(255,255,255,.13),transparent 40%,rgba(0,0,0,.13));mix-blend-mode:soft-light;pointer-events:none;opacity:.7}
+.hex.empty{pointer-events:none}
+.hex.empty .label{display:none}
+.hex .label{position:absolute;left:15%;right:15%;top:50%;transform:translateY(-50%);text-align:center;color:#0a0d0b;text-shadow:0 1px rgba(255,255,255,.17);font-weight:900;font-size:13px;line-height:1.18;letter-spacing:-.03em;pointer-events:none;text-wrap:balance}
+.hex .mark{position:absolute;right:18px;top:15px;width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.82);box-shadow:0 0 0 3px rgba(255,255,255,.12);opacity:0;transition:.2s}
+.hex.planned .mark{opacity:1}
+.hex.dim{opacity:.26;filter:saturate(.55)}
+.hex.selected{z-index:20;transform:translate(-50%,-55%) scale(1.09);filter:saturate(1.08) brightness(1.05) drop-shadow(0 18px 18px rgba(0,0,0,.45))}
+.hex.selected polygon{stroke:rgba(255,255,255,.94);stroke-width:5;filter:drop-shadow(0 0 7px rgba(255,255,255,.22))}
+.hex.selected .label{font-size:14px}
+
+.topbar{position:absolute;z-index:40;left:0;right:0;top:0;height:112px;padding:max(14px,env(safe-area-inset-top)) 15px 0;background:linear-gradient(180deg,rgba(7,9,8,.98) 0%,rgba(7,9,8,.88) 62%,rgba(7,9,8,0) 100%);pointer-events:none}
+.bar{display:grid;grid-template-columns:48px 1fr 48px;align-items:center;gap:10px}.round{width:48px;height:48px;border-radius:50%;border:1px solid rgba(255,255,255,.15);background:rgba(19,22,20,.82);box-shadow:0 10px 32px rgba(0,0,0,.3),inset 0 1px rgba(255,255,255,.08);backdrop-filter:blur(12px);font-size:23px;pointer-events:auto}.brand{text-align:center}.brand small{display:block;color:rgba(255,255,255,.48);font-size:8px;font-weight:900;letter-spacing:.18em}.brand strong{display:block;margin-top:3px;font-size:18px;letter-spacing:-.04em}
+.legend{display:flex;justify-content:center;gap:7px;margin-top:7px;pointer-events:none}.legend span{display:flex;align-items:center;gap:4px;color:rgba(255,255,255,.48);font-size:8px;font-weight:750}.legend i{width:7px;height:7px;border-radius:2px;background:var(--c)}
+
+.search{position:absolute;z-index:55;inset:0;background:rgba(5,7,6,.74);backdrop-filter:blur(18px);padding:max(18px,env(safe-area-inset-top)) 15px 18px;opacity:0;pointer-events:none;transition:.2s}.search.open{opacity:1;pointer-events:auto}.search-head{display:grid;grid-template-columns:1fr 48px;gap:10px}.search-box{height:48px;border:1px solid rgba(255,255,255,.13);border-radius:15px;background:rgba(255,255,255,.08);padding:0 15px;outline:none}.search-close{width:48px;height:48px;border-radius:50%;border:1px solid rgba(255,255,255,.13);background:rgba(255,255,255,.08);font-size:20px}.results{margin-top:14px;border-top:1px solid rgba(255,255,255,.1)}.result{width:100%;min-height:60px;display:grid;grid-template-columns:12px 1fr auto;align-items:center;gap:11px;border:0;border-bottom:1px solid rgba(255,255,255,.08);background:transparent;text-align:left;padding:8px 2px}.result .dot{width:10px;height:10px;border-radius:3px;background:var(--c)}.result strong{font-size:14px}.result small{display:block;margin-top:3px;color:var(--muted);font-size:9px}.result .part{color:var(--muted);font-size:10px}
+
+.hint{position:absolute;z-index:15;left:50%;top:118px;transform:translateX(-50%);white-space:nowrap;color:rgba(255,255,255,.42);font-size:9px;text-shadow:0 2px 12px #000;pointer-events:none;transition:opacity .25s}.hint.hide{opacity:0}
+.cross{position:absolute;z-index:14;left:50%;top:49%;width:20px;height:20px;transform:translate(-50%,-50%);opacity:.16;pointer-events:none}.cross::before,.cross::after{content:"";position:absolute;background:#fff}.cross::before{width:20px;height:1px;top:9px}.cross::after{height:20px;width:1px;left:9px}
+
+.sheet{position:absolute;z-index:45;left:13px;right:13px;bottom:max(12px,env(safe-area-inset-bottom));min-height:184px;border:1px solid rgba(255,255,255,.10);border-radius:28px;background:var(--panel);box-shadow:0 26px 80px rgba(0,0,0,.48),inset 0 1px rgba(255,255,255,.06);backdrop-filter:blur(24px);padding:17px 17px 14px;transform:translateY(calc(100% + 30px));opacity:0;transition:transform .32s cubic-bezier(.2,.85,.25,1),opacity .2s;pointer-events:none}.sheet.show{transform:translateY(0);opacity:1;pointer-events:auto}.handle{width:39px;height:4px;border-radius:99px;background:rgba(255,255,255,.28);margin:-5px auto 11px}.sheet-head{display:grid;grid-template-columns:54px minmax(0,1fr);gap:12px;align-items:center}.exercise-icon{width:54px;height:54px;display:grid;place-items:center;clip-path:polygon(25% 6.7%,75% 6.7%,100% 50%,75% 93.3%,25% 93.3%,0 50%);background:var(--c);color:#fff}.exercise-icon svg{width:34px;height:34px;stroke:currentColor;fill:none;stroke-width:2.3;stroke-linecap:round;stroke-linejoin:round}.eyebrow{font-size:9px;font-weight:900;letter-spacing:.14em;color:var(--c)}.sheet h1{margin:3px 0 0;font-size:23px;line-height:1.05;letter-spacing:-.05em}.sheet-meta{display:grid;grid-template-columns:1fr 1fr;margin-top:13px;border-top:1px solid rgba(255,255,255,.1);border-bottom:1px solid rgba(255,255,255,.1)}.meta-item{padding:10px 7px 10px 0}.meta-item+.meta-item{border-left:1px solid rgba(255,255,255,.1);padding-left:14px}.meta-item span{display:block;color:var(--muted);font-size:9px}.meta-item strong{display:block;margin-top:3px;font-size:16px}.actions{display:grid;grid-template-columns:.9fr 1.2fr;gap:9px;margin-top:12px}.action{min-height:48px;border-radius:14px;font-weight:850;font-size:12px}.ghost{border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.05)}.primary{border:0;background:var(--c);color:#0a0d0b;box-shadow:0 10px 24px color-mix(in srgb,var(--c) 25%,transparent)}
+
+.toast{position:absolute;z-index:70;left:50%;bottom:calc(max(12px,env(safe-area-inset-bottom)) + 200px);transform:translate(-50%,14px);padding:10px 14px;border-radius:999px;background:#f5f7f5;color:#101411;font-size:10px;font-weight:900;opacity:0;pointer-events:none;transition:.2s;white-space:nowrap}.toast.show{opacity:1;transform:translate(-50%,0)}
+@media(min-width:431px){body{display:grid;place-items:center;background:#0f1311}.app{height:min(920px,calc(100svh - 32px));border:1px solid rgba(255,255,255,.1);border-radius:30px;box-shadow:0 30px 90px rgba(0,0,0,.35)}}
 </style>
 </head>
 <body>
 <div class="app" id="app">
-  <canvas id="canvas" aria-label="筋トレ種目のハイブマップ"></canvas>
-  <div class="topbar">
-    <button class="round" id="back" aria-label="戻る">‹</button>
-    <div class="brand"><small>LIFTLOG LAB</small><strong>HIVE EXERCISE MAP</strong></div>
-    <button class="round" id="reset" aria-label="表示をリセット">⌕</button>
-  </div>
-  <div class="legend" id="legend"></div>
-  <div class="tip" id="tip">自由にドラッグして探索 · タップで中央へフォーカス</div>
-  <div class="mode-badge">ADAPTIVE HIVE / NO PHYSICS</div>
-  <section class="detail" id="detail" aria-live="polite">
-    <div class="eyebrow" id="detailPart">BACK · 背中</div>
-    <h1 id="detailName">ラットプルダウン</h1>
-    <div class="meta"><span>前回 <b id="detailPrev">72.5kg × 10</b></span><span>主力 <b id="detailRole">広背筋</b></span></div>
-    <button class="choose" id="choose" aria-label="この種目を選択">→</button>
+  <div class="viewport" id="viewport"><div class="world" id="world"></div></div>
+  <header class="topbar">
+    <div class="bar">
+      <button class="round" id="back" aria-label="戻る">‹</button>
+      <div class="brand"><small>LIFTLOG LAB</small><strong>EXERCISE MAP</strong></div>
+      <button class="round" id="searchOpen" aria-label="種目を検索">⌕</button>
+    </div>
+    <div class="legend" id="legend"></div>
+  </header>
+  <div class="hint" id="hint">自由にドラッグして探索 · 種目をタップするとフォーカス</div>
+  <div class="cross"></div>
+  <section class="sheet" id="sheet" aria-live="polite">
+    <div class="handle"></div>
+    <div class="sheet-head">
+      <div class="exercise-icon" id="exerciseIcon"></div>
+      <div><div class="eyebrow" id="detailPart">BACK · 背中</div><h1 id="detailName">ラットプルダウン</h1></div>
+    </div>
+    <div class="sheet-meta">
+      <div class="meta-item"><span>前回の記録</span><strong id="detailPrev">72.5kg × 10rep</strong></div>
+      <div class="meta-item"><span>主に使う部位</span><strong id="detailRole">広背筋</strong></div>
+    </div>
+    <div class="actions"><button class="action ghost" id="formBtn">フォームを見る</button><button class="action primary" id="choose">この種目を選択</button></div>
+  </section>
+  <section class="search" id="searchPanel" aria-label="種目検索">
+    <div class="search-head"><input class="search-box" id="searchInput" placeholder="種目名を検索" autocomplete="off" /><button class="search-close" id="searchClose">×</button></div>
+    <div class="results" id="results"></div>
   </section>
   <div class="toast" id="toast">この種目を選択する想定です</div>
 </div>
 <script>
 (()=>{
-const canvas=document.getElementById('canvas'),ctx=canvas.getContext('2d'),app=document.getElementById('app');
-const detail=document.getElementById('detail'),tip=document.getElementById('tip'),toast=document.getElementById('toast');
-const colors={胸:'#f06f66',背中:'#73b8ec',肩:'#efc85f',腕:'#b98ee0',脚:'#70d39a',体幹:'#68d2cc'};
+const app=document.getElementById('app'),viewport=document.getElementById('viewport'),worldEl=document.getElementById('world');
+const sheet=document.getElementById('sheet'),hint=document.getElementById('hint'),toast=document.getElementById('toast');
+const searchPanel=document.getElementById('searchPanel'),searchInput=document.getElementById('searchInput'),results=document.getElementById('results');
+const colors={胸:'#ef6b63',背中:'#4f8fd8',肩:'#e9ad2f',腕:'#9c5ac6',脚:'#63a83d',体幹:'#3aa6a5'};
 const partEn={胸:'CHEST',背中:'BACK',肩:'SHOULDER',腕:'ARMS',脚:'LEGS',体幹:'CORE'};
-const world={w:920,h:1320};
-const cells=[
-['ベンチプレス','胸','胸全体','70kg × 8',210,190,78],['インクライン\nダンベルプレス','胸','上部胸','28kg × 10',346,190,86],['ダンベルフライ','胸','胸ストレッチ','18kg × 12',482,190,70],['チェストプレス','胸','胸全体','60kg × 10',278,305,70],['ケーブルクロス','胸','胸内側','22.5kg × 12',414,305,68],
-['ラットプルダウン','背中','広背筋','72.5kg × 10',180,500,90],['シーテッドロー','背中','背中中央','60kg × 10',316,500,75],['ワンハンドロー','背中','広背筋','30kg × 10',452,500,77],['ストレートアーム\nプルダウン','背中','広背筋','30kg × 12',248,615,72],['ベントオーバーロー','背中','背中全体','55kg × 8',384,615,82],
-['ショルダープレス','肩','前・中部','22kg × 7',610,305,79],['サイドレイズ','肩','中部','8kg × 16',678,420,74],['リアデルト\nマシン','肩','後部','47.5kg × 8',746,305,67],['フロントレイズ','肩','前部','8kg × 12',814,420,63],
-['インクラインカール','腕','二頭','12kg × 7',592,590,75],['ケーブル\nプレスダウン','腕','三頭','27.5kg × 12',728,590,80],['ハンマーカール','腕','腕橈骨筋','12kg × 10',660,705,67],['スカルクラッシャー','腕','三頭','20kg × 10',796,705,68],
-['スクワット','脚','脚全体','70kg × 8',210,835,90],['レッグ\nエクステンション','脚','大腿四頭筋','80kg × 15',346,835,82],['レッグカール','脚','ハム','75kg × 8',482,835,73],['ブルガリアン\nスクワット','脚','脚全体','20kg × 10',278,950,78],['カーフレイズ','脚','ふくらはぎ','80kg × 15',414,950,65],
-['プランク','体幹','腹部','60秒',610,940,70],['ハンギング\nレッグレイズ','体幹','腹部','12rep',746,940,79],['アブローラー','体幹','腹部','10rep',678,1055,70]
-].map((d,i)=>({id:i,name:d[0],part:d[1],role:d[2],prev:d[3],x:d[4],y:d[5],r:d[6],color:colors[d[1]]}));
-let W=0,H=0,dpr=1;const camera={x:430,y:600,tx:430,ty:600,s:0.82,ts:0.82};let selected=null,filter=null,down=false,moved=false,lastX=0,lastY=0,startX=0,startY=0,toastTimer;
-function resize(){const r=app.getBoundingClientRect();W=r.width;H=r.height;dpr=Math.min(devicePixelRatio||1,2);canvas.width=Math.round(W*dpr);canvas.height=Math.round(H*dpr);canvas.style.width=W+'px';canvas.style.height=H+'px';ctx.setTransform(dpr,0,0,dpr,0,0)}addEventListener('resize',resize);resize();
-function screenToWorld(x,y){return{x:(x-W/2)/camera.s+camera.x,y:(y-H/2)/camera.s+camera.y}}
-function worldToScreen(x,y){return{x:(x-camera.x)*camera.s+W/2,y:(y-camera.y)*camera.s+H/2}}
-function hexPoints(x,y,r){const pts=[];for(let i=0;i<6;i++){const a=Math.PI/3*i;pts.push([x+Math.cos(a)*r,y+Math.sin(a)*r])}return pts}
-function roundedHexPath(x,y,r,round=14){const pts=hexPoints(x,y,r);ctx.beginPath();for(let i=0;i<6;i++){const p=pts[i],prev=pts[(i+5)%6],next=pts[(i+1)%6];const a={x:p[0]+(prev[0]-p[0])*round/r,y:p[1]+(prev[1]-p[1])*round/r};const b={x:p[0]+(next[0]-p[0])*round/r,y:p[1]+(next[1]-p[1])*round/r};if(i===0)ctx.moveTo(a.x,a.y);else ctx.lineTo(a.x,a.y);ctx.quadraticCurveTo(p[0],p[1],b.x,b.y)}ctx.closePath()}
-function rgba(hex,a){const n=parseInt(hex.slice(1),16);return`rgba(${n>>16},${n>>8&255},${n&255},${a})`}
-function drawCell(c){const p=worldToScreen(c.x,c.y);const isSel=selected===c;const dim=(filter&&c.part!==filter)||(selected&&selected!==c);const r=c.r*camera.s*(isSel?1.14:1);ctx.save();ctx.globalAlpha=dim?.26:1;roundedHexPath(p.x,p.y,r,Math.min(16*camera.s,r*.18));const g=ctx.createLinearGradient(p.x-r,p.y-r,p.x+r,p.y+r);g.addColorStop(0,rgba(c.color,.96));g.addColorStop(1,rgba(c.color,.72));ctx.fillStyle=g;ctx.shadowColor=isSel?'rgba(255,255,255,.34)':'rgba(0,0,0,.22)';ctx.shadowBlur=isSel?24:14;ctx.shadowOffsetY=6;ctx.fill();ctx.shadowColor='transparent';ctx.lineWidth=isSel?3:1;ctx.strokeStyle=isSel?'rgba(255,255,255,.92)':'rgba(255,255,255,.16)';ctx.stroke();const fs=Math.max(9,Math.min(15,r*.17));ctx.fillStyle='#0b0e0c';ctx.font=`900 ${fs}px Inter,"Noto Sans JP",system-ui`;ctx.textAlign='center';ctx.textBaseline='middle';const lines=c.name.split('\n');lines.forEach((line,i)=>ctx.fillText(line,p.x,p.y+(i-(lines.length-1)/2)*(fs+2),r*1.45));ctx.restore()}
-function draw(){ctx.clearRect(0,0,W,H);cells.forEach(drawCell);ctx.save();ctx.strokeStyle='rgba(255,255,255,.05)';ctx.setLineDash([4,8]);ctx.beginPath();ctx.moveTo(W/2-12,H/2);ctx.lineTo(W/2+12,H/2);ctx.moveTo(W/2,H/2-12);ctx.lineTo(W/2,H/2+12);ctx.stroke();ctx.restore()}
-function tick(){camera.x+=(camera.tx-camera.x)*.11;camera.y+=(camera.ty-camera.y)*.11;camera.s+=(camera.ts-camera.s)*.1;draw();requestAnimationFrame(tick)}tick();
-function select(c){selected=c;camera.tx=c.x;camera.ty=c.y;camera.ts=1.08;tip.classList.add('hide');detail.style.setProperty('--bubble-color',c.color);document.getElementById('detailPart').textContent=`${partEn[c.part]} · ${c.part}`;document.getElementById('detailName').textContent=c.name.replace('\n',' ');document.getElementById('detailPrev').textContent=c.prev;document.getElementById('detailRole').textContent=c.role;detail.classList.add('show')}
-function hit(sx,sy){const w=screenToWorld(sx,sy);let best=null,bd=Infinity;for(const c of cells){if(filter&&c.part!==filter)continue;const d=Math.hypot(w.x-c.x,w.y-c.y);if(d<c.r*1.03&&d<bd){best=c;bd=d}}return best}
-canvas.addEventListener('pointerdown',e=>{down=true;moved=false;startX=lastX=e.clientX;startY=lastY=e.clientY;canvas.setPointerCapture(e.pointerId)});canvas.addEventListener('pointermove',e=>{if(!down)return;const dx=e.clientX-lastX,dy=e.clientY-lastY;if(Math.hypot(e.clientX-startX,e.clientY-startY)>6)moved=true;camera.tx-=dx/camera.s;camera.ty-=dy/camera.s;camera.x=camera.tx;camera.y=camera.ty;lastX=e.clientX;lastY=e.clientY;tip.classList.add('hide')});canvas.addEventListener('pointerup',e=>{down=false;if(!moved){const c=hit(e.clientX,e.clientY);if(c)select(c)}});
-function reset(){selected=null;filter=null;camera.tx=430;camera.ty=600;camera.ts=.82;detail.classList.remove('show');tip.classList.remove('hide');document.querySelectorAll('.chip').forEach(b=>b.classList.remove('active'))}
-document.getElementById('reset').onclick=reset;document.getElementById('back').onclick=()=>history.back();document.getElementById('choose').onclick=()=>{clearTimeout(toastTimer);toast.classList.add('show');toastTimer=setTimeout(()=>toast.classList.remove('show'),1500)};
-const legend=document.getElementById('legend');Object.keys(colors).forEach(part=>{const b=document.createElement('button');b.className='chip';b.style.setProperty('--c',colors[part]);b.innerHTML=`<i></i>${part}`;b.onclick=()=>{filter=filter===part?null:part;selected=null;detail.classList.remove('show');[...legend.children].forEach(el=>el.classList.toggle('active',el===b&&filter));if(filter){const a=cells.filter(c=>c.part===filter);camera.tx=a.reduce((s,c)=>s+c.x,0)/a.length;camera.ty=a.reduce((s,c)=>s+c.y,0)/a.length;camera.ts=.95}else{camera.tx=430;camera.ty=600;camera.ts=.82}};legend.appendChild(b)});
+const cluster=[{part:'胸',x:320,y:300},{part:'肩',x:1030,y:310},{part:'背中',x:600,y:760},{part:'腕',x:1080,y:760},{part:'脚',x:330,y:1260},{part:'体幹',x:850,y:1320}];
+const exercises=[
+{name:'インクラインベンチプレス',part:'胸',role:'大胸筋上部',prev:'60kg × 8rep',col:1,row:1,planned:true},
+{name:'チェストプレス',part:'胸',role:'大胸筋',prev:'65kg × 10rep',col:2,row:1},
+{name:'デクラインベンチプレス',part:'胸',role:'大胸筋下部',prev:'60kg × 8rep',col:3,row:1},
+{name:'ダンベルプレス',part:'胸',role:'大胸筋',prev:'28kg × 10rep',col:1,row:2},
+{name:'ベンチプレス',part:'胸',role:'大胸筋・三頭筋',prev:'70kg × 8rep',col:2,row:2,planned:true},
+{name:'ダンベルフライ',part:'胸',role:'大胸筋',prev:'18kg × 12rep',col:3,row:2},
+{name:'ケーブルフライ',part:'胸',role:'大胸筋',prev:'22.5kg × 12rep',col:1,row:3},
+{name:'ペックデック',part:'胸',role:'大胸筋',prev:'45kg × 12rep',col:2,row:3},
+{name:'プッシュアップ',part:'胸',role:'大胸筋・三頭筋',prev:'15rep',col:3,row:3},
+
+{name:'ショルダープレス',part:'肩',role:'三角筋前・中部',prev:'22kg × 7rep',col:6,row:1},
+{name:'アップライトロー',part:'肩',role:'三角筋・僧帽筋',prev:'30kg × 10rep',col:7,row:1},
+{name:'サイドレイズ',part:'肩',role:'三角筋中部',prev:'8kg × 16rep',col:6,row:2},
+{name:'リアレイズ',part:'肩',role:'三角筋後部',prev:'8kg × 12rep',col:7,row:2},
+{name:'アーノルドプレス',part:'肩',role:'三角筋',prev:'16kg × 10rep',col:6,row:3},
+{name:'フェイスプル',part:'肩',role:'三角筋後部',prev:'25kg × 12rep',col:7,row:3},
+
+{name:'チンニング',part:'背中',role:'広背筋・二頭筋',prev:'8rep',col:2,row:5},
+{name:'ラットプルダウン',part:'背中',role:'広背筋・上腕二頭筋',prev:'72.5kg × 10rep',col:3,row:5,planned:true},
+{name:'シーテッドロー',part:'背中',role:'僧帽筋・広背筋',prev:'60kg × 10rep',col:4,row:5},
+{name:'ワンハンドロー',part:'背中',role:'広背筋',prev:'30kg × 10rep',col:3,row:6},
+{name:'Tバーロー',part:'背中',role:'背中中央',prev:'50kg × 8rep',col:2,row:7},
+{name:'ベントオーバーロー',part:'背中',role:'背中全体',prev:'55kg × 8rep',col:3,row:7},
+{name:'デッドリフト',part:'背中',role:'脊柱起立筋・臀部',prev:'100kg × 5rep',col:4,row:7},
+{name:'バックエクステンション',part:'背中',role:'脊柱起立筋',prev:'12rep',col:2,row:8},
+{name:'ストレートアームプルダウン',part:'背中',role:'広背筋',prev:'30kg × 12rep',col:3,row:8},
+
+{name:'アームカール',part:'腕',role:'上腕二頭筋',prev:'25kg × 10rep',col:6,row:5},
+{name:'ハンマーカール',part:'腕',role:'腕橈骨筋・二頭筋',prev:'12kg × 10rep',col:7,row:5},
+{name:'インクラインカール',part:'腕',role:'上腕二頭筋',prev:'12kg × 7rep',col:6,row:6},
+{name:'ケーブルカール',part:'腕',role:'上腕二頭筋',prev:'22.5kg × 12rep',col:7,row:6},
+{name:'トライセプスプッシュダウン',part:'腕',role:'上腕三頭筋',prev:'27.5kg × 12rep',col:6,row:7},
+{name:'オーバーヘッドエクステンション',part:'腕',role:'上腕三頭筋',prev:'20kg × 10rep',col:7,row:7},
+{name:'ディップス',part:'腕',role:'上腕三頭筋・胸',prev:'10rep',col:6,row:8},
+{name:'ナロープッシュアップ',part:'腕',role:'上腕三頭筋',prev:'12rep',col:7,row:8},
+
+{name:'スクワット',part:'脚',role:'脚全体',prev:'70kg × 8rep',col:1,row:9},
+{name:'フロントスクワット',part:'脚',role:'大腿四頭筋',prev:'50kg × 8rep',col:2,row:9},
+{name:'レッグプレス',part:'脚',role:'大腿四頭筋・臀部',prev:'140kg × 10rep',col:1,row:10},
+{name:'ルーマニアンデッドリフト',part:'脚',role:'ハムストリング',prev:'70kg × 8rep',col:1,row:11},
+{name:'レッグカール',part:'脚',role:'ハムストリング',prev:'75kg × 8rep',col:2,row:11},
+{name:'レッグエクステンション',part:'脚',role:'大腿四頭筋',prev:'80kg × 15rep',col:1,row:12,planned:true},
+{name:'カーフレイズ',part:'脚',role:'下腿三頭筋',prev:'80kg × 15rep',col:2,row:12},
+
+{name:'プランク',part:'体幹',role:'腹横筋・腹直筋',prev:'60秒',col:5,row:10},
+{name:'サイドプランク',part:'体幹',role:'腹斜筋',prev:'45秒',col:6,row:10},
+{name:'デッドバグ',part:'体幹',role:'腹部・股関節',prev:'12rep',col:7,row:10},
+{name:'クランチ',part:'体幹',role:'腹直筋',prev:'15rep',col:4,row:11},
+{name:'リバースクランチ',part:'体幹',role:'下腹部',prev:'12rep',col:5,row:11},
+{name:'レッグレイズ',part:'体幹',role:'腹直筋',prev:'12rep',col:6,row:11},
+{name:'ロシアンツイスト',part:'体幹',role:'腹斜筋',prev:'20rep',col:4,row:12},
+{name:'アブローラー',part:'体幹',role:'腹直筋・広背筋',prev:'10rep',col:5,row:12}
+];
+
+const R=82,hexW=R*2,hexH=Math.sqrt(3)*R,hStep=R*1.5,vStep=hexH;
+const world={w:1450,h:1720};
+const cells=[];
+function cellCenter(col,row){return{x:145+col*hStep,y:125+row*vStep+(col%2?hexH/2:0)}}
+function nearestPart(x,y){let best=cluster[0],d=Infinity;for(const c of cluster){const nd=(c.x-x)**2+(c.y-y)**2;if(nd<d){d=nd;best=c}}return best.part}
+const exMap=new Map(exercises.map(e=>[`${e.col}:${e.row}`,e]));
+for(let col=0;col<10;col++)for(let row=0;row<13;row++){
+  const p=cellCenter(col,row);const ex=exMap.get(`${col}:${row}`);const part=ex?.part||nearestPart(p.x,p.y);
+  cells.push({col,row,x:p.x,y:p.y,part,exercise:ex||null});
+}
+
+function hexPoints(){return '82,2 160,37 160,105 82,140 4,105 4,37'}
+function makeCell(c){
+  const el=document.createElement('button');el.className='hex'+(c.exercise?'':' empty')+(c.exercise?.planned?' planned':'');el.style.left=c.x+'px';el.style.top=c.y+'px';el.style.setProperty('--c',colors[c.part]);el.dataset.part=c.part;
+  const color=colors[c.part];el.innerHTML=`<svg viewBox="0 0 164 142" aria-hidden="true"><defs><linearGradient id="g${c.col}_${c.row}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${mix(color,'#ffffff',.10)}"/><stop offset="1" stop-color="${mix(color,'#000000',.12)}"/></linearGradient></defs><polygon points="${hexPoints()}" fill="url(#g${c.col}_${c.row})"/></svg>${c.exercise?`<span class="label">${splitName(c.exercise.name)}</span><i class="mark"></i>`:''}`;
+  if(c.exercise){el.type='button';el.setAttribute('aria-label',c.exercise.name);el.addEventListener('click',e=>{e.stopPropagation();selectExercise(c.exercise,true)});c.exercise.el=el;c.exercise.x=c.x;c.exercise.y=c.y}
+  worldEl.appendChild(el);return el;
+}
+function splitName(name){const map={'インクラインベンチプレス':'インクライン<br>ベンチプレス','デクラインベンチプレス':'デクライン<br>ベンチプレス','ストレートアームプルダウン':'ストレートアーム<br>プルダウン','トライセプスプッシュダウン':'トライセプス<br>プッシュダウン','オーバーヘッドエクステンション':'オーバーヘッド<br>エクステンション','レッグエクステンション':'レッグ<br>エクステンション','ルーマニアンデッドリフト':'ルーマニアン<br>デッドリフト','ハンギングレッグレイズ':'ハンギング<br>レッグレイズ'};return map[name]||name.replace('ダンベル','ダンベル<br>').replace('シーテッド','シーテッド<br>').replace('ショルダー','ショルダー<br>')}
+function mix(a,b,t){const pa=parseInt(a.slice(1),16),pb=parseInt(b.slice(1),16);const ar=pa>>16,ag=pa>>8&255,ab=pa&255,br=pb>>16,bg=pb>>8&255,bb=pb&255;return '#'+[ar+(br-ar)*t,ag+(bg-ag)*t,ab+(bb-ab)*t].map(v=>Math.round(v).toString(16).padStart(2,'0')).join('')}
+cells.forEach(makeCell);
+
+Object.entries(colors).forEach(([part,color])=>{const s=document.createElement('span');s.style.setProperty('--c',color);s.innerHTML=`<i></i>${part}`;document.getElementById('legend').appendChild(s)});
+
+const appRect=()=>app.getBoundingClientRect();
+const camera={x:430,y:720,tx:430,ty:720,scale:.72,tscale:.72};let dragging=false,moved=false,lastX=0,lastY=0,startX=0,startY=0,selected=null,raf=null,toastTimer;
+function applyCamera(){const rect=appRect(),cx=rect.width/2,cy=rect.height/2;worldEl.style.transform=`translate(${cx-camera.x*camera.scale}px,${cy-camera.y*camera.scale}px) scale(${camera.scale})`}
+function animate(){camera.x+=(camera.tx-camera.x)*.12;camera.y+=(camera.ty-camera.y)*.12;camera.scale+=(camera.tscale-camera.scale)*.12;applyCamera();raf=requestAnimationFrame(animate)}animate();
+function clamp(){camera.tx=Math.max(180,Math.min(world.w-180,camera.tx));camera.ty=Math.max(200,Math.min(world.h-190,camera.ty))}
+viewport.addEventListener('pointerdown',e=>{if(e.target.closest('.hex'))return;dragging=true;moved=false;startX=lastX=e.clientX;startY=lastY=e.clientY;viewport.setPointerCapture(e.pointerId);camera.tx=camera.x;camera.ty=camera.y;hint.classList.add('hide')});
+viewport.addEventListener('pointermove',e=>{if(!dragging)return;const dx=e.clientX-lastX,dy=e.clientY-lastY;if(Math.hypot(e.clientX-startX,e.clientY-startY)>5)moved=true;camera.tx-=dx/camera.scale;camera.ty-=dy/camera.scale;clamp();lastX=e.clientX;lastY=e.clientY});
+viewport.addEventListener('pointerup',e=>{dragging=false;try{viewport.releasePointerCapture(e.pointerId)}catch{}});
+viewport.addEventListener('pointercancel',()=>dragging=false);
+
+function selectExercise(ex,focus=true){
+  if(selected?.el)selected.el.classList.remove('selected');selected=ex;ex.el.classList.add('selected');
+  [...worldEl.children].forEach(el=>el.classList.toggle('dim',el.classList.contains('hex')&&el!==ex.el&&!!selected));
+  if(focus){camera.tx=ex.x;camera.ty=ex.y-25;camera.tscale=.88;clamp()}
+  const c=colors[ex.part];sheet.style.setProperty('--c',c);document.getElementById('exerciseIcon').style.setProperty('--c',c);document.getElementById('detailPart').textContent=`${partEn[ex.part]} · ${ex.part}`;document.getElementById('detailName').textContent=ex.name;document.getElementById('detailPrev').textContent=ex.prev;document.getElementById('detailRole').textContent=ex.role;document.getElementById('exerciseIcon').innerHTML=formIcon(ex.part);sheet.classList.add('show');hint.classList.add('hide')
+}
+function clearSelection(){if(selected?.el)selected.el.classList.remove('selected');selected=null;[...worldEl.children].forEach(el=>el.classList.remove('dim'));sheet.classList.remove('show');camera.tscale=.72}
+function formIcon(part){
+  if(part==='脚')return '<svg viewBox="0 0 48 48"><circle cx="24" cy="8" r="4"/><path d="M24 12v11m0 0-8 8m8-8 8 8M20 18l-7 3m15-3 7 3M16 31l-4 10m20-10 4 10"/></svg>';
+  if(part==='体幹')return '<svg viewBox="0 0 48 48"><circle cx="14" cy="23" r="4"/><path d="M18 23h13l8 7M24 23l5 13M18 23l-7 10M29 36h10"/></svg>';
+  return '<svg viewBox="0 0 48 48"><circle cx="24" cy="8" r="4"/><path d="M24 12v17m-9-7 9-5 9 5M18 29l-5 11m17-11 5 11M10 18h28"/></svg>';
+}
+
+document.getElementById('searchOpen').onclick=()=>{searchPanel.classList.add('open');searchInput.value='';renderResults('');setTimeout(()=>searchInput.focus(),100)};document.getElementById('searchClose').onclick=()=>searchPanel.classList.remove('open');searchInput.addEventListener('input',()=>renderResults(searchInput.value.trim()));
+function renderResults(q){results.innerHTML='';const list=exercises.filter(e=>!q||e.name.includes(q)||e.part.includes(q)||e.role.includes(q)).slice(0,12);for(const ex of list){const b=document.createElement('button');b.className='result';b.style.setProperty('--c',colors[ex.part]);b.innerHTML=`<i class="dot"></i><span><strong>${ex.name}</strong><small>${ex.prev} · ${ex.role}</small></span><span class="part">${ex.part}</span>`;b.onclick=()=>{searchPanel.classList.remove('open');selectExercise(ex,true)};results.appendChild(b)}}
+
+document.getElementById('choose').onclick=()=>showToast(`${selected?.name||'種目'}を選択する想定です`);document.getElementById('formBtn').onclick=()=>showToast('フォーム解説を開く想定です');document.getElementById('back').onclick=()=>history.length>1?history.back():showToast('戻る想定です');
+viewport.addEventListener('dblclick',clearSelection);
+function showToast(t){clearTimeout(toastTimer);toast.textContent=t;toast.classList.add('show');toastTimer=setTimeout(()=>toast.classList.remove('show'),1700)}
+
+const first=exercises.find(e=>e.name==='ラットプルダウン');setTimeout(()=>selectExercise(first,true),250);
 })();
 </script>
 </body>
