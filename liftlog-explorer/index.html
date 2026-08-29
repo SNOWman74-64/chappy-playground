@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#0a0d0b" />
+  <title>LIFTLOG Exercise Explorer</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg:#080a09;
+      --ink:#f5f7f5;
+      --muted:#98a19b;
+      --line:rgba(255,255,255,.12);
+      --green:#72d39a;
+      --panel:rgba(15,19,16,.84);
+      --chest:#f07a6c;
+      --back:#78b9ef;
+      --shoulder:#f1c95e;
+      --arm:#be91e8;
+      --leg:#76d5a1;
+      --core:#71d6d1;
+    }
+    * { box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+    html { background:var(--bg); }
+    body {
+      margin:0;
+      min-width:320px;
+      min-height:100svh;
+      color:var(--ink);
+      background:
+        radial-gradient(circle at 50% -12%,rgba(114,211,154,.16),transparent 26%),
+        var(--bg);
+      font-family:Inter,"Noto Sans JP",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      overflow-x:hidden;
+    }
+    button { font:inherit; color:inherit; }
+    .app { width:min(100%,430px); margin:0 auto; min-height:100svh; position:relative; }
+    .top {
+      position:sticky; top:0; z-index:20;
+      padding:max(13px,env(safe-area-inset-top)) 16px 11px;
+      background:linear-gradient(180deg,rgba(8,10,9,.98) 64%,rgba(8,10,9,.87) 84%,rgba(8,10,9,0));
+      backdrop-filter:blur(14px);
+    }
+    .bar { display:grid; grid-template-columns:44px minmax(0,1fr) 44px; align-items:center; gap:8px; }
+    .icon-btn { width:44px; height:44px; border:1px solid var(--line); border-radius:50%; background:rgba(255,255,255,.055); font-size:21px; cursor:pointer; }
+    .brand { text-align:center; }
+    .brand small { display:block; color:var(--green); font-size:9px; font-weight:900; letter-spacing:.16em; }
+    .brand strong { display:block; margin-top:2px; font-size:16px; letter-spacing:-.03em; }
+
+    .hero {
+      margin-top:9px;
+      min-height:126px;
+      display:grid;
+      grid-template-columns:minmax(0,1fr) 118px;
+      align-items:center;
+      gap:8px;
+      border-top:1px solid var(--line);
+      border-bottom:1px solid var(--line);
+    }
+    .hero-copy { min-width:0; padding:12px 0; }
+    .part { color:var(--selected,var(--green)); font-size:10px; font-weight:900; letter-spacing:.15em; }
+    .hero h1 { margin:5px 0 0; font-size:24px; line-height:1.08; letter-spacing:-.055em; }
+    .meta { margin-top:9px; display:flex; flex-wrap:wrap; gap:6px 12px; color:var(--muted); font-size:10px; }
+    .meta b { color:var(--ink); font-size:12px; }
+    .hint { margin-top:7px; color:var(--muted); font-size:9px; }
+    .motion {
+      height:110px;
+      display:grid;
+      place-items:center;
+      color:var(--selected,var(--green));
+    }
+    .motion svg { width:108px; height:96px; overflow:visible; }
+    .motion .body { stroke:currentColor; stroke-width:4; stroke-linecap:round; stroke-linejoin:round; fill:none; }
+    .motion .equip { stroke:rgba(245,247,245,.65); stroke-width:3; stroke-linecap:round; fill:none; }
+    .motion .ghost { stroke:currentColor; stroke-width:3; opacity:.18; stroke-dasharray:5 6; fill:none; }
+
+    .legend {
+      display:flex; gap:5px; overflow:auto; scrollbar-width:none;
+      padding:9px 0 3px;
+    }
+    .legend::-webkit-scrollbar { display:none; }
+    .chip {
+      flex:0 0 auto; min-height:30px; padding:0 10px;
+      border:1px solid var(--line); border-radius:999px;
+      background:transparent; color:var(--muted); font-size:10px; font-weight:800;
+      display:flex; align-items:center; gap:6px;
+      cursor:pointer;
+    }
+    .chip::before { content:""; width:7px; height:7px; border-radius:50%; background:var(--c); }
+    .chip.active { color:var(--ink); border-color:rgba(255,255,255,.25); background:rgba(255,255,255,.06); }
+
+    .intro { padding:8px 16px 0; display:flex; align-items:end; justify-content:space-between; gap:12px; }
+    .intro strong { font-size:13px; }
+    .intro span { color:var(--muted); font-size:9px; text-align:right; line-height:1.45; }
+
+    .field {
+      position:relative;
+      height:1180px;
+      margin-top:5px;
+      overflow:hidden;
+      touch-action:pan-y;
+    }
+    .bubble {
+      --bubble:#888;
+      position:absolute;
+      width:var(--size);
+      height:var(--size);
+      left:var(--x);
+      top:var(--y);
+      transform:translate(-50%,-50%) rotate(var(--rot,0deg));
+      border:0;
+      padding:12px;
+      border-radius:48% 52% 45% 55% / 53% 43% 57% 47%;
+      background:
+        radial-gradient(circle at 34% 24%,rgba(255,255,255,.24),transparent 23%),
+        linear-gradient(145deg,color-mix(in srgb,var(--bubble) 88%,white 12%),color-mix(in srgb,var(--bubble) 82%,black 18%));
+      color:#0b0e0c;
+      box-shadow:inset -10px -12px 24px rgba(0,0,0,.11),inset 8px 8px 20px rgba(255,255,255,.10),0 8px 24px rgba(0,0,0,.16);
+      display:grid;
+      place-items:center;
+      text-align:center;
+      cursor:pointer;
+      transition:transform .22s cubic-bezier(.2,.9,.2,1),filter .2s ease,box-shadow .2s ease;
+      animation:morph var(--dur,7s) ease-in-out infinite alternate;
+    }
+    .bubble .name { font-size:clamp(11px,3.3vw,15px); line-height:1.12; font-weight:900; letter-spacing:-.035em; text-wrap:balance; pointer-events:none; }
+    .bubble .sub { display:block; margin-top:4px; font-size:8px; font-weight:800; opacity:.58; pointer-events:none; }
+    .bubble.selected {
+      z-index:5;
+      transform:translate(-50%,-50%) scale(1.12) rotate(0deg);
+      filter:saturate(1.05) brightness(1.05);
+      box-shadow:0 0 0 4px rgba(255,255,255,.88),0 0 0 8px color-mix(in srgb,var(--bubble) 60%,transparent),inset -10px -12px 24px rgba(0,0,0,.10),0 18px 36px rgba(0,0,0,.3);
+      animation:morphSelected 2.5s ease-in-out infinite alternate;
+    }
+    .bubble:active { transform:translate(-50%,-50%) scale(.93,.88); }
+    .bubble.dim { opacity:.17; filter:saturate(.2); }
+
+    @keyframes morph {
+      0% { border-radius:48% 52% 45% 55% / 53% 43% 57% 47%; }
+      45% { border-radius:55% 45% 51% 49% / 44% 56% 46% 54%; }
+      100% { border-radius:44% 56% 56% 44% / 59% 47% 53% 41%; }
+    }
+    @keyframes morphSelected {
+      from { border-radius:52% 48% 42% 58% / 47% 58% 42% 53%; }
+      to { border-radius:43% 57% 54% 46% / 58% 44% 56% 42%; }
+    }
+
+    .footer-note {
+      margin:-16px 16px 0;
+      padding:14px 0 calc(26px + env(safe-area-inset-bottom));
+      border-top:1px solid var(--line);
+      color:var(--muted); font-size:9px; line-height:1.6;
+    }
+    .toast {
+      position:fixed; left:50%; bottom:max(18px,env(safe-area-inset-bottom)); z-index:50;
+      transform:translate(-50%,18px);
+      width:min(calc(100% - 32px),398px); padding:13px 14px;
+      border-radius:999px; background:#f5f7f5; color:#101411;
+      font-size:11px; font-weight:850; text-align:center;
+      opacity:0; pointer-events:none; transition:.2s ease;
+    }
+    .toast.show { opacity:1; transform:translate(-50%,0); }
+    @media (prefers-reduced-motion:reduce) { .bubble { animation:none; } }
+    @media (min-width:431px) { body { padding:24px 0; } .app { border:1px solid var(--line); border-radius:26px; overflow:hidden; } }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header class="top">
+      <div class="bar">
+        <button class="icon-btn" id="back" aria-label="戻る">‹</button>
+        <div class="brand"><small>LIFTLOG LAB</small><strong>種目を探す</strong></div>
+        <button class="icon-btn" id="search" aria-label="検索">⌕</button>
+      </div>
+      <section class="hero" id="hero">
+        <div class="hero-copy">
+          <div class="part" id="part">BACK · 背中</div>
+          <h1 id="name">ラットプルダウン</h1>
+          <div class="meta"><span>前回 <b id="previous">72.5kg × 10</b></span><span>主力 <b id="role">広背筋</b></span></div>
+          <div class="hint">泡をタップして種目を切替 · もう一度タップで選択</div>
+        </div>
+        <div class="motion" id="motion" aria-label="フォームの簡易図"></div>
+      </section>
+      <div class="legend" id="legend"></div>
+    </header>
+
+    <div class="intro"><strong>EXERCISE MAP</strong><span>色は部位。大きさは主力度。<br>探索用の実験UI。</span></div>
+    <main class="field" id="field" aria-label="種目マップ"></main>
+    <div class="footer-note">このモックは記録の主導線を置き換えるものではなく、予定外種目の追加・種目図鑑・探索モード向けの実験です。色、位置、大きさに意味を持たせ、一覧を“眺めて選ぶ”体験へ変換しています。</div>
+  </div>
+  <div class="toast" id="toast">選択しました</div>
+
+  <script>
+    const colors={胸:'#f07a6c',背中:'#78b9ef',肩:'#f1c95e',腕:'#be91e8',脚:'#76d5a1',体幹:'#71d6d1'};
+    const exercises=[
+      {name:'ベンチプレス',part:'胸',role:'胸全体',prev:'70kg × 8',type:'press',x:24,y:92,size:136,rot:-4},
+      {name:'インクライン\nダンベルプレス',part:'胸',role:'上部胸',prev:'28kg × 10',type:'press',x:60,y:74,size:150,rot:3},
+      {name:'ダンベルフライ',part:'胸',role:'胸ストレッチ',prev:'18kg × 12',type:'fly',x:88,y:137,size:112,rot:-2},
+      {name:'チェストプレス',part:'胸',role:'胸全体',prev:'60kg × 10',type:'press',x:21,y:215,size:108,rot:2},
+
+      {name:'ラットプルダウン',part:'背中',role:'広背筋',prev:'72.5kg × 10',type:'pull',x:57,y:204,size:154,rot:-2,selected:true},
+      {name:'シーテッドロー',part:'背中',role:'背中中央',prev:'60kg × 10',type:'row',x:22,y:316,size:128,rot:4},
+      {name:'ワンハンドロー',part:'背中',role:'広背筋',prev:'30kg × 10',type:'row',x:67,y:330,size:136,rot:-4},
+      {name:'ストレートアーム\nプルダウン',part:'背中',role:'広背筋',prev:'30kg × 12',type:'pull',x:94,y:268,size:122,rot:2},
+
+      {name:'ショルダープレス',part:'肩',role:'前・中部',prev:'22kg × 7',type:'press',x:22,y:442,size:138,rot:-2},
+      {name:'サイドレイズ',part:'肩',role:'中部',prev:'8kg × 16',type:'raise',x:59,y:432,size:126,rot:3},
+      {name:'リアデルト\nマシン',part:'肩',role:'後部',prev:'47.5kg × 8',type:'fly',x:90,y:402,size:114,rot:-3},
+
+      {name:'インクラインカール',part:'腕',role:'二頭',prev:'12kg × 7',type:'curl',x:25,y:559,size:132,rot:3},
+      {name:'ケーブル\nプレスダウン',part:'腕',role:'三頭',prev:'27.5kg × 12',type:'pushdown',x:65,y:550,size:142,rot:-2},
+      {name:'ハンマーカール',part:'腕',role:'腕橈骨筋',prev:'12kg × 10',type:'curl',x:94,y:520,size:106,rot:3},
+
+      {name:'スクワット',part:'脚',role:'脚全体',prev:'70kg × 8',type:'squat',x:25,y:690,size:154,rot:-3},
+      {name:'レッグ\nエクステンション',part:'脚',role:'大腿四頭筋',prev:'80kg × 15',type:'leg',x:66,y:674,size:138,rot:3},
+      {name:'レッグカール',part:'脚',role:'ハム',prev:'75kg × 8',type:'leg',x:93,y:643,size:112,rot:-2},
+      {name:'ブルガリアン\nスクワット',part:'脚',role:'脚・臀部',prev:'20kg × 10',type:'squat',x:54,y:808,size:146,rot:-2},
+
+      {name:'プランク',part:'体幹',role:'体幹',prev:'60秒',type:'core',x:20,y:825,size:120,rot:2},
+      {name:'ハンギング\nレッグレイズ',part:'体幹',role:'腹直筋',prev:'12rep',type:'core',x:88,y:800,size:120,rot:-3},
+      {name:'アブローラー',part:'体幹',role:'腹部',prev:'10rep',type:'core',x:28,y:944,size:132,rot:-4},
+      {name:'ケーブルクランチ',part:'体幹',role:'腹直筋',prev:'40kg × 12',type:'core',x:70,y:930,size:138,rot:3}
+    ];
+
+    const field=document.getElementById('field');
+    const legend=document.getElementById('legend');
+    const hero=document.getElementById('hero');
+    const nameEl=document.getElementById('name');
+    const partEl=document.getElementById('part');
+    const previousEl=document.getElementById('previous');
+    const roleEl=document.getElementById('role');
+    const motion=document.getElementById('motion');
+    const toast=document.getElementById('toast');
+    let selected=exercises.find(x=>x.selected)||exercises[0];
+    let filter=null;
+    let toastTimer;
+
+    function figure(type){
+      const base=`<circle class="body" cx="52" cy="17" r="8"/><path class="body" d="M52 27 L52 54"/><path class="body" d="M52 53 L38 78 M52 53 L68 78"/>`;
+      const map={
+        press:`${base}<path class="body" d="M52 34 L34 43 L24 28 M52 34 L70 43 L80 28"/><path class="equip" d="M17 25h14 M73 25h14"/><path class="ghost" d="M25 28 L25 9 M79 28 L79 9"/>`,
+        fly:`${base}<path class="body" d="M52 36 L23 35 M52 36 L81 35"/><path class="equip" d="M15 35h12 M77 35h12"/><path class="ghost" d="M23 35 Q30 20 39 26 M81 35 Q74 20 65 26"/>`,
+        pull:`${base}<path class="body" d="M52 34 L35 26 L27 10 M52 34 L69 26 L77 10"/><path class="equip" d="M18 8h68"/><path class="ghost" d="M27 10 L35 40 M77 10 L69 40"/>`,
+        row:`${base}<path class="body" d="M52 34 L31 43 M52 34 L73 43"/><path class="equip" d="M18 46h18 M68 46h18"/><path class="ghost" d="M31 43 L20 35 M73 43 L84 35"/>`,
+        raise:`${base}<path class="body" d="M52 35 L21 29 M52 35 L83 29"/><path class="equip" d="M14 29h12 M78 29h12"/><path class="ghost" d="M21 29 L32 47 M83 29 L72 47"/>`,
+        curl:`${base}<path class="body" d="M52 35 L35 48 L30 32 M52 35 L69 48 L74 32"/><path class="equip" d="M23 30h13 M68 30h13"/><path class="ghost" d="M30 32 L29 53 M74 32 L75 53"/>`,
+        pushdown:`${base}<path class="body" d="M52 35 L39 44 L37 64 M52 35 L65 44 L67 64"/><path class="equip" d="M52 7v15 M33 64h10 M61 64h10"/><path class="ghost" d="M37 45 L37 28 M67 45 L67 28"/>`,
+        squat:`${base}<path class="body" d="M52 34 L35 36 M52 34 L69 36"/><path class="equip" d="M28 31h48"/><path class="ghost" d="M52 53 L36 62 L30 81 M52 53 L68 62 L74 81"/>`,
+        leg:`${base}<path class="body" d="M52 53 L38 63 L28 63 M52 53 L66 63 L76 63"/><path class="equip" d="M21 64h13 M70 64h13"/><path class="ghost" d="M28 63 L21 80 M76 63 L83 80"/>`,
+        core:`${base}<path class="body" d="M52 35 L34 48 M52 35 L70 48"/><path class="equip" d="M20 80h64"/><path class="ghost" d="M34 48 L23 70 M70 48 L81 70"/>`
+      };
+      return `<svg viewBox="0 0 104 92" aria-hidden="true">${map[type]||map.core}</svg>`;
+    }
+
+    function updateHero(ex){
+      selected=ex;
+      hero.style.setProperty('--selected',colors[ex.part]);
+      partEl.textContent=`${ex.part.toUpperCase()} · ${ex.part}`;
+      nameEl.textContent=ex.name.replace('\n',' ');
+      previousEl.textContent=ex.prev;
+      roleEl.textContent=ex.role;
+      motion.innerHTML=figure(ex.type);
+      document.querySelectorAll('.bubble').forEach(b=>b.classList.toggle('selected',b.dataset.name===ex.name));
+    }
+
+    exercises.forEach((ex,i)=>{
+      const b=document.createElement('button');
+      b.className='bubble'+(ex.selected?' selected':'');
+      b.dataset.name=ex.name;
+      b.dataset.part=ex.part;
+      b.style.setProperty('--bubble',colors[ex.part]);
+      b.style.setProperty('--size',ex.size+'px');
+      b.style.setProperty('--x',ex.x+'%');
+      b.style.setProperty('--y',ex.y+'px');
+      b.style.setProperty('--rot',ex.rot+'deg');
+      b.style.setProperty('--dur',(6+(i%5)*.7)+'s');
+      b.style.animationDelay=(-i*.37)+'s';
+      b.innerHTML=`<span><span class="name">${ex.name.replace('\n','<br>')}</span><span class="sub">${ex.role}</span></span>`;
+      b.addEventListener('click',()=>{
+        if(selected===ex){
+          clearTimeout(toastTimer); toast.textContent=`${ex.name.replace('\n',' ')} を選択`; toast.classList.add('show');
+          toastTimer=setTimeout(()=>toast.classList.remove('show'),1400);
+        } else updateHero(ex);
+      });
+      field.appendChild(b);
+    });
+
+    Object.entries(colors).forEach(([part,color])=>{
+      const c=document.createElement('button');
+      c.className='chip'; c.style.setProperty('--c',color); c.textContent=part;
+      c.addEventListener('click',()=>{
+        filter=filter===part?null:part;
+        [...legend.children].forEach(x=>x.classList.toggle('active',filter&&x.textContent===filter));
+        document.querySelectorAll('.bubble').forEach(b=>b.classList.toggle('dim',filter&&b.dataset.part!==filter));
+        if(filter){ const first=exercises.find(x=>x.part===filter); if(first) updateHero(first); }
+      });
+      legend.appendChild(c);
+    });
+
+    document.getElementById('search').addEventListener('click',()=>{
+      const q=prompt('種目名を検索（モック）'); if(!q) return;
+      const hit=exercises.find(x=>x.name.replace('\n','').includes(q)||x.role.includes(q));
+      if(hit){ updateHero(hit); document.querySelector(`[data-name="${CSS.escape(hit.name)}"]`)?.scrollIntoView({behavior:'smooth',block:'center'}); }
+      else { clearTimeout(toastTimer); toast.textContent='該当する種目がありません'; toast.classList.add('show'); toastTimer=setTimeout(()=>toast.classList.remove('show'),1400); }
+    });
+    document.getElementById('back').addEventListener('click',()=>history.length>1?history.back():location.assign('../'));
+    updateHero(selected);
+  </script>
+</body>
+</html>
