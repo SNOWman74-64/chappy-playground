@@ -78,13 +78,113 @@ AIに単純なUI生成ではなく、**デザイン上の判断基準やTasteを
 
 ### agency-agents
 **種別:** Agent Collection  
-**状態:** Harness設計の参考資料
+**GitHub:** https://github.com/msitarzewski/agency-agents  
+**状態:** Harness設計の参考資料 / 必要なロールだけ抽出候補
 
-UI、QA、PM、Engineeringなど、多数の専門Agentロールをまとめたもの。
+Engineering、Design、QA、PMなど多数の専門Agentロールをまとめたコレクション。
 
-全部使うというより、**「Agentにどんな役割を持たせると有効か」**を研究する資料として面白い。
+全部導入するというより、**「どんな専門家ロールを持たせるとAI開発が安定するか」**を研究し、自分のHarnessへ必要な思想だけ取り込む使い方が良さそう。
 
-将来のHarness設計にも使えそう。
+特に気になるロール:
+
+- `Minimal Change Engineer`
+  - 変更範囲を不用意に広げない
+  - 小変更を大工事にしない思想と相性が良い
+- `Code Reviewer`
+- `Software Architect`
+- `UI Designer`
+- `UX Architect`
+- `UI Finish-Gate Reviewer`
+
+将来的な共通HarnessのAgent Role設計資料としてかなり有力。
+
+---
+
+### Agent-Reach
+**種別:** Agent Capability / Research Tool  
+**GitHub:** https://github.com/Panniantong/Agent-Reach  
+**状態:** 調査・Research Pack候補
+
+Coding AgentへWeb上の情報源を読む能力を追加するためのCapability Layer。
+
+Agent-Reach自身が全サイトを直接読むというより、対象に応じて既存ツールを組み合わせる思想。
+
+主な対象:
+
+- Webページ
+- GitHub
+- YouTube
+- X
+- Reddit
+- RSS
+- その他SNS / 動画サイト
+
+将来的には、
+
+`Research Agent → Agent-Reach → Web / GitHub / YouTube / Reddit ...`
+
+のようなResearch Packとして使えそう。
+
+GitHub / Web / YouTube / RSS系は特に有用そう。
+
+XやRedditなどログインセッション・Cookieを利用する経路は、アカウントリスクや認証情報の扱いを確認してから使う。
+
+---
+
+### Orca
+**種別:** Multi-Agent IDE / Harness  
+**GitHub:** https://github.com/stablyai/orca  
+**状態:** 実験候補かなり高め
+
+Codex、Claude Code、OpenCodeなど複数のCoding Agentを、独立したGit worktreeで並列実行・比較するための開発環境。
+
+イメージ:
+
+```text
+repo
+├─ worktree A → Codex
+├─ worktree B → Claude Code
+└─ worktree C → Codex別案
+```
+
+同じ課題を複数Agentへ渡し、実装結果やdiffを比較する用途に向く。
+
+通常タスクを常に並列化するのではなく、
+
+- 難しい設計判断
+- UI案比較
+- 実装方式が複数ある変更
+- 独立案を見たいとき
+
+だけ使うOptionalなMulti-Agent Packとして考えるのが良さそう。
+
+UI要素をブラウザ上で指定してAgentへ渡すDesign Modeもあり、UI改善系との相性も気になる。
+
+---
+
+### codebase-memory-mcp
+**種別:** MCP / Codebase Knowledge Graph  
+**GitHub:** https://github.com/DeusData/codebase-memory-mcp  
+**状態:** 実験候補かなり高め
+
+コードベースを毎回ファイル単位で読み直す代わりに、関数・Class・Module・Call・DependencyなどをKnowledge Graphとして保持し、Agentの構造探索コストを減らすMCP。
+
+狙い:
+
+`毎回 grep / read_file を繰り返す → Graphから構造・影響範囲を先に取得`
+
+特にコード量が増えたプロジェクトで、
+
+- 影響範囲調査
+- Call chain確認
+- Architecture理解
+- Agentの探索Token削減
+
+に効く可能性がある。
+
+READMEの極端なToken削減値をそのまま一般化はしない。方向性としては**少ない探索コストでかなりのコード理解を得る代わりに、必要な箇所では実ファイル確認も併用する**ものとして考える。
+
+小規模repoでは導入コストの方が上回る可能性があるため、全project必須ではなく規模が育った後のContext Pack候補。
 
 ---
 
@@ -92,12 +192,13 @@ UI、QA、PM、Engineeringなど、多数の専門Agentロールをまとめた�
 **種別:** Skill  
 **状態:** 大きいタスク限定候補
 
-実装前にAI側から質問を投げてもらい、曖昧な仕様や設計を潰す。
+実装前にAI側から質問を投げてもらい、暗黙の前提・未決定事項・成功条件・例外を洗い出す。
 
 向いていそうなもの:
 
 - 新機能
 - 大規模変更
+- DB / 認証 / データモデル変更
 - 要件が曖昧な企画
 
 小変更には重すぎそうなので常用はしない。
@@ -150,17 +251,69 @@ AI生成物の「AIっぽい雑さ」を減らす方向。
 ## コード理解 / Architecture
 
 ### archify
-**種別:** Developer Tool  
+**種別:** Agent Skill / Architecture Tool  
 **GitHub:** https://github.com/tt-a1i/archify  
-**状態:** 調査候補
+**状態:** Harnessテンプレート採用候補
 
-コードベースの構造やArchitecture理解を助けるツール。
+リポジトリやシステム説明から、Architecture・Workflow・Sequence・Data Flow・Lifecycleなどを図として生成し、既存コードの理解・設計記録を助ける。
 
-既存プロジェクトへAIを参加させる際の、
+特に面白い思想:
 
-`コード探索 → 構造理解 → 計画`
+- typed JSON IRを中間表現として使う
+- validatorで図の整合性を確認する
+- Git commit / 行範囲などEvidenceと結びつける
+- Architecture Deltaとして変更前後を追える
 
-部分を改善できる可能性あり。
+LIFTLOG固有ではなく、**共通開発HarnessでArchitectureを可視化・更新する仕組み**として相性が良い。
+
+常時実行するものではなく、
+
+- 大きな構造変更
+- 新しいSubsystem追加
+- Architecture文書更新
+- 節目のCASE-STUDY作成
+
+などで使うOptional Pack候補。
+
+---
+
+### zoetrope
+**種別:** Agent Observability Tool  
+**状態:** Harness研究 / Claude観測用途
+
+Claude CodeのJSONL transcriptを読み、Agent / Subagent / Tool callの流れをリアルタイム可視化・replayするread-only観測ツール。
+
+正式Harnessの必須部品というより、
+
+- Agentがどこで時間を使っているか
+- Tool callが増えすぎていないか
+- Subagentがどう動いているか
+- Harness改善前後で動きが変わったか
+
+を見る研究用途に面白い。
+
+Claude Code側の内部transcript形式への依存があるため、将来互換性には注意。
+
+---
+
+## Media / Creative Agent
+
+### OpenMontage
+**種別:** Agent Skill Collection / Video Production Harness  
+**GitHub:** https://github.com/calesthio/OpenMontage  
+**状態:** 直接導入よりHarness設計教材
+
+Codex / Claude Code / CursorなどのCoding Agentを、動画制作オーケストレーターとして使うためのSkill・Tool・Pipeline群。
+
+動画では、
+
+`調査 → 構成 → 台本 → Asset → 音声 → 編集 → Render → QA`
+
+のようなProduction PipelineをAgentが進める。
+
+今のアプリ開発へ直接必要というより、**Agent / Skill / Tool / Pipeline / Reviewをどう分離して組み立てるか**を見る教材として面白い。
+
+共通Harnessを設計するときの「全部を1つの巨大promptに詰めず、役割と処理を分割する」参考資料として見る。
 
 ---
 
@@ -243,15 +396,63 @@ LIFTLOGとの相性が良さそう。
 
 ---
 
+## 今後の共通Harnessのイメージ
+
+個別プロジェクトごとに毎回AI開発環境をゼロから設計するのではなく、再利用可能な共通基盤を持つ。
+
+```text
+Common AI Dev Harness
+├─ Core
+│  ├─ Harness Architect
+│  ├─ Minimal Change / Risk Policy
+│  └─ 最小限のReview / Test
+│
+├─ Agent Roles
+│  ├─ Planner
+│  ├─ Implementation Agent
+│  ├─ Code Reviewer
+│  └─ UI / UX Reviewer
+│
+├─ Context Pack
+│  ├─ Architecture Docs
+│  ├─ Decision Log
+│  └─ codebase-memory-mcp（必要な規模で）
+│
+├─ UI Pack
+│  ├─ UI Architect
+│  ├─ Taste Skill
+│  ├─ product-ui-audit
+│  └─ mobile-interaction-review
+│
+├─ Research Pack
+│  └─ Agent-Reach
+│
+├─ Multi-Agent Pack
+│  └─ Orca / CodexHost
+│
+├─ Architecture Pack
+│  └─ archify
+│
+└─ Observability / Lab
+   └─ zoetrope
+```
+
+重要なのは**全部入りを常時使わないこと**。
+
+Coreだけを小さく保ち、DB / Security / UI / Research / Multi-Agentなどは、タスクのリスクや目的に応じて差し込む。
+
+---
+
 ## 現在のざっくり整理
 
 ```text
 Harness
 ├─ CodexHost
 ├─ C2C
+├─ Orca
 └─ Harness Architect（自作案）
 
-Agent
+Agent / Role
 ├─ Codex
 ├─ Claude Code
 └─ agency-agents
@@ -263,6 +464,14 @@ Skill
 ├─ Desloppify
 └─ thermo-nuclear
 
+Context / Architecture
+├─ codebase-memory-mcp
+├─ archify
+└─ zoetrope
+
+Research
+└─ Agent-Reach
+
 UI Layer
 ├─ UI Architect
 ├─ product-ui-direction
@@ -272,9 +481,11 @@ UI Layer
 Skill Management
 └─ Skills Hub
 
+Harness Design Reference
+└─ OpenMontage
+
 Other OSS
-├─ Invidious
-└─ archify
+└─ Invidious
 ```
 
 ---
@@ -287,6 +498,9 @@ Other OSS
 |---|---:|---:|---:|---:|---|
 | `C2C` | ★★★★★ | ★★★★☆ | ★★☆☆☆ | ★★★★★ | 設計相談・read-only独立レビュー |
 | `CodexHost` | ★★★★☆ | ★★★★☆ | ★★★☆☆ | ★★★★☆ | Agent委譲を一つのフローへまとめる |
+| `Orca` | ★★★☆☆ | ★★★★☆ | ★★★★☆ | ★★★☆☆ | 独立worktreeで複数Agent案を並列比較 |
+| `codebase-memory-mcp` | ★★★★☆ | ★★★★☆ | ★★☆☆☆ | ★★★★☆ | Codebase Graph・探索Token削減・影響範囲理解 |
+| `Agent-Reach` | ★★☆☆☆ | ★★★★☆ | ★★★☆☆ | ★★☆☆☆ | AgentによるWeb / GitHub / YouTube等の調査 |
 | `natural-japanese` | ★★★★☆ | ★★★★☆ | ★★★★☆ | ★★★☆☆ | 日本語UI・文書品質 |
 | `grill-me` | ★★☆☆☆ | ★★★★☆ | ★★★☆☆ | ★★★★☆ | 曖昧な大タスクの要件詰め |
 | `redesign-existing-projects` | ★★★★★ | ★★★★☆ | ★★★☆☆ | ★☆☆☆☆ | 既存UIの監査・局所改善 |
@@ -296,8 +510,10 @@ Other OSS
 | `brandkit` | ★☆☆☆☆ | ★★★☆☆ | ★★★★☆ | ★☆☆☆☆ | Brand / Visual Language設計 |
 | `Desloppify` | ★★☆☆☆ | ★★★☆☆ | ★★☆☆☆ | ★★☆☆☆ | 必要時のコード整理 |
 | `thermo-nuclear` | ★☆☆☆☆ | ★★☆☆☆ | ★☆☆☆☆ | ★★★☆☆ | 強めのコード品質レビュー |
-| `archify` | ★★★☆☆ | ★★☆☆☆ | ★☆☆☆☆ | ★★★★☆ | 大きい既存コードの構造理解 |
+| `archify` | ★★★☆☆ | ★★★☆☆ | ★☆☆☆☆ | ★★★★☆ | Architecture可視化・Evidence・変更差分理解 |
+| `zoetrope` | ★★☆☆☆ | ★★☆☆☆ | ★☆☆☆☆ | ★★☆☆☆ | Agent挙動の観測・Harness研究 |
 | `agency-agents` | ★★☆☆☆ | ★★★☆☆ | ★★★☆☆ | ★★☆☆☆ | Agentロール設計の研究材料 |
+| `OpenMontage` | ★☆☆☆☆ | ★★☆☆☆ | ★★☆☆☆ | ★☆☆☆☆ | Skill / Tool / Pipeline分割のHarness教材 |
 | `Harness Architect` | ★★★★★ | ★★★★★ | ★★★★☆ | ★★★★★ | 必要な工程・Skill・Reviewを選ぶ基盤 |
 | `UI Architect` | ★★★★★ | ★★★★★ | ★★★★★ | ★☆☆☆☆ | プロジェクト専用UI思想を選ぶ基盤 |
 | `product-ui-audit` | ★★★★★ | ★★★★☆ | ★★☆☆☆ | ★☆☆☆☆ | 既存プロダクトUI監査 |
@@ -326,9 +542,10 @@ Other OSS
 - C2C
 - grill-me
 - thermo-nuclear
+- Orcaによる並列実装
 - 大規模回帰テスト
 
-Skillが存在することを理由に工程を増やさない。
+SkillやAgentが存在することを理由に工程を増やさない。
 
 ### LIFTLOGの既存UI改善
 
@@ -348,6 +565,10 @@ Touch / Swipe / Mobile操作を変えた場合だけ:
 
 `C2C`
 
+UI案そのものを比較する価値が高い場合だけ:
+
+`Orcaで独立案を並列比較`
+
 ### 新規Webアプリ
 
 初期:
@@ -361,6 +582,14 @@ Touch / Swipe / Mobile操作を変えた場合だけ:
 Mobile-firstなら:
 
 `imagegen-frontend-mobile` をVisual Explorationとして追加候補。
+
+調査量が多い場合:
+
+`Research Agent / Agent-Reach`
+
+repoが育って探索負荷が増えた場合:
+
+`codebase-memory-mcp`
 
 ### Webサイト / Portfolio / LP
 
@@ -378,6 +607,8 @@ Mobile-firstなら:
 
 実験的・Awwwards系表現は必要時だけ強いTaste / Motion系Skillを使う。
 
+複数案を実装して比較する意味がある場合だけOrcaを使う。
+
 ### DB・認証・保存契約・Migration
 
 中心:
@@ -387,7 +618,9 @@ Mobile-firstなら:
 必要に応じて:
 
 - C2C
+- grill-me（未決定事項が多い場合）
 - archify（大きい既存コードの理解）
+- codebase-memory-mcp（影響範囲探索が重い場合）
 - focused review
 
 重要なのはSkill数ではなく、
@@ -432,3 +665,5 @@ Mobile-firstなら:
 となったものだけHarnessへ昇格させる。
 
 最終的には、**大量のSkillを常時積むのではなく、タスクに応じてHarness側が必要なSkill / Agentを選ぶ構成**を目指す。
+
+このファイル自体を、UIテンプレートとは別軸の**共通AI開発Harness情報保管庫**として育てていく。
