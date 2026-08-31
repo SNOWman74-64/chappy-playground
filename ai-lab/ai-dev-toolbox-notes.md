@@ -104,6 +104,17 @@ UI、QA、PM、Engineeringなど、多数の専門Agentロールをまとめた�
 
 ---
 
+### Skills Hub
+**種別:** Skill Manager  
+**GitHub:** https://github.com/qufei1993/skills-hub  
+**状態:** Skillが増えたら有力
+
+複数のCoding Agent向けSkillを中央管理し、Global / Project単位で使い分けるための管理ツール。
+
+現時点では必須ではないが、`Harness Architect`、`UI Architect`やプロジェクト専用Skillが増えた段階で管理先として再評価する。
+
+---
+
 ## コード品質系
 
 ### Desloppify
@@ -258,10 +269,153 @@ UI Layer
 ├─ product-ui-audit
 └─ mobile-interaction-review
 
+Skill Management
+└─ Skills Hub
+
 Other OSS
 ├─ Invidious
 └─ archify
 ```
+
+---
+
+## 用途別おすすめ度
+
+> ★★★★★ = 基盤候補 / ★★★★☆ = 用途が合えば積極利用 / ★★★☆☆ = 補助・実験 / ★★☆☆☆ = 限定利用 / ★☆☆☆☆ = 基本不要
+
+| Tool / Skill | LIFTLOG | 新規Webアプリ | Webサイト / LP | DB・認証など高リスク変更 | 主な役割 |
+|---|---:|---:|---:|---:|---|
+| `C2C` | ★★★★★ | ★★★★☆ | ★★☆☆☆ | ★★★★★ | 設計相談・read-only独立レビュー |
+| `CodexHost` | ★★★★☆ | ★★★★☆ | ★★★☆☆ | ★★★★☆ | Agent委譲を一つのフローへまとめる |
+| `natural-japanese` | ★★★★☆ | ★★★★☆ | ★★★★☆ | ★★★☆☆ | 日本語UI・文書品質 |
+| `grill-me` | ★★☆☆☆ | ★★★★☆ | ★★★☆☆ | ★★★★☆ | 曖昧な大タスクの要件詰め |
+| `redesign-existing-projects` | ★★★★★ | ★★★★☆ | ★★★☆☆ | ★☆☆☆☆ | 既存UIの監査・局所改善 |
+| `design-taste-frontend` | ★★☆☆☆ | ★★★☆☆ | ★★★★★ | ★☆☆☆☆ | Webデザインの方向付け・Anti-slop |
+| `imagegen-frontend-mobile` | ★★★★☆ | ★★★★☆ | ★★☆☆☆ | ★☆☆☆☆ | モバイルUIのVisual Exploration |
+| `image-to-code` | ★★☆☆☆ | ★★★☆☆ | ★★★★★ | ★☆☆☆☆ | 参考画像→分析→実装 |
+| `brandkit` | ★☆☆☆☆ | ★★★☆☆ | ★★★★☆ | ★☆☆☆☆ | Brand / Visual Language設計 |
+| `Desloppify` | ★★☆☆☆ | ★★★☆☆ | ★★☆☆☆ | ★★☆☆☆ | 必要時のコード整理 |
+| `thermo-nuclear` | ★☆☆☆☆ | ★★☆☆☆ | ★☆☆☆☆ | ★★★☆☆ | 強めのコード品質レビュー |
+| `archify` | ★★★☆☆ | ★★☆☆☆ | ★☆☆☆☆ | ★★★★☆ | 大きい既存コードの構造理解 |
+| `agency-agents` | ★★☆☆☆ | ★★★☆☆ | ★★★☆☆ | ★★☆☆☆ | Agentロール設計の研究材料 |
+| `Harness Architect` | ★★★★★ | ★★★★★ | ★★★★☆ | ★★★★★ | 必要な工程・Skill・Reviewを選ぶ基盤 |
+| `UI Architect` | ★★★★★ | ★★★★★ | ★★★★★ | ★☆☆☆☆ | プロジェクト専用UI思想を選ぶ基盤 |
+| `product-ui-audit` | ★★★★★ | ★★★★☆ | ★★☆☆☆ | ★☆☆☆☆ | 既存プロダクトUI監査 |
+| `mobile-interaction-review` | ★★★★★ | ★★★★☆ | ★☆☆☆☆ | ★☆☆☆☆ | Touch / Gesture / Mobile UXレビュー |
+| `Skills Hub` | ★★★☆☆ | ★★★☆☆ | ★★★☆☆ | ★★★☆☆ | Skill数が増えた後の中央管理 |
+
+### 評価の読み方
+
+- 星が高くても常時起動する意味ではない。
+- `LIFTLOG ★★★★★` は「LIFTLOGの正規要件より優先する」という意味ではない。
+- DB・認証の列は、UI SkillではなくHarness / Review / Architecture理解系を重く見る。
+- 新しいSkillを追加したら、説明を増やすよりこの表へ用途別評価を追加すると見返しやすい。
+
+---
+
+## タスク別の呼び分けメモ
+
+### 小さいCSS・文言・局所UI
+
+基本:
+
+`Codex単独 → 対象確認 → 完了`
+
+原則不要:
+
+- C2C
+- grill-me
+- thermo-nuclear
+- 大規模回帰テスト
+
+Skillが存在することを理由に工程を増やさない。
+
+### LIFTLOGの既存UI改善
+
+候補:
+
+`UI Architect / product-ui-audit`
+
+外部の別視点が欲しい場合だけ:
+
+`redesign-existing-projects`
+
+Touch / Swipe / Mobile操作を変えた場合だけ:
+
+`mobile-interaction-review`
+
+大きな設計判断が残る場合だけ:
+
+`C2C`
+
+### 新規Webアプリ
+
+初期:
+
+`Harness Architect → UI Architect / product-ui-direction`
+
+画面が育った後:
+
+`product-ui-audit`
+
+Mobile-firstなら:
+
+`imagegen-frontend-mobile` をVisual Explorationとして追加候補。
+
+### Webサイト / Portfolio / LP
+
+中心候補:
+
+`UI Architect + design-taste-frontend`
+
+ビジュアルから作りたい場合:
+
+`image-to-code`
+
+ブランド自体を考える場合:
+
+`brandkit`
+
+実験的・Awwwards系表現は必要時だけ強いTaste / Motion系Skillを使う。
+
+### DB・認証・保存契約・Migration
+
+中心:
+
+`Harness Architect`
+
+必要に応じて:
+
+- C2C
+- archify（大きい既存コードの理解）
+- focused review
+
+重要なのはSkill数ではなく、
+
+- データ消失
+- 認可境界
+- 部分保存
+- false success
+- rollback / recovery
+
+など今回あり得る被害を判定できる最小限の証拠を揃えること。
+
+---
+
+## Harnessへ昇格させる条件
+
+外部SkillやAgentは、見つけただけでは共通Harnessへ入れない。
+
+以下のどれかを満たしたときに昇格を検討する。
+
+1. 複数タスク / 複数プロジェクトで同じ失敗を防げた
+2. AIが繰り返し間違える判断を安定して補える
+3. 手作業や確認回数を明確に減らせる
+4. 被害の大きい事故を低コストで防げる
+
+一度しか必要にならない観点や、既存ルールで十分防げるものは自由帳のまま残す。
+
+逆に、Harnessへ入れたSkillでも使われない・重い・重複していると分かったら撤去する。
 
 ---
 
