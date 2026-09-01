@@ -52,6 +52,37 @@ backdrop-filter: blur(var(--glass-blur)) saturate(165%);
 box-shadow: inset 0 1px 0 rgba(255,255,255,.76);
 ```
 
+### Preferred preset — Soft Clear
+
+Current preferred material found through the interactive tuner:
+
+```css
+:root {
+  --glass-alpha: .11;
+  --glass-blur: 6px;
+  --glass-edge: .36;
+}
+```
+
+Reusable component form:
+
+```css
+.glass-soft-clear {
+  background: rgba(255, 255, 255, 0.11);
+  border: 1px solid rgba(255, 255, 255, 0.36);
+  -webkit-backdrop-filter: blur(6px) saturate(165%);
+  backdrop-filter: blur(6px) saturate(165%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.36);
+}
+```
+
+Character:
+- clear / lightly optical rather than heavily frosted,
+- preserves background color and shape,
+- glass is explained mostly by edge light and a small amount of blur,
+- works especially well for nav, dock, lightweight overlays and decorative foreground controls,
+- modal / dense control surfaces may increase blur or alpha locally when readability needs more separation.
+
 ### Important rule
 **Transparency is not the main source of glass.**
 The material should be explained by:
