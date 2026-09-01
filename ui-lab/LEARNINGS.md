@@ -200,3 +200,33 @@ Motion は「止まっていても成立する visual」に追加する。
 ### Source
 
 - `refero-collective-orbit`
+
+---
+
+## L-009 — Tiny SVG particles should not create their own viewport
+
+### Symptom
+
+小さい粒子を `<symbol viewBox>` + `<use>` で大量再利用したところ、iOS の実機表示で各粒子が巨大な三角形として描画され、画面全体を覆った。描画負荷も跳ね、ブラウザが落ちるケースまで発生した。
+
+### Why
+
+`<symbol>` は単なる path template ではなく独立した SVG viewport を持つ。`<use>` 側で `width / height` を明示しない使い方は、ブラウザ差異や transform と組み合わさると想定外のサイズ計算を起こしやすい。
+
+### Better rule
+
+数pxの repeated mark / particle では：
+
+```text
+<g id="particle"><path ... /></g>
+```
+
+または単純な `<path id="particle">` を再利用する。
+
+`symbol + use` を使う場合は `width / height` を必ず明示し、実機モバイルで確認する。
+
+さらに hero の装飾粒子では、filter / blur / drop-shadow / 大量の vector instance を一度に重ねない。
+
+### Source
+
+- `refero-collective-orbit`
