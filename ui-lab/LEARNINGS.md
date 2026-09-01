@@ -230,3 +230,43 @@ Motion は「止まっていても成立する visual」に追加する。
 ### Source
 
 - `refero-collective-orbit`
+
+---
+
+## L-010 — Dense tool UIs should recompose on mobile, not compress
+
+### Symptom
+
+Desktop の editor / dashboard を mobile で各列だけ細くすると、overflow はしていなくても UI が窮屈になり、操作部品やラベルが互いに競合する。
+
+Frameflow study では：
+
+- persistent Layers rail
+- timeline label column
+- play / scrub / time
+- multiple range controls
+
+を desktop topology のまま縮小したことで、スマホ上で視覚的に崩れた。
+
+### Why
+
+Responsive design を `same structure + smaller numbers` と考えると、密度の高い tool UI では情報階層そのものが壊れる。
+
+### Better rule
+
+Mobile breakpoint ではまず **layout axis / persistence / grouping** を再判断する。
+
+Examples:
+
+```text
+sidebar → horizontal toolbar / sheet
+3 controls in one row → stacked controls
+play + scrub + time in one row → two-row transport
+2-column workspace → single-column flow
+```
+
+`min-width: 0` などの overflow 対策は必要だが、それだけを responsive design としない。
+
+### Source
+
+- `refero-frameflow-motion`
