@@ -6,7 +6,7 @@ Refero の dark constellation design を出発点に、**「粒子の集合体�
 
 静的なデザイン再構成そのものは高い精度で成立した一方、粒子集合体を具体的な生物として認識させ、さらにモバイル上で骨格運動まで成立させるところから難易度が急激に上がった。
 
-最終的には、複雑な Canvas physics / rig を主役にするのではなく、**SVG + CSS の deterministic な Memory Orbit**へ戻すことで、Refero 由来の constellation language と安定した motion を両立する方針に落ち着いた。
+最終的には、具体的な shape を粒子で維持することをやめ、**元の抽象 constellation をユーザーが触って崩せる Interactive Scatter Field** に戻した。
 
 ---
 
@@ -183,29 +183,34 @@ Canvas を外し、`SVG + CSS only` の particle vortex に切り替えた。
 
 ---
 
-## Final direction — Memory Orbit
+### 7. Interactive Scatter Field — current direction
 
-現在の最終版は **JSなしの SVG / CSS particle orbit**。
+安定版の Memory Orbit は壊れにくかった一方で、静的に整いすぎて reference の「生きた粒子集合体」としての面白さが弱くなった。
 
-構成：
-- outer particle ring
-- middle particle ring
-- inner particle ring
-- 5-point central cluster
-- static soft halo
-- opposite-direction rotation
-- central breathing
-- whole-object vertical drift
+そこで具体形の再現を諦め、初期の abstract particle field に戻し、**ユーザー操作そのものを motion の主役**にした。
 
-### Why this is the better prototype
+Current behavior:
 
-- JavaScript が失敗しても visual が消えない。
-- mobile / desktop で topology が変わらない。
-- triangle 自体が独立 viewport を持たない。
-- Refero の triangle constellation identity を保てる。
-- 「knowledge fragments が互いを回り、中心に意味が生まれる」という Orbit の concept と一致する。
-- animation complexity が design mock の目的を超えない。
-- 動かなくても静的な constellation として成立する。
+- mobile: 90 particles
+- desktop: 140 particles
+- triangle は Canvas の単純 path で直接描画
+- 自律 drift は極小
+- swipe / drag の速度と方向を近傍粒子へ impulse として渡す
+- 粒子は canvas edge で反射
+- 慣性は徐々に減衰
+- DPR は最大2へ制限
+- filter / SVG instance / creature rig なし
+
+### Why this direction fits better
+
+- shape recognition が不要なので、小さい mobile viewport でも破綻しにくい。
+- 「散らばった情報断片」という Orbit の意味と interaction が一致する。
+- 見た目を眺めるだけでなく、自分で field を乱せるため安定版より遊びがある。
+- physics は単純な impulse / damping / boundary reflection だけで、character rig より遥かに低次元。
+
+### New lesson
+
+**抽象的なブランド motion は、複雑な shape を自動生成するより、ユーザーが単純な field rule を触れるようにする方が少ない実装で強い体験になることがある。**
 
 ---
 
@@ -216,21 +221,19 @@ Canvas を外し、`SVG + CSS only` の particle vortex に切り替えた。
 Motion を追加したら PC より先に target mobile viewport で以下を確認する：
 
 1. static first frame が見える
-2. shape が1秒以内に認識できる
+2. shape が必要なら1秒以内に認識できる
 3. animation が止まっても design として成立する
 4. animation が動いた時だけ追加価値が生まれる
 5. 画面回転 / 内ブラウザ / WebView で geometry size が跳ねない
 
-### 2. Critical visuals should have a no-JS baseline
+### 2. Match complexity to the actual visual question
 
-Hero の主役を Canvas-only にしない。
-
-Preferred order for design prototypes:
+Preferred progression for UI mocks:
 
 ```text
-Static SVG / CSS
+Static visual
 → CSS motion
-→ CSS + tiny JS enhancement
+→ simple interactive field
 → deterministic Canvas
 → Canvas physics
 → articulated particle rig
@@ -252,16 +255,14 @@ Particles だけで anatomy と motion の両方を説明しようとすると�
 
 ### 5. Do not let the experiment overpower the design system
 
-今回の reference の強みは、そもそも：
+今回の reference の強みは：
 - black void
 - enormous typography
 - restrained violet
 - sparse layout
 - triangle constellation
 
-であり、鷹やクラゲそのものではない。
-
-Motion のために reference の静かな editorial quality を失わないこと。
+Motion はこれらを補強する範囲に留める。
 
 ---
 
@@ -270,15 +271,15 @@ Motion のために reference の静かな editorial quality を失わないこ�
 - **Strong DESIGN.md reduces the need for specialized UI agents.** 雑めな指示でも visual grammar が明確なら高精度の variation を作れる。
 - **Static design reproduction and advanced motion generation have very different difficulty curves.**
 - **Particle count does not solve shape recognition.** Silhouette / topology / articulation matter more.
-- **For mobile prototypes, deterministic animation is often more valuable than impressive physics.**
-- **The visual should survive animation failure.** Motion is enhancement, not existence.
+- **For mobile prototypes, deterministic / low-dimensional rules are often more valuable than impressive physics.**
 - **SVG implementation details can still create catastrophic mobile rendering failures.**
-- **Prototype ambition should match the question being tested.** 今回確認したかったのは「この design language を Web へ落とせるか」であり、本格的な particle creature engine の実装ではない。
+- **Interactive abstraction can outperform literal shape generation for brand motion.**
+- **Prototype ambition should match the question being tested.**
 
 ---
 
 ## Final state
 
-Current visual: **Memory Orbit — small deterministic SVG particles + CSS-only motion**.
+Current visual: **Interactive Scatter Field — lightweight Canvas triangles with swipe impulse, damping and boundary reflection.**
 
-The final implementation intentionally gives up creature animation and heavy particle simulation. It keeps the reference's strongest visual grammar, survives without JavaScript, is much cheaper to render, and is a more appropriate reusable brand-motion pattern for the UI Lab.
+The final implementation abandons creature animation and prescribed formations. It returns to the original constellation language, but lets the user physically disturb the field, creating motion from interaction rather than from a complex pre-authored shape.
