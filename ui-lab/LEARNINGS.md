@@ -117,3 +117,86 @@ Reference のスクリーン構成をそのまま複製しなくても、以下�
 ### Source
 
 - `refero-daybook`
+
+---
+
+## L-006 — Critical motion visuals need a no-JS first frame
+
+### Symptom
+
+Canvas や runtime-generated particles を hero の唯一の visual にすると、初期化・animation loop・mobile WebView 差異のどれかで失敗した時に主役が完全に消える。
+
+### Better rule
+
+重要な visual は **JavaScript が一切動かなくても最低限成立する static first frame** を持つ。
+
+Preferred progression for UI mocks:
+
+```text
+SVG / CSS
+→ CSS + small JS enhancement
+→ deterministic Canvas
+→ Canvas physics
+→ articulated particle rig
+```
+
+右へ進むほど「UI mock」から「graphics engineering」に近づく。
+
+### Source
+
+- `refero-collective-orbit`
+
+---
+
+## L-007 — Particle count does not create recognizability
+
+### Symptom
+
+粒子数を増やして具体的な動物や物体へ寄せても、小さい viewport では単なる particle cloud に見える。
+
+### Why
+
+具体物の認識を決めるのは主に：
+
+- silhouette topology
+- landmark placement
+- joint continuity
+- relative part scale
+- motion articulation
+
+であり、particle density だけではない。
+
+### Better rule
+
+具体物を particle 表現にする場合は、先に vector / solid silhouette や skeleton を成立させ、その geometry に particles を従わせる。
+
+抽象ブランド visual なら、動物などを無理に認識させず orbit / vortex / wave / swarm のように topology が単純な motion を選ぶ。
+
+### Source
+
+- `refero-collective-orbit`
+
+---
+
+## L-008 — Mobile prototype motion should prefer deterministic behavior
+
+### Observation
+
+Desktop では成立する particle physics や簡易 rig でも、mobile viewport では少しの scale mismatch / joint error / initialization timing が visual failure として大きく現れる。
+
+### Better rule
+
+モバイル向け design prototype では、最初から physics realism を狙わず：
+
+1. deterministic position
+2. simple CSS transform
+3. low-dimensional motion
+4. stable silhouette
+
+を優先する。
+
+Motion は「止まっていても成立する visual」に追加する。
+
+### Source
+
+- `refero-collective-orbit`
