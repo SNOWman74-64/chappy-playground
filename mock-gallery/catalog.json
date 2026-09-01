@@ -14,11 +14,7 @@
       "referenceUrl": "https://styles.refero.design/style/cfd0fec1-f25a-4b9b-9bd0-d5b66960f2f2",
       "thumbnail": null,
       "tags": ["REFERO STUDY", "EDITORIAL", "TACTILE"],
-      "principles": [
-        "Preserve color roles, not only values",
-        "Object-first composition",
-        "Extreme typography creates identity"
-      ]
+      "principles": ["Preserve color roles, not only values", "Object-first composition", "Extreme typography creates identity"]
     },
     {
       "id": "daybook-cardless",
@@ -31,11 +27,20 @@
       "referenceUrl": "https://styles.refero.design/style/cfd0fec1-f25a-4b9b-9bd0-d5b66960f2f2",
       "thumbnail": null,
       "tags": ["CARDLESS", "SCROLL MOTION", "NOTEBOOK"],
-      "principles": [
-        "Less dashboard, more margin",
-        "Scroll behaves like a pen",
-        "Use a shared sight line for writing"
-      ]
+      "principles": ["Less dashboard, more margin", "Scroll behaves like a pen", "Use a shared sight line for writing"]
+    },
+    {
+      "id": "ridiculous-daily",
+      "title": "The Ridiculous Daily — Fake Newspaper",
+      "shortTitle": "ridiculous daily",
+      "summary": "新聞の硬派な編集レイアウトをそのまま使い、猫市長・先延ばし遺伝子・月の接近禁止命令など、とんでもない擬似ニュースだけを真顔で掲載する study。",
+      "previewPath": "../refero-ridiculous-daily/",
+      "designPath": "../refero-ridiculous-daily/DESIGN.md",
+      "retrospectivePath": "../refero-ridiculous-daily/RETROSPECTIVE.md",
+      "referenceUrl": "https://styles.refero.design/style/3f6e3076-e77f-487e-b212-3b5946a34e87",
+      "thumbnail": null,
+      "tags": ["NEWSPAPER", "EDITORIAL", "PARODY"],
+      "principles": ["Make nonsense look institutionally serious", "Density is part of the aesthetic", "Tiny believable metadata sells the fiction"]
     }
   ]
 }
