@@ -5,48 +5,280 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Orbit — collective memory alive</title>
 <style>
-:root{--v:#7a35ff;--font:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
-*{box-sizing:border-box}html{background:#000;scroll-behavior:smooth}body{margin:0;background:#000;color:#fff;font-family:var(--font);overflow-x:hidden}.wrap{width:min(1320px,calc(100% - 48px));margin:auto}nav{height:82px;display:flex;align-items:center;justify-content:space-between;gap:28px;position:relative;z-index:4}.brand{font-size:26px;letter-spacing:-.04em}.brand:after{content:'';display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--v);margin-left:3px}.links{display:flex;align-items:center;gap:36px}.links a{color:#ccc;text-decoration:none;font-size:12px}.cta{border:0;border-radius:10px;background:linear-gradient(135deg,#6b20e8,#813cff);color:#fff;padding:15px 21px;font-weight:650;font-size:12px}.hero{min-height:calc(100svh - 82px);position:relative;display:grid;grid-template-columns:minmax(300px,.72fr) minmax(0,1.28fr);align-items:center;padding:70px 0 100px}.copy{position:relative;z-index:2;max-width:530px}.eyebrow{color:#8c4dff;font-size:12px;text-transform:uppercase}.hero h1{font-weight:400;font-size:clamp(64px,6.5vw,96px);line-height:.92;letter-spacing:-.06em;margin:28px 0 22px}.hero p{color:#aaa;font-size:17px;line-height:1.65;font-weight:300;max-width:470px}.actions{display:flex;gap:22px;align-items:center;margin-top:32px}.learn{color:#aaa;text-decoration:none;font-size:12px}.sky{position:absolute;z-index:1;right:-8%;top:1%;width:72%;height:92%;min-height:650px}.orbit-viz{position:absolute;inset:0;width:100%;height:100%;animation:float 7s ease-in-out infinite}.orbit-viz use{stroke:var(--c);fill:none;stroke-width:1.15;vector-effect:non-scaling-stroke}.orbit-viz .outer{transform-box:view-box;transform-origin:50% 50%;animation:spin 30s linear infinite}.orbit-viz .mid{transform-box:view-box;transform-origin:50% 50%;animation:spinRev 21s linear infinite}.orbit-viz .inner{transform-box:view-box;transform-origin:50% 50%;animation:spin 15s linear infinite}.orbit-viz .core{transform-box:view-box;transform-origin:50% 50%;animation:breathe 4.8s ease-in-out infinite}.arc{position:absolute;inset:8% -1% 7% 1%;border:1px solid rgba(255,255,255,.055);border-radius:50%;transform:rotate(-12deg);pointer-events:none}.legend{position:absolute;right:5%;bottom:4%;font-size:10px;color:#aaa;line-height:1.8}.legend strong{display:block;color:#8644ff;font-weight:500}.legend i{display:inline-block;width:6px;height:6px;margin-right:8px;clip-path:polygon(50% 0,100% 100%,0 100%)}.hint{position:absolute;left:49%;bottom:2%;font-size:9px;color:#6c6c6c;letter-spacing:.09em}.features{display:grid;grid-template-columns:repeat(4,1fr);padding:65px 0 110px;border-top:1px solid #111}.feature{padding:0 36px;border-right:1px solid #171717}.feature:first-child{padding-left:0}.feature:last-child{border:0}.icon{height:48px;color:#7b35ff;font-size:34px}.feature h3{font-size:18px;font-weight:400}.feature p{color:#888;font-size:13px;line-height:1.6}.quote{display:grid;grid-template-columns:1fr 1fr;gap:70px;padding:50px 0 100px}.quote blockquote{font-size:25px;font-weight:300;line-height:1.45;color:#ddd;margin:0;border-right:1px solid #222;padding-right:60px}.person{display:flex;align-items:center;gap:18px}.avatar{width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,#7a25ff,#c85cf1)}.person small{display:block;color:#777;margin-top:5px}footer{border-top:1px solid #111;padding:28px 0 45px;color:#666;font-size:11px;display:flex;justify-content:space-between}
-@keyframes spin{to{transform:rotate(360deg)}}@keyframes spinRev{to{transform:rotate(-360deg)}}@keyframes breathe{50%{transform:scale(1.09);opacity:.8}}@keyframes float{50%{transform:translateY(-9px)}}
-@media(max-width:760px){.wrap{width:calc(100% - 30px)}nav{height:68px}.links a{display:none}.cta{padding:12px 14px}.hero{display:block;min-height:auto;padding:60px 0 40px}.hero h1{font-size:clamp(57px,16vw,75px)}.hero p{font-size:15px}.sky{position:relative;right:auto;top:auto;width:calc(100% + 30px);margin:20px -15px 0;height:520px;min-height:0}.orbit-viz{inset:5%}.legend{right:8%;bottom:3%}.hint{display:none}.features{grid-template-columns:1fr 1fr;padding:55px 0}.feature{padding:25px 20px;border-bottom:1px solid #171717}.feature:first-child{padding-left:20px}.quote{grid-template-columns:1fr;gap:35px}.quote blockquote{border-right:0;border-bottom:1px solid #222;padding:0 0 35px}footer{display:block;line-height:1.8}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.orbit-viz,.orbit-viz .outer,.orbit-viz .mid,.orbit-viz .inner,.orbit-viz .core{animation:none!important}}
+:root{
+  --v:#7a35ff;
+  --v2:#8f57ff;
+  --a:#ffb829;
+  --b:#329cff;
+  --g:#aaa;
+  --font:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+}
+*{box-sizing:border-box}
+html{background:#000;scroll-behavior:smooth}
+body{margin:0;background:#000;color:#fff;font-family:var(--font);overflow-x:hidden}
+.wrap{width:min(1320px,calc(100% - 48px));margin:auto}
+nav{height:82px;display:flex;align-items:center;justify-content:space-between;gap:28px;position:relative;z-index:4}
+.brand{font-size:26px;letter-spacing:-.04em}.brand:after{content:'';display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--v);margin-left:3px}
+.links{display:flex;align-items:center;gap:36px}.links a{color:#ccc;text-decoration:none;font-size:12px}
+.cta{border:0;border-radius:10px;background:linear-gradient(135deg,#6b20e8,#813cff);color:#fff;padding:15px 21px;font-weight:650;font-size:12px;letter-spacing:.02em}
+.hero{min-height:calc(100svh - 82px);position:relative;display:grid;grid-template-columns:minmax(300px,.72fr) minmax(0,1.28fr);align-items:center;padding:70px 0 100px}
+.copy{position:relative;z-index:2;max-width:530px}.eyebrow{color:#8c4dff;font-size:12px;text-transform:uppercase;letter-spacing:.04em}
+.hero h1{font-weight:400;font-size:clamp(64px,6.5vw,96px);line-height:.92;letter-spacing:-.06em;margin:28px 0 22px}
+.hero p{color:#aaa;font-size:17px;line-height:1.65;font-weight:300;max-width:470px}
+.actions{display:flex;gap:22px;align-items:center;margin-top:32px}.learn{color:#aaa;text-decoration:none;font-size:12px}
+.sky{position:absolute;z-index:1;right:-8%;top:1%;width:72%;height:92%;min-height:650px}
+.canvas-wrap{position:absolute;inset:0}
+.field-glow{position:absolute;inset:13% 10% 18% 14%;border-radius:50%;background:
+  radial-gradient(circle at 42% 44%, rgba(122,53,255,.16), transparent 36%),
+  radial-gradient(circle at 62% 57%, rgba(50,156,255,.08), transparent 34%),
+  radial-gradient(circle at 50% 50%, rgba(255,184,41,.05), transparent 48%);
+  filter:blur(10px);pointer-events:none;opacity:.9}
+.field{position:absolute;inset:0;width:100%;height:100%;display:block;touch-action:none}
+.arc{position:absolute;inset:8% -1% 7% 1%;border:1px solid rgba(255,255,255,.055);border-radius:50%;transform:rotate(-12deg);pointer-events:none}
+.legend{position:absolute;right:5%;bottom:4%;font-size:10px;color:#aaa;line-height:1.8;z-index:2}
+.legend strong{display:block;color:#8644ff;font-weight:500}
+.legend i{display:inline-block;width:6px;height:6px;margin-right:8px;clip-path:polygon(50% 0,100% 100%,0 100%)}
+.hint{position:absolute;left:49%;bottom:2%;font-size:9px;color:#6c6c6c;letter-spacing:.09em;z-index:2}
+.features{display:grid;grid-template-columns:repeat(4,1fr);padding:65px 0 110px;border-top:1px solid #111}
+.feature{padding:0 36px;border-right:1px solid #171717}.feature:first-child{padding-left:0}.feature:last-child{border:0}.icon{height:48px;color:#7b35ff;font-size:34px}.feature h3{font-size:18px;font-weight:400}.feature p{color:#888;font-size:13px;line-height:1.6}
+.quote{display:grid;grid-template-columns:1fr 1fr;gap:70px;padding:50px 0 100px}.quote blockquote{font-size:25px;font-weight:300;line-height:1.45;color:#ddd;margin:0;border-right:1px solid #222;padding-right:60px}.person{display:flex;align-items:center;gap:18px}.avatar{width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,#7a25ff,#c85cf1)}.person small{display:block;color:#777;margin-top:5px}
+footer{border-top:1px solid #111;padding:28px 0 45px;color:#666;font-size:11px;display:flex;justify-content:space-between}
+@media(max-width:760px){
+  .wrap{width:calc(100% - 30px)}
+  nav{height:68px}.links a{display:none}.cta{padding:12px 14px}
+  .hero{display:block;min-height:auto;padding:60px 0 40px}
+  .hero h1{font-size:clamp(57px,16vw,75px)}.hero p{font-size:15px}
+  .sky{position:relative;right:auto;top:auto;width:calc(100% + 30px);margin:20px -15px 0;height:560px;min-height:0}
+  .field-glow{inset:16% 8% 15% 10%}
+  .legend{right:7%;bottom:2%}.hint{display:none}
+  .features{grid-template-columns:1fr 1fr;padding:55px 0}.feature{padding:25px 20px;border-bottom:1px solid #171717}.feature:first-child{padding-left:20px}
+  .quote{grid-template-columns:1fr;gap:35px}.quote blockquote{border-right:0;border-bottom:1px solid #222;padding:0 0 35px}
+  footer{display:block;line-height:1.8}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
 <div class="wrap">
-<nav><div class="brand">Orbit</div><div class="links"><a href="#why">Why Orbit</a><a href="#how">How it Works</a><a href="#use">Use Cases</a><a href="#price">Pricing</a><button class="cta">START CONNECTING</button></div></nav>
-<main>
-<section class="hero">
-<div class="copy"><span class="eyebrow">Collective memory, alive.</span><h1>Find the connections you couldn't see before.</h1><p>Orbit observes the patterns inside your scattered notes, conversations, and ideas—then reveals the unlikely relationships worth noticing.</p><div class="actions"><button class="cta">START CONNECTING</button><a class="learn" href="#why">Learn more　→</a></div></div>
-<div class="sky"><div class="arc"></div>
-<svg class="orbit-viz" viewBox="0 0 700 700" role="img" aria-label="A calm constellation of small triangular particles orbiting a central memory core">
-<defs>
-<g id="tri"><path d="M 0 -4 L 3.6 3 L -3.4 2 Z"/></g>
-<radialGradient id="halo" cx="50%" cy="50%"><stop offset="0" stop-color="#743cff" stop-opacity=".22"/><stop offset=".58" stop-color="#315cff" stop-opacity=".055"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient>
-</defs>
-<circle cx="350" cy="350" r="190" fill="url(#halo)"/>
-<ellipse cx="350" cy="350" rx="255" ry="184" fill="none" stroke="#fff" stroke-opacity=".05"/>
-<ellipse cx="350" cy="350" rx="180" ry="130" fill="none" stroke="#8052ff" stroke-opacity=".09"/>
-<ellipse cx="350" cy="350" rx="104" ry="76" fill="none" stroke="#329cff" stroke-opacity=".10"/>
-<g class="outer">
-<use href="#tri" transform="translate(598 350) rotate(8) scale(.95)" style="--c:#8b39ff;opacity:.88"/><use href="#tri" transform="translate(558 441) rotate(40) scale(.75)" style="--c:#329cff;opacity:.65"/><use href="#tri" transform="translate(474 505) rotate(72) scale(.9)" style="--c:#ffb829;opacity:.8"/><use href="#tri" transform="translate(350 532) rotate(96) scale(.7)" style="--c:#f2f2f2;opacity:.72"/><use href="#tri" transform="translate(226 505) rotate(130) scale(.85)" style="--c:#6730df;opacity:.62"/><use href="#tri" transform="translate(142 441) rotate(155) scale(.7)" style="--c:#329cff;opacity:.7"/><use href="#tri" transform="translate(102 350) rotate(190) scale(.9)" style="--c:#8b39ff;opacity:.82"/><use href="#tri" transform="translate(142 259) rotate(218) scale(.72)" style="--c:#ffb829;opacity:.66"/><use href="#tri" transform="translate(226 195) rotate(248) scale(.88)" style="--c:#f2f2f2;opacity:.72"/><use href="#tri" transform="translate(350 168) rotate(274) scale(.68)" style="--c:#329cff;opacity:.62"/><use href="#tri" transform="translate(474 195) rotate(306) scale(.88)" style="--c:#6730df;opacity:.78"/><use href="#tri" transform="translate(558 259) rotate(338) scale(.75)" style="--c:#ffb829;opacity:.76"/>
-</g>
-<g class="mid">
-<use href="#tri" transform="translate(525 350) rotate(10) scale(.8)" style="--c:#329cff;opacity:.83"/><use href="#tri" transform="translate(474 435) rotate(52) scale(.72)" style="--c:#8b39ff;opacity:.62"/><use href="#tri" transform="translate(350 480) rotate(92) scale(.88)" style="--c:#f2f2f2;opacity:.78"/><use href="#tri" transform="translate(226 435) rotate(136) scale(.74)" style="--c:#ffb829;opacity:.75"/><use href="#tri" transform="translate(175 350) rotate(185) scale(.9)" style="--c:#6730df;opacity:.72"/><use href="#tri" transform="translate(226 265) rotate(226) scale(.72)" style="--c:#329cff;opacity:.78"/><use href="#tri" transform="translate(350 220) rotate(270) scale(.82)" style="--c:#8b39ff;opacity:.8"/><use href="#tri" transform="translate(474 265) rotate(315) scale(.76)" style="--c:#ffb829;opacity:.7"/>
-</g>
-<g class="inner">
-<use href="#tri" transform="translate(450 350) rotate(8) scale(.75)" style="--c:#8b39ff;opacity:.75"/><use href="#tri" transform="translate(420 408) rotate(58) scale(.68)" style="--c:#329cff;opacity:.8"/><use href="#tri" transform="translate(350 428) rotate(94) scale(.84)" style="--c:#ffb829;opacity:.8"/><use href="#tri" transform="translate(280 408) rotate(142) scale(.68)" style="--c:#f2f2f2;opacity:.72"/><use href="#tri" transform="translate(250 350) rotate(188) scale(.78)" style="--c:#6730df;opacity:.77"/><use href="#tri" transform="translate(280 292) rotate(228) scale(.7)" style="--c:#329cff;opacity:.7"/><use href="#tri" transform="translate(350 272) rotate(274) scale(.85)" style="--c:#8b39ff;opacity:.83"/><use href="#tri" transform="translate(420 292) rotate(318) scale(.72)" style="--c:#ffb829;opacity:.75"/>
-</g>
-<g class="core">
-<use href="#tri" transform="translate(350 350) scale(1.35)" style="--c:#f2f2f2;opacity:.95"/><use href="#tri" transform="translate(333 341) rotate(30) scale(.75)" style="--c:#8b39ff;opacity:.88"/><use href="#tri" transform="translate(368 339) rotate(80) scale(.68)" style="--c:#329cff;opacity:.82"/><use href="#tri" transform="translate(364 364) rotate(150) scale(.72)" style="--c:#ffb829;opacity:.82"/><use href="#tri" transform="translate(337 368) rotate(225) scale(.7)" style="--c:#6730df;opacity:.85"/>
-</g>
-</svg>
-<div class="legend"><strong>LIVE PATTERN</strong><div><i style="background:#8c35ff"></i>Notes</div><div><i style="background:#329cff"></i>Conversations</div><div><i style="background:#ffb829"></i>Ideas</div><div><i style="background:#ddd"></i>References</div></div>
-</div><span class="hint">memory orbit / no JS</span>
-</section>
-<section class="features" id="why"><article class="feature"><div class="icon">⠿</div><h3>Bring Everything Together</h3><p>Notes, files, chats, and links. Orbit connects the dots.</p></article><article class="feature"><div class="icon">◇</div><h3>Discover Unlikely Connections</h3><p>AI finds patterns across contexts you didn't expect.</p></article><article class="feature"><div class="icon">◎</div><h3>See the Big Picture</h3><p>From fragments to understanding.</p></article><article class="feature"><div class="icon">✦</div><h3>Evolving With You</h3><p>The more you add, the smarter Orbit becomes.</p></article></section>
-<section class="quote"><blockquote>“I didn't expect my daydreams, research, and random bookmarks to form something this clear.”</blockquote><div class="person"><div class="avatar"></div><div><b>Alex R.</b><small>Designer & Researcher</small></div></div></section>
-</main><footer><span>© 2026 Orbit Labs, Inc.</span><span>Privacy　 Terms　 Contact</span></footer>
+  <nav>
+    <div class="brand">Orbit</div>
+    <div class="links">
+      <a href="#why">Why Orbit</a>
+      <a href="#how">How it Works</a>
+      <a href="#use">Use Cases</a>
+      <a href="#price">Pricing</a>
+      <button class="cta">START CONNECTING</button>
+    </div>
+  </nav>
+  <main>
+    <section class="hero">
+      <div class="copy">
+        <span class="eyebrow">Collective memory, alive.</span>
+        <h1>Find the connections you couldn't see before.</h1>
+        <p>Orbit observes the patterns inside your scattered notes, conversations, and ideas—then reveals the unlikely relationships worth noticing.</p>
+        <div class="actions">
+          <button class="cta">START CONNECTING</button>
+          <a class="learn" href="#why">Learn more →</a>
+        </div>
+      </div>
+      <div class="sky" id="sky">
+        <div class="canvas-wrap">
+          <div class="field-glow"></div>
+          <div class="arc"></div>
+          <canvas class="field" id="field" aria-label="Interactive orbit field made from triangular particles"></canvas>
+        </div>
+        <div class="legend"><strong>LIVE PATTERN</strong><div><i style="background:#8c35ff"></i>Notes</div><div><i style="background:#329cff"></i>Conversations</div><div><i style="background:#ffb829"></i>Ideas</div><div><i style="background:#ddd"></i>References</div></div>
+        <span class="hint">swipe through the field</span>
+      </div>
+    </section>
+    <section class="features" id="why">
+      <article class="feature"><div class="icon">⠿</div><h3>Bring Everything Together</h3><p>Notes, files, chats, and links. Orbit connects the dots.</p></article>
+      <article class="feature"><div class="icon">◇</div><h3>Discover Unlikely Connections</h3><p>AI finds patterns across contexts you didn't expect.</p></article>
+      <article class="feature"><div class="icon">◎</div><h3>See the Big Picture</h3><p>From fragments to understanding.</p></article>
+      <article class="feature"><div class="icon">✦</div><h3>Evolving With You</h3><p>The more you add, the smarter Orbit becomes.</p></article>
+    </section>
+    <section class="quote">
+      <blockquote>“I didn't expect my daydreams, research, and random bookmarks to form something this clear.”</blockquote>
+      <div class="person"><div class="avatar"></div><div><b>Alex R.</b><small>Designer & Researcher</small></div></div>
+    </section>
+  </main>
+  <footer><span>© 2026 Orbit Labs, Inc.</span><span>Privacy  Terms  Contact</span></footer>
 </div>
+<script>
+(() => {
+  const canvas = document.getElementById('field');
+  const sky = document.getElementById('sky');
+  const ctx = canvas.getContext('2d');
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const colors = ['#8b39ff','#6730df','#329cff','#ffb829','#f1f1f1'];
+  let W = 1, H = 1, dpr = 1, raf = 0, running = false;
+  let particles = [];
+  const pointer = {down:false, x:0, y:0, vx:0, vy:0, lastX:0, lastY:0, movedAt:0};
+
+  function rand(a,b){ return a + Math.random() * (b - a); }
+
+  function resize(){
+    const rect = canvas.getBoundingClientRect();
+    if (!rect.width || !rect.height) return;
+    W = rect.width; H = rect.height;
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    canvas.width = Math.round(W * dpr);
+    canvas.height = Math.round(H * dpr);
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    seed();
+    draw(true);
+  }
+
+  function seed(){
+    const count = W < 760 ? 90 : 140;
+    particles = [];
+    const cx = W * 0.56, cy = H * 0.52;
+    for(let i=0;i<count;i++){
+      const angle = Math.random() * Math.PI * 2;
+      const radius = Math.sqrt(Math.random()) * Math.min(W,H) * (W < 760 ? 0.36 : 0.40);
+      particles.push({
+        x: cx + Math.cos(angle) * radius + rand(-28,28),
+        y: cy + Math.sin(angle) * radius + rand(-28,28),
+        vx: rand(-0.18,0.18),
+        vy: rand(-0.18,0.18),
+        size: rand(W < 760 ? 4.5 : 5, W < 760 ? 9 : 10),
+        rot: rand(0, Math.PI*2),
+        spin: rand(-0.013,0.013),
+        alpha: rand(0.28,0.92),
+        color: colors[(Math.random()*colors.length)|0]
+      });
+    }
+  }
+
+  function pushAt(x,y,vx,vy){
+    const impact = Math.min(12, Math.hypot(vx,vy) * 0.22 + 2.2);
+    const radius = W < 760 ? 105 : 138;
+    for(const p of particles){
+      const dx = p.x - x;
+      const dy = p.y - y;
+      const dist = Math.hypot(dx,dy) || 1;
+      if(dist < radius){
+        const force = (1 - dist / radius) * impact;
+        p.vx += (dx / dist) * force + vx * 0.018;
+        p.vy += (dy / dist) * force + vy * 0.018;
+      }
+    }
+  }
+
+  function tri(p){
+    const s = p.size;
+    ctx.save();
+    ctx.translate(p.x, p.y);
+    ctx.rotate(p.rot);
+    ctx.globalAlpha = p.alpha;
+    ctx.strokeStyle = p.color;
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(0, -s * 0.62);
+    ctx.lineTo(s * 0.72, s * 0.58);
+    ctx.lineTo(-s * 0.68, s * 0.48);
+    ctx.closePath();
+    ctx.stroke();
+    ctx.restore();
+  }
+
+  function draw(staticOnly){
+    ctx.clearRect(0,0,W,H);
+    const grad = ctx.createRadialGradient(W*0.58,H*0.46,0,W*0.58,H*0.46,Math.min(W,H)*0.42);
+    grad.addColorStop(0,'rgba(92,44,255,.13)');
+    grad.addColorStop(.55,'rgba(34,112,255,.05)');
+    grad.addColorStop(1,'rgba(0,0,0,0)');
+    ctx.fillStyle = grad;
+    ctx.fillRect(0,0,W,H);
+
+    if (!staticOnly) {
+      const nowActive = pointer.down || performance.now() - pointer.movedAt < 180;
+      for(const p of particles){
+        p.vx *= nowActive ? 0.995 : 0.988;
+        p.vy *= nowActive ? 0.995 : 0.988;
+        p.x += p.vx;
+        p.y += p.vy;
+        p.rot += p.spin;
+        if(p.x < 8){ p.x = 8; p.vx = Math.abs(p.vx) * 0.92; }
+        if(p.x > W - 8){ p.x = W - 8; p.vx = -Math.abs(p.vx) * 0.92; }
+        if(p.y < 8){ p.y = 8; p.vy = Math.abs(p.vy) * 0.92; }
+        if(p.y > H - 8){ p.y = H - 8; p.vy = -Math.abs(p.vy) * 0.92; }
+      }
+    }
+
+    ctx.save();
+    ctx.globalCompositeOperation = 'lighter';
+    for(const p of particles) tri(p);
+    ctx.restore();
+  }
+
+  function frame(){
+    if(!running) return;
+    draw(false);
+    raf = requestAnimationFrame(frame);
+  }
+
+  function start(){
+    if(reduce){
+      running = false;
+      cancelAnimationFrame(raf);
+      draw(true);
+      return;
+    }
+    if(running) return;
+    running = true;
+    raf = requestAnimationFrame(frame);
+  }
+
+  function stop(){ running = false; cancelAnimationFrame(raf); }
+
+  function localPoint(e){
+    const rect = canvas.getBoundingClientRect();
+    return { x: e.clientX - rect.left, y: e.clientY - rect.top };
+  }
+
+  function onPointerDown(e){
+    const pt = localPoint(e);
+    pointer.down = true;
+    pointer.x = pointer.lastX = pt.x;
+    pointer.y = pointer.lastY = pt.y;
+    pointer.vx = pointer.vy = 0;
+    pointer.movedAt = performance.now();
+    pushAt(pt.x, pt.y, 0, 0);
+    if(canvas.setPointerCapture){ try{ canvas.setPointerCapture(e.pointerId); }catch(_){} }
+    start();
+  }
+
+  function onPointerMove(e){
+    if(!pointer.down && e.pointerType !== 'mouse') return;
+    const pt = localPoint(e);
+    const vx = pt.x - pointer.lastX;
+    const vy = pt.y - pointer.lastY;
+    pointer.lastX = pt.x;
+    pointer.lastY = pt.y;
+    pointer.x = pt.x;
+    pointer.y = pt.y;
+    pointer.vx = vx;
+    pointer.vy = vy;
+    pointer.movedAt = performance.now();
+    if(pointer.down || e.pointerType === 'mouse') pushAt(pt.x, pt.y, vx, vy);
+  }
+
+  function onPointerUp(e){
+    pointer.down = false;
+    if(canvas.releasePointerCapture){ try{ canvas.releasePointerCapture(e.pointerId); }catch(_){} }
+  }
+
+  requestAnimationFrame(() => requestAnimationFrame(() => { resize(); start(); }));
+  if('ResizeObserver' in window) new ResizeObserver(() => resize()).observe(sky);
+  else addEventListener('resize', resize);
+  canvas.addEventListener('pointerdown', onPointerDown, {passive:true});
+  canvas.addEventListener('pointermove', onPointerMove, {passive:true});
+  canvas.addEventListener('pointerup', onPointerUp, {passive:true});
+  canvas.addEventListener('pointercancel', onPointerUp, {passive:true});
+  canvas.addEventListener('pointerleave', e => { if(e.pointerType === 'mouse') pointer.down = false; }, {passive:true});
+  document.addEventListener('visibilitychange', () => document.hidden ? stop() : start());
+})();
+</script>
 </body>
 </html>
