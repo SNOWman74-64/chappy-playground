@@ -19,8 +19,8 @@
     body{margin:0;min-height:100svh;color:var(--ink);background:radial-gradient(circle at 14% 8%,rgba(255,255,255,.45),transparent 27%),radial-gradient(circle at 85% 92%,rgba(108,74,43,.08),transparent 28%),var(--desk);font-family:var(--ui);overflow-x:hidden}
     a{color:inherit}button{font:inherit}
 
-    /* Scroll is the pen. */
-    [data-write]{--write:0;--clip:100%;--ink-alpha:0;--ink-lift:7px;clip-path:inset(0 var(--clip) 0 0);opacity:var(--ink-alpha);transform:translateY(var(--ink-lift));will-change:clip-path,opacity,transform}
+    /* Scroll is the pen. Vertical bleed keeps g/y/p/q/j descenders intact. */
+    [data-write]{--write:0;--clip:100%;--ink-alpha:0;--ink-lift:7px;clip-path:inset(-.30em var(--clip) -.48em 0);opacity:var(--ink-alpha);transform:translateY(var(--ink-lift));will-change:clip-path,opacity,transform}
     .write-line{display:block;width:max-content;max-width:100%}.write-inline{display:inline-block}
     [data-write="hand"]{filter:blur(calc((1 - var(--write)) * .45px))}
     [data-write="row"]{transform:translateY(calc(var(--ink-lift) * .55))}
@@ -144,11 +144,10 @@
     function progressFor(el){
       const rect=el.getBoundingClientRect();
       const vh=innerHeight;
-      const intro=!!el.closest('.hero')||!!el.closest('.desk-note');
-      const startRatio=intro?Number(el.dataset.start||.84):.66;
+      const startRatio=.62;
       const requested=Number(el.dataset.distance||130);
-      const fastDistance=el.dataset.write==='hand'?90:(el.matches('p')?105:80);
-      const distance=intro?requested:Math.min(requested,fastDistance);
+      const fastDistance=el.dataset.write==='hand'?86:(el.matches('p')?100:74);
+      const distance=Math.min(requested,fastDistance);
       return clamp((startRatio*vh-rect.top)/distance);
     }
 
