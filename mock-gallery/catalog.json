@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "sharedDesignPath": "../ui-lab/DESIGN.md",
+  "sharedLearningsPath": "../ui-lab/LEARNINGS.md",
+  "mocks": [
+    {
+      "id": "daybook",
+      "title": "daybook — Superr Style Study",
+      "shortTitle": "daybook",
+      "summary": "Refero / Superr の design grammar を抽出し、架空の notebook brand へ翻訳した最初の study。",
+      "previewPath": "../refero-daybook/",
+      "designPath": "../refero-daybook/DESIGN.md",
+      "retrospectivePath": "../refero-daybook/RETROSPECTIVE.md",
+      "referenceUrl": "https://styles.refero.design/style/cfd0fec1-f25a-4b9b-9bd0-d5b66960f2f2",
+      "thumbnail": null,
+      "tags": ["REFERO STUDY", "EDITORIAL", "TACTILE"],
+      "principles": [
+        "Preserve color roles, not only values",
+        "Object-first composition",
+        "Extreme typography creates identity"
+      ]
+    },
+    {
+      "id": "daybook-cardless",
+      "title": "daybook — Cardless Notebook",
+      "shortTitle": "cardless notebook",
+      "summary": "カードを禁止し、罫線・余白・手書き注釈とスクロール描画で notebook 自体を layout system にした study。",
+      "previewPath": "../refero-daybook-notebook/",
+      "designPath": "../refero-daybook-notebook/DESIGN.md",
+      "retrospectivePath": "../refero-daybook-notebook/RETROSPECTIVE.md",
+      "referenceUrl": "https://styles.refero.design/style/cfd0fec1-f25a-4b9b-9bd0-d5b66960f2f2",
+      "thumbnail": null,
+      "tags": ["CARDLESS", "SCROLL MOTION", "NOTEBOOK"],
+      "principles": [
+        "Less dashboard, more margin",
+        "Scroll behaves like a pen",
+        "Use a shared sight line for writing"
+      ]
+    }
+  ]
+}
