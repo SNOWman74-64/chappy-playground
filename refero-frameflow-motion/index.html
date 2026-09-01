@@ -5,19 +5,127 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Frameflow — motion on bright paper</title>
 <style>
-:root{--violet:#7270ff;--blue:#1560fb;--ink:#2f2b4a;--midnight:#1c1a2c;--slate:#4b5563;--silver:#9ca3af;--fog:#d9dbda;--mist:#e5e7eb;--pebble:#f3f4f6;--bone:#f9fafb;--paper:#fff;--font:Inter,Manrope,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
+:root{
+  --violet:#7270ff;
+  --ink:#2f2b4a;
+  --midnight:#1c1a2c;
+  --slate:#4b5563;
+  --silver:#9ca3af;
+  --fog:#d9dbda;
+  --mist:#e5e7eb;
+  --pebble:#f3f4f6;
+  --bone:#f9fafb;
+  --paper:#fff;
+  --font:Inter,Manrope,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+}
 *{box-sizing:border-box}
 html{background:var(--pebble);scroll-behavior:smooth}
 body{margin:0;color:var(--ink);font-family:var(--font);background:var(--pebble)}
-button,input{font:inherit}.nav{height:64px;background:#fff;border-bottom:1px solid var(--mist);display:flex;align-items:center;justify-content:space-between;padding:0 max(20px,calc((100vw - 1200px)/2));position:sticky;top:0;z-index:10}.brand{display:flex;align-items:center;gap:9px;font-weight:650}.mark{width:32px;height:32px;border-radius:8px;background:var(--violet);display:grid;place-items:center;color:#fff;font-family:Georgia,serif;font-size:18px}.navlinks{display:flex;gap:28px;align-items:center;font-size:14px}.navlinks a{text-decoration:none;color:var(--ink)}.ghost{border:1px solid var(--violet);color:var(--violet);background:#fff;border-radius:12px;padding:9px 18px}.primary{border:0;background:var(--violet);color:#fff;border-radius:12px;padding:12px 22px;font-weight:650}.shell{width:min(1200px,calc(100% - 40px));margin:auto}.hero{display:grid;grid-template-columns:.85fr 1.35fr;gap:64px;align-items:center;padding:88px 0 96px}.eyebrow{font-size:14px;font-weight:650;color:var(--violet);letter-spacing:.025em}.hero h1{font-size:clamp(50px,5vw,60px);line-height:1;letter-spacing:-.025em;margin:20px 0 24px;font-weight:650}.hero h1 span{color:var(--violet)}.hero p{font-size:18px;line-height:1.56;color:var(--slate);max-width:520px}.hero-actions{display:flex;gap:12px;margin-top:30px;align-items:center}.editor{background:#fff;border:1px solid var(--mist);border-radius:8px;overflow:hidden}.chrome{height:42px;border-bottom:1px solid var(--mist);display:flex;align-items:center;justify-content:space-between;padding:0 14px}.dots{display:flex;gap:6px}.dots i{width:8px;height:8px;border-radius:50%;background:var(--fog)}.project-name{font-size:12px;color:var(--silver)}.studio{display:grid;grid-template-columns:150px 1fr;min-height:475px}.layers{border-right:1px solid var(--mist);background:var(--bone);padding:15px 12px}.layers h3{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--silver);margin:0 0 11px}.layer{display:flex;align-items:center;gap:8px;font-size:12px;padding:8px 6px;border-radius:6px;color:var(--slate)}.layer.active{background:#fff;color:var(--ink);border:1px solid var(--mist)}.layer-dot{width:8px;height:8px;border:1px solid var(--fog);border-radius:2px}.layer.active .layer-dot{background:var(--violet);border-color:var(--violet)}.work{min-width:0;display:grid;grid-template-rows:1fr 150px}.stage{background:var(--pebble);display:grid;place-items:center;padding:24px;overflow:hidden}.artboard{width:min(440px,92%);aspect-ratio:1.55;background:#fff;border:1px solid var(--mist);border-radius:8px;position:relative;overflow:hidden}.gridline{position:absolute;inset:0;background-image:linear-gradient(to right,rgba(47,43,74,.035) 1px,transparent 1px),linear-gradient(to bottom,rgba(47,43,74,.035) 1px,transparent 1px);background-size:32px 32px}.motion-object{position:absolute;width:74px;height:74px;left:52px;top:74px;border-radius:22px;background:var(--violet);transform-origin:center;will-change:transform,border-radius}.motion-ring{position:absolute;width:112px;height:112px;left:34px;top:56px;border:1px solid rgba(114,112,255,.3);border-radius:50%;will-change:transform,opacity}.motion-label{position:absolute;left:52px;bottom:52px;font-size:30px;line-height:1.05;font-weight:650;letter-spacing:-.025em;color:var(--ink);opacity:0;transform:translateY(14px);will-change:transform,opacity}.motion-label b{color:var(--violet)}.path{position:absolute;left:88px;top:84px;width:245px;height:105px;border:1px dashed #d8d7ff;border-color:#d8d7ff transparent transparent #d8d7ff;border-radius:70% 0 0 0;transform:rotate(4deg);opacity:.75}.cursor-dot{position:absolute;width:7px;height:7px;background:var(--violet);border-radius:50%;left:326px;top:154px}.timeline{border-top:1px solid var(--mist);background:#fff;display:grid;grid-template-columns:150px 1fr;min-width:0}.track-labels{border-right:1px solid var(--mist);padding:28px 12px 0;font-size:11px;color:var(--silver)}.track-labels div{height:28px;display:flex;align-items:center}.tracks{position:relative;overflow:hidden;padding-top:22px}.ruler{position:absolute;top:5px;left:0;right:0;height:16px;font-size:9px;color:var(--silver);display:flex;justify-content:space-between;padding:0 8px}.track{height:28px;border-top:1px solid #f0f1f3;position:relative}.segment{position:absolute;height:9px;top:9px;border-radius:4px;background:#eef0f3}.segment.active{background:#c9cbd1}.key{position:absolute;top:7px;width:12px;height:12px;background:#fff;border:2px solid var(--violet);transform:rotate(45deg);border-radius:2px}.key.hit{background:var(--violet)}.playhead{position:absolute;top:0;bottom:0;width:1px;background:var(--midnight);left:0;pointer-events:none}.playhead:before{content:'';position:absolute;width:8px;height:8px;border-radius:50%;background:var(--midnight);top:0;left:-3.5px}.transport{grid-column:1/-1;border-top:1px solid var(--mist);height:48px;display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;padding:0 14px;background:#fff}.transport button{width:34px;height:34px;border:1px solid var(--mist);background:#fff;border-radius:8px;color:var(--ink)}.scrub{width:100%;accent-color:var(--violet)}.time{font:12px ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--slate);min-width:74px;text-align:right}
-.controls{border-top:1px solid var(--mist);background:var(--bone);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;padding:12px 14px}.control{min-width:0}.control-head{display:flex;justify-content:space-between;gap:8px;align-items:center;margin-bottom:6px}.control-name{font-size:10px;text-transform:uppercase;letter-spacing:.07em;color:var(--silver)}.control-value{font:11px ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--slate)}.control input{width:100%;accent-color:var(--violet);margin:0}.control input:focus-visible{outline:2px solid rgba(114,112,255,.35);outline-offset:2px}
-.band{background:#fff;border-top:1px solid var(--mist);border-bottom:1px solid var(--mist);padding:78px 0}.intro{text-align:center;max-width:680px;margin:auto}.intro h2{font-size:48px;line-height:1.11;letter-spacing:-.025em;margin:14px 0 18px}.intro p{font-size:18px;color:var(--slate);line-height:1.56}.motion-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}.card{background:#fff;border:1px solid var(--mist);border-radius:8px;padding:16px}.preview{height:190px;background:var(--bone);border-radius:8px;position:relative;overflow:hidden;display:grid;place-items:center}.card label{display:block;margin-top:12px;font-size:12px;color:var(--slate)}.orbit-demo{width:70px;height:70px;border-radius:18px;background:var(--violet);animation:orbitBox 3.2s cubic-bezier(.22,.7,.2,1) infinite}.bounce-demo{width:70px;height:70px;border-radius:50%;border:2px solid var(--violet);animation:bounce 1.7s cubic-bezier(.2,.8,.2,1) infinite}.type-demo{font-size:28px;font-weight:650;color:var(--ink);letter-spacing:-.03em}.type-demo span{display:inline-block;color:var(--violet);animation:typePop 2.4s ease-in-out infinite}.footer{padding:44px 0 64px;color:var(--silver);font-size:12px;display:flex;justify-content:space-between}@keyframes orbitBox{0%,100%{transform:translate(-48px,30px) rotate(-12deg);border-radius:18px}50%{transform:translate(48px,-30px) rotate(28deg);border-radius:50%}}@keyframes bounce{0%,100%{transform:translateY(34px) scaleX(1.18) scaleY(.82)}50%{transform:translateY(-42px) scaleX(.92) scaleY(1.08)}}@keyframes typePop{0%,30%,100%{transform:translateY(0);opacity:1}50%{transform:translateY(-12px);opacity:.35}70%{transform:translateY(0);opacity:1}}
-@media(max-width:780px){.navlinks a{display:none}.shell{width:calc(100% - 28px)}.hero{grid-template-columns:1fr;gap:42px;padding:62px 0 72px}.hero h1{font-size:52px}.studio{grid-template-columns:92px 1fr;min-height:430px}.layers{padding:12px 7px}.layer{font-size:10px}.work{grid-template-rows:1fr 136px}.stage{padding:14px}.artboard{width:100%}.motion-label{font-size:23px}.timeline{grid-template-columns:86px 1fr}.track-labels{padding-left:7px}.transport{grid-template-columns:auto 1fr auto}.controls{grid-template-columns:1fr;gap:9px}.motion-cards{grid-template-columns:1fr}.intro h2{font-size:38px}.footer{display:block;line-height:1.8}}
+button,input{font:inherit}
+.nav{height:64px;background:#fff;border-bottom:1px solid var(--mist);display:flex;align-items:center;justify-content:space-between;padding:0 max(20px,calc((100vw - 1200px)/2));position:sticky;top:0;z-index:10}
+.brand{display:flex;align-items:center;gap:9px;font-weight:650}
+.mark{width:32px;height:32px;border-radius:8px;background:var(--violet);display:grid;place-items:center;color:#fff;font-family:Georgia,serif;font-size:18px}
+.navlinks{display:flex;gap:28px;align-items:center;font-size:14px}
+.navlinks a{text-decoration:none;color:var(--ink)}
+.ghost{border:1px solid var(--violet);color:var(--violet);background:#fff;border-radius:12px;padding:9px 18px}
+.primary{border:0;background:var(--violet);color:#fff;border-radius:12px;padding:12px 22px;font-weight:650}
+.shell{width:min(1200px,calc(100% - 40px));margin:auto}
+.hero{display:grid;grid-template-columns:.85fr 1.35fr;gap:64px;align-items:center;padding:88px 0 96px}
+.eyebrow{font-size:14px;font-weight:650;color:var(--violet);letter-spacing:.025em}
+.hero h1{font-size:clamp(50px,5vw,60px);line-height:1;letter-spacing:-.025em;margin:20px 0 24px;font-weight:650}
+.hero h1 span{color:var(--violet)}
+.hero p{font-size:18px;line-height:1.56;color:var(--slate);max-width:520px}
+.hero-actions{display:flex;gap:12px;margin-top:30px;align-items:center;flex-wrap:wrap}
+.editor{background:#fff;border:1px solid var(--mist);border-radius:8px;overflow:hidden}
+.chrome{height:42px;border-bottom:1px solid var(--mist);display:flex;align-items:center;justify-content:space-between;padding:0 14px}
+.dots{display:flex;gap:6px}.dots i{width:8px;height:8px;border-radius:50%;background:var(--fog)}
+.project-name{font-size:12px;color:var(--silver)}
+.studio{display:grid;grid-template-columns:150px 1fr;min-height:475px}
+.layers{border-right:1px solid var(--mist);background:var(--bone);padding:15px 12px}
+.layers h3{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--silver);margin:0 0 11px}
+.layer{display:flex;align-items:center;gap:8px;font-size:12px;padding:8px 6px;border-radius:6px;color:var(--slate)}
+.layer.active{background:#fff;color:var(--ink);border:1px solid var(--mist)}
+.layer-dot{width:8px;height:8px;border:1px solid var(--fog);border-radius:2px}.layer.active .layer-dot{background:var(--violet);border-color:var(--violet)}
+.work{min-width:0;display:grid;grid-template-rows:1fr auto auto}
+.stage{background:var(--pebble);display:grid;place-items:center;padding:24px;overflow:hidden}
+.artboard{width:min(440px,92%);aspect-ratio:1.55;background:#fff;border:1px solid var(--mist);border-radius:8px;position:relative;overflow:hidden}
+.gridline{position:absolute;inset:0;background-image:linear-gradient(to right,rgba(47,43,74,.035) 1px,transparent 1px),linear-gradient(to bottom,rgba(47,43,74,.035) 1px,transparent 1px);background-size:32px 32px}
+.motion-object{position:absolute;width:74px;height:74px;left:52px;top:74px;border-radius:22px;background:var(--violet);transform-origin:center;will-change:transform,border-radius}
+.motion-ring{position:absolute;width:112px;height:112px;left:34px;top:56px;border:1px solid rgba(114,112,255,.3);border-radius:50%;will-change:transform,opacity}
+.motion-label{position:absolute;left:52px;bottom:52px;font-size:30px;line-height:1.05;font-weight:650;letter-spacing:-.025em;color:var(--ink);opacity:0;transform:translateY(14px);will-change:transform,opacity}
+.motion-label b{color:var(--violet)}
+.path{position:absolute;left:88px;top:84px;width:245px;height:105px;border:1px dashed #d8d7ff;border-color:#d8d7ff transparent transparent #d8d7ff;border-radius:70% 0 0 0;transform:rotate(4deg);opacity:.75}
+.cursor-dot{position:absolute;width:7px;height:7px;background:var(--violet);border-radius:50%;left:326px;top:154px}
+.timeline{border-top:1px solid var(--mist);background:#fff;display:grid;grid-template-columns:150px 1fr;min-width:0}
+.track-labels{border-right:1px solid var(--mist);padding:28px 12px 0;font-size:11px;color:var(--silver)}
+.track-labels div{height:28px;display:flex;align-items:center}
+.tracks{position:relative;overflow:hidden;padding-top:22px;min-width:0}
+.ruler{position:absolute;top:5px;left:0;right:0;height:16px;font-size:9px;color:var(--silver);display:flex;justify-content:space-between;padding:0 8px}
+.track{height:28px;border-top:1px solid #f0f1f3;position:relative}
+.segment{position:absolute;height:9px;top:9px;border-radius:4px;background:#eef0f3}.segment.active{background:#c9cbd1}
+.key{position:absolute;top:7px;width:12px;height:12px;background:#fff;border:2px solid var(--violet);transform:rotate(45deg);border-radius:2px}
+.key.hit{background:var(--violet)}
+.playhead{position:absolute;top:0;bottom:0;width:1px;background:var(--midnight);left:0;pointer-events:none}.playhead:before{content:'';position:absolute;width:8px;height:8px;border-radius:50%;background:var(--midnight);top:0;left:-3.5px}
+.transport{border-top:1px solid var(--mist);height:48px;display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;padding:0 14px;background:#fff}
+.transport button{width:34px;height:34px;border:1px solid var(--mist);background:#fff;border-radius:8px;color:var(--ink)}
+.scrub{width:100%;accent-color:var(--violet)}
+.time{font:12px ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--slate);min-width:84px;text-align:right}
+.control-panel{border-top:1px solid var(--mist);background:#fff;padding:16px 18px 18px;display:grid;gap:16px}
+.control-row{display:grid;grid-template-columns:94px 1fr 78px;align-items:center;gap:14px}
+.control-row label{font-size:12px;letter-spacing:.12em;color:var(--silver)}
+.control-row output{font:12px ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--slate);text-align:right}
+.control-row input[type=range]{width:100%;accent-color:var(--violet)}
+.band{background:#fff;border-top:1px solid var(--mist);border-bottom:1px solid var(--mist);padding:78px 0}
+.intro{text-align:center;max-width:680px;margin:auto}
+.intro h2{font-size:48px;line-height:1.11;letter-spacing:-.025em;margin:14px 0 18px}.intro p{font-size:18px;color:var(--slate);line-height:1.56}
+.motion-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+.card{background:#fff;border:1px solid var(--mist);border-radius:8px;padding:16px}
+.preview{height:190px;background:var(--bone);border-radius:8px;position:relative;overflow:hidden;display:grid;place-items:center}
+.card label{display:block;margin-top:12px;font-size:12px;color:var(--slate)}
+.orbit-demo{width:70px;height:70px;border-radius:18px;background:var(--violet);animation:orbitBox 3.2s cubic-bezier(.22,.7,.2,1) infinite}
+.bounce-demo{width:70px;height:70px;border-radius:50%;border:2px solid var(--violet);animation:bounce 1.7s cubic-bezier(.2,.8,.2,1) infinite}
+.type-demo{font-size:28px;font-weight:650;color:var(--ink);letter-spacing:-.03em}.type-demo span{display:inline-block;color:var(--violet);animation:typePop 2.4s ease-in-out infinite}
+.footer{padding:44px 0 64px;color:var(--silver);font-size:12px;display:flex;justify-content:space-between}
+@keyframes orbitBox{0%,100%{transform:translate(-48px,30px) rotate(-12deg);border-radius:18px}50%{transform:translate(48px,-30px) rotate(28deg);border-radius:50%}}
+@keyframes bounce{0%,100%{transform:translateY(34px) scaleX(1.18) scaleY(.82)}50%{transform:translateY(-42px) scaleX(.92) scaleY(1.08)}}
+@keyframes typePop{0%,30%,100%{transform:translateY(0);opacity:1}50%{transform:translateY(-12px);opacity:.35}70%{transform:translateY(0);opacity:1}}
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;gap:42px;padding:62px 0 72px}
+}
+@media(max-width:780px){
+  .navlinks a{display:none}
+  .shell{width:calc(100% - 28px)}
+  .hero h1{font-size:52px}
+  .studio{grid-template-columns:1fr;min-height:auto}
+  .layers{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:10px 12px;border-right:0;border-bottom:1px solid var(--mist)}
+  .layers h3{width:100%;margin:0 0 4px}
+  .layer{font-size:11px;padding:7px 8px;border:1px solid transparent}
+  .work{grid-template-rows:auto auto auto}
+  .stage{padding:14px}
+  .artboard{width:100%;max-width:none}
+  .motion-label{font-size:23px;left:24px;bottom:24px}
+  .timeline{grid-template-columns:84px 1fr}
+  .track-labels{padding:24px 8px 0;font-size:10px}
+  .transport{grid-template-columns:40px minmax(0,1fr);grid-template-areas:'play time' 'scrub scrub';height:auto;row-gap:8px;padding:12px}
+  .transport button{grid-area:play}
+  .transport .scrub{grid-area:scrub}
+  .transport .time{grid-area:time;justify-self:end;min-width:0}
+  .control-panel{padding:14px 12px 16px;gap:12px}
+  .control-row{grid-template-columns:1fr;gap:6px}
+  .control-row label{font-size:11px}
+  .control-row output{justify-self:end}
+  .motion-cards{grid-template-columns:1fr}
+  .intro h2{font-size:38px}
+  .footer{display:block;line-height:1.8}
+}
 @media(prefers-reduced-motion:reduce){.orbit-demo,.bounce-demo,.type-demo span{animation:none}}
 </style>
 </head>
 <body>
-<header class="nav"><div class="brand"><span class="mark">F</span>Frameflow</div><nav class="navlinks"><a href="#demo">Product</a><a href="#motion">Motion</a><a href="#about">About</a><button class="ghost">Sign up</button></nav></header>
+<header class="nav">
+  <div class="brand"><span class="mark">F</span>Frameflow</div>
+  <nav class="navlinks"><a href="#demo">Product</a><a href="#motion">Motion</a><a href="#about">About</a><button class="ghost">Sign up</button></nav>
+</header>
 <main>
 <section class="shell hero" id="demo">
   <div>
@@ -29,20 +137,46 @@ button,input{font:inherit}.nav{height:64px;background:#fff;border-bottom:1px sol
   <div class="editor">
     <div class="chrome"><div class="dots"><i></i><i></i><i></i></div><span class="project-name">hero-loop.flow</span><span class="project-name">100%</span></div>
     <div class="studio">
-      <aside class="layers"><h3>Layers</h3><div class="layer active"><i class="layer-dot"></i>Shape</div><div class="layer"><i class="layer-dot"></i>Ring</div><div class="layer"><i class="layer-dot"></i>Headline</div><div class="layer"><i class="layer-dot"></i>Path</div></aside>
+      <aside class="layers">
+        <h3>Layers</h3>
+        <div class="layer active"><i class="layer-dot"></i>Shape</div>
+        <div class="layer"><i class="layer-dot"></i>Ring</div>
+        <div class="layer"><i class="layer-dot"></i>Headline</div>
+        <div class="layer"><i class="layer-dot"></i>Path</div>
+      </aside>
       <div class="work">
-        <div class="stage"><div class="artboard"><div class="gridline"></div><div class="path" id="path"></div><div class="motion-ring" id="ring"></div><div class="motion-object" id="object"></div><div class="cursor-dot" id="cursor"></div><div class="motion-label" id="label">Motion should<br><b>explain itself.</b></div></div></div>
+        <div class="stage">
+          <div class="artboard">
+            <div class="gridline"></div>
+            <div class="path"></div>
+            <div class="motion-ring" id="ring"></div>
+            <div class="motion-object" id="object"></div>
+            <div class="cursor-dot"></div>
+            <div class="motion-label" id="label">Motion should<br><b>explain itself.</b></div>
+          </div>
+        </div>
         <div class="timeline">
           <div class="track-labels"><div>Shape</div><div>Ring</div><div>Headline</div><div>Opacity</div></div>
-          <div class="tracks" id="tracks"><div class="ruler"><span>0s</span><span>1s</span><span>2s</span><span>3s</span><span>4s</span></div><div class="track"><i class="segment active" style="left:5%;width:86%"></i><i class="key" data-at="0.05" style="left:5%"></i><i class="key" data-at="0.5" style="left:50%"></i><i class="key" data-at="0.91" style="left:91%"></i></div><div class="track"><i class="segment" style="left:12%;width:74%"></i><i class="key" data-at="0.12" style="left:12%"></i><i class="key" data-at="0.58" style="left:58%"></i><i class="key" data-at="0.86" style="left:86%"></i></div><div class="track"><i class="segment" style="left:45%;width:43%"></i><i class="key" data-at="0.45" style="left:45%"></i><i class="key" data-at="0.7" style="left:70%"></i><i class="key" data-at="0.88" style="left:88%"></i></div><div class="track"><i class="segment" style="left:4%;width:92%"></i><i class="key" data-at="0.04" style="left:4%"></i><i class="key" data-at="0.96" style="left:96%"></i></div><i class="playhead" id="playhead"></i></div>
-          <div class="transport"><button id="play" aria-label="Play or pause">▶</button><input class="scrub" id="scrub" type="range" min="0" max="1000" value="0" aria-label="Scrub animation timeline"><span class="time" id="time">0.00 / 4.00</span></div>
+          <div class="tracks" id="tracks">
+            <div class="ruler"><span>0s</span><span>1s</span><span>2s</span><span>3s</span><span>4s</span></div>
+            <div class="track"><i class="segment active" style="left:5%;width:86%"></i><i class="key" data-at="0.05" style="left:5%"></i><i class="key" data-at="0.5" style="left:50%"></i><i class="key" data-at="0.91" style="left:91%"></i></div>
+            <div class="track"><i class="segment" style="left:12%;width:74%"></i><i class="key" data-at="0.12" style="left:12%"></i><i class="key" data-at="0.58" style="left:58%"></i><i class="key" data-at="0.86" style="left:86%"></i></div>
+            <div class="track"><i class="segment" style="left:45%;width:43%"></i><i class="key" data-at="0.45" style="left:45%"></i><i class="key" data-at="0.7" style="left:70%"></i><i class="key" data-at="0.88" style="left:88%"></i></div>
+            <div class="track"><i class="segment" style="left:4%;width:92%"></i><i class="key" data-at="0.04" style="left:4%"></i><i class="key" data-at="0.96" style="left:96%"></i></div>
+            <i class="playhead" id="playhead"></i>
+          </div>
+        </div>
+        <div class="transport">
+          <button id="play" aria-label="Play or pause">▶</button>
+          <input class="scrub" id="scrub" type="range" min="0" max="1000" value="0" aria-label="Scrub animation timeline">
+          <span class="time" id="time">0.00 / 4.00</span>
+        </div>
+        <div class="control-panel">
+          <div class="control-row"><label for="speed">SPEED</label><input id="speed" type="range" min="40" max="200" value="100"><output id="speedOut">1.00×</output></div>
+          <div class="control-row"><label for="distance">DISTANCE</label><input id="distance" type="range" min="20" max="110" value="60"><output id="distanceOut">60px</output></div>
+          <div class="control-row"><label for="morph">MORPH</label><input id="morph" type="range" min="0" max="100" value="40"><output id="morphOut">40%</output></div>
         </div>
       </div>
-    </div>
-    <div class="controls" aria-label="Motion controls">
-      <label class="control"><span class="control-head"><span class="control-name">Speed</span><output class="control-value" id="speedValue">1.00×</output></span><input id="speed" type="range" min="40" max="200" value="100" step="5"></label>
-      <label class="control"><span class="control-head"><span class="control-name">Distance</span><output class="control-value" id="distanceValue">205px</output></span><input id="distance" type="range" min="60" max="240" value="205" step="5"></label>
-      <label class="control"><span class="control-head"><span class="control-name">Morph</span><output class="control-value" id="morphValue">70%</output></span><input id="morph" type="range" min="0" max="100" value="70" step="1"></label>
     </div>
   </div>
 </section>
@@ -51,13 +185,12 @@ button,input{font:inherit}.nav{height:64px;background:#fff;border-bottom:1px sol
 </main>
 <script>
 (()=>{
-  const baseDuration=4000;
+  const duration=4000;
   const obj=document.getElementById('object');
   const ring=document.getElementById('ring');
   const label=document.getElementById('label');
-  const path=document.getElementById('path');
-  const cursor=document.getElementById('cursor');
   const playhead=document.getElementById('playhead');
+  const tracks=document.getElementById('tracks');
   const scrub=document.getElementById('scrub');
   const time=document.getElementById('time');
   const play=document.getElementById('play');
@@ -66,87 +199,71 @@ button,input{font:inherit}.nav{height:64px;background:#fff;border-bottom:1px sol
   const speed=document.getElementById('speed');
   const distance=document.getElementById('distance');
   const morph=document.getElementById('morph');
-  const speedValue=document.getElementById('speedValue');
-  const distanceValue=document.getElementById('distanceValue');
-  const morphValue=document.getElementById('morphValue');
+  const speedOut=document.getElementById('speedOut');
+  const distanceOut=document.getElementById('distanceOut');
+  const morphOut=document.getElementById('morphOut');
   const keys=[...document.querySelectorAll('.key')];
-  let progress=0;
-  let playing=true;
-  let last=performance.now();
-  let raf=0;
-
+  let progress=0,playing=true,last=performance.now(),raf=0;
   const clamp=v=>Math.max(0,Math.min(1,v));
   const ease=t=>1-Math.pow(1-t,3);
-  const settings=()=>({speed:+speed.value/100,distance:+distance.value,morph:+morph.value/100});
+  const getSpeed=()=>Number(speed.value)/100;
+  const getDistance=()=>Number(distance.value);
+  const getMorph=()=>Number(morph.value)/100;
+
+  function syncOutputs(){
+    speedOut.value=`${getSpeed().toFixed(2)}×`;
+    distanceOut.value=`${Math.round(getDistance())}px`;
+    morphOut.value=`${Math.round(getMorph()*100)}%`;
+  }
 
   function render(p){
     progress=clamp(p);
-    const s=settings();
-    const travel=progress<.5?ease(progress*2):1-ease((progress-.5)*2);
-    const x=s.distance*travel;
-    const y=52*Math.sin(progress*Math.PI*2-.5);
+    const a=progress<.5?ease(progress*2):1-ease((progress-.5)*2);
+    const dist=getDistance();
+    const morphAmt=getMorph();
+    const x=52+(dist*3.4)*a;
+    const y=74+(dist*.86)*Math.sin(progress*Math.PI*2-.5);
     const scale=1+.18*Math.sin(progress*Math.PI);
-    const rotate=-12+50*travel;
-    const radius=14+(23*s.morph*travel);
-    const ringScale=.92+.22*Math.sin(progress*Math.PI);
-    const ringOpacity=.12+.36*(1-Math.abs(.5-progress)*2);
-    const labelIn=clamp((progress-.46)/.16);
-    const labelOut=1-clamp((progress-.86)/.12);
-    const labelVis=labelIn*labelOut;
-
-    obj.style.transform=`translate3d(${x}px,${y}px,0) rotate(${rotate}deg) scale(${scale})`;
+    const rot=-12+40*a;
+    const radius=22+(26*morphAmt*Math.sin(progress*Math.PI));
+    obj.style.transform=`translate(${x}px,${y}px) rotate(${rot}deg) scale(${scale})`;
     obj.style.borderRadius=`${radius}px`;
-    ring.style.transform=`translate3d(${x*.96}px,${y*.96}px,0) scale(${ringScale})`;
-    ring.style.opacity=ringOpacity.toFixed(3);
-    label.style.opacity=labelVis.toFixed(3);
-    label.style.transform=`translateY(${(1-labelVis)*14}px)`;
-
-    path.style.width=`${Math.max(110,s.distance+40)}px`;
-    cursor.style.left=`${Math.min(390,121+s.distance)}px`;
-
-    playhead.style.left=`${progress*100}%`;
+    ring.style.transform=`translate(${x-18}px,${y-18}px) scale(${1+.2*a})`;
+    ring.style.opacity=(.22+.4*(1-a)).toFixed(3);
+    const labelIn=clamp((progress-.44)/.22);
+    label.style.opacity=labelIn.toFixed(3);
+    label.style.transform=`translateY(${14-14*labelIn}px)`;
+    const trackWidth=tracks.clientWidth;
+    playhead.style.left=`${trackWidth*progress}px`;
     scrub.value=Math.round(progress*1000);
-    time.textContent=`${(progress*4).toFixed(2)} / 4.00`;
-    keys.forEach(k=>k.classList.toggle('hit',Math.abs(progress-(+k.dataset.at))<.018));
-  }
-
-  function updateControlLabels(){
-    speedValue.value=`${(+speed.value/100).toFixed(2)}×`;
-    speedValue.textContent=speedValue.value;
-    distanceValue.value=`${distance.value}px`;
-    distanceValue.textContent=distanceValue.value;
-    morphValue.value=`${morph.value}%`;
-    morphValue.textContent=morphValue.value;
-  }
-
-  function setPlaying(next){
-    playing=next;
+    time.textContent=`${(progress*(duration/1000)).toFixed(2)} / 4.00`;
+    keys.forEach(key=>key.classList.toggle('hit', progress>=Number(key.dataset.at)));
     play.textContent=playing?'❚❚':'▶';
-    heroPlay.textContent=playing?'Pause the demo':'Play the demo';
-    last=performance.now();
   }
 
   function tick(now){
-    const dt=Math.min(64,now-last);
+    const delta=now-last;
     last=now;
     if(playing){
-      const speedFactor=settings().speed;
-      progress=(progress+dt*speedFactor/baseDuration)%1;
+      progress+=(delta*getSpeed())/duration;
+      if(progress>=1)progress=0;
       render(progress);
     }
     raf=requestAnimationFrame(tick);
   }
 
-  play.addEventListener('click',()=>setPlaying(!playing));
-  heroPlay.addEventListener('click',()=>setPlaying(!playing));
-  restart.addEventListener('click',()=>{progress=0;render(0);setPlaying(true)});
-  scrub.addEventListener('input',()=>{setPlaying(false);render(+scrub.value/1000)});
-  [speed,distance,morph].forEach(input=>input.addEventListener('input',()=>{updateControlLabels();render(progress)}));
+  function toggle(){playing=!playing;render(progress)}
+  function restartDemo(){progress=0;playing=true;render(progress)}
+  function scrubTo(v){progress=clamp(Number(v)/1000);render(progress)}
 
-  updateControlLabels();
+  play.addEventListener('click',toggle);
+  heroPlay.addEventListener('click',()=>{playing=true;render(progress)});
+  restart.addEventListener('click',restartDemo);
+  scrub.addEventListener('input',e=>{playing=false;scrubTo(e.target.value)});
+  ;[speed,distance,morph].forEach(el=>el.addEventListener('input',()=>{syncOutputs();render(progress)}));
+  window.addEventListener('resize',()=>render(progress));
+  syncOutputs();
   render(0);
-  setPlaying(true);
-  cancelAnimationFrame(raf);
   raf=requestAnimationFrame(tick);
 })();
 </script>
