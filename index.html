@@ -47,6 +47,9 @@
     .app-icon.yohaku { background:#eee8dc; border:1px solid #d1c6b6; box-shadow:inset 0 0 0 6px #e6ddcf,0 8px 22px rgba(74,57,37,.16); }
     .app-icon.yohaku::before { content:"余白"; color:#38342f; font:500 19px/1.1 "Yu Mincho","Hiragino Mincho ProN",serif; writing-mode:vertical-rl; letter-spacing:.08em; }
     .app-icon.yohaku::after { content:"／"; position:absolute; right:6px; bottom:6px; color:#b84b43; font-size:18px; transform:rotate(18deg); }
+    .app-icon.paper { position:relative; display:grid; place-items:center; overflow:hidden; background:#fdfbf9; border:1px solid #2b1a07; box-shadow:0 9px 18px rgba(255,111,30,.13); }
+    .app-icon.paper::before { content:""; width:31px; height:42px; border:1px solid #171717; border-radius:4px; background:#4d7daf; transform:rotate(8deg); box-shadow:4px 4px 0 rgba(43,26,7,.09); }
+    .app-icon.paper::after { content:"day"; position:absolute; width:21px; height:13px; display:grid; place-items:center; border:1px solid #171717; border-radius:3px; background:#fffdfa; color:#2b1a07; font:700 6px/1 serif; transform:rotate(4deg); box-shadow:-18px 23px 0 -7px #ff6f1e; }
     .app-info { min-width:0; }
     .app-no { display:block; margin-bottom:3px; color:#7dd3fc; font-size:10px; font-weight:900; letter-spacing:.12em; }
     .app-info strong { display:block; font-size:18px; letter-spacing:-.025em; }
@@ -61,7 +64,7 @@
     <span class="badge">GitHub Pages · Mobile First</span>
     <h1>Chappy<br />Playground</h1>
     <p class="lead">チャットから直接作った、小さいWebアプリの置き場。気に入ったものだけ後から育てる。</p>
-    <div class="section-title"><strong>PLAYGROUND APPS</strong><span>11 apps</span></div>
+    <div class="section-title"><strong>PLAYGROUND APPS</strong><span>12 apps</span></div>
     <section class="apps" aria-label="アプリ一覧">
       <a class="app-card" href="./stress-relief/"><div class="app-icon fidget" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="app-info"><span class="app-no">#01</span><strong>Fidget Room</strong><p>Pop It、プチプチ、ストレスボール、スピナー、メカニカルキー。</p></div><span class="arrow">›</span></a>
       <a class="app-card" href="./liftlog-dial/"><div class="app-icon dial" aria-hidden="true"></div><div class="app-info"><span class="app-no">#02 · REACT</span><strong>LIFTLOG Dial</strong><p>Claude Artifact由来の重量ダイヤルUIをReactのままPagesへ移植した実験。</p></div><span class="arrow">›</span></a>
@@ -74,6 +77,7 @@
       <a class="app-card" href="./liftlog-record/"><div class="app-icon workbench" aria-hidden="true"></div><div class="app-info"><span class="app-no">#09 · UI MOCK</span><strong>LIFTLOG Record</strong><p>余白・区切り線・状態差で組み立てた、カードレス寄りの記録ワークベンチ。</p></div><span class="arrow">›</span></a>
       <a class="app-card" href="./yohaku-diary/?v=1"><div class="app-icon yohaku" aria-hidden="true"></div><div class="app-info"><span class="app-no">#10 · PERSONAL ZINE</span><strong>余白で暮らす。</strong><p>「もし私に生活があったら」を書いた、夜・雨・会話・散らかったメモの架空の日常ブログ。</p></div><span class="arrow">›</span></a>
       <a class="app-card" href="./liftlog-motion-showcase/"><div class="app-icon motion" aria-hidden="true"></div><div class="app-info"><span class="app-no">#11 · UI MOTION</span><strong>LIFTLOG Motion Showcase</strong><p>6画面を同じ土台で比較する、操作と状態変化にだけ応答するモーション見本。</p></div><span class="arrow">›</span></a>
+      <a class="app-card" href="./refero-daybook/"><div class="app-icon paper" aria-hidden="true"></div><div class="app-info"><span class="app-no">#12 · STYLE STUDY</span><strong>daybook</strong><p>ReferoのSuperrデザインシステムを読み解き、追加UI Agentなしで再構成した紙・文具系ランディングページ。</p></div><span class="arrow">›</span></a>
       <div class="empty-card">次の暇つぶしアプリ用スペース</div>
     </section>
     <footer>SNOWman74-64 / chappy-playground</footer>
