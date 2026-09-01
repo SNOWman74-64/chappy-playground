@@ -6,7 +6,7 @@ Refero の dark constellation design を出発点に、**「粒子の集合体�
 
 静的なデザイン再構成そのものは高い精度で成立した一方、粒子集合体を具体的な生物として認識させ、さらにモバイル上で骨格運動まで成立させるところから難易度が急激に上がった。
 
-最終的には、複雑な Canvas physics / rig を主役にするのではなく、**SVG + CSS の deterministic な Memory Vortex**へ戻すことで、Refero 由来の constellation language と安定した motion を両立する方針に落ち着いた。
+最終的には、複雑な Canvas physics / rig を主役にするのではなく、**SVG + CSS の deterministic な Memory Orbit**へ戻すことで、Refero 由来の constellation language と安定した motion を両立する方針に落ち着いた。
 
 ---
 
@@ -133,16 +133,66 @@ body (root)
 
 ---
 
-## Final direction — Memory Vortex
+### 6. SVG Memory Vortex — first attempt also failed
 
-最終版では Canvas を visual-critical path から外し、**SVG + CSS only** の constellation vortex へ変更。
+Canvas を外し、`SVG + CSS only` の particle vortex に切り替えた。
+
+考え方自体は正しかったが、微小な triangle template に：
+
+```html
+<symbol id="tri" viewBox="-5 -5 10 10">...</symbol>
+<use href="#tri" ... />
+```
+
+を使っていた。
+
+#### Mobile result
+
+- iOS 実機で triangle が数pxではなく巨大なポリゴンとして描画された。
+- particle ring ではなく画面全面を覆う抽象図形になった。
+- vector rasterization 負荷が跳ね、ブラウザ自体が落ちるケースまで確認。
+
+#### Probable cause
+
+`<symbol>` は単なる path template ではなく、独立した SVG viewport を持つ。
+`<use>` 側で `width / height` を指定しない状態に transform / scale が重なり、mobile Safari / WebView で想定外のサイズ計算が起きた可能性が高い。
+
+### Fix
+
+粒子 template を viewport を持たない単純な geometry へ変更：
+
+```html
+<g id="tri">
+  <path d="M 0 -4 L 3.6 3 L -3.4 2 Z" />
+</g>
+```
+
+各 particle は `translate / rotate / scale` だけで配置する。
+
+同時に：
+- particle instance 数を削減
+- drop-shadow / blur 系を削減
+- JavaScript を完全撤去
+- motion は ring rotation + central breathing + whole-object float のみ
+
+へ縮小した。
+
+### Lesson
+
+**「SVGだから軽い・安全」ではない。SVG内部で何が viewport を持つか、何個 rasterize されるかまで見る必要がある。**
+
+---
+
+## Final direction — Memory Orbit
+
+現在の最終版は **JSなしの SVG / CSS particle orbit**。
 
 構成：
 - outer particle ring
 - middle particle ring
 - inner particle ring
-- central particle cluster
-- soft halo
+- 5-point central cluster
+- static soft halo
 - opposite-direction rotation
 - central breathing
 - whole-object vertical drift
@@ -151,9 +201,11 @@ body (root)
 
 - JavaScript が失敗しても visual が消えない。
 - mobile / desktop で topology が変わらない。
+- triangle 自体が独立 viewport を持たない。
 - Refero の triangle constellation identity を保てる。
 - 「knowledge fragments が互いを回り、中心に意味が生まれる」という Orbit の concept と一致する。
 - animation complexity が design mock の目的を超えない。
+- 動かなくても静的な constellation として成立する。
 
 ---
 
@@ -167,6 +219,7 @@ Motion を追加したら PC より先に target mobile viewport で以下を確
 2. shape が1秒以内に認識できる
 3. animation が止まっても design として成立する
 4. animation が動いた時だけ追加価値が生まれる
+5. 画面回転 / 内ブラウザ / WebView で geometry size が跳ねない
 
 ### 2. Critical visuals should have a no-JS baseline
 
@@ -175,9 +228,10 @@ Hero の主役を Canvas-only にしない。
 Preferred order for design prototypes:
 
 ```text
-SVG / CSS
-→ CSS + tiny JS
-→ Canvas deterministic animation
+Static SVG / CSS
+→ CSS motion
+→ CSS + tiny JS enhancement
+→ deterministic Canvas
 → Canvas physics
 → articulated particle rig
 ```
@@ -190,7 +244,13 @@ SVG / CSS
 
 Particles だけで anatomy と motion の両方を説明しようとすると難易度が急増する。
 
-### 4. Do not let the experiment overpower the design system
+### 4. Repeated SVG micro-shapes should not own viewports
+
+数px粒子の repeated geometry は `<path>` / `<g>` を使う。
+
+`symbol + use` を使う場合は `width / height` を明示し、特に mobile Safari で確認する。
+
+### 5. Do not let the experiment overpower the design system
 
 今回の reference の強みは、そもそも：
 - black void
@@ -199,7 +259,7 @@ Particles だけで anatomy と motion の両方を説明しようとすると�
 - sparse layout
 - triangle constellation
 
-であり、鷹そのものではない。
+であり、鷹やクラゲそのものではない。
 
 Motion のために reference の静かな editorial quality を失わないこと。
 
@@ -212,12 +272,13 @@ Motion のために reference の静かな editorial quality を失わないこ�
 - **Particle count does not solve shape recognition.** Silhouette / topology / articulation matter more.
 - **For mobile prototypes, deterministic animation is often more valuable than impressive physics.**
 - **The visual should survive animation failure.** Motion is enhancement, not existence.
+- **SVG implementation details can still create catastrophic mobile rendering failures.**
 - **Prototype ambition should match the question being tested.** 今回確認したかったのは「この design language を Web へ落とせるか」であり、本格的な particle creature engine の実装ではない。
 
 ---
 
 ## Final state
 
-Current visual: **Memory Vortex — deterministic SVG/CSS particle constellation**.
+Current visual: **Memory Orbit — small deterministic SVG particles + CSS-only motion**.
 
-This version is intentionally less technically ambitious than the eagle rig, but more faithful to the original design language, more stable on mobile, and more reusable as a UI / brand-motion pattern.
+The final implementation intentionally gives up creature animation and heavy particle simulation. It keeps the reference's strongest visual grammar, survives without JavaScript, is much cheaper to render, and is a more appropriate reusable brand-motion pattern for the UI Lab.
