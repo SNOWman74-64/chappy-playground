@@ -44,6 +44,34 @@
     a{color:inherit}
     button{font:inherit}
 
+    /* Scroll is the pen. Each element receives --write (0..1) from JS. */
+    [data-write]{
+      --write:0;
+      --clip:100%;
+      --ink-alpha:0;
+      --ink-lift:7px;
+      clip-path:inset(0 var(--clip) 0 0);
+      opacity:var(--ink-alpha);
+      transform:translateY(var(--ink-lift));
+      will-change:clip-path,opacity,transform;
+    }
+    .write-line{display:block;width:max-content;max-width:100%}
+    .write-inline{display:inline-block}
+    [data-write="hand"]{filter:blur(calc((1 - var(--write)) * .45px))}
+    [data-write="row"]{transform:translateY(calc(var(--ink-lift) * .55))}
+
+    [data-draw] path{
+      stroke-dasharray:1;
+      stroke-dashoffset:1;
+      pathLength:1;
+      will-change:stroke-dashoffset;
+    }
+
+    .marker[data-marker]::before{
+      transform-origin:left center;
+      transform:scaleX(var(--marker-write,0)) rotate(-1deg);
+    }
+
     .desk-note{
       width:min(1180px,calc(100% - 36px));
       margin:18px auto 10px;
@@ -138,348 +166,74 @@
       font-size:12px;
       color:var(--soft-ink);
     }
-    .wordmark{
-      font:600 16px/1 var(--display);
-      letter-spacing:-.03em;
-    }
+    .wordmark{font:600 16px/1 var(--display);letter-spacing:-.03em}
     nav{display:flex;gap:22px;align-items:center}
-    nav a{
-      text-decoration:none;
-      position:relative;
-      padding:4px 0;
-    }
-    nav a::after{
-      content:"";
-      position:absolute;
-      left:0;right:100%;bottom:0;
-      height:1px;background:var(--ink);
-      transition:right .2s ease;
-    }
+    nav a{text-decoration:none;position:relative;padding:4px 0}
+    nav a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:1px;background:var(--ink);transition:right .2s ease}
     nav a:hover::after,nav a:focus-visible::after{right:0}
 
-    .hero{
-      position:relative;
-      padding-top:70px;
-      min-height:490px;
-    }
-    .eyebrow{
-      display:inline-block;
-      margin-left:4px;
-      color:var(--orange-dark);
-      font:600 25px/1 var(--hand);
-      transform:rotate(-4deg);
-    }
-    h1{
-      margin:2px 0 18px;
-      max-width:420px;
-      font:600 clamp(66px,8.1vw,108px)/.80 var(--display);
-      letter-spacing:-.072em;
-      text-transform:lowercase;
-    }
-    .hero-copy{
-      width:min(360px,92%);
-      margin:0 0 22px 8px;
-      font:500 18px/1.55 var(--hand);
-      color:#342f2a;
-      transform:rotate(-1deg);
-    }
-    .plain-link{
-      display:inline-block;
-      margin:4px 0 0 8px;
-      padding-bottom:4px;
-      font-size:12px;
-      font-weight:600;
-      text-decoration:none;
-      border-bottom:1px solid var(--ink);
-    }
+    .hero{position:relative;padding-top:70px;min-height:490px}
+    .eyebrow{display:inline-block;margin-left:4px;color:var(--orange-dark);font:600 25px/1 var(--hand);transform:rotate(-4deg)}
+    h1{margin:2px 0 18px;max-width:420px;font:600 clamp(66px,8.1vw,108px)/.80 var(--display);letter-spacing:-.072em;text-transform:lowercase}
+    .hero-copy{width:min(360px,92%);margin:0 0 22px 8px;font:500 18px/1.55 var(--hand);color:#342f2a;transform:rotate(-1deg)}
+    .plain-link{display:inline-block;margin:4px 0 0 8px;padding-bottom:4px;font-size:12px;font-weight:600;text-decoration:none;border-bottom:1px solid var(--ink)}
     .plain-link span{color:var(--orange);margin-left:6px}
 
-    .scribble-arrow{
-      position:absolute;
-      width:88px;
-      height:70px;
-      right:4px;
-      top:206px;
-      transform:rotate(12deg);
-    }
+    .scribble-arrow{position:absolute;width:88px;height:70px;right:4px;top:206px;transform:rotate(12deg)}
     .scribble-arrow path{fill:none;stroke:var(--orange);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
 
-    .object-scene{
-      position:relative;
-      height:462px;
-      margin-top:28px;
-    }
-    .book{
-      position:absolute;
-      left:43px;
-      top:36px;
-      width:245px;
-      height:330px;
-      background:#7098c8;
-      border:1.5px solid #243b57;
-      box-shadow:14px 16px 0 rgba(69,54,40,.08),19px 22px 28px rgba(69,54,40,.16);
-      transform:rotate(-7deg);
-    }
-    .book::before{
-      content:"";
-      position:absolute;
-      top:0;bottom:0;left:21px;
-      width:1px;
-      background:rgba(27,48,73,.48);
-      box-shadow:3px 0 rgba(255,255,255,.10);
-    }
-    .book::after{
-      content:"";
-      position:absolute;
-      width:78px;
-      height:50px;
-      left:82px;
-      top:75px;
-      border:1px solid #27394d;
-      background:#fff9ef;
-      box-shadow:3px 4px 0 rgba(39,57,77,.12);
-    }
-    .book-title{
-      position:absolute;
-      left:99px;
-      top:89px;
-      z-index:2;
-      width:48px;
-      text-align:center;
-      font:600 12px/1.05 var(--display);
-      transform:rotate(-7deg);
-    }
-    .pencil{
-      position:absolute;
-      width:288px;
-      height:15px;
-      background:#efb84c;
-      border:1px solid #8f6b2d;
-      right:12px;
-      top:252px;
-      transform:rotate(-28deg);
-      box-shadow:4px 6px 9px rgba(83,59,36,.14);
-    }
-    .pencil::before{
-      content:"";
-      position:absolute;
-      left:-31px;top:-1px;
-      width:31px;height:15px;
-      background:linear-gradient(90deg,#d8b183 0 72%,#342e29 72%);
-      clip-path:polygon(0 50%,100% 0,100% 100%);
-    }
-    .pencil::after{
-      content:"";
-      position:absolute;
-      right:-17px;top:-1px;
-      width:17px;height:15px;
-      background:#e28c9a;
-      border-left:6px solid #b8a9a0;
-    }
-    .sticker{
-      position:absolute;
-      display:grid;
-      place-items:center;
-      width:94px;
-      height:94px;
-      border:2px solid #302c28;
-      background:#ff8a3d;
-      font:700 19px/1 var(--hand);
-      transform:rotate(12deg);
-      right:42px;
-      top:28px;
-      clip-path:polygon(50% 0,61% 15%,80% 8%,84% 28%,100% 35%,86% 51%,96% 69%,76% 75%,73% 96%,53% 85%,38% 100%,29% 80%,8% 84%,14% 62%,0 50%,18% 37%,8% 20%,31% 18%);
-    }
-    .coffee-ring{
-      position:absolute;
-      width:118px;height:118px;
-      border:9px solid rgba(129,87,49,.11);
-      border-radius:50%;
-      right:-32px;
-      bottom:10px;
-      box-shadow:inset 0 0 0 2px rgba(129,87,49,.04);
-      transform:scaleY(.82) rotate(11deg);
-    }
+    .object-scene{position:relative;height:462px;margin-top:28px}
+    .book{position:absolute;left:43px;top:36px;width:245px;height:330px;background:#7098c8;border:1.5px solid #243b57;box-shadow:14px 16px 0 rgba(69,54,40,.08),19px 22px 28px rgba(69,54,40,.16);transform:rotate(-7deg)}
+    .book::before{content:"";position:absolute;top:0;bottom:0;left:21px;width:1px;background:rgba(27,48,73,.48);box-shadow:3px 0 rgba(255,255,255,.10)}
+    .book::after{content:"";position:absolute;width:78px;height:50px;left:82px;top:75px;border:1px solid #27394d;background:#fff9ef;box-shadow:3px 4px 0 rgba(39,57,77,.12)}
+    .book-title{position:absolute;left:99px;top:89px;z-index:2;width:48px;text-align:center;font:600 12px/1.05 var(--display);transform:rotate(-7deg)}
+    .pencil{position:absolute;width:288px;height:15px;background:#efb84c;border:1px solid #8f6b2d;right:12px;top:252px;transform:rotate(-28deg);box-shadow:4px 6px 9px rgba(83,59,36,.14)}
+    .pencil::before{content:"";position:absolute;left:-31px;top:-1px;width:31px;height:15px;background:linear-gradient(90deg,#d8b183 0 72%,#342e29 72%);clip-path:polygon(0 50%,100% 0,100% 100%)}
+    .pencil::after{content:"";position:absolute;right:-17px;top:-1px;width:17px;height:15px;background:#e28c9a;border-left:6px solid #b8a9a0}
+    .sticker{position:absolute;display:grid;place-items:center;width:94px;height:94px;border:2px solid #302c28;background:#ff8a3d;font:700 19px/1 var(--hand);transform:rotate(12deg);right:42px;top:28px;clip-path:polygon(50% 0,61% 15%,80% 8%,84% 28%,100% 35%,86% 51%,96% 69%,76% 75%,73% 96%,53% 85%,38% 100%,29% 80%,8% 84%,14% 62%,0 50%,18% 37%,8% 20%,31% 18%)}
+    .coffee-ring{position:absolute;width:118px;height:118px;border:9px solid rgba(129,87,49,.11);border-radius:50%;right:-32px;bottom:10px;box-shadow:inset 0 0 0 2px rgba(129,87,49,.04);transform:scaleY(.82) rotate(11deg)}
 
-    .entry{
-      position:relative;
-      margin-top:58px;
-      min-height:268px;
-    }
-    .entry-label{
-      font:600 12px/1 var(--ui);
-      letter-spacing:.11em;
-      text-transform:uppercase;
-      color:#777068;
-    }
-    .entry h2{
-      margin:8px 0 18px;
-      max-width:420px;
-      font:600 clamp(36px,4.4vw,58px)/.94 var(--display);
-      letter-spacing:-.052em;
-    }
-    .entry p{
-      max-width:390px;
-      margin:0;
-      font-size:14px;
-      line-height:2.25;
-      color:#3f3a35;
-    }
-    .marker{
-      position:relative;
-      display:inline;
-      z-index:0;
-    }
-    .marker::before{
-      content:"";
-      position:absolute;
-      left:-2px;right:-3px;bottom:.06em;
-      height:.38em;
-      background:rgba(245,207,101,.58);
-      transform:rotate(-1deg);
-      z-index:-1;
-    }
-    .side-note{
-      position:absolute;
-      font:600 22px/1 var(--hand);
-      color:var(--orange-dark);
-      transform:rotate(-5deg);
-    }
+    .entry{position:relative;margin-top:58px;min-height:268px}
+    .entry-label{font:600 12px/1 var(--ui);letter-spacing:.11em;text-transform:uppercase;color:#777068}
+    .entry h2{margin:8px 0 18px;max-width:420px;font:600 clamp(36px,4.4vw,58px)/.94 var(--display);letter-spacing:-.052em}
+    .entry p{max-width:390px;margin:0;font-size:14px;line-height:2.25;color:#3f3a35}
+    .marker{position:relative;display:inline;z-index:0}
+    .marker::before{content:"";position:absolute;left:-2px;right:-3px;bottom:.06em;height:.38em;background:rgba(245,207,101,.58);z-index:-1}
+    .side-note{position:absolute;font:600 22px/1 var(--hand);color:var(--orange-dark);transform:rotate(-5deg)}
     .side-note.one{right:-12px;top:72px;width:128px}
     .side-note.two{left:178px;bottom:-16px;color:var(--green);transform:rotate(2deg)}
 
-    .checklist{
-      margin:28px 0 0;
-      padding:0;
-      list-style:none;
-      width:min(390px,100%);
-    }
-    .checklist li{
-      display:grid;
-      grid-template-columns:26px 1fr;
-      align-items:center;
-      min-height:46px;
-      font:600 20px/1.1 var(--hand);
-      border-bottom:1px solid rgba(79,132,183,.16);
-    }
-    .checklist button{
-      width:17px;height:17px;
-      padding:0;
-      border:1.5px solid #4b4743;
-      background:transparent;
-      border-radius:0;
-      cursor:pointer;
-      position:relative;
-    }
+    .checklist{margin:28px 0 0;padding:0;list-style:none;width:min(390px,100%)}
+    .checklist li{display:grid;grid-template-columns:26px 1fr;align-items:center;min-height:46px;font:600 20px/1.1 var(--hand);border-bottom:1px solid rgba(79,132,183,.16)}
+    .checklist button{width:17px;height:17px;padding:0;border:1.5px solid #4b4743;background:transparent;border-radius:0;cursor:pointer;position:relative}
     .checklist li.done span{text-decoration:line-through;text-decoration-thickness:1.5px;color:#888079}
-    .checklist li.done button::after{
-      content:"✓";
-      position:absolute;
-      left:1px;top:-9px;
-      color:var(--orange);
-      font:700 28px/1 var(--hand);
-      transform:rotate(-11deg);
-    }
+    .checklist li.done button::after{content:"✓";position:absolute;left:1px;top:-9px;color:var(--orange);font:700 28px/1 var(--hand);transform:rotate(-11deg)}
 
-    .quote{
-      position:relative;
-      margin-top:74px;
-      padding:4px 18px 0 32px;
-      font:600 clamp(36px,4.3vw,57px)/1.03 var(--display);
-      letter-spacing:-.045em;
-    }
-    .quote::before{
-      content:"“";
-      position:absolute;
-      left:-10px;top:-22px;
-      font:600 88px/1 var(--display);
-      color:var(--orange);
-    }
-    .quote small{
-      display:block;
-      margin:22px 0 0 5px;
-      font:600 20px/1 var(--hand);
-      color:#625c56;
-      letter-spacing:0;
-    }
+    .quote{position:relative;margin-top:74px;padding:4px 18px 0 32px;font:600 clamp(36px,4.3vw,57px)/1.03 var(--display);letter-spacing:-.045em}
+    .quote::before{content:"“";position:absolute;left:-10px;top:-22px;font:600 88px/1 var(--display);color:var(--orange)}
+    .quote small{display:block;margin:22px 0 0 5px;font:600 20px/1 var(--hand);color:#625c56;letter-spacing:0}
 
-    .index-lines{
-      margin-top:58px;
-      border-top:1px solid #312d29;
-    }
-    .index-row{
-      display:grid;
-      grid-template-columns:62px 1fr auto;
-      gap:12px;
-      align-items:baseline;
-      padding:14px 0 12px;
-      border-bottom:1px solid rgba(49,45,41,.38);
-      text-decoration:none;
-    }
+    .index-lines{margin-top:58px;border-top:1px solid #312d29}
+    .index-row{display:grid;grid-template-columns:62px 1fr auto;gap:12px;align-items:baseline;padding:14px 0 12px;border-bottom:1px solid rgba(49,45,41,.38);text-decoration:none}
     .index-row em{font:600 18px/1 var(--hand);color:var(--orange-dark)}
     .index-row strong{font:600 18px/1.1 var(--display);letter-spacing:-.02em}
     .index-row span{font-size:11px;color:#77706a}
     .index-row:hover strong{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px}
 
-    .tab{
-      position:absolute;
-      right:-64px;
-      top:420px;
-      width:92px;
-      height:42px;
-      padding:12px 8px 0 19px;
-      background:var(--pink);
-      border:1px solid rgba(70,45,56,.34);
-      font:600 11px/1 var(--ui);
-      letter-spacing:.08em;
-      transform:rotate(90deg);
-      transform-origin:left bottom;
-      z-index:14;
-    }
+    .tab{position:absolute;right:-64px;top:420px;width:92px;height:42px;padding:12px 8px 0 19px;background:var(--pink);border:1px solid rgba(70,45,56,.34);font:600 11px/1 var(--ui);letter-spacing:.08em;transform:rotate(90deg);transform-origin:left bottom;z-index:14}
     .tab.blue{top:870px;background:#9fc0d4}
 
-    .orange-end{
-      position:absolute;
-      left:50%;right:0;bottom:0;
-      min-height:240px;
-      padding:54px 62px 42px 88px;
-      background:var(--orange);
-      color:#1d120a;
-      z-index:4;
-    }
-    .orange-end strong{
-      display:block;
-      max-width:380px;
-      font:600 clamp(42px,4.7vw,64px)/.88 var(--display);
-      letter-spacing:-.055em;
-    }
+    .orange-end{position:absolute;left:50%;right:0;bottom:0;min-height:240px;padding:54px 62px 42px 88px;background:var(--orange);color:#1d120a;z-index:4}
+    .orange-end strong{display:block;max-width:380px;font:600 clamp(42px,4.7vw,64px)/.88 var(--display);letter-spacing:-.055em}
     .orange-end p{margin:18px 0 0;max-width:300px;font:600 20px/1.2 var(--hand)}
     .orange-end a{display:inline-block;margin-top:24px;font-size:12px;font-weight:600;text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:3px}
 
-    .tiny-footer{
-      width:min(1180px,calc(100% - 36px));
-      margin:-34px auto 38px;
-      display:flex;
-      justify-content:space-between;
-      color:#7a7066;
-      font-size:10px;
-      letter-spacing:.06em;
-    }
+    .tiny-footer{width:min(1180px,calc(100% - 36px));margin:-34px auto 38px;display:flex;justify-content:space-between;color:#7a7066;font-size:10px;letter-spacing:.06em}
 
     @media(max-width:820px){
       .desk-note{width:100%;margin:0;padding:12px 16px;background:var(--paper-warm)}
       .desk-note span:first-child{display:none}
-      .notebook{
-        width:100%;
-        margin:0;
-        min-height:auto;
-        overflow:visible;
-        box-shadow:none;
-        background:
-          linear-gradient(90deg,transparent 0 45px,var(--margin) 45px 46px,transparent 46px),
-          repeating-linear-gradient(to bottom,transparent 0 31px,var(--rule) 31px 32px),
-          var(--paper);
-      }
+      .notebook{width:100%;margin:0;min-height:auto;overflow:visible;box-shadow:none;background:linear-gradient(90deg,transparent 0 45px,var(--margin) 45px 46px,transparent 46px),repeating-linear-gradient(to bottom,transparent 0 31px,var(--rule) 31px 32px),var(--paper)}
       .notebook::before{display:none}
       .page{position:relative;width:100%;min-height:auto;padding:34px 22px 70px 65px}
       .page.left,.page.right{left:auto;right:auto;padding:34px 22px 70px 65px}
@@ -514,12 +268,15 @@
 
     @media(prefers-reduced-motion:reduce){
       html{scroll-behavior:auto}
+      [data-write]{clip-path:none!important;opacity:1!important;transform:none!important;filter:none!important}
+      [data-draw] path{stroke-dashoffset:0!important}
+      .marker[data-marker]::before{transform:rotate(-1deg)!important}
       *{transition:none!important}
     }
   </style>
 </head>
 <body>
-  <div class="desk-note"><span>cardless study / no ui agent</span><span class="hand">make it feel written, not arranged.</span></div>
+  <div class="desk-note"><span>cardless study / no ui agent</span><span class="hand" data-write="hand" data-start=".98" data-distance="100">make it feel written, not arranged.</span></div>
 
   <main class="notebook">
     <div class="tape one" aria-hidden="true"></div>
@@ -532,33 +289,27 @@
       <div class="topline">
         <span class="wordmark">daybook</span>
         <nav aria-label="primary">
-          <a href="#notes">notes</a>
-          <a href="#today">today</a>
-          <a href="#index">index</a>
+          <a href="#notes">notes</a><a href="#today">today</a><a href="#index">index</a>
         </nav>
       </div>
 
       <div class="hero">
-        <span class="eyebrow">for the little stuff →</span>
-        <h1>keep the day.</h1>
-        <p class="hero-copy">A small place for half-thoughts, grocery lists, good sentences, bad sketches, and everything you swear you’ll remember later.</p>
-        <a class="plain-link" href="#today">open today’s page <span>↘</span></a>
-        <svg class="scribble-arrow" viewBox="0 0 100 78" aria-hidden="true"><path d="M8 9c30 8 45 22 51 43 3 10-1 15-9 12-7-2-3-15 12-13 11 2 19 7 27 16M78 57l11 10-13 4"/></svg>
+        <span class="eyebrow" data-write="hand" data-start=".91" data-distance="115">for the little stuff →</span>
+        <h1 data-write data-start=".86" data-distance="150">keep the day.</h1>
+        <p class="hero-copy" data-write="hand" data-start=".78" data-distance="185">A small place for half-thoughts, grocery lists, good sentences, bad sketches, and everything you swear you’ll remember later.</p>
+        <a class="plain-link" href="#today" data-write data-start=".72" data-distance="105">open today’s page <span>↘</span></a>
+        <svg class="scribble-arrow" data-draw data-start=".73" data-distance="120" viewBox="0 0 100 78" aria-hidden="true"><path pathLength="1" d="M8 9c30 8 45 22 51 43 3 10-1 15-9 12-7-2-3-15 12-13 11 2 19 7 27 16M78 57l11 10-13 4"/></svg>
       </div>
 
       <div class="object-scene" aria-label="blue notebook illustration">
-        <div class="book"></div>
-        <span class="book-title">day<br>book</span>
-        <div class="pencil"></div>
-        <div class="sticker">keep it</div>
-        <div class="coffee-ring" aria-hidden="true"></div>
+        <div class="book"></div><span class="book-title">day<br>book</span><div class="pencil"></div><div class="sticker">keep it</div><div class="coffee-ring" aria-hidden="true"></div>
       </div>
 
       <section class="entry" id="notes">
-        <span class="entry-label">09 / 01 — why paper?</span>
-        <h2>less dashboard.<br>more <span class="marker">margin.</span></h2>
-        <p>Most apps ask where a thought belongs before you’ve even finished thinking it. Daybook starts with a line. Write first. Sort later — or don’t.</p>
-        <span class="side-note one">← no boxes needed</span>
+        <span class="entry-label" data-write data-start=".88" data-distance="100">09 / 01 — why paper?</span>
+        <h2><span class="write-line" data-write data-start=".82" data-distance="125">less dashboard.</span><span class="write-line" data-write data-start=".75" data-distance="125">more <span class="marker" data-marker>margin.</span></span></h2>
+        <p data-write data-start=".68" data-distance="200">Most apps ask where a thought belongs before you’ve even finished thinking it. Daybook starts with a line. Write first. Sort later — or don’t.</p>
+        <span class="side-note one" data-write="hand" data-start=".61" data-distance="115">← no boxes needed</span>
       </section>
     </section>
 
@@ -566,49 +317,104 @@
       <span class="page-no">02</span>
 
       <section class="entry" id="today" style="margin-top:86px">
-        <span class="entry-label">today — tuesday</span>
-        <h2>tiny things<br>worth keeping.</h2>
+        <span class="entry-label" data-write data-start=".91" data-distance="100">today — tuesday</span>
+        <h2><span class="write-line" data-write data-start=".85" data-distance="120">tiny things</span><span class="write-line" data-write data-start=".78" data-distance="120">worth keeping.</span></h2>
         <ul class="checklist" aria-label="interactive handwritten checklist">
-          <li><button type="button" aria-label="toggle buy coffee beans"></button><span>buy coffee beans</span></li>
-          <li class="done"><button type="button" aria-label="toggle send the weird idea"></button><span>send the weird idea</span></li>
-          <li><button type="button" aria-label="toggle walk without headphones"></button><span>walk without headphones</span></li>
-          <li><button type="button" aria-label="toggle save that sentence"></button><span>save that sentence</span></li>
+          <li data-write="row" data-start=".73" data-distance="80"><button type="button" aria-label="toggle buy coffee beans"></button><span>buy coffee beans</span></li>
+          <li class="done" data-write="row" data-start=".67" data-distance="80"><button type="button" aria-label="toggle send the weird idea"></button><span>send the weird idea</span></li>
+          <li data-write="row" data-start=".61" data-distance="80"><button type="button" aria-label="toggle walk without headphones"></button><span>walk without headphones</span></li>
+          <li data-write="row" data-start=".55" data-distance="80"><button type="button" aria-label="toggle save that sentence"></button><span>save that sentence</span></li>
         </ul>
-        <span class="side-note two">done is allowed to look messy ✓</span>
+        <span class="side-note two" data-write="hand" data-start=".49" data-distance="105">done is allowed to look messy ✓</span>
       </section>
 
       <blockquote class="quote">
-        Your life is mostly the parts nobody puts in a calendar.
-        <small>— note found in the back pocket</small>
+        <span class="write-line" data-write data-start=".85" data-distance="150">Your life is mostly</span>
+        <span class="write-line" data-write data-start=".77" data-distance="150">the parts nobody puts</span>
+        <span class="write-line" data-write data-start=".69" data-distance="150">in a calendar.</span>
+        <small data-write="hand" data-start=".60" data-distance="110">— note found in the back pocket</small>
       </blockquote>
 
       <section class="entry" id="index">
-        <span class="entry-label">back-page index</span>
-        <h2>find it the way<br>you remember it.</h2>
+        <span class="entry-label" data-write data-start=".89" data-distance="95">back-page index</span>
+        <h2><span class="write-line" data-write data-start=".83" data-distance="120">find it the way</span><span class="write-line" data-write data-start=".75" data-distance="120">you remember it.</span></h2>
         <div class="index-lines">
-          <a class="index-row" href="#notes"><em>01</em><strong>things I nearly forgot</strong><span>18 notes</span></a>
-          <a class="index-row" href="#today"><em>02</em><strong>good sentences</strong><span>07 notes</span></a>
-          <a class="index-row" href="#notes"><em>03</em><strong>probably useful later</strong><span>24 notes</span></a>
-          <a class="index-row" href="#today"><em>04</em><strong>tiny wins</strong><span>11 notes</span></a>
+          <a class="index-row" href="#notes" data-write="row" data-start=".70" data-distance="80"><em>01</em><strong>things I nearly forgot</strong><span>18 notes</span></a>
+          <a class="index-row" href="#today" data-write="row" data-start=".64" data-distance="80"><em>02</em><strong>good sentences</strong><span>07 notes</span></a>
+          <a class="index-row" href="#notes" data-write="row" data-start=".58" data-distance="80"><em>03</em><strong>probably useful later</strong><span>24 notes</span></a>
+          <a class="index-row" href="#today" data-write="row" data-start=".52" data-distance="80"><em>04</em><strong>tiny wins</strong><span>11 notes</span></a>
         </div>
       </section>
 
       <section class="orange-end">
-        <strong>there’s always another page.</strong>
-        <p>no streaks. no score. just come back when there’s something to keep.</p>
-        <a href="#today">write something small ↗</a>
+        <strong data-write data-start=".86" data-distance="150">there’s always another page.</strong>
+        <p data-write="hand" data-start=".72" data-distance="140">no streaks. no score. just come back when there’s something to keep.</p>
+        <a href="#today" data-write data-start=".61" data-distance="100">write something small ↗</a>
       </section>
     </section>
   </main>
 
-  <footer class="tiny-footer"><span>daybook / cardless style study</span><span>HTML + CSS + 6 lines of JS</span></footer>
+  <footer class="tiny-footer"><span>daybook / cardless + scroll-writing study</span><span>scroll = pen progress</span></footer>
 
   <script>
-    document.querySelectorAll('.checklist button').forEach((button) => {
-      button.addEventListener('click', () => {
-        const row = button.closest('li');
-        row.classList.toggle('done');
+    const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const writeEls = [...document.querySelectorAll('[data-write]')];
+    const drawEls = [...document.querySelectorAll('[data-draw]')];
+    const marker = document.querySelector('[data-marker]');
+    let ticking = false;
+
+    const clamp = (value, min = 0, max = 1) => Math.min(max, Math.max(min, value));
+
+    function progressFor(el) {
+      const rect = el.getBoundingClientRect();
+      const vh = innerHeight;
+      const start = Number(el.dataset.start || .84) * vh;
+      const distance = Number(el.dataset.distance || 130);
+      return clamp((start - rect.top) / distance);
+    }
+
+    function paint() {
+      ticking = false;
+      if (reduceMotion) return;
+
+      writeEls.forEach((el) => {
+        let p = progressFor(el);
+        const steps = el.dataset.write === 'hand' || el.dataset.write === 'row' ? 22 : 30;
+        p = Math.round(p * steps) / steps;
+        el.style.setProperty('--write', p.toFixed(3));
+        el.style.setProperty('--clip', `${((1 - p) * 100).toFixed(2)}%`);
+        el.style.setProperty('--ink-alpha', clamp(p * 1.55).toFixed(3));
+        el.style.setProperty('--ink-lift', `${((1 - p) * 7).toFixed(2)}px`);
       });
+
+      drawEls.forEach((svg) => {
+        const p = progressFor(svg);
+        svg.querySelectorAll('path').forEach((path) => {
+          path.style.strokeDashoffset = String(1 - p);
+        });
+      });
+
+      if (marker) {
+        const line = marker.closest('[data-write]');
+        const p = line ? clamp((progressFor(line) - .38) / .62) : 1;
+        marker.style.setProperty('--marker-write', p.toFixed(3));
+      }
+    }
+
+    function requestPaint() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(paint);
+    }
+
+    if (!reduceMotion) {
+      addEventListener('scroll', requestPaint, { passive: true });
+      addEventListener('resize', requestPaint);
+      requestPaint();
+    }
+
+    document.querySelectorAll('.checklist button').forEach((button) => {
+      button.addEventListener('click', () => button.closest('li').classList.toggle('done'));
     });
   </script>
 </body>
