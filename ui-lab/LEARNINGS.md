@@ -270,3 +270,53 @@ play + scrub + time in one row → two-row transport
 ### Source
 
 - `refero-frameflow-motion`
+
+---
+
+## L-011 — Fluid interaction is continuity, not easing
+
+### Observation
+
+Gesture-driven UI can use a beautiful cubic-bezier and still feel mechanical when the user and the animation live in separate phases.
+
+Typical discontinuities:
+
+```text
+pointer-down
+→ wait
+→ drag state
+→ release
+→ velocity discarded
+→ fixed-duration animation
+→ input locked until completion
+```
+
+### Better rule
+
+Treat interaction as one continuous state instead:
+
+```text
+pointer position
+→ presentation value
+→ release velocity
+→ projected target
+→ spring motion
+→ new pointer-down can interrupt at any frame
+```
+
+For touchable / draggable surfaces:
+
+- respond immediately,
+- track 1:1 while dragging,
+- preserve recent pointer velocity,
+- hand velocity into the settling animation,
+- choose snap target from momentum when appropriate,
+- start interruption from the live rendered value,
+- use rubber-band resistance instead of hard boundary freezes.
+
+The easing curve is secondary to preserving state and velocity continuity.
+
+### Source
+
+- `refero-apple-fluid`
+- `emilkowalski/skills/apple-design`
