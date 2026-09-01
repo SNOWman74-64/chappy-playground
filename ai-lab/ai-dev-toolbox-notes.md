@@ -667,3 +667,247 @@ repoが育って探索負荷が増えた場合:
 最終的には、**大量のSkillを常時積むのではなく、タスクに応じてHarness側が必要なSkill / Agentを選ぶ構成**を目指す。
 
 このファイル自体を、UIテンプレートとは別軸の**共通AI開発Harness情報保管庫**として育てていく。
+
+---
+
+## ECC（Everything Claude Code）から抜粋した共通Harness思想
+
+**GitHub:** https://github.com/affaan-m/ECC  
+**状態:** 丸ごと導入ではなく、Harness設計の研究資料として重要
+
+ECCは大量のAgent / Skill / Commandを持つ大型Harnessだが、個人開発の共通Coreとしてそのまま採用するには重い。
+
+参考にしたいのは個別Skillの数より、**Context・Memory・Learningをどう扱っているか**。
+
+### 1. Optimize the context window. Persist everything else.
+
+常時Contextへ全履歴を積むのではなく、現在の作業に必要な情報だけをHot Contextとして読み、その他は永続化して必要時に取得する。
+
+自分のHarnessへ当てはめると:
+
+```text
+Hot Context
+├─ AGENTS.md
+├─ SESSION-NOTES.md
+└─ 現在タスクに必要なRequirements / Decision
+
+Routed Knowledge
+├─ KNOWLEDGE-INDEX.md
+├─ DECISION-LOG.md
+└─ Evidence logs
+
+Code Context
+└─ codebase-memory-mcp → 必要な実コード
+```
+
+大量ログを削除するのではなく、**普段はIndexを通して必要なものだけ読む**。
+
+### 2. Session lifecycleで状態を保存する
+
+ECCはSessionStart / PreCompact / SessionEnd（Stop）を使い、
+
+- Session開始時: 前回から必要な状態をboundedに読む
+- Context圧縮前: 消えると困る状態を保存
+- Session終了時: 現在状態・学びを永続化
+
+というライフサイクルを持つ。
+
+自分のHarnessではHookをそのまま真似する必要はないが、
+
+`開始時に復元 → 圧縮前にcheckpoint → 終了時にharvest`
+
+という3点は汎用的。
+
+自動ロードする情報量には上限を設け、過去ログ全体を毎回再注入しない。
+
+### 3. Knowledge Promotion: Sessionの知見をいきなりSkillにしない
+
+ECC Continuous Learning v2では、セッションから得た学びをまず小さい `instinct` として保存し、confidenceを持たせる。
+
+複数のinstinctが育ってから、必要に応じてSkill / Command / Agentへ進化させる。
+
+この思想を自分用に簡略化すると:
+
+```text
+Session / Task
+↓
+Observation
+↓
+Candidate Knowledge
+↓
+再利用された / Evidenceが増えた
+↓
+Reusable Knowledge
+↓
+繰り返し価値を証明
+↓
+Skill / Harness Ruleへ昇格
+```
+
+重要なのは、**一回出た知見をすぐ恒久ルールにしないこと**。
+
+Tokenを使って得た有用な知見は捨てないが、一時的な偶然やProject固有事情をGlobal Harnessへ混ぜない。
+
+### 4. Project knowledgeとGlobal knowledgeを分離する
+
+ECC v2.1はproject-scoped instinctを導入し、プロジェクト固有パターンが他Projectへ汚染しないようにしている。
+
+自分のHarnessでも:
+
+```text
+Project Knowledge
+例: LIFTLOG固有のDB recovery contract
+
+        ↓ 複数Projectでも有効と確認
+
+Global Harness Knowledge
+例: destructive migration前にrecoverability evidenceを要求
+```
+
+というPromotionを行う。
+
+**LIFTLOGで学んだ具体策をそのまま全Projectへ強制せず、一般化できた教訓だけ共通Harnessへ持っていく。**
+
+### 5. Iterative Retrieval: 最初から全部渡さない
+
+ECCの `iterative-retrieval` は、Agentが必要Contextを最初から完全には予測できない問題に対して、段階的にContextを増やす。
+
+```text
+最小Context
+↓
+Agentが不足情報を特定
+↓
+Index / Search / Graphから追加取得
+↓
+必要十分になったら停止
+```
+
+これは `codebase-memory-mcp` と特に相性が良い。
+
+`コード全部を読む → 必要箇所を探す` ではなく、
+
+`Graph / Index → 候補を絞る → 実ファイルで確認`
+
+を基本にする。
+
+### 6. Strategic Compaction: Context圧縮は論理境界で行う
+
+自動圧縮に任せて作業途中のContextを失うのではなく、
+
+- 調査完了 → 実装開始
+- 大きなdebug完了 → 次の作業
+- milestone完了
+- unrelated taskへ移る前
+
+など**意味のある境界でContextを圧縮する**。
+
+圧縮前には、
+
+- 決定
+- 未解決事項
+- Current state
+- 次の行動
+
+だけを残す。
+
+これは長時間Session・遠隔作業・Session跨ぎの安定性に効く。
+
+### 7. Verificationは存在させるが、ECCの重さはそのまま持ち込まない
+
+ECCにはbuild / type / lint / test / security / diffなどをまとめた包括的Verification Loopがある。
+
+思想としては有用だが、個人開発で毎回すべて実行するとLIFTLOGで経験した「検証そのものが作業を止める」問題を再発させる。
+
+自分のHarnessでは:
+
+```text
+Risk / Failure Mode
+↓
+必要Evidenceを先に定義
+↓
+Focused Verification
+↓
+問いに答えたら終了
+```
+
+とする。
+
+**安全性を工程量で測らない。**
+
+Small変更ではself-check、Mediumはfocused checks、High-risk変更だけ必要なFull evidenceを取る。
+
+### 8. Autonomous loopは作れるかではなく、作る価値があるかで判定する
+
+ECCの `loop-design-check` には、Agent loopを作る前に「そもそも自動ループ化すべきか」を判定するGateがある。
+
+自分のHarnessへ持ち込みたい判定軸:
+
+- 繰り返し発生する作業か
+- 完了条件をmachine-decidableにできるか
+- Token / 実行コストに見合うか
+- Agentが結果を実際に観測できるToolを持つか
+
+満たさないならループ化しない。
+
+これは「便利そうだからAgentを増やす」「全部自動化する」ことへのブレーキとして使える。
+
+### 9. Mode / Packを分離し、Coreを肥大化させない
+
+ECCはdev / review / researchなどContextを分けている。
+
+自分のHarnessではさらに単純化し、CoreとOptional Packを分離する。
+
+```text
+Core
+├─ Single Writer / Authority
+├─ Risk Routing
+├─ Knowledge Routing
+├─ Minimal Change
+└─ Session / Decision lifecycle
+
+Optional
+├─ UI Pack
+├─ Research Pack
+├─ Security / DB Pack
+├─ Architecture Pack
+├─ Codebase Memory
+└─ Multi-Agent Pack
+```
+
+UI TemplateもCoreへ混ぜず、後から必要時に接続する。
+
+### 10. Hooks / Automationは狭く、観測可能にする
+
+ECCはHookを多用するが、共通HarnessではHookが増えすぎると「なぜこの処理が走ったか」が分かりにくくなる。
+
+採用するなら:
+
+- lifecycle保存
+- destructive action guard
+- 明確なquality gate
+
+など、価値が説明できるものに限定する。
+
+HookやAgentが存在すること自体を理由に工程を増やさない。
+
+### 自分のHarnessへ持ってきたい最重要4点
+
+現時点ではECCから直接取り込みたい思想はこの4つ。
+
+1. **Knowledge Promotion** — 一度払った推論・調査コストを再利用可能Knowledgeへ変える
+2. **Project / Global Scope分離** — Project固有知識が共通Harnessを汚染しない
+3. **Iterative Retrieval + Index** — 必要Contextだけ段階的に取得する
+4. **Strategic Session Lifecycle** — Session開始・圧縮・終了で状態を安全に引き継ぐ
+
+これらは特定FrameworkやClaude Codeに依存しないため、Codex中心の今後のProjectでも利用できる。
+
+### ECCからそのまま採用しないもの
+
+- 大量のAgentを常時利用
+- 284+ Skillを一括ロード
+- 全変更に包括的Verification Loopを適用
+- TDD / Coverage固定値を全Projectへ強制
+- 並列Agentを通常運用
+- Claude固有Hook実装への強依存
+
+ECCは**完成品Harnessとしてコピーするより、Harness設計パターンの採掘場として使う**。
