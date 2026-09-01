@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#efede8" />
+  <title>Mock Study — Chappy Playground</title>
+  <style>
+    :root{--bg:#efede8;--paper:#fbfaf7;--ink:#191817;--muted:#777169;--line:#d6d1c8;--accent:#ff6f1e;--radius:16px;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink)}a{color:inherit}
+    .shell{min-height:100svh;display:grid;grid-template-rows:auto auto 1fr}
+    .header{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;padding:18px 22px;border-bottom:1px solid var(--line);background:rgba(251,250,247,.82);backdrop-filter:blur(12px);position:sticky;top:0;z-index:20}
+    .crumb{display:flex;gap:10px;align-items:center;color:var(--muted);font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.crumb a{text-decoration:none}.crumb a:hover{color:var(--ink)}
+    h1{margin:7px 0 0;font-size:clamp(25px,4vw,43px);line-height:.95;letter-spacing:-.05em}.summary{margin:8px 0 0;max-width:760px;color:#5e5952;font-size:12px;line-height:1.55}
+    .actions{display:flex;align-items:flex-start;gap:7px;flex-wrap:wrap;justify-content:flex-end}.pill{display:inline-flex;align-items:center;justify-content:center;min-height:36px;padding:0 12px;border:1px solid var(--line);border-radius:999px;background:transparent;text-decoration:none;font-size:11px;font-weight:750}.pill:hover{border-color:#9d978e}
+    .meta-row{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px 22px;border-bottom:1px solid var(--line);background:var(--paper)}
+    .tags{display:flex;gap:7px;flex-wrap:wrap}.tag{font-size:9px;font-weight:850;letter-spacing:.09em;color:#706a62}.principle{color:var(--muted);font-size:10px;text-align:right}
+    .workspace{display:grid;grid-template-columns:1fr;min-height:0}
+    .tabs{display:flex;gap:0;padding:0 22px;background:var(--paper);border-bottom:1px solid var(--line);position:sticky;top:109px;z-index:15;overflow:auto}
+    .tab{appearance:none;border:0;border-bottom:2px solid transparent;background:transparent;padding:13px 15px 11px;font:750 11px/1 inherit;color:var(--muted);cursor:pointer;white-space:nowrap}.tab.active{color:var(--ink);border-bottom-color:var(--accent)}
+    .pane{display:none;min-height:calc(100svh - 170px)}.pane.active{display:block}
+    .preview-pane{padding:18px 22px 28px}.browser{height:calc(100svh - 206px);min-height:560px;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:white;box-shadow:0 18px 45px rgba(52,44,34,.08)}.browser iframe{display:block;width:100%;height:100%;border:0;background:white}
+    .doc-pane{padding:28px 22px 70px}.doc-layout{width:min(1100px,100%);margin:0 auto;display:grid;grid-template-columns:minmax(0,760px) 250px;gap:42px;align-items:start}.doc{min-width:0}.aside{position:sticky;top:170px;padding-left:18px;border-left:1px solid var(--line)}.aside strong{display:block;margin-bottom:10px;font-size:10px;letter-spacing:.1em}.aside p,.aside li{font-size:10px;line-height:1.6;color:var(--muted)}.aside ul{padding-left:15px}
+    .md h1{font-size:42px;margin:0 0 28px;letter-spacing:-.05em}.md h2{font-size:24px;margin:42px 0 14px;padding-top:6px;border-top:1px solid var(--line);letter-spacing:-.035em}.md h3{font-size:16px;margin:25px 0 9px}.md p{margin:0 0 13px;font-size:13px;line-height:1.8;color:#45413c}.md .bullet{display:grid;grid-template-columns:16px 1fr;gap:4px;margin:5px 0;font-size:12px;line-height:1.65;color:#45413c}.md .bullet::before{content:"→";color:var(--accent)}.md code{padding:2px 5px;border-radius:5px;background:#e8e4dd;font:11px/1.4 ui-monospace,SFMono-Regular,Menlo,monospace}.md pre{overflow:auto;padding:15px;border:1px solid var(--line);background:#22201e;color:#f8f5ef;border-radius:10px;font:11px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace}.md pre code{padding:0;background:none;color:inherit}.md hr{border:0;border-top:1px solid var(--line);margin:32px 0}.md a{color:#b64c13;text-underline-offset:3px}.section-label{display:flex;align-items:center;gap:10px;margin:0 0 18px;color:var(--muted);font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}.section-label::after{content:"";height:1px;flex:1;background:var(--line)}
+    .loading{padding:40px;color:var(--muted);font-size:12px}.error{margin:24px;padding:18px;border:1px solid #dca995;background:#fff5f0;border-radius:12px;font-size:12px;line-height:1.6}
+    @media(max-width:760px){.header{grid-template-columns:1fr;padding:14px 14px 12px}.actions{justify-content:flex-start}.meta-row{padding:9px 14px;display:block}.principle{text-align:left;margin-top:8px}.tabs{top:155px;padding:0 10px}.preview-pane{padding:10px}.browser{height:calc(100svh - 235px);min-height:500px;border-radius:10px}.doc-pane{padding:24px 17px 60px}.doc-layout{grid-template-columns:1fr}.aside{position:static;border-left:0;border-top:1px solid var(--line);padding:16px 0 0}.md h1{font-size:34px}.md h2{font-size:22px}}
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="header">
+      <div>
+        <div class="crumb"><a href="./">Mock Gallery</a><span>/</span><span id="crumb">study</span></div>
+        <h1 id="title">Loading study…</h1>
+        <p class="summary" id="summary"></p>
+      </div>
+      <div class="actions" id="actions"></div>
+    </header>
+    <div>
+      <div class="meta-row"><div class="tags" id="tags"></div><div class="principle" id="principle"></div></div>
+      <nav class="tabs" aria-label="study views">
+        <button class="tab" data-tab="preview">Preview</button>
+        <button class="tab" data-tab="design">Design</button>
+        <button class="tab" data-tab="learnings">Learnings</button>
+      </nav>
+    </div>
+    <section class="workspace">
+      <div class="pane preview-pane" id="preview"><div class="browser" id="browser"></div></div>
+      <div class="pane doc-pane" id="design"><div class="loading">Design document loading…</div></div>
+      <div class="pane doc-pane" id="learnings"><div class="loading">Learnings loading…</div></div>
+    </section>
+  </main>
+
+  <script>
+    const qs=new URLSearchParams(location.search);
+    const id=qs.get('id')||'daybook-cardless';
+    const requestedTab=qs.get('tab')||'preview';
+    const esc=(s='')=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+    function inline(s){
+      let out=esc(s);
+      out=out.replace(/`([^`]+)`/g,'<code>$1</code>');
+      out=out.replace(/\*\*([^*]+)\*\*/g,'<strong>$1</strong>');
+      out=out.replace(/(https?:\/\/[^\s<]+)/g,'<a href="$1" target="_blank" rel="noreferrer">$1</a>');
+      return out;
+    }
+
+    function markdown(raw){
+      const lines=raw.replace(/\r/g,'').split('\n');
+      let html='',inCode=false,code=[];
+      const flushCode=()=>{if(code.length){html+=`<pre><code>${esc(code.join('\n'))}</code></pre>`;code=[]}};
+      for(const line of lines){
+        if(line.startsWith('```')){if(inCode){flushCode();inCode=false}else inCode=true;continue}
+        if(inCode){code.push(line);continue}
+        if(/^### /.test(line))html+=`<h3>${inline(line.slice(4))}</h3>`;
+        else if(/^## /.test(line))html+=`<h2>${inline(line.slice(3))}</h2>`;
+        else if(/^# /.test(line))html+=`<h1>${inline(line.slice(2))}</h1>`;
+        else if(/^---+$/.test(line.trim()))html+='<hr>';
+        else if(/^[-*] /.test(line))html+=`<div class="bullet">${inline(line.slice(2))}</div>`;
+        else if(/^\d+\. /.test(line))html+=`<div class="bullet">${inline(line.replace(/^\d+\. /,''))}</div>`;
+        else if(line.trim())html+=`<p>${inline(line)}</p>`;
+      }
+      flushCode();return html;
+    }
+
+    async function text(path){const r=await fetch(path,{cache:'no-store'});if(!r.ok)throw new Error(`${path} (${r.status})`);return r.text()}
+
+    function setTab(name){
+      const safe=['preview','design','learnings'].includes(name)?name:'preview';
+      document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active',b.dataset.tab===safe));
+      document.querySelectorAll('.pane').forEach(p=>p.classList.toggle('active',p.id===safe));
+      const next=new URL(location.href);next.searchParams.set('tab',safe);history.replaceState(null,'',next);
+    }
+
+    function aside(mock,label){
+      const principles=(mock.principles||[]).map(p=>`<li>${esc(p)}</li>`).join('');
+      return `<aside class="aside"><strong>${esc(label)}</strong><p>${esc(mock.summary)}</p><ul>${principles}</ul></aside>`;
+    }
+
+    async function loadDocs(catalog,mock){
+      try{
+        const [own,shared]=await Promise.all([text(mock.designPath),text(catalog.sharedDesignPath)]);
+        document.querySelector('#design').innerHTML=`<div class="doc-layout"><article class="doc md"><div class="section-label">Mock design</div>${markdown(own)}<div class="section-label" style="margin-top:54px">Shared harness</div>${markdown(shared)}</article>${aside(mock,'DESIGN CONTEXT')}</div>`;
+      }catch(e){document.querySelector('#design').innerHTML=`<div class="error">Design document を読み込めませんでした。<br>${esc(e.message)}</div>`}
+      try{
+        const [own,shared]=await Promise.all([text(mock.retrospectivePath),text(catalog.sharedLearningsPath)]);
+        document.querySelector('#learnings').innerHTML=`<div class="doc-layout"><article class="doc md"><div class="section-label">This mock</div>${markdown(own)}<div class="section-label" style="margin-top:54px">Shared learnings</div>${markdown(shared)}</article>${aside(mock,'LEARNING CONTEXT')}</div>`;
+      }catch(e){document.querySelector('#learnings').innerHTML=`<div class="error">Learning document を読み込めませんでした。<br>${esc(e.message)}</div>`}
+    }
+
+    fetch('./catalog.json',{cache:'no-store'}).then(r=>r.json()).then(catalog=>{
+      const mock=(catalog.mocks||[]).find(m=>m.id===id);
+      if(!mock)throw new Error(`Unknown mock: ${id}`);
+      document.title=`${mock.title} — Mock Gallery`;
+      document.querySelector('#crumb').textContent=mock.shortTitle||mock.id;
+      document.querySelector('#title').textContent=mock.title;
+      document.querySelector('#summary').textContent=mock.summary;
+      document.querySelector('#tags').innerHTML=(mock.tags||[]).map(t=>`<span class="tag">${esc(t)}</span>`).join('');
+      document.querySelector('#principle').textContent=(mock.principles||[])[0]||'';
+      document.querySelector('#actions').innerHTML=`<a class="pill" href="${esc(mock.previewPath)}" target="_blank">Open mock ↗</a><a class="pill" href="${esc(mock.referenceUrl)}" target="_blank" rel="noreferrer">Reference ↗</a>`;
+      document.querySelector('#browser').innerHTML=`<iframe src="${esc(mock.previewPath)}?from=mock-gallery" title="${esc(mock.title)} preview"></iframe>`;
+      loadDocs(catalog,mock);
+      setTab(requestedTab);
+    }).catch(e=>{
+      document.querySelector('#title').textContent='Study not found';
+      document.querySelector('#preview').innerHTML=`<div class="error">${esc(e.message)}</div>`;
+      setTab('preview');
+    });
+
+    document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>setTab(b.dataset.tab)));
+  </script>
+</body>
+</html>
