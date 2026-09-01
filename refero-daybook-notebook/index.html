@@ -63,7 +63,6 @@
     [data-draw] path{
       stroke-dasharray:1;
       stroke-dashoffset:1;
-      pathLength:1;
       will-change:stroke-dashoffset;
     }
 
@@ -136,36 +135,13 @@
     .tape.one{top:24px;left:calc(50% - 54px);transform:rotate(-1deg)}
     .tape.two{top:625px;right:-22px;transform:rotate(86deg);background:rgba(187,213,219,.55)}
 
-    .page{
-      position:absolute;
-      top:0;
-      width:50%;
-      min-height:1540px;
-      padding:52px 58px 76px 86px;
-      z-index:3;
-    }
+    .page{position:absolute;top:0;width:50%;min-height:1540px;padding:52px 58px 76px 86px;z-index:3}
     .page.left{left:0}
     .page.right{right:0;padding-left:86px;padding-right:58px}
-
-    .page-no{
-      position:absolute;
-      top:22px;
-      right:26px;
-      font:500 12px/1 var(--ui);
-      letter-spacing:.1em;
-      color:#878079;
-    }
+    .page-no{position:absolute;top:22px;right:26px;font:500 12px/1 var(--ui);letter-spacing:.1em;color:#878079}
     .page.left .page-no{right:auto;left:28px}
 
-    .topline{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:18px;
-      min-height:30px;
-      font-size:12px;
-      color:var(--soft-ink);
-    }
+    .topline{display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:30px;font-size:12px;color:var(--soft-ink)}
     .wordmark{font:600 16px/1 var(--display);letter-spacing:-.03em}
     nav{display:flex;gap:22px;align-items:center}
     nav a{text-decoration:none;position:relative;padding:4px 0}
@@ -178,7 +154,6 @@
     .hero-copy{width:min(360px,92%);margin:0 0 22px 8px;font:500 18px/1.55 var(--hand);color:#342f2a;transform:rotate(-1deg)}
     .plain-link{display:inline-block;margin:4px 0 0 8px;padding-bottom:4px;font-size:12px;font-weight:600;text-decoration:none;border-bottom:1px solid var(--ink)}
     .plain-link span{color:var(--orange);margin-left:6px}
-
     .scribble-arrow{position:absolute;width:88px;height:70px;right:4px;top:206px;transform:rotate(12deg)}
     .scribble-arrow path{fill:none;stroke:var(--orange);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
 
@@ -276,7 +251,7 @@
   </style>
 </head>
 <body>
-  <div class="desk-note"><span>cardless study / no ui agent</span><span class="hand" data-write="hand" data-start=".98" data-distance="100">make it feel written, not arranged.</span></div>
+  <div class="desk-note"><span>cardless study / no ui agent</span><span class="hand" data-write="hand" data-start=".06" data-distance="80">make it feel written, not arranged.</span></div>
 
   <main class="notebook">
     <div class="tape one" aria-hidden="true"></div>
@@ -288,17 +263,15 @@
       <span class="page-no">01</span>
       <div class="topline">
         <span class="wordmark">daybook</span>
-        <nav aria-label="primary">
-          <a href="#notes">notes</a><a href="#today">today</a><a href="#index">index</a>
-        </nav>
+        <nav aria-label="primary"><a href="#notes">notes</a><a href="#today">today</a><a href="#index">index</a></nav>
       </div>
 
       <div class="hero">
-        <span class="eyebrow" data-write="hand" data-start=".91" data-distance="115">for the little stuff →</span>
-        <h1 data-write data-start=".86" data-distance="150">keep the day.</h1>
-        <p class="hero-copy" data-write="hand" data-start=".78" data-distance="185">A small place for half-thoughts, grocery lists, good sentences, bad sketches, and everything you swear you’ll remember later.</p>
-        <a class="plain-link" href="#today" data-write data-start=".72" data-distance="105">open today’s page <span>↘</span></a>
-        <svg class="scribble-arrow" data-draw data-start=".73" data-distance="120" viewBox="0 0 100 78" aria-hidden="true"><path pathLength="1" d="M8 9c30 8 45 22 51 43 3 10-1 15-9 12-7-2-3-15 12-13 11 2 19 7 27 16M78 57l11 10-13 4"/></svg>
+        <span class="eyebrow" data-write="hand" data-start=".21" data-distance="100">for the little stuff →</span>
+        <h1 data-write data-start=".19" data-distance="160">keep the day.</h1>
+        <p class="hero-copy" data-write="hand" data-start=".17" data-distance="190">A small place for half-thoughts, grocery lists, good sentences, bad sketches, and everything you swear you’ll remember later.</p>
+        <a class="plain-link" href="#today" data-write data-start=".15" data-distance="110">open today’s page <span>↘</span></a>
+        <svg class="scribble-arrow" data-draw data-start=".18" data-distance="130" viewBox="0 0 100 78" aria-hidden="true"><path pathLength="1" d="M8 9c30 8 45 22 51 43 3 10-1 15-9 12-7-2-3-15 12-13 11 2 19 7 27 16M78 57l11 10-13 4"/></svg>
       </div>
 
       <div class="object-scene" aria-label="blue notebook illustration">
