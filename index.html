@@ -50,6 +50,9 @@
     .app-icon.paper { position:relative; display:grid; place-items:center; overflow:hidden; background:#fdfbf9; border:1px solid #2b1a07; box-shadow:0 9px 18px rgba(255,111,30,.13); }
     .app-icon.paper::before { content:""; width:31px; height:42px; border:1px solid #171717; border-radius:4px; background:#4d7daf; transform:rotate(8deg); box-shadow:4px 4px 0 rgba(43,26,7,.09); }
     .app-icon.paper::after { content:"day"; position:absolute; width:21px; height:13px; display:grid; place-items:center; border:1px solid #171717; border-radius:3px; background:#fffdfa; color:#2b1a07; font:700 6px/1 serif; transform:rotate(4deg); box-shadow:-18px 23px 0 -7px #ff6f1e; }
+    .app-icon.gallery { position:relative; overflow:hidden; background:linear-gradient(145deg,#f5efe6,#d6c8b9); border:1px solid rgba(255,255,255,.3); }
+    .app-icon.gallery::before { content:""; position:absolute; width:39px; height:28px; left:9px; top:12px; border:1px solid #6f655b; border-radius:5px; background:#fffaf2; box-shadow:8px 7px 0 #7098c8,13px 12px 0 #ff8a3d; transform:rotate(-5deg); }
+    .app-icon.gallery::after { content:"UI"; position:absolute; left:16px; top:19px; color:#312c27; font:900 9px/1 ui-monospace,monospace; letter-spacing:.08em; transform:rotate(-5deg); }
     .app-info { min-width:0; }
     .app-no { display:block; margin-bottom:3px; color:#7dd3fc; font-size:10px; font-weight:900; letter-spacing:.12em; }
     .app-info strong { display:block; font-size:18px; letter-spacing:-.025em; }
@@ -64,8 +67,9 @@
     <span class="badge">GitHub Pages · Mobile First</span>
     <h1>Chappy<br />Playground</h1>
     <p class="lead">チャットから直接作った、小さいWebアプリの置き場。気に入ったものだけ後から育てる。</p>
-    <div class="section-title"><strong>PLAYGROUND APPS</strong><span>12 apps</span></div>
+    <div class="section-title"><strong>PLAYGROUND APPS</strong><span>13 apps</span></div>
     <section class="apps" aria-label="アプリ一覧">
+      <a class="app-card" href="./mock-gallery/"><div class="app-icon gallery" aria-hidden="true"></div><div class="app-info"><span class="app-no">#00 · UI LAB</span><strong>Mock Gallery</strong><p>サムネ付きモック一覧。Preview / Design / Learningsを行き来するUI研究ダッシュボード。</p></div><span class="arrow">›</span></a>
       <a class="app-card" href="./stress-relief/"><div class="app-icon fidget" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="app-info"><span class="app-no">#01</span><strong>Fidget Room</strong><p>Pop It、プチプチ、ストレスボール、スピナー、メカニカルキー。</p></div><span class="arrow">›</span></a>
       <a class="app-card" href="./liftlog-dial/"><div class="app-icon dial" aria-hidden="true"></div><div class="app-info"><span class="app-no">#02 · REACT</span><strong>LIFTLOG Dial</strong><p>Claude Artifact由来の重量ダイヤルUIをReactのままPagesへ移植した実験。</p></div><span class="arrow">›</span></a>
       <a class="app-card" href="./ai-lab/"><div class="app-icon terminal" aria-hidden="true"></div><div class="app-info"><span class="app-no">#03 · GAME</span><strong>Midnight AI Lab</strong><p>VRAM・RAM・資金・安定性をやりくりしてローカルAIエージェントを起動する。</p></div><span class="arrow">›</span></a>
