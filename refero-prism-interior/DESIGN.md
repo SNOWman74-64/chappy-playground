@@ -183,11 +183,93 @@ Do not rely on RGB alone to identify direction.
 
 ---
 
-## 8. Optical Language
+## 8. Interior Surface Occlusion
+
+### Failure mode
+The first interior prototype used translucent structural walls. During rotation, the opposite wall could briefly appear through the wall currently facing the camera.
+
+The symptom looked like a rendering flicker, but the underlying problem was compositing:
+
+```text
+translucent front wall
++
+opposite wall still rendered
++
+3D rotation
+→
+rear surface flashes through the current reading surface
+```
+
+### Rule: structure owns occlusion
+If a surface is supposed to behave as a room wall, make the structural layer opaque enough to establish depth.
+
+Keep RGB / atmospheric effects in a separate optical layer.
+
+```text
+opaque structural wall
++
+semi-transparent light layer
+≠
+semi-transparent structural wall
+```
+
+The visual may still feel luminous without allowing unrelated content to show through.
+
+### Backface culling
+All room surfaces should use both forms for browser coverage:
+
+```css
+backface-visibility: hidden;
+-webkit-backface-visibility: hidden;
+```
+
+This prevents the reverse side of a wall from being drawn when the room rotates past it.
+
+### Opposite-wall culling
+Backface culling alone does not guarantee that a different wall elsewhere in the room cannot remain visible through compositing.
+
+PRISM INTERIOR therefore also culls the wall that is clearly behind the viewer.
+
+Each semantic wall has a yaw angle:
+
+```text
+Origin  = 0°
+Signal  = 90°
+Memory  = 180°
+Return  = 270°
+```
+
+For the current room yaw, calculate the shortest angular distance to every wall. If a wall is more than roughly **136°** away from the current view direction, set it to `visibility:hidden`.
+
+The threshold is intentionally wider than 90° so adjacent walls remain visible during a turn. Only the clearly opposite surface disappears.
+
+```text
+current wall + adjacent walls
+→ remain available for spatial continuity
+
+clearly opposite wall
+→ culled
+```
+
+Do not swap visibility exactly at 90°. That creates a more obvious pop at the middle of a turn.
+
+### Implementation order
+When an interior CSS 3D scene shows rear-surface flashing, debug in this order:
+
+1. make structural surfaces opaque,
+2. add `backface-visibility:hidden`,
+3. separate optical translucency from structural opacity,
+4. only then add angle-aware opposite-surface culling if needed.
+
+Do not begin by adding blur or more opacity transitions. Those can hide the symptom while preserving incorrect depth composition.
+
+---
+
+## 9. Optical Language
 
 Interface chrome remains monochrome.
 
-RGB is reserved for outside-light / optical atmosphere:
+RGB is reserved for wall-light / optical atmosphere:
 - Origin: neutral / white
 - Signal: slight blue
 - Memory: slight green
@@ -195,9 +277,11 @@ RGB is reserved for outside-light / optical atmosphere:
 
 These are secondary direction cues, not navigation colors.
 
+The RGB layer does not determine structural transparency.
+
 ---
 
-## 9. Responsive 3D
+## 10. Responsive 3D
 
 Use the existing UI Lab rule:
 
@@ -219,9 +303,11 @@ Use the existing UI Lab rule:
 
 The semantic room remains identical.
 
+Occlusion semantics also remain identical across breakpoints. Do not solve mobile flicker with a separate visual hack if the structural depth rule can be shared.
+
 ---
 
-## 10. Performance
+## 11. Performance
 
 There is no permanent animation loop.
 
@@ -237,6 +323,8 @@ release
 
 Writing uses a short deterministic surface animation after settle.
 
+Angle-aware wall culling updates only the four semantic walls during an already-active render. It does not create its own animation loop.
+
 Avoid:
 - particles,
 - large animated blur filters,
@@ -247,7 +335,7 @@ When idle, the room should be still.
 
 ---
 
-## 11. Reduced Motion
+## 12. Reduced Motion
 
 With `prefers-reduced-motion`:
 - wall copy is immediately readable,
@@ -267,3 +355,5 @@ Direct manipulation may remain because it is user-driven feedback, but the settl
 5. Swipe / release retains the calm continuity of Prism Orbit.
 6. Mobile vertical scrolling does not fight horizontal turning.
 7. Returning to a previous wall restores orientation immediately.
+8. Opposite-wall content does not flash through the current wall during rotation.
+9. Side-wall visibility still preserves the feeling of physically turning inside one room.
