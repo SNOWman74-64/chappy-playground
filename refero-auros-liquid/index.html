@@ -31,14 +31,14 @@ svg{display:block;width:100%;height:100%;overflow:visible}.shell{fill:url(#shell
 </style>
 </head>
 <body>
-<header class="nav"><span class="brand">TIDE / AUROS STUDY</span><span>LIQUID RESPONSE 001</span></header>
+<header class="nav"><span class="brand">TIDE / AUROS STUDY</span><span>GOOEY RESPONSE 002</span></header>
 <main>
 <section class="hero">
   <div class="copy">
-    <span class="kicker">BIOLUMINESCENT MASS / DIRECT MANIPULATION</span>
-    <h1>Pull the<br>surface.<br>Feel the mass.</h1>
-    <p>The shell answers first. The particles follow a fraction later. Release with speed and the form stretches once before <strong>surface tension restores the whole body.</strong></p>
-    <div class="micro"><span class="signal"><i></i>idle loop / none</span><span>drag / live</span><span>release / spring</span></div>
+    <span class="kicker">BIOLUMINESCENT MASS / EXAGGERATED DIRECT MANIPULATION</span>
+    <h1>Pull it<br>further.<br>Watch it flow.</h1>
+    <p>The shell still answers immediately, but the shape now stretches harder, compresses across the pull, and lets the particles trail farther behind. Release with speed and <strong>the body overshoots once before tension restores it.</strong></p>
+    <div class="micro"><span class="signal"><i></i>idle loop / none</span><span>drag / gooey</span><span>release / one overshoot</span></div>
   </div>
   <div class="orb-column">
     <div class="orb-stage" id="orbStage" tabindex="0" role="application" aria-label="Interactive liquid orb. Drag to deform it; vertical page scrolling remains available on touch devices.">
@@ -62,23 +62,23 @@ svg{display:block;width:100%;height:100%;overflow:visible}.shell{fill:url(#shell
         </g>
         <path id="rim" class="rim" d="M300 86a214 214 0 1 1 0 428 214 214 0 0 1 0-428z"/>
       </svg>
-      <div class="drag-label"><strong>drag the mass</strong> · touch keeps vertical scroll</div>
+      <div class="drag-label"><strong>pull harder</strong> · touch keeps vertical scroll</div>
     </div>
   </div>
 </section>
 <section class="depth-strip">
-  <small>01 / RESPONSE LAYERS</small>
-  <h2>Liquid feeling comes from continuity between layers, not a looping blob animation.</h2>
+  <small>02 / GOOEY RESPONSE LAYERS</small>
+  <h2>Exaggerate deformation, not input latency.</h2>
   <div class="layers">
-    <article class="layer"><small>surface / immediate</small><strong>Shell follows intent.</strong><p>The outer boundary responds directly to the current pull. There is no canned “squish” clip between the pointer and the form.</p></article>
-    <article class="layer"><small>mass / delayed</small><strong>Inside lags behind.</strong><p>The particle field has its own slower spring. That small phase difference suggests weight without turning the interface sluggish.</p></article>
-    <article class="layer"><small>release / velocity</small><strong>Momentum survives.</strong><p>Release velocity becomes the restoring spring's initial velocity, so a fast pull stretches farther before the body recovers.</p></article>
-    <article class="layer"><small>rest / tension</small><strong>Stillness is complete.</strong><p>When shell and mass settle, requestAnimationFrame stops. The final static orb remains the complete visual state.</p></article>
+    <article class="layer"><small>surface / immediate</small><strong>Intent stays fast.</strong><p>The pointer path is still direct. The extra drama comes from how far the geometry deforms, not from delaying the user's input.</p></article>
+    <article class="layer"><small>shape / asymmetric</small><strong>Lead stretches. Sides squeeze.</strong><p>The pulled edge grows into a soft tail while the perpendicular axis compresses, so the object deforms instead of merely scaling up.</p></article>
+    <article class="layer"><small>mass / heavier lag</small><strong>Inside flows later.</strong><p>The particle field follows farther and with a slower spring. Its stretch direction follows the displaced mass instead of mirroring the shell exactly.</p></article>
+    <article class="layer"><small>release / tension</small><strong>One overshoot, then rest.</strong><p>A slightly underdamped restoring spring preserves release energy once, then returns to a complete static state with no idle loop.</p></article>
   </div>
-  <div class="metric"><div><strong>1:1</strong><span>surface response</span></div><div><strong>2×</strong><span>response layers</span></div><div><strong>0</strong><span>idle animation loops</span></div></div>
+  <div class="metric"><div><strong>~2×</strong><span>shape deformation</span></div><div><strong>34%</strong><span>mass follow target</span></div><div><strong>0</strong><span>idle animation loops</span></div></div>
 </section>
 </main>
-<footer class="footer"><span>TIDE / AUROS-INSPIRED LIQUID STUDY</span><span>Reference visual grammar + Apple-fluid continuity · 2026</span></footer>
+<footer class="footer"><span>TIDE / AUROS-INSPIRED LIQUID STUDY</span><span>Exaggerated geometry + Apple-fluid continuity · 2026</span></footer>
 <script>
 (()=>{
   const stage=document.getElementById('orbStage');
@@ -108,7 +108,7 @@ svg{display:block;width:100%;height:100%;overflow:visible}.shell{fill:url(#shell
     mass.appendChild(c);
   }
 
-  const baseR=214,N=18;
+  const baseR=214,N=20;
   function smoothClosed(points){
     let d=`M${points[0].x.toFixed(2)},${points[0].y.toFixed(2)}`;
     for(let i=0;i<N;i++){
@@ -120,16 +120,24 @@ svg{display:block;width:100%;height:100%;overflow:visible}.shell{fill:url(#shell
     return d+' Z';
   }
   function blobPath(px,py,vx=0,vy=0){
-    const mag=Math.hypot(px,py),dirMag=Math.max(1,mag),energy=clamp(Math.hypot(vx,vy)/900,0,1);
-    const nx=px/dirMag,ny=py/dirMag,intensity=clamp(mag/118,0,1);
+    const mag=Math.hypot(px,py),dirMag=Math.max(1,mag),energy=clamp(Math.hypot(vx,vy)/1050,0,1);
+    const nx=px/dirMag,ny=py/dirMag,intensity=clamp(mag/145,0,1);
     const points=[];
     for(let i=0;i<N;i++){
       const a=Math.PI*2*i/N,ux=Math.cos(a),uy=Math.sin(a),dot=ux*nx+uy*ny;
-      const lead=Math.max(0,dot),trail=Math.max(0,-dot);
-      const directional=baseR*(.105*intensity*lead*lead-.05*intensity*trail*trail);
-      const wake=baseR*.018*energy*Math.sin(a*3+Math.atan2(vy,vx||.001));
-      const rr=baseR+directional+wake;
-      points.push({x:300+px*.075+ux*rr,y:300+py*.075+uy*rr});
+      const sideDot=ux*(-ny)+uy*nx;
+      const lead=Math.max(0,dot),trail=Math.max(0,-dot),side=Math.abs(sideDot);
+      const stretch=baseR*.22*intensity*lead*lead;
+      const tail=baseR*.115*intensity*lead*lead*lead;
+      const rearCompress=baseR*.09*intensity*trail*trail;
+      const sideCompress=baseR*.06*intensity*side*side;
+      const wake=baseR*.026*energy*Math.sin(a*3+Math.atan2(vy,vx||.001));
+      const rr=baseR+stretch-rearCompress-sideCompress+wake;
+      const tailX=nx*tail,tailY=ny*tail;
+      points.push({
+        x:300+px*.105+ux*rr+tailX,
+        y:300+py*.105+uy*rr+tailY
+      });
     }
     return smoothClosed(points);
   }
@@ -142,7 +150,11 @@ svg{display:block;width:100%;height:100%;overflow:visible}.shell{fill:url(#shell
   function render(){
     const d=blobPath(pullX,pullY,velX,velY);
     shell.setAttribute('d',d);rim.setAttribute('d',d);sheen.setAttribute('d',d);clipShape.setAttribute('d',d);
-    mass.style.transform=`translate(${massX.toFixed(2)}px,${massY.toFixed(2)}px)`;
+    const massMag=Math.hypot(massX,massY);
+    const massAngle=massMag>.05?Math.atan2(massY,massX)*180/Math.PI:0;
+    const massStretch=1+clamp(massMag/280,0,.13);
+    const massSquash=1-(massStretch-1)*.58;
+    mass.style.transform=`translate(${massX.toFixed(2)}px,${massY.toFixed(2)}px) rotate(${massAngle.toFixed(2)}deg) scale(${massStretch.toFixed(4)},${massSquash.toFixed(4)}) rotate(${(-massAngle).toFixed(2)}deg)`;
   }
   function rubber(v,limit){const s=Math.sign(v),a=Math.abs(v);return s*limit*(1-Math.exp(-a/limit))}
   function stopTick(){if(raf){cancelAnimationFrame(raf);raf=0}lastFrame=0}
@@ -152,13 +164,13 @@ svg{display:block;width:100%;height:100%;overflow:visible}.shell{fill:url(#shell
     const dt=Math.min(.032,(now-lastFrame)/1000);lastFrame=now;
 
     if(!dragging){
-      const k=122,c=20;
+      const k=108,c=16;
       const ax=-pullX*k-velX*c,ay=-pullY*k-velY*c;
       velX+=ax*dt;velY+=ay*dt;pullX+=velX*dt;pullY+=velY*dt;
-      massTargetX=pullX*.24;massTargetY=pullY*.24;
+      massTargetX=pullX*.34;massTargetY=pullY*.34;
     }
 
-    const mk=72,mc=15;
+    const mk=49,mc=10.8;
     massVX+=(massTargetX-massX)*mk*dt-massVX*mc*dt;
     massVY+=(massTargetY-massY)*mk*dt-massVY*mc*dt;
     massX+=massVX*dt;massY+=massVY*dt;
@@ -187,9 +199,9 @@ svg{display:block;width:100%;height:100%;overflow:visible}.shell{fill:url(#shell
     const now=performance.now(),dt=Math.max(8,now-lastMove)/1000;
     const pointerVX=(e.clientX-lastX)/dt,pointerVY=(e.clientY-lastY)/dt;
     const yFactor=touchLike.matches?.42:1;
-    pullX=startPullX+rubber(dx*.74,118);pullY=startPullY+rubber(dy*.66*yFactor,96);
-    velX=clamp(pointerVX*.74,-980,980);velY=clamp(pointerVY*.66*yFactor,-820,820);
-    massTargetX=pullX*.24;massTargetY=pullY*.24;
+    pullX=startPullX+rubber(dx*.92,152);pullY=startPullY+rubber(dy*.78*yFactor,122);
+    velX=clamp(pointerVX*.88,-1200,1200);velY=clamp(pointerVY*.74*yFactor,-980,980);
+    massTargetX=pullX*.34;massTargetY=pullY*.34;
     lastX=e.clientX;lastY=e.clientY;lastMove=now;
     render();ensureTick();
   }
@@ -206,8 +218,8 @@ svg{display:block;width:100%;height:100%;overflow:visible}.shell{fill:url(#shell
   stage.addEventListener('pointerup',end);
   stage.addEventListener('pointercancel',end);
   stage.addEventListener('keydown',e=>{
-    const nudge=e.key==='ArrowLeft'?[-58,0]:e.key==='ArrowRight'?[58,0]:e.key==='ArrowUp'?[0,-48]:e.key==='ArrowDown'?[0,48]:null;
-    if(!nudge)return;e.preventDefault();stopTick();pullX=nudge[0];pullY=nudge[1];velX=nudge[0]*5;velY=nudge[1]*5;massTargetX=pullX*.24;massTargetY=pullY*.24;render();if(!reduce)ensureTick();else{pullX=pullY=velX=velY=0;render()}
+    const nudge=e.key==='ArrowLeft'?[-78,0]:e.key==='ArrowRight'?[78,0]:e.key==='ArrowUp'?[0,-62]:e.key==='ArrowDown'?[0,62]:null;
+    if(!nudge)return;e.preventDefault();stopTick();pullX=nudge[0];pullY=nudge[1];velX=nudge[0]*6;velY=nudge[1]*6;massTargetX=pullX*.34;massTargetY=pullY*.34;render();if(!reduce)ensureTick();else{pullX=pullY=velX=velY=0;render()}
   });
   render();
 })();
