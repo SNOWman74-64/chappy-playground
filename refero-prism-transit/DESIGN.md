@@ -55,7 +55,7 @@ For the CSS prototype there is no literal WebGL camera, so the inverse camera tr
 ### 5. Curved route, not one repeated angle
 The camera path bends around the waypoints rather than moving only forward on Z.
 
-Current route:
+Desktop route:
 - begin near Station A,
 - move to the right of A while advancing,
 - curve toward Station B from a different angle,
@@ -64,19 +64,46 @@ Current route:
 
 View yaw / pitch are derived from the local path direction so the scene subtly turns as the route bends.
 
-### 6. Motion is spatial, not busy
+### 6. Responsive 3D means camera recomposition
+The world / station identity stays shared, but desktop and mobile do **not** share the same camera route.
+
+```text
+same world
+├ desktop camera composition
+└ mobile camera composition
+```
+
+A desktop pass-by path can become a giant cropped plane on a tall phone viewport. This is a composition failure, not ordinary CSS overflow.
+
+#### Desktop
+- stronger Z approach,
+- wider lateral passes,
+- larger yaw / pitch changes,
+- cubes may partially leave frame when that improves the feeling of passage.
+
+#### Mobile
+- shallower Z approach,
+- narrower X / Y movement,
+- gentler yaw / pitch,
+- smaller cube presentation,
+- keep the active station mostly or entirely visible,
+- preserve bottom safe space for progress / station labels / browser chrome.
+
+Mobile should feel like a different shot of the same physical set, not a scaled-down desktop render.
+
+### 7. Motion is spatial, not busy
 - Cubes themselves stay stable landmarks.
 - Most perceived motion comes from camera-relative scale / translation / perspective.
 - Avoid bounce and playful scale-pop.
 - RGB optical effects remain secondary to spatial movement.
 - Stronger optical glow belongs only to the nearest station.
 
-### 7. Reversible path
-Scrolling upward retraces the exact same spatial route because all presentation state derives from one scroll progress value.
+### 8. Reversible path
+Scrolling upward retraces the exact same platform-specific spatial route because all presentation state derives from one scroll progress value.
 
 There is no separate exit animation.
 
-### 8. Apple Fluid influence
+### 9. Apple Fluid influence
 The spatial concept comes from the Refero study; motion continuity borrows the shared Apple Fluid lesson:
 - do not teleport between stations,
 - keep progress continuous,
@@ -101,6 +128,11 @@ scroll / resize
 
 When the page is still, the spatial scene should do no per-frame JavaScript work.
 
+### `will-change` lifecycle
+`will-change` is enabled while the camera is settling and returned to `auto` when the scene sleeps.
+
+Do not reserve compositor layers permanently just because an object may move later.
+
 ### Transform budget
 The scroll path updates:
 1. one `world` transform,
@@ -114,6 +146,13 @@ Cube transforms are static CSS.
 - Use gradient-based halos.
 - Only the active / nearest station receives the stronger halo.
 - Avoid particles and heavy SVG filters in this phase.
+- Mobile uses a smaller / quieter spectrum field and lower grain opacity.
+
+## Viewport / Safe-area Rules
+- Sticky spatial viewport uses dynamic viewport height where supported.
+- Maintain fallbacks for mobile browser differences.
+- Mobile progress / station labels sit above bottom safe-area and browser chrome assumptions.
+- Never treat `overflow:hidden` as the fix for a camera framing problem.
 
 ## Prototype constraints
 This version deliberately uses CSS 3D rather than Three.js/WebGL.
@@ -121,17 +160,9 @@ This version deliberately uses CSS 3D rather than Three.js/WebGL.
 Reason:
 - validate spatial navigation before graphics engineering,
 - keep mobile failure modes small,
-- establish whether fixed cubes + camera path + restrained RGB light are enough to communicate travel.
+- establish whether fixed cubes + platform-specific camera paths + restrained RGB light are enough to communicate travel.
 
-If the concept succeeds, a later version may replace the CSS world with WebGL / R3F while keeping the **same fixed-waypoint / moving-camera architecture**.
-
-## Mobile
-- Fewer visual assumptions than desktop.
-- Cubes remain large landmarks.
-- Text stays readable independently of the 3D field.
-- Avoid heavy filters and particle systems.
-- Route distances are shorter than desktop.
-- Reduced Motion shortens travel and removes presentation smoothing.
+If the concept succeeds, a later version may replace the CSS world with WebGL / R3F while keeping the **same fixed-waypoint / responsive-camera architecture**.
 
 ## Success criteria
 1. The user can identify three spatial stations.
@@ -140,4 +171,5 @@ If the concept succeeds, a later version may replace the CSS world with WebGL / 
 4. RGB reads as an optical event, not a UI palette.
 5. Returning upward feels spatially consistent.
 6. The scene stops doing animation work when scrolling has settled.
-7. Mobile is materially lighter than the first per-cube-motion prototype.
+7. Mobile never turns a station into an unintentionally giant cropped plane.
+8. Desktop and mobile feel like coherent views of the same world, not one layout mechanically scaled.
