@@ -144,27 +144,124 @@ Rendering fidelity can increase later without changing the interaction architect
 
 ---
 
-## What to test on device
+## Device feedback after Response 001
 
-- Does the outer shape feel attached to the finger?
-- Does the internal lag read as "mass" or just "latency"?
-- Is the difference between a slow release and a fast flick perceptible?
-- Is the restoring motion too bouncy, too stiff, or convincingly cohesive?
-- Can the orb be grabbed during restoration without a discontinuity?
-- Does the coarse-pointer horizontal-intent rule preserve normal iPhone scrolling?
-- Are ~100 particles enough to retain the Auros-like bioluminescent identity?
-- Does the orb remain smooth enough on the target phone browser?
+The first phone check confirmed that the orb **responds correctly to touch** and that the interaction architecture survives the target mobile browser.
+
+The next user request was not to repair responsiveness, but to make the deformation more exaggerated / gooey.
+
+That distinction matters:
+
+```text
+problem was NOT
+→ input feels broken or late
+
+next experiment IS
+→ can the same responsive control support more dramatic material deformation?
+```
+
+So Response 002 deliberately preserves the gesture model and changes the material presentation instead.
 
 ---
 
-## General lesson candidate
+## Response 002 — Gooey exaggeration
 
-If device testing supports it, the candidate reusable rule is:
+### Change 1: much stronger directional geometry
+The first version mostly changed radial distance.
+
+The second version adds separate deformation roles:
+
+```text
+leading edge
+→ strong radial stretch
+→ extra directional tail
+
+perpendicular sides
+→ compression
+
+rear edge
+→ stronger contraction
+```
+
+The goal is to make the shape look **pulled**, not simply larger.
+
+This is a useful distinction for future deformation work:
+
+> Global scaling changes size. Directional stretch + cross-axis compression changes material character.
+
+### Change 2: larger bounded drag range
+The nonlinear rubber-band remains, but the usable range is widened.
+
+This gives the shape enough displacement to visibly form a tail without allowing unbounded control-point distortion.
+
+The resistance remains part of the material model rather than merely a safety clamp.
+
+### Change 3: heavier internal mass
+The mass target increases from roughly 24% to 34% of shell pull and uses a slower spring.
+
+The particle group also stretches slightly along its own displacement axis.
+
+This creates two separable signals:
+- where the shell is being pulled,
+- where the internal matter is still flowing.
+
+### Change 4: one intentional overshoot
+Response 001 was relatively restrained on release.
+
+Response 002 lowers damping enough to allow the shell to cross the rest shape once when release energy is sufficient.
+
+This should read as stored surface energy being released.
+
+The important constraint is **one characterful overshoot, not repeated wobbling**.
+
+---
+
+## Why geometry is exaggerated before latency
+
+A tempting way to make an interface feel more liquid is to make everything follow the pointer more slowly.
+
+That is risky because the same perceptual cue can be interpreted as input lag.
+
+Response 002 therefore follows this priority:
+
+```text
+1. preserve direct boundary response
+2. increase asymmetric deformation
+3. increase internal phase lag
+4. allow a small release overshoot
+5. only then consider slower primary response
+```
+
+This keeps the Apple-fluid agency rule intact while increasing material expressiveness.
+
+---
+
+## What to test on device now
+
+- Does the stronger leading tail read as gooey / liquid rather than broken geometry?
+- Does side compression make the deformation feel directional?
+- Is the larger pull range still controllable with one thumb?
+- Does the 34% internal-mass follow feel heavier or merely more detached?
+- Is the release overshoot visible but limited to one useful beat?
+- Does grabbing during overshoot still start from the live rendered state?
+- Does vertical scrolling remain predictable on iPhone?
+- Does the orb still retain the Auros-like bioluminescent identity when heavily deformed?
+- Does the stronger geometry remain smooth enough on the target browser?
+
+---
+
+## General lesson candidates
+
+The original candidate remains:
 
 > **Liquid response can be suggested by layered inertia: direct boundary response, delayed internal mass, velocity-preserving release, and a cohesive restore target.**
 
-A second candidate is:
+A second candidate remains:
 
 > **Do not confuse liquid-looking idle motion with liquid-feeling interaction. Let the user's disturbance create the fluid behavior.**
 
-Neither should be promoted to Shared Learnings until the real interaction has been tested.
+Response 002 adds a third candidate:
+
+> **To exaggerate material feel without hurting agency, exaggerate directional geometry before slowing direct input.**
+
+The third rule should not be promoted to Shared Learnings until the Gooey version is tested on the real device.
