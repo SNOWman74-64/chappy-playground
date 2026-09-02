@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>PRISM INTERIOR — Read the room</title>
+<style>
+:root{
+  --bg:#0b0b0c;--ink:#f4f4f5;--muted:#98989e;--line:rgba(255,255,255,.13);
+  --r:#ff3b38;--g:#36d67d;--b:#4b8cff;
+  --room:clamp(720px,70vw,960px);--half:calc(var(--room)/2);
+  --font:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif
+}
+*{box-sizing:border-box}
+html{background:var(--bg)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);overflow-x:hidden}
+button{font:inherit}
+.nav{position:fixed;z-index:40;left:0;right:0;top:0;height:58px;padding:0 max(18px,calc((100vw - 1240px)/2));display:flex;align-items:center;justify-content:space-between;background:linear-gradient(#0b0b0cf4,#0b0b0c00);font-size:10px;letter-spacing:.11em;pointer-events:none}.nav span:last-child{color:#737378}
+.interior{height:100svh;height:100dvh;min-height:620px;position:relative;overflow:hidden;background:radial-gradient(circle at 50% 46%,#16161a 0,transparent 42%),var(--bg)}
+.grain{position:absolute;inset:0;opacity:.045;background-image:radial-gradient(rgba(255,255,255,.75) .5px,transparent .7px);background-size:20px 20px;pointer-events:none}
+.viewport{position:absolute;inset:0;perspective:1100px;perspective-origin:50% 46%;overflow:hidden}
+.camera{position:absolute;inset:0;transform-style:preserve-3d;display:grid;place-items:center;pointer-events:none}
+.room{position:relative;width:var(--room);height:var(--room);transform-style:preserve-3d;transform:rotateX(-5deg) rotateY(0deg);pointer-events:none}
+.wall{position:absolute;inset:0;border:1px solid var(--line);background:linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.014));box-shadow:inset 0 0 90px rgba(255,255,255,.018);overflow:hidden;transform-style:preserve-3d}
+.wall::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.6}
+.wall-front{transform:translateZ(calc(var(--half)*-1))}.wall-front::before{background:radial-gradient(circle at 78% 26%,rgba(255,255,255,.09),transparent 34%)}
+.wall-right{transform:rotateY(-90deg) translateZ(calc(var(--half)*-1))}.wall-right::before{background:radial-gradient(circle at 75% 32%,rgba(75,140,255,.20),transparent 38%)}
+.wall-back{transform:rotateY(180deg) translateZ(calc(var(--half)*-1))}.wall-back::before{background:radial-gradient(circle at 72% 28%,rgba(54,214,125,.17),transparent 38%)}
+.wall-left{transform:rotateY(90deg) translateZ(calc(var(--half)*-1))}.wall-left::before{background:radial-gradient(circle at 72% 30%,rgba(255,59,56,.18),transparent 38%)}
+.floor,.ceiling{position:absolute;inset:0;border:1px solid rgba(255,255,255,.07);pointer-events:none;backface-visibility:hidden}.floor{transform:rotateX(90deg) translateZ(calc(var(--half)*-1));background:linear-gradient(rgba(255,255,255,.025),rgba(255,255,255,.008)),repeating-linear-gradient(90deg,transparent 0 79px,rgba(255,255,255,.06) 80px),repeating-linear-gradient(0deg,transparent 0 79px,rgba(255,255,255,.06) 80px)}.ceiling{transform:rotateX(-90deg) translateZ(calc(var(--half)*-1));background:rgba(255,255,255,.012)}
+.wall-copy{position:absolute;left:10%;right:10%;top:16%;bottom:12%;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;pointer-events:none}.wall-index{font-size:11px;letter-spacing:.18em;color:rgba(255,255,255,.45);margin-bottom:28px}.wall-title{font-size:clamp(58px,6.8vw,100px);font-weight:400;line-height:.9;letter-spacing:-.06em;margin:0 0 28px;max-width:82%}.wall-body{max-width:560px;color:#c0c0c5;font-size:clamp(15px,1.4vw,19px);line-height:1.65;margin:0}.wall-note{margin-top:28px;color:#797980;font-size:11px;letter-spacing:.08em;border-top:1px solid rgba(255,255,255,.13);padding-top:12px;max-width:420px}
+[data-write]{--clip:100%;--lift:6px;clip-path:inset(-.32em var(--clip) -.5em 0);opacity:0;transform:translateY(var(--lift))}.wall.is-reading [data-write]{animation:writeIn .62s cubic-bezier(.2,.72,.2,1) forwards}.wall.is-reading .wall-index{animation-delay:.05s}.wall.is-reading .wall-title{animation-delay:.18s;animation-duration:.72s}.wall.is-reading .wall-body{animation-delay:.43s;animation-duration:.88s}.wall.is-reading .wall-note{animation-delay:.82s;animation-duration:.62s}@keyframes writeIn{0%{--clip:100%;opacity:0;transform:translateY(6px)}18%{opacity:.9}100%{--clip:0%;opacity:1;transform:translateY(0)}}
+.outside-light{position:absolute;left:50%;top:50%;width:150vw;height:2px;transform:translate(-50%,-50%) rotate(-8deg);background:linear-gradient(90deg,transparent,var(--r) 27%,var(--g) 50%,var(--b) 73%,transparent);opacity:.18;filter:blur(.2px);pointer-events:none}
+.gesture-zone{position:absolute;z-index:25;inset:58px 0 0;border:0;background:transparent;touch-action:pan-y;cursor:grab;-webkit-user-select:none;user-select:none}.gesture-zone.dragging{cursor:grabbing}
+.hud{position:absolute;z-index:30;left:max(20px,calc((100vw - 1240px)/2));right:max(20px,calc((100vw - 1240px)/2));bottom:max(22px,calc(env(safe-area-inset-bottom) + 10px));display:grid;grid-template-columns:1fr auto 1fr;align-items:end;gap:16px;pointer-events:none}.hud-side{font-size:10px;letter-spacing:.09em;color:#6f6f75}.hud-side:last-child{text-align:right}.face-state{text-align:center}.face-state strong{display:block;font-size:11px;font-weight:500;letter-spacing:.13em}.face-state span{display:block;margin-top:6px;font-size:9px;color:#707076;letter-spacing:.09em}.compass{display:flex;justify-content:center;gap:7px;margin-top:10px}.compass i{width:4px;height:4px;border:1px solid #6d6d72;border-radius:50%;transition:background .16s ease,transform .16s ease}.compass i.active{background:#ececee;transform:scale(1.35)}
+.after{min-height:80svh;padding:100px max(22px,calc((100vw - 1160px)/2));border-top:1px solid #202024;display:grid;grid-template-columns:.85fr 1.15fr;gap:80px;align-items:center}.after small{font-size:10px;color:#666;letter-spacing:.14em}.after h2{font-size:clamp(48px,6vw,88px);line-height:.92;font-weight:400;letter-spacing:-.055em;margin:14px 0}.after p{max-width:470px;color:#8e8e94;line-height:1.65}.rules{border-left:1px solid #2a2a2e;padding-left:28px;display:grid;gap:24px}.rule strong{display:block;font-size:13px;font-weight:500;margin-bottom:5px}.rule span{display:block;color:#78787e;font-size:12px;line-height:1.5}.footer{padding:42px max(22px,calc((100vw - 1160px)/2));border-top:1px solid #202024;color:#666;font-size:10px;display:flex;justify-content:space-between}
+.motion-on{will-change:transform}
+@media(max-width:720px){:root{--room:520px}.nav{height:54px;padding-left:max(18px,env(safe-area-inset-left));padding-right:max(18px,env(safe-area-inset-right))}.interior{min-height:580px}.viewport{perspective:920px;perspective-origin:50% 43%}.camera{transform:translateY(-2vh)}.room{transform:rotateX(-4deg) rotateY(0deg)}.wall-copy{left:13%;right:13%;top:14%;bottom:14%;justify-content:flex-start;padding-top:95px}.wall-index{font-size:9px;margin-bottom:18px}.wall-title{font-size:52px;line-height:.91;max-width:92%;margin-bottom:20px}.wall-body{font-size:14px;line-height:1.56;max-width:88%}.wall-note{font-size:9px;margin-top:18px;max-width:82%}.floor{background:linear-gradient(rgba(255,255,255,.025),rgba(255,255,255,.008)),repeating-linear-gradient(90deg,transparent 0 59px,rgba(255,255,255,.055) 60px),repeating-linear-gradient(0deg,transparent 0 59px,rgba(255,255,255,.055) 60px)}.gesture-zone{inset:54px 0 0}.hud{left:18px;right:18px;grid-template-columns:1fr auto;bottom:max(20px,calc(env(safe-area-inset-bottom) + 8px))}.hud-side:last-child{display:none}.face-state{text-align:right}.outside-light{width:220vw;opacity:.13}.after{grid-template-columns:1fr;gap:42px;padding:82px 22px}.rules{padding-left:20px}.footer{display:block;line-height:1.8;padding-left:22px;padding-right:22px}}
+@media(prefers-reduced-motion:reduce){[data-write]{clip-path:none!important;opacity:1!important;transform:none!important}.wall.is-reading [data-write]{animation:none!important}.compass i{transition:none}}
+</style>
+</head>
+<body>
+<header class="nav"><span>PRISM / INTERIOR</span><span>READ THE ROOM · STUDY 001</span></header>
+<main>
+<section class="interior" id="interior">
+  <div class="grain"></div><div class="outside-light"></div>
+  <div class="viewport"><div class="camera"><div class="room" id="room">
+    <section class="wall wall-front is-reading" data-face="0"><div class="wall-copy"><span class="wall-index" data-write>01 / ORIGIN</span><h1 class="wall-title" data-write>Start with<br>one clear wall.</h1><p class="wall-body" data-write>The room remembers where you entered. A stable first surface makes every later turn feel like a change of direction instead of a new screen.</p><p class="wall-note" data-write>FRONT / neutral light / swipe left to continue</p></div></section>
+    <section class="wall wall-right" data-face="1"><div class="wall-copy"><span class="wall-index" data-write>02 / SIGNAL</span><h1 class="wall-title" data-write>Let light do<br>the shouting.</h1><p class="wall-body" data-write>The interface stays monochrome. Blue belongs to the world beyond the glass, so color feels like an optical event rather than another navigation label.</p><p class="wall-note" data-write>RIGHT / blue field / the text belongs to this wall</p></div></section>
+    <section class="wall wall-back" data-face="2"><div class="wall-copy"><span class="wall-index" data-write>03 / MEMORY</span><h1 class="wall-title" data-write>Turning should<br>not erase place.</h1><p class="wall-body" data-write>You reached this wall by rotating through the same room. Reverse the gesture and the route reverses too. The content stays attached to the surface that owns it.</p><p class="wall-note" data-write>BACK / green field / same room, opposite direction</p></div></section>
+    <section class="wall wall-left" data-face="3"><div class="wall-copy"><span class="wall-index" data-write>04 / RETURN</span><h1 class="wall-title" data-write>Home should be<br>easy to find.</h1><p class="wall-body" data-write>Freedom lives between the resting points. When you let go, the view settles onto a known wall. The room can feel dynamic without making orientation expensive.</p><p class="wall-note" data-write>LEFT / red field / one more turn returns to Origin</p></div></section>
+    <div class="floor"></div><div class="ceiling"></div>
+  </div></div></div>
+  <button class="gesture-zone" id="gestureZone" type="button" aria-label="Swipe horizontally to look at another wall"></button>
+  <div class="hud"><div class="hud-side">INSIDE / CAMERA AT CENTER</div><div class="face-state"><strong id="faceName">01 / ORIGIN</strong><span>SWIPE HORIZONTALLY</span><div class="compass" id="compass"><i class="active"></i><i></i><i></i><i></i></div></div><div class="hud-side">WALL = LOCATION = CONTENT</div></div>
+</section>
+<section class="after"><div><small>01 / CONTENT AS LANDMARK</small><h2>Read the wall<br>you are facing.</h2><p>Instead of opening a detached information panel, each surface owns its own writing. Direction and content become the same cue, which should reduce the “where am I?” problem of an interior 3D view.</p></div><div class="rules"><div class="rule"><strong>Swipe = viewpoint</strong><span>Horizontal movement follows the pointer directly, then settles to the nearest 90° wall with velocity continuity.</span></div><div class="rule"><strong>Settle first, write second</strong><span>Text starts writing only after the view has reached a stable wall. Camera motion and long-form reading do not compete.</span></div><div class="rule"><strong>The wall owns the copy</strong><span>Text is physically placed on the 3D surface instead of floating in a separate overlay.</span></div><div class="rule"><strong>Orientation stays visible</strong><span>Four stable walls, face labels, floor grid and a small compass provide redundant direction cues.</span></div></div></section>
+</main>
+<footer class="footer"><span>PRISM INTERIOR / VIVID-INSPIRED OPTICAL SPACE</span><span>Apple-fluid orbit · Daybook writing grammar · 2026</span></footer>
+<script>
+(()=>{
+  const room=document.getElementById('room'),zone=document.getElementById('gestureZone'),faceName=document.getElementById('faceName'),walls=[...document.querySelectorAll('.wall[data-face]')],dots=[...document.querySelectorAll('#compass i')];
+  const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  const names=['01 / ORIGIN','02 / SIGNAL','03 / MEMORY','04 / RETURN'];
+  const faceIndex=a=>((Math.round(a/90)%4)+4)%4;
+  let angle=0,target=0,velocity=0,raf=0,lastTime=0;
+  let pointerId=null,startX=0,startY=0,startAngle=0,lastX=0,lastMove=0,intent='pending';
+  let currentFace=0;
+
+  function render(a){room.style.transform=`rotateX(-5deg) rotateY(${a}deg)`}
+  function clearReading(){walls.forEach(w=>w.classList.remove('is-reading'))}
+  function activateFace(index){
+    currentFace=index;faceName.textContent=names[index];dots.forEach((d,i)=>d.classList.toggle('active',i===index));
+    const wall=walls[index];clearReading();void wall.offsetWidth;wall.classList.add('is-reading');
+  }
+  function stopSpring(){if(raf){cancelAnimationFrame(raf);raf=0}lastTime=0}
+  function springFrame(now){
+    if(!lastTime)lastTime=now;
+    const dt=Math.min(.032,(now-lastTime)/1000);lastTime=now;
+    const stiffness=reduce?420:170,damping=reduce?46:26;
+    const accel=(target-angle)*stiffness-velocity*damping;
+    velocity+=accel*dt;angle+=velocity*dt;render(angle);
+    if(Math.abs(target-angle)<.045&&Math.abs(velocity)<.5){angle=target;velocity=0;render(angle);raf=0;lastTime=0;zone.classList.remove('dragging');activateFace(faceIndex(angle));return}
+    raf=requestAnimationFrame(springFrame);
+  }
+  function settle(){
+    const projected=angle+velocity*.14;target=Math.round(projected/90)*90;
+    if(reduce){angle=target;velocity=0;render(angle);activateFace(faceIndex(angle));return}
+    stopSpring();zone.classList.add('dragging');raf=requestAnimationFrame(springFrame);
+  }
+  zone.addEventListener('pointerdown',e=>{
+    stopSpring();pointerId=e.pointerId;startX=lastX=e.clientX;startY=e.clientY;startAngle=angle;lastMove=performance.now();intent='pending';
+  });
+  zone.addEventListener('pointermove',e=>{
+    if(e.pointerId!==pointerId)return;
+    const dx=e.clientX-startX,dy=e.clientY-startY;
+    if(intent==='pending'&&Math.hypot(dx,dy)>8){intent=Math.abs(dx)>Math.abs(dy)*1.12?'horizontal':'vertical';if(intent==='horizontal'){zone.setPointerCapture(e.pointerId);zone.classList.add('dragging');clearReading()}}
+    if(intent!=='horizontal')return;
+    const now=performance.now(),dt=Math.max(8,now-lastMove),vx=(e.clientX-lastX)/(dt/1000);
+    angle=startAngle-dx*.32;velocity=-vx*.32;lastX=e.clientX;lastMove=now;render(angle);
+    faceName.textContent=names[faceIndex(angle)];dots.forEach((d,i)=>d.classList.toggle('active',i===faceIndex(angle)));
+  });
+  function release(e){if(e.pointerId!==pointerId)return;const wasHorizontal=intent==='horizontal';pointerId=null;intent='pending';if(wasHorizontal)settle()}
+  zone.addEventListener('pointerup',release);zone.addEventListener('pointercancel',release);
+  addEventListener('keydown',e=>{if(e.key!=='ArrowLeft'&&e.key!=='ArrowRight')return;clearReading();stopSpring();velocity=0;target=Math.round(angle/90)*90+(e.key==='ArrowLeft'?90:-90);if(reduce){angle=target;render(angle);activateFace(faceIndex(angle))}else raf=requestAnimationFrame(springFrame)});
+  render(0);activateFace(0);
+})();
+</script>
+</body>
+</html>
