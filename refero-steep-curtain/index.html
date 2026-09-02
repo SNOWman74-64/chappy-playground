@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>FOLD — Spatial Card Curtain</title>
+<style>
+:root{
+  --paper:#fff;--fog:#fafafb;--mist:#f2f2f3;--ink:#17191c;--muted:#777b86;--ash:#979799;
+  --peach:#fbe1d1;--brown:#5d2a1a;--line:rgba(23,25,28,.11);
+  --serif:Georgia,"Times New Roman",ui-serif,serif;
+  --sans:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box}
+html{background:var(--paper)}
+body{margin:0;color:var(--ink);background:var(--paper);font-family:var(--sans);overflow-x:hidden}
+button{font:inherit;color:inherit}
+.nav{position:fixed;z-index:40;top:0;left:0;right:0;height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 max(20px,calc((100vw - 1200px)/2));background:linear-gradient(#fffffff2,#ffffff00);font-size:11px;letter-spacing:.08em;pointer-events:none}.nav span:last-child{color:var(--ash)}
+.hero{height:100svh;height:100dvh;min-height:650px;position:relative;overflow:hidden;background:radial-gradient(circle at 50% 56%,#fafafb 0,#fff 58%)}
+.hero-copy{position:absolute;z-index:3;left:max(22px,calc((100vw - 1200px)/2));top:14%;width:min(720px,80vw);pointer-events:none}.eyebrow{font-size:11px;color:var(--ash);letter-spacing:.13em;text-transform:uppercase}.hero-copy h1{margin:13px 0 0;font:400 clamp(58px,8.2vw,104px)/.92 var(--serif);letter-spacing:-.045em;max-width:700px}.hero-copy h1 em{font-weight:400}.hero-copy p{margin:22px 0 0;max-width:440px;color:var(--muted);font-size:15px;line-height:1.55}
+.stage{position:absolute;z-index:5;inset:0;perspective:1200px;perspective-origin:50% 55%;overflow:hidden;touch-action:pan-y;-webkit-user-select:none;user-select:none;cursor:grab}.stage.dragging{cursor:grabbing}.deck{position:absolute;left:50%;top:58%;width:1px;height:1px;transform-style:preserve-3d}.card{position:absolute;left:0;top:0;width:clamp(260px,30vw,390px);height:clamp(335px,42vw,500px);border:1px solid var(--line);border-radius:24px;background:var(--paper);box-shadow:0 12px 34px rgba(23,25,28,.055),0 2px 7px rgba(23,25,28,.04);transform-style:preserve-3d;backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;will-change:transform,opacity;transition:box-shadow .18s ease}.card.is-front{box-shadow:0 28px 70px rgba(23,25,28,.11),0 3px 12px rgba(23,25,28,.06)}.card.peach{background:var(--peach);border-color:rgba(93,42,26,.12);color:var(--brown)}
+.card-inner{position:absolute;inset:0;padding:22px;display:flex;flex-direction:column}.card-head{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:26px}.card-head strong{font-size:13px;font-weight:500}.card-head span{font-size:10px;color:var(--ash);letter-spacing:.08em}.peach .card-head span{color:rgba(93,42,26,.58)}
+.metric{margin-top:24px}.metric small{display:block;color:var(--ash);font-size:10px;letter-spacing:.08em;text-transform:uppercase}.peach .metric small{color:rgba(93,42,26,.58)}.metric strong{display:block;margin-top:5px;font:400 clamp(38px,4.5vw,58px)/1 var(--serif);letter-spacing:-.035em}
+.chart{position:relative;height:120px;margin-top:18px;border-top:1px solid rgba(23,25,28,.08);border-bottom:1px solid rgba(23,25,28,.08);background:repeating-linear-gradient(to bottom,transparent 0 39px,rgba(23,25,28,.055) 40px)}.chart-line{position:absolute;left:0;right:0;bottom:19px;height:64px}.chart-line svg{width:100%;height:100%;overflow:visible}.chart-line path{fill:none;stroke:var(--ink);stroke-width:2;vector-effect:non-scaling-stroke;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1}.peach .chart-line path{stroke:var(--brown)}.bars{height:120px;margin-top:18px;display:flex;align-items:end;gap:8px;border-bottom:1px solid rgba(23,25,28,.08)}.bars i{display:block;flex:1;min-width:0;background:var(--mist);border-radius:7px 7px 0 0}.peach .bars i{background:rgba(93,42,26,.12)}
+.mini-table{margin-top:16px;border-top:1px solid rgba(23,25,28,.1)}.mini-row{display:grid;grid-template-columns:1fr auto;gap:12px;padding:10px 0;border-bottom:1px solid rgba(23,25,28,.08);font-size:11px}.mini-row span{color:var(--muted)}.peach .mini-row span{color:rgba(93,42,26,.62)}
+.artifact-copy{margin-top:auto;padding-top:18px}.artifact-kicker{font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--ash)}.peach .artifact-kicker{color:rgba(93,42,26,.58)}.artifact-title{font:400 27px/1.03 var(--serif);letter-spacing:-.03em;margin:7px 0 7px}.artifact-body{font-size:11px;line-height:1.45;color:var(--muted);margin:0;max-width:92%}.peach .artifact-body{color:rgba(93,42,26,.68)}
+[data-write]{clip-path:inset(-.3em 100% -.48em 0);opacity:0;transform:translateY(4px)}.card.is-front.is-reading [data-write]{animation:write .56s cubic-bezier(.2,.72,.2,1) forwards}.card.is-front.is-reading .artifact-title{animation-delay:.10s;animation-duration:.67s}.card.is-front.is-reading .artifact-body{animation-delay:.32s;animation-duration:.78s}.card.is-front.is-reading .chart-line path{animation:draw .78s .30s cubic-bezier(.2,.72,.2,1) forwards}@keyframes write{0%{clip-path:inset(-.3em 100% -.48em 0);opacity:0;transform:translateY(4px)}18%{opacity:.92}100%{clip-path:inset(-.3em 0% -.48em 0);opacity:1;transform:translateY(0)}}@keyframes draw{to{stroke-dashoffset:0}}
+.hud{position:absolute;z-index:25;left:max(22px,calc((100vw - 1200px)/2));right:max(22px,calc((100vw - 1200px)/2));bottom:max(24px,calc(env(safe-area-inset-bottom) + 10px));display:flex;align-items:end;justify-content:space-between;gap:18px;pointer-events:none}.hud-side{font-size:10px;color:var(--ash);letter-spacing:.08em}.selection{text-align:center}.selection strong{font-size:12px;font-weight:500}.selection span{display:block;margin-top:5px;font-size:9px;color:var(--ash);letter-spacing:.08em}.dots{display:flex;gap:7px;justify-content:center;margin-top:10px}.dots i{width:5px;height:5px;border:1px solid #989799;border-radius:50%}.dots i.active{background:var(--ink);border-color:var(--ink)}
+.after{min-height:92svh;padding:110px max(22px,calc((100vw - 1120px)/2));background:var(--fog);display:grid;grid-template-columns:.82fr 1.18fr;gap:80px;align-items:center}.after small{font-size:10px;color:var(--ash);letter-spacing:.12em}.after h2{font:400 clamp(48px,6vw,82px)/.96 var(--serif);letter-spacing:-.04em;margin:14px 0}.after p{max-width:470px;color:var(--muted);line-height:1.65}.rules{display:grid;gap:0;border-top:1px solid var(--line)}.rule{display:grid;grid-template-columns:42px 1fr;gap:18px;padding:20px 0;border-bottom:1px solid var(--line)}.rule em{font:400 18px/1 var(--serif)}.rule strong{display:block;font-size:13px;font-weight:500;margin-bottom:5px}.rule span{display:block;color:var(--muted);font-size:12px;line-height:1.5}.footer{padding:44px max(22px,calc((100vw - 1120px)/2));display:flex;justify-content:space-between;color:var(--ash);font-size:10px}
+@media(max-width:720px){.nav{height:54px;padding-left:max(18px,env(safe-area-inset-left));padding-right:max(18px,env(safe-area-inset-right))}.hero{min-height:610px}.hero-copy{left:20px;top:10%;width:88vw}.hero-copy h1{font-size:clamp(50px,15vw,70px);max-width:92%}.hero-copy p{font-size:13px;max-width:82%;margin-top:14px}.stage{perspective:980px;perspective-origin:50% 57%}.deck{top:61%}.card{width:min(70vw,286px);height:min(96vw,392px);border-radius:22px}.card-inner{padding:18px}.metric{margin-top:18px}.metric strong{font-size:40px}.chart,.bars{height:92px}.artifact-title{font-size:23px}.artifact-body{font-size:10px}.hud{left:18px;right:18px;bottom:max(20px,calc(env(safe-area-inset-bottom) + 8px))}.hud-side:last-child{display:none}.selection{text-align:right}.after{grid-template-columns:1fr;gap:46px;padding:86px 22px}.footer{display:block;line-height:1.8;padding-left:22px;padding-right:22px}}
+@media(prefers-reduced-motion:reduce){[data-write]{clip-path:none!important;opacity:1!important;transform:none!important}.card.is-front.is-reading [data-write],.card.is-front.is-reading .chart-line path{animation:none!important}.chart-line path{stroke-dashoffset:0!important}}
+</style>
+</head>
+<body>
+<header class="nav"><span>FOLD / ANALYTICS</span><span>SPATIAL CARD CURTAIN · STUDY 001</span></header>
+<main>
+<section class="hero">
+  <div class="hero-copy"><span class="eyebrow">Editorial analytics / tactile browsing</span><h1>Turn the <em>artifacts,</em><br>not the dashboard.</h1><p>Five quiet product surfaces share one editorial field. Drag the curtain sideways; release velocity decides which artifact comes forward.</p></div>
+  <div class="stage" id="stage" aria-label="Drag horizontally to rotate analytics cards">
+    <div class="deck" id="deck">
+      <article class="card" data-index="0"><div class="card-inner"><div class="card-head"><strong>Activation</strong><span>7 DAYS</span></div><div class="metric"><small>Activated users</small><strong>68.4%</strong></div><div class="chart"><div class="chart-line"><svg viewBox="0 0 100 40" preserveAspectRatio="none"><path pathLength="1" d="M0 31 C12 28 17 29 27 22 S45 25 54 16 S72 19 82 10 S93 9 100 4"/></svg></div></div><div class="artifact-copy"><span class="artifact-kicker" data-write>01 / activation</span><h2 class="artifact-title" data-write>Momentum after the first click.</h2><p class="artifact-body" data-write>Read the trend only after the artifact has settled into the foreground.</p></div></div></article>
+      <article class="card" data-index="1"><div class="card-inner"><div class="card-head"><strong>Regions</strong><span>LIVE</span></div><div class="metric"><small>Highest growth</small><strong>+24%</strong></div><div class="mini-table"><div class="mini-row"><span>North America</span><b>42%</b></div><div class="mini-row"><span>Europe</span><b>31%</b></div><div class="mini-row"><span>Asia Pacific</span><b>27%</b></div></div><div class="artifact-copy"><span class="artifact-kicker" data-write>02 / regions</span><h2 class="artifact-title" data-write>Context travels with the card.</h2><p class="artifact-body" data-write>Its location in the curtain tells you whether it is primary, upcoming, or receding.</p></div></div></article>
+      <article class="card" data-index="2"><div class="card-inner"><div class="card-head"><strong>Retention</strong><span>12 WEEKS</span></div><div class="metric"><small>Returning cohort</small><strong>54.1%</strong></div><div class="bars"><i style="height:43%"></i><i style="height:58%"></i><i style="height:52%"></i><i style="height:67%"></i><i style="height:73%"></i><i style="height:69%"></i><i style="height:82%"></i></div><div class="artifact-copy"><span class="artifact-kicker" data-write>03 / retention</span><h2 class="artifact-title" data-write>Depth makes priority visible.</h2><p class="artifact-body" data-write>The front artifact grows readable while the rest remain spatial context, not competing panels.</p></div></div></article>
+      <article class="card peach" data-index="3"><div class="card-inner"><div class="card-head"><strong>Composer</strong><span>AI NOTE</span></div><div class="metric"><small>Suggested question</small><strong style="font-size:35px;line-height:1.08">Where did<br>growth begin?</strong></div><div class="mini-table"><div class="mini-row"><span>Marketing qualified</span><b>+18%</b></div><div class="mini-row"><span>Self-serve expansion</span><b>+11%</b></div></div><div class="artifact-copy"><span class="artifact-kicker" data-write>04 / composer</span><h2 class="artifact-title" data-write>One accent earns the spotlight.</h2><p class="artifact-body" data-write>Peach is reserved for a single editorial interruption rather than becoming navigation color.</p></div></div></article>
+      <article class="card" data-index="4"><div class="card-inner"><div class="card-head"><strong>Revenue</strong><span>Q3</span></div><div class="metric"><small>Net expansion</small><strong>121%</strong></div><div class="chart"><div class="chart-line"><svg viewBox="0 0 100 40" preserveAspectRatio="none"><path pathLength="1" d="M0 35 C10 34 17 25 26 27 S42 20 51 23 S68 12 77 13 S91 6 100 8"/></svg></div></div><div class="artifact-copy"><span class="artifact-kicker" data-write>05 / revenue</span><h2 class="artifact-title" data-write>Quiet motion, clear hierarchy.</h2><p class="artifact-body" data-write>The gesture may be spatial, but the analytics remain calm enough to read when motion ends.</p></div></div></article>
+    </div>
+  </div>
+  <div class="hud"><div class="hud-side">DRAG / 1:1 RESPONSE</div><div class="selection"><strong id="selectionName">ACTIVATION</strong><span>RELEASE TO SETTLE</span><div class="dots" id="dots"><i class="active"></i><i></i><i></i><i></i><i></i></div></div><div class="hud-side">VELOCITY → MOMENTUM → SPRING</div></div>
+</section>
+<section class="after"><div><small>01 / ARTIFACT HIERARCHY</small><h2>Only one card<br>needs to speak.</h2><p>Steep supplies the editorial surfaces. The curtain interaction is a derived experiment: front means readable, adjacent means available, rear means context. Motion changes priority without turning the page into a dashboard shell.</p></div><div class="rules"><div class="rule"><em>01</em><div><strong>Direct manipulation</strong><span>Pointer displacement maps continuously to the curtain position. No canned swipe animation starts while touching.</span></div></div><div class="rule"><em>02</em><div><strong>Velocity handoff</strong><span>Release speed becomes the initial spring velocity and contributes to the projected resting card.</span></div></div><div class="rule"><em>03</em><div><strong>Interruptible settle</strong><span>A new drag grabs the live rendered position even if the previous settle is still moving.</span></div></div><div class="rule"><em>04</em><div><strong>Settle first, explain second</strong><span>The front card's headline, body and chart draw only after the spatial hierarchy has become stable.</span></div></div></div></section>
+</main>
+<footer class="footer"><span>FOLD / STEEP-INSPIRED EDITORIAL ARTIFACTS</span><span>Apple-fluid interaction · Daybook writing grammar · 2026</span></footer>
+<script>
+(()=>{
+  const stage=document.getElementById('stage');
+  const cards=[...document.querySelectorAll('.card')];
+  const dots=[...document.querySelectorAll('#dots i')];
+  const selectionName=document.getElementById('selectionName');
+  const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  const names=['ACTIVATION','REGIONS','RETENTION','COMPOSER','REVENUE'];
+  const count=cards.length;
+  const wrapIndex=n=>((n%count)+count)%count;
+  const wrapRelative=v=>{while(v>count/2)v-=count;while(v<-count/2)v+=count;return v};
+  let position=0,target=0,velocity=0,raf=0,lastTime=0;
+  let pointerId=null,startX=0,startY=0,startPosition=0,lastX=0,lastMove=0,intent='pending';
+
+  function stepPx(){return Math.max(170,Math.min(330,innerWidth*.58))}
+  function render(){
+    const radius=Math.max(250,Math.min(470,innerWidth*.82));
+    cards.forEach((card,i)=>{
+      const rel=wrapRelative(i-position);
+      const theta=rel*36*Math.PI/180;
+      const abs=Math.abs(rel);
+      const x=Math.sin(theta)*radius;
+      const z=Math.cos(theta)*230-215;
+      const y=Math.min(abs,2.5)*13;
+      const scale=Math.max(.64,1-abs*.13);
+      const rot=-rel*17;
+      const opacity=Math.max(.34,1-abs*.20);
+      card.style.transform=`translate(-50%,-50%) translate3d(${x}px,${y}px,${z}px) rotateY(${rot}deg) scale(${scale})`;
+      card.style.opacity=opacity;
+      card.style.zIndex=String(100-Math.round(abs*12));
+    });
+    const preview=wrapIndex(Math.round(position));
+    selectionName.textContent=names[preview];
+    dots.forEach((dot,i)=>dot.classList.toggle('active',i===preview));
+  }
+  function clearReading(){cards.forEach(card=>card.classList.remove('is-front','is-reading'))}
+  function activateFront(){
+    const index=wrapIndex(Math.round(position));
+    clearReading();
+    const card=cards[index];
+    card.classList.add('is-front');
+    void card.offsetWidth;
+    card.classList.add('is-reading');
+    selectionName.textContent=names[index];
+    dots.forEach((dot,i)=>dot.classList.toggle('active',i===index));
+  }
+  function stopSpring(){if(raf){cancelAnimationFrame(raf);raf=0}lastTime=0}
+  function springFrame(now){
+    if(!lastTime)lastTime=now;
+    const dt=Math.min(.032,(now-lastTime)/1000);lastTime=now;
+    const stiffness=reduce?500:185,damping=reduce?52:27;
+    const accel=(target-position)*stiffness-velocity*damping;
+    velocity+=accel*dt;position+=velocity*dt;render();
+    if(Math.abs(target-position)<.0008&&Math.abs(velocity)<.008){position=target;velocity=0;render();raf=0;lastTime=0;stage.classList.remove('dragging');activateFront();return}
+    raf=requestAnimationFrame(springFrame);
+  }
+  function settle(){
+    const projected=position+velocity*.18;
+    target=Math.round(projected);
+    if(reduce){position=target;velocity=0;render();activateFront();return}
+    stopSpring();stage.classList.add('dragging');raf=requestAnimationFrame(springFrame);
+  }
+  stage.addEventListener('pointerdown',e=>{
+    stopSpring();clearReading();pointerId=e.pointerId;startX=lastX=e.clientX;startY=e.clientY;startPosition=position;lastMove=performance.now();intent='pending';
+  });
+  stage.addEventListener('pointermove',e=>{
+    if(e.pointerId!==pointerId)return;
+    const dx=e.clientX-startX,dy=e.clientY-startY;
+    if(intent==='pending'&&Math.hypot(dx,dy)>7){intent=Math.abs(dx)>Math.abs(dy)*1.12?'horizontal':'vertical';if(intent==='horizontal'){stage.setPointerCapture(e.pointerId);stage.classList.add('dragging')}}
+    if(intent!=='horizontal')return;
+    const now=performance.now(),dt=Math.max(8,now-lastMove),vx=(e.clientX-lastX)/(dt/1000),step=stepPx();
+    position=startPosition-dx/step;velocity=-vx/step;lastX=e.clientX;lastMove=now;render();
+  });
+  function release(e){if(e.pointerId!==pointerId)return;const horizontal=intent==='horizontal';pointerId=null;intent='pending';if(horizontal)settle();else activateFront()}
+  stage.addEventListener('pointerup',release);stage.addEventListener('pointercancel',release);
+  addEventListener('keydown',e=>{
+    if(e.key!=='ArrowLeft'&&e.key!=='ArrowRight')return;
+    stopSpring();clearReading();velocity=0;target=Math.round(position)+(e.key==='ArrowLeft'?-1:1);
+    if(reduce){position=target;render();activateFront()}else{stage.classList.add('dragging');raf=requestAnimationFrame(springFrame)}
+  });
+  addEventListener('resize',render,{passive:true});
+  render();activateFront();
+})();
+</script>
+</body>
+</html>
