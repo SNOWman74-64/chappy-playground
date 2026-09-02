@@ -320,3 +320,50 @@ The easing curve is secondary to preserving state and velocity continuity.
 
 - `refero-apple-fluid`
 - `emilkowalski/skills/apple-design`
+
+---
+
+## L-012 — Responsive 3D should recompose the camera, not shrink the shot
+
+### Symptom
+
+A spatial composition that feels intentional on desktop can become a giant cropped plane on a tall mobile viewport even when CSS overflow is technically contained.
+
+In Prism Transit, the desktop camera passed very close to a fixed cube. On iPhone the same route made only a huge cube edge visible near the bottom of the screen.
+
+### Why
+
+3D responsive failure is often a **camera-framing problem**, not a box-layout problem.
+
+```text
+desktop FOV + desktop route
+≠
+mobile FOV + same route × smaller scale
+```
+
+Changing cube width or adding more `overflow:hidden` does not repair a shot whose virtual camera is too close or pointed incorrectly.
+
+### Better rule
+
+Keep the world / landmark identity shared, but allow platform-specific camera composition:
+
+```text
+shared 3D world
+├ desktop camera route
+└ mobile camera route
+```
+
+For mobile, reconsider:
+
+- closest Z distance,
+- lateral travel,
+- yaw / pitch limits,
+- landmark presentation size,
+- safe space for browser chrome / controls,
+- whether a dramatic pass-by should become a calmer reveal.
+
+Think of responsive 3D as filming the same set with a different lens and blocking—not resizing a screenshot.
+
+### Source
+
+- `refero-prism-transit`
