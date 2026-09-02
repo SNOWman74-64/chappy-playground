@@ -15,10 +15,10 @@ html{background:var(--bg);scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);overflow-x:hidden}
 .nav{position:fixed;z-index:20;left:0;right:0;top:0;height:58px;display:flex;align-items:center;justify-content:space-between;padding:0 max(18px,calc((100vw - 1280px)/2));background:linear-gradient(#0d0d0ef2,#0d0d0e00);font-size:12px;pointer-events:none}
 .brand{font-weight:650;letter-spacing:.08em}.nav small{color:#777}
-.hero{height:330vh;position:relative}.sticky{position:sticky;top:0;height:100svh;overflow:hidden}
+.hero{height:330vh;position:relative}.sticky{position:sticky;top:0;height:100svh;height:100dvh;overflow:hidden}
 .space{position:absolute;inset:0;perspective:1100px;perspective-origin:50% 48%;background:radial-gradient(circle at 50% 48%,#18181c 0,transparent 42%),#0d0d0e;overflow:hidden}
 .grain{position:absolute;inset:0;opacity:.075;background-image:radial-gradient(rgba(255,255,255,.7) .55px,transparent .7px);background-size:18px 18px;pointer-events:none}
-.world{position:absolute;inset:0;transform-style:preserve-3d;transform-origin:50% 50%;will-change:transform;pointer-events:none}
+.world{position:absolute;inset:0;transform-style:preserve-3d;transform-origin:50% 50%;pointer-events:none}
 .spectrum{position:absolute;left:50%;top:50%;width:1500px;height:500px;transform:translate3d(-50%,-50%,-420px) rotateZ(-7deg);opacity:.18;background:linear-gradient(178deg,transparent 45%,rgba(255,42,42,.58) 49.8%,transparent 50.4%),linear-gradient(181deg,transparent 48%,rgba(42,255,114,.42) 50%,transparent 52%),linear-gradient(184deg,transparent 48%,rgba(42,127,255,.58) 50.2%,transparent 52.5%)}
 .anchor{position:absolute;left:50%;top:50%;transform:translate3d(var(--x),var(--y),var(--z));transform-style:preserve-3d}
 .anchor.a{--x:240px;--y:80px;--z:-80px;--size:clamp(138px,23vw,290px);--rx:-10deg;--ry:26deg}
@@ -29,21 +29,32 @@ body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);over
 .cube{position:absolute;left:0;top:0;width:var(--size);height:var(--size);transform:translate(-50%,-50%) rotateX(var(--rx)) rotateY(var(--ry));transform-style:preserve-3d}
 .cube i{position:absolute;inset:0;border:1px solid rgba(255,255,255,.24);background:linear-gradient(135deg,rgba(255,255,255,.055),rgba(255,255,255,.008));box-shadow:inset 0 0 26px rgba(255,255,255,.022);backface-visibility:hidden}
 .cube i:nth-child(1){transform:translateZ(calc(var(--size)/2))}.cube i:nth-child(2){transform:rotateY(180deg) translateZ(calc(var(--size)/2))}.cube i:nth-child(3){transform:rotateY(90deg) translateZ(calc(var(--size)/2))}.cube i:nth-child(4){transform:rotateY(-90deg) translateZ(calc(var(--size)/2))}.cube i:nth-child(5){transform:rotateX(90deg) translateZ(calc(var(--size)/2))}.cube i:nth-child(6){transform:rotateX(-90deg) translateZ(calc(var(--size)/2))}
-.copy{position:absolute;z-index:5;left:max(22px,calc((100vw - 1280px)/2));top:18%;width:min(620px,78vw);will-change:transform,opacity;pointer-events:none}.kicker{font-size:11px;letter-spacing:.16em;color:#888}.copy h1{font-size:clamp(64px,10vw,150px);font-weight:400;line-height:.82;letter-spacing:-.07em;margin:18px 0 26px}.copy p{width:min(450px,90%);color:#9a9a9f;font-size:16px;line-height:1.55}
-.station{position:absolute;z-index:6;right:max(20px,calc((100vw - 1280px)/2));bottom:32px;text-align:right;font-size:10px;color:#74747a;letter-spacing:.08em;pointer-events:none}.station strong{display:block;color:#d8d8da;font-weight:500;font-size:12px;margin-bottom:4px}.progress{position:absolute;z-index:6;left:max(22px,calc((100vw - 1280px)/2));bottom:34px;width:min(240px,42vw);height:1px;background:#28282b;overflow:hidden}.progress i{display:block;width:100%;height:100%;background:#eee;transform:scaleX(0);transform-origin:left center;will-change:transform}
+.copy{position:absolute;z-index:5;left:max(22px,calc((100vw - 1280px)/2));top:18%;width:min(620px,78vw);pointer-events:none}.kicker{font-size:11px;letter-spacing:.16em;color:#888}.copy h1{font-size:clamp(64px,10vw,150px);font-weight:400;line-height:.82;letter-spacing:-.07em;margin:18px 0 26px}.copy p{width:min(450px,90%);color:#9a9a9f;font-size:16px;line-height:1.55}
+.station{position:absolute;z-index:6;right:max(20px,calc((100vw - 1280px)/2));bottom:32px;text-align:right;font-size:10px;color:#74747a;letter-spacing:.08em;pointer-events:none}.station strong{display:block;color:#d8d8da;font-weight:500;font-size:12px;margin-bottom:4px}.progress{position:absolute;z-index:6;left:max(22px,calc((100vw - 1280px)/2));bottom:34px;width:min(240px,42vw);height:1px;background:#28282b;overflow:hidden}.progress i{display:block;width:100%;height:100%;background:#eee;transform:scaleX(0);transform-origin:left center}
 .section{min-height:100svh;padding:130px max(22px,calc((100vw - 1280px)/2));border-top:1px solid #1d1d20;display:grid;grid-template-columns:.8fr 1.2fr;gap:80px;align-items:center;content-visibility:auto;contain-intrinsic-size:900px}.section small{color:#666;letter-spacing:.14em}.section h2{font-size:clamp(52px,7vw,100px);line-height:.9;font-weight:400;letter-spacing:-.055em;margin:14px 0}.section p{color:#8e8e93;line-height:1.65;max-width:500px}.diagram{height:540px;position:relative;border-left:1px solid #252529;border-bottom:1px solid #252529;overflow:hidden}.node{position:absolute;width:86px;height:86px;border:1px solid #49494f;background:#121214;transform:rotate(45deg)}.node:nth-child(1){left:16%;top:58%}.node:nth-child(2){left:48%;top:24%}.node:nth-child(3){left:74%;top:54%}.pathline{position:absolute;height:1px;background:linear-gradient(90deg,#ff2a2a,#2aff72,#2a7fff);left:20%;right:16%;top:49%;transform:rotate(-9deg);opacity:.55}.footer{padding:60px max(22px,calc((100vw - 1280px)/2));border-top:1px solid #222;color:#666;font-size:11px;display:flex;justify-content:space-between}
-@media(max-width:720px){.hero{height:290vh}.copy{top:15%;width:86vw}.copy h1{font-size:clamp(62px,21vw,94px)}.anchor.a{--x:120px;--y:100px}.anchor.b{--x:-150px;--y:-70px}.anchor.c{--x:170px;--y:-110px}.section{grid-template-columns:1fr;gap:38px;padding-top:90px}.diagram{height:380px}.footer{display:block;line-height:1.8}.station{bottom:28px}.progress{bottom:30px}}
-@media(prefers-reduced-motion:reduce){.hero{height:150vh}.world,.copy,.progress i{will-change:auto}.halo{transition:none}}
+@media(max-width:720px){
+  .nav{height:54px;padding-left:max(18px,env(safe-area-inset-left));padding-right:max(18px,env(safe-area-inset-right))}.nav small{font-size:10px}
+  .hero{height:255vh}.space{perspective:1400px;perspective-origin:50% 45%;background:radial-gradient(circle at 50% 45%,#17171b 0,transparent 38%),#0d0d0e}
+  .grain{opacity:.05;background-size:20px 20px}.spectrum{width:900px;height:320px;opacity:.11}
+  .copy{top:14%;width:82vw;left:22px}.copy h1{font-size:clamp(58px,19vw,86px)}.copy p{font-size:14px;line-height:1.5;width:86%}
+  .anchor.a{--x:112px;--y:78px;--size:min(38vw,168px)}
+  .anchor.b{--x:-142px;--y:-62px;--size:min(34vw,152px)}
+  .anchor.c{--x:155px;--y:-92px;--size:min(31vw,140px)}
+  .station{right:18px;bottom:max(72px,calc(env(safe-area-inset-bottom) + 58px));max-width:58vw}.station strong{font-size:11px}
+  .progress{left:22px;bottom:max(76px,calc(env(safe-area-inset-bottom) + 62px));width:38vw}
+  .section{grid-template-columns:1fr;gap:38px;padding:90px 22px;min-height:100svh}.diagram{height:380px}.footer{display:block;line-height:1.8;padding-left:22px;padding-right:22px}
+}
+@media(prefers-reduced-motion:reduce){.hero{height:150vh}.halo{transition:none}}
 </style>
 </head>
 <body>
-<header class="nav"><div class="brand">PRISM / TRANSIT</div><small>CAMERA STUDY 002</small></header>
+<header class="nav"><div class="brand">PRISM / TRANSIT</div><small>CAMERA STUDY 003</small></header>
 <main>
-<section class="hero" id="hero"><div class="sticky"><div class="space"><div class="grain"></div><div class="world" id="world"><div class="spectrum"></div><div class="anchor a active" id="anchorA"><div class="halo"></div><div class="cube"><i></i><i></i><i></i><i></i><i></i><i></i></div></div><div class="anchor b" id="anchorB"><div class="halo"></div><div class="cube"><i></i><i></i><i></i><i></i><i></i><i></i></div></div><div class="anchor c" id="anchorC"><div class="halo"></div><div class="cube"><i></i><i></i><i></i><i></i><i></i><i></i></div></div></div><div class="copy" id="copy"><span class="kicker">THE OBJECT STAYS. THE VIEWPOINT MOVES.</span><h1>Move<br>through<br>light.</h1><p>Three fixed glass stations occupy one space. Scroll now moves a single world transform—the web equivalent of carrying a camera through those locations.</p></div><div class="progress"><i id="bar"></i></div><div class="station"><strong id="stationName">STATION A / ORIGIN</strong><span>SCROLL TO TRAVEL</span></div></div></div></section>
-<section class="section"><div><small>01 / CAMERA-FIRST STRUCTURE</small><h2>The cubes<br>stay put.</h2><p>A, B and C now have fixed coordinates. One world layer moves around them. That makes parallax, approach and pass-by motion come from a shared spatial frame instead of three unrelated object animations.</p></div><div class="diagram"><i class="pathline"></i><i class="node"></i><i class="node"></i><i class="node"></i></div></section>
-<section class="section"><div><small>02 / SLEEP WHEN STILL</small><h2>Motion only<br>when needed.</h2><p>The animation loop wakes on scroll, eases the presentation value toward the new camera position, then stops completely. RGB glow is gradient-based and only the nearest station receives the stronger optical field.</p></div><div class="diagram"><i class="pathline" style="transform:rotate(12deg);top:53%"></i><i class="node" style="left:12%;top:26%"></i><i class="node" style="left:45%;top:58%"></i><i class="node" style="left:76%;top:24%"></i></div></section>
+<section class="hero" id="hero"><div class="sticky"><div class="space"><div class="grain"></div><div class="world" id="world"><div class="spectrum"></div><div class="anchor a active" id="anchorA"><div class="halo"></div><div class="cube"><i></i><i></i><i></i><i></i><i></i><i></i></div></div><div class="anchor b" id="anchorB"><div class="halo"></div><div class="cube"><i></i><i></i><i></i><i></i><i></i><i></i></div></div><div class="anchor c" id="anchorC"><div class="halo"></div><div class="cube"><i></i><i></i><i></i><i></i><i></i><i></i></div></div></div><div class="copy" id="copy"><span class="kicker">THE OBJECT STAYS. THE VIEWPOINT MOVES.</span><h1>Move<br>through<br>light.</h1><p>One world, two camera compositions. Desktop passes closer to the stations; mobile keeps more distance so each cube remains a readable landmark inside a tall viewport.</p></div><div class="progress"><i id="bar"></i></div><div class="station"><strong id="stationName">STATION A / ORIGIN</strong><span>SCROLL TO TRAVEL</span></div></div></div></section>
+<section class="section"><div><small>01 / RESPONSIVE CAMERA</small><h2>Same world.<br>Different shot.</h2><p>The cube locations and visual language stay shared. Desktop and mobile use separate camera paths, just like filming the same set with different lenses and blocking.</p></div><div class="diagram"><i class="pathline"></i><i class="node"></i><i class="node"></i><i class="node"></i></div></section>
+<section class="section"><div><small>02 / MOBILE SAFE COMPOSITION</small><h2>Keep the whole<br>landmark visible.</h2><p>On narrow screens the camera approaches less aggressively, turns more gently, and leaves additional room around the current station. The goal is spatial orientation before spectacle.</p></div><div class="diagram"><i class="pathline" style="transform:rotate(12deg);top:53%"></i><i class="node" style="left:12%;top:26%"></i><i class="node" style="left:45%;top:58%"></i><i class="node" style="left:76%;top:24%"></i></div></section>
 </main>
-<footer class="footer"><span>PRISM TRANSIT / VIVID-INSPIRED SPATIAL STUDY</span><span>Fixed waypoints · camera-first world · event-driven render · 2026</span></footer>
+<footer class="footer"><span>PRISM TRANSIT / VIVID-INSPIRED SPATIAL STUDY</span><span>Fixed waypoints · responsive camera routes · event-driven render · 2026</span></footer>
 <script>
 (()=>{
   const hero=document.getElementById('hero');
@@ -53,21 +64,30 @@ body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);over
   const stationName=document.getElementById('stationName');
   const anchors=[document.getElementById('anchorA'),document.getElementById('anchorB'),document.getElementById('anchorC')];
   const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  const mobileQuery=matchMedia('(max-width:720px)');
   const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v));
-  const points=[
+  const desktopRoute=[
     {x:120,y:60,z:0},
     {x:420,y:105,z:260},
     {x:-220,y:-80,z:720},
     {x:-520,y:-185,z:1050},
     {x:330,y:-150,z:1520}
   ];
-  let heroTop=0,travel=1,target=0,current=0,raf=0,lastStation=-1;
+  const mobileRoute=[
+    {x:18,y:42,z:-70},
+    {x:105,y:62,z:115},
+    {x:-72,y:-20,z:455},
+    {x:-132,y:-72,z:650},
+    {x:92,y:-78,z:1020}
+  ];
+  let heroTop=0,travel=1,target=0,current=0,raf=0,lastStation=-1,isMobile=mobileQuery.matches;
 
   function catmull(p0,p1,p2,p3,t){
     const t2=t*t,t3=t2*t;
     return .5*((2*p1)+(-p0+p2)*t+(2*p0-5*p1+4*p2-p3)*t2+(-p0+3*p1-3*p2+p3)*t3);
   }
   function sample(progress){
+    const points=isMobile?mobileRoute:desktopRoute;
     const max=points.length-1;
     const s=clamp(progress)*max;
     const i=Math.min(max-1,Math.floor(s));
@@ -76,7 +96,12 @@ body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);over
     return {x:catmull(p0.x,p1.x,p2.x,p3.x,t),y:catmull(p0.y,p1.y,p2.y,p3.y,t),z:catmull(p0.z,p1.z,p2.z,p3.z,t)};
   }
   function raw(){return clamp((scrollY-heroTop)/travel)}
-  function measure(){heroTop=hero.offsetTop;travel=Math.max(1,hero.offsetHeight-innerHeight);target=raw()}
+  function measure(){
+    isMobile=mobileQuery.matches;
+    heroTop=hero.offsetTop;
+    travel=Math.max(1,hero.offsetHeight-innerHeight);
+    target=raw();
+  }
   function setStation(p){
     const index=p<.27?0:p<.74?1:2;
     if(index===lastStation)return;
@@ -88,32 +113,48 @@ body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);over
     const cam=sample(p);
     const ahead=sample(Math.min(1,p+.006));
     const dx=ahead.x-cam.x,dy=ahead.y-cam.y,dz=Math.max(12,ahead.z-cam.z);
-    const yaw=clamp(Math.atan2(dx,dz)*180/Math.PI*.72,-15,15);
-    const pitch=clamp(Math.atan2(-dy,dz)*180/Math.PI*.52,-7,7);
-    const roll=-yaw*.055;
+    const yawScale=isMobile?.42:.72;
+    const pitchScale=isMobile?.3:.52;
+    const yawLimit=isMobile?8:15;
+    const pitchLimit=isMobile?4.5:7;
+    const yaw=clamp(Math.atan2(dx,dz)*180/Math.PI*yawScale,-yawLimit,yawLimit);
+    const pitch=clamp(Math.atan2(-dy,dz)*180/Math.PI*pitchScale,-pitchLimit,pitchLimit);
+    const roll=-yaw*(isMobile?.025:.055);
     world.style.transform=`translate3d(${-cam.x}px,${-cam.y}px,${cam.z}px) rotateZ(${-roll}deg) rotateX(${-pitch}deg) rotateY(${-yaw}deg)`;
     const fade=clamp(1-p*2.7);
     copy.style.opacity=String(fade);
-    copy.style.transform=`translate3d(0,${-p*72}px,0)`;
+    copy.style.transform=`translate3d(0,${-p*(isMobile?48:72)}px,0)`;
     bar.style.transform=`scaleX(${p})`;
     setStation(p);
   }
+  function sleep(){
+    world.style.willChange='auto';
+    copy.style.willChange='auto';
+    bar.style.willChange='auto';
+  }
+  function wake(){
+    world.style.willChange='transform';
+    copy.style.willChange='transform,opacity';
+    bar.style.willChange='transform';
+  }
   function tick(){
     const delta=target-current;
-    if(Math.abs(delta)<.00065){current=target;pose(current);raf=0;return}
-    current+=delta*.14;
+    if(Math.abs(delta)<.00065){current=target;pose(current);raf=0;sleep();return}
+    current+=delta*(isMobile?.18:.14);
     pose(current);
     raf=requestAnimationFrame(tick);
   }
   function schedule(){
     target=raw();
-    if(reduce){current=target;pose(current);return}
+    if(reduce){current=target;pose(current);sleep();return}
+    wake();
     if(!raf)raf=requestAnimationFrame(tick);
   }
-  measure();current=target;pose(current);
+  measure();current=target;pose(current);sleep();
   addEventListener('scroll',schedule,{passive:true});
   addEventListener('resize',()=>{measure();schedule()},{passive:true});
-  document.addEventListener('visibilitychange',()=>{if(document.hidden&&raf){cancelAnimationFrame(raf);raf=0}else if(!document.hidden)schedule()});
+  mobileQuery.addEventListener?.('change',()=>{measure();schedule()});
+  document.addEventListener('visibilitychange',()=>{if(document.hidden&&raf){cancelAnimationFrame(raf);raf=0;sleep()}else if(!document.hidden)schedule()});
 })();
 </script>
 </body>
