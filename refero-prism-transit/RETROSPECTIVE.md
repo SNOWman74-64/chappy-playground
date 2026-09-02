@@ -40,7 +40,7 @@ V1 combined:
 The loop also continued while the page was completely still.
 
 ## V2 — camera-first world
-The correction is architectural rather than cosmetic.
+The correction was architectural rather than cosmetic.
 
 ```text
 V1
@@ -57,21 +57,57 @@ fixed Cube C
 move one world / inverse camera transform
 ```
 
-### Why this is better
-Spatial landmarks should remain stable if the concept is that the user is travelling through one world.
+### What improved
+- The motion became materially lighter on mobile.
+- The intended idea became clearer: the cubes are locations and the viewpoint travels through them.
+- Curved camera motion created more spatial consistency than independent cube transforms.
 
-V2 gives every cube a fixed coordinate and changes only the shared `world` transform. In CSS 3D this acts as an inverse camera transform.
+### New problem found on real mobile
+The second mobile check exposed a different class of failure.
 
-The path also curves:
-- around Station A,
-- toward Station B from another angle,
-- past B on a different side,
-- then toward Station C.
+The page no longer felt primarily slow, but parts of Station C became a huge cropped cube edge near the bottom of the viewport. The scene technically remained inside `overflow:hidden`; the composition itself was wrong.
 
-Yaw and pitch are derived from the local path direction, so the viewport turns as the route bends instead of keeping one repeated viewing angle.
+This happened because the desktop camera path approached the station too aggressively for a tall narrow viewport.
+
+The important distinction:
+
+```text
+2D overflow problem
+≠
+3D camera-framing problem
+```
+
+Making the cube smaller or hiding the overflow alone would not solve the spatial composition.
+
+## V3 — responsive camera composition
+The world remains shared, but the shot is now platform-specific.
+
+```text
+shared station world
+├ desktop route
+└ mobile route
+```
+
+### Desktop route
+Keeps the stronger spatial drama:
+- deeper Z approach,
+- wider lateral passes,
+- stronger yaw / pitch,
+- more willingness to let a cube partially leave the frame.
+
+### Mobile route
+Uses a calmer camera:
+- shallower Z movement,
+- narrower lateral travel,
+- lower yaw / pitch limits,
+- smaller cube presentation,
+- Station B / C remain farther from the virtual camera,
+- active cube should remain readable as a whole object rather than becoming a giant plane.
+
+The viewport also now uses dynamic viewport height where supported, and the bottom progress / station labels reserve more space for safe-area and mobile browser chrome.
 
 ## Performance correction
-The render loop is now event-driven.
+The render loop remains event-driven.
 
 ```text
 scroll / resize
@@ -83,35 +119,50 @@ scroll / resize
 
 When stationary, there is no per-frame JavaScript work.
 
-Additional reductions:
+V3 additionally treats compositor hints as temporary:
+
+```text
+motion starts
+→ will-change enabled
+→ camera settles
+→ will-change returns to auto
+```
+
+Additional reductions retained:
 - cube transforms are static,
 - only one world transform changes for the 3D scene,
-- large `filter: blur()` glows were removed,
-- optical fields use gradients instead,
+- large `filter: blur()` glows are absent,
+- optical fields use gradients,
 - only the nearest station gets the strong halo,
+- mobile reduces spectrum size / opacity and grain density,
 - later content uses `content-visibility` where supported.
 
 ## Why CSS 3D is still useful
-The purpose of this stage is not rendering fidelity. It is to decide whether the navigation model itself works.
+The purpose of this stage is not rendering fidelity. It is to decide whether the navigation model itself works across viewport classes.
 
-If V2 communicates clear approach / pass-by / turn / arrival motion and performs acceptably on mobile, the same architecture can later move to Three.js / R3F:
+If V3 communicates clear spatial travel on both desktop and mobile, the same architecture can later move to Three.js / R3F:
 
 ```text
 fixed world coordinates
-+ real camera path
-+ glass geometry
++ desktop camera path
++ mobile camera path
++ real glass geometry
 + lightweight RGB dispersion
 ```
 
-without redesigning the interaction model.
+without redesigning the navigation model.
 
-## General lesson
+## General lessons
 For spatial web interfaces:
 
 > **Move the viewpoint through stable landmarks before animating every landmark to imitate a viewpoint.**
 
-And for motion prototypes:
+For responsive 3D:
+
+> **Do not shrink the desktop shot. Recompose the camera.**
+
+For motion prototypes:
 
 > **A render loop should sleep when the interface is still.**
 
-Rendering fidelity comes after spatial grammar and runtime cost are both good enough.
+Rendering fidelity comes after spatial grammar, responsive composition and runtime cost are all good enough.
