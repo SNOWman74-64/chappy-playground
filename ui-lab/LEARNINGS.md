@@ -367,3 +367,67 @@ Think of responsive 3D as filming the same set with a different lens and blockin
 ### Source
 
 - `refero-prism-transit`
+
+---
+
+## L-013 — Interior 3D needs deliberate occlusion, not structural translucency
+
+### Symptom
+
+In a CSS 3D room, the wall behind the currently readable wall briefly appears through it while the viewpoint rotates. The movement can be perfectly continuous and still look like rendering flicker.
+
+### Why
+
+A translucent wall participates in compositing with geometry that is spatially behind it.
+
+That may be desirable for an exterior glass object, but it conflicts with an interior information surface whose job is to hide unrelated content behind it.
+
+```text
+translucent structural wall
++
+rear wall still rendered
++
+rotation
+→
+rear surface flashes through current surface
+```
+
+This is primarily an **occlusion-model problem**, not an easing problem.
+
+### Better rule
+
+Separate structure from optics:
+
+```text
+opaque surface
+→ establishes room geometry / occlusion
+
+semi-transparent light layer
+→ carries glow / RGB / atmosphere
+```
+
+Then apply depth rejection in layers:
+
+1. use opaque structural walls where the wall should block vision,
+2. add `backface-visibility:hidden`, including `-webkit-backface-visibility:hidden` for browser coverage,
+3. keep RGB translucency on pseudo-elements / light layers rather than the structural wall,
+4. if the clearly opposite wall can still intrude, cull it from the current view relationship.
+
+For a four-wall room with semantic yaw targets at `0° / 90° / 180° / 270°`, one practical strategy is to calculate shortest angular distance from the current yaw and hide only walls more than roughly `135–140°` behind the current direction.
+
+Do **not** cull at exactly 90°. Adjacent walls need to remain visible through a turn so corners preserve spatial continuity.
+
+### Debug order
+
+```text
+structural opacity
+→ backface culling
+→ optical-layer separation
+→ angle-aware opposite-wall culling
+```
+
+Avoid beginning with blur or arbitrary opacity animation. Those may conceal the visual artifact without fixing the scene's depth semantics.
+
+### Source
+
+- `refero-prism-interior`
