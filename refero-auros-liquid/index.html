@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#012624">
+<title>TIDE — Bioluminescent Liquid Mass Study</title>
+<style>
+:root{
+  --abyss:#012624;--deep:#011d1c;--kelp:#003734;--mist:#edfffe;--silver:#bbc7c6;--pink:#fde9ff;--slate:#707777;
+  --cyan:#cbfffc;--font:Inter,DM Sans,Satoshi,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif
+}
+*{box-sizing:border-box}
+html{background:var(--abyss)}
+body{margin:0;background:var(--abyss);color:#fff;font-family:var(--font);overflow-x:hidden}
+button{font:inherit}
+.nav{position:fixed;z-index:30;left:0;right:0;top:0;height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 max(20px,calc((100vw - 1320px)/2));font-size:11px;letter-spacing:.13em;text-transform:uppercase;pointer-events:none;background:linear-gradient(#012624ee,#01262400)}
+.brand{font-weight:500}.nav span:last-child{color:var(--silver)}
+.hero{min-height:100svh;min-height:100dvh;display:grid;grid-template-columns:.86fr 1.14fr;align-items:center;gap:44px;padding:104px max(24px,calc((100vw - 1320px)/2)) 70px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 76% 45%,rgba(0,130,124,.13),transparent 29%),radial-gradient(circle at 81% 37%,rgba(253,233,255,.055),transparent 18%);pointer-events:none}
+.copy{position:relative;z-index:4;max-width:570px}.kicker{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--silver);font-weight:500}.copy h1{font-size:clamp(60px,7.2vw,104px);line-height:.9;letter-spacing:-.046em;font-weight:500;margin:18px 0 26px}.copy p{max-width:460px;color:var(--silver);font-size:16px;line-height:1.55;margin:0}.copy strong{color:var(--mist);font-weight:400}.micro{margin-top:28px;display:flex;gap:24px;align-items:center;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#8da09f}.signal{display:flex;align-items:center;gap:9px}.signal i{width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 0 5px rgba(203,255,252,.055)}
+.orb-column{position:relative;z-index:5;min-width:0;display:grid;place-items:center}.orb-stage{position:relative;width:min(660px,58vw);aspect-ratio:1;display:grid;place-items:center;touch-action:pan-y;-webkit-user-select:none;user-select:none;cursor:grab;outline:none}.orb-stage.dragging{cursor:grabbing}.orb-stage::before{content:"";position:absolute;width:72%;height:72%;border-radius:50%;background:radial-gradient(circle at 28% 46%,rgba(0,130,124,.18),transparent 44%),radial-gradient(circle at 73% 39%,rgba(253,233,255,.08),transparent 34%);opacity:.8;pointer-events:none}.orb-stage:focus-visible{outline:1px solid rgba(237,255,254,.7);outline-offset:8px;border-radius:50%}
+svg{display:block;width:100%;height:100%;overflow:visible}.shell{fill:url(#shellGradient);stroke:rgba(237,255,254,.25);stroke-width:1}.sheen{fill:url(#sheenGradient);opacity:.52;pointer-events:none}.rim{fill:none;stroke:url(#rimGradient);stroke-width:3;opacity:.62;pointer-events:none}.particle{opacity:.78}.particle.edge{opacity:.9}.mass{transform-origin:300px 300px;will-change:transform}.drag-label{position:absolute;left:50%;bottom:4%;transform:translateX(-50%);white-space:nowrap;color:#9bb0ae;font-size:10px;letter-spacing:.14em;text-transform:uppercase;pointer-events:none}.drag-label strong{color:var(--mist);font-weight:500}
+.depth-strip{background:var(--deep);padding:92px max(24px,calc((100vw - 1180px)/2));border-top:1px solid rgba(237,255,254,.045)}.depth-strip>small{font-size:10px;letter-spacing:.15em;color:var(--silver);text-transform:uppercase}.depth-strip h2{font-size:clamp(44px,5.8vw,78px);line-height:.96;letter-spacing:-.04em;font-weight:500;margin:16px 0 54px;max-width:840px}.layers{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(237,255,254,.07);border-radius:16px;overflow:hidden}.layer{background:var(--kelp);padding:34px 30px 38px;min-height:230px}.layer:nth-child(2){background:#00332f}.layer:nth-child(3){background:#002d2a}.layer:nth-child(4){background:#012624}.layer small{display:block;color:#8ea4a2;font-size:10px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:30px}.layer strong{display:block;color:#fff;font-size:24px;line-height:1.05;font-weight:500;letter-spacing:-.02em;margin-bottom:14px}.layer p{color:var(--silver);font-size:13px;line-height:1.55;margin:0}.metric{margin-top:68px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:30px;padding-top:32px;border-top:1px solid rgba(237,255,254,.08)}.metric strong{font-size:clamp(54px,7vw,94px);font-weight:500;letter-spacing:-.046em;line-height:1;color:var(--pink)}.metric span{display:block;margin-top:8px;color:var(--mist);font-size:10px;letter-spacing:.12em;text-transform:uppercase}.footer{padding:38px max(24px,calc((100vw - 1180px)/2));display:flex;justify-content:space-between;background:var(--deep);color:#809493;font-size:10px;letter-spacing:.08em;border-top:1px solid rgba(237,255,254,.05)}
+@media(max-width:820px){
+  .nav{height:58px;padding-left:max(18px,env(safe-area-inset-left));padding-right:max(18px,env(safe-area-inset-right))}.nav span:last-child{font-size:9px}
+  .hero{grid-template-columns:1fr;align-content:start;gap:18px;padding:92px 20px 46px;min-height:100svh}.copy{max-width:none}.copy h1{font-size:clamp(54px,15vw,76px);margin-top:13px;margin-bottom:18px}.copy p{font-size:14px;max-width:92%}.micro{margin-top:18px;gap:16px}.orb-column{margin-top:-8px}.orb-stage{width:min(94vw,470px)}.drag-label{bottom:1%;font-size:9px}.layers{grid-template-columns:1fr 1fr}.layer{min-height:205px;padding:28px 24px}.metric{grid-template-columns:1fr;gap:22px}.depth-strip{padding:72px 20px}.footer{padding:30px 20px;display:block;line-height:1.8}
+}
+@media(max-width:470px){.layers{grid-template-columns:1fr}.layer{min-height:0}.micro{font-size:9px}.orb-stage{width:100vw;margin-left:-20px;margin-right:-20px}}
+@media(prefers-reduced-motion:reduce){.mass{will-change:auto}}
+</style>
+</head>
+<body>
+<header class="nav"><span class="brand">TIDE / AUROS STUDY</span><span>LIQUID RESPONSE 001</span></header>
+<main>
+<section class="hero">
+  <div class="copy">
+    <span class="kicker">BIOLUMINESCENT MASS / DIRECT MANIPULATION</span>
+    <h1>Pull the<br>surface.<br>Feel the mass.</h1>
+    <p>The shell answers first. The particles follow a fraction later. Release with speed and the form stretches once before <strong>surface tension restores the whole body.</strong></p>
+    <div class="micro"><span class="signal"><i></i>idle loop / none</span><span>drag / live</span><span>release / spring</span></div>
+  </div>
+  <div class="orb-column">
+    <div class="orb-stage" id="orbStage" tabindex="0" role="application" aria-label="Interactive liquid orb. Drag to deform it; vertical page scrolling remains available on touch devices.">
+      <svg viewBox="0 0 600 600" aria-hidden="true">
+        <defs>
+          <radialGradient id="shellGradient" cx="35%" cy="30%" r="72%">
+            <stop offset="0%" stop-color="#0a5c56"/><stop offset="46%" stop-color="#003734"/><stop offset="100%" stop-color="#011d1c"/>
+          </radialGradient>
+          <radialGradient id="sheenGradient" cx="34%" cy="30%" r="70%">
+            <stop offset="0%" stop-color="#edfffe" stop-opacity=".20"/><stop offset="38%" stop-color="#cbfffc" stop-opacity=".045"/><stop offset="100%" stop-color="#012624" stop-opacity="0"/>
+          </radialGradient>
+          <linearGradient id="rimGradient" x1="0%" y1="25%" x2="100%" y2="80%">
+            <stop offset="0%" stop-color="#00827c" stop-opacity=".32"/><stop offset="53%" stop-color="#cbfffc" stop-opacity=".78"/><stop offset="88%" stop-color="#fde9ff" stop-opacity=".74"/><stop offset="100%" stop-color="#fde9ff" stop-opacity=".16"/>
+          </linearGradient>
+          <clipPath id="orbClip"><path id="clipShape" d="M300 86a214 214 0 1 1 0 428 214 214 0 0 1 0-428z"/></clipPath>
+        </defs>
+        <path id="shell" class="shell" d="M300 86a214 214 0 1 1 0 428 214 214 0 0 1 0-428z"/>
+        <g clip-path="url(#orbClip)">
+          <path id="sheen" class="sheen" d="M300 86a214 214 0 1 1 0 428 214 214 0 0 1 0-428z"/>
+          <g id="mass" class="mass"></g>
+        </g>
+        <path id="rim" class="rim" d="M300 86a214 214 0 1 1 0 428 214 214 0 0 1 0-428z"/>
+      </svg>
+      <div class="drag-label"><strong>drag the mass</strong> · touch keeps vertical scroll</div>
+    </div>
+  </div>
+</section>
+<section class="depth-strip">
+  <small>01 / RESPONSE LAYERS</small>
+  <h2>Liquid feeling comes from continuity between layers, not a looping blob animation.</h2>
+  <div class="layers">
+    <article class="layer"><small>surface / immediate</small><strong>Shell follows intent.</strong><p>The outer boundary responds directly to the current pull. There is no canned “squish” clip between the pointer and the form.</p></article>
+    <article class="layer"><small>mass / delayed</small><strong>Inside lags behind.</strong><p>The particle field has its own slower spring. That small phase difference suggests weight without turning the interface sluggish.</p></article>
+    <article class="layer"><small>release / velocity</small><strong>Momentum survives.</strong><p>Release velocity becomes the restoring spring's initial velocity, so a fast pull stretches farther before the body recovers.</p></article>
+    <article class="layer"><small>rest / tension</small><strong>Stillness is complete.</strong><p>When shell and mass settle, requestAnimationFrame stops. The final static orb remains the complete visual state.</p></article>
+  </div>
+  <div class="metric"><div><strong>1:1</strong><span>surface response</span></div><div><strong>2×</strong><span>response layers</span></div><div><strong>0</strong><span>idle animation loops</span></div></div>
+</section>
+</main>
+<footer class="footer"><span>TIDE / AUROS-INSPIRED LIQUID STUDY</span><span>Reference visual grammar + Apple-fluid continuity · 2026</span></footer>
+<script>
+(()=>{
+  const stage=document.getElementById('orbStage');
+  const shell=document.getElementById('shell');
+  const rim=document.getElementById('rim');
+  const sheen=document.getElementById('sheen');
+  const clipShape=document.getElementById('clipShape');
+  const mass=document.getElementById('mass');
+  const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  const touchLike=matchMedia('(pointer:coarse)');
+  const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+
+  let seed=7464;
+  const rand=()=>{seed=(seed*1664525+1013904223)>>>0;return seed/4294967296};
+  const NS='http://www.w3.org/2000/svg';
+  for(let i=0;i<112;i++){
+    const a=rand()*Math.PI*2;
+    const r=Math.sqrt(rand())*188;
+    const c=document.createElementNS(NS,'circle');
+    const edge=r>150;
+    c.setAttribute('cx',(300+Math.cos(a)*r).toFixed(1));
+    c.setAttribute('cy',(300+Math.sin(a)*r).toFixed(1));
+    c.setAttribute('r',(edge?1.3+rand()*1.65:.8+rand()*1.5).toFixed(2));
+    const pink=edge&&rand()>.78;
+    c.setAttribute('fill',pink?'#fde9ff':rand()>.58?'#edfffe':'#8de7e1');
+    c.classList.add('particle');if(edge)c.classList.add('edge');
+    mass.appendChild(c);
+  }
+
+  const baseR=214,N=18;
+  function smoothClosed(points){
+    let d=`M${points[0].x.toFixed(2)},${points[0].y.toFixed(2)}`;
+    for(let i=0;i<N;i++){
+      const p0=points[(i-1+N)%N],p1=points[i],p2=points[(i+1)%N],p3=points[(i+2)%N];
+      const cp1={x:p1.x+(p2.x-p0.x)/6,y:p1.y+(p2.y-p0.y)/6};
+      const cp2={x:p2.x-(p3.x-p1.x)/6,y:p2.y-(p3.y-p1.y)/6};
+      d+=` C${cp1.x.toFixed(2)},${cp1.y.toFixed(2)} ${cp2.x.toFixed(2)},${cp2.y.toFixed(2)} ${p2.x.toFixed(2)},${p2.y.toFixed(2)}`;
+    }
+    return d+' Z';
+  }
+  function blobPath(px,py,vx=0,vy=0){
+    const mag=Math.hypot(px,py),dirMag=Math.max(1,mag),energy=clamp(Math.hypot(vx,vy)/900,0,1);
+    const nx=px/dirMag,ny=py/dirMag,intensity=clamp(mag/118,0,1);
+    const points=[];
+    for(let i=0;i<N;i++){
+      const a=Math.PI*2*i/N,ux=Math.cos(a),uy=Math.sin(a),dot=ux*nx+uy*ny;
+      const lead=Math.max(0,dot),trail=Math.max(0,-dot);
+      const directional=baseR*(.105*intensity*lead*lead-.05*intensity*trail*trail);
+      const wake=baseR*.018*energy*Math.sin(a*3+Math.atan2(vy,vx||.001));
+      const rr=baseR+directional+wake;
+      points.push({x:300+px*.075+ux*rr,y:300+py*.075+uy*rr});
+    }
+    return smoothClosed(points);
+  }
+
+  let pullX=0,pullY=0,velX=0,velY=0;
+  let massX=0,massY=0,massVX=0,massVY=0;
+  let massTargetX=0,massTargetY=0;
+  let pointerId=null,startX=0,startY=0,startPullX=0,startPullY=0,lastX=0,lastY=0,lastMove=0,intent='pending',dragging=false,raf=0,lastFrame=0;
+
+  function render(){
+    const d=blobPath(pullX,pullY,velX,velY);
+    shell.setAttribute('d',d);rim.setAttribute('d',d);sheen.setAttribute('d',d);clipShape.setAttribute('d',d);
+    mass.style.transform=`translate(${massX.toFixed(2)}px,${massY.toFixed(2)}px)`;
+  }
+  function rubber(v,limit){const s=Math.sign(v),a=Math.abs(v);return s*limit*(1-Math.exp(-a/limit))}
+  function stopTick(){if(raf){cancelAnimationFrame(raf);raf=0}lastFrame=0}
+  function ensureTick(){if(!raf)raf=requestAnimationFrame(tick)}
+  function tick(now){
+    if(!lastFrame)lastFrame=now;
+    const dt=Math.min(.032,(now-lastFrame)/1000);lastFrame=now;
+
+    if(!dragging){
+      const k=122,c=20;
+      const ax=-pullX*k-velX*c,ay=-pullY*k-velY*c;
+      velX+=ax*dt;velY+=ay*dt;pullX+=velX*dt;pullY+=velY*dt;
+      massTargetX=pullX*.24;massTargetY=pullY*.24;
+    }
+
+    const mk=72,mc=15;
+    massVX+=(massTargetX-massX)*mk*dt-massVX*mc*dt;
+    massVY+=(massTargetY-massY)*mk*dt-massVY*mc*dt;
+    massX+=massVX*dt;massY+=massVY*dt;
+    render();
+
+    const shellDone=Math.hypot(pullX,pullY)<.08&&Math.hypot(velX,velY)<1.2;
+    const massDone=Math.hypot(massTargetX-massX,massTargetY-massY)<.06&&Math.hypot(massVX,massVY)<.8;
+    if(!dragging&&shellDone&&massDone){pullX=pullY=velX=velY=massX=massY=massVX=massVY=massTargetX=massTargetY=0;render();raf=0;lastFrame=0;return}
+    if(dragging&&massDone){raf=0;lastFrame=0;return}
+    raf=requestAnimationFrame(tick);
+  }
+
+  function begin(e){
+    stopTick();pointerId=e.pointerId;startX=lastX=e.clientX;startY=lastY=e.clientY;startPullX=pullX;startPullY=pullY;lastMove=performance.now();
+    intent=e.pointerType==='mouse'?'liquid':'pending';dragging=e.pointerType==='mouse';
+    if(dragging){stage.setPointerCapture(e.pointerId);stage.classList.add('dragging')}
+  }
+  function move(e){
+    if(e.pointerId!==pointerId)return;
+    const dx=e.clientX-startX,dy=e.clientY-startY;
+    if(intent==='pending'&&Math.hypot(dx,dy)>9){
+      intent=Math.abs(dx)>Math.abs(dy)*1.12?'liquid':'scroll';
+      if(intent==='liquid'){dragging=true;stage.setPointerCapture(e.pointerId);stage.classList.add('dragging')}
+    }
+    if(intent!=='liquid')return;
+    const now=performance.now(),dt=Math.max(8,now-lastMove)/1000;
+    const pointerVX=(e.clientX-lastX)/dt,pointerVY=(e.clientY-lastY)/dt;
+    const yFactor=touchLike.matches?.42:1;
+    pullX=startPullX+rubber(dx*.74,118);pullY=startPullY+rubber(dy*.66*yFactor,96);
+    velX=clamp(pointerVX*.74,-980,980);velY=clamp(pointerVY*.66*yFactor,-820,820);
+    massTargetX=pullX*.24;massTargetY=pullY*.24;
+    lastX=e.clientX;lastY=e.clientY;lastMove=now;
+    render();ensureTick();
+  }
+  function end(e){
+    if(e.pointerId!==pointerId)return;
+    const wasLiquid=intent==='liquid';pointerId=null;intent='pending';stage.classList.remove('dragging');
+    if(!wasLiquid){dragging=false;return}
+    dragging=false;
+    if(reduce){pullX=pullY=velX=velY=massX=massY=massVX=massVY=massTargetX=massTargetY=0;render();stopTick();return}
+    ensureTick();
+  }
+  stage.addEventListener('pointerdown',begin);
+  stage.addEventListener('pointermove',move);
+  stage.addEventListener('pointerup',end);
+  stage.addEventListener('pointercancel',end);
+  stage.addEventListener('keydown',e=>{
+    const nudge=e.key==='ArrowLeft'?[-58,0]:e.key==='ArrowRight'?[58,0]:e.key==='ArrowUp'?[0,-48]:e.key==='ArrowDown'?[0,48]:null;
+    if(!nudge)return;e.preventDefault();stopTick();pullX=nudge[0];pullY=nudge[1];velX=nudge[0]*5;velY=nudge[1]*5;massTargetX=pullX*.24;massTargetY=pullY*.24;render();if(!reduce)ensureTick();else{pullX=pullY=velX=velY=0;render()}
+  });
+  render();
+})();
+</script>
+</body>
+</html>
