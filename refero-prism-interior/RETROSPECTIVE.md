@@ -112,6 +112,105 @@ Freedom can be expanded later only if it earns its complexity.
 
 ---
 
+## Device feedback — rear wall flicker
+The interior concept matched the intended mental model on device, but a new visual defect became obvious during turns:
+
+> the wall behind the current face could briefly show through / flicker against the wall being read.
+
+This was useful feedback because the interaction itself remained stable. The problem was not the Apple-fluid orbit; it was the scene's depth composition.
+
+### Root cause
+V1 treated the structural room walls as translucent visual surfaces.
+
+That works for an exterior glass object, but it is a poor default for an information room where each wall owns readable text.
+
+During rotation:
+
+```text
+translucent current wall
++
+rear wall still participating in compositing
+→
+rear content becomes visible through the current surface
+```
+
+The result reads as a flicker even when the 3D transforms are mathematically continuous.
+
+---
+
+## V2 — deliberate occlusion
+The correction uses three separate responsibilities.
+
+### 1. Structural walls become opaque
+The wall itself now establishes depth and hides unrelated geometry behind it.
+
+The RGB atmosphere remains in a separate pseudo-element / light layer.
+
+This changes the material rule from:
+
+```text
+transparent wall carries both structure and optics
+```
+
+to:
+
+```text
+opaque wall = structure / occlusion
+transparent light = optics / atmosphere
+```
+
+This is a better fit for text-bearing interior surfaces.
+
+### 2. Backfaces are explicitly hidden
+Both standard and WebKit-prefixed properties are used:
+
+```css
+backface-visibility: hidden;
+-webkit-backface-visibility: hidden;
+```
+
+This removes the reverse side of a wall once rotation carries it past the camera-facing side.
+
+### 3. The clearly opposite wall is culled by view angle
+Each semantic wall owns a yaw direction:
+
+```text
+Origin 0°
+Signal 90°
+Memory 180°
+Return 270°
+```
+
+During the existing drag / spring render, the shortest angular distance between the current view and each wall is calculated.
+
+A wall more than about **136°** behind the current direction is set to `visibility:hidden`.
+
+Why 136° instead of 90°?
+- adjacent walls should remain visible while turning,
+- the room needs corner / side continuity,
+- switching exactly at the halfway point would create a more noticeable pop.
+
+The culling therefore removes only the wall that is clearly behind the viewer.
+
+No new animation loop is introduced; the four culling checks run only when the room is already being rendered because of user movement or spring settle.
+
+---
+
+## Generalizable debugging order
+For CSS 3D interiors with translucent-surface flicker, use this order before adding more effects:
+
+```text
+1. verify whether structural surfaces should actually be transparent
+2. establish opaque occlusion where appropriate
+3. add backface-visibility
+4. separate optical translucency from structural material
+5. add angle-aware opposite-surface culling only if needed
+```
+
+Do not start by fading the offending wall or adding blur. Those approaches can mask the symptom while leaving the scene's depth model ambiguous.
+
+---
+
 ## Responsive concern
 Mobile is expected to be the harder case because:
 - the viewport is tall,
@@ -126,7 +225,7 @@ The current strategy keeps the same semantic room but changes:
 - copy placement,
 - HUD layout.
 
-This follows the existing responsive-3D lesson rather than shrinking desktop coordinates.
+The occlusion model is shared across desktop and mobile because it describes scene structure rather than viewport composition.
 
 ---
 
@@ -135,30 +234,37 @@ The room has four text walls plus floor / ceiling, but no permanent motion loop.
 
 Only the settle spring uses `requestAnimationFrame`.
 
+Angle-aware culling adds four cheap comparisons to frames that already exist. It does not wake rendering on its own.
+
 Idle state is intentionally static.
 
 No particle system, animated blur, continuous refraction or autoplay orbit is present in this phase.
 
 ---
 
-## What to test on device
-- Does the first frame clearly read as being inside a room?
-- Does left / right swipe feel like turning the viewpoint rather than rotating a card?
-- Is the currently readable wall obvious?
-- Does the text reveal begin at the right moment?
-- Is the wall writing readable while still feeling physically attached to the surface?
+## What to test next on device
+- Is the rear-wall flicker gone during both slow drag and fast swipe?
+- Does hiding the opposite wall ever create an obvious pop near a 45° corner view?
+- Do opaque walls still feel spatial rather than like flat full-screen slides?
+- Are adjacent walls / floor enough to preserve the sense of being inside one room?
+- Does wall writing remain readable and physically attached after the material change?
 - Does vertical page scrolling remain available on iPhone?
-- Do compass + floor + wall labels feel sufficient, or redundant / noisy?
 
 ---
 
-## General lesson candidate
+## General lessons
 For spatial information interfaces:
 
 > **Bind information to stable geometry when the geometry already carries location.**
 
-And for sequencing:
+For sequencing:
 
 > **Do not animate navigation and long-form reading at the same time. Orient first, explain second.**
 
-Both remain hypotheses until tested on the real phone viewport.
+For interior depth composition:
+
+> **Let structure establish occlusion; let separate optical layers carry translucency.**
+
+And when a hidden surface still intrudes:
+
+> **Cull surfaces by camera relationship, not by arbitrary screen-space opacity.**
