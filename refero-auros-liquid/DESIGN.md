@@ -278,7 +278,7 @@ The prototype uses:
 - one rim path,
 - one sheen path,
 - ~100 deterministic SVG particle circles,
-- one translated particle group.
+- one transformed particle group.
 
 During drag:
 - shell geometry renders directly from pointer events,
@@ -317,6 +317,96 @@ Avoid heavy SVG filters, animated blur and thousands of DOM particles in this ph
 
 ---
 
+## 13. Gooey Response 002 — Exaggerate Geometry, Not Input Latency
+
+The first device check confirmed that the orb responds to touch, but the initial deformation was intentionally conservative. The second pass tests stronger liquid character without slowing direct manipulation.
+
+### Core rule
+
+> **If the interaction already feels direct, exaggerate the geometry before exaggerating the input lag.**
+
+The shell still receives the live pointer-derived pull immediately. Gooey character is increased through four independent presentation controls.
+
+### A. Lead stretch
+The edge facing the pull direction expands much more strongly.
+
+Starting relationship:
+
+```text
+v1 lead radial stretch ≈ 10.5% of base radius
+v2 lead radial stretch ≈ 22% of base radius
++
+extra directional tail ≈ 11.5% of base radius
+```
+
+The tail term is directional rather than a global scale, so the orb appears pulled rather than enlarged.
+
+### B. Cross-axis compression
+The sides perpendicular to the pull compress slightly while the rear also contracts.
+
+```text
+lead     → elongate
+sides    → squeeze
+rear     → compress
+```
+
+This is important because `scale(1.2)` alone reads as zoom. Liquid deformation needs anisotropy.
+
+### C. Heavier internal mass
+The particle mass target is increased from roughly `24%` of shell pull to `34%`, while its spring becomes slower.
+
+The mass group also receives a small directional stretch / cross-axis squash based on its own displaced position.
+
+```text
+shell = immediate shape
+mass  = later translation + later shape response
+```
+
+Do not delay the shell merely to make the mass feel heavier.
+
+### D. One release overshoot
+The shell restore spring is made slightly underdamped rather than fully critically damped.
+
+Goal:
+- preserve release velocity,
+- visibly pass the rest shape once,
+- settle quickly after that,
+- never become perpetual jelly wobble.
+
+Current starting point:
+
+```text
+shell stiffness ≈ 108
+shell damping   ≈ 16
+
+mass stiffness  ≈ 49
+mass damping    ≈ 10.8
+```
+
+These are perceptual tuning values, not physical simulation constants.
+
+### Larger but still bounded pull
+The rubber-band limits are widened rather than removed.
+
+```text
+horizontal effective bound ≈ 152px
+vertical effective bound   ≈ 122px before mobile reduction
+```
+
+The large-pull resistance remains essential. Without it, stronger deformation can quickly become path instability rather than gooey cohesion.
+
+### What must remain unchanged
+Even in the exaggerated version:
+- direct shell response remains immediate,
+- vertical mobile scroll keeps priority until horizontal intent is clear,
+- release velocity is preserved,
+- restoration is interruptible,
+- idle animation loop remains zero.
+
+The visual response may be dramatic; control semantics stay conservative.
+
+---
+
 ## Success Criteria
 
 1. Pulling the orb feels directly connected to the pointer.
@@ -327,3 +417,5 @@ Avoid heavy SVG filters, animated blur and thousands of DOM particles in this ph
 6. Mobile vertical scrolling remains predictable.
 7. Idle runtime performs no animation work.
 8. The visual still reads as Auros-like deep-water bioluminescence rather than a generic rainbow blob.
+9. Gooey Response 002 reads as stronger deformation rather than slower controls.
+10. The single overshoot adds material character without becoming repeated wobble.
