@@ -1,126 +1,150 @@
-# PRISM ORBIT — Fluid Camera Cube Study
+# PRISM ORBIT — Fluid Camera + Face Writing Study
 
 ## Sources
 - Spatial / optical reference: https://styles.refero.design/style/8875b14e-c59a-492f-8780-8027a480f21c
 - Motion / interaction reference: https://github.com/emilkowalski/skills/blob/main/skills/apple-design/SKILL.md
+- Writing-motion source: `refero-daybook-notebook`
 - Prior internal studies: `refero-prism-transit`, `refero-apple-fluid`
 
 ## Goal
-Build a new cube study where the visual can feel dynamic while the controls remain predictable.
-
-The main interaction model is deliberately simple:
+Keep the stable PRISM ORBIT gesture model, but change the content layout so each semantic cube face becomes a readable close-up state.
 
 ```text
 vertical scroll
-→ camera distance
+→ approach cube
+→ hold close framing
 
 horizontal swipe / drag
-→ camera orbit
+→ orbit camera
+→ velocity-preserving 90° snap
 
-tap cube
-→ current face details
+face settles
+→ narrative writes from left to right
 ```
 
-Each gesture owns one spatial meaning.
+The visual can stay dynamic while reading moments become calm.
 
 ---
 
-## 1. Visual Grammar
-
-### Monochrome interface
-- Near-black canvas.
-- White / gray typography.
-- Hairline neutral chrome.
-- No generic colored buttons or tags.
-
-### RGB belongs to optics
-Red / green / blue are reserved for:
-- spectral lines,
-- refraction-like glow,
-- optical emphasis around the cube.
-
-Color is the visual spectacle. It is not the navigation system.
-
-### Cube as stable landmark
-The cube should read as one persistent object in space.
-
-The user changes their relationship to it instead of watching the cube perform unrelated animations.
-
----
-
-## 2. Gesture Roles
+## 1. Stable Gesture Model
 
 ### Vertical — distance
-Vertical scrolling moves the viewpoint from far to near.
+Vertical scrolling owns distance only.
 
-Desktop may approach more strongly. Mobile uses a shallower Z range and larger perspective distance so the full cube remains readable.
+The important change in v2 is that the depth curve **saturates early**:
+
+```text
+far
+→ approach
+→ close framing reached
+→ distance stays nearly fixed
+```
+
+Do not keep zooming throughout the entire sticky section. Once the useful close-up is reached, preserve it so face changes can be read without the object continually changing scale.
 
 ### Horizontal — viewpoint
-Horizontal pointer movement or touch swipe changes the orbit angle.
+Horizontal pointer movement owns orbit only.
 
-After an intent threshold, the mapping is 1:1:
+After the intent threshold:
 
 ```text
 pointer dx
-→ orbit angle
+→ orbit angle 1:1
 ```
 
-Do not begin with a canned animation.
+Release preserves angular velocity, projects a destination and settles to the nearest 90° semantic face.
 
-### Tap — information
-A tap does not change spatial position. It opens information for the currently selected face.
+### New pointer-down
+Always interrupts the existing spring from the current rendered angle.
 
-This prevents one gesture from carrying multiple meanings.
+Never wait for settling motion to finish.
 
 ---
 
-## 3. Apple-fluid Motion Rules
+## 2. Face as Reading State
 
-### Immediate response
-Once horizontal intent is clear, the camera follows the pointer immediately.
-
-### Velocity handoff
-Release velocity is preserved into the settling spring.
+The cube has four semantic resting faces:
 
 ```text
-pointer movement
-→ angular velocity
-→ projected angle
-→ nearest 90° face
-→ spring with release velocity
+0°    Origin
+-90°  Signal
+-180° Memory
+-270° Return
 ```
 
-The spring does not restart from zero velocity.
+A face is not considered a reading state until the camera has settled near its 90° target.
 
-### Interruptibility
-A new pointer-down during the spring:
-- stops the existing spring,
-- uses the current rendered angle,
-- begins a new direct manipulation from that presentation value.
+While the user is dragging, the HUD may preview the nearest face name, but **narrative writing begins only after settle**.
 
-Never wait for the old animation to finish.
-
-### Critically damped default
-The resting motion should feel calm and decisive rather than playful.
-
-No decorative bounce is required for ordinary orbit snapping.
+This prevents text animation from fighting the gesture.
 
 ---
 
-## 4. Stable Face Targets
+## 3. Writing Motion
 
-The orbit can move freely while the user is touching it, but release settles to 90° increments.
+Borrow the motion grammar from `refero-daybook-notebook`, not its paper visual style.
 
-```text
-0°   → Origin
--90° → Signal
--180°→ Memory
--270°→ Return
+The source study uses horizontal clipping + opacity + a tiny vertical lift so text feels written rather than simply faded in.
+
+PRISM ORBIT adapts that as:
+
+```css
+clip-path: inset(-.3em var(--clip) -.48em 0);
+opacity: var(--ink-alpha);
+transform: translateY(var(--ink-lift));
 ```
 
-This gives physical freedom during manipulation while preserving wayfinding after release.
+Sequence:
 
-The selected face name is always visible in the HUD.
+```text
+face settles
+→ kicker writes
+→ heading writes
+→ body writes
+→ note writes
+```
+
+Writing is presentation only. It never locks orbit input.
+
+A new settled face cancels the old writing sequence and starts the new face copy immediately.
+
+---
+
+## 4. Layout Composition
+
+### Desktop
+Use an asymmetric composition:
+
+```text
+left                       right
+narrative                   cube
+narrative                   cube
+narrative                   cube
+```
+
+The cube sits right of center. The active-face story occupies the left reading column.
+
+This preserves the feeling that the user is inspecting an object while receiving context alongside it.
+
+### Mobile
+Do not squeeze the desktop two-column shot.
+
+```text
+upper viewport
+→ close cube
+
+lower viewport
+→ active-face narrative
+
+bottom safe area
+→ distance + face HUD
+```
+
+The cube and story must remain simultaneously legible.
+
+Responsive 3D still follows the prior rule:
+
+> Responsive 3D means camera recomposition, not shrinking the desktop shot.
 
 ---
 
@@ -128,42 +152,44 @@ The selected face name is always visible in the HUD.
 
 Use spectacle in:
 - RGB optical field,
-- changing perspective,
-- depth,
-- the feeling of orbiting a large object.
+- perspective,
+- close-up cube presence,
+- the act of orbiting.
 
-Keep interaction conservative:
+Keep control behavior conservative:
 - one gesture = one meaning,
-- no surprise camera cuts,
-- no automatic orbit while the user is inactive,
-- same path when reversing,
-- stable face snap points,
-- interruptible settling.
+- no surprise camera cut,
+- no automatic idle orbit,
+- stable 90° resting faces,
+- same route in reverse,
+- interruptible spring,
+- narrative begins after spatial motion settles.
 
 > Dynamic presentation is allowed. Unpredictable control is not.
 
 ---
 
-## 6. Responsive 3D
+## 6. Motion Continuity
 
-Reuse the Prism Transit lesson:
+Orbit keeps the Apple-fluid rules:
 
-> Responsive 3D means camera recomposition, not shrinking the desktop shot.
+```text
+pointer position
+→ presentation angle
+→ release velocity
+→ projected face target
+→ critically damped spring
+→ interrupt from live angle
+```
 
-### Desktop
-- stronger depth approach,
-- larger cube,
-- more dramatic perspective.
+The writing motion deliberately starts **after** the spatial motion becomes calm. This creates a hierarchy:
 
-### Mobile
-- larger perspective distance,
-- shallower Z approach,
-- smaller maximum cube size,
-- bottom HUD kept above browser / safe-area chrome,
-- face detail sheet sits above the HUD,
-- horizontal gesture zone remains large enough for a thumb.
+```text
+first: orientation
+then: reading
+```
 
-The interaction semantics remain identical even when the composition changes.
+Do not animate camera and long-form copy aggressively at the same time.
 
 ---
 
@@ -171,62 +197,52 @@ The interaction semantics remain identical even when the composition changes.
 
 No permanent animation loop.
 
-### Scroll
+### Depth
 ```text
 scroll
 → wake depth rAF
-→ settle presentation depth
+→ settle
 → stop
 ```
 
 ### Orbit
 ```text
 drag
-→ direct render only on pointermove
-
+→ render from pointermove
 release
-→ wake spring rAF
-→ settle to face
+→ spring rAF
 → stop
 ```
 
-When the user is not scrolling or orbiting, JavaScript should perform no per-frame animation work.
-
-`will-change` is enabled only while a surface is actively moving.
-
-Avoid particles, large blur filters and expensive shader-like CSS in this prototype.
-
----
-
-## 8. Material
-
-The detail surface borrows the preferred Soft Clear material direction:
-
+### Writing
 ```text
-Opacity ≈ 11%
-Blur ≈ 6px
-Edge light ≈ 36%
+face settle
+→ temporary writing rAF
+→ finish
+→ stop
 ```
 
-Glass is only used for the temporary face-detail layer, not the entire page.
+All three systems sleep when idle.
+
+Avoid particles, large blur filters and shader-like CSS in this prototype.
 
 ---
 
-## 9. Accessibility
+## 8. Accessibility
 
-- `prefers-reduced-motion`: shorten the depth journey and remove large slide motion from the detail panel.
-- `prefers-reduced-transparency`: replace Soft Clear with a solid dark surface.
+- `prefers-reduced-motion`: reveal narrative immediately and shorten depth travel.
+- Face identity is always visible as text in the HUD.
 - Arrow keys can rotate between faces on desktop.
-- Escape closes face details.
-- Face identity is communicated with text, not RGB color alone.
+- Vertical scroll must remain available even over the cube gesture zone.
+- Narrative animation must never be required to access the content.
 
 ---
 
 ## Success Criteria
-1. Horizontal swipe feels directly connected to camera orbit.
-2. Release feels like a continuation of the swipe, not a new animation.
-3. A user can interrupt a settling orbit without a visual jump.
-4. The four faces remain understandable resting states.
-5. Vertical scrolling and horizontal orbit do not feel like competing gestures on mobile.
-6. The cube remains visually contained on both phone and desktop.
-7. Dynamic optical presentation does not reduce spatial predictability.
+1. The close-up state feels intentionally held rather than continuously zooming.
+2. Horizontal swipe remains as stable as the original PRISM ORBIT prototype.
+3. Face settling creates a clear pause before reading begins.
+4. Writing feels like information arriving from the selected face, not a generic fade animation.
+5. A new swipe can interrupt at any time without waiting for writing.
+6. Desktop keeps cube + narrative balanced side-by-side.
+7. Mobile keeps cube + narrative + HUD simultaneously usable.
