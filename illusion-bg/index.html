@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#0b0b0b" />
+  <title>Moiré Depth — Chappy Playground</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --px: 0;
+      --py: 0;
+      --press: 0;
+      --auto: 0;
+    }
+
+    * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+    html, body {
+      margin: 0;
+      width: 100%;
+      min-height: 100%;
+      overflow: hidden;
+      background: #080808;
+      overscroll-behavior: none;
+    }
+
+    body {
+      min-height: 100svh;
+      display: grid;
+      place-items: center;
+      user-select: none;
+      -webkit-user-select: none;
+      -webkit-touch-callout: none;
+      touch-action: none;
+    }
+
+    .shell {
+      position: relative;
+      width: 100vw;
+      height: 100svh;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 50% 45%, rgba(255,255,255,.025), transparent 42%),
+        #080808;
+    }
+
+    .stage {
+      position: relative;
+      width: min(100vw, calc(100svh * 16 / 9));
+      height: min(100svh, calc(100vw * 9 / 16));
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      isolation: isolate;
+      background: #222;
+      box-shadow: 0 0 0 1px rgba(255,255,255,.08), 0 30px 90px rgba(0,0,0,.5);
+      cursor: grab;
+    }
+
+    .stage:active { cursor: grabbing; }
+
+    .wash,
+    .dots,
+    .grain,
+    .vignette,
+    .paper-corner,
+    .ghost {
+      position: absolute;
+      inset: -16%;
+      pointer-events: none;
+    }
+
+    .wash {
+      inset: -20%;
+      background:
+        radial-gradient(ellipse 53% 62% at 35% 62%,
+          rgba(238,238,235,.94) 0%,
+          rgba(193,193,190,.84) 20%,
+          rgba(118,118,116,.68) 39%,
+          rgba(66,66,65,.76) 60%,
+          rgba(31,31,31,.96) 82%,
+          #171717 100%);
+      transform:
+        translate3d(calc(var(--px) * -7px), calc(var(--py) * -5px), 0)
+        scale(calc(1 + var(--press) * .085));
+      transition: transform 900ms cubic-bezier(.2,.75,.2,1);
+      will-change: transform;
+    }
+
+    .dots {
+      inset: -24%;
+      background-image:
+        radial-gradient(circle, rgba(5,5,5,.9) 0 .62px, transparent .72px),
+        radial-gradient(circle, rgba(255,255,255,.18) 0 .42px, transparent .5px);
+      background-size: 2.85px 2.85px, 5.7px 5.7px;
+      background-position: 0 0, 1.42px 1.42px;
+      mix-blend-mode: multiply;
+      opacity: .88;
+      transform-origin: 40% 58%;
+      transform:
+        translate3d(calc(var(--px) * -15px), calc(var(--py) * -11px), 0)
+        rotate(calc(var(--py) * .06deg))
+        scale(calc(1 + var(--press) * .16));
+      transition: transform 820ms cubic-bezier(.18,.76,.2,1);
+      will-change: transform;
+    }
+
+    .dots::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(0,0,0,.34) 0 .48px, transparent .58px);
+      background-size: 3.08px 3.08px;
+      transform: rotate(.42deg) scale(1.004);
+      transform-origin: 42% 55%;
+      opacity: .72;
+    }
+
+    .grain {
+      inset: -8%;
+      opacity: .16;
+      background-image:
+        repeating-linear-gradient(0deg, rgba(255,255,255,.05) 0 1px, transparent 1px 3px),
+        repeating-linear-gradient(90deg, rgba(0,0,0,.08) 0 1px, transparent 1px 4px);
+      transform: translate3d(calc(var(--px) * 2px), calc(var(--py) * 2px), 0);
+    }
+
+    .vignette {
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 38% 58%, transparent 0 28%, rgba(0,0,0,.12) 57%, rgba(0,0,0,.54) 100%),
+        linear-gradient(180deg, rgba(0,0,0,.26), transparent 25%, transparent 74%, rgba(0,0,0,.24));
+      z-index: 4;
+    }
+
+    .paper-corner {
+      inset: auto -1px -1px auto;
+      width: 11%;
+      height: 26%;
+      background: #e8e4d4;
+      clip-path: polygon(100% 0, 100% 100%, 0 100%);
+      z-index: 7;
+      filter: drop-shadow(-5px -2px 0 #0a0a0a);
+    }
+
+    .ghost {
+      inset: 0;
+      z-index: 3;
+      opacity: .18;
+      transform:
+        translate3d(calc(var(--px) * 4px), calc(var(--py) * 3px), 0)
+        scale(calc(1 + var(--press) * .035));
+      transition: transform 960ms cubic-bezier(.2,.8,.2,1), opacity 300ms ease;
+    }
+
+    .ghost::before {
+      content: "";
+      position: absolute;
+      left: 29%;
+      top: 37%;
+      width: 17%;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      border: clamp(1px, .22vw, 3px) solid rgba(255,255,255,.32);
+      box-shadow:
+        0 0 0 clamp(6px, 1vw, 16px) rgba(255,255,255,.018),
+        0 0 55px rgba(255,255,255,.08);
+    }
+
+    .reticle {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 13px;
+      aspect-ratio: 1;
+      transform: translate(-50%, -50%);
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: 50%;
+      z-index: 8;
+      opacity: .28;
+    }
+
+    .reticle::before,
+    .reticle::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      background: rgba(255,255,255,.32);
+      transform: translate(-50%, -50%);
+    }
+
+    .reticle::before { width: 23px; height: 1px; }
+    .reticle::after { width: 1px; height: 23px; }
+
+    .stage.is-auto .wash { animation: washBreath 8s ease-in-out infinite alternate; }
+    .stage.is-auto .dots { animation: dotBreath 8s ease-in-out infinite alternate; }
+    .stage.is-auto .ghost { animation: ghostBreath 8s ease-in-out infinite alternate; }
+
+    @keyframes washBreath {
+      from { transform: translate3d(-1.2%, .4%, 0) scale(1.01); }
+      to   { transform: translate3d(1.6%, -1%, 0) scale(1.095); }
+    }
+
+    @keyframes dotBreath {
+      from { transform: translate3d(-1.8%, .9%, 0) rotate(-.13deg) scale(1.015); }
+      to   { transform: translate3d(2.5%, -1.3%, 0) rotate(.18deg) scale(1.17); }
+    }
+
+    @keyframes ghostBreath {
+      from { transform: translate3d(-.3%, .2%, 0) scale(1); opacity: .14; }
+      to   { transform: translate3d(.8%, -.5%, 0) scale(1.04); opacity: .22; }
+    }
+
+    .hud {
+      position: fixed;
+      inset: max(12px, env(safe-area-inset-top)) 12px auto;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      pointer-events: none;
+    }
+
+    .hud a,
+    .hud button,
+    .hint {
+      pointer-events: auto;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(12,12,12,.62);
+      color: rgba(255,255,255,.82);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: inset 0 1px rgba(255,255,255,.04), 0 10px 30px rgba(0,0,0,.18);
+    }
+
+    .hud a,
+    .hud button {
+      height: 38px;
+      padding: 0 13px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      color: rgba(255,255,255,.82);
+      text-decoration: none;
+      font: 800 10px/1 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      letter-spacing: .11em;
+    }
+
+    .hud button { appearance: none; cursor: pointer; }
+    .hud button[aria-pressed="true"] { background: rgba(235,235,228,.9); color: #111; border-color: transparent; }
+
+    .hint {
+      position: fixed;
+      left: 50%;
+      bottom: max(14px, env(safe-area-inset-bottom));
+      z-index: 20;
+      transform: translateX(-50%);
+      width: max-content;
+      max-width: calc(100vw - 28px);
+      padding: 9px 13px;
+      border-radius: 999px;
+      color: rgba(255,255,255,.58);
+      font: 700 9px/1.25 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      letter-spacing: .08em;
+      text-align: center;
+    }
+
+    .status {
+      position: absolute;
+      left: 3.2%;
+      bottom: 4.8%;
+      z-index: 9;
+      color: rgba(255,255,255,.54);
+      font: 700 clamp(7px, .7vw, 11px)/1.3 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      text-shadow: 0 1px 8px #000;
+      pointer-events: none;
+    }
+
+    .status strong { color: rgba(255,255,255,.86); }
+
+    @media (max-aspect-ratio: 1/1) {
+      .stage {
+        width: 100vw;
+        height: calc(100vw * 9 / 16);
+      }
+      .hint { bottom: max(22px, env(safe-area-inset-bottom)); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .stage.is-auto .wash,
+      .stage.is-auto .dots,
+      .stage.is-auto .ghost { animation: none; }
+      .wash, .dots, .ghost { transition-duration: 1ms; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <div class="stage" id="stage" aria-label="モアレと網点による奥行き錯覚の実験画面">
+      <div class="wash"></div>
+      <div class="dots"></div>
+      <div class="grain"></div>
+      <div class="ghost"></div>
+      <div class="vignette"></div>
+      <div class="reticle"></div>
+      <div class="paper-corner"></div>
+      <div class="status"><strong>MOIRÉ DEPTH</strong><br>STATIC PATTERN / DYNAMIC CAMERA</div>
+    </div>
+  </div>
+
+  <div class="hud">
+    <a href="../" aria-label="Chappy Playgroundへ戻る">← PLAYGROUND</a>
+    <button id="autoButton" type="button" aria-pressed="false">AUTO OFF</button>
+  </div>
+
+  <div class="hint">HOLD = PUSH IN · DRAG = PARALLAX · AUTO = LOOP</div>
+
+  <script>
+    (() => {
+      const stage = document.getElementById('stage');
+      const autoButton = document.getElementById('autoButton');
+      const root = document.documentElement;
+
+      let dragging = false;
+      let moved = false;
+      let startX = 0;
+      let startY = 0;
+      let px = 0;
+      let py = 0;
+
+      const clamp = (v, min, max) => Math.min(max, Math.max(min, v));
+
+      function setPosition(x, y) {
+        px = clamp(x, -1, 1);
+        py = clamp(y, -1, 1);
+        root.style.setProperty('--px', px.toFixed(3));
+        root.style.setProperty('--py', py.toFixed(3));
+      }
+
+      function setPress(on) {
+        root.style.setProperty('--press', on ? '1' : '0');
+      }
+
+      function pointerDown(event) {
+        if (stage.classList.contains('is-auto')) return;
+        dragging = true;
+        moved = false;
+        startX = event.clientX;
+        startY = event.clientY;
+        setPress(true);
+        stage.setPointerCapture?.(event.pointerId);
+      }
+
+      function pointerMove(event) {
+        if (!dragging || stage.classList.contains('is-auto')) return;
+        const dx = event.clientX - startX;
+        const dy = event.clientY - startY;
+        if (Math.hypot(dx, dy) > 3) moved = true;
+        const rect = stage.getBoundingClientRect();
+        setPosition(dx / (rect.width * .24), dy / (rect.height * .24));
+      }
+
+      function pointerUp(event) {
+        if (!dragging) return;
+        dragging = false;
+        setPress(false);
+        stage.releasePointerCapture?.(event.pointerId);
+        window.setTimeout(() => setPosition(0, 0), moved ? 120 : 0);
+      }
+
+      stage.addEventListener('pointerdown', pointerDown);
+      stage.addEventListener('pointermove', pointerMove);
+      stage.addEventListener('pointerup', pointerUp);
+      stage.addEventListener('pointercancel', pointerUp);
+
+      autoButton.addEventListener('pointerdown', e => e.stopPropagation());
+      autoButton.addEventListener('click', () => {
+        const on = !stage.classList.contains('is-auto');
+        stage.classList.toggle('is-auto', on);
+        autoButton.setAttribute('aria-pressed', String(on));
+        autoButton.textContent = on ? 'AUTO ON' : 'AUTO OFF';
+        setPress(false);
+        setPosition(0, 0);
+      });
+
+      document.addEventListener('contextmenu', event => event.preventDefault());
+      document.addEventListener('dragstart', event => event.preventDefault());
+    })();
+  </script>
+</body>
+</html>
