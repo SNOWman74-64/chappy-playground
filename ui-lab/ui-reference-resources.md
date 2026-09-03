@@ -169,7 +169,71 @@ Web Motion / Interaction研究。
 
 ---
 
-## 6. Brand
+## 6. Visual Effect / Decorative Tools
+
+サイト全体のDesign Systemではなく、HeroやSection、背景、視線誘導などに使える**小さな視覚表現の引き出し**として扱う。
+
+### Design Minis — Light Stroke Tails
+https://www.designminis.com/tools/light-stroke-tails
+
+光の軌跡・流線のようなStroke表現を作るVisual Effect Tool。
+
+参考用途:
+
+- Hero背景
+- CTA周辺の視線誘導
+- Section間の流れ
+- Dark UI上の発光表現
+- Brandを象徴するMotion Line
+
+「Light Strokeを使う」こと自体をDesign Principleにはしない。
+
+例:
+
+`Light Strokeが好き`
+→ `細いMotion Lineで視線や流れを誘導する表現が好き`
+
+のように、気に入った理由を一段抽象化して残す。
+
+Mock GalleryでHero Effect / Decorative Motionの単体Studyとして試す候補。
+
+---
+
+## 7. Browser QA / UI Exploration Tools
+
+Referenceを見る場所ではなく、**作ったUIをAIが実ブラウザで触り、UX・Interaction・表示を観察するための道具**。
+
+### ego-browser / ego-lite
+https://github.com/citrolabs/ego-lite/blob/main/skills/ego-browser/SKILL.md
+
+Coding Agentへ専用Chromiumのブラウザ操作能力を与え、ページ操作・Screenshot・DOM観察・Exploratory Testing・Dogfooding・Bug Huntingなどを行うSkill / Browser。
+
+UI研究での将来用途:
+
+- Mock Galleryのモックを実際に触らせる
+- Desktop / MobileでInteractionを観察する
+- Overflow / State / Motion / Navigationの違和感を探す
+- `product-ui-audit` の目と手として使う
+- LIFTLOGなど実アプリのUX監査
+
+役割イメージ:
+
+```text
+UI Architect / UI Audit Skill
+        ↓ 何を見るか判断
+ego-browser
+        ↓ 実際に触る
+Playwright
+        ↓ 再現可能な仕様保証
+```
+
+Playwrightの代替ではなく、Exploratory UX Reviewを補う位置づけ。
+
+現時点ではego lite本体のWindows対応状況を確認してから導入する。Windows環境では「今すぐ必須」ではなく、将来のUI Harness候補として記録。
+
+---
+
+## 8. Brand
 
 ### Rebrand Gallery
 https://rebrand.gallery/
@@ -178,7 +242,7 @@ Logo、Color、Typography、Photography等を含むBrand全体のVisual Language
 
 ---
 
-## 7. Icon
+## 9. Icon
 
 ### Hugeicons
 https://hugeicons.com/
@@ -205,6 +269,14 @@ Mobbin / Refero / Spotted in Prod
 Magic UI / Aceternity / Uiverse / shadcn
         ↓
 実装できるComponent / Interactionを研究
+
+Design Minisなど
+        ↓
+小さなVisual Effectを試す
+
+ego-browserなど
+        ↓
+作ったUIを実ブラウザで探索・観察する
 ```
 
 ---
