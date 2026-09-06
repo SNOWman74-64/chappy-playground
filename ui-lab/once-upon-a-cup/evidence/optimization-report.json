@@ -1,0 +1,44 @@
+{
+  "source": "docs/model/once-upon-a-cup-computer-use.blend",
+  "source_sha256": "5265706736f012cdd4d9cc67d5bb0124ae617592d3b0c54a766da2f6859bb866",
+  "source_bytes": 615720,
+  "source_scene_objects": 977,
+  "source_renderable_objects_excluding_studio": 972,
+  "blender_version": "5.2.1 LTS",
+  "baseline_definition": "Evaluated uncompressed GLB of the same cafe; studio floor, lights and camera excluded.",
+  "operations": [
+    "Print text flat: preserve glyph outlines, remove extrusion/bevel, resolution 4.",
+    "Reduce curve resolution to 4 and bevel resolution to at most 1.",
+    "Reduce bevel modifier segments to 1; preserve widths and cardstock thickness.",
+    "Evaluate modifiers, apply world transforms, merge static meshes by material slots.",
+    "Omit unused UVs, animations, cameras and studio setup; Draco position16/normal10 level6."
+  ],
+  "baseline": {
+    "bytes": 5858336,
+    "meshes": 972,
+    "primitives": 972,
+    "materials": 14,
+    "triangles": 223880,
+    "vertices": 178878,
+    "extensions_required": [],
+    "sha256": "86f8068dd8c4b9dbdf65def2931e6a79c8b2f6b2f81d8444b4d2f3c5b4157726"
+  },
+  "optimized": {
+    "bytes": 383840,
+    "meshes": 14,
+    "primitives": 14,
+    "materials": 14,
+    "triangles": 90305,
+    "vertices": 95466,
+    "extensions_required": [
+      "KHR_draco_mesh_compression"
+    ],
+    "sha256": "f9fafe5070c4e4f9dcc5e963bddac20cf70bfdb8497d1cbdc901eb7e955be2f7"
+  },
+  "reductions_percent": {
+    "bytes": 93.45,
+    "triangles": 59.66,
+    "primitives": 98.56
+  },
+  "source_hash_after": "5265706736f012cdd4d9cc67d5bb0124ae617592d3b0c54a766da2f6859bb866"
+}

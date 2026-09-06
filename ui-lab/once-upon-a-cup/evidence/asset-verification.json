@@ -1,0 +1,17 @@
+{
+  "result": "PASS",
+  "source_sha256": "5265706736f012cdd4d9cc67d5bb0124ae617592d3b0c54a766da2f6859bb866",
+  "glb_bytes": 383840,
+  "model_meshes": 14,
+  "model_triangles": 90305,
+  "vendor_files_verified": 11,
+  "vendor_bytes_including_licenses": 1193138,
+  "poster_bytes": 96822,
+  "local_html_assets_verified": [
+    "styles.css",
+    "app.js",
+    "assets/cafe-poster.webp"
+  ],
+  "duplicate_ids": false,
+  "obsolete_png_removed": true
+}

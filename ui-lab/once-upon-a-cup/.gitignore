@@ -1,0 +1,4 @@
+# Local export output; structured evidence is kept in version control.
+evidence/export.log
+__pycache__/
+*.pyc
