@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#ede8df">
+  <meta name="description" content="青いスライムをつまんで、伸ばして、跳ねさせる3Dソフトボディ研究。">
+  <title>Blue Slime Playground — Soft Body Study</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 3C13 8 5 10 5 19c0 6 4 10 11 10s11-4 11-10C27 10 19 8 16 3Z' fill='%231778f2'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+  <script type="importmap">{"imports":{"three":"./vendor/three/three.module.min.js","three/addons/":"./vendor/three/addons/"}}</script>
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <main class="playground" id="playground">
+    <header class="masthead">
+      <div class="brand">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span>BLUE SLIME LAB</span>
+      </div>
+      <p>SOFT BODY STUDY <span>01</span></p>
+      <button class="reset-button js-only" id="reset" type="button">RESET <span aria-hidden="true">↺</span></button>
+    </header>
+
+    <section class="stage" id="stage" aria-label="青いスライムの3Dプレイグラウンド">
+      <div class="poster" id="poster" aria-hidden="true">
+        <div class="poster-shadow"></div>
+        <div class="poster-slime">
+          <span class="poster-eye poster-eye-left"></span>
+          <span class="poster-eye poster-eye-right"></span>
+          <span class="poster-mouth"></span>
+        </div>
+      </div>
+      <div class="canvas-mount" id="canvas-mount"></div>
+      <p class="fallback-message" id="fallback-message" role="status"></p>
+    </section>
+
+    <aside class="interaction-note">
+      <span class="note-index">01</span>
+      <div>
+        <strong>つまんで、のばす。</strong>
+        <p>スライムをドラッグすると、掴んだ場所から変形が伝わります。離すと勢いを残したまま戻ります。</p>
+      </div>
+    </aside>
+
+    <div class="desktop-help" aria-hidden="true">
+      <span><kbd>WASD</kbd> MOVE</span>
+      <span><kbd>SPACE</kbd> JUMP</span>
+      <span>DRAG BODY · STRETCH</span>
+      <span>DRAG AIR · ORBIT</span>
+    </div>
+
+    <div class="touch-controls js-only" aria-label="移動操作">
+      <div class="dpad" role="group" aria-label="スライムを移動">
+        <button type="button" data-move="forward" aria-label="前へ">↑</button>
+        <button type="button" data-move="left" aria-label="左へ">←</button>
+        <button type="button" data-move="back" aria-label="後ろへ">↓</button>
+        <button type="button" data-move="right" aria-label="右へ">→</button>
+      </div>
+      <button class="jump-button" id="jump" type="button" aria-label="ジャンプ">JUMP</button>
+    </div>
+
+    <p class="live-status" id="live-status" aria-live="polite"></p>
+  </main>
+  <noscript>
+    <style>.js-only{display:none!important}.fallback-message::after{content:"この研究を3Dで動かすにはJavaScriptを有効にしてください。"}</style>
+  </noscript>
+</body>
+</html>
