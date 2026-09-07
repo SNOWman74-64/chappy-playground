@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>私立 青葉高等学校｜学校案内 2027</title>
+    <style>
+      :root { --green:#163f35; --leaf:#dce8c9; --ink:#243a32; --muted:#58675e; }
+      * { box-sizing:border-box; }
+      body { margin:0; color:var(--ink); font-family:"Yu Gothic","Hiragino Kaku Gothic ProN",sans-serif; line-height:1.75; }
+      main { width:min(900px,calc(100% - 40px)); margin:0 auto; padding:56px 0 80px; }
+      header { border-top:12px solid var(--green); padding-top:36px; }
+      .kicker { color:var(--green); font-size:12px; letter-spacing:.18em; font-weight:800; }
+      h1,h2 { font-family:"Yu Mincho","Hiragino Mincho ProN",serif; font-weight:600; }
+      h1 { margin:10px 0; font-size:46px; }
+      h2 { margin:50px 0 18px; padding-bottom:8px; border-bottom:2px solid var(--green); font-size:28px; }
+      .lead { font-size:19px; color:var(--muted); }
+      .hero { margin-top:32px; width:100%; aspect-ratio:16/7; object-fit:cover; }
+      .courses { display:grid; grid-template-columns:repeat(3,1fr); border:1px solid #bdc8c1; }
+      .course { padding:24px; border-right:1px solid #bdc8c1; }
+      .course:last-child { border-right:0; }
+      .course strong { display:block; color:var(--green); font-family:"Yu Mincho",serif; font-size:22px; }
+      table { width:100%; border-collapse:collapse; }
+      th,td { padding:14px; border-top:1px solid #cbd4ce; border-bottom:1px solid #cbd4ce; text-align:left; }
+      th { width:28%; background:#f6f5ef; color:var(--green); }
+      .note { margin-top:40px; padding:18px 20px; background:var(--leaf); }
+      .actions { margin:30px 0; display:flex; gap:12px; }
+      button,a.button { border:1px solid var(--green); background:var(--green); color:white; min-height:44px; padding:9px 18px; cursor:pointer; text-decoration:none; font-weight:700; }
+      @media(max-width:650px){ h1{font-size:34px}.courses{grid-template-columns:1fr}.course{border-right:0;border-bottom:1px solid #bdc8c1}.course:last-child{border-bottom:0} }
+      @media print { .actions{display:none} main{width:100%;padding:0} header{margin-top:0} .hero{max-height:220px} }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <p class="kicker">AOBA HIGH SCHOOL / SCHOOL GUIDE 2027</p>
+        <h1>私立 青葉高等学校</h1>
+        <p class="lead">好きが、未来をひらく。興味から問いをつくり、仲間と試し、社会へつなげる3年間。</p>
+        <img class="hero" src="../assets/students.jpg" alt="校内で学ぶ高校生のイメージ" />
+      </header>
+
+      <div class="actions">
+        <button type="button" onclick="window.print()">この案内を印刷する</button>
+        <a class="button" href="./index.html#/admissions">入試・説明会を見る</a>
+      </div>
+
+      <h2>3つのコース</h2>
+      <div class="courses">
+        <div class="course"><strong>探究コース</strong><p>地域や企業とつながる課題研究を軸に、問いを深める力を育てます。</p></div>
+        <div class="course"><strong>総合コース</strong><p>基礎学力と選択科目を組み合わせ、一人ひとりの進路に合わせて学びます。</p></div>
+        <div class="course"><strong>国際コース</strong><p>英語運用と多文化理解を重視し、国内外の進学や交流に備えます。</p></div>
+      </div>
+
+      <h2>学校概要</h2>
+      <table>
+        <tr><th>創立</th><td>1968年</td></tr>
+        <tr><th>学級編成</th><td>各学年6クラス</td></tr>
+        <tr><th>所在地</th><td>青葉市みどり野2-18（架空）</td></tr>
+        <tr><th>最寄り</th><td>青葉みどり駅から徒歩8分（架空）</td></tr>
+      </table>
+
+      <h2>2027年度 入試予定</h2>
+      <table>
+        <tr><th>推薦入試</th><td>2027年1月22日（金）</td></tr>
+        <tr><th>一般入試</th><td>2027年2月10日（水）</td></tr>
+        <tr><th>募集人数</th><td>普通科 男女216名</td></tr>
+        <tr><th>受験料</th><td>22,000円</td></tr>
+      </table>
+
+      <p class="note">この学校案内はUI検証用の架空資料です。学校名、日程、住所、費用、実績などは実在の学校情報ではありません。</p>
+    </main>
+  </body>
+</html>

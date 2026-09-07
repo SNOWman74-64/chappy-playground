@@ -401,6 +401,27 @@
         "学校の日常と実務情報を両立",
         "操作と表示を実ブラウザで検証"
       ]
+    },
+    {
+      "id": "school-comparison",
+      "title": "青葉高等学校 — 比較用バリエーション",
+      "shortTitle": "青葉高等学校 — 比較用バリエーション",
+      "summary": "同じ青葉高等学校の設計条件から制作した追加バリエーション。既存2案と並べてUI・情報設計を比較できる架空の学校サイト。",
+      "previewPath": "./school-comparison/school-astra/",
+      "designPath": "./school-comparison/DESIGN.md",
+      "retrospectivePath": "./school-comparison/RETROSPECTIVE.md",
+      "referenceUrl": "./school-comparison/DESIGN-PLAN.md",
+      "thumbnail": null,
+      "tags": [
+        "SCHOOL",
+        "MODEL COMPARISON",
+        "ADDITIONAL VARIANT"
+      ],
+      "principles": [
+        "写真と実務情報を同じ導線に置く",
+        "検索・絞り込み・フォームまで静的サイト内で完結",
+        "既存比較案を残したまま追加案として扱う"
+      ]
     }
   ]
 }
