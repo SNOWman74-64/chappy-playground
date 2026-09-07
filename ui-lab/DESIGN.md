@@ -12,7 +12,7 @@
 
 ## Default workflow
 
-1. Reference を観察する
+1. Reference がある場合は `handoff/KNOWLEDGE-INDEX.md` から必要な site / pattern / observation knowledge だけ選び、Reference を観察する
 2. 見た目ではなく Visual DNA / Layout / Interaction Rule を抽出する
 3. 個別 `DESIGN.md` に保存する
 4. Mock を実装する
@@ -61,7 +61,7 @@ motion は装飾量を増やすためではなく、操作・状態変化・素�
 - `RETROSPECTIVE.md` — このモック固有の失敗・修正・未解決点
 - `README.md` — 短い概要（任意。既存互換用）
 
-一覧への登録は `mock-gallery/catalog.json` で行う。
+一覧への登録は UI Lab 直下の `catalog.json` で行う。新しい study は、study 本体を作成したあと `catalog.json` に1件追加することで `index.html` の一覧と `viewer.html` の詳細ビューへ反映する。
 
 ## DESIGN.md minimum sections
 
@@ -92,7 +92,7 @@ motion は装飾量を増やすためではなく、操作・状態変化・素�
 
 ## Gallery contract
 
-`mock-gallery` はモック本体に依存したレイアウトを持たない。
-カタログ情報とドキュメントパスを読み、Preview / Design / Learnings を表示する薄い shell として扱う。
+UI Lab の gallery は `index.html` + `catalog.json` + `viewer.html` を正規入口とする。
+gallery shell はモック本体に依存したレイアウトを持たず、カタログ情報とドキュメントパスを読み、Preview / Design / Learnings を表示する。
 
-Dashboard の見た目は後で大きく入れ替えてよい。`catalog.json` と各モックのドキュメント契約はなるべく維持する。
+Gallery の見た目は後で大きく入れ替えてよい。`catalog.json` と各モックのドキュメント契約はなるべく維持する。
