@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "hash_algorithm": "SHA256, CRLF normalized to LF",
+  "status": "inputs_frozen_no_implementation",
+  "files": {
+    "DESIGN.md": "d06802484ff28c46c9b80749ad9fd204c666210875ff2c0a74e8c9292d9b9f87",
+    "ACCEPTANCE.md": "7b715c91ec63ae705f4d8122f653c36134dfa482cecb62851d956f0e25570613",
+    "PROTOCOL.md": "d0e4f80ba8612affb98df4b6b6791bb101c5e41e90dc3c71e3a390d265b92134",
+    "fixtures/content.json": "aa1d06a47683f7b381409250a9348c47c7df844e84ab2aed3b9c9f1340359d1c",
+    "assets/CREDITS.md": "24e324d2efa2e2f7204ddd012157dc7968326bc3c71c010ac8a5d46cb8a08ed7",
+    "assets/c01.svg": "36d1e6c318ba7af9364bbdbd042686b4bc4cc12bec7f7adbd02184f865dc6691",
+    "assets/c02.svg": "caa1fc0c98c60de95d4e1ca2afb8380712b9c900e7173dcbfc46a4a016df01a3",
+    "assets/c03.svg": "8a539f30410ea85483ced355a14df218576c0975b4a7cdc31b3d08d8797f342f",
+    "assets/c04.svg": "79202c3075f40b93d18af6a9c4327bb332ed9bc7947416c4371c1b350e750390",
+    "assets/c05.svg": "5df22fe933cf804b6d87c9a5308cb35306f7b5891adb5bad289e0281235acfe6",
+    "assets/c06.svg": "fd576073018b00faf097155fd91f634d54bde3baedde690cac07af3316b76127",
+    "assets/c07.svg": "771d05de08cc7b6f9feb3351688233dcfee6aea0d2e7702f2a64bbad298590e0",
+    "assets/c08.svg": "4a203d4a2a3c878353e2841a00a3240893c1026acadd09cbfa0ada124b7b1e86",
+    "assets/c09.svg": "a8af845f2a479572df07eb9aa41aab8e9fbd12035e07e42dd97718155807926a",
+    "assets/c10.svg": "118d1924cb76f62385e30744bece2246a1552b088a4078588715b0e68499d3f9",
+    "assets/c11.svg": "cd6953b1ddaf579fd8635f7d68946e9326b5e2351079556052bdf57800dbcfef",
+    "assets/c12.svg": "ac6f85e248454361eb2d87eb38fe02dd8b211523beed41bb462ec9751c62cec5",
+    "assets/e01.svg": "16c41493f8833893d13abba04e7b00d8f5bb5263c1d5deb4435ab5e87f7a3d03",
+    "assets/e02.svg": "d0f7cc3e9b40457337499c3af937c3b375b04864a8e008e3a9727780d9ea8c55",
+    "assets/e03.svg": "0957bfcdaeae346abb662652d71c8e2fa27ae41220f1b602bc698a9c2e46177d"
+  }
+}

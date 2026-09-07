@@ -1,0 +1,21 @@
+{
+  "run_id": null,
+  "status": "not_started",
+  "baseline_commit": null,
+  "baseline_manifest_sha256": null,
+  "prompt_sha256": null,
+  "output_directory": null,
+  "mode": null,
+  "requested_settings": {"model": null, "reasoning": null, "service_tier": null},
+  "observed_settings": {"model": null, "reasoning": null, "service_tier": null},
+  "browser_preflight": {"status": "not_run", "actor": null, "evidence": null},
+  "review_policy": null,
+  "stages": [],
+  "initial_snapshot": null,
+  "final_snapshot": null,
+  "parent_usage": null,
+  "worker_usage": null,
+  "cost": null,
+  "acceptance": [],
+  "incidents": []
+}
