@@ -1,0 +1,37 @@
+[
+  {
+    "name": "campus",
+    "file": "campus.jpg",
+    "source": "https://unsplash.com/photos/modern-building-beside-a-tranquil-lake-with-people-walking-VofeQOzGaRs",
+    "author": "Trac Vu",
+    "bytes": 587740
+  },
+  {
+    "name": "basketball",
+    "file": "basketball.jpg",
+    "source": "https://unsplash.com/photos/indoor-photography-of-basketball-court-EKXCGy4Zsbg",
+    "author": "Griest Projects",
+    "bytes": 500408
+  },
+  {
+    "name": "library",
+    "file": "library.jpg",
+    "source": "https://unsplash.com/photos/shallow-focus-photography-of-bookshelfs-ggeZ9oyI-PE",
+    "author": "Priscilla Du Preez",
+    "bytes": 390901
+  },
+  {
+    "name": "students",
+    "file": "students.jpg",
+    "source": "https://unsplash.com/photos/people-standing-near-trees-and-building-during-daytime-CXQCTwKRM7o",
+    "author": "Alessandro Pacilio",
+    "bytes": 462494
+  },
+  {
+    "name": "classroom",
+    "file": "classroom.jpg",
+    "source": "https://unsplash.com/photos/students-gather-inside-a-school-building-ls5wepv5pW4",
+    "author": "Yanhao Fang",
+    "bytes": 275478
+  }
+]

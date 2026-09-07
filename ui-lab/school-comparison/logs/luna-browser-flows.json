@@ -1,0 +1,36 @@
+[
+  {
+    "cultureCount": 6
+  },
+  {
+    "clubDetail": "吹奏楽部"
+  },
+  {
+    "newsFiltered": 1
+  },
+  {
+    "search": "3件見つかりました"
+  },
+  {
+    "zero": "一致する情報がありませんでした。\n\n別のキーワードで検索するか、上のメニューからページをお選びください。"
+  },
+  {
+    "invalidBlocked": true
+  },
+  {
+    "confirmation": "参加日程\n11 / 08 SUN　入試説明会\nお名前\nテスト 青葉\nメール\ntest@example.com\n参加人数\n2名"
+  },
+  {
+    "preservedName": "テスト 青葉",
+    "preservedDate": "nov"
+  },
+  {
+    "complete": "説明会の予約を受け付けました"
+  },
+  {
+    "contactPreserved": "学校案内を希望します。"
+  },
+  {
+    "contactComplete": "お問い合わせを受け付けました"
+  }
+]

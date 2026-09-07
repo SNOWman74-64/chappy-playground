@@ -1,0 +1,20 @@
+variant B の実装を完了しました。`school-luna` 内のみ変更しています。
+
+主な実装：
+
+- 全ページ／ハッシュルート
+- 検索、ニュース・部活動フィルター
+- 説明会予約・問い合わせの確認／完了フロー
+- モバイルナビ、FAQ、印刷用学校案内
+- 写真フォールバックとクレジットリンク
+- 日本語コピー、レスポンシブ対応
+
+変更ファイル：
+
+- [index.html](C:\Users\user\Projects\新しいフォルダー\ui-lab\school-luna\index.html)
+- [DESIGN.md](C:\Users\user\Projects\新しいフォルダー\ui-lab\school-luna\DESIGN.md)
+- [RETROSPECTIVE.md](C:\Users\user\Projects\新しいフォルダー\ui-lab\school-luna\RETROSPECTIVE.md)
+- [TEST-REPORT.md](C:\Users\user\Projects\新しいフォルダー\ui-lab\school-luna\TEST-REPORT.md)
+- [metrics.json](C:\Users\user\Projects\新しいフォルダー\ui-lab\school-luna\metrics.json)
+
+JavaScript構文解析とmetrics JSONは通過済みです。catalog未変更のため静的チェックは登録不足の1件のみ失敗。ブラウザ接続が利用できなかったため、1440px／390pxの実表示QAは親担当へ引き継ぎます。

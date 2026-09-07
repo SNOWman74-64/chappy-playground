@@ -1,0 +1,90 @@
+{
+  "checks": [
+    {
+      "route": "about",
+      "overflow": false,
+      "broken": 0
+    },
+    {
+      "route": "learning",
+      "overflow": false,
+      "broken": 0
+    },
+    {
+      "route": "life",
+      "overflow": false,
+      "broken": 0
+    },
+    {
+      "route": "clubs",
+      "overflow": false,
+      "broken": 0
+    },
+    {
+      "route": "admissions",
+      "overflow": false,
+      "broken": 0
+    },
+    {
+      "route": "news",
+      "overflow": false,
+      "broken": 0
+    },
+    {
+      "route": "access",
+      "overflow": false,
+      "broken": 0
+    },
+    {
+      "route": "contact",
+      "overflow": false,
+      "broken": 0
+    },
+    {
+      "route": "guide",
+      "overflow": false,
+      "broken": 0
+    },
+    {
+      "route": "students",
+      "overflow": false,
+      "broken": 0
+    },
+    {
+      "route": "alumni",
+      "overflow": false,
+      "broken": 0
+    },
+    {
+      "route": "privacy",
+      "overflow": false,
+      "broken": 0
+    },
+    {
+      "route": "sitemap",
+      "overflow": false,
+      "broken": 0
+    },
+    {
+      "open": "true"
+    },
+    {
+      "closed": "false"
+    },
+    {
+      "mobileSearch": 3,
+      "closedAfterNavigation": "false"
+    },
+    {
+      "keyboardFocus": {
+        "tag": "BUTTON",
+        "outline": "solid"
+      }
+    },
+    {
+      "faqOpen": true
+    }
+  ],
+  "errors": [],
+  "http": []
+}

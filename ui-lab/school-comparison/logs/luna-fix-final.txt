@@ -1,0 +1,25 @@
+親QAの指摘9点を `school-luna` 内のみ修正しました。
+
+- フッター文字色、モバイル検索、inline SVG favicon
+- 説明会日付を全箇所で正しい曜日へ統一
+- CTA画像の全面フィット
+- 部活動ページ／詳細へ活動イメージ写真を追加
+- フォーム遷移後の見出しフォーカス
+- 名前・用件の空白入力を拒否
+- 親QA由来の修正と自己検証範囲を記録
+- correctionフェーズ時刻をmetricsへ追加
+
+構文確認：
+
+- `INLINE_JS_PARSE_PASS`
+- `METRICS_JSON_PARSE_PASS`
+- targeted fix token check pass
+
+修正ファイル：
+
+- [index.html](C:\Users\user\Projects\新しいフォルダー\ui-lab\school-luna\index.html)
+- [RETROSPECTIVE.md](C:\Users\user\Projects\新しいフォルダー\ui-lab\school-luna\RETROSPECTIVE.md)
+- [TEST-REPORT.md](C:\Users\user\Projects\新しいフォルダー\ui-lab\school-luna\TEST-REPORT.md)
+- [metrics.json](C:\Users\user\Projects\新しいフォルダー\ui-lab\school-luna\metrics.json)
+
+修正後のブラウザ再QAとモバイルヒーロー確認は、親担当へ引き継ぎます。

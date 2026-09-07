@@ -1,0 +1,18 @@
+{
+  "variant": "B",
+  "model_requested": "gpt-5.6-luna",
+  "reasoning_requested": "xhigh",
+  "priority_requested": "Fast",
+  "start_utc": "2026-09-07T12:28:15.7741829Z",
+  "end_utc": "2026-09-07T12:46:22.1519031Z",
+  "phases": {
+    "preparation": { "start_utc": "2026-09-07T12:28:15.7741829Z", "end_utc": "2026-09-07T12:28:15.7741829Z" },
+    "implementation": { "start_utc": "2026-09-07T12:28:15.7741829Z", "end_utc": "2026-09-07T12:28:15.7741829Z" },
+    "verification": { "start_utc": "2026-09-07T12:28:15.7741829Z", "end_utc": "2026-09-07T12:29:40.5746232Z" },
+    "correction": { "start_utc": "2026-09-07T12:42:22.2007369Z", "end_utc": "2026-09-07T12:43:16.2112431Z" },
+    "final_mobile_polish": { "start_utc": "2026-09-07T12:45:17.3932857Z", "end_utc": "2026-09-07T12:46:22.1519031Z" }
+  },
+  "usage": null,
+  "usage_source": "CLI JSONL is captured by parent",
+  "notes": "Correction and final mobile polish phases are recorded separately after bounded issues from parent browser QA. Requested model settings are recorded as requested; actual delivery tier is not inferred. The final mobile polish pass does not claim browser re-verification."
+}

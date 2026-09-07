@@ -1,0 +1,111 @@
+{
+  "captured_at_utc": "2026-09-07T12:50:34.621788+00:00",
+  "measurement_notes": [
+    "Astra cumulative usage includes common planning, assets, both browser QA lanes and integration. It is a snapshot before the final assistant reply.",
+    "Input tokens include cached input and repeated context; do not add cached input on top of input.",
+    "Reasoning output tokens are part of output tokens; do not add them again.",
+    "Fast was requested via service_tier=priority. Actual served tier is not present in turn_context; unknown is not confirmation.",
+    "Model identity is the recorded model setting, not independent attestation of the upstream provider.",
+    "Luna usage counters reset on each resumed CLI run (observed in session log). Sum completed turn usage from first implementation, correction and polish JSONL files; cached and reasoning subtotals are not added twice.",
+    "Both used the same plan and shared stock photos. Shared asset preparation continued after implementation started; the parallel overlap is not a controlled benchmark."
+  ],
+  "astra": {
+    "session_id": "01a07bcb-d30b-77b3-95b3-f5607e4a4155",
+    "model": "gpt-6-astra",
+    "reasoning": "low",
+    "requested_service_tier": null,
+    "actual_service_tier": null,
+    "initial_start_utc": "2026-09-07T12:19:53.7816961Z",
+    "initial_end_utc": "2026-09-07T12:32:23.6804799Z",
+    "initial_seconds": 749.899,
+    "usage_captured_at_utc": "2026-09-07T12:49:48.115Z",
+    "usage": {
+      "input_tokens": 7052854,
+      "cached_input_tokens": 6868096,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 46065,
+      "reasoning_output_tokens": 3107,
+      "total_tokens": 7098919
+    },
+    "initial_interval_usage_delta": {
+      "input_tokens": 968246,
+      "cached_input_tokens": 920576,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 22849,
+      "reasoning_output_tokens": 153,
+      "total_tokens": 991095
+    },
+    "initial_interval_usage_note": "Difference of cumulative snapshots immediately before start and at/before end; boundaries may not align with model turns. Includes any preparation/coordination performed in the interval."
+  },
+  "luna": {
+    "session_id": "01a07bce-f210-79b0-899e-f5441da4e75e",
+    "model": "gpt-5.6-luna",
+    "reasoning": "xhigh",
+    "requested_service_tier": "priority",
+    "actual_service_tier": null,
+    "initial_start_utc": "2026-09-07T12:19:14.4067737Z",
+    "initial_end_utc": "2026-09-07T12:30:06.7862578Z",
+    "initial_seconds": 652.379,
+    "usage_captured_at_utc": "2026-09-07T12:46:36.620Z",
+    "usage": {
+      "reasoning_output_tokens": 15751,
+      "cached_input_tokens": 5536000,
+      "input_tokens": 5692136,
+      "output_tokens": 70260,
+      "cache_write_input_tokens": 0,
+      "total_tokens": 5762396
+    },
+    "initial_interval_usage_delta": {
+      "input_tokens": 1963840,
+      "cached_input_tokens": 1879552,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 45625,
+      "reasoning_output_tokens": 7195,
+      "total_tokens": 2009465
+    },
+    "initial_interval_usage_note": "Difference of cumulative snapshots immediately before start and at/before end; boundaries may not align with model turns. Includes any preparation/coordination performed in the interval.",
+    "correction_start_utc": "2026-09-07T12:38:44.1494752Z",
+    "correction_end_utc": "2026-09-07T12:43:43.1830402Z",
+    "correction_seconds": 299.034,
+    "cli_first_turn_usage": [
+      {
+        "input_tokens": 1963840,
+        "cached_input_tokens": 1879552,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 45625,
+        "reasoning_output_tokens": 7195
+      }
+    ],
+    "cli_correction_turn_usage": [
+      {
+        "input_tokens": 2578766,
+        "cached_input_tokens": 2524160,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 18614,
+        "reasoning_output_tokens": 6792
+      }
+    ],
+    "final_polish_start_utc": "2026-09-07T12:44:42.2718952Z",
+    "final_polish_end_utc": "2026-09-07T12:46:38.8811680Z",
+    "final_polish_seconds": 116.609,
+    "cli_polish_turn_usage": [
+      {
+        "input_tokens": 1149530,
+        "cached_input_tokens": 1132288,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 6021,
+        "reasoning_output_tokens": 1764
+      }
+    ],
+    "usage_source": "Sum of completed CLI turn usage across three separate invocations, not latest reset session counter.",
+    "usage_incomplete": false
+  },
+  "overall": {
+    "session_start_utc": "2026-09-07T12:15:50+00:00",
+    "snapshot_end_utc": "2026-09-07T12:50:34.621788+00:00",
+    "elapsed_seconds": 2084.622,
+    "astra_verification_end_utc": "2026-09-07T12:45:27.0741066Z",
+    "luna_verification_end_utc": "2026-09-07T12:50:34.3545230Z"
+  },
+  "parallel_initial_overlap_seconds": 613.005
+}

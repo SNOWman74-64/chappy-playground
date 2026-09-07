@@ -1,0 +1,105 @@
+import json,pathlib
+r=pathlib.Path('school-comparison');m=json.loads((r/'metrics.json').read_text(encoding='utf-8'));a=m['astra'];b=m['luna']
+def dur(v):
+ v=round(v);return f'{v//60}分{v%60:02d}秒'
+def fmt(v):return f'{v:,}'
+rows=[]
+for label,k in [('入力（キャッシュを含む）','input_tokens'),('うちキャッシュ入力','cached_input_tokens'),('出力（推論を含む）','output_tokens'),('うち推論出力','reasoning_output_tokens'),('入力＋出力','total_tokens')]:rows.append(f'| {label} | {fmt(a["usage"][k])} | {fmt(b["usage"][k])} |')
+text=f'''# 青葉高等学校：2モデル制作・検証ログ
+
+共通の[設計計画書](DESIGN-PLAN.md)を作成したあと、GPT-6 AstraとGPT-5.6 Lunaで独立した学校サイトを並行制作した。両案のコードは共有せず、同じ学校設定と写真を渡した。Luna側の修正も同じLunaセッションで実施した。
+
+## 完成したサイト
+
+- [比較ページ](index.html)
+- [A：GPT-6 Astra](../school-astra/)
+- [B：GPT-5.6 Luna](../school-luna/)
+
+学校紹介、3コース、施設6種、年間行事、部活動（Aは8部、Bは10部）、ニュース8件、入試と学費、説明会、検索、絞り込み、FAQ、問い合わせ、資料請求、印刷用学校案内、在校生・卒業生案内、プライバシー、サイトマップを実装した。
+
+予約と問い合わせは入力・検証・確認・修正・完了まで動くローカルデモ。外部送信、実際の予約登録、メール、郵送は行わない。学校・人物・地名・金額は架空。
+
+## 実行設定と確認できた範囲
+
+| 項目 | A | B |
+| --- | --- | --- |
+| 記録されたモデル | {a['model']} | {b['model']} |
+| 記録された推論設定 | {a['reasoning']} | {b['reasoning']}（極高） |
+| Fastの要求 | 親セッションの既存設定 | service_tier=priority |
+| 実際に配信されたtier | ログに記録なし | ログに記録なし |
+| 起動方法 | この会話 | Codex CLI 0.153.4の別プロセス |
+
+指定モデルがサブエージェント用ツールの選択肢になかったため、インストール済みCLIを利用した。セッションのturn_contextでLunaとxhighを確認した。モデル名はローカルログ上の設定であり、上流プロバイダーの独立した証明ではない。
+
+[公式モデル資料](https://developers.openai.com/api/docs/models/gpt-5.6-luna)と[公式API資料](https://developers.openai.com/api/reference/cli/resources/responses/methods/create)を参照して、xhighとpriorityの意味を確認した。Fastの要求が受理されて処理が完了したことと、実際にpriorityで配信されたことは区別する。後者は未確認のまま記録する。
+
+## 所要時間
+
+時刻はUTC。日本時間は9時間を加算する。
+
+| 工程 | 開始UTC | 終了UTC | 経過時間 |
+| --- | --- | --- | --- |
+| A 初回制作 | {a['initial_start_utc']} | {a['initial_end_utc']} | {dur(a['initial_seconds'])} |
+| B 初回制作 | {b['initial_start_utc']} | {b['initial_end_utc']} | {dur(b['initial_seconds'])} |
+| B 親QA後の修正 | {b['correction_start_utc']} | {b['correction_end_utc']} | {dur(b['correction_seconds'])} |
+| B 最終モバイル調整 | {b['final_polish_start_utc']} | {b['final_polish_end_utc']} | {dur(b['final_polish_seconds'])} |
+
+- 初回制作の重複時間：{dur(m['parallel_initial_overlap_seconds'])}。
+- Bの実行時間合計（待機・親QAを除く）：{dur(b['initial_seconds']+b['correction_seconds']+b['final_polish_seconds'])}。
+- Aの検証完了記録：{m['overall']['astra_verification_end_utc']}。
+- Bの親側検証完了記録：{m['overall']['luna_verification_end_utc']}。
+- セッション開始から計測保存時点：{dur(m['overall']['elapsed_seconds'])}（共通準備・検証・待機・統合を含む）。
+
+Aの初回制作区間にも共通写真の準備や実行管理が含まれる。初回制作の終了はAでは初回プレビュー引渡し、BではCLIの完了であり、完全に同じ計測境界ではない。両案は並行したが、開始時刻は同時刻ではない。設計と素材準備だけを切り分ける厳密な計測は行っていない。
+
+## トークン使用量
+
+**Aは共通設計・写真取得・両案の検証・統合を含む、最終返信前の累計スナップショット。Bは初回・修正・最終調整の3回分の実測合算。**
+
+Aのusage最終記録：{a['usage_captured_at_utc']}。集計ファイル保存：{m['captured_at_utc']}。
+
+| 種別 | A | B |
+| --- | ---: | ---: |
+'''+'\n'.join(rows)+f'''
+
+キャッシュ入力は入力に含まれ、推論出力は出力に含まれる。内数をもう一度加算していない。入力の大半は各推論で再送された会話コンテキストのキャッシュであり、「新しく読んだ文章量」ではない。金額への換算は行っていない。
+
+参考としてAの初回制作区間の累計差分は、入力{fmt(a['initial_interval_usage_delta']['input_tokens'])}、出力{fmt(a['initial_interval_usage_delta']['output_tokens'])}。Bの初回CLIは入力{fmt(b['cli_first_turn_usage'][0]['input_tokens'])}、出力{fmt(b['cli_first_turn_usage'][0]['output_tokens'])}。Aの区間差分はターン境界と時刻境界が一致しないため厳密な工程別請求量ではない。
+
+Lunaのusageカウンターは再開ごとにリセットされることをセッションログで確認した。最後のカウンターだけを採用せず、各CLI JSONLのturn.completedを合算した。Aの最終返信と、この計測後の報告作成に使うトークンはスナップショットに含まれない。
+
+## ブラウザで確認したこと
+
+両案でデスクトップ1440px、モバイル390pxを表示し、トップのスクリーンショットを目視確認した。モバイル主要9ルートでは、横あふれ・画像欠落・pageerrorは0件。下層デスクトップ、検索のヒットと0件、分類、詳細、戻る操作、予約・問い合わせの入力/確認/修正/完了、FAQ、メニューとキーボードフォーカスも確認した。共通の静的契約チェックは両案PASS。
+
+Aはモバイルの見出し改行と紹介の列数を修正した。Bはフッターのコントラスト、日付の曜日、モバイル検索、部活の写真、画像の高さ、フォーム遷移時のフォーカス、空白だけの入力拒否、favicon、ヒーローの改行をLuna自身が修正した。
+
+ブラウザ自動操作では、ハッシュ遷移直後の読み取りやクリック安定待ちに失敗した試行もあった。直接ページ読込み、表示待ち、キーボード操作で再検証し、ツールのタイムアウトをサイト成功の証拠にしていない。最終Luna巡回のHTTPエラーとpageerrorは0件。
+
+- [Aの検証記録](../school-astra/TEST-REPORT.md)
+- [Bの検証記録](../school-luna/TEST-REPORT.md)
+- [モバイル巡回JSON](logs/mobile-browser-checks.json)
+- [B最終巡回JSON](logs/luna-browser-final.json)
+- [Bキーボード操作JSON](logs/luna-keyboard-final.json)
+- [A最終操作JSON](logs/astra-browser-final.json)
+
+## 設計の違いと比較の限界
+
+Aはヒーローの写真と文字を分け、ニュースを行形式で整理し、学校の日常を写真でつなぐ構成。Bは写真の上に言葉を置き、理念、学校の各領域、お知らせ、説明会への案内を順に並べる構成になった。同じ設計書でも、情報の強調と写真の扱いに違いが出ている。
+
+この結果は単一課題の制作記録であり、モデル性能の順位付けではない。推論設定もA=low、B=xhighと異なる。親側の共通作業、ツール環境、レビュー、再開時のコンテキストなどの条件が揃っていない。Lunaの初回自己報告ではブラウザ確認ができていなかったため、親が両案を検証した。
+
+## 素材と文書チェック
+
+画像生成は404で失敗したため、同じ出典付きストック写真を両案に用意した。校舎、学校生活、図書館、体育館、校外活動の5素材をローカル配置。[写真クレジット](ASSETS.md)に出典を記録している。
+
+設計計画書の日本語lintはsudachipy不足で実行できなかった。依存追加をせず、スキルの手動チェックリストで構造・翻訳調・反復を確認した。自動lint通過とは扱っていない。設計書は共通の1冊とし、各studyのDESIGN.mdは参照と実装判断の短い記録に留めた。
+
+## 生ログと再確認
+
+[metrics.json](metrics.json)が数値の集計元。logs/には各起動プロンプト、開始終了時刻、CLIイベントJSONL、stderr、終了文、usageタイムライン、スクリーンショットを保存した。トークン抽出はcollect-metrics.pyで再確認できる。ただし後から再実行するとAのスナップショット時点が進むため、本報告と同じ時点とは限らない。
+
+Gitコミット・push・外部公開は実施していない。既存UI Labサーバーの http://localhost:4173/ui-lab/school-comparison/ から比較できる。
+'''
+(r/'COMPARISON-REPORT.md').write_text(text,encoding='utf-8')
+print('Report written',len(text),'characters')

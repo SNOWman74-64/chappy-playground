@@ -359,6 +359,48 @@
         "Let the model carry the visual detail",
         "Reframe by viewport aspect instead of shrinking a desktop camera"
       ]
+    },
+    {
+      "id": "school-astra",
+      "title": "青葉高等学校 — GPT-6 Astra",
+      "shortTitle": "青葉高等学校 — GPT-6 Astra",
+      "summary": "共通設計から独立制作した架空の学校公式サイト。学校紹介・学び・部活・入試・検索・予約デモ。",
+      "previewPath": "./school-astra/",
+      "designPath": "./school-astra/DESIGN.md",
+      "retrospectivePath": "./school-astra/RETROSPECTIVE.md",
+      "referenceUrl": null,
+      "thumbnail": "./school-comparison/logs/astra-desktop.png",
+      "tags": [
+        "SCHOOL",
+        "MODEL COMPARISON",
+        "MULTI PAGE"
+      ],
+      "principles": [
+        "共通設計から独立実装",
+        "学校の日常と実務情報を両立",
+        "操作と表示を実ブラウザで検証"
+      ]
+    },
+    {
+      "id": "school-luna",
+      "title": "青葉高等学校 — GPT-5.6 Luna",
+      "shortTitle": "青葉高等学校 — GPT-5.6 Luna",
+      "summary": "共通設計から独立制作した架空の学校公式サイト。学校紹介・学び・部活・入試・検索・予約デモ。",
+      "previewPath": "./school-luna/",
+      "designPath": "./school-luna/DESIGN.md",
+      "retrospectivePath": "./school-luna/RETROSPECTIVE.md",
+      "referenceUrl": null,
+      "thumbnail": "./school-comparison/logs/luna-desktop.png",
+      "tags": [
+        "SCHOOL",
+        "MODEL COMPARISON",
+        "MULTI PAGE"
+      ],
+      "principles": [
+        "共通設計から独立実装",
+        "学校の日常と実務情報を両立",
+        "操作と表示を実ブラウザで検証"
+      ]
     }
   ]
 }

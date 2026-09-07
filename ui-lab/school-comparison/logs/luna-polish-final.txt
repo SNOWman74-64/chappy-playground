@@ -1,0 +1,17 @@
+最終モバイル調整を完了しました。
+
+- 390px／360pxで「好きが、」「未来をひらく。」の2行を固定
+- デスクトップ表示は維持
+- CSS計算確認済み
+  - 360px: 利用幅328px、2行目約262.55px
+  - 390px: 利用幅358px、2行目約284.43px
+- JavaScript構文・metrics JSON確認済み
+- 最終調整を `RETROSPECTIVE.md` と `metrics.json` に別記録
+
+変更ファイル：
+
+- [index.html](C:\Users\user\Projects\新しいフォルダー\ui-lab\school-luna\index.html)
+- [RETROSPECTIVE.md](C:\Users\user\Projects\新しいフォルダー\ui-lab\school-luna\RETROSPECTIVE.md)
+- [metrics.json](C:\Users\user\Projects\新しいフォルダー\ui-lab\school-luna\metrics.json)
+
+実スクリーンショット確認は親担当へ引き継ぎます。

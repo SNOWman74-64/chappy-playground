@@ -1,0 +1,21 @@
+[
+  {
+    "whitespaceBlocked": true
+  },
+  {
+    "invalidEmailBlocked": true
+  },
+  {
+    "privacyRoundTripName": "テスト"
+  },
+  {
+    "confirmationHeading": "入力内容をご確認ください"
+  },
+  {
+    "faqOpen": true
+  },
+  {
+    "guideTitle": "学校案内 2027 | 青葉高等学校",
+    "printButton": 1
+  }
+]

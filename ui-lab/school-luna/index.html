@@ -1,0 +1,585 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="私立 青葉高等学校の学校案内。学び、学校生活、入試・説明会、学校の日々をご紹介します。">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23163f35'/%3E%3Cpath d='M18 18h28v6H24v10h18v6H24v12h-6V18z' fill='%23fff'/%3E%3C/svg%3E">
+  <title>私立 青葉高等学校 | 好きが、未来をひらく。</title>
+  <style>
+    :root {
+      --forest: #163f35;
+      --forest-deep: #0e2d26;
+      --leaf: #dce8c9;
+      --leaf-deep: #bfd4a8;
+      --cream: #f6f5ef;
+      --paper: #fbfaf6;
+      --ink: #243a32;
+      --muted: #58675e;
+      --line: #d8dfd5;
+      --gold: #b9904d;
+      --white: #fff;
+      --shadow: 0 18px 50px rgba(22, 63, 53, .09);
+      --max: 1200px;
+      --narrow: 820px;
+      --sans: "Noto Sans JP", "Yu Gothic", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+      --serif: "Noto Serif JP", "Yu Mincho", "Hiragino Mincho ProN", serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; color: var(--ink); background: var(--paper); font-family: var(--sans); font-size: 16px; line-height: 1.85; }
+    body.menu-open { overflow: hidden; }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: .22em; }
+    button, input, select, textarea { font: inherit; }
+    button { cursor: pointer; }
+    :focus-visible { outline: 3px solid #ca8e34; outline-offset: 3px; }
+    .skip-link { position: fixed; left: 16px; top: -100px; z-index: 100; padding: 10px 16px; background: var(--forest); color: white; }
+    .skip-link:focus { top: 16px; }
+    .container { width: min(calc(100% - 48px), var(--max)); margin-inline: auto; }
+    .narrow { width: min(calc(100% - 48px), var(--narrow)); margin-inline: auto; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+    .eyebrow { margin: 0 0 12px; color: var(--gold); font-size: .78rem; font-weight: 700; letter-spacing: .17em; }
+    .eyebrow.light { color: var(--leaf-deep); }
+    h1, h2, h3, h4, p { margin-top: 0; }
+    h1, h2, h3, h4 { color: var(--forest); font-family: var(--serif); font-weight: 500; line-height: 1.35; letter-spacing: .035em; }
+    h1 { font-size: clamp(2.5rem, 5vw, 5.4rem); letter-spacing: .07em; }
+    h2 { margin-bottom: 22px; font-size: clamp(2rem, 3.8vw, 3.45rem); }
+    h3 { margin-bottom: 12px; font-size: clamp(1.45rem, 2.2vw, 2rem); }
+    h4 { margin-bottom: 8px; font-size: 1.2rem; }
+    .lead { color: var(--muted); font-size: 1.06rem; }
+    .section { padding: 104px 0; }
+    .section.compact { padding: 72px 0; }
+    .section.tint { background: var(--cream); }
+    .section.dark { background: var(--forest); color: #edf4e8; }
+    .section.dark h2, .section.dark h3, .section.dark h4 { color: white; }
+    .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 44px; }
+    .section-heading p { max-width: 500px; margin-bottom: 0; color: var(--muted); }
+    .section.dark .section-heading p { color: #c8d8cc; }
+    .button { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; gap: 10px; padding: 10px 22px; border: 1px solid var(--forest); background: var(--forest); color: white; font-weight: 700; text-decoration: none; transition: background .2s, color .2s, transform .2s; }
+    .button:hover { background: var(--forest-deep); transform: translateY(-2px); }
+    .button.secondary { background: transparent; color: var(--forest); }
+    .button.secondary:hover { background: var(--leaf); }
+    .button.ghost-light { border-color: #dce8c9; color: white; background: transparent; }
+    .button.ghost-light:hover { background: white; color: var(--forest); }
+    .button.small { min-height: 40px; padding: 7px 15px; font-size: .9rem; }
+    .arrow-link { display: inline-flex; align-items: center; gap: 10px; color: var(--forest); font-weight: 700; text-decoration: none; }
+    .arrow-link::after { content: "→"; transition: transform .2s; }
+    .arrow-link:hover::after { transform: translateX(5px); }
+    .muted { color: var(--muted); }
+    .rule { height: 1px; margin: 0; border: 0; background: var(--line); }
+
+    .site-header { position: sticky; top: 0; z-index: 30; border-bottom: 1px solid rgba(216, 223, 213, .95); background: rgba(251, 250, 246, .96); backdrop-filter: blur(12px); }
+    .utility-bar { border-bottom: 1px solid var(--line); color: var(--muted); font-size: .76rem; letter-spacing: .07em; }
+    .utility-inner { display: flex; justify-content: space-between; align-items: center; min-height: 32px; }
+    .utility-links { display: flex; gap: 18px; }
+    .utility-links a { color: var(--muted); }
+    .header-main { display: flex; align-items: center; gap: 24px; min-height: 84px; }
+    .brand { display: flex; align-items: center; gap: 12px; min-width: 240px; color: var(--forest); text-decoration: none; }
+    .brand-mark { display: grid; place-items: center; width: 39px; height: 39px; border: 1px solid var(--forest); border-radius: 50%; font-family: var(--serif); font-size: 1.2rem; }
+    .brand-main { display: block; font-family: var(--serif); font-size: 1.04rem; letter-spacing: .1em; line-height: 1.3; }
+    .brand-sub { display: block; margin-top: 2px; color: var(--muted); font-size: .61rem; letter-spacing: .16em; }
+    .main-nav { display: flex; flex: 1; align-items: center; justify-content: center; gap: clamp(12px, 2vw, 27px); }
+    .main-nav a { position: relative; padding: 28px 0; color: var(--ink); font-size: .88rem; font-weight: 700; text-decoration: none; white-space: nowrap; }
+    .main-nav a::after { position: absolute; right: 0; bottom: 19px; left: 0; height: 2px; background: var(--gold); content: ""; transform: scaleX(0); transition: transform .2s; }
+    .main-nav a:hover::after, .main-nav a[aria-current="page"]::after { transform: scaleX(1); }
+    .header-actions { display: flex; align-items: center; gap: 10px; }
+    .site-search { display: flex; align-items: center; border-bottom: 1px solid var(--forest); }
+    .site-search input { width: 112px; padding: 9px 3px; border: 0; outline: 0; background: transparent; color: var(--ink); font-size: .84rem; }
+    .site-search button { display: grid; place-items: center; width: 34px; height: 38px; border: 0; background: transparent; color: var(--forest); }
+    .search-icon { width: 16px; height: 16px; border: 1.8px solid currentColor; border-radius: 50%; position: relative; }
+    .search-icon::after { content: ""; position: absolute; width: 7px; height: 2px; right: -5px; bottom: -3px; background: currentColor; transform: rotate(45deg); }
+    .header-cta { min-height: 43px; padding: 8px 14px; background: var(--forest); color: #fff; font-size: .82rem; font-weight: 700; text-decoration: none; white-space: nowrap; }
+    .menu-toggle { display: none; width: 44px; height: 44px; border: 1px solid var(--forest); background: transparent; color: var(--forest); }
+    .menu-toggle span, .menu-toggle::before, .menu-toggle::after { display: block; width: 20px; height: 1px; margin: 4px auto; background: currentColor; content: ""; transition: transform .2s; }
+    .mobile-drawer { display: none; border-top: 1px solid var(--line); background: var(--paper); }
+    .mobile-drawer nav { display: grid; padding: 18px 24px 25px; }
+    .mobile-drawer a { padding: 12px 0; border-bottom: 1px solid var(--line); color: var(--forest); font-weight: 700; text-decoration: none; }
+    .mobile-drawer .mobile-search { width: 100%; margin-bottom: 8px; }
+    .mobile-drawer .mobile-search input { flex: 1; width: auto; }
+    .mobile-drawer[aria-hidden="false"] { display: block; }
+
+    .hero { position: relative; overflow: hidden; background: var(--forest); }
+    .home-hero { min-height: min(730px, calc(100vh - 117px)); color: white; }
+    .media { width: 100%; height: 100%; }
+    .hero-photo { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(10, 38, 30, .87) 0%, rgba(10, 38, 30, .55) 47%, rgba(10, 38, 30, .2) 100%), linear-gradient(120deg, #204d3e, #91a98a); }
+    .hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 52% 45%; opacity: .86; }
+    .hero-photo.is-missing img { display: none; }
+    .hero-content { position: relative; z-index: 1; display: flex; flex-direction: column; justify-content: center; min-height: inherit; padding: 90px 0 100px; }
+    .hero-content h1 { max-width: 670px; margin-bottom: 22px; color: white; }
+    .hero-content .lead { max-width: 505px; margin-bottom: 32px; color: #eef6eb; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .hero-note { position: absolute; right: 0; bottom: 24px; padding: 10px 15px; border-left: 1px solid var(--leaf-deep); color: #eef6eb; font-size: .82rem; }
+    .page-hero { padding: 80px 0 77px; background: var(--forest); color: white; }
+    .page-hero h1 { max-width: 760px; margin-bottom: 18px; color: white; font-size: clamp(2.5rem, 5vw, 4.5rem); }
+    .page-hero .lead { max-width: 670px; color: #dce8d7; }
+    .page-hero .breadcrumb { margin-bottom: 30px; color: var(--leaf-deep); font-size: .8rem; }
+    .page-hero .breadcrumb a { color: var(--leaf-deep); }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: 22px; margin-top: 28px; color: #dce8d7; font-size: .88rem; }
+    .hero-meta span { display: inline-flex; align-items: center; gap: 8px; }
+    .hero-meta span::before { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); content: ""; }
+
+    .home-intro { display: grid; grid-template-columns: .9fr 1.1fr; gap: 72px; align-items: end; }
+    .home-intro h2 { margin-bottom: 0; }
+    .home-intro-copy { padding-bottom: 4px; }
+    .home-intro-copy p:last-child { margin-bottom: 0; }
+    .notice-strip { display: grid; grid-template-columns: 160px 1fr auto; gap: 24px; align-items: center; padding: 23px 0; border-top: 1px solid var(--forest); border-bottom: 1px solid var(--line); }
+    .notice-label { color: var(--forest); font-size: .83rem; font-weight: 700; letter-spacing: .12em; }
+    .notice-strip p { margin: 0; }
+    .notice-strip .date { color: var(--muted); font-size: .82rem; }
+    .link-grid { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+    .link-tile { min-height: 190px; padding: 25px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--paper); text-decoration: none; transition: background .2s, transform .2s; }
+    .link-tile:hover { background: var(--leaf); transform: translateY(-4px); }
+    .link-tile .tile-number { display: block; margin-bottom: 24px; color: var(--gold); font-family: var(--serif); font-size: .9rem; }
+    .link-tile h3 { margin-bottom: 7px; font-size: 1.38rem; }
+    .link-tile p { margin-bottom: 0; color: var(--muted); font-size: .87rem; }
+    .news-list { border-top: 1px solid var(--line); }
+    .news-row { display: grid; grid-template-columns: 130px 100px 1fr auto; gap: 20px; align-items: center; padding: 20px 0; border-bottom: 1px solid var(--line); text-decoration: none; }
+    .news-row:hover h3 { color: var(--gold); }
+    .news-row time { color: var(--muted); font-size: .85rem; }
+    .tag { display: inline-flex; align-items: center; justify-content: center; width: fit-content; min-height: 27px; padding: 2px 9px; background: var(--leaf); color: var(--forest); font-size: .74rem; font-weight: 700; }
+    .tag.gold { background: #f1e7d0; color: #72531e; }
+    .news-row h3 { margin: 0; font-family: var(--sans); font-size: 1rem; font-weight: 600; transition: color .2s; }
+    .news-row .row-arrow { color: var(--forest); font-size: 1.4rem; }
+    .visit-band { display: grid; grid-template-columns: 1fr 1fr; min-height: 390px; background: var(--leaf); }
+    .visit-photo { display: flex; min-height: 300px; background: linear-gradient(135deg, #b9ceb1, #688a71); }
+    .visit-photo > .media { flex: 1; }
+    .visit-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 55% 50%; }
+    .visit-photo.is-missing img { display: none; }
+    .visit-content { display: flex; flex-direction: column; justify-content: center; padding: 65px clamp(30px, 7vw, 100px); }
+    .visit-content h2 { margin-bottom: 15px; }
+    .visit-content p { max-width: 460px; }
+
+    .split { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+    .split.reverse > :first-child { order: 2; }
+    .quote-block { padding: 40px; border-top: 1px solid var(--forest); border-bottom: 1px solid var(--line); background: var(--cream); }
+    .quote-block blockquote { margin: 0; color: var(--forest); font-family: var(--serif); font-size: clamp(1.35rem, 2.4vw, 2rem); line-height: 1.8; }
+    .quote-block cite { display: block; margin-top: 22px; color: var(--muted); font-size: .85rem; font-style: normal; }
+    .fact-grid { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+    .fact { padding: 24px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .fact dt { color: var(--muted); font-size: .8rem; }
+    .fact dd { margin: 5px 0 0; color: var(--forest); font-family: var(--serif); font-size: 1.65rem; }
+    .timeline { position: relative; border-top: 1px solid var(--line); }
+    .timeline-item { display: grid; grid-template-columns: 150px 1fr; gap: 32px; padding: 25px 0; border-bottom: 1px solid var(--line); }
+    .timeline-year { color: var(--gold); font-family: var(--serif); font-size: 1.25rem; }
+    .timeline-item p { margin: 0; }
+
+    .course-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; align-items: stretch; }
+    .course-card { position: relative; display: flex; flex-direction: column; padding: 30px; border-top: 4px solid var(--forest); background: white; box-shadow: var(--shadow); }
+    .course-card:nth-child(2) { border-top-color: var(--gold); }
+    .course-card:nth-child(3) { border-top-color: #6e9381; }
+    .course-number { margin-bottom: 28px; color: var(--gold); font-size: .76rem; font-weight: 700; letter-spacing: .12em; }
+    .course-card p { color: var(--muted); }
+    .course-card ul { margin: auto 0 0; padding: 20px 0 0; border-top: 1px solid var(--line); list-style: none; }
+    .course-card li { display: flex; gap: 8px; margin: 7px 0; font-size: .9rem; }
+    .course-card li::before { color: var(--gold); content: "＋"; }
+    .data-panel { display: grid; grid-template-columns: .75fr 1.25fr; gap: 50px; align-items: center; }
+    .big-number { color: var(--forest); font-family: var(--serif); font-size: clamp(3.4rem, 7vw, 7rem); line-height: 1; }
+    .big-number small { display: block; margin-top: 12px; color: var(--muted); font-family: var(--sans); font-size: .94rem; line-height: 1.6; }
+    .bar-list { display: grid; gap: 18px; }
+    .bar-row { display: grid; grid-template-columns: 145px 1fr 55px; gap: 14px; align-items: center; font-size: .9rem; }
+    .bar-track { height: 10px; background: white; }
+    .bar-fill { height: 100%; background: var(--forest); }
+    .bar-row:nth-child(2) .bar-fill { background: #668a73; }
+    .bar-row:nth-child(3) .bar-fill { background: var(--gold); }
+    .bar-row:nth-child(4) .bar-fill { background: #9aac72; }
+    .bar-row strong { font-family: var(--serif); font-weight: 500; }
+    .program-list { display: grid; gap: 0; border-top: 1px solid var(--line); }
+    .program { display: grid; grid-template-columns: 160px 1fr; gap: 30px; padding: 24px 0; border-bottom: 1px solid var(--line); }
+    .program-label { color: var(--gold); font-weight: 700; }
+
+    .day-grid { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+    .day-card { min-height: 180px; padding: 22px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .day-time { display: block; margin-bottom: 16px; color: var(--gold); font-family: var(--serif); font-size: 1.5rem; }
+    .day-card p { margin: 0; color: var(--muted); font-size: .9rem; }
+    .facility-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .facility-card { background: white; }
+    .facility-media { height: 205px; background: linear-gradient(135deg, #cbd8c2, #6e8c74); overflow: hidden; }
+    .facility-media img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
+    .facility-card:hover img { transform: scale(1.04); }
+    .facility-media.is-missing img { display: none; }
+    .facility-content { padding: 21px 24px 24px; }
+    .facility-content p { margin-bottom: 0; color: var(--muted); font-size: .9rem; }
+    .events-list { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+    .event-item { padding: 22px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .event-month { color: var(--gold); font-family: var(--serif); font-size: 1.3rem; }
+    .event-item p { margin: 8px 0 0; color: var(--muted); font-size: .86rem; }
+
+    .filter-bar { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 30px; }
+    .filter-button { min-height: 42px; padding: 8px 18px; border: 1px solid var(--line); background: var(--paper); color: var(--muted); font-weight: 700; }
+    .filter-button:hover, .filter-button.is-active { border-color: var(--forest); background: var(--forest); color: white; }
+    .club-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+    .club-intro { display: grid; grid-template-columns: 1.05fr .95fr; margin-bottom: 34px; background: var(--leaf); }
+    .club-intro-photo { min-height: 285px; overflow: hidden; background: linear-gradient(135deg, #b9ceb1, #688a71); }
+    .club-intro-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 50%; }
+    .club-intro-copy { display: flex; flex-direction: column; justify-content: center; padding: 36px clamp(24px, 5vw, 62px); }
+    .club-intro-copy p:last-child { margin-bottom: 0; }
+    .club-card { display: grid; grid-template-columns: 84px 1fr auto; gap: 20px; align-items: center; min-height: 154px; padding: 25px; background: var(--paper); text-decoration: none; }
+    .club-card:hover { background: var(--leaf); }
+    .club-mark { display: grid; place-items: center; width: 64px; height: 64px; border: 1px solid var(--leaf-deep); border-radius: 50%; background: var(--cream); color: var(--forest); font-family: var(--serif); font-size: 1.25rem; }
+    .club-card h3 { margin-bottom: 4px; font-family: var(--sans); font-size: 1.05rem; font-weight: 700; }
+    .club-card p { margin: 0; color: var(--muted); font-size: .85rem; }
+    .club-card .row-arrow { color: var(--forest); font-size: 1.35rem; }
+    .club-detail { display: grid; grid-template-columns: .8fr 1.2fr; gap: 70px; align-items: start; }
+    .club-detail-photo { height: 300px; margin-bottom: 18px; overflow: hidden; background: linear-gradient(135deg, #b9ceb1, #688a71); }
+    .club-detail-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 50%; }
+    .detail-meta { display: grid; grid-template-columns: repeat(2, 1fr); margin: 30px 0; border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+    .detail-meta div { padding: 17px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .detail-meta dt { color: var(--muted); font-size: .78rem; }
+    .detail-meta dd { margin: 3px 0 0; font-weight: 700; }
+
+    .info-table { width: 100%; border-collapse: collapse; background: white; }
+    .info-table th, .info-table td { padding: 17px 20px; border: 1px solid var(--line); text-align: left; vertical-align: top; }
+    .info-table th { width: 25%; background: var(--cream); color: var(--forest); font-weight: 700; }
+    .info-table caption { margin-bottom: 12px; color: var(--muted); text-align: left; font-size: .9rem; }
+    .admission-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .admission-card { display: flex; flex-direction: column; min-height: 260px; padding: 28px; border: 1px solid var(--line); background: white; }
+    .admission-card .date { color: var(--gold); font-family: var(--serif); font-size: 1.7rem; }
+    .admission-card p { color: var(--muted); font-size: .9rem; }
+    .admission-card .button { margin-top: auto; }
+    .form-section { padding: 58px; background: var(--cream); }
+    .form-section h2 { margin-bottom: 8px; font-size: 2.2rem; }
+    .form-intro { margin-bottom: 28px; color: var(--muted); }
+    .form-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px 25px; }
+    .field { display: grid; gap: 7px; }
+    .field.full { grid-column: 1 / -1; }
+    .field label { color: var(--forest); font-weight: 700; font-size: .88rem; }
+    .required { color: #9b4f34; font-size: .75rem; }
+    .field input, .field select, .field textarea { width: 100%; min-height: 48px; padding: 10px 13px; border: 1px solid #b9c6b9; border-radius: 0; background: white; color: var(--ink); }
+    .field textarea { min-height: 125px; resize: vertical; }
+    .field input:invalid:not(:placeholder-shown), .field select:invalid, .field textarea:invalid:not(:placeholder-shown) { border-color: #a75b43; }
+    .field-help { margin: 0; color: var(--muted); font-size: .78rem; }
+    .check-field { display: flex; align-items: flex-start; gap: 10px; grid-column: 1 / -1; margin-top: 3px; }
+    .check-field input { width: 20px; height: 20px; margin-top: 4px; accent-color: var(--forest); }
+    .check-field label { font-size: .88rem; }
+    .form-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 25px; }
+    .form-stage { animation: appear .25s ease-out; }
+    @keyframes appear { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+    .confirmation { padding: 30px; border: 1px solid var(--leaf-deep); background: #fff; }
+    .confirmation h3 { margin-bottom: 14px; }
+    .confirmation-list { display: grid; grid-template-columns: 145px 1fr; margin: 22px 0; border-top: 1px solid var(--line); }
+    .confirmation-list dt, .confirmation-list dd { margin: 0; padding: 10px 0; border-bottom: 1px solid var(--line); }
+    .confirmation-list dt { color: var(--muted); }
+    .confirmation-list dd { font-weight: 700; }
+    .success-mark { display: grid; place-items: center; width: 54px; height: 54px; margin-bottom: 19px; border-radius: 50%; background: var(--leaf); color: var(--forest); font-size: 1.6rem; }
+
+    .faq-list { border-top: 1px solid var(--line); }
+    .faq-list details { border-bottom: 1px solid var(--line); }
+    .faq-list summary { display: flex; justify-content: space-between; gap: 20px; padding: 19px 0; color: var(--forest); font-weight: 700; cursor: pointer; list-style: none; }
+    .faq-list summary::-webkit-details-marker { display: none; }
+    .faq-list summary::after { content: "+"; color: var(--gold); font-size: 1.3rem; font-weight: 400; }
+    .faq-list details[open] summary::after { content: "−"; }
+    .faq-answer { max-width: 750px; padding: 0 38px 20px 0; color: var(--muted); }
+    .map-card { padding: 25px; border: 1px solid var(--line); background: var(--cream); }
+    .map-card svg { display: block; width: 100%; height: auto; }
+    .route-list { display: grid; gap: 0; border-top: 1px solid var(--line); }
+    .route-item { display: grid; grid-template-columns: 118px 1fr; gap: 18px; padding: 17px 0; border-bottom: 1px solid var(--line); }
+    .route-item strong { color: var(--forest); }
+    .route-item span { color: var(--muted); }
+
+    .search-box { display: flex; gap: 10px; max-width: 700px; margin-bottom: 38px; }
+    .search-box input { flex: 1; min-height: 52px; padding: 10px 14px; border: 1px solid var(--line); background: white; }
+    .search-count { color: var(--muted); }
+    .result-list { border-top: 1px solid var(--line); }
+    .result-item { display: grid; grid-template-columns: 130px 1fr auto; gap: 22px; padding: 22px 0; border-bottom: 1px solid var(--line); text-decoration: none; }
+    .result-item:hover h3 { color: var(--gold); }
+    .result-item h3 { margin-bottom: 4px; font-family: var(--sans); font-size: 1.03rem; font-weight: 700; transition: color .2s; }
+    .result-item p { margin: 0; color: var(--muted); font-size: .9rem; }
+    .empty-state { padding: 55px 0; border-top: 1px solid var(--line); color: var(--muted); }
+
+    .guide-sheet { padding: 55px; border: 1px solid var(--line); background: white; }
+    .guide-sheet h2 { margin-top: 34px; padding-top: 22px; border-top: 1px solid var(--line); font-size: 1.8rem; }
+    .guide-footer { display: flex; justify-content: space-between; gap: 20px; margin-top: 45px; padding-top: 20px; border-top: 1px solid var(--line); color: var(--muted); font-size: .82rem; }
+    .sitemap-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; border-top: 1px solid var(--line); border-left: 1px solid var(--line); background: var(--line); }
+    .sitemap-grid a { min-height: 105px; padding: 20px; background: var(--paper); text-decoration: none; }
+    .sitemap-grid a:hover { background: var(--leaf); }
+    .sitemap-grid strong { display: block; color: var(--forest); }
+    .sitemap-grid span { color: var(--muted); font-size: .82rem; }
+
+    .site-footer { margin-top: 0; background: var(--forest-deep); color: #dce8d7; }
+    .footer-main { display: grid; grid-template-columns: 1.2fr 1fr 1fr 1fr; gap: 40px; padding: 67px 0 55px; }
+    .footer-brand { color: white; }
+    .footer-brand .brand { color: white; }
+    .footer-brand .brand-main { color: white; font-size: .95rem; }
+    .footer-brand .brand-mark { border-color: var(--leaf-deep); }
+    .footer-brand .brand-sub { color: var(--leaf-deep); font-size: .58rem; }
+    .footer-brand p { max-width: 290px; margin-top: 21px; color: #b5c8b8; font-size: .85rem; }
+    .footer-col h3 { margin-bottom: 15px; color: var(--leaf-deep); font-family: var(--sans); font-size: .8rem; letter-spacing: .1em; }
+    .footer-col a { display: block; margin: 8px 0; color: #e8f1e4; font-size: .86rem; text-decoration: none; }
+    .footer-col a:hover { color: white; text-decoration: underline; }
+    .footer-bottom { display: flex; justify-content: space-between; gap: 20px; padding: 18px 0; border-top: 1px solid rgba(220, 232, 201, .24); color: #a9beac; font-size: .74rem; }
+    .footer-bottom a { color: #dce8d7; }
+    .fiction-note { color: var(--leaf-deep); }
+
+    @media (max-width: 1100px) {
+      .main-nav { gap: 13px; }
+      .main-nav a { font-size: .78rem; }
+      .brand { min-width: 215px; }
+      .site-search input { width: 80px; }
+      .header-cta { padding-inline: 10px; font-size: .75rem; }
+    }
+    @media (max-width: 900px) {
+      .main-nav, .header-actions .site-search, .header-cta { display: none; }
+      .header-actions { margin-left: auto; }
+      .menu-toggle { display: block; }
+      .home-intro, .split, .data-panel, .club-detail, .club-intro { grid-template-columns: 1fr; gap: 36px; }
+      .split.reverse > :first-child { order: 0; }
+      .link-grid { grid-template-columns: repeat(2, 1fr); }
+      .course-grid, .facility-grid { grid-template-columns: repeat(2, 1fr); }
+      .day-grid { grid-template-columns: repeat(2, 1fr); }
+      .events-list { grid-template-columns: repeat(2, 1fr); }
+      .footer-main { grid-template-columns: 1.4fr 1fr 1fr; }
+      .footer-brand { grid-row: span 2; }
+    }
+    @media (max-width: 620px) {
+      .container, .narrow { width: min(calc(100% - 32px), var(--max)); }
+      .utility-inner { min-height: 29px; }
+      .utility-links { display: none; }
+      .header-main { min-height: 70px; }
+      .brand { min-width: 0; }
+      .brand-main { font-size: .9rem; }
+      .brand-sub { font-size: .53rem; }
+      .section { padding: 70px 0; }
+      .section.compact { padding: 50px 0; }
+      .section-heading { display: block; margin-bottom: 30px; }
+      .section-heading p { margin-top: 8px; }
+      .home-hero { min-height: 640px; }
+      .hero-content { padding: 70px 0 85px; }
+      .hero-content h1 { font-size: clamp(2.15rem, 10.2vw, 2.65rem); letter-spacing: .025em; }
+      .hero-content h1 span { display: inline-block; white-space: nowrap; }
+      .hero-note { right: 16px; left: 16px; }
+      .page-hero { padding: 53px 0 55px; }
+      .page-hero h1 { font-size: 2.6rem; }
+      .notice-strip { grid-template-columns: 1fr; gap: 5px; padding: 17px 0; }
+      .notice-strip .date { order: -1; }
+      .link-grid, .course-grid, .facility-grid, .admission-grid, .club-grid, .sitemap-grid { grid-template-columns: 1fr; }
+      .link-tile { min-height: auto; padding: 21px; }
+      .link-tile .tile-number { margin-bottom: 13px; }
+      .news-row { grid-template-columns: 1fr auto; gap: 5px 14px; padding: 17px 0; }
+      .news-row time { grid-column: 1; }
+      .news-row .tag { grid-column: 2; grid-row: 1; }
+      .news-row h3 { grid-column: 1; }
+      .news-row .row-arrow { grid-column: 2; grid-row: 2; }
+      .visit-band { grid-template-columns: 1fr; }
+      .visit-photo { min-height: 220px; }
+      .visit-content { padding: 46px 24px; }
+      .fact-grid { grid-template-columns: repeat(2, 1fr); }
+      .fact { padding: 17px; }
+      .fact dd { font-size: 1.35rem; }
+      .timeline-item { grid-template-columns: 1fr; gap: 3px; padding: 18px 0; }
+      .program { grid-template-columns: 1fr; gap: 5px; }
+      .day-grid, .events-list { grid-template-columns: 1fr 1fr; }
+      .day-card { min-height: 160px; padding: 16px; }
+      .club-card { grid-template-columns: 60px 1fr auto; gap: 13px; padding: 18px 15px; }
+      .club-mark { width: 53px; height: 53px; font-size: 1rem; }
+      .info-table { display: block; overflow-x: auto; white-space: normal; }
+      .info-table th, .info-table td { min-width: 145px; padding: 12px 13px; }
+      .form-section { padding: 28px 19px; }
+      .form-grid { grid-template-columns: 1fr; gap: 16px; }
+      .field.full, .check-field { grid-column: auto; }
+      .confirmation-list { grid-template-columns: 105px 1fr; }
+      .result-item { grid-template-columns: 1fr auto; gap: 5px 13px; }
+      .result-item .tag { grid-row: 1; grid-column: 2; }
+      .result-item h3, .result-item p { grid-column: 1 / -1; }
+      .guide-sheet { padding: 25px 20px; }
+      .guide-footer, .footer-bottom { display: block; }
+      .guide-footer > * { margin: 8px 0; }
+      .footer-main { grid-template-columns: 1fr 1fr; gap: 30px 20px; padding: 48px 0 35px; }
+      .footer-brand { grid-column: 1 / -1; grid-row: auto; }
+      .footer-bottom > * { margin: 8px 0; }
+    }
+    @media print {
+      .site-header, .site-footer, .print-hide, .button { display: none !important; }
+      body { background: white; color: black; }
+      .section { padding: 20px 0; }
+      .guide-sheet { border: 0; padding: 0; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">本文へ移動</a>
+  <div id="app"></div>
+  <noscript><p style="padding:2rem">この学校案内をご覧いただくにはJavaScriptを有効にしてください。</p></noscript>
+  <script>
+    (() => {
+      const asset = (name) => `../school-comparison/assets/${name}`;
+      const news = [
+        { id: 'autumn-open-campus', date: '2026.09.05', category: '説明会', title: '秋のオープンキャンパス予約を開始しました', excerpt: '授業体験と在校生トークを組み合わせた一日です。初めての方もお気軽にご参加ください。', body: '10月のオープンキャンパスでは、探究・総合・国際の3コースから一つを選んで授業を体験できます。校内ツアーや個別相談もご用意しています。', route: '#admissions' },
+        { id: 'school-festival-2026', date: '2026.09.02', category: '学校生活', title: '青葉祭「ひらく、つながる。」を開催します', excerpt: '9月26日（土）・27日（日）は青葉祭。一般公開日は27日です。', body: '今年の青葉祭のテーマは「ひらく、つながる。」。クラス企画、舞台発表、探究ポスターセッションなど、生徒の発想が校内を彩ります。', route: '#life' },
+        { id: 'library-renewal', date: '2026.08.28', category: '施設', title: '図書館の特集棚「問いを育てる本」を更新しました', excerpt: '探究の入り口になる約80冊を、司書と生徒が選びました。', body: '社会の見え方が少し変わる本、調べる楽しさを教えてくれる本を、テーマ別に紹介しています。貸出中の本は予約も可能です。', route: '#life' },
+        { id: 'course-choice', date: '2026.08.22', category: '学び', title: '来年度コース選択ガイダンスを実施しました', excerpt: '先輩の学び方を聞き、自分の興味からコースを考える時間です。', body: '1年生を対象に、3コースの授業紹介と在校生パネルを行いました。コース選択は2月の面談を経て決定します。', route: '#learning' },
+        { id: 'sports-meet', date: '2026.08.18', category: '学校生活', title: '夏季スポーツ大会を行いました', excerpt: '学年を越えて声をかけ合い、最後まで競技を楽しみました。', body: 'バレーボールとリレーを中心に、クラス対抗で競いました。勝敗だけでなく、応援や運営も生徒が担います。', route: '#life' },
+        { id: 'entrance-guide', date: '2026.08.10', category: '入試', title: '2027年度入試の概要を公開しました', excerpt: '募集要項、出願の流れ、学費の目安をご案内しています。', body: '2027年度の入試要項はデモ版です。出願期間や選考方法、費用の目安を一つのページにまとめました。', route: '#admissions' },
+        { id: 'volunteer-day', date: '2026.07.30', category: '地域連携', title: '地域の水辺を守るボランティアに参加しました', excerpt: '有志の生徒が駅前川沿いの清掃と植栽の手入れを行いました。', body: '地域の方と一緒に水辺のごみを拾い、在来種の植物を守る活動を行いました。活動後は環境についての振り返りも行っています。', route: '#learning' },
+        { id: 'summer-library-hours', date: '2026.07.22', category: 'お知らせ', title: '夏休み中の図書館開館日について', excerpt: '8月3日（月）から7日（金）は9時から15時まで開館します。', body: '自習利用の際は、生徒証を持参してください。静かな学習席とグループ席を分けて用意しています。', route: '#life' }
+      ];
+      const clubs = [
+        { id: 'basketball', kind: '運動部', mark: '籠', name: 'バスケットボール部', days: '月・水・金', place: '第一体育館', lead: '走って、考えて、つなぐ。', body: '基礎練習とゲーム形式の練習を通して、状況を読む力と声をかけ合う習慣を育てています。経験者も初心者も、それぞれの目標に向かって取り組める部活です。' },
+        { id: 'soccer', kind: '運動部', mark: '球', name: 'サッカー部', days: '火・木・土', place: '青葉フィールド', lead: '一歩先を読む、日々の練習。', body: 'ボールを扱う技術だけでなく、仲間の動きから次のプレーを考えることを大切にしています。土曜は練習試合や地域クラブとの交流も行います。' },
+        { id: 'volleyball', kind: '運動部', mark: '波', name: 'バレーボール部', days: '月・木・土', place: '第二体育館', lead: '一本の声が、チームを動かす。', body: 'レシーブやサーブの基礎を磨き、声でつながるチームを目指します。大会前は学年を越えた練習メニューを組み立てます。' },
+        { id: 'track', kind: '運動部', mark: '走', name: '陸上競技部', days: '火・水・金', place: '青葉グラウンド', lead: '昨日の自分を、少しだけ越える。', body: '短距離・長距離・跳躍から自分に合う種目を選び、記録を振り返りながら練習します。朝の自主練習にも多くの生徒が参加しています。' },
+        { id: 'brass', kind: '文化部', mark: '音', name: '吹奏楽部', days: '月・火・木・金', place: '音楽室', lead: '音を重ねて、景色をつくる。', body: '定期演奏会や青葉祭に向けて、個人練習と合奏を重ねています。楽器経験の有無にかかわらず、基礎から学べます。' },
+        { id: 'science', kind: '文化部', mark: '理', name: 'サイエンス部', days: '水・金', place: '理科実験室', lead: 'ふしぎを、そのままにしない。', body: '身近な自然や素材をテーマに、仮説を立てて実験します。文化祭では、来場者が参加できる実験ブースを企画します。' },
+        { id: 'theatre', kind: '文化部', mark: '劇', name: '演劇部', days: '火・木・土', place: '多目的ホール', lead: 'ことばと身体で、物語を立ち上げる。', body: '発声や身体表現の基礎から、脚本選び、舞台美術まで生徒が担います。年2回の公演に向けて、役割を越えて協働します。' },
+        { id: 'art', kind: '文化部', mark: '描', name: '美術部', days: '月・木', place: '美術室', lead: '見ることから、描くことへ。', body: '油彩、水彩、立体など幅広い表現を試しながら、自分の見方を深めます。校内展示や地域のアート企画にも参加しています。' },
+        { id: 'english', kind: '文化部', mark: '言', name: 'English Salon', days: '火・金', place: '国際ラウンジ', lead: '話してみる。その一歩から。', body: 'ゲームやディスカッションを通して、使える英語を身につけます。留学生との交流やスピーチ発表にも挑戦します。' },
+        { id: 'photo', kind: '文化部', mark: '光', name: '写真部', days: '水・土', place: 'メディア室', lead: '日常の一瞬を、未来に残す。', body: '校内や街の風景を撮影し、構図や光の読み方を学びます。学期末にはテーマ展を開き、作品に込めた視点を言葉にします。' }
+      ];
+      const facilities = [
+        { name: '青葉ライブラリー', type: '知る・考える', image: 'library.jpg', desc: '約4万2千冊をそろえた、静けさと対話が共存する学びの居場所です。' },
+        { name: 'ホームルーム教室', type: '過ごす・つながる', image: 'classroom.jpg', desc: '可動式の机と大きな窓。授業も対話も、目的に合わせて形を変えます。' },
+        { name: '理科実験室', type: '試す・確かめる', image: 'classroom.jpg', desc: '観察と実験を日常にする、コース横断の探究スペースです。' },
+        { name: '第一体育館', type: '動く・挑む', image: 'basketball.jpg', desc: 'バスケットコート2面に対応。体育や部活動、学年行事に使います。' },
+        { name: '青葉フィールド', type: '走る・声を出す', image: 'campus.jpg', desc: '緑に囲まれたグラウンド。体育祭や運動部の活動の舞台です。' },
+        { name: '国際ラウンジ', type: '話す・ひらく', image: 'library.jpg', desc: '海外の新聞や多言語の本を囲み、ことばを交わす小さな広場です。' }
+      ];
+      const searchable = [
+        { title: '学校紹介', text: '教育理念 校長挨拶 沿革 学校概要 私立 青葉高等学校', route: '#about', type: 'ページ' },
+        { title: '学び・3コース', text: '探究コース 総合コース 国際コース 進路支援 探究授業', route: '#learning', type: 'ページ' },
+        { title: '学校生活・施設', text: '一日の流れ 年間行事 図書館 教室 実験室 体育施設', route: '#life', type: 'ページ' },
+        { title: '部活動', text: clubs.map(c => `${c.name} ${c.kind} ${c.place}`).join(' '), route: '#clubs', type: 'ページ' },
+        { title: '入試・説明会', text: '2027年度 入試 募集要項 学費 オープンキャンパス 説明会', route: '#admissions', type: 'ページ' },
+        ...news.map(item => ({ title: item.title, text: `${item.excerpt} ${item.body} ${item.category}`, route: `#news/${item.id}`, type: item.category }))
+      ];
+      const navItems = [
+        ['#about', '学校紹介'], ['#learning', '学び'], ['#life', '学校生活'], ['#clubs', '部活動'], ['#admissions', '入試・説明会'], ['#news', 'お知らせ'], ['#access', 'アクセス']
+      ];
+
+      const esc = (value) => String(value ?? '').replace(/[&<>'"]/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[char]));
+      const media = (image, alt, className = '') => `<div class="${className} media"><img src="${asset(image)}" alt="${esc(alt)}" onerror="this.closest('.media').classList.add('is-missing'); this.remove()"></div>`;
+      const pageHero = (eyebrow, title, lead, meta = '') => `<section class="page-hero"><div class="container"><div class="breadcrumb"><a href="#home">ホーム</a>　/　${esc(title)}</div><p class="eyebrow light">${esc(eyebrow)}</p><h1>${esc(title)}</h1><p class="lead">${lead}</p>${meta ? `<div class="hero-meta">${meta}</div>` : ''}</div></section>`;
+      const sectionHeading = (eyebrow, title, lead = '') => `<div class="section-heading"><div><p class="eyebrow">${esc(eyebrow)}</p><h2>${esc(title)}</h2></div>${lead ? `<p>${lead}</p>` : ''}</div>`;
+      const header = (route) => {
+        const active = route.startsWith('news') ? 'news' : route.split('/')[0];
+        const links = navItems.map(([href, label]) => {
+          const name = href.slice(1);
+          return `<a href="${href}" ${active === name ? 'aria-current="page"' : ''}>${label}</a>`;
+        }).join('');
+        return `<header class="site-header"><div class="utility-bar"><div class="container utility-inner"><span>受験生と保護者の皆さまへ</span><div class="utility-links"><a href="#students">在校生の方</a><a href="#alumni">卒業生の方</a><a href="#access">交通案内</a></div></div></div><div class="container header-main"><a class="brand" href="#home" aria-label="青葉高等学校 ホーム"><span class="brand-mark">青</span><span><span class="brand-main">私立 青葉高等学校</span><span class="brand-sub">AOBA HIGH SCHOOL</span></span></a><nav class="main-nav" aria-label="主要メニュー">${links}</nav><div class="header-actions"><form class="site-search" role="search"><label class="sr-only" for="header-search">サイト内検索</label><input id="header-search" name="q" type="search" placeholder="サイト内検索" aria-label="サイト内検索"><button type="submit" aria-label="検索"><span class="search-icon"></span></button></form><a class="header-cta" href="#contact?type=資料請求">資料請求</a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-drawer" aria-label="メニューを開く"><span></span></button></div></div><div class="mobile-drawer" id="mobile-drawer" aria-hidden="true"><nav class="container" aria-label="モバイルメニュー"><form class="site-search mobile-search" role="search"><label class="sr-only" for="mobile-search">サイト内検索</label><input id="mobile-search" name="q" type="search" placeholder="サイト内検索" aria-label="サイト内検索"><button type="submit" aria-label="検索"><span class="search-icon"></span></button></form>${links}<a href="#contact?type=資料請求">資料請求</a><a href="#contact?type=お問い合わせ">お問い合わせ</a></nav></div></header>`;
+      };
+      const footer = () => `<footer class="site-footer"><div class="container footer-main"><div class="footer-brand"><a class="brand" href="#home"><span class="brand-mark">青</span><span><span class="brand-main">私立 青葉高等学校</span><span class="brand-sub">AOBA HIGH SCHOOL</span></span></a><p>好きが、未来をひらく。<br>学びのきっかけを、ここから。</p></div><div class="footer-col"><h3>学校を知る</h3><a href="#about">学校紹介</a><a href="#learning">学び・3コース</a><a href="#life">学校生活・施設</a><a href="#clubs">部活動</a></div><div class="footer-col"><h3>受験生の方へ</h3><a href="#admissions">入試・説明会</a><a href="#contact?type=資料請求">資料請求</a><a href="#guide">印刷用学校案内</a><a href="#access">アクセス・FAQ</a></div><div class="footer-col"><h3>青葉高等学校</h3><a href="#students">在校生の方</a><a href="#alumni">卒業生の方</a><a href="#privacy">プライバシーポリシー</a><a href="#sitemap">サイトマップ</a></div></div><div class="container footer-bottom"><span>© 2026 Aoba High School Demo</span><span class="fiction-note">このサイトは架空の学校によるデモサイトです。</span><a href="../school-comparison/ASSETS.md" target="_blank" rel="noreferrer">写真クレジット</a></div></footer>`;
+      const shell = (route, content) => `${header(route)}<main id="main-content">${content}</main>${footer()}`;
+      const imgFallbackScript = () => '';
+
+      function home() {
+        const latest = news.slice(0, 4).map(newsRow).join('');
+        return shell('home', `<section class="hero home-hero"><div class="hero-photo">${media('campus.jpg', '緑に囲まれた青葉高等学校の校舎', '')}</div><div class="container hero-content"><p class="eyebrow light">PRIVATE AOBA HIGH SCHOOL / SINCE 1968</p><h1><span>好きが、</span><br><span>未来をひらく。</span></h1><p class="lead">問いを見つける。仲間と深める。<br>一人ひとりの「好き」を、学びの力に変えていく学校です。</p><div class="hero-actions"><a class="button" href="#about">青葉高校を知る <span>→</span></a><a class="button ghost-light" href="#admissions">説明会の日程を見る</a></div><div class="hero-note">創立 1968年　／　各学年6クラス　／　3コース</div></div></section><section class="section compact"><div class="container"><div class="home-intro"><div><p class="eyebrow">OUR PROMISE</p><h2>学ぶことは、<br>世界の見え方を<br>増やすこと。</h2></div><div class="home-intro-copy"><p class="lead">青葉高校では、教室の中で完結しない学びを大切にしています。自分の関心から問いを立て、仲間と考え、社会とつながる。小さな好奇心が、進む方向を照らしていきます。</p><a class="arrow-link" href="#learning">学びの考え方を見る</a></div></div></div></section><section class="section compact tint"><div class="container"><div class="notice-strip"><span class="notice-label">重要なお知らせ</span><span><strong>2027年度入試の概要と秋の説明会日程を公開しました。</strong></span><time class="date" datetime="2026-09-05">2026.09.05</time><a class="arrow-link" href="#admissions">詳しく見る</a></div></div></section><section class="section"><div class="container">${sectionHeading('EXPLORE AOBA', '青葉高校を知る', '知りたいことから、あなたの青葉高校を見つけてください。')}<div class="link-grid"><a class="link-tile" href="#about"><span class="tile-number">01 / ABOUT</span><h3>学校紹介</h3><p>理念、校長メッセージ、歩み。</p></a><a class="link-tile" href="#learning"><span class="tile-number">02 / LEARNING</span><h3>学び</h3><p>3つのコースと探究の時間。</p></a><a class="link-tile" href="#life"><span class="tile-number">03 / LIFE</span><h3>学校生活</h3><p>一日の流れ、行事、施設。</p></a><a class="link-tile" href="#clubs"><span class="tile-number">04 / CLUBS</span><h3>部活動</h3><p>放課後のもう一つの学び。</p></a></div></div></section><section class="section tint"><div class="container">${sectionHeading('LATEST NEWS', 'お知らせ', '学校の日々と、受験生の皆さまへの最新情報。')}<div class="news-list">${latest}</div><div style="margin-top:26px"><a class="arrow-link" href="#news">お知らせをすべて見る</a></div></div></section><section class="section"><div class="container"><div class="visit-band"><div class="visit-photo">${media('library.jpg', '青葉ライブラリーの本棚', '')}</div><div class="visit-content"><p class="eyebrow">OPEN THE DOOR</p><h2>学校の空気を、<br>確かめに来ませんか。</h2><p>授業を体験し、校舎を歩き、在校生の話を聞く。画面の中では伝わらない青葉の日常を、説明会で感じてください。</p><div><a class="button" href="#admissions">説明会に申し込む</a></div></div></div></div></section>`);
+      }
+
+      function newsRow(item) { return `<a class="news-row" href="${item.route.startsWith('#news/') ? item.route : `#news/${item.id}`}" data-search="${esc(item.title)}"><time datetime="${item.date.replace(/\./g, '-')}" >${item.date}</time><span class="tag">${esc(item.category)}</span><h3>${esc(item.title)}</h3><span class="row-arrow" aria-hidden="true">→</span></a>`; }
+
+      function about() {
+        return shell('about', `${pageHero('ABOUT AOBA', '学校紹介', '青葉高校が大切にしていること、歩んできた時間、そしてこれからの学びをご紹介します。', '<span>創立 1968年</span><span>共学・普通科</span><span>各学年 6クラス</span>')}<section class="section"><div class="container"><div class="split"><div><p class="eyebrow">EDUCATIONAL PHILOSOPHY</p><h2>自分の「好き」を、<br>誰かの未来へ。</h2><p class="lead">青葉高校の教育は、知識を身につけることから始まり、知識を使って世界と関わるところまでを見つめます。</p></div><div class="quote-block"><blockquote>「わからない」を、<br>学びの入口にする。</blockquote><cite>青葉高等学校 教育理念</cite></div></div></div></section><section class="section tint"><div class="container"><div class="split reverse"><div><p class="eyebrow">MESSAGE</p><h2>校長からの<br>メッセージ</h2><p>学校は、まだ名前のついていない興味を試してみる場所です。青葉高校では、得意かどうかよりも、問いを持ち続けることを大切にしています。</p><p>先生や友人との対話を通じて、自分の考えが変わる瞬間をたくさん経験してほしい。変化を恐れず、一歩を踏み出す皆さんを、私たちは待っています。</p><p style="margin-bottom:0"><strong>校長　水野 直子</strong></p></div><div class="quote-block"><p class="eyebrow">AOBA NOTE</p><blockquote>問いを持つ人は、<br>世界を少しずつ<br>変えていける。</blockquote></div></div></div></section><section class="section"><div class="container">${sectionHeading('HISTORY', '青葉高校の歩み', '地域とともに学びの場を育ててきました。')}<div class="timeline"><div class="timeline-item"><div class="timeline-year">1968</div><p><strong>青葉女子高等学校として開校。</strong><br>「自立した女性を育てる」を掲げ、地域の学び舎として歩み始める。</p></div><div class="timeline-item"><div class="timeline-year">1989</div><p><strong>共学化、校名を青葉高等学校へ。</strong><br>多様な考えを持つ生徒が学び合う学校へ変わりました。</p></div><div class="timeline-item"><div class="timeline-year">2008</div><p><strong>探究型カリキュラムを導入。</strong><br>地域課題をテーマにした「青葉プロジェクト」が始まりました。</p></div><div class="timeline-item"><div class="timeline-year">2024</div><p><strong>3コース制をスタート。</strong><br>探究・総合・国際、それぞれの興味を深める学びに進化しました。</p></div><div class="timeline-item"><div class="timeline-year">2026</div><p><strong>創立58年。</strong><br>次の一歩を、学ぶ人と地域の皆さまと一緒につくっています。</p></div></div></div></section><section class="section compact tint"><div class="container">${sectionHeading('SCHOOL PROFILE', '学校概要')}<dl class="fact-grid"><div class="fact"><dt>学校名</dt><dd>私立 青葉高等学校</dd></div><div class="fact"><dt>創立</dt><dd>1968年</dd></div><div class="fact"><dt>課程</dt><dd>全日制・3年</dd></div><div class="fact"><dt>生徒数</dt><dd>約540名</dd></div><div class="fact"><dt>学級数</dt><dd>各学年6</dd></div><div class="fact"><dt>男女共学</dt><dd>共学</dd></div><div class="fact"><dt>制服</dt><dd>ブレザー</dd></div><div class="fact"><dt>校訓</dt><dd>ひらく・つなぐ・育てる</dd></div></dl></div></section>`);
+      }
+
+      function learning() {
+        return shell('learning', `${pageHero('LEARNING', '学び', '興味の入口は、一人ひとり違う。3つのコースと探究の時間で、学び方を選びます。', '<span>探究・総合・国際</span><span>少人数ゼミ</span><span>進路支援室</span>')}<section class="section"><div class="container">${sectionHeading('THREE PATHS', '3つのコース', '共通の基礎を学びながら、2年次から興味の方向に合わせて深めます。')}<div class="course-grid"><article class="course-card"><span class="course-number">COURSE 01</span><h3>探究コース</h3><p>「なぜ？」を起点に、データと対話で答えをつくる。地域や社会の課題に向き合い、問いを形にします。</p><ul><li>週2時間の探究ゼミ</li><li>地域フィールドワーク</li><li>成果発表・ポスターセッション</li></ul></article><article class="course-card"><span class="course-number">COURSE 02</span><h3>総合コース</h3><p>幅広い選択授業から、自分の得意と進路をバランスよく伸ばす。基礎から応用へ、着実に力を積み上げます。</p><ul><li>5教科の基礎力講座</li><li>資格・検定チャレンジ</li><li>進路別の演習授業</li></ul></article><article class="course-card"><span class="course-number">COURSE 03</span><h3>国際コース</h3><p>言葉と文化の違いを越えて考える。英語を使った協働学習と、海外とのオンライン交流が軸です。</p><ul><li>週5時間の英語授業</li><li>海外校とのオンライン交流</li><li>異文化理解プロジェクト</li></ul></article></div></div></section><section class="section tint"><div class="container"><div class="data-panel"><div><p class="eyebrow">PATH AFTER AOBA</p><div class="big-number">82<small>卒業後の進路決定率<br>2025年度 卒業生 178名</small></div></div><div><p class="lead">進路は、偏差値や知名度だけで決めるものではありません。自分が何を学び、どんな場で力を発揮したいかを、担任と進路支援室が一緒に考えます。</p><div class="bar-list"><div class="bar-row"><span>四年制大学</span><div class="bar-track"><div class="bar-fill" style="width:72%"></div></div><strong>72%</strong></div><div class="bar-row"><span>短期大学</span><div class="bar-track"><div class="bar-fill" style="width:8%"></div></div><strong>8%</strong></div><div class="bar-row"><span>専門学校</span><div class="bar-track"><div class="bar-fill" style="width:14%"></div></div><strong>14%</strong></div><div class="bar-row"><span>その他</span><div class="bar-track"><div class="bar-fill" style="width:6%"></div></div><strong>6%</strong></div></div></div></div></div></section><section class="section"><div class="container">${sectionHeading('LEARNING PROGRAM', '授業の外にも、学びがある', '日常の中の小さな疑問を、じっくり育てる仕組みがあります。')}<div class="program-list"><div class="program"><div class="program-label">AOBA PROJECT</div><p><strong>地域とつながる探究。</strong><br>駅前商店街、川辺の環境、防災など、実際の地域課題をテーマに調査・提案を行います。</p></div><div class="program"><div class="program-label">AOBA SEMINAR</div><p><strong>興味で選ぶ少人数講座。</strong><br>写真、統計、哲学、デザインなど、教科の枠を越えた講座を年2回開講します。</p></div><div class="program"><div class="program-label">CAREER DIALOGUE</div><p><strong>進路を「対話」で見つける。</strong><br>卒業生や地域の大人を招き、仕事や学びのリアルを聞く機会を設けています。</p></div><div class="program"><div class="program-label">STUDY SUPPORT</div><p><strong>放課後の学習サポート。</strong><br>質問教室、オンライン教材、先生との個別面談で、一人ひとりのペースを支えます。</p></div></div></div></section>`);
+      }
+
+      function life() {
+        return shell('life', `${pageHero('SCHOOL LIFE', '学校生活・施設', '教室での学びも、休み時間の会話も、放課後の活動も。青葉で過ごす一日をご紹介します。', '<span>7:50 登校</span><span>16:00 授業終了</span><span>18:30 完全下校</span>')}<section class="section"><div class="container">${sectionHeading('A DAY AT AOBA', '青葉の一日', '生活のリズムが整うと、学びへの集中も変わります。')}<div class="day-grid"><div class="day-card"><span class="day-time">07:50</span><h4>登校・朝の時間</h4><p>図書館で読書をする人、友人と話す人。自分のペースで一日を始めます。</p></div><div class="day-card"><span class="day-time">08:30</span><h4>ホームルーム</h4><p>今日の予定を確認し、クラスの小さな変化にも目を向けます。</p></div><div class="day-card"><span class="day-time">09:00</span><h4>午前の授業</h4><p>教科の基礎を学び、問いを見つける。対話を取り入れた授業です。</p></div><div class="day-card"><span class="day-time">12:30</span><h4>昼休み</h4><p>中庭のベンチや教室で昼食。季節のよい日は外で過ごせます。</p></div><div class="day-card"><span class="day-time">13:20</span><h4>午後の授業</h4><p>実験、実習、探究ゼミ。学んだことを使って試す時間です。</p></div><div class="day-card"><span class="day-time">15:50</span><h4>終礼</h4><p>一日の発見と明日の予定を共有。振り返りを次の学びにつなげます。</p></div><div class="day-card"><span class="day-time">16:00</span><h4>放課後</h4><p>部活動、図書館、質問教室。放課後の過ごし方はさまざまです。</p></div><div class="day-card"><span class="day-time">18:30</span><h4>完全下校</h4><p>安全に帰宅できるよう、活動時間を管理しています。</p></div></div></div></section><section class="section tint"><div class="container">${sectionHeading('FACILITIES', '学びをひらく6つの場所', '用途に合わせて居場所を選べることも、青葉の学びの一部です。')}<div class="facility-grid">${facilities.map(f => `<article class="facility-card"><div class="facility-media">${media(f.image, f.name, '')}</div><div class="facility-content"><p class="eyebrow">${esc(f.type)}</p><h3>${esc(f.name)}</h3><p>${esc(f.desc)}</p></div></article>`).join('')}</div></div></section><section class="section"><div class="container">${sectionHeading('ANNUAL EVENTS', '年間行事', '季節の節目に、クラスと学年を越えてつながります。')}<div class="events-list"><div class="event-item"><span class="event-month">APR</span><h4>入学式・対面式</h4><p>新しい仲間を迎えます。</p></div><div class="event-item"><span class="event-month">MAY</span><h4>遠足・探究の日</h4><p>学年ごとに街へ出ます。</p></div><div class="event-item"><span class="event-month">JUN</span><h4>体育祭</h4><p>応援も競技も全力で。</p></div><div class="event-item"><span class="event-month">SEP</span><h4>青葉祭</h4><p>学びと表現の文化祭。</p></div><div class="event-item"><span class="event-month">OCT</span><h4>芸術鑑賞会</h4><p>本物に触れる一日。</p></div><div class="event-item"><span class="event-month">NOV</span><h4>修学旅行</h4><p>地域の文化を訪ねます。</p></div><div class="event-item"><span class="event-month">JAN</span><h4>百人一首大会</h4><p>学年を越えて競います。</p></div><div class="event-item"><span class="event-month">MAR</span><h4>卒業式</h4><p>次の場所へ旅立ちます。</p></div></div></div></section>`);
+      }
+
+      function clubsPage() {
+        return shell('clubs', `${pageHero('AFTER SCHOOL', '部活動', '好きなことに夢中になる時間は、自分と仲間の新しい一面に出会う時間です。', '<span>運動部 4</span><span>文化部 6</span><span>活動は週2〜4日</span>')}<section class="section"><div class="container">${sectionHeading('CLUB GUIDE', '放課後の選択肢', '活動の雰囲気やペースを確かめて、自分に合う場所を見つけてください。')}<div class="filter-bar" role="group" aria-label="部活動の絞り込み"><button class="filter-button is-active" type="button" data-filter-group="clubs" data-filter-value="すべて">すべて <span>10</span></button><button class="filter-button" type="button" data-filter-group="clubs" data-filter-value="運動部">運動部 <span>4</span></button><button class="filter-button" type="button" data-filter-group="clubs" data-filter-value="文化部">文化部 <span>6</span></button></div><div class="club-intro"><div class="club-intro-photo">${media('basketball.jpg', 'バスケットボール部の活動イメージ', '')}</div><div class="club-intro-copy"><p class="eyebrow">CLUB LIFE</p><h3>放課後は、もう一つの学び。</h3><p>声をかける、試してみる、最後までやりきる。部活動で育つ力も、青葉での大切な学びです。</p><p class="field-help">掲載写真は部活動の雰囲気を伝えるためのイメージです。</p></div></div><div class="club-grid" id="club-grid">${clubCards('すべて')}</div></div></section><section class="section tint"><div class="container"><div class="split"><div><p class="eyebrow">TRY SOMETHING NEW</p><h2>見学・体験は<br>いつでも歓迎。</h2></div><div><p>入学後の部活動見学は、4月のオリエンテーション期間に実施します。気になる部が決まっている方は、説明会の日にも活動場所をご案内できます。</p><a class="button" href="#contact?type=お問い合わせ">部活動について問い合わせる</a></div></div></div></section>`);
+      }
+      function clubCards(filter) { return clubs.filter(c => filter === 'すべて' || c.kind === filter).map(c => `<a class="club-card" href="#club/${c.id}" data-club-kind="${c.kind}"><span class="club-mark" aria-hidden="true">${c.mark}</span><span><h3>${esc(c.name)}</h3><p>${esc(c.lead)}<br>${esc(c.days)} ／ ${esc(c.place)}</p></span><span class="row-arrow" aria-hidden="true">→</span></a>`).join(''); }
+      function clubImage(club) { return club.kind === '運動部' ? 'basketball.jpg' : (club.id === 'english' ? 'library.jpg' : 'classroom.jpg'); }
+
+      function admissions() {
+        const params = parseHash().params;
+        const event = params.get('event') || '';
+        const eventCards = [
+          { id: 'oct', date: '10 / 18 SUN', title: '秋のオープンキャンパス', desc: '授業体験・校内ツアー・在校生トーク。', time: '9:30〜12:30' },
+          { id: 'nov', date: '11 / 08 SUN', title: '入試説明会', desc: '入試要項の説明と個別相談。', time: '10:00〜12:00' },
+          { id: 'dec', date: '12 / 06 SUN', title: '冬の個別相談会', desc: '学びや出願についてじっくり相談。', time: '9:00〜15:00' }
+        ];
+        return shell('admissions', `${pageHero('ADMISSIONS 2027', '入試・説明会', '2027年度入試のデモ要項と、学校を知るためのイベントをご案内します。', '<span>出願期間 2027年1月12日〜18日</span><span>推薦・一般</span><span>WEB出願</span>')}<section class="section"><div class="container">${sectionHeading('INFORMATION SESSION', '説明会の日程', '日程を選んで、下の予約フォームへお進みください。')}<div class="admission-grid">${eventCards.map(e => `<article class="admission-card"><span class="date">${e.date}</span><h3>${e.title}</h3><p>${e.desc}<br>${e.time}</p><a class="button small secondary" href="#admissions?event=${e.id}">この日程で予約する →</a></article>`).join('')}</div></div></section><section class="section tint"><div class="container"><div class="split"><div><p class="eyebrow">2027 ENTRANCE EXAM</p><h2>入試要項<br>（デモ版）</h2><p>以下は学校サイトの体験用に作成した架空の要項です。実際の出願は行われません。</p></div><div><table class="info-table"><caption>募集区分と選考方法</caption><tbody><tr><th>推薦入試</th><td>面接・作文・調査書<br>募集 60名</td></tr><tr><th>一般入試</th><td>国語・数学・英語・面接<br>募集 120名</td></tr><tr><th>出願期間</th><td>2027年1月12日（火）〜18日（月）</td></tr><tr><th>合格発表</th><td>2027年2月5日（金） 10:00</td></tr></tbody></table></div></div></div></section><section class="section"><div class="container"><div class="split"><div><table class="info-table"><caption>初年度納入金の目安</caption><tbody><tr><th>入学金</th><td>220,000円</td></tr><tr><th>授業料</th><td>396,000円（年額）</td></tr><tr><th>施設設備費</th><td>120,000円（年額）</td></tr><tr><th>制服・教材等</th><td>約180,000円</td></tr><tr><th>合計目安</th><td><strong>約916,000円</strong></td></tr></tbody></table><p class="field-help" style="margin-top:10px">※架空のデモ情報です。実際の制度・金額とは異なります。</p></div><div><p class="eyebrow">YOUR QUESTIONS</p><h2>まだ迷っている方へ</h2><p>「コースの違いを知りたい」「部活動と勉強を両立できる？」など、どんな質問でもお聞かせください。</p><a class="button" href="#contact?type=お問い合わせ">問い合わせる</a></div></div></div></section><section class="section tint" id="reserve"><div class="container narrow"><div class="form-section"><div id="booking-stage" class="form-stage">${bookingForm(event, eventCards)}</div></div></div></section>`);
+      }
+      function bookingForm(selected, events) { return `<p class="eyebrow">RESERVATION</p><h2>説明会を予約する</h2><p class="form-intro">必要事項を入力して「確認画面へ」を押してください。外部送信や個人情報の保存は行いません。</p><form id="booking-form" novalidate><div class="form-grid"><div class="field full"><label for="booking-event">参加する日程 <span class="required">必須</span></label><select id="booking-event" name="event" required><option value="">選択してください</option>${events.map(e => `<option value="${e.id}" ${selected === e.id ? 'selected' : ''}>${e.date}　${e.title}（${e.time}）</option>`).join('')}</select></div><div class="field"><label for="booking-name">お名前 <span class="required">必須</span></label><input id="booking-name" name="name" type="text" autocomplete="name" placeholder="青葉 花子" required></div><div class="field"><label for="booking-email">メールアドレス <span class="required">必須</span></label><input id="booking-email" name="email" type="email" autocomplete="email" placeholder="example@aoba.test" required><p class="field-help">確認メールは送信されません。</p></div><div class="field"><label for="booking-count">参加人数 <span class="required">必須</span></label><select id="booking-count" name="count" required><option value="">選択してください</option><option>1名</option><option>2名</option><option>3名</option><option>4名</option></select></div><div class="field"><label for="booking-school">在籍校（任意）</label><input id="booking-school" name="school" type="text" placeholder="〇〇中学校"></div><div class="check-field"><input id="booking-agree" name="agree" type="checkbox" required><label for="booking-agree">デモ予約の注意事項を読み、入力内容を確認しました。 <span class="required">必須</span></label></div></div><div class="form-actions"><button class="button" type="submit">確認画面へ →</button><a class="button secondary" href="#home">戻る</a></div></form>`; }
+      function bookingConfirmation(data, events) { const selected = events.find(e => e.id === data.event); return `<div class="confirmation"><div class="success-mark">✓</div><p class="eyebrow">CHECK YOUR DETAILS</p><h3>入力内容をご確認ください</h3><p class="muted">この画面はデモ用の確認画面です。内容を修正する場合は「入力画面に戻る」を押してください。</p><dl class="confirmation-list"><dt>参加日程</dt><dd>${esc(selected ? `${selected.date}　${selected.title}` : data.event)}</dd><dt>お名前</dt><dd>${esc(data.name)}</dd><dt>メール</dt><dd>${esc(data.email)}</dd><dt>参加人数</dt><dd>${esc(data.count)}</dd>${data.school ? `<dt>在籍校</dt><dd>${esc(data.school)}</dd>` : ''}</dl><div class="form-actions"><button class="button" type="button" data-booking-complete>この内容で予約する</button><button class="button secondary" type="button" data-booking-edit>入力画面に戻る</button></div></div>`; }
+      function bookingComplete() { return `<div class="confirmation"><div class="success-mark">✓</div><p class="eyebrow">DEMO COMPLETE</p><h3>説明会の予約を受け付けました</h3><p>ご入力ありがとうございました。これはサイト内のデモ完了画面です。実際の予約やメール送信は行われていません。</p><div class="form-actions"><a class="button" href="#home">トップへ戻る</a><a class="button secondary" href="#admissions">入試・説明会を見る</a></div></div>`; }
+
+      function newsPage() { return shell('news', `${pageHero('NEWS', 'お知らせ', '学校の日常、イベント、受験生の皆さまへのご案内をお届けします。')}<section class="section"><div class="container">${sectionHeading('NEWS ARCHIVE', '最新のお知らせ')}<div class="filter-bar" role="group" aria-label="お知らせの絞り込み"><button class="filter-button is-active" type="button" data-filter-group="news" data-filter-value="すべて">すべて</button>${['説明会','学校生活','施設','学び','入試','地域連携','お知らせ'].map(c => `<button class="filter-button" type="button" data-filter-group="news" data-filter-value="${c}">${c}</button>`).join('')}</div><div class="news-list" id="news-list">${news.map(newsRow).join('')}</div></div></section>`); }
+      function newsDetail(id) { const item = news.find(n => n.id === id) || news[0]; return shell('news', `${pageHero(item.category, item.title, item.excerpt, `<span>${item.date}</span><span>${item.category}</span>`)}<section class="section"><div class="narrow"><p class="eyebrow">AOBA NEWS / ${esc(item.date)}</p><h2>${esc(item.title)}</h2><p class="lead">${esc(item.body)}</p><hr class="rule" style="margin:40px 0"><p>${esc(item.body)} 青葉高校では、日々の学びや学校生活をできるだけ具体的にお伝えしています。ご不明な点は、いつでもお問い合わせください。</p><div class="form-actions" style="margin-top:38px"><a class="button secondary" href="#news">お知らせ一覧に戻る</a><a class="button" href="#contact?type=お問い合わせ">問い合わせる</a></div></div></section>`); }
+
+      function access() { return shell('access', `${pageHero('ACCESS & FAQ', 'アクセス・FAQ', '青葉駅から徒歩8分。初めての方にもわかりやすい道順と、よくある質問をご案内します。', '<span>青葉駅 徒歩8分</span><span>来校受付 平日8:15〜17:00</span>')}<section class="section"><div class="container"><div class="split"><div><p class="eyebrow">HOW TO GET HERE</p><h2>駅から歩いて、<br>約8分。</h2><p>駅前の並木道をまっすぐ進み、青葉中央公園を左手に見ながら歩きます。正門の受付で来校の目的をお知らせください。</p><div class="route-list"><div class="route-item"><strong>電車</strong><span>青葉線「青葉駅」西口から徒歩8分</span></div><div class="route-item"><strong>バス</strong><span>青葉市営バス「中央公園前」下車 徒歩3分</span></div><div class="route-item"><strong>自転車</strong><span>来校者用駐輪場あり（正門右手）</span></div><div class="route-item"><strong>お車</strong><span>校内駐車場は説明会参加者のみ利用可</span></div></div></div><div class="map-card"><svg viewBox="0 0 600 450" role="img" aria-label="青葉駅から青葉高等学校までの概略図"><rect width="600" height="450" fill="#edf1e8"/><path d="M0 105 L600 105 M0 320 L600 320 M145 0 L145 450 M430 0 L430 450" stroke="#ccd8c5" stroke-width="40"/><path d="M0 105 L600 105 M0 320 L600 320 M145 0 L145 450 M430 0 L430 450" stroke="#fff" stroke-width="3" stroke-dasharray="10 8"/><path d="M30 210 C130 170 190 220 262 195 S380 155 480 210 S540 280 570 350" fill="none" stroke="#b3cfdb" stroke-width="32"/><path d="M124 250 L222 250 L270 175 L390 175 L454 250" fill="none" stroke="#b9904d" stroke-width="9"/><circle cx="84" cy="250" r="17" fill="#163f35"/><text x="60" y="290" fill="#163f35" font-size="20" font-family="sans-serif">青葉駅</text><rect x="360" y="125" width="130" height="90" fill="#163f35"/><text x="373" y="165" fill="white" font-size="17" font-family="sans-serif">青葉高校</text><text x="373" y="189" fill="#dce8c9" font-size="13" font-family="sans-serif">正門・受付</text><rect x="215" y="290" width="120" height="42" fill="#fff" stroke="#9aac72"/><text x="232" y="317" fill="#58675e" font-size="15" font-family="sans-serif">中央公園</text><text x="15" y="35" fill="#58675e" font-size="13" font-family="sans-serif">N</text><path d="M22 72 L22 43" stroke="#58675e" stroke-width="2"/><path d="M22 43 l-6 10 h12 z" fill="#58675e"/></svg></div></div></div></section><section class="section tint"><div class="container narrow">${sectionHeading('FAQ', 'よくあるご質問', '気になることを事前に解消して、安心してご来校ください。')}<div class="faq-list"><details><summary>説明会には何を持っていけばよいですか？</summary><div class="faq-answer">筆記用具と上履きをお持ちください。資料は当日お渡しします。保護者の方はスリッパをご用意しています。</div></details><details><summary>予約なしで学校見学はできますか？</summary><div class="faq-answer">平日の見学は事前予約制です。日程を調整しますので、<a href="#contact?type=お問い合わせ">お問い合わせフォーム</a>からご連絡ください。</div></details><details><summary>部活動の見学はできますか？</summary><div class="faq-answer">説明会の日程によっては見学できます。予約フォームの備考欄、またはお問い合わせで希望の部をお知らせください。</div></details><details><summary>コースは入学時に決めるのですか？</summary><div class="faq-answer">1年次は共通カリキュラムで学び、2年次から3コースに分かれます。1年次のガイダンスや面談でじっくり考えます。</div></details><details><summary>自転車通学はできますか？</summary><div class="faq-answer">学校から半径5km以内を目安に許可しています。入学後に申請し、指定の駐輪場を利用してください。</div></details><details><summary>奨学金や授業料の支援制度はありますか？</summary><div class="faq-answer">各種支援制度の利用を希望する場合は、入学後に事務室へご相談ください。制度の詳細は説明会でもご案内します。</div></details><details><summary>資料だけ送ってもらえますか？</summary><div class="faq-answer">資料請求フォームからお申し込みいただけます。このサイトでは送信を行わず、印刷用学校案内をすぐにご覧いただけます。</div></details></div></div></section>`); }
+
+      function contact() { const params = parseHash().params; const type = params.get('type') || 'お問い合わせ'; return shell('contact', `${pageHero('CONTACT', 'お問い合わせ・資料請求', '学校について知りたいこと、相談したいことをお聞かせください。', '<span>入力 約2分</span><span>デモフォーム</span>')}<section class="section"><div class="container narrow"><div class="form-section"><div id="contact-stage" class="form-stage">${contactForm(type)}</div></div></div></section>`); }
+      function contactForm(type, values = {}) { return `<p class="eyebrow">CONTACT FORM</p><h2>お気軽にどうぞ</h2><p class="form-intro">入力内容の確認後、デモ完了画面へ進みます。実際の送信・保存は行いません。</p><form id="contact-form" novalidate><div class="form-grid"><div class="field full"><label for="contact-type">お問い合わせ種別 <span class="required">必須</span></label><select id="contact-type" name="type" required><option value="お問い合わせ" ${type === 'お問い合わせ' ? 'selected' : ''}>お問い合わせ</option><option value="資料請求" ${type === '資料請求' ? 'selected' : ''}>資料請求</option><option value="説明会について" ${type === '説明会について' ? 'selected' : ''}>説明会について</option><option value="入試について" ${type === '入試について' ? 'selected' : ''}>入試について</option><option value="部活動について" ${type === '部活動について' ? 'selected' : ''}>部活動について</option></select></div><div class="field"><label for="contact-name">お名前 <span class="required">必須</span></label><input id="contact-name" name="name" type="text" autocomplete="name" placeholder="青葉 花子" value="${esc(values.name || '')}" required></div><div class="field"><label for="contact-email">メールアドレス <span class="required">必須</span></label><input id="contact-email" name="email" type="email" autocomplete="email" placeholder="example@aoba.test" value="${esc(values.email || '')}" required></div><div class="field full"><label for="contact-message">ご用件 <span class="required">必須</span></label><textarea id="contact-message" name="message" placeholder="ご質問やご希望をご入力ください" required>${esc(values.message || '')}</textarea></div><div class="check-field"><input id="contact-agree" name="agree" type="checkbox" required><label for="contact-agree">個人情報の取り扱い（デモ）に同意します。 <span class="required">必須</span></label></div></div><div class="form-actions"><button class="button" type="submit">確認画面へ →</button><a class="button secondary" href="#home">戻る</a></div></form>`; }
+      function contactConfirmation(data) { return `<div class="confirmation"><div class="success-mark">✓</div><p class="eyebrow">CHECK YOUR DETAILS</p><h3>入力内容をご確認ください</h3><p class="muted">修正する場合は「入力画面に戻る」を押してください。</p><dl class="confirmation-list"><dt>種別</dt><dd>${esc(data.type)}</dd><dt>お名前</dt><dd>${esc(data.name)}</dd><dt>メール</dt><dd>${esc(data.email)}</dd><dt>ご用件</dt><dd>${esc(data.message)}</dd></dl><div class="form-actions"><button class="button" type="button" data-contact-complete>この内容で送信する</button><button class="button secondary" type="button" data-contact-edit>入力画面に戻る</button></div></div>`; }
+      function contactComplete() { return `<div class="confirmation"><div class="success-mark">✓</div><p class="eyebrow">DEMO COMPLETE</p><h3>お問い合わせを受け付けました</h3><p>ご入力ありがとうございました。これはサイト内のデモ完了画面です。実際の送信・保存は行われていません。</p><div class="form-actions"><a class="button" href="#home">トップへ戻る</a><a class="button secondary" href="#contact?type=資料請求">資料請求を見る</a></div></div>`; }
+
+      function clubDetail(id) { const club = clubs.find(c => c.id === id) || clubs[0]; return shell('clubs', `${pageHero(club.kind, club.name, club.lead, `<span>${club.days}</span><span>${club.place}</span>`)}<section class="section"><div class="container"><div class="club-detail"><div><p class="eyebrow">CLUB PROFILE</p><h2>${esc(club.name)}</h2><p class="lead">${esc(club.body)}</p><div class="detail-meta"><div><dt>活動日</dt><dd>${esc(club.days)}</dd></div><div><dt>活動場所</dt><dd>${esc(club.place)}</dd></div><div><dt>分類</dt><dd>${esc(club.kind)}</dd></div><div><dt>対象</dt><dd>1〜3年生</dd></div></div><a class="button" href="#contact?type=部活動について">この部について問い合わせる</a></div><div class="club-detail-visual"><div class="club-detail-photo">${media(clubImage(club), `${club.name}の活動イメージ`, '')}</div><p class="field-help">掲載写真は${club.kind}の活動イメージです。</p><div class="quote-block"><p class="eyebrow">A WORD FROM AOBA</p><blockquote>好きなことを<br>続ける場所がある。</blockquote><cite>${esc(club.name)} / 活動紹介</cite></div></div></div></div></section><section class="section tint"><div class="container"><a class="arrow-link" href="#clubs">部活動一覧に戻る</a></div></section>`); }
+
+      function searchPage(query) { const q = query.trim(); const lower = q.toLowerCase(); const results = q ? searchable.filter(item => `${item.title} ${item.text}`.toLowerCase().includes(lower)) : []; return shell('search', `${pageHero('SEARCH', 'サイト内検索', q ? `「${esc(q)}」の検索結果です。タイトルと本文を対象に検索しています。` : '学校案内の中から、知りたい情報を探せます。')}<section class="section"><div class="container narrow"><form class="search-box page-search" role="search"><label class="sr-only" for="page-search-input">サイト内検索</label><input id="page-search-input" name="q" type="search" value="${esc(q)}" placeholder="キーワードを入力"><button class="button" type="submit">検索</button></form>${q ? `<p class="search-count">${results.length}件見つかりました</p>` : '<p class="search-count">例：説明会、図書館、探究、バスケットボール</p>'}<div class="result-list">${q && results.length ? results.map(r => `<a class="result-item" href="${r.route}"><span class="tag">${esc(r.type)}</span><span><h3>${esc(r.title)}</h3><p>${esc(r.text.slice(0, 105))}${r.text.length > 105 ? '…' : ''}</p></span><span class="row-arrow" aria-hidden="true">→</span></a>`).join('') : q ? '<div class="empty-state"><h3>一致する情報がありませんでした。</h3><p>別のキーワードで検索するか、上のメニューからページをお選びください。</p></div>' : ''}</div></div></section>`); }
+
+      function guide() { return shell('guide', `<section class="section"><div class="container narrow"><div class="print-hide" style="display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:25px"><div><p class="eyebrow">PRINTABLE SCHOOL GUIDE</p><h1 style="font-size:clamp(2.4rem,5vw,4rem);margin-bottom:0">学校案内</h1></div><button class="button" type="button" data-print>印刷する</button></div><article class="guide-sheet"><p class="eyebrow">PRIVATE AOBA HIGH SCHOOL / 2026</p><h2 style="margin-top:0">好きが、未来をひらく。</h2><p class="lead">青葉高校は、問いを見つけ、仲間と深め、社会とつながる学校です。</p><h2>青葉高校の基本情報</h2><dl class="fact-grid"><div class="fact"><dt>創立</dt><dd>1968年</dd></div><div class="fact"><dt>生徒数</dt><dd>約540名</dd></div><div class="fact"><dt>コース</dt><dd>3コース</dd></div><div class="fact"><dt>最寄り駅</dt><dd>青葉駅</dd></div></dl><h2>学びの特徴</h2><ul><li>探究・総合・国際の3コース</li><li>地域とつながる探究プロジェクト</li><li>少人数ゼミと進路支援</li><li>部活動・行事を通じた協働</li></ul><h2>説明会・お問い合わせ</h2><p>説明会の日程は<a href="#admissions">入試・説明会</a>ページをご覧ください。ご質問は<a href="#contact?type=お問い合わせ">お問い合わせフォーム</a>からお寄せください。</p><div class="guide-footer"><span>私立 青葉高等学校</span><span>この学校案内は架空のデモ資料です。</span></div></article></div></section>`); }
+      function simplePage(route, title, eyebrow, intro, content) { return shell(route, `${pageHero(eyebrow, title, intro)}<section class="section"><div class="container narrow">${content}</div></section>`); }
+      function students() { return simplePage('students', '在校生の方へ', 'FOR CURRENT STUDENTS', '毎日の学校生活をスムーズにするための案内です。', `<div class="link-grid"><a class="link-tile" href="#life"><span class="tile-number">01</span><h3>学校生活</h3><p>時間割、行事、施設の使い方を確認。</p></a><a class="link-tile" href="#clubs"><span class="tile-number">02</span><h3>部活動</h3><p>活動場所と曜日を確認。</p></a><a class="link-tile" href="#contact?type=お問い合わせ"><span class="tile-number">03</span><h3>相談窓口</h3><p>学校生活の相談は担任・保健室へ。</p></a></div><h2 style="margin-top:60px">校内で大切にしていること</h2><p>授業、休み時間、放課後。それぞれの場所を使う人が安心して過ごせるよう、互いの時間と声を尊重しましょう。困ったことがあれば、一人で抱えずに身近な大人へ相談してください。</p>`); }
+      function alumni() { return simplePage('alumni', '卒業生の方へ', 'FOR ALUMNI', '青葉で過ごした時間が、次の誰かの学びにつながります。', `<h2>卒業生とのつながり</h2><p>青葉高校では、卒業生を招いたキャリアダイアローグや、在校生へのメッセージ企画を行っています。近況の共有や協力のお申し出は、学校窓口までお知らせください。</p><hr class="rule" style="margin:35px 0"><h3>卒業生向けのご案内</h3><ul><li>証明書の発行は事務室で受け付けています。</li><li>学校施設の利用や取材のお問い合わせは、事前にご連絡ください。</li><li>住所・連絡先の変更は、学校窓口へお知らせください。</li></ul><a class="button" href="#contact?type=お問い合わせ">学校へ問い合わせる</a>`); }
+      function privacy() { return simplePage('privacy', 'プライバシーポリシー', 'PRIVACY', 'このデモサイトにおける情報の取り扱いについてご案内します。', `<h2>デモサイトについて</h2><p>私立 青葉高等学校のサイトは、UI Labで制作した架空の学校サイトです。お問い合わせ・資料請求・説明会予約フォームに入力した情報は、画面上の確認と完了表示にのみ使用し、外部へ送信したり永続保存したりしません。</p><h3>アクセス解析・Cookie</h3><p>このデモには、アクセス解析、広告、Cookieによる追跡機能は組み込んでいません。</p><h3>写真素材</h3><p>掲載写真の出典・クレジットは<a href="../school-comparison/ASSETS.md" target="_blank" rel="noreferrer">写真クレジット</a>をご覧ください。素材が未配置の場合は背景色のフォールバックを表示します。</p>`); }
+      function sitemap() { return simplePage('sitemap', 'サイトマップ', 'SITE MAP', '青葉高等学校サイトのページ一覧です。', `<div class="sitemap-grid">${[['#home','トップ','学校案内の入口'],['#about','学校紹介','理念・校長挨拶・沿革'],['#learning','学び','3コース・進路支援'],['#life','学校生活・施設','一日の流れ・年間行事'],['#clubs','部活動','運動部・文化部'],['#admissions','入試・説明会','2027年度入試・予約'],['#news','お知らせ','最新情報・記事一覧'],['#access','アクセス・FAQ','交通案内・よくある質問'],['#contact?type=お問い合わせ','お問い合わせ','質問・資料請求'],['#guide','印刷用学校案内','保存・印刷できる案内'],['#students','在校生の方へ','校内案内'],['#alumni','卒業生の方へ','卒業生向け案内']].map(x => `<a href="${x[0]}"><strong>${x[1]}</strong><span>${x[2]}</span></a>`).join('')}</div>`); }
+
+      function parseHash() { const raw = decodeURIComponent(location.hash.replace(/^#/, '') || 'home'); const [path, query = ''] = raw.split('?'); return { path: path || 'home', params: new URLSearchParams(query) }; }
+      function render() {
+        const { path, params } = parseHash();
+        let html;
+        if (path === 'home') html = home();
+        else if (path === 'about') html = about();
+        else if (path === 'learning') html = learning();
+        else if (path === 'life') html = life();
+        else if (path === 'clubs') html = clubsPage();
+        else if (path === 'admissions') html = admissions();
+        else if (path === 'news') html = newsPage();
+        else if (path.startsWith('news/')) html = newsDetail(path.slice(5));
+        else if (path === 'access') html = access();
+        else if (path === 'contact') html = contact();
+        else if (path === 'club') html = clubDetail(params.get('id') || 'basketball');
+        else if (path.startsWith('club/')) html = clubDetail(path.slice(5));
+        else if (path === 'search') html = searchPage(params.get('q') || '');
+        else if (path === 'guide') html = guide();
+        else if (path === 'students') html = students();
+        else if (path === 'alumni') html = alumni();
+        else if (path === 'privacy') html = privacy();
+        else if (path === 'sitemap') html = sitemap();
+        else html = home();
+        document.getElementById('app').innerHTML = html;
+        document.title = path === 'home' ? '私立 青葉高等学校 | 好きが、未来をひらく。' : `私立 青葉高等学校 | ${pageTitle(path)}`;
+        bindEvents(path, params);
+        if (!render.skipScroll) window.scrollTo({ top: 0, behavior: 'instant' });
+        render.skipScroll = false;
+      }
+      function pageTitle(path) { const map = { about: '学校紹介', learning: '学び', life: '学校生活・施設', clubs: '部活動', admissions: '入試・説明会', news: 'お知らせ', access: 'アクセス・FAQ', contact: 'お問い合わせ・資料請求', search: 'サイト内検索', guide: '印刷用学校案内', students: '在校生の方へ', alumni: '卒業生の方へ', privacy: 'プライバシーポリシー', sitemap: 'サイトマップ' }; return path.startsWith('news/') ? 'お知らせ' : path.startsWith('club/') ? '部活動' : map[path] || '青葉高等学校'; }
+      function closeMobileMenu() { const drawer = document.getElementById('mobile-drawer'); const toggle = document.querySelector('.menu-toggle'); if (!drawer || !toggle) return; drawer.setAttribute('aria-hidden', 'true'); toggle.setAttribute('aria-expanded', 'false'); toggle.setAttribute('aria-label', 'メニューを開く'); document.body.classList.remove('menu-open'); }
+      function bindEvents(path, params) {
+        document.querySelectorAll('.site-search, .page-search').forEach(form => form.addEventListener('submit', e => { e.preventDefault(); const q = new FormData(form).get('q') || ''; location.hash = `#search?q=${encodeURIComponent(q)}`; }));
+        const toggle = document.querySelector('.menu-toggle'); const drawer = document.getElementById('mobile-drawer');
+        if (toggle && drawer) toggle.addEventListener('click', () => { const open = drawer.getAttribute('aria-hidden') === 'false'; drawer.setAttribute('aria-hidden', String(open)); toggle.setAttribute('aria-expanded', String(!open)); toggle.setAttribute('aria-label', open ? 'メニューを開く' : 'メニューを閉じる'); document.body.classList.toggle('menu-open', !open); });
+        document.querySelectorAll('.mobile-drawer a').forEach(link => link.addEventListener('click', closeMobileMenu));
+        document.removeEventListener('keydown', escapeHandler); document.addEventListener('keydown', escapeHandler);
+        document.querySelectorAll('[data-filter-group="clubs"]').forEach(button => button.addEventListener('click', () => { document.querySelectorAll('[data-filter-group="clubs"]').forEach(b => b.classList.toggle('is-active', b === button)); const grid = document.getElementById('club-grid'); if (grid) grid.innerHTML = clubCards(button.dataset.filterValue); }));
+        document.querySelectorAll('[data-filter-group="news"]').forEach(button => button.addEventListener('click', () => { document.querySelectorAll('[data-filter-group="news"]').forEach(b => b.classList.toggle('is-active', b === button)); const list = document.getElementById('news-list'); if (list) list.innerHTML = news.filter(n => button.dataset.filterValue === 'すべて' || n.category === button.dataset.filterValue).map(newsRow).join(''); }));
+        document.querySelector('[data-print]')?.addEventListener('click', () => window.print());
+        bindBooking(); bindContact();
+      }
+      function escapeHandler(event) { if (event.key === 'Escape') closeMobileMenu(); }
+      function focusStageHeading(stage) { const heading = stage.querySelector('h2, h3'); if (!heading) return; heading.setAttribute('tabindex', '-1'); heading.focus({ preventScroll: true }); }
+      function validateRequiredText(form, names) { let valid = true; names.forEach(name => { const field = form.elements[name]; if (!field) return; const blank = typeof field.value === 'string' && field.value.trim() === ''; field.setCustomValidity(blank ? '空白以外の文字を入力してください。' : ''); if (blank) valid = false; }); return valid && form.checkValidity(); }
+      function bindBooking() {
+        const form = document.getElementById('booking-form'); const stage = document.getElementById('booking-stage'); if (!form || !stage) return;
+        form.addEventListener('submit', event => { event.preventDefault(); if (!validateRequiredText(form, ['name'])) { form.reportValidity(); return; } const data = Object.fromEntries(new FormData(form).entries()); data.name = data.name.trim(); stage.innerHTML = bookingConfirmation(data, [{ id: 'oct', date: '10 / 18 SUN', title: '秋のオープンキャンパス', time: '9:30〜12:30' }, { id: 'nov', date: '11 / 08 SUN', title: '入試説明会', time: '10:00〜12:00' }, { id: 'dec', date: '12 / 06 SUN', title: '冬の個別相談会', time: '9:00〜15:00' }]); bindBookingConfirmation(stage, data); focusStageHeading(stage); });
+      }
+      function bindBookingConfirmation(stage, data) { stage.querySelector('[data-booking-edit]')?.addEventListener('click', () => { stage.innerHTML = bookingForm(data.event, [{ id: 'oct', date: '10 / 18 SUN', title: '秋のオープンキャンパス', time: '9:30〜12:30' }, { id: 'nov', date: '11 / 08 SUN', title: '入試説明会', time: '10:00〜12:00' }, { id: 'dec', date: '12 / 06 SUN', title: '冬の個別相談会', time: '9:00〜15:00' }]); const form = stage.querySelector('form'); Object.entries(data).forEach(([key, value]) => { const field = form.elements[key]; if (!field) return; if (field.type === 'checkbox') field.checked = true; else field.value = value; }); bindBooking(); focusStageHeading(stage); }); stage.querySelector('[data-booking-complete]')?.addEventListener('click', () => { stage.innerHTML = bookingComplete(); focusStageHeading(stage); }); }
+      function bindContact() {
+        const form = document.getElementById('contact-form'); const stage = document.getElementById('contact-stage'); if (!form || !stage) return;
+        form.addEventListener('submit', event => { event.preventDefault(); if (!validateRequiredText(form, ['name', 'message'])) { form.reportValidity(); return; } const data = Object.fromEntries(new FormData(form).entries()); data.name = data.name.trim(); data.message = data.message.trim(); stage.innerHTML = contactConfirmation(data); bindContactConfirmation(stage, data); focusStageHeading(stage); });
+      }
+      function bindContactConfirmation(stage, data) { stage.querySelector('[data-contact-edit]')?.addEventListener('click', () => { stage.innerHTML = contactForm(data.type, data); const form = stage.querySelector('form'); form.elements.agree.checked = true; bindContact(); focusStageHeading(stage); }); stage.querySelector('[data-contact-complete]')?.addEventListener('click', () => { stage.innerHTML = contactComplete(); focusStageHeading(stage); }); }
+      window.addEventListener('hashchange', () => { closeMobileMenu(); render(); });
+      render();
+    })();
+  </script>
+</body>
+</html>

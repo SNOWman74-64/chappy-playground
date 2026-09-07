@@ -1,0 +1,131 @@
+{
+  "results": [
+    {
+      "variant": "astra",
+      "route": "home",
+      "width": 390,
+      "overflow": false,
+      "broken": 0
+    },
+    {
+      "variant": "astra",
+      "route": "about",
+      "width": 390,
+      "overflow": false,
+      "broken": 0
+    },
+    {
+      "variant": "astra",
+      "route": "learning",
+      "width": 390,
+      "overflow": false,
+      "broken": 0
+    },
+    {
+      "variant": "astra",
+      "route": "life",
+      "width": 390,
+      "overflow": false,
+      "broken": 0
+    },
+    {
+      "variant": "astra",
+      "route": "clubs",
+      "width": 390,
+      "overflow": false,
+      "broken": 0
+    },
+    {
+      "variant": "astra",
+      "route": "admissions",
+      "width": 390,
+      "overflow": false,
+      "broken": 0
+    },
+    {
+      "variant": "astra",
+      "route": "news",
+      "width": 390,
+      "overflow": false,
+      "broken": 0
+    },
+    {
+      "variant": "astra",
+      "route": "access",
+      "width": 390,
+      "overflow": false,
+      "broken": 0
+    },
+    {
+      "variant": "astra",
+      "route": "contact",
+      "width": 390,
+      "overflow": false,
+      "broken": 0
+    },
+    {
+      "variant": "luna",
+      "route": "home",
+      "width": 390,
+      "overflow": false,
+      "broken": 0
+    },
+    {
+      "variant": "luna",
+      "route": "about",
+      "width": 390,
+      "overflow": false,
+      "broken": 0
+    },
+    {
+      "variant": "luna",
+      "route": "learning",
+      "width": 390,
+      "overflow": false,
+      "broken": 0
+    },
+    {
+      "variant": "luna",
+      "route": "life",
+      "width": 390,
+      "overflow": false,
+      "broken": 0
+    },
+    {
+      "variant": "luna",
+      "route": "clubs",
+      "width": 390,
+      "overflow": false,
+      "broken": 0
+    },
+    {
+      "variant": "luna",
+      "route": "admissions",
+      "width": 390,
+      "overflow": false,
+      "broken": 0
+    },
+    {
+      "variant": "luna",
+      "route": "news",
+      "width": 390,
+      "overflow": false,
+      "broken": 0
+    },
+    {
+      "variant": "luna",
+      "route": "access",
+      "width": 390,
+      "overflow": false,
+      "broken": 0
+    },
+    {
+      "variant": "luna",
+      "route": "contact",
+      "width": 390,
+      "overflow": false,
+      "broken": 0
+    }
+  ],
+  "errors": []
+}

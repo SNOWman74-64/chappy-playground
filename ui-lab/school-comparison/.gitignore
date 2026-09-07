@@ -1,0 +1,3 @@
+# Raw model execution traces stay local; metrics and browser evidence are versioned.
+logs/*-events.jsonl
+logs/*-stderr.txt

@@ -1,0 +1,23 @@
+[
+  {
+    "confirmation": "参加日程\n10 / 18 SUN　秋のオープンキャンパス\nお名前\nテスト 青葉\nメール\ntest@example.com\n参加人数\n2名",
+    "focusOnConfirm": "入力内容をご確認ください"
+  },
+  {
+    "preserved": "テスト 青葉"
+  },
+  {
+    "focusOnComplete": "説明会の予約を受け付けました"
+  },
+  {
+    "hero": {
+      "text": "好きが、\n未来をひらく。",
+      "font": "39.78px",
+      "height": 107.40625
+    },
+    "footerBrand": "rgb(255, 255, 255)"
+  },
+  {
+    "width360overflow": false
+  }
+]
