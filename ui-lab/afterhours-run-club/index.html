@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10120f">
+  <meta name="description" content="日常が終わる、その先へ。AFTERHOURSは、速さよりもいい夜を楽しむ架空のランニングクラブ。黒と緑のモバイル向けコンセプトサイト。">
+  <title>AFTERHOURS — 夜を、自分たちのものに。</title>
+  <link rel="icon" href="assets/mark.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body id="top">
+  <a class="skip-link" href="#main">本文へスキップ</a>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="AFTERHOURS ホーム">
+      <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true"><path d="m21 2 3 11 10-6-6 10 11 3-11 3 6 10-10-6-3 11-3-11-10 6 6-10-11-3 11-3-6-10 10 6Z"/></svg>
+      <span><strong>AFTERHOURS</strong><small>RUN CLUB · TOKYO</small></span>
+    </a>
+    <nav class="desktop-nav" aria-label="メインナビゲーション">
+      <a href="#runs">THE RUNS</a><a href="#about">OUR PACE</a><a href="#faq">FAQ</a>
+    </nav>
+    <button class="button header-join" data-join disabled>一緒に走る <span aria-hidden="true">↗</span></button>
+    <span class="mobile-location mono">TOKYO, JP</span>
+    <button class="menu-toggle" aria-label="メニューを開く" aria-controls="menu-dialog" aria-expanded="false" disabled><span></span><span></span></button>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-visual"><img src="assets/hero-run.jpg" alt="夕暮れの光を背に、一緒に走るランナーたち" width="1500" height="1000" fetchpriority="high"></div>
+      <div class="hero-content">
+        <p class="eyebrow"><span class="status-dot"></span> CLOCK OUT. LACE UP.</p>
+        <h1 id="hero-title"><span>OWN THE</span><span class="green">NIGHT.</span></h1>
+        <p class="hero-jp">日常が終わる、その先へ。</p>
+        <p class="hero-description">速さも、肩書きも、ここでは置いていこう。<br>いつもの街を、ちょっと違う自分で走る。</p>
+        <a class="button hero-cta" href="#runs">今夜のランを見つける <span aria-hidden="true">↗</span></a>
+        <p class="hero-footnote mono">ALL PACES. ALL PEOPLE. ALWAYS.</p>
+      </div>
+      <div class="club-seal" aria-hidden="true"><span>EVERY PACE</span><svg viewBox="0 0 40 40"><path d="m21 2 3 11 10-6-6 10 11 3-11 3 6 10-10-6-3 11-3-11-10 6 6-10-11-3 11-3-6-10 10 6Z"/></svg><span>HAS A PLACE</span></div>
+      <div class="hero-bottom mono"><span>NOT A RACE. A RITUAL.</span><a href="#next-run" aria-label="次のランを見る">SCROLL TO EXPLORE <span aria-hidden="true">↓</span></a></div>
+      <span class="hero-side mono" aria-hidden="true">AFTER DARK / FEEL ALIVE — VOL. 001</span>
+    </section>
+
+    <section class="next-run section-width" id="next-run" aria-labelledby="next-title">
+      <div class="next-label"><span class="eyebrow green"><span class="status-dot"></span> NEXT UP</span><span class="mono subtle">THE WEEKLY RESET</span></div>
+      <h2 id="next-title">WEDNESDAY<br>NIGHT RUN<span class="green"> ↗</span></h2>
+      <div class="next-meta"><span class="mono">EVERY WED / 19:30</span><span>5 km · ゆったりペース</span></div>
+      <button class="text-link" data-join="riverside" disabled>ランの詳細・参加 <span aria-hidden="true">↗</span></button>
+    </section>
+
+    <section class="runs section-width section-space" id="runs" aria-labelledby="runs-title">
+      <div class="section-heading"><div><p class="eyebrow green">[ 01 — THE RUNS ]</p><h2 id="runs-title">FIND YOUR<br><span class="outline-text">NIGHT.</span></h2></div><p class="section-intro">街の明かり。川沿いの風。<br>今夜の気分で、コースを選ぼう。<br><span class="subtle">どのランも、はじめの一歩は大歓迎。</span></p></div>
+      <div class="route-options" role="group" aria-label="ランニングコースを選ぶ">
+        <button class="route-option" data-route="riverside" aria-pressed="true" aria-controls="route-panel" disabled><span class="mono">01</span><span>RIVERSIDE</span><span class="route-option-distance">5 KM</span></button>
+        <button class="route-option" data-route="city" aria-pressed="false" aria-controls="route-panel" disabled><span class="mono">02</span><span>CITY LOOP</span><span class="route-option-distance">8 KM</span></button>
+        <button class="route-option" data-route="park" aria-pressed="false" aria-controls="route-panel" disabled><span class="mono">03</span><span>PARK SIDE</span><span class="route-option-distance">3 KM</span></button>
+      </div>
+      <div class="route-panel" id="route-panel">
+        <div class="route-map">
+          <div class="map-heading mono"><span id="map-name">RIVERSIDE LOOP</span><span><i class="status-dot"></i> <span id="map-mood">EASY DOES IT</span></span></div>
+          <svg class="map-svg" viewBox="0 0 560 360" role="img" aria-labelledby="map-title map-desc">
+            <title id="map-title">リバーサイドのコース概念図</title><desc id="map-desc">緑の線がコース、丸が集合地点を表すイメージ図です。実際の地図ではありません。</desc>
+            <defs><pattern id="city-blocks" width="84" height="64" patternUnits="userSpaceOnUse" patternTransform="rotate(-18)"><rect x="7" y="7" width="70" height="50" rx="2" fill="#242a20"/><path d="M7 32H77M42 7V57" stroke="#1b2118" stroke-width="3"/></pattern></defs>
+            <rect width="560" height="360" fill="url(#city-blocks)"/>
+            <path d="M-30 333C69 274 118 334 189 276S267 140 348 151 454 111 604 37" fill="none" stroke="#10170f" stroke-width="48"/>
+            <path d="M-30 333C69 274 118 334 189 276S267 140 348 151 454 111 604 37" fill="none" stroke="#283822" stroke-width="2"/>
+            <g fill="none" stroke="#59614c" stroke-width="8"><path d="m42 115 444 151"/><path d="m131 342 217-329"/><path d="m389 359 86-319"/></g>
+            <g fill="none" stroke="#151b12" stroke-width="4"><path d="m42 115 444 151"/><path d="m131 342 217-329"/><path d="m389 359 86-319"/></g>
+            <g class="map-place" fill="#919982" font-size="11" font-family="monospace"><text x="40" y="55">WEST SIDE</text><text x="415" y="318">EAST SIDE</text><text x="322" y="111" transform="rotate(-18 322 111)">RIVER</text></g>
+            <g id="map-route" fill="none" stroke="#c1fa51" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path id="route-path" d="M151 253 107 222 137 179 201 157 263 192 310 180 349 130 415 104 444 137 392 177 326 211 260 228 209 207 183 242 151 253"/></g>
+            <circle id="route-halo" cx="151" cy="253" r="18" fill="#c1fa51" fill-opacity=".16"/>
+            <circle id="route-start" cx="151" cy="253" r="8" fill="#c1fa51" stroke="#10120f" stroke-width="3"/>
+            <g transform="translate(502 37)" fill="none" stroke="#a9b699" stroke-width="1.5"><path d="M0 30V0M-6 8 0 0 6 8"/><text x="-3" y="-9" fill="#a9b699" stroke="none" font-size="10">N</text></g>
+          </svg>
+          <div class="map-bottom mono"><span><i class="map-key"></i> MEET HERE, RUN TOGETHER</span><span>ILLUSTRATIVE MAP</span></div>
+        </div>
+        <div class="route-details">
+          <p class="eyebrow green" id="route-category">THE MIDWEEK RESET</p><h3 id="route-name">Riverside <br>reset.</h3>
+          <p class="route-description" id="route-description">川沿いの風で、一日をリセット。会話が続くくらいのペースで走り、最後はコーヒーでひと息。</p>
+          <dl class="route-metrics"><div><dt>DISTANCE</dt><dd><span id="route-distance">5.0</span><small> KM</small></dd></div><div><dt>PACE</dt><dd id="route-pace">EASY</dd></div><div><dt>MEET UP</dt><dd id="route-time">19:30</dd></div></dl>
+          <p class="route-meeting"><span aria-hidden="true">↳</span> <span id="route-meeting">毎週水曜 · リバーサイドのコーヒースタンド</span></p>
+          <button class="button route-join" data-join disabled>このランを選ぶ <span aria-hidden="true">↗</span></button>
+          <p class="route-note">コース・開催内容はコンセプト上の設定です。</p>
+        </div>
+      </div>
+      <p class="sr-only" id="route-announcement" role="status" aria-live="polite"></p>
+    </section>
+
+    <section class="manifesto" id="about" aria-labelledby="about-title">
+      <div class="section-width manifesto-inner"><div class="manifesto-lead"><p class="eyebrow">[ 02 — OUR PACE ]</p><h2 id="about-title">LESS PACE.<br>MORE <span class="serif-word">feel.</span></h2><p>記録より、記憶に残るランを。</p><svg class="manifesto-star" viewBox="0 0 40 40" aria-hidden="true"><path d="m21 2 3 11 10-6-6 10 11 3-11 3 6 10-10-6-3 11-3-11-10 6 6-10-11-3 11-3-6-10 10 6Z"/></svg></div>
+      <div class="principles"><article><span class="mono">01 / NO EGO</span><h3>速くなくていい。</h3><p>今日はゆっくりでも、途中で歩いても。<br>自分のペースが、いちばんいいペース。</p></article><article><span class="mono">02 / FIND YOUR PEOPLE</span><h3>ひとりで来ても、ひとりじゃない。</h3><p>必要なのは、走る靴と少しの好奇心。<br>「はじめまして」の先に、いつもの仲間がいる。</p></article><article><span class="mono">03 / STAY A LITTLE LONGER</span><h3>ゴールのあとも、いい時間。</h3><p>コーヒーを飲んで、たわいない話をして。<br>また来週、と言える夜を増やそう。</p></article></div></div>
+    </section>
+
+    <section class="community section-width section-space" aria-labelledby="community-title">
+      <div class="community-photo"><img src="assets/community-run.jpg" alt="街の通りを、さまざまなランナーが一緒に走る様子" width="1200" height="800" loading="lazy"><span class="photo-caption mono">DIFFERENT STORIES. SAME STREETS.</span></div>
+      <div class="community-copy"><p class="eyebrow green">[ 03 — YOUR PEOPLE ]</p><h2 id="community-title">GOOD RUNS.<br>BETTER<br><span class="green">COMPANY.</span></h2><p>仕事終わりの自分に、小さな寄り道を。<br>いい夜は、きっと一緒につくれる。</p><button class="text-link" data-join disabled>はじめの一歩を、ここから <span aria-hidden="true">↗</span></button></div>
+    </section>
+
+    <section class="faq section-width" id="faq" aria-labelledby="faq-title">
+      <div><p class="eyebrow green">BEFORE YOU LACE UP</p><h2 id="faq-title">A FEW<br>GOOD ANSWERS.</h2><p class="subtle">はじめての夜に、気になること。</p></div>
+      <div class="faq-list"><details><summary>ランニング初心者でも大丈夫？<span aria-hidden="true"></span></summary><p>もちろん。短い距離をゆっくり楽しむ「PARK SIDE」も用意しています。速さを競わず、おしゃべりできるペースを大切にするクラブ、というコンセプトです。</p></details><details><summary>何を持っていけばいい？<span aria-hidden="true"></span></summary><p>動きやすい服、履き慣れたランニングシューズ、飲み物が基本。このサイトは架空のクラブのデモなので、実際の集合場所や開催案内はありません。</p></details><details><summary>参加費は？ このサイトから予約できる？<span aria-hidden="true"></span></summary><p>無料のコミュニティランを想定しています。「一緒に走る」からランパス作成を体験できますが、デモのため実際の予約や申込みにはなりません。入力した内容も外部へ送信・保存しません。</p></details></div>
+    </section>
+
+    <footer class="site-footer section-width"><div class="footer-top"><a class="brand" href="#top"><svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true"><path d="m21 2 3 11 10-6-6 10 11 3-11 3 6 10-10-6-3 11-3-11-10 6 6-10-11-3 11-3-6-10 10 6Z"/></svg><span class="mono">SEE YOU<br>AFTERHOURS.</span></a><a class="back-top mono" href="#top">BACK TO TOP <span aria-hidden="true">↑</span></a></div><div class="footer-wordmark" aria-hidden="true">AFTERHOURS<span>®</span></div><div class="footer-bottom"><span>架空のランニングクラブを題材にしたコンセプトサイト。</span><span class="mono">© 2026 AFTERHOURS / UI LAB</span></div></footer>
+  </main>
+
+  <div class="mobile-dock" hidden><div><span class="status-dot"></span><span class="mono">YOUR NIGHT.<br>YOUR PACE.</span></div><button class="button" data-join disabled>一緒に走る <span aria-hidden="true">↗</span></button></div>
+  <noscript><p class="noscript-note">コース切替・参加デモには JavaScript が必要です。<a href="#runs">コースを見る</a> / <a href="#about">クラブについて</a> / <a href="#faq">FAQ</a></p></noscript>
+
+  <dialog id="menu-dialog" class="menu-dialog" aria-labelledby="menu-title"><div class="dialog-top"><p id="menu-title" class="mono green">AFTERHOURS / EXPLORE</p><button class="icon-button" data-close="menu-dialog" aria-label="メニューを閉じる">×</button></div><nav aria-label="モバイルナビゲーション"><a href="#runs">THE RUNS <span>01 ↗</span></a><a href="#about">OUR PACE <span>02 ↗</span></a><a href="#faq">FAQ <span>03 ↗</span></a></nav><p class="menu-caption">日常が終わる、その先へ。</p></dialog>
+
+  <dialog id="join-dialog" class="join-dialog" aria-labelledby="join-title" aria-describedby="join-notice">
+    <div class="sheet-handle" aria-hidden="true"></div><div class="dialog-top"><p class="eyebrow green">YOUR FIRST AFTERHOURS</p><button class="icon-button" data-close="join-dialog" aria-label="参加画面を閉じる">×</button></div>
+    <div id="join-form-view"><h2 id="join-title">LET’S<br>RUN TOGETHER.</h2><p class="dialog-intro">まずは、今の気分を聞かせて。</p><p class="demo-notice" id="join-notice">参加体験のデモです。実際の予約・送信は行いません。</p>
+      <form id="join-form"><label for="join-route">走りたいコース</label><select id="join-route" name="route" required><option value="riverside">RIVERSIDE · 5 km · 毎週水曜 19:30</option><option value="city">CITY LOOP · 8 km · 毎週金曜 20:00</option><option value="park">PARK SIDE · 3 km · 毎週火曜 19:00</option></select><label for="join-pace">今夜のペース <span>必須</span></label><select id="join-pace" name="pace" required><option value="" disabled selected>ペースを選んでください</option value="easy">会話を楽しみながら、ゆっくり</option><option value="steady">心地よいリズムで、軽やかに</option><option value="first">はじめてなので、自分のペースで</option></select><label for="join-name">呼んでほしい名前 <span>任意</span></label><input id="join-name" name="nickname" placeholder="ニックネーム" maxlength="24" autocomplete="off"><button class="button form-submit" type="submit">デモのランパスを作る <span aria-hidden="true">↗</span></button></form>
+    </div>
+    <div id="join-success" hidden><p class="pass-check" aria-hidden="true">↗</p><h2 id="success-title" tabindex="-1">YOU SET<br>THE PACE.</h2><p class="dialog-intro" id="pass-greeting">あなたのデモランパスができました。</p><article class="run-pass" aria-label="デモランパス"><div class="mono">AFTERHOURS / DEMO RUN PASS</div><h3 id="pass-route">RIVERSIDE</h3><p id="pass-details"></p><p id="pass-pace"></p><div class="pass-bottom mono"><span>ALL PACES WELCOME</span><span>AH—001</span></div></article><p class="demo-notice">このパスは体験用です。申込みや予約はされていません。</p><button class="button" data-close="join-dialog">また、夜に。 <span aria-hidden="true">↗</span></button><button class="restart-button" id="restart-join">コース・ペースを選び直す</button></div>
+  </dialog>
+</body>
+</html>
