@@ -1,0 +1,9 @@
+Parent QA found common-plan acceptance failures. Repair only your school-luna-medium scope, preserving model/effort and original design. No other variant reads. Record these repairs in TEST-REPORT.md and RETROSPECTIVE.md. Parent browser verification remains separate.
+1. Browser contact submission shows only '入力内容を確認しました' without entered values or a completion step. Implement actual input -> confirmation (all entered fields) -> edit retaining values -> demo completion.
+2. Browser reservation edit currently reloads and empties name/email. Preserve values in memory on edit and show email too in confirmation.
+3. Code inspection: club cards have no meaningful detail navigation; news detail omits article title/date/category and contains only a sentence. Add club detail/back and substantive article detail with metadata.
+4. Students/graduates/sitemap are generic one-sentence placeholders. Supply meaningful student/alumni information and a real linked sitemap.
+5. Printable brochure route exists but has no visible link. Make it discoverable from admissions/footer and useful to print.
+6. Escape user-entered search/form strings (current innerHTML interpolation permits HTML injection and malformed quotes). Use safe DOM or proper escaping; malformed hash URI should not crash route handling. Search should cover required page bodies including clubs/facilities, link article hits to their details.
+7. Ensure hash routing scroll/focus and skip-to-main work correctly (currently #main becomes fallback sitemap). Maintain responsive behavior and hidden filter behavior.
+Do not delegate or change shared/catalog files. Finish and report validation honestly.

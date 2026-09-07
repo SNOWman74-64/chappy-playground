@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>青葉高等学校 | 3サイト制作比較</title>
+  <title>青葉高等学校 | 6サイト制作比較</title>
   <style>
     *{box-sizing:border-box}
     body{margin:0;background:#f6f5ef;color:#163f35;font:16px/1.8 'Yu Gothic',sans-serif}
@@ -22,7 +22,7 @@
     h2{margin-top:0;font-size:22px}
     .open{display:inline-block;margin-top:auto;background:#163f35;color:white;padding:12px 24px;text-decoration:none}
     .links{display:flex;gap:20px;flex-wrap:wrap;padding:28px 0}
-    table{border-collapse:collapse;width:100%;margin-top:35px;font-size:14px;min-width:650px}
+    table{border-collapse:collapse;width:100%;margin-top:35px;font-size:14px;min-width:980px}
     th,td{padding:18px 12px;text-align:left;border-bottom:1px solid #ccd6ca}
     th{font-weight:500}
     .note{font-size:13px;color:#526651;margin-top:28px}
@@ -35,8 +35,8 @@
   <main>
     <header>
       <small>UI LAB / SCHOOL WEBSITE EXPERIMENT / 2026.09.07</small>
-      <h1>ひとつの設計、みっつの青葉。</h1>
-      <p>共通の設計条件をもとに、3つの制作環境で独立して作った架空の学校サイトを並べています。</p>
+      <h1>ひとつの設計、6つの青葉。</h1>
+      <p>共通の設計条件をもとに、6つのモデル設定・制作環境で独立して作った架空の学校サイトを並べています。</p>
     </header>
 
     <div class="grid">
@@ -54,7 +54,7 @@
         <a class="preview" href="../school-luna/"><img src="logs/luna-desktop.png" alt="Luna制作サイトのプレビュー"></a>
         <div class="body">
           <small>VARIANT B / XHIGH / PRIORITY REQUESTED</small>
-          <h2>GPT-5.6 Luna</h2>
+          <h2>GPT-5.6 Luna / xhigh</h2>
           <p>写真を大きく背景に使い、教育理念と各情報への案内をつなぐ構成。</p>
           <a class="open" href="../school-luna/">サイトBを開く →</a>
         </div>
@@ -71,38 +71,72 @@
           <a class="open" href="school-astra/">サイトCを開く →</a>
         </div>
       </article>
+
+      <article class="site" data-luna-additions="medium">
+        <a class="preview" href="../school-luna-medium/"><img src="logs/school-luna-medium-desktop.png" alt="Luna medium制作サイトのプレビュー"></a>
+        <div class="body">
+          <small>VARIANT D / MEDIUM / PRIORITY REQUESTED</small>
+          <h2>GPT-5.6 Luna / medium</h2>
+          <p>同じ設計書と写真を使い、推論をmediumに設定して独立制作した学校サイト。</p>
+          <a class="open" href="../school-luna-medium/">サイトDを開く →</a>
+        </div>
+      </article>
+
+      <article class="site" data-luna-additions="high">
+        <a class="preview" href="../school-luna-high/"><img src="logs/school-luna-high-desktop.png" alt="Luna high制作サイトのプレビュー"></a>
+        <div class="body">
+          <small>VARIANT E / HIGH / PRIORITY REQUESTED</small>
+          <h2>GPT-5.6 Luna / high</h2>
+          <p>同じ設計書と写真を使い、推論をhighに設定して独立制作した学校サイト。</p>
+          <a class="open" href="../school-luna-high/">サイトEを開く →</a>
+        </div>
+      </article>
+      <article class="site" data-luna-solo>
+        <a class="preview" href="../school-luna-solo/"><img src="logs/school-luna-solo-desktop.png" alt="Luna xhigh 単騎版のプレビュー"></a>
+        <div class="body"><small>VARIANT F / XHIGH SOLO / PRIORITY REQUESTED</small>
+          <h2>GPT-5.6 Luna / 単騎</h2>
+          <p>同じ設計書と写真からLuna xhighが単独制作。親からの修正指示なし。ブラウザ接続不可のため操作検証は未実施。</p>
+          <a class="open" href="../school-luna-solo/">サイトFを開く →</a>
+        </div>
+      </article>
     </div>
 
     <div class="links">
       <a href="DESIGN-PLAN.md">共通設計計画書</a>
       <a href="COMPARISON-REPORT.md">制作・検証ログ</a>
-      <a href="metrics.json">計測データ</a>
+      <a href="metrics.json">初回の計測データ</a>
+      <a href="LUNA-SOLO.md">Luna単騎の条件・ログ</a>
+      <a href="LUNA-COMPARISON.md">Luna medium / high の制作ログ</a>
+      <a href="luna-experiment-metrics.json">追加案の計測データ</a>
       <a href="ASSETS.md">写真の出典</a>
       <a href="../">UI Lab 一覧</a>
     </div>
 
     <div class="table">
       <table>
-        <thead><tr><th>計測項目</th><th>Astra</th><th>Luna</th><th>ChatGPT Web</th></tr></thead>
-        <tbody id="metrics"><tr><td colspan="4">詳細は制作・検証ログをご覧ください。</td></tr></tbody>
+        <thead><tr><th>計測項目</th><th>Astra</th><th>Luna xhigh</th><th>ChatGPT Web</th><th>Luna medium</th><th>Luna high</th><th>Luna xhigh 単騎</th></tr></thead>
+        <tbody id="metrics"><tr><td colspan="7">詳細は制作・検証ログをご覧ください。</td></tr></tbody>
       </table>
     </div>
 
-    <p class="note">AstraとLunaは元の比較実験、ChatGPT Webは後から追加したVariant Cです。ChatGPT Web側で取得していない利用量・所要時間は推測せず「未取得」としています。3サイトとも架空の学校のデモで、外部送信は行いません。</p>
+    <p class="note">Astra・Luna xhighは初回、ChatGPT WebはVariant C、Luna medium・highは追加の並行制作です。トークンにはキャッシュ入力を含み、初回制作時間と修正込みの使用量を分けています。Astraは共通準備と検証も担当。Fastはpriorityとして要求し、実配信tierは未確認です。追加2案は素材を最初から用意しており、初回とは準備条件に差があります。単騎版はLuna自身が検証も担当し、親からの修正指示はありません。全サイトとも架空校のデモで、外部送信は行いません。</p>
   </main>
   <script>
-    fetch('metrics.json').then(r=>r.json()).then(m=>{
+    Promise.all(['metrics.json','luna-experiment-metrics.json'].map(url=>fetch(url).then(r=>{if(!r.ok)throw new Error('metrics unavailable');return r.json()}))).then(([m,extra])=>{
       const n=v=>v==null?'未取得':Number(v).toLocaleString('ja-JP');
-      const duration=s=>s==null?'未取得':Math.floor(s/60)+'分'+Math.round(s%60)+'秒';
+      const duration=s=>{if(s==null)return '未取得';const value=Math.round(s);return Math.floor(value/60)+'分'+value%60+'秒'};
+      const variants=[m.astra,m.luna,null,extra.medium,extra.high,extra.solo];
       const rows=[
-        ['初回制作の経過時間',duration(m.astra.initial_seconds),duration(m.luna.initial_seconds),'未取得'],
-        ['入力トークン（キャッシュ含む）',n(m.astra.usage?.input_tokens),n(m.luna.usage?.input_tokens),'未取得'],
-        ['うちキャッシュ入力',n(m.astra.usage?.cached_input_tokens),n(m.luna.usage?.cached_input_tokens),'未取得'],
-        ['出力トークン',n(m.astra.usage?.output_tokens),n(m.luna.usage?.output_tokens),'未取得'],
-        ['推論設定',m.astra.reasoning,m.luna.reasoning,'xhigh']
+        ['初回制作の経過時間',...variants.map(v=>duration(v?.initial_seconds))],
+        ['入力トークン（修正・キャッシュ含む）',...variants.map(v=>n(v?.usage?.input_tokens))],
+        ['うちキャッシュ入力',...variants.map(v=>n(v?.usage?.cached_input_tokens))],
+        ['出力トークン（修正含む）',...variants.map(v=>n(v?.usage?.output_tokens))],
+        ['初回のみの出力トークン',n(m.astra.initial_interval_usage_delta?.output_tokens),n(m.luna.cli_first_turn_usage?.[0]?.output_tokens),'未取得',n(extra.medium.initial_usage?.output_tokens),n(extra.high.initial_usage?.output_tokens),n(extra.solo.initial_usage?.output_tokens)],
+        ['推論設定',m.astra.reasoning,m.luna.reasoning,'xhigh',extra.medium.observed_effort??'未確認',extra.high.observed_effort??'未確認',extra.solo.observed_effort??'未確認']
       ];
-      document.querySelector('#metrics').innerHTML=rows.map(r=>'<tr>'+r.map(x=>'<td>'+x+'</td>').join('')+'</tr>').join('');
-    }).catch(()=>{});
+      const esc=value=>String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+      document.querySelector('#metrics').innerHTML=rows.map(r=>'<tr>'+r.map(x=>'<td>'+esc(x)+'</td>').join('')+'</tr>').join('');
+    }).catch(()=>{document.querySelector('#metrics').innerHTML='<tr><td colspan="7">計測データを読み込めませんでした。上の制作ログをご確認ください。</td></tr>'});
   </script>
 </body>
 </html>

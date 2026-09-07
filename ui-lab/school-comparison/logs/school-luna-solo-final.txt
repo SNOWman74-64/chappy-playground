@@ -1,0 +1,20 @@
+実装を完了しました。変更は `school-luna-solo/` 内のみです。
+
+- [index.html](<C:/Users/user/Projects/新しいフォルダー/ui-lab/school-luna-solo/index.html>)
+- [styles.css](<C:/Users/user/Projects/新しいフォルダー/ui-lab/school-luna-solo/styles.css>)
+- [app.js](<C:/Users/user/Projects/新しいフォルダー/ui-lab/school-luna-solo/app.js>)
+- [guide.html](<C:/Users/user/Projects/新しいフォルダー/ui-lab/school-luna-solo/guide.html>)
+- [DESIGN.md](<C:/Users/user/Projects/新しいフォルダー/ui-lab/school-luna-solo/DESIGN.md>)
+- [RETROSPECTIVE.md](<C:/Users/user/Projects/新しいフォルダー/ui-lab/school-luna-solo/RETROSPECTIVE.md>)
+- [TEST-REPORT.md](<C:/Users/user/Projects/新しいフォルダー/ui-lab/school-luna-solo/TEST-REPORT.md>)
+- [metrics.json](<C:/Users/user/Projects/新しいフォルダー/ui-lab/school-luna-solo/metrics.json>)
+
+確認済み：
+
+- JavaScript構文チェック成功
+- サイト本体・印刷案内・指定5画像のHTTP 200
+- 検索、分類、詳細、FAQ、フォーム状態、ローカル完結構成を実装
+- 外部送信・永続保存なし
+- 共通静的チェックは共有カタログの登録状態により失敗。共有ファイルのため変更していません
+
+ブラウザツールは `No browser is available` で起動できず、1440px／390px表示、スクリーンショット、実操作検証は未実施です。詳細と未検証項目は `TEST-REPORT.md` に記録しています。

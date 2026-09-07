@@ -1,0 +1,676 @@
+{
+  "captured_utc": "2026-09-07T14:15:50.693019+00:00",
+  "experiment": {
+    "created_utc": "2026-09-07T13:50:18.674845+00:00",
+    "shared_plan": "DESIGN-PLAN.md",
+    "plan_sha256": "dee2bd484bc245476655fba40b50b2792357424bc69222f08423b84a63230e86",
+    "assets": {
+      "basketball.jpg": "8605cee752a3ee34b37a3588c6197b5a91dc598ffc6bf5260ca752c7df0f8ff8",
+      "campus.jpg": "eaf7c0d48b258976e5e2d7d5deb38782705119946191c8daabff7b4951f32df9",
+      "classroom.jpg": "abc705c23fd3eacd60155ca7c1fd6f012a7ce6d82e6b6277c08c94454d0bf146",
+      "library.jpg": "39bf26181ee51756eb549aba309be9d642ac258486423a1c2f392a7b6c3c417d",
+      "students.jpg": "006c81a660fdae4a4fddf2bd6958f06f2617fffc37d919d77d5aca9ea8174a4f"
+    },
+    "runs": [
+      {
+        "id": "school-luna-medium",
+        "requested_model": "gpt-5.6-luna",
+        "requested_effort": "medium",
+        "requested_service_tier": "priority",
+        "prompt_sha256": "cb32f17cc00969cd4bafbe61edf2e31add0c94ba55f00595d0947fb43524faa7"
+      },
+      {
+        "id": "school-luna-high",
+        "requested_model": "gpt-5.6-luna",
+        "requested_effort": "high",
+        "requested_service_tier": "priority",
+        "prompt_sha256": "51f35e403a80c3e5e1f89f6f8ef2233def193d78ba1208a7b1a6d82137e21ce5"
+      }
+    ],
+    "notes": [
+      "Same design plan, stock photos, static stack and independent Writer boundaries as original Luna run.",
+      "Only requested reasoning effort differs between these two new assignments. Existing assets are ready at dispatch, unlike original run.",
+      "Parent owns browser QA and integration; model-specific repair turns are recorded separately.",
+      "Fast requested as priority; actual served tier must not be inferred from request."
+    ]
+  },
+  "notes": [
+    "Both additional variants use the same existing plan, photos and initial prompt except variant folder/name and reasoning effort.",
+    "Initial duration includes model execution and its own static checks; parent browser QA, integration, waiting and publishing are separate.",
+    "Token totals sum completed CLI turns across initial and separately recorded repair invocations. Cached input and reasoning output are subtotals.",
+    "Requested priority does not establish actual served tier. Unreported tier is null.",
+    "Original metrics.json is an immutable earlier snapshot and is not recomputed by this collector.",
+    "Shared photos were available from dispatch here, unlike the original xhigh run. This is an individual experiment, not a controlled general model ranking."
+  ],
+  "medium": {
+    "id": "school-luna-medium",
+    "session_id": "01a07c22-5635-7de3-85e3-ff6bf6bbce8b",
+    "requested_model": "gpt-5.6-luna",
+    "requested_effort": "medium",
+    "requested_service_tier": "priority",
+    "observed_model": "gpt-5.6-luna",
+    "observed_effort": "medium",
+    "actual_service_tier": null,
+    "initial_seconds": 362.874,
+    "initial_usage": {
+      "input_tokens": 457370,
+      "cached_input_tokens": 415744,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 27209,
+      "reasoning_output_tokens": 962
+    },
+    "execution_seconds": 784.6510000000001,
+    "stages": [
+      {
+        "name": "initial",
+        "start_utc": "2026-09-07T13:50:19.5559766Z",
+        "end_utc": "2026-09-07T13:56:22.4298277Z",
+        "seconds": 362.874,
+        "exit_code": 0,
+        "session_id": "01a07c22-5635-7de3-85e3-ff6bf6bbce8b",
+        "completed_turn_usage": [
+          {
+            "input_tokens": 457370,
+            "cached_input_tokens": 415744,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 27209,
+            "reasoning_output_tokens": 962
+          }
+        ]
+      },
+      {
+        "name": "repair",
+        "start_utc": "2026-09-07T14:00:54.0248397Z",
+        "end_utc": "2026-09-07T14:07:09.5268940Z",
+        "seconds": 375.502,
+        "exit_code": 0,
+        "session_id": "01a07c22-5635-7de3-85e3-ff6bf6bbce8b",
+        "completed_turn_usage": [
+          {
+            "input_tokens": 986698,
+            "cached_input_tokens": 937728,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 26538,
+            "reasoning_output_tokens": 1339
+          }
+        ]
+      },
+      {
+        "name": "datefix",
+        "start_utc": "2026-09-07T14:09:58.3350998Z",
+        "end_utc": "2026-09-07T14:10:44.6102055Z",
+        "seconds": 46.275,
+        "exit_code": 0,
+        "session_id": "01a07c22-5635-7de3-85e3-ff6bf6bbce8b",
+        "completed_turn_usage": [
+          {
+            "input_tokens": 550718,
+            "cached_input_tokens": 541184,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 2219,
+            "reasoning_output_tokens": 95
+          }
+        ]
+      }
+    ],
+    "usage": {
+      "reasoning_output_tokens": 2396,
+      "cache_write_input_tokens": 0,
+      "cached_input_tokens": 1894656,
+      "input_tokens": 1994786,
+      "output_tokens": 55966,
+      "total_tokens": 2050752
+    },
+    "browser_qa": {
+      "verified_utc": "2026-09-07T14:15:49.998Z",
+      "routes": [
+        {
+          "width": 1440,
+          "route": "",
+          "overflow": false,
+          "broken": 0
+        },
+        {
+          "width": 1440,
+          "route": "about",
+          "overflow": false,
+          "broken": 0
+        },
+        {
+          "width": 1440,
+          "route": "learning",
+          "overflow": false,
+          "broken": 0
+        },
+        {
+          "width": 1440,
+          "route": "life",
+          "overflow": false,
+          "broken": 0
+        },
+        {
+          "width": 1440,
+          "route": "clubs",
+          "overflow": false,
+          "broken": 0
+        },
+        {
+          "width": 1440,
+          "route": "admissions",
+          "overflow": false,
+          "broken": 0
+        },
+        {
+          "width": 1440,
+          "route": "reserve/1",
+          "overflow": false,
+          "broken": 0
+        },
+        {
+          "width": 1440,
+          "route": "news",
+          "overflow": false,
+          "broken": 0
+        },
+        {
+          "width": 1440,
+          "route": "faq",
+          "overflow": false,
+          "broken": 0
+        },
+        {
+          "width": 1440,
+          "route": "contact",
+          "overflow": false,
+          "broken": 0
+        },
+        {
+          "width": 1440,
+          "route": "students",
+          "overflow": false,
+          "broken": 0
+        },
+        {
+          "width": 1440,
+          "route": "graduates",
+          "overflow": false,
+          "broken": 0
+        },
+        {
+          "width": 1440,
+          "route": "privacy",
+          "overflow": false,
+          "broken": 0
+        },
+        {
+          "width": 1440,
+          "route": "sitemap",
+          "overflow": false,
+          "broken": 0
+        },
+        {
+          "width": 1440,
+          "route": "brochure",
+          "overflow": false,
+          "broken": 0
+        },
+        {
+          "width": 390,
+          "route": "",
+          "overflow": false,
+          "broken": 0
+        },
+        {
+          "width": 390,
+          "route": "about",
+          "overflow": false,
+          "broken": 0
+        },
+        {
+          "width": 390,
+          "route": "learning",
+          "overflow": false,
+          "broken": 0
+        },
+        {
+          "width": 390,
+          "route": "life",
+          "overflow": false,
+          "broken": 0
+        },
+        {
+          "width": 390,
+          "route": "clubs",
+          "overflow": false,
+          "broken": 0
+        },
+        {
+          "width": 390,
+          "route": "admissions",
+          "overflow": false,
+          "broken": 0
+        },
+        {
+          "width": 390,
+          "route": "reserve/1",
+          "overflow": false,
+          "broken": 0
+        },
+        {
+          "width": 390,
+          "route": "news",
+          "overflow": false,
+          "broken": 0
+        },
+        {
+          "width": 390,
+          "route": "faq",
+          "overflow": false,
+          "broken": 0
+        },
+        {
+          "width": 390,
+          "route": "contact",
+          "overflow": false,
+          "broken": 0
+        },
+        {
+          "width": 390,
+          "route": "students",
+          "overflow": false,
+          "broken": 0
+        },
+        {
+          "width": 390,
+          "route": "graduates",
+          "overflow": false,
+          "broken": 0
+        },
+        {
+          "width": 390,
+          "route": "privacy",
+          "overflow": false,
+          "broken": 0
+        },
+        {
+          "width": 390,
+          "route": "sitemap",
+          "overflow": false,
+          "broken": 0
+        },
+        {
+          "width": 390,
+          "route": "brochure",
+          "overflow": false,
+          "broken": 0
+        }
+      ],
+      "forms": {
+        "required": true,
+        "invalidEmail": true,
+        "confirm": "種別\n学校案内を請求\nお名前\n検証 太郎\nメールアドレス\ntest@example.com\n内容\n（記入なし）\n同意\n同意する\n入力画面に戻る\nデモ送信を完了する",
+        "edit": "検証 太郎",
+        "complete": "お問い合わせを受け付けました。\n\nこれはローカルデモです。入力内容の送信・保存は行われていません。\n\nトップへ戻る",
+        "reservationConfirm": "参加回\n10月10日（土） 10:00–12:00\nお名前\n予約 花子\nメールアドレス\ntest@example.com\n参加人数\n2名\n同意\n同意する\n修正する\nデモ予約を完了する",
+        "reservationEdit": "予約 花子",
+        "reservationComplete": "予約を受け付けました。\n\nこれはローカルデモです。入力内容の送信・保存は行われていません。\n\nトップへ戻る",
+        "secondDate": "参加回：11月7日（土） 14:00–16:00"
+      },
+      "notes": [
+        "Club direct detail #/club/4 heading verified 吹奏楽部.",
+        "Early test attempted hidden desktop navigation at mobile width and timed out; rerun used visible desktop navigation successfully."
+      ],
+      "interactions": {
+        "clubs": 4,
+        "clubTitle": "部活動",
+        "news": 2,
+        "newsTitle": "お知らせ",
+        "searchHits": 3,
+        "zero": "該当する情報はありませんでした。",
+        "faq": 1,
+        "focus": "auto",
+        "menuOpen": "true",
+        "menuEscape": "false",
+        "menuNavigate": "false"
+      }
+    }
+  },
+  "high": {
+    "id": "school-luna-high",
+    "session_id": "01a07c22-7ddb-77d1-bd75-4188af1d3d19",
+    "requested_model": "gpt-5.6-luna",
+    "requested_effort": "high",
+    "requested_service_tier": "priority",
+    "observed_model": "gpt-5.6-luna",
+    "observed_effort": "high",
+    "actual_service_tier": null,
+    "initial_seconds": 718.846,
+    "initial_usage": {
+      "input_tokens": 1354510,
+      "cached_input_tokens": 1275392,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 53844,
+      "reasoning_output_tokens": 4005
+    },
+    "execution_seconds": 1118.002,
+    "stages": [
+      {
+        "name": "initial",
+        "start_utc": "2026-09-07T13:50:29.9197052Z",
+        "end_utc": "2026-09-07T14:02:28.7655203Z",
+        "seconds": 718.846,
+        "exit_code": 0,
+        "session_id": "01a07c22-7ddb-77d1-bd75-4188af1d3d19",
+        "completed_turn_usage": [
+          {
+            "input_tokens": 1354510,
+            "cached_input_tokens": 1275392,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 53844,
+            "reasoning_output_tokens": 4005
+          }
+        ]
+      },
+      {
+        "name": "repair",
+        "start_utc": "2026-09-07T14:03:22.6181908Z",
+        "end_utc": "2026-09-07T14:09:32.4826821Z",
+        "seconds": 369.864,
+        "exit_code": 0,
+        "session_id": "01a07c22-7ddb-77d1-bd75-4188af1d3d19",
+        "completed_turn_usage": [
+          {
+            "input_tokens": 2199788,
+            "cached_input_tokens": 2138368,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 19350,
+            "reasoning_output_tokens": 7041
+          }
+        ]
+      },
+      {
+        "name": "filterfix",
+        "start_utc": "2026-09-07T14:12:54.9948216Z",
+        "end_utc": "2026-09-07T14:13:24.2865355Z",
+        "seconds": 29.292,
+        "exit_code": 0,
+        "session_id": "01a07c22-7ddb-77d1-bd75-4188af1d3d19",
+        "completed_turn_usage": [
+          {
+            "input_tokens": 381405,
+            "cached_input_tokens": 378112,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 1104,
+            "reasoning_output_tokens": 200
+          }
+        ]
+      }
+    ],
+    "usage": {
+      "reasoning_output_tokens": 11246,
+      "cache_write_input_tokens": 0,
+      "cached_input_tokens": 3791872,
+      "input_tokens": 3935703,
+      "output_tokens": 74298,
+      "total_tokens": 4010001
+    },
+    "browser_qa": {
+      "verified_utc": "2026-09-07T14:15:50.008Z",
+      "routes": {
+        "rows": [
+          {
+            "width": 1440,
+            "route": "home",
+            "overflow": false,
+            "broken": 0
+          },
+          {
+            "width": 1440,
+            "route": "about",
+            "overflow": false,
+            "broken": 0
+          },
+          {
+            "width": 1440,
+            "route": "learning",
+            "overflow": false,
+            "broken": 0
+          },
+          {
+            "width": 1440,
+            "route": "life",
+            "overflow": false,
+            "broken": 0
+          },
+          {
+            "width": 1440,
+            "route": "clubs",
+            "overflow": false,
+            "broken": 0
+          },
+          {
+            "width": 1440,
+            "route": "admissions",
+            "overflow": false,
+            "broken": 0
+          },
+          {
+            "width": 1440,
+            "route": "admissions/reserve",
+            "overflow": false,
+            "broken": 0
+          },
+          {
+            "width": 1440,
+            "route": "news",
+            "overflow": false,
+            "broken": 0
+          },
+          {
+            "width": 1440,
+            "route": "access",
+            "overflow": false,
+            "broken": 0
+          },
+          {
+            "width": 1440,
+            "route": "contact",
+            "overflow": false,
+            "broken": 0
+          },
+          {
+            "width": 1440,
+            "route": "students",
+            "overflow": false,
+            "broken": 0
+          },
+          {
+            "width": 1440,
+            "route": "alumni",
+            "overflow": false,
+            "broken": 0
+          },
+          {
+            "width": 1440,
+            "route": "privacy",
+            "overflow": false,
+            "broken": 0
+          },
+          {
+            "width": 1440,
+            "route": "sitemap",
+            "overflow": false,
+            "broken": 0
+          },
+          {
+            "width": 1440,
+            "route": "brochure",
+            "overflow": false,
+            "broken": 0
+          },
+          {
+            "width": 390,
+            "route": "home",
+            "overflow": false,
+            "broken": 0
+          },
+          {
+            "width": 390,
+            "route": "about",
+            "overflow": false,
+            "broken": 0
+          },
+          {
+            "width": 390,
+            "route": "learning",
+            "overflow": false,
+            "broken": 0
+          },
+          {
+            "width": 390,
+            "route": "life",
+            "overflow": false,
+            "broken": 0
+          },
+          {
+            "width": 390,
+            "route": "clubs",
+            "overflow": false,
+            "broken": 0
+          },
+          {
+            "width": 390,
+            "route": "admissions",
+            "overflow": false,
+            "broken": 0
+          },
+          {
+            "width": 390,
+            "route": "admissions/reserve",
+            "overflow": false,
+            "broken": 0
+          },
+          {
+            "width": 390,
+            "route": "news",
+            "overflow": false,
+            "broken": 0
+          },
+          {
+            "width": 390,
+            "route": "access",
+            "overflow": false,
+            "broken": 0
+          },
+          {
+            "width": 390,
+            "route": "contact",
+            "overflow": false,
+            "broken": 0
+          },
+          {
+            "width": 390,
+            "route": "students",
+            "overflow": false,
+            "broken": 0
+          },
+          {
+            "width": 390,
+            "route": "alumni",
+            "overflow": false,
+            "broken": 0
+          },
+          {
+            "width": 390,
+            "route": "privacy",
+            "overflow": false,
+            "broken": 0
+          },
+          {
+            "width": 390,
+            "route": "sitemap",
+            "overflow": false,
+            "broken": 0
+          },
+          {
+            "width": 390,
+            "route": "brochure",
+            "overflow": false,
+            "broken": 0
+          }
+        ],
+        "errors": [],
+        "hits": 3,
+        "zero": "一致するページが見つかりませんでした。\n別のキーワードをお試しください。",
+        "closed": "true",
+        "menuOpen": "true",
+        "menuClosed": "false"
+      },
+      "forms": {
+        "required": 5,
+        "emailError": "メールアドレスの形式をご確認ください。",
+        "confirm": "✓\n\nLOCAL DEMO CONFIRMATION\n\n入力内容をご確認ください\n\n以下の内容でよろしければ「この内容で完了」を押してください。外部送信や保存は行いません。\n\n参加説明会\n秋の学校説明会\nお名前\n予約 花子\nメールアドレス\ntest@example.com\n参加人数\n2名\n学年\n中学3年\n入力に戻る\nこの内容で完了",
+        "preserved": "予約 花子",
+        "complete": "✓\n\nDEMO COMPLETE\n\n説明会予約を受け付けました\n\nご入力ありがとうございました。これはローカルデモのため、実際のメール送信や資料発送は行われません。\n\nページへ戻る\n→",
+        "filteredClubs": 4,
+        "clubDetail": 1,
+        "filteredNews": 8,
+        "newsTitle": "NEWS / DETAIL\nお知らせ",
+        "faq": 1
+      },
+      "notes": [
+        "Final news filter retest: 1 visible, 7 hidden (supersedes earlier count8).",
+        "Contact required/email/confirmation/edit/completion also browser verified."
+      ],
+      "interactions": null
+    }
+  },
+  "solo": {
+    "id": "school-luna-solo",
+    "session_id": "01a07c2a-e805-7aa0-8a37-b58d50ed5092",
+    "requested_model": "gpt-5.6-luna",
+    "requested_effort": "xhigh",
+    "requested_service_tier": "priority",
+    "observed_model": "gpt-5.6-luna",
+    "observed_effort": "xhigh",
+    "actual_service_tier": null,
+    "initial_seconds": 680.994,
+    "initial_usage": {
+      "input_tokens": 1878692,
+      "cached_input_tokens": 1797120,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 46063,
+      "reasoning_output_tokens": 7317
+    },
+    "execution_seconds": 680.994,
+    "stages": [
+      {
+        "name": "initial",
+        "start_utc": "2026-09-07T13:59:41.3187273Z",
+        "end_utc": "2026-09-07T14:11:02.3130068Z",
+        "seconds": 680.994,
+        "exit_code": 0,
+        "session_id": "01a07c2a-e805-7aa0-8a37-b58d50ed5092",
+        "completed_turn_usage": [
+          {
+            "input_tokens": 1878692,
+            "cached_input_tokens": 1797120,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 46063,
+            "reasoning_output_tokens": 7317
+          }
+        ]
+      }
+    ],
+    "usage": {
+      "reasoning_output_tokens": 7317,
+      "cache_write_input_tokens": 0,
+      "cached_input_tokens": 1797120,
+      "input_tokens": 1878692,
+      "output_tokens": 46063,
+      "total_tokens": 1924755
+    },
+    "browser_qa": null
+  },
+  "initial_overlap_seconds": 352.51
+}

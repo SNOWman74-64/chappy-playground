@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="私立 青葉高等学校の公式サイトデモ。好きが、未来をひらく。">
+  <title>私立 青葉高等学校 | 好きが、未来をひらく。</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">本文へ移動</a>
+  <div class="demo-ribbon">FICTIONAL SCHOOL DEMO <span>このサイトは架空の学校によるデモです</span></div>
+  <header class="site-header" data-header>
+    <div class="header-inner">
+      <a class="brand" href="#home" aria-label="青葉高等学校 トップへ">
+        <span class="brand-mark" aria-hidden="true">A</span>
+        <span class="brand-copy"><strong>私立 青葉高等学校</strong><small>AOBA HIGH SCHOOL</small></span>
+      </a>
+      <nav class="desktop-nav" aria-label="主要ナビゲーション">
+        <a href="#about">学校紹介</a>
+        <a href="#learning">学び</a>
+        <a href="#life">学校生活</a>
+        <a href="#clubs">部活動</a>
+        <a href="#admissions">入試・説明会</a>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-button" type="button" data-search-toggle aria-label="サイト内検索を開く" aria-expanded="false">⌕</button>
+        <a class="outline-button header-apply" href="#contact?type=資料請求">資料請求</a>
+        <button class="menu-toggle" type="button" data-menu-toggle aria-label="メニューを開く" aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+    <div class="search-drawer" data-search-drawer hidden>
+      <form class="search-form" data-search-form role="search">
+        <label for="site-search">サイト内検索</label>
+        <div class="search-row"><input id="site-search" name="q" type="search" placeholder="例：制服、探究、説明会" autocomplete="off"><button class="primary-button" type="submit">検索する</button></div>
+        <p class="form-note">ページの見出し・本文から探します。検索結果はこのデモ内でのみ表示されます。</p>
+      </form>
+    </div>
+    <nav class="mobile-nav" data-mobile-nav aria-label="モバイルナビゲーション" hidden>
+      <a href="#about">学校紹介</a><a href="#learning">学び</a><a href="#life">学校生活</a><a href="#clubs">部活動</a><a href="#admissions">入試・説明会</a><a href="#news">お知らせ</a><a href="#contact">お問い合わせ・資料請求</a>
+    </nav>
+  </header>
+
+  <main id="main-content" tabindex="-1"></main>
+
+  <footer class="site-footer">
+    <div class="footer-main page-wrap">
+      <div class="footer-brand"><div class="brand-mark" aria-hidden="true">A</div><div><strong>私立 青葉高等学校</strong><small>AOBA HIGH SCHOOL</small></div><p>好きが、未来をひらく。</p></div>
+      <div class="footer-col"><h2>学校を知る</h2><a href="#about">学校紹介</a><a href="#learning">学び</a><a href="#life">学校生活・施設</a><a href="#clubs">部活動</a></div>
+      <div class="footer-col"><h2>受験生の方へ</h2><a href="#admissions">入試・説明会</a><a href="#news">お知らせ</a><a href="#contact?type=資料請求">資料請求</a><a href="guide.html">学校案内を印刷</a></div>
+      <div class="footer-col"><h2>在校生・卒業生</h2><a href="#students">在校生の方へ</a><a href="#alumni">卒業生の方へ</a><a href="#contact">お問い合わせ</a><a href="#access">アクセス・FAQ</a></div>
+    </div>
+    <div class="footer-bottom page-wrap"><span>© 2026 Aoba High School Demo</span><div><a href="#privacy">プライバシー</a><a href="#sitemap">サイトマップ</a></div></div>
+    <p class="credit-line page-wrap">写真：Unsplash（Trac Vu / Griest Projects / Priscilla Du Preez / Alessandro Pacilio / Yanhao Fang）｜このサイトは実在の学校・団体・人物とは関係のない架空サイトデモです。</p>
+  </footer>
+  <div class="toast" data-toast role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>

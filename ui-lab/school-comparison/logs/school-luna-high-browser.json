@@ -1,0 +1,210 @@
+{
+  "verified_utc": "2026-09-07T14:15:50.008Z",
+  "routes": {
+    "rows": [
+      {
+        "width": 1440,
+        "route": "home",
+        "overflow": false,
+        "broken": 0
+      },
+      {
+        "width": 1440,
+        "route": "about",
+        "overflow": false,
+        "broken": 0
+      },
+      {
+        "width": 1440,
+        "route": "learning",
+        "overflow": false,
+        "broken": 0
+      },
+      {
+        "width": 1440,
+        "route": "life",
+        "overflow": false,
+        "broken": 0
+      },
+      {
+        "width": 1440,
+        "route": "clubs",
+        "overflow": false,
+        "broken": 0
+      },
+      {
+        "width": 1440,
+        "route": "admissions",
+        "overflow": false,
+        "broken": 0
+      },
+      {
+        "width": 1440,
+        "route": "admissions/reserve",
+        "overflow": false,
+        "broken": 0
+      },
+      {
+        "width": 1440,
+        "route": "news",
+        "overflow": false,
+        "broken": 0
+      },
+      {
+        "width": 1440,
+        "route": "access",
+        "overflow": false,
+        "broken": 0
+      },
+      {
+        "width": 1440,
+        "route": "contact",
+        "overflow": false,
+        "broken": 0
+      },
+      {
+        "width": 1440,
+        "route": "students",
+        "overflow": false,
+        "broken": 0
+      },
+      {
+        "width": 1440,
+        "route": "alumni",
+        "overflow": false,
+        "broken": 0
+      },
+      {
+        "width": 1440,
+        "route": "privacy",
+        "overflow": false,
+        "broken": 0
+      },
+      {
+        "width": 1440,
+        "route": "sitemap",
+        "overflow": false,
+        "broken": 0
+      },
+      {
+        "width": 1440,
+        "route": "brochure",
+        "overflow": false,
+        "broken": 0
+      },
+      {
+        "width": 390,
+        "route": "home",
+        "overflow": false,
+        "broken": 0
+      },
+      {
+        "width": 390,
+        "route": "about",
+        "overflow": false,
+        "broken": 0
+      },
+      {
+        "width": 390,
+        "route": "learning",
+        "overflow": false,
+        "broken": 0
+      },
+      {
+        "width": 390,
+        "route": "life",
+        "overflow": false,
+        "broken": 0
+      },
+      {
+        "width": 390,
+        "route": "clubs",
+        "overflow": false,
+        "broken": 0
+      },
+      {
+        "width": 390,
+        "route": "admissions",
+        "overflow": false,
+        "broken": 0
+      },
+      {
+        "width": 390,
+        "route": "admissions/reserve",
+        "overflow": false,
+        "broken": 0
+      },
+      {
+        "width": 390,
+        "route": "news",
+        "overflow": false,
+        "broken": 0
+      },
+      {
+        "width": 390,
+        "route": "access",
+        "overflow": false,
+        "broken": 0
+      },
+      {
+        "width": 390,
+        "route": "contact",
+        "overflow": false,
+        "broken": 0
+      },
+      {
+        "width": 390,
+        "route": "students",
+        "overflow": false,
+        "broken": 0
+      },
+      {
+        "width": 390,
+        "route": "alumni",
+        "overflow": false,
+        "broken": 0
+      },
+      {
+        "width": 390,
+        "route": "privacy",
+        "overflow": false,
+        "broken": 0
+      },
+      {
+        "width": 390,
+        "route": "sitemap",
+        "overflow": false,
+        "broken": 0
+      },
+      {
+        "width": 390,
+        "route": "brochure",
+        "overflow": false,
+        "broken": 0
+      }
+    ],
+    "errors": [],
+    "hits": 3,
+    "zero": "一致するページが見つかりませんでした。\n別のキーワードをお試しください。",
+    "closed": "true",
+    "menuOpen": "true",
+    "menuClosed": "false"
+  },
+  "forms": {
+    "required": 5,
+    "emailError": "メールアドレスの形式をご確認ください。",
+    "confirm": "✓\n\nLOCAL DEMO CONFIRMATION\n\n入力内容をご確認ください\n\n以下の内容でよろしければ「この内容で完了」を押してください。外部送信や保存は行いません。\n\n参加説明会\n秋の学校説明会\nお名前\n予約 花子\nメールアドレス\ntest@example.com\n参加人数\n2名\n学年\n中学3年\n入力に戻る\nこの内容で完了",
+    "preserved": "予約 花子",
+    "complete": "✓\n\nDEMO COMPLETE\n\n説明会予約を受け付けました\n\nご入力ありがとうございました。これはローカルデモのため、実際のメール送信や資料発送は行われません。\n\nページへ戻る\n→",
+    "filteredClubs": 4,
+    "clubDetail": 1,
+    "filteredNews": 8,
+    "newsTitle": "NEWS / DETAIL\nお知らせ",
+    "faq": 1
+  },
+  "notes": [
+    "Final news filter retest: 1 visible, 7 hidden (supersedes earlier count8).",
+    "Contact required/email/confirmation/edit/completion also browser verified."
+  ],
+  "interactions": null
+}

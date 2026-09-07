@@ -1,0 +1,7 @@
+Parent browser QA found these common-plan failures. Repair only school-luna-high, retaining model/effort/design and documenting fixes. Do not read other implementations, edit shared/catalog files or spawn agents.
+1. At BOTH 1440 and 390 viewport widths, about, learning, students overflow horizontally. On about at 390, a prose block is 780px wide and an IMG is 1800px. Constrain images and grid/flex minimum sizes responsively; do not mask content with overflow:hidden.
+2. Search result click navigates hash but leaves modal aria-hidden=false overlay open. Close on selection including same-route selection; restore focus on Escape/close and ensure dialog keyboard focus remains in modal.
+3. Skip link #main currently enters router fallback. Implement real skip-to-content without rendering a 404.
+4. Verify clubs provide meaningful introduction detail/back interaction as required by common plan; current listing has no details elements. A reachable detail URL or accessible disclosure is fine.
+5. Correct Oct18 2026 weekday in admissions/guide where Saturday is shown (Sunday); keep dates consistent.
+Contact flow was browser verified (invalid required/email, confirm fields, edit retaining values, completion) and culture filter shows four. Preserve working behavior. Update TEST-REPORT/RETROSPECTIVE honestly; parent will recheck browser after completion.

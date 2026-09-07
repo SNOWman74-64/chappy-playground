@@ -1,0 +1,18 @@
+修正完了しました。変更範囲は `school-luna-high` のみです。
+
+- 1440px / 390px の about・learning・students 横あふれを修正
+- 検索モーダルの閉鎖、フォーカストラップ、Escape/閉じる時の復帰を修正
+- スキップリンクが404にならないよう修正
+- 全8部活に accessible な紹介詳細開示と見学相談リンクを追加
+- 2026年10月18日を土曜から日曜へ統一
+- [RETROSPECTIVE.md](C:/Users/user/Projects/新しいフォルダー/ui-lab/school-luna-high/RETROSPECTIVE.md) と [TEST-REPORT.md](C:/Users/user/Projects/新しいフォルダー/ui-lab/school-luna-high/TEST-REPORT.md) を更新
+
+変更ファイル：
+
+- [index.html](C:/Users/user/Projects/新しいフォルダー/ui-lab/school-luna-high/index.html)
+- [app.js](C:/Users/user/Projects/新しいフォルダー/ui-lab/school-luna-high/app.js)
+- [fixes.css](C:/Users/user/Projects/新しいフォルダー/ui-lab/school-luna-high/fixes.css)
+- [RETROSPECTIVE.md](C:/Users/user/Projects/新しいフォルダー/ui-lab/school-luna-high/RETROSPECTIVE.md)
+- [TEST-REPORT.md](C:/Users/user/Projects/新しいフォルダー/ui-lab/school-luna-high/TEST-REPORT.md)
+
+`node --check app.js` とJSON検証は成功。ブラウザ再QAは親担当に委譲しています。

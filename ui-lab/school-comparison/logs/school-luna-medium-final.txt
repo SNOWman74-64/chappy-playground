@@ -1,0 +1,15 @@
+D variant の学校サイトを実装しました。
+
+変更ファイル:
+
+- [index.html](C:/Users/user/Projects/新しいフォルダー/ui-lab/school-luna-medium/index.html)
+- [styles.css](C:/Users/user/Projects/新しいフォルダー/ui-lab/school-luna-medium/styles.css)
+- [script.js](C:/Users/user/Projects/新しいフォルダー/ui-lab/school-luna-medium/script.js)
+- [DESIGN.md](C:/Users/user/Projects/新しいフォルダー/ui-lab/school-luna-medium/DESIGN.md)
+- [RETROSPECTIVE.md](C:/Users/user/Projects/新しいフォルダー/ui-lab/school-luna-medium/RETROSPECTIVE.md)
+- [TEST-REPORT.md](C:/Users/user/Projects/新しいフォルダー/ui-lab/school-luna-medium/TEST-REPORT.md)
+- [metrics.json](C:/Users/user/Projects/新しいフォルダー/ui-lab/school-luna-medium/metrics.json)
+
+検索、ニュース/部活動フィルター、FAQ、説明会予約の確認・完了、問い合わせフォーム、印刷用学校案内、モバイルメニューを実装済みです。
+
+`script.js` の構文確認は完了。ブラウザQAは親担当に委譲しており未検証です。

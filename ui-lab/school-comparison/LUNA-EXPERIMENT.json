@@ -1,0 +1,34 @@
+{
+  "created_utc": "2026-09-07T13:50:18.674845+00:00",
+  "shared_plan": "DESIGN-PLAN.md",
+  "plan_sha256": "dee2bd484bc245476655fba40b50b2792357424bc69222f08423b84a63230e86",
+  "assets": {
+    "basketball.jpg": "8605cee752a3ee34b37a3588c6197b5a91dc598ffc6bf5260ca752c7df0f8ff8",
+    "campus.jpg": "eaf7c0d48b258976e5e2d7d5deb38782705119946191c8daabff7b4951f32df9",
+    "classroom.jpg": "abc705c23fd3eacd60155ca7c1fd6f012a7ce6d82e6b6277c08c94454d0bf146",
+    "library.jpg": "39bf26181ee51756eb549aba309be9d642ac258486423a1c2f392a7b6c3c417d",
+    "students.jpg": "006c81a660fdae4a4fddf2bd6958f06f2617fffc37d919d77d5aca9ea8174a4f"
+  },
+  "runs": [
+    {
+      "id": "school-luna-medium",
+      "requested_model": "gpt-5.6-luna",
+      "requested_effort": "medium",
+      "requested_service_tier": "priority",
+      "prompt_sha256": "cb32f17cc00969cd4bafbe61edf2e31add0c94ba55f00595d0947fb43524faa7"
+    },
+    {
+      "id": "school-luna-high",
+      "requested_model": "gpt-5.6-luna",
+      "requested_effort": "high",
+      "requested_service_tier": "priority",
+      "prompt_sha256": "51f35e403a80c3e5e1f89f6f8ef2233def193d78ba1208a7b1a6d82137e21ce5"
+    }
+  ],
+  "notes": [
+    "Same design plan, stock photos, static stack and independent Writer boundaries as original Luna run.",
+    "Only requested reasoning effort differs between these two new assignments. Existing assets are ready at dispatch, unlike original run.",
+    "Parent owns browser QA and integration; model-specific repair turns are recorded separately.",
+    "Fast requested as priority; actual served tier must not be inferred from request."
+  ]
+}

@@ -1,0 +1,11 @@
+/* Responsive and focus repairs kept separate from the visual token sheet. */
+img{max-width:100%;height:auto}
+.split,.split>*,.section-head>*,.feature-grid>*,.course-grid>*,.stats>*,.schedule>*,.facility-grid>*,.day-flow>*,.club-grid>*{min-width:0}
+.prose{width:100%;max-width:780px}
+.split img,.prose img{display:block;width:100%;max-width:100%;height:auto}
+.news-row[hidden],.club[hidden]{display:none!important}
+@media(max-width:850px){
+  .prose{max-width:100%}
+  .split{grid-template-columns:minmax(0,1fr)}
+  .split>*{max-width:100%}
+}

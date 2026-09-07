@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="私立 青葉高等学校。好きが、未来をひらく。学校の空気と学びの輪郭を伝える公式サイトのデモ。">
+  <title>私立 青葉高等学校 | AOBA HIGH SCHOOL</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="fixes.css">
+</head>
+<body>
+  <a class="skip-link" href="#main" data-skip-link>本文へ移動</a>
+  <header class="site-header" data-header>
+    <div class="header-top wrap">
+      <a class="brand" href="#home" aria-label="青葉高等学校 ホーム">
+        <span class="brand-mark" aria-hidden="true">☾</span>
+        <span><b>私立 青葉高等学校</b><small>AOBA HIGH SCHOOL</small></span>
+      </a>
+      <div class="header-actions">
+        <button class="search-trigger" type="button" data-open-search aria-label="サイト内検索を開く"><span aria-hidden="true">⌕</span> 検索</button>
+        <a class="header-cta" href="#admissions">説明会・入試</a>
+        <button class="menu-trigger" type="button" data-menu-toggle aria-expanded="false" aria-controls="main-nav"><span class="menu-lines" aria-hidden="true"></span><span class="sr-only">メニュー</span></button>
+      </div>
+    </div>
+    <nav class="main-nav wrap" id="main-nav" aria-label="メインナビゲーション">
+      <a href="#about">学校紹介</a>
+      <a href="#learning">学び</a>
+      <a href="#life">学校生活・施設</a>
+      <a href="#clubs">部活動</a>
+      <a href="#news">お知らせ</a>
+      <a href="#access">アクセス・FAQ</a>
+      <a class="nav-request" href="#contact?type=資料請求">資料請求</a>
+    </nav>
+  </header>
+  <main id="main" tabindex="-1"></main>
+  <footer class="site-footer">
+    <div class="footer-main wrap">
+      <div class="footer-brand"><span class="brand-mark">☾</span><div><b>私立 青葉高等学校</b><small>AOBA HIGH SCHOOL</small></div><p>好きが、未来をひらく。</p></div>
+      <div class="footer-links"><div><b>学校を知る</b><a href="#about">学校紹介</a><a href="#learning">学び</a><a href="#life">学校生活・施設</a><a href="#clubs">部活動</a></div><div><b>受験生の方へ</b><a href="#admissions">入試・説明会</a><a href="#contact?type=資料請求">資料請求</a><a href="#access">アクセス・FAQ</a><a href="#contact">お問い合わせ</a></div><div><b>在校生・卒業生</b><a href="#students">在校生の方へ</a><a href="#alumni">卒業生の方へ</a><a href="#privacy">プライバシー</a><a href="#sitemap">サイトマップ</a></div></div>
+    </div>
+    <div class="footer-bottom wrap"><span>© 2026 Aoba High School Demo</span><a href="../school-comparison/ASSETS.md">写真クレジット（Unsplash）</a><span>このサイトは架空の学校サイトです</span></div>
+  </footer>
+  <div class="search-dialog" data-search-dialog aria-hidden="true">
+    <div class="search-backdrop" data-close-search></div>
+    <section class="search-panel" role="dialog" aria-modal="true" aria-labelledby="search-title">
+      <button class="dialog-close" type="button" data-close-search aria-label="検索を閉じる">×</button>
+      <p class="eyebrow">SEARCH</p><h2 id="search-title">サイト内検索</h2>
+      <form class="search-form" data-search-form><label for="search-input">キーワード</label><div class="input-with-button"><input id="search-input" name="q" type="search" placeholder="例：図書館、説明会、制服" autocomplete="off"><button class="button button-dark" type="submit">検索</button></div></form>
+      <div class="search-results" data-search-results><p class="muted">タイトルや本文から検索できます。</p></div>
+    </section>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

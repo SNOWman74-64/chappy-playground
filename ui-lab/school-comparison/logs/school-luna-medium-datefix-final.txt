@@ -1,0 +1,14 @@
+予約イベント切替の不具合を修正しました。
+
+- `#/reserve/{id}` は明示IDの日程へ更新
+- `#/reserve` は編集時の現在日程・入力値を保持
+- `TEST-REPORT.md` と `RETROSPECTIVE.md` に記録
+- `node --check script.js` 成功
+
+変更範囲は以下のみです。
+
+- [script.js](C:/Users/user/Projects/新しいフォルダー/ui-lab/school-luna-medium/script.js)
+- [TEST-REPORT.md](C:/Users/user/Projects/新しいフォルダー/ui-lab/school-luna-medium/TEST-REPORT.md)
+- [RETROSPECTIVE.md](C:/Users/user/Projects/新しいフォルダー/ui-lab/school-luna-medium/RETROSPECTIVE.md)
+
+ブラウザ再検証は親担当の範囲です。

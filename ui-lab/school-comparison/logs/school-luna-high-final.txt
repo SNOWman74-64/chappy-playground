@@ -1,0 +1,15 @@
+実装完了しました。`school-luna-high` 配下のみを変更し、他バリアント・共有カタログは編集していません。
+
+変更ファイル：
+
+- [index.html](C:/Users/user/Projects/新しいフォルダー/ui-lab/school-luna-high/index.html)
+- [styles.css](C:/Users/user/Projects/新しいフォルダー/ui-lab/school-luna-high/styles.css)
+- [app.js](C:/Users/user/Projects/新しいフォルダー/ui-lab/school-luna-high/app.js)
+- [DESIGN.md](C:/Users/user/Projects/新しいフォルダー/ui-lab/school-luna-high/DESIGN.md)
+- [RETROSPECTIVE.md](C:/Users/user/Projects/新しいフォルダー/ui-lab/school-luna-high/RETROSPECTIVE.md)
+- [TEST-REPORT.md](C:/Users/user/Projects/新しいフォルダー/ui-lab/school-luna-high/TEST-REPORT.md)
+- [metrics.json](C:/Users/user/Projects/新しいフォルダー/ui-lab/school-luna-high/metrics.json)
+
+実装内容：全ルート、検索、ニュース/部活フィルター、詳細表示、説明会予約、問い合わせ・資料請求の確認/完了フロー、モバイルナビ、印刷用学校案内、共有写真・クレジットリンク。
+
+`node --check app.js` とJSON検証は成功。ブラウザQAは親担当に委譲しており未実施です。共有静的チェックは、今回の範囲外であるカタログ・別studyの欠落により失敗しました。

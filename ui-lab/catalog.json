@@ -422,6 +422,69 @@
         "検索・絞り込み・フォームまで静的サイト内で完結",
         "既存比較案を残したまま追加案として扱う"
       ]
+    },
+    {
+      "id": "school-luna-medium",
+      "title": "青葉高等学校 — Luna medium",
+      "shortTitle": "青葉高等学校 — Luna medium",
+      "summary": "同じ設計・写真からLuna medium / Fast指定で独立制作。学校紹介・部活・検索・予約フォームを備える比較案。",
+      "previewPath": "./school-luna-medium/",
+      "designPath": "./school-luna-medium/DESIGN.md",
+      "retrospectivePath": "./school-luna-medium/RETROSPECTIVE.md",
+      "referenceUrl": "./school-comparison/DESIGN-PLAN.md",
+      "thumbnail": "./school-comparison/logs/school-luna-medium-desktop.png",
+      "tags": [
+        "SCHOOL",
+        "LUNA MEDIUM",
+        "MODEL COMPARISON"
+      ],
+      "principles": [
+        "共通設計と素材で独立制作",
+        "推論設定と実行ログを記録",
+        "表示と主要操作をブラウザで確認"
+      ]
+    },
+    {
+      "id": "school-luna-high",
+      "title": "青葉高等学校 — Luna high",
+      "shortTitle": "青葉高等学校 — Luna high",
+      "summary": "同じ設計・写真からLuna high / Fast指定で独立制作。学校紹介・部活・検索・予約フォームを備える比較案。",
+      "previewPath": "./school-luna-high/",
+      "designPath": "./school-luna-high/DESIGN.md",
+      "retrospectivePath": "./school-luna-high/RETROSPECTIVE.md",
+      "referenceUrl": "./school-comparison/DESIGN-PLAN.md",
+      "thumbnail": "./school-comparison/logs/school-luna-high-desktop.png",
+      "tags": [
+        "SCHOOL",
+        "LUNA HIGH",
+        "MODEL COMPARISON"
+      ],
+      "principles": [
+        "共通設計と素材で独立制作",
+        "推論設定と実行ログを記録",
+        "表示と主要操作をブラウザで確認"
+      ]
+    },
+    {
+      "id": "school-luna-solo",
+      "title": "青葉高等学校 — Luna xhigh 単騎",
+      "shortTitle": "青葉高等学校 — Luna単騎",
+      "summary": "Luna xhigh / Fast指定。共通設計から実装・検証・修正まで単独で担当した比較案。",
+      "previewPath": "./school-luna-solo/",
+      "designPath": "./school-luna-solo/DESIGN.md",
+      "retrospectivePath": "./school-luna-solo/RETROSPECTIVE.md",
+      "referenceUrl": "./school-comparison/DESIGN-PLAN.md",
+      "thumbnail": "./school-comparison/logs/school-luna-solo-desktop.png",
+      "tags": [
+        "SCHOOL",
+        "LUNA XHIGH",
+        "SOLO"
+      ],
+      "principles": [
+        "共通設計と写真",
+        "実装と検証を単独で担当",
+        "親からの修正指示なし"
+      ]
     }
   ]
 }

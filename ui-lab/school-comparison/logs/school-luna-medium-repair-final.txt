@@ -1,0 +1,21 @@
+親QA指摘を `school-luna-medium` 内だけで修正しました。
+
+主な修正:
+
+- 問い合わせの入力→確認→編集→完了フロー
+- 説明会予約の入力値・メール保持、確認・編集・完了
+- 部活動詳細ページと戻り導線
+- 記事詳細のタイトル・日付・分類・本文
+- 在校生・卒業生ページ、リンク付きサイトマップ
+- 入試ページ/フッターから印刷用学校案内へ遷移
+- HTMLエスケープ、壊れたURI対策、検索対象拡張
+- `#main` スキップリンク、ルート遷移時のフォーカス/スクロール
+
+更新ファイル:
+
+- [script.js](C:/Users/user/Projects/新しいフォルダー/ui-lab/school-luna-medium/script.js)
+- [index.html](C:/Users/user/Projects/新しいフォルダー/ui-lab/school-luna-medium/index.html)
+- [TEST-REPORT.md](C:/Users/user/Projects/新しいフォルダー/ui-lab/school-luna-medium/TEST-REPORT.md)
+- [RETROSPECTIVE.md](C:/Users/user/Projects/新しいフォルダー/ui-lab/school-luna-medium/RETROSPECTIVE.md)
+
+`node --check script.js` と `metrics.json` の解析は成功しています。ブラウザQAは親担当の範囲として未実施です。

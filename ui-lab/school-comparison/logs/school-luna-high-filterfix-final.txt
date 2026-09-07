@@ -1,0 +1,11 @@
+修正完了しました。
+
+- `fixes.css` に `.news-row[hidden], .club[hidden]{display:none!important}` を追加
+- `TEST-REPORT.md` を更新
+- `node --check app.js` とCSSルールの静的検証に成功
+- 共有ファイル・カタログは未変更
+
+変更パス：
+
+- [fixes.css](C:/Users/user/Projects/新しいフォルダー/ui-lab/school-luna-high/fixes.css)
+- [TEST-REPORT.md](C:/Users/user/Projects/新しいフォルダー/ui-lab/school-luna-high/TEST-REPORT.md)

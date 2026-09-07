@@ -1,0 +1,213 @@
+{
+  "verified_utc": "2026-09-07T14:15:49.998Z",
+  "routes": [
+    {
+      "width": 1440,
+      "route": "",
+      "overflow": false,
+      "broken": 0
+    },
+    {
+      "width": 1440,
+      "route": "about",
+      "overflow": false,
+      "broken": 0
+    },
+    {
+      "width": 1440,
+      "route": "learning",
+      "overflow": false,
+      "broken": 0
+    },
+    {
+      "width": 1440,
+      "route": "life",
+      "overflow": false,
+      "broken": 0
+    },
+    {
+      "width": 1440,
+      "route": "clubs",
+      "overflow": false,
+      "broken": 0
+    },
+    {
+      "width": 1440,
+      "route": "admissions",
+      "overflow": false,
+      "broken": 0
+    },
+    {
+      "width": 1440,
+      "route": "reserve/1",
+      "overflow": false,
+      "broken": 0
+    },
+    {
+      "width": 1440,
+      "route": "news",
+      "overflow": false,
+      "broken": 0
+    },
+    {
+      "width": 1440,
+      "route": "faq",
+      "overflow": false,
+      "broken": 0
+    },
+    {
+      "width": 1440,
+      "route": "contact",
+      "overflow": false,
+      "broken": 0
+    },
+    {
+      "width": 1440,
+      "route": "students",
+      "overflow": false,
+      "broken": 0
+    },
+    {
+      "width": 1440,
+      "route": "graduates",
+      "overflow": false,
+      "broken": 0
+    },
+    {
+      "width": 1440,
+      "route": "privacy",
+      "overflow": false,
+      "broken": 0
+    },
+    {
+      "width": 1440,
+      "route": "sitemap",
+      "overflow": false,
+      "broken": 0
+    },
+    {
+      "width": 1440,
+      "route": "brochure",
+      "overflow": false,
+      "broken": 0
+    },
+    {
+      "width": 390,
+      "route": "",
+      "overflow": false,
+      "broken": 0
+    },
+    {
+      "width": 390,
+      "route": "about",
+      "overflow": false,
+      "broken": 0
+    },
+    {
+      "width": 390,
+      "route": "learning",
+      "overflow": false,
+      "broken": 0
+    },
+    {
+      "width": 390,
+      "route": "life",
+      "overflow": false,
+      "broken": 0
+    },
+    {
+      "width": 390,
+      "route": "clubs",
+      "overflow": false,
+      "broken": 0
+    },
+    {
+      "width": 390,
+      "route": "admissions",
+      "overflow": false,
+      "broken": 0
+    },
+    {
+      "width": 390,
+      "route": "reserve/1",
+      "overflow": false,
+      "broken": 0
+    },
+    {
+      "width": 390,
+      "route": "news",
+      "overflow": false,
+      "broken": 0
+    },
+    {
+      "width": 390,
+      "route": "faq",
+      "overflow": false,
+      "broken": 0
+    },
+    {
+      "width": 390,
+      "route": "contact",
+      "overflow": false,
+      "broken": 0
+    },
+    {
+      "width": 390,
+      "route": "students",
+      "overflow": false,
+      "broken": 0
+    },
+    {
+      "width": 390,
+      "route": "graduates",
+      "overflow": false,
+      "broken": 0
+    },
+    {
+      "width": 390,
+      "route": "privacy",
+      "overflow": false,
+      "broken": 0
+    },
+    {
+      "width": 390,
+      "route": "sitemap",
+      "overflow": false,
+      "broken": 0
+    },
+    {
+      "width": 390,
+      "route": "brochure",
+      "overflow": false,
+      "broken": 0
+    }
+  ],
+  "forms": {
+    "required": true,
+    "invalidEmail": true,
+    "confirm": "種別\n学校案内を請求\nお名前\n検証 太郎\nメールアドレス\ntest@example.com\n内容\n（記入なし）\n同意\n同意する\n入力画面に戻る\nデモ送信を完了する",
+    "edit": "検証 太郎",
+    "complete": "お問い合わせを受け付けました。\n\nこれはローカルデモです。入力内容の送信・保存は行われていません。\n\nトップへ戻る",
+    "reservationConfirm": "参加回\n10月10日（土） 10:00–12:00\nお名前\n予約 花子\nメールアドレス\ntest@example.com\n参加人数\n2名\n同意\n同意する\n修正する\nデモ予約を完了する",
+    "reservationEdit": "予約 花子",
+    "reservationComplete": "予約を受け付けました。\n\nこれはローカルデモです。入力内容の送信・保存は行われていません。\n\nトップへ戻る",
+    "secondDate": "参加回：11月7日（土） 14:00–16:00"
+  },
+  "notes": [
+    "Club direct detail #/club/4 heading verified 吹奏楽部.",
+    "Early test attempted hidden desktop navigation at mobile width and timed out; rerun used visible desktop navigation successfully."
+  ],
+  "interactions": {
+    "clubs": 4,
+    "clubTitle": "部活動",
+    "news": 2,
+    "newsTitle": "お知らせ",
+    "searchHits": 3,
+    "zero": "該当する情報はありませんでした。",
+    "faq": 1,
+    "focus": "auto",
+    "menuOpen": "true",
+    "menuEscape": "false",
+    "menuNavigate": "false"
+  }
+}
