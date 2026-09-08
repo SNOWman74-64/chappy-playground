@@ -1,0 +1,326 @@
+{
+  "run_id": "astra-solo-01",
+  "status": "complete_self_verified_independent_review_not_performed",
+  "baseline_commit": "16ba7663e9a584856d3c0b4b7ce707bf86715b87",
+  "baseline_manifest_sha256": "aa5d9c1b8e3f216b1ab24a0329b9c4af1de435e9ec22fcb73f05cfe1f985b0fb",
+  "prompt_sha256": "c10a121aad9d786121b141573d40b264fa077095545fe90d71ef9d7b7fbf2034",
+  "output_directory": "C:\\Users\\user\\Projects\\新しいフォルダー\\ui-lab\\game-astra-solo-01",
+  "mode": "solo",
+  "requested_settings": {
+    "model": "Astra",
+    "reasoning": null,
+    "service_tier": null
+  },
+  "observed_settings": {
+    "model": "GPT-6 / Codex (developer context); exact serving model identifier unavailable",
+    "reasoning": null,
+    "service_tier": null
+  },
+  "browser_preflight": {
+    "status": "PASS",
+    "actor": "implementation actor (this task)",
+    "evidence": "evidence/environment.png",
+    "details": "Both SVGs loaded; input filled; Tab focused confirmation button; Enter produced expected confirmation. Current-task connection succeeded before implementation."
+  },
+  "review_policy": {
+    "self_review": true,
+    "independent_review": "not performed; no delegation allowed; independent evaluator may review frozen initial snapshot later",
+    "midpoint_advice": 0
+  },
+  "stages": [
+    {
+      "name": "preparation",
+      "start_utc": "2026-09-07T14:57:14.350Z",
+      "end_utc": "2026-09-07T14:59:18.615Z",
+      "duration_seconds": 124.265,
+      "waiting_seconds": null,
+      "notes": "First timestamp is browser navigation evidence; earlier reading time unavailable. Includes user permission wait, duration not separately exposed."
+    },
+    {
+      "name": "implementation",
+      "start_utc": "2026-09-07T14:59:18.615Z",
+      "end_utc": "2026-09-07T15:07:02.297Z",
+      "duration_seconds": 463.682,
+      "waiting_seconds": null,
+      "notes": "Empty output confirmed after authorized prior-log relocation. Includes design decisions and code writing."
+    },
+    {
+      "name": "self_verification_and_fixes",
+      "start_utc": "2026-09-07T15:07:02.297Z",
+      "end_utc": "2026-09-07T15:22:43.894655+00:00",
+      "duration_seconds": 941.597655,
+      "waiting_seconds": null
+    },
+    {
+      "name": "post_initial_self_refinement_and_verification",
+      "start_utc": "2026-09-07T15:22:43.894655+00:00",
+      "end_utc": "2026-09-07T15:31:31.573090+00:00",
+      "duration_seconds": 527.678435,
+      "waiting_seconds": null,
+      "notes": "Self refinement only. No independent reviewer or external advice."
+    }
+  ],
+  "initial_snapshot": {
+    "path": "snapshots/initial.zip",
+    "created_utc": "2026-09-07T15:22:43.894655+00:00",
+    "sha256": "50541bcb24425a23cb0b38a80df2db4f4537ee4164cdfc3666339e8096c19f47",
+    "protection": "Read-only filesystem attribute plus separately recorded SHA256; not administrator-proof WORM storage."
+  },
+  "final_snapshot": {
+    "path": "snapshots/final.zip",
+    "created_utc": "2026-09-07T15:31:31.573090+00:00",
+    "sha256": "96b8cf5a8a014062fcf599d85ab1017c6b42d138d130b1855d6dd2cfb8cc959a",
+    "protection": "Read-only filesystem attribute plus separately recorded SHA256; not administrator-proof WORM storage."
+  },
+  "parent_usage": null,
+  "worker_usage": null,
+  "cost": null,
+  "acceptance": [
+    {
+      "id": "ENV",
+      "self": "PASS",
+      "independent": "not_performed",
+      "evidence": "TEST-REPORT.md"
+    },
+    {
+      "id": "V01",
+      "self": "PASS",
+      "independent": "not_performed",
+      "evidence": "TEST-REPORT.md"
+    },
+    {
+      "id": "V02",
+      "self": "scored",
+      "independent": "not_performed",
+      "evidence": "TEST-REPORT.md"
+    },
+    {
+      "id": "D01",
+      "self": "PASS",
+      "independent": "not_performed",
+      "evidence": "TEST-REPORT.md"
+    },
+    {
+      "id": "D02",
+      "self": "PASS",
+      "independent": "not_performed",
+      "evidence": "TEST-REPORT.md"
+    },
+    {
+      "id": "S01",
+      "self": "PASS",
+      "independent": "not_performed",
+      "evidence": "TEST-REPORT.md"
+    },
+    {
+      "id": "A01",
+      "self": "PASS",
+      "independent": "not_performed",
+      "evidence": "TEST-REPORT.md"
+    },
+    {
+      "id": "T01",
+      "self": "PASS",
+      "independent": "not_performed",
+      "evidence": "TEST-REPORT.md"
+    },
+    {
+      "id": "T02",
+      "self": "PASS",
+      "independent": "not_performed",
+      "evidence": "TEST-REPORT.md"
+    },
+    {
+      "id": "B01",
+      "self": "PASS",
+      "independent": "not_performed",
+      "evidence": "TEST-REPORT.md"
+    },
+    {
+      "id": "B02",
+      "self": "PASS",
+      "independent": "not_performed",
+      "evidence": "TEST-REPORT.md"
+    },
+    {
+      "id": "B03",
+      "self": "PASS",
+      "independent": "not_performed",
+      "evidence": "TEST-REPORT.md"
+    },
+    {
+      "id": "B04",
+      "self": "PASS",
+      "independent": "not_performed",
+      "evidence": "TEST-REPORT.md"
+    },
+    {
+      "id": "B05",
+      "self": "PASS",
+      "independent": "not_performed",
+      "evidence": "TEST-REPORT.md"
+    },
+    {
+      "id": "P01",
+      "self": "PASS",
+      "independent": "not_performed",
+      "evidence": "TEST-REPORT.md"
+    },
+    {
+      "id": "P02",
+      "self": "PASS",
+      "independent": "not_performed",
+      "evidence": "TEST-REPORT.md"
+    },
+    {
+      "id": "K01",
+      "self": "PASS",
+      "independent": "not_performed",
+      "evidence": "TEST-REPORT.md"
+    },
+    {
+      "id": "R01",
+      "self": "PASS",
+      "independent": "not_performed",
+      "evidence": "TEST-REPORT.md"
+    }
+  ],
+  "incidents": [
+    {
+      "type": "nonempty_output",
+      "resolution": "User explicitly permitted moving four prior files to sibling game-astra-solo-01-prior-logs-20260907-235918. Contents were not read."
+    },
+    {
+      "type": "preflight_console",
+      "detail": "Preflight environment page favicon.ico returned HTTP 404. Fixture, SVGs, keyboard and screenshot succeeded. Implemented site has an inline empty favicon; site route tests recorded no HTTP failures."
+    },
+    {
+      "type": "tool_probe",
+      "detail": "Playwright function attempted process.cwd for tool version/path; sandbox reported process is not defined; no app pageerror."
+    },
+    {
+      "type": "self_test_finding",
+      "stage": "pre_initial",
+      "detail": "Select accessible labels included option text; explicit aria-label added."
+    },
+    {
+      "type": "self_test_finding",
+      "stage": "pre_initial",
+      "detail": "Skip-to-main anchor collided with hash routing; fixed. Initial keyboard test missed delayed navigation and was strengthened."
+    },
+    {
+      "type": "test_harness",
+      "stage": "pre_initial",
+      "detail": "First rerun used existing page JS; explicit reload required. Name-sort assertion initially observed old DOM; wait changed to rendered order."
+    },
+    {
+      "type": "dependency_probe",
+      "detail": "Default Python lacked PIL. Contact sheets generated with existing bundled Python; no dependency installed."
+    },
+    {
+      "type": "self_refinement",
+      "stage": "post_initial",
+      "detail": "Balanced mobile title, retained full event image, added upper beginner link, validated nested stored replies."
+    },
+    {
+      "type": "self_test_finding",
+      "stage": "post_initial",
+      "detail": "80-character unbroken title expanded breadcrumb to 1062px at 390px viewport. Wrap fix verified: document width 375px, no out-of-bounds element."
+    }
+  ],
+  "budget": {
+    "time_limit": null,
+    "token_limit": null,
+    "reason": "No explicit limit requested; completion bounded by shared acceptance."
+  },
+  "tools": {
+    "python": "Python 3.13.15",
+    "node": "v24.14.1",
+    "browser": "Chromium 152.0.7977.77 via Playwright MCP (MCP package version unavailable)",
+    "cli_calls": "No model CLI invocation or child agent calls."
+  },
+  "usage_notes": {
+    "input": null,
+    "cached_input": null,
+    "output": null,
+    "reasoning_output": null,
+    "noncached_input": null,
+    "total": null,
+    "reason": "Per-turn raw usage, reasoning settings, serving tier and billing are not exposed to this task. No model CLI was invoked; no estimated token or cost totals fabricated. Parent and solo implementation actor are the same actor, not summed twice."
+  },
+  "followup_authorization": {
+    "user_text": "許可します",
+    "scope": "Relocate existing four logs and create empty requested output directory."
+  },
+  "prompt_record_note": "UTF-8 transcription of task prompt, LF-normalized; SHA256 identifies this saved transcription. Context/system instructions are not included in the task-prompt hash.",
+  "static_check": {
+    "status": "FAIL",
+    "reason": "Exactly one catalog entry required; shared catalog edit prohibited by experiment README",
+    "evidence": "evidence/static-check.json"
+  },
+  "usage_by_stage": [
+    {
+      "stage": "preparation",
+      "input": null,
+      "cached_input": null,
+      "output": null,
+      "reasoning_output": null,
+      "reason": "No per-call model usage exposed; no model CLI calls."
+    },
+    {
+      "stage": "implementation",
+      "input": null,
+      "cached_input": null,
+      "output": null,
+      "reasoning_output": null,
+      "reason": "No per-call model usage exposed; no model CLI calls."
+    },
+    {
+      "stage": "self_verification_and_fixes",
+      "input": null,
+      "cached_input": null,
+      "output": null,
+      "reasoning_output": null,
+      "reason": "No per-call model usage exposed; no model CLI calls."
+    },
+    {
+      "stage": "post_initial_self_refinement_and_verification",
+      "input": null,
+      "cached_input": null,
+      "output": null,
+      "reasoning_output": null,
+      "reason": "No per-call model usage exposed; no model CLI calls."
+    }
+  ],
+  "time_accounting": {
+    "implementation_actor": "single same actor; no child time",
+    "design_seconds": null,
+    "review_seconds": null,
+    "integration_seconds": null,
+    "tool_wait_seconds": null,
+    "reason": "Design, implementation, self-review and tool waits interleave inside recorded stages; exact per-activity timing is not exposed. Stage wall times include waits and are not claimed to be active compute time. No parallel model calls."
+  },
+  "evidence": {
+    "initial_screenshots": "evidence/initial/",
+    "final_screenshots": "evidence/final/",
+    "self_acceptance": "TEST-REPORT.md",
+    "independent_acceptance": null,
+    "scope": "17 self PASS criteria and 1 visual scoring criterion; independent evaluation unperformed",
+    "usage": "Unavailable, null per stage; no model CLI usage records exist."
+  },
+  "permissions": {
+    "prior_logs_relocation": "explicitly authorized by user",
+    "commit": false,
+    "push": false,
+    "publish": false,
+    "delegation": false,
+    "shared_catalog_edit": false,
+    "dependency_install": false
+  },
+  "final_verification": {
+    "fixed_input_check": "PASS",
+    "node_syntax_check": "PASS",
+    "static_study_check": "FAIL: catalog entry missing only",
+    "utc": "2026-09-07T15:31:30.176846+00:00"
+  }
+}

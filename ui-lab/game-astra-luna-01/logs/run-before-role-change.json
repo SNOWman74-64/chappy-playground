@@ -1,0 +1,186 @@
+{
+  "run_id": "astra-luna-01",
+  "status": "environment_not_established",
+  "baseline_commit": "16ba7663e9a584856d3c0b4b7ce707bf86715b87",
+  "baseline_manifest_sha256": "AA5D9C1B8E3F216B1AB24A0329B9C4AF1DE435E9EC22FCB73F05CFE1F985B0FB",
+  "prompt_sha256": "6ACF3B763A4DC31B1FBA35DE03EEF39EE930C9EA1DA71B7AE99E01D23B9F2DD9",
+  "output_directory": "ui-lab/game-astra-luna-01/",
+  "mode": "Astra design and visual review; Luna implementation and correction",
+  "requested_settings": {
+    "service_tier": "fast",
+    "model": "gpt-5.6-luna",
+    "reasoning": "high"
+  },
+  "observed_settings": {
+    "model": null,
+    "reasoning": null,
+    "service_tier": null
+  },
+  "browser_preflight": {
+    "reason": "Browser inventory empty; Browser is not available: iab",
+    "evidence": "logs/worker-preflight.jsonl; logs/worker-preflight-luna-01.md",
+    "status": "failed",
+    "actor": "Luna"
+  },
+  "review_policy": {
+    "planned": 2,
+    "checkpoints": [
+      "first screen and representative detail",
+      "completed implementation"
+    ],
+    "actual": 0,
+    "budget": "not established: environment preflight failed before production"
+  },
+  "stages": [
+    {
+      "waiting_seconds": null,
+      "usage": {
+        "input_tokens": 419059,
+        "cached_input_tokens": 387584,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 5294,
+        "reasoning_output_tokens": 2930
+      },
+      "name": "worker_environment_preflight",
+      "end_utc": "2026-09-07T15:36:38.9413589+00:00",
+      "start_utc": "2026-09-07T15:34:42.0481260+00:00",
+      "timing_note": "CLI wall interval includes initialization, model processing, tools and final log writing; active/wait split unavailable",
+      "active_seconds": null,
+      "process_wall_seconds": 116.8932329
+    }
+  ],
+  "initial_snapshot": null,
+  "final_snapshot": null,
+  "parent_usage": null,
+  "worker_usage": {
+    "input_tokens": 419059,
+    "cached_input_tokens": 387584,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 5294,
+    "reasoning_output_tokens": 2930
+  },
+  "cost": null,
+  "acceptance": [
+    {
+      "id": "ENV",
+      "independent_review": "NOT_TESTED",
+      "status": "FAIL"
+    },
+    {
+      "id": "V01",
+      "independent_review": "NOT_TESTED",
+      "status": "NOT_TESTED"
+    },
+    {
+      "id": "V02",
+      "independent_review": "NOT_TESTED",
+      "status": "NOT_TESTED"
+    },
+    {
+      "id": "D01",
+      "independent_review": "NOT_TESTED",
+      "status": "NOT_TESTED"
+    },
+    {
+      "id": "D02",
+      "independent_review": "NOT_TESTED",
+      "status": "NOT_TESTED"
+    },
+    {
+      "id": "S01",
+      "independent_review": "NOT_TESTED",
+      "status": "NOT_TESTED"
+    },
+    {
+      "id": "A01",
+      "independent_review": "NOT_TESTED",
+      "status": "NOT_TESTED"
+    },
+    {
+      "id": "T01",
+      "independent_review": "NOT_TESTED",
+      "status": "NOT_TESTED"
+    },
+    {
+      "id": "T02",
+      "independent_review": "NOT_TESTED",
+      "status": "NOT_TESTED"
+    },
+    {
+      "id": "B01",
+      "independent_review": "NOT_TESTED",
+      "status": "NOT_TESTED"
+    },
+    {
+      "id": "B02",
+      "independent_review": "NOT_TESTED",
+      "status": "NOT_TESTED"
+    },
+    {
+      "id": "B03",
+      "independent_review": "NOT_TESTED",
+      "status": "NOT_TESTED"
+    },
+    {
+      "id": "B04",
+      "independent_review": "NOT_TESTED",
+      "status": "NOT_TESTED"
+    },
+    {
+      "id": "B05",
+      "independent_review": "NOT_TESTED",
+      "status": "NOT_TESTED"
+    },
+    {
+      "id": "P01",
+      "independent_review": "NOT_TESTED",
+      "status": "NOT_TESTED"
+    },
+    {
+      "id": "P02",
+      "independent_review": "NOT_TESTED",
+      "status": "NOT_TESTED"
+    },
+    {
+      "id": "K01",
+      "independent_review": "NOT_TESTED",
+      "status": "NOT_TESTED"
+    },
+    {
+      "id": "R01",
+      "independent_review": "NOT_TESTED",
+      "status": "NOT_TESTED"
+    }
+  ],
+  "incidents": [
+    "Worker browser preflight failed; production not started as required by PROTOCOL.md.",
+    "Parent exact time/usage not exposed through current tools; null, not zero. Total cannot be computed.",
+    "Requested Fast differs from independently confirmed serving tier; actual serving tier unavailable.",
+    "Initial/final snapshots and screenshots absent because implementation did not begin.",
+    "No other trial implementation/evaluation read; no commit, push or publication."
+  ],
+  "cli_version": "codex-cli 0.153.4",
+  "worker_session_id": "01a07c81-e405-7491-a534-010eb42789f8",
+  "worker_prompt_sha256": "086B4829F3E3131EFA986DB7CB8399AADF549BC086329DAEC0CA38344ECCF547",
+  "launch_command": "codex exec -m gpt-5.6-luna -c model_reasoning_effort=high -c service_tier=fast --json -o game-astra-luna-01/logs/worker-preflight-final.txt -",
+  "totals": {
+    "cached_input_tokens": null,
+    "input_tokens": null,
+    "output_tokens": null,
+    "reasoning_output_tokens": null,
+    "person_seconds": null,
+    "reason": "Parent exact usage and time unavailable; do not replace with worker subtotal."
+  },
+  "production_time_seconds": {
+    "reason": "Environment gate failed before production.",
+    "parent_design_review_integration": 0,
+    "total": 0,
+    "worker_implementation_correction": 0
+  },
+  "parent_preparation": {
+    "start_utc": null,
+    "seconds": null,
+    "reason": "No exact start timestamp captured; includes shared instructions, launch capability discovery and preflight supervision.",
+    "end_utc": "2026-09-07T15:37:22.7967994Z"
+  }
+}

@@ -1,0 +1,62 @@
+- link "本文へ移動":
+  - /url: "#main-content"
+- banner:
+  - link "星環クロニクル攻略室 ホーム":
+    - /url: "#home"
+    - generic: ✦
+    - generic: 星環クロニクル攻略室
+    - generic: SEIKAN CHRONICLE / FIELD NOTES
+  - generic: サイト内検索
+  - searchbox "サイト内検索"
+  - button "検索": ⌕
+  - button "メニューを開く": ☰
+  - paragraph: ● 架空ゲームのローカルデモ / 基準時刻 2026.09.07 21:00 JST
+- main:
+  - navigation "パンくず":
+    - list:
+      - link "ホーム":
+        - /url: "#home"
+      - text: /
+      - link "掲示板":
+        - /url: "#community"
+      - text: /
+      - listitem: 水の守護者の予告攻撃がつらい
+  - article:
+    - generic: 質問
+    - generic: 星読み3
+    - time: 2026.09.03 01:00
+    - heading "水の守護者の予告攻撃がつらい" [level=1]
+    - generic: 今はアカリを中心に育成しています。星の結晶の使い方と、残りの編成枠について皆さんの経験を聞かせてください。
+    - button "通報デモ"
+    - region "返信":
+      - heading "返信" [level=2]
+      - generic: 2件
+      - article:
+        - generic: 旅人1
+        - time: 2026.09.07 02:00
+        - generic: 支援役の行動順を先にすると安定しました。装備も一度見直してみてください。
+        - button "通報デモ"
+      - article:
+        - generic: 旅人2
+        - time: 2026.09.07 03:00
+        - generic: 支援役の行動順を先にすると安定しました。装備も一度見直してみてください。
+        - button "通報デモ"
+    - paragraph: JOIN THE CONVERSATION
+    - heading "返信する" [level=2]
+    - generic: 表示名 空欄は名無しの旅人
+    - textbox "表示名 空欄は名無しの旅人"
+    - generic: 本文 1〜1000文字
+    - textbox "本文 1〜1000文字"
+    - paragraph
+    - button "返信を投稿"
+    - link "掲示板へ戻る":
+      - /url: "#community"
+- contentinfo:
+  - paragraph: 星環クロニクル攻略室
+  - paragraph: 架空ゲームの学習用デモ。実在のゲーム・運営とは関係ありません。
+  - link "利用ルール":
+    - /url: "#bookmarks?panel=rules"
+  - link "プライバシー":
+    - /url: "#bookmarks?panel=privacy"
+  - link "素材出典":
+    - /url: "#bookmarks?panel=sources"

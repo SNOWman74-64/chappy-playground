@@ -1,0 +1,8 @@
+Fixed input check: PASS
+Browser actor: self
+Image c01.svg: loaded
+Image e01.svg: loaded
+Input: Astra単騎 接続確認
+Tab focus: 確認する
+Enter result: 確認済み：Astra単騎 接続確認
+Screenshot: environment.png

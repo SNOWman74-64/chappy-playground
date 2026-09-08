@@ -1,0 +1,28 @@
+﻿{
+    "name":  "initial-complete-before-review",
+    "created_utc":  "2026-09-07T16:02:13.2950562Z",
+    "archive_sha256":  "F645B913A524A9C2AB0D0E1CF4165F42641BBF9E71874C5D06C2707081A6C906",
+    "files":  [
+                  {
+                      "sha256":  "00EC12B9FCCFE88ECBA6D2C6EEBD3DE6D61D9E42AA4A0E6D5275FC52866B3595",
+                      "name":  "app.js"
+                  },
+                  {
+                      "sha256":  "DA5B114C7B6FD81A2E334AFB384CE31B616498DAA2B31EA75262850F559B403B",
+                      "name":  "DESIGN.md"
+                  },
+                  {
+                      "sha256":  "FCA0C97BB136171524FEB13C7FE60BCDD893657F4BB275CA6866C216FEC8A1A4",
+                      "name":  "index.html"
+                  },
+                  {
+                      "sha256":  "8ECC836DF1A64FCE06366584F7D694A63BF15EE731C147431B8CC87D1BFF9637",
+                      "name":  "styles.css"
+                  },
+                  {
+                      "sha256":  "AD2D21CF7EBF473BEE60269E2DEE95D1C98C51528713C9BA554FEA413C8EDA45",
+                      "name":  "TEST-REPORT.md"
+                  }
+              ],
+    "note":  "Read-only zip plus SHA256 detects modification; not a cryptographic WORM store. Fixture/assets referenced read-only outside archive."
+}

@@ -1,5 +1,11 @@
 # Task Status
 
+## 最新の集約状態（2026-09-08）
+
+game-astra-solo-01/ と game-astra-luna-01/ の2試行が完成し、game-comparison/index.htmlとREPORT.mdへ集約済み。UI Labのindex.html/catalog.jsonへ2案と比較ページを登録。ローカル表示、切替、全13studyの共通チェックを確認。今回はcommit/pushしていない。元サイト/ログは保持し、補完usageはgame-comparison/metrics.jsonに分離。
+
+次の入口：game-comparison/REPORT.md。単騎のusageは元セッションから補完済み。ハイブリッドは保存障害等に未検証範囲あり。同一受入れ条件の勝敗は未確定。以下は準備時点の記録であり、現在の試行完了状態を上書きしない。
+
 ## Goal
 
 架空ソーシャルゲームの攻略サイト・掲示板を次の比較テーマとして設計し、別セッションでテストプロンプトを与えられる準備状態にする。

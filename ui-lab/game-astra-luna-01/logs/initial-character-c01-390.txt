@@ -1,0 +1,93 @@
+- link "本文へ移動":
+  - /url: "#main-content"
+- banner:
+  - link "星環クロニクル攻略室 ホーム":
+    - /url: "#home"
+    - generic: ✦
+    - generic: 星環クロニクル攻略室
+    - generic: SEIKAN CHRONICLE / FIELD NOTES
+  - generic: サイト内検索
+  - searchbox "サイト内検索"
+  - button "検索": ⌕
+  - button "メニューを開く": ☰
+  - paragraph: ● 架空ゲームのローカルデモ / 基準時刻 2026.09.07 21:00 JST
+- main:
+  - navigation "パンくず":
+    - list:
+      - link "ホーム":
+        - /url: "#home"
+      - text: /
+      - link "キャラ図鑑":
+        - /url: "#characters"
+      - text: /
+      - listitem: アカリ
+  - region "アカリ":
+    - img "アカリのキャラクターアイコン"
+    - paragraph: CHARACTER RECORD / C01
+    - heading "アカリ" [level=1]
+    - paragraph: 火属性・攻撃 / SSR
+    - generic: 火
+    - generic: 攻撃
+    - generic: SSR
+    - generic: "9.8"
+    - generic: 総合評価
+    - paragraph: 役割の異なる仲間と組ませると、持ち味を発揮します。
+    - link "編成に追加する":
+      - /url: "#party?add=c01"
+      - text: 編成に追加する
+      - generic: →
+    - link "図鑑へ戻る":
+      - /url: "#characters"
+  - region "能力の見取り図":
+    - paragraph: ABILITY PROFILE
+    - generic: c01
+    - heading "能力の見取り図" [level=2]
+    - text: 攻撃
+    - strong: "800"
+    - text: HP
+    - strong: 4,200
+    - strong: 固有スキル
+    - paragraph: アカリの星環術：単体へ属性ダメージを与える。
+  - region "必要素材":
+    - paragraph: GROWTH NOTES
+    - generic: 育成
+    - heading "必要素材" [level=2]
+    - list:
+      - generic: 星の結晶
+      - strong: ×12
+      - generic: 記憶の欠片
+      - strong: ×30
+    - paragraph: 育成素材の入手先は攻略記事で確認できます。
+  - region "相性のよい記録":
+    - paragraph: PARTY SYNERGY
+    - generic: 関連キャラ
+    - heading "相性のよい記録" [level=2]
+    - paragraph: このキャラと組みやすいパートナー候補です。
+    - link "ミナト 防御":
+      - /url: "#character/c02"
+      - generic: ミナト 防御
+    - link "セナ 支援":
+      - /url: "#character/c03"
+      - generic: セナ 支援
+  - region "関連する攻略":
+    - heading "関連する攻略" [level=2]
+    - link "記事一覧へ →":
+      - /url: "#guides"
+    - article:
+      - generic: 初心者
+      - time: 2026.09.07
+      - link "初心者が最初の3日で進めること 初心者が最初の3日で進めることを手順と優先順位から解説します。":
+        - /url: "#guide/g01"
+        - generic: 初心者が最初の3日で進めること
+        - generic: 初心者が最初の3日で進めることを手順と優先順位から解説します。
+      - generic: 3章 / 関連キャラ 2体
+      - generic: 未保存
+- contentinfo:
+  - paragraph: 星環クロニクル攻略室
+  - paragraph: 架空ゲームの学習用デモ。実在のゲーム・運営とは関係ありません。
+  - link "利用ルール":
+    - /url: "#bookmarks?panel=rules"
+  - link "プライバシー":
+    - /url: "#bookmarks?panel=privacy"
+  - link "素材出典":
+    - /url: "#bookmarks?panel=sources"

@@ -1,0 +1,13 @@
+Final retest CSS patch applied only to [styles.css](C:/Users/user/Projects/新しいフォルダー/ui-lab/game-astra-luna-01/styles.css).
+
+Changes:
+
+- Added `@media (max-width: 1000px)`:
+  - hides navigation behind the existing menu toggle;
+  - keeps brand/menu on the first row and search full-width on the second;
+  - stacks homepage columns so tablet event text remains readable.
+- Added `@media (max-width: 480px)`:
+  - changes party slots to one column;
+  - removes truncation so names and element/role labels remain fully visible.
+
+`app.js`, `index.html`, logs, and design files were untouched. No browser or tests were run; Astra should perform the retest.

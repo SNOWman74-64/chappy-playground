@@ -1,0 +1,173 @@
+- link "本文へ移動":
+  - /url: "#main-content"
+- banner:
+  - link "星環クロニクル攻略室 ホーム":
+    - /url: "#home"
+    - generic: ✦
+    - generic: 星環クロニクル攻略室
+    - generic: SEIKAN CHRONICLE / FIELD NOTES
+  - generic: サイト内検索
+  - searchbox "サイト内検索"
+  - button "検索": ⌕
+  - button "メニューを開く": ☰
+  - paragraph: ● 架空ゲームのローカルデモ / 基準時刻 2026.09.07 21:00 JST
+- main:
+  - paragraph: FIELD NOTES / 2026.09.07
+  - heading "今日の攻略ルート" [level=1]
+  - paragraph: イベント、手持ちキャラ、攻略の疑問へ。次の一手をすぐ見つける攻略室です。
+  - strong: "03"
+  - text: 開催中のイベント
+  - navigation "最初に見る入口":
+    - link "01 初心者ガイド 最初の3日を読む":
+      - /url: "#guide/g01"
+      - generic: "01"
+      - strong: 初心者ガイド
+      - generic: 最初の3日を読む
+      - generic: →
+    - link "02 キャラ図鑑 手持ちの役割を確認":
+      - /url: "#characters"
+      - generic: "02"
+      - strong: キャラ図鑑
+      - generic: 手持ちの役割を確認
+      - generic: →
+    - link "03 掲示板 みんなの相談を見る":
+      - /url: "#community"
+      - generic: "03"
+      - strong: 掲示板
+      - generic: みんなの相談を見る
+      - generic: →
+  - region "星環祭":
+    - img "星環祭のイベントイメージ"
+    - paragraph: EVENT / PICK UP
+    - generic: 開催中
+    - heading "星環祭" [level=2]
+    - paragraph: 期間中に遺跡を探索し、交換素材を集めます。報酬は育成に必要な素材から選びましょう。
+    - generic: 2026.09.01 — 2026.09.21
+    - generic: 報酬 星の結晶×30
+    - link "イベント詳細を見る":
+      - /url: "#event/e01"
+      - text: イベント詳細を見る
+      - generic: →
+    - link "イベント一覧":
+      - /url: "#events"
+    - link "攻略記事":
+      - /url: "#guide/g01"
+  - region "攻略の入口":
+    - heading "攻略の入口" [level=2]
+    - link "8記事を見る →":
+      - /url: "#guides"
+    - article:
+      - generic: 初心者
+      - time: 2026.09.07
+      - link "初心者が最初の3日で進めること 初心者が最初の3日で進めることを手順と優先順位から解説します。":
+        - /url: "#guide/g01"
+        - generic: 初心者が最初の3日で進めること
+        - generic: 初心者が最初の3日で進めることを手順と優先順位から解説します。
+      - generic: 3章 / 関連キャラ 2体
+      - generic: 未保存
+    - article:
+      - generic: 育成
+      - time: 2026.09.07
+      - link "星の結晶を集める周回ルート 星の結晶を集める周回ルートを手順と優先順位から解説します。":
+        - /url: "#guide/g02"
+        - generic: 星の結晶を集める周回ルート
+        - generic: 星の結晶を集める周回ルートを手順と優先順位から解説します。
+      - generic: 3章 / 関連キャラ 2体
+      - generic: 未保存
+    - article:
+      - generic: ボス
+      - time: 2026.09.07
+      - link "水の守護者ボス攻略 水の守護者ボス攻略を手順と優先順位から解説します。":
+        - /url: "#guide/g03"
+        - generic: 水の守護者ボス攻略
+        - generic: 水の守護者ボス攻略を手順と優先順位から解説します。
+      - generic: 3章 / 関連キャラ 2体
+      - generic: 未保存
+    - article:
+      - generic: 編成
+      - time: 2026.09.07
+      - link "支援役を入れた編成の基本 支援役を入れた編成の基本を手順と優先順位から解説します。":
+        - /url: "#guide/g04"
+        - generic: 支援役を入れた編成の基本
+        - generic: 支援役を入れた編成の基本を手順と優先順位から解説します。
+      - generic: 3章 / 関連キャラ 2体
+      - generic: 未保存
+  - region "まず見る4人":
+    - heading "まず見る4人" [level=2]
+    - link "図鑑をひらく →":
+      - /url: "#characters"
+    - link "アカリのキャラクターアイコン アカリ ★ 9.8":
+      - /url: "#character/c01"
+      - img "アカリのキャラクターアイコン"
+      - generic: アカリ ★ 9.8
+    - link "ミナトのキャラクターアイコン ミナト ★ 9.6":
+      - /url: "#character/c02"
+      - img "ミナトのキャラクターアイコン"
+      - generic: ミナト ★ 9.6
+    - link "セナのキャラクターアイコン セナ ★ 9.4":
+      - /url: "#character/c03"
+      - img "セナのキャラクターアイコン"
+      - generic: セナ ★ 9.4
+    - link "ルクスのキャラクターアイコン ルクス ★ 9.2":
+      - /url: "#character/c04"
+      - img "ルクスのキャラクターアイコン"
+      - generic: ルクス ★ 9.2
+  - complementary:
+    - region "迷ったらこの順番":
+      - paragraph: START HERE
+      - generic: 3分で確認
+      - heading "迷ったらこの順番" [level=2]
+      - paragraph: 新しく始めた旅人向けに、読む場所を3つに絞りました。
+      - list:
+        - link "01 最初の3日 →":
+          - /url: "#guide/g01"
+          - strong: "01"
+          - text: 最初の3日
+          - text: →
+        - link "02 手持ちを確認 →":
+          - /url: "#characters"
+          - strong: "02"
+          - text: 手持ちを確認
+          - text: →
+        - link "03 4枠を組む →":
+          - /url: "#party"
+          - strong: "03"
+          - text: 4枠を組む
+          - text: →
+    - region "最近の相談":
+      - heading "最近の相談" [level=2]
+      - link "掲示板へ →":
+        - /url: "#community"
+      - link "初心者向けの装備相談まとめ 雑談 星読み6 2026.09.06 01:00 返信 2":
+        - /url: "#thread/t06"
+        - text: 初心者向けの装備相談まとめ
+        - generic: 雑談
+        - text: 星読み6 2026.09.06 01:00
+        - generic: 返信 2
+      - link "今日の冒険を話すスレッド 雑談 星読み5 2026.09.05 01:00 返信 1":
+        - /url: "#thread/t05"
+        - text: 今日の冒険を話すスレッド
+        - generic: 雑談
+        - text: 星読み5 2026.09.05 01:00
+        - generic: 返信 1
+      - link "アカリの育成素材メモ 攻略共有 星読み4 2026.09.04 01:00 返信 0":
+        - /url: "#thread/t04"
+        - text: アカリの育成素材メモ
+        - generic: 攻略共有
+        - text: 星読み4 2026.09.04 01:00
+        - generic: 返信 0
+    - paragraph: 更新情報
+    - paragraph:
+      - strong: 2026.09.07
+      - text: 星環祭の報酬交換ガイドを追加しました。
+    - link "保存した記事を確認 →":
+      - /url: "#bookmarks"
+- contentinfo:
+  - paragraph: 星環クロニクル攻略室
+  - paragraph: 架空ゲームの学習用デモ。実在のゲーム・運営とは関係ありません。
+  - link "利用ルール":
+    - /url: "#bookmarks?panel=rules"
+  - link "プライバシー":
+    - /url: "#bookmarks?panel=privacy"
+  - link "素材出典":
+    - /url: "#bookmarks?panel=sources"

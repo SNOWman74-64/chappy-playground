@@ -1,0 +1,128 @@
+[
+  {
+    "route": "home",
+    "size": 1440,
+    "brokenImages": [],
+    "scrollWidth": 1425,
+    "width": 1440
+  },
+  {
+    "route": "characters",
+    "size": 1440,
+    "brokenImages": [],
+    "scrollWidth": 1425,
+    "width": 1440
+  },
+  {
+    "route": "guide/g01",
+    "size": 1440,
+    "brokenImages": [],
+    "scrollWidth": 1425,
+    "width": 1440
+  },
+  {
+    "route": "thread/t03",
+    "size": 1440,
+    "brokenImages": [],
+    "scrollWidth": 1425,
+    "width": 1440
+  },
+  {
+    "route": "party",
+    "size": 1440,
+    "brokenImages": [],
+    "scrollWidth": 1425,
+    "width": 1440
+  },
+  {
+    "route": "character/c01",
+    "size": 1440,
+    "brokenImages": [],
+    "scrollWidth": 1425,
+    "width": 1440
+  },
+  {
+    "route": "home",
+    "size": 390,
+    "brokenImages": [],
+    "scrollWidth": 375,
+    "width": 390
+  },
+  {
+    "route": "characters",
+    "size": 390,
+    "brokenImages": [],
+    "scrollWidth": 375,
+    "width": 390
+  },
+  {
+    "route": "guide/g01",
+    "size": 390,
+    "brokenImages": [],
+    "scrollWidth": 375,
+    "width": 390
+  },
+  {
+    "route": "thread/t03",
+    "size": 390,
+    "brokenImages": [],
+    "scrollWidth": 375,
+    "width": 390
+  },
+  {
+    "route": "party",
+    "size": 390,
+    "brokenImages": [],
+    "scrollWidth": 375,
+    "width": 390
+  },
+  {
+    "route": "character/c01",
+    "size": 390,
+    "brokenImages": [],
+    "scrollWidth": 375,
+    "width": 390
+  },
+  {
+    "route": "home",
+    "size": 820,
+    "brokenImages": [],
+    "scrollWidth": 805,
+    "width": 820
+  },
+  {
+    "route": "characters",
+    "size": 820,
+    "brokenImages": [],
+    "scrollWidth": 805,
+    "width": 820
+  },
+  {
+    "route": "guide/g01",
+    "size": 820,
+    "brokenImages": [],
+    "scrollWidth": 805,
+    "width": 820
+  },
+  {
+    "route": "thread/t03",
+    "size": 820,
+    "brokenImages": [],
+    "scrollWidth": 805,
+    "width": 820
+  },
+  {
+    "route": "party",
+    "size": 820,
+    "brokenImages": [],
+    "scrollWidth": 805,
+    "width": 820
+  },
+  {
+    "route": "character/c01",
+    "size": 820,
+    "brokenImages": [],
+    "scrollWidth": 805,
+    "width": 820
+  }
+]

@@ -1,0 +1,8 @@
+2026-09-07T15:42:03.057585Z  WARN codex_skills::interface: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-09-07T15:42:03.057621Z  WARN codex_skills::interface: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+2026-09-07T15:42:03.069326Z  WARN codex_core::shell_snapshot: Failed to create shell snapshot for powershell: Shell snapshot not supported yet for PowerShell
+2026-09-07T15:42:03.635095Z  WARN codex_skills::interface: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-09-07T15:42:03.635125Z  WARN codex_skills::interface: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+2026-09-07T15:42:04.169880Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 426 Upgrade Required, url: ws://127.0.0.1:17841/v1/responses
+2026-09-07T15:42:04.169990Z  WARN codex_core::client: falling back to HTTP
+2026-09-07T15:42:06.448063Z  WARN codex_rmcp_client::stdio_server_launcher: Failed to read MCP server stderr (uvx): stream did not contain valid UTF-8

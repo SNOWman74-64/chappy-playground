@@ -1,0 +1,37 @@
+async (page) => {
+ const base='http://localhost:4173/ui-lab/game-astra-solo-01/',assert=(x,m)=>{if(!x)throw Error(m)};
+ await page.setViewportSize({width:390,height:844});
+ await page.goto(base+'?check='+Date.now()+'#home');await page.locator('.page-title').waitFor();
+ await page.keyboard.press('Tab');
+ const firstFocus=await page.evaluate(()=>({text:document.activeElement.textContent,outline:getComputedStyle(document.activeElement).outlineStyle,width:getComputedStyle(document.activeElement).outlineWidth}));
+ assert(firstFocus.text==='本文へ移動'&&firstFocus.outline==='solid'&&firstFocus.width==='3px','visible keyboard focus');
+  await page.keyboard.press('Enter');
+  await page.evaluate(()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r))));
+  assert(await page.locator('h1').innerText()==='次の冒険に、確かな道しるべ。','skip preserves route');
+  assert(await page.locator('#main').evaluate(x=>x===document.activeElement),'skip target');
+ await page.locator('#menu-toggle').focus();await page.keyboard.press('Enter');
+ assert(await page.locator('#menu-toggle').getAttribute('aria-expanded')==='true','menu opens');
+ await page.keyboard.press('Escape');
+ assert(await page.locator('#menu-toggle').getAttribute('aria-expanded')==='false','escape closes');
+ assert(await page.locator('#menu-toggle').evaluate(x=>x===document.activeElement),'menu focus restored');
+ await page.keyboard.press('Enter');await page.keyboard.press('Tab');
+ assert(await page.evaluate(()=>document.activeElement.getAttribute('href'))==='#home','first nav reached');
+ await page.keyboard.press('Tab');await page.keyboard.press('Enter');
+ await page.getByRole('heading',{name:'キャラ図鑑',exact:true}).waitFor();
+ assert(await page.locator('#menu-toggle').getAttribute('aria-expanded')==='false','navigation closes menu');
+ await page.goto(base+'?check='+Date.now()+'#new');await page.locator('#new-thread').waitFor();
+ await page.locator('#new-title').focus();await page.keyboard.type('キーボード操作');
+ await page.keyboard.press('Tab');await page.keyboard.type('旅人');
+ await page.keyboard.press('Tab');await page.keyboard.type('本文を入力します。');
+ await page.keyboard.press('Tab');await page.keyboard.press('Enter');
+ await page.getByRole('heading',{name:'投稿内容を確認'}).waitFor();
+ await page.goto(base+'?check='+Date.now()+'#privacy');await page.locator('#reset-data').waitFor();
+ await page.locator('#reset-data').focus();await page.keyboard.press('Enter');
+ assert(await page.locator('#modal').isVisible(),'keyboard opens dialog');
+ await page.keyboard.press('Escape');assert(await page.locator('#modal').isHidden(),'dialog escape');
+ await page.goto(base+'?check='+Date.now()+'#guide/g01');await page.locator('.toc').waitFor();
+ assert(await page.locator('.toc').isVisible(),'mobile toc visible');
+ await page.locator('.toc a').nth(1).focus();await page.keyboard.press('Enter');
+ await page.waitForFunction(()=>document.activeElement?.id==='section-1');
+ return {utc:new Date().toISOString(),results:[{id:'K01',status:'PASS',evidence:'390px: visible 3px focus, skip link, menu Enter/Escape/Tab/navigation-close, new-thread keyboard confirmation, dialog Escape, article TOC Enter',firstFocus}]};
+}

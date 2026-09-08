@@ -1,0 +1,30 @@
+{
+  "scope": "Node VM storage/derived-data test with mocked localStorage, not real-browser failure injection",
+  "results": [
+    {
+      "name": "malformed-json",
+      "pass": true,
+      "observation": {
+        "mode": "temporary",
+        "notice": "保存データを読み込めないため、一時利用モードで表示しています。保存先を初期化すると復旧できます。",
+        "threads": 6,
+        "save": false
+      }
+    },
+    {
+      "name": "write-denied",
+      "pass": true,
+      "observation": {
+        "mode": "temporary",
+        "notice": "保存先を利用できないため、一時利用モードで表示しています。保存成功とは表示しません。",
+        "threads": 6,
+        "save": false
+      }
+    },
+    {
+      "name": "nested-corruption",
+      "pass": false,
+      "error": "Cannot read properties of null (reading 'id')"
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "recorded": "2026-09-07T23:49:22.928Z",
+  "scope": "Comparison UI and destination rendering only, not full acceptance of either study",
+  "rows": [
+    {
+      "width": 1440,
+      "stage": "initial",
+      "size": "390",
+      "overflow": false,
+      "images": 2
+    },
+    {
+      "width": 1440,
+      "stage": "initial",
+      "size": "1440",
+      "overflow": false,
+      "images": 2
+    },
+    {
+      "width": 1440,
+      "stage": "final",
+      "size": "390",
+      "overflow": false,
+      "images": 2
+    },
+    {
+      "width": 1440,
+      "stage": "final",
+      "size": "1440",
+      "overflow": false,
+      "images": 2
+    },
+    {
+      "width": 390,
+      "stage": "initial",
+      "size": "390",
+      "overflow": false,
+      "images": 2
+    },
+    {
+      "width": 390,
+      "stage": "initial",
+      "size": "1440",
+      "overflow": false,
+      "images": 2
+    },
+    {
+      "width": 390,
+      "stage": "final",
+      "size": "390",
+      "overflow": false,
+      "images": 2
+    },
+    {
+      "width": 390,
+      "stage": "final",
+      "size": "1440",
+      "overflow": false,
+      "images": 2
+    },
+    {
+      "width": 820,
+      "stage": "initial",
+      "size": "390",
+      "overflow": false,
+      "images": 2
+    },
+    {
+      "width": 820,
+      "stage": "initial",
+      "size": "1440",
+      "overflow": false,
+      "images": 2
+    },
+    {
+      "width": 820,
+      "stage": "final",
+      "size": "390",
+      "overflow": false,
+      "images": 2
+    },
+    {
+      "width": 820,
+      "stage": "final",
+      "size": "1440",
+      "overflow": false,
+      "images": 2
+    },
+    {
+      "site": "game-astra-solo-01",
+      "title": "次の冒険に、確かな道しるべ。 | 星環クロニクル攻略室",
+      "heading": "次の冒険に、確かな道しるべ。"
+    },
+    {
+      "site": "game-astra-luna-01",
+      "title": "星環クロニクル攻略室",
+      "heading": "今日の攻略ルート"
+    }
+  ],
+  "errors": []
+}

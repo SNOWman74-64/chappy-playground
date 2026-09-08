@@ -1,0 +1,136 @@
+{
+  "run_id": "astra-solo-01",
+  "status": "environment_failed",
+  "baseline_commit": "16ba7663e9a584856d3c0b4b7ce707bf86715b87",
+  "baseline_manifest_sha256": "aa5d9c1b8e3f216b1ab24a0329b9c4af1de435e9ec22fcb73f05cfe1f985b0fb",
+  "prompt_sha256": "fa739cf072dd426c92743de0f634aed1c3fd7efa84fd58afda225484b899d092",
+  "output_directory": "ui-lab/game-astra-solo-01/",
+  "mode": "solo",
+  "requested_settings": {
+    "model": "Astra",
+    "reasoning": null,
+    "service_tier": null
+  },
+  "observed_settings": {
+    "model": "GPT-6 (system identity); actual serving model unavailable",
+    "reasoning": null,
+    "service_tier": null
+  },
+  "browser_preflight": {
+    "status": "failed",
+    "actor": "implementation actor (self)",
+    "evidence": "environment-log.txt"
+  },
+  "review_policy": "Self only; no delegation. Independent evaluation not performed.",
+  "stages": [],
+  "initial_snapshot": null,
+  "final_snapshot": null,
+  "parent_usage": null,
+  "worker_usage": null,
+  "cost": null,
+  "acceptance": [
+    {
+      "id": "ENV",
+      "self_status": "FAIL",
+      "independent_status": "NOT_TESTED"
+    },
+    {
+      "id": "V01",
+      "self_status": "NOT_TESTED",
+      "independent_status": "NOT_TESTED"
+    },
+    {
+      "id": "V02",
+      "self_status": "NOT_TESTED",
+      "independent_status": "NOT_TESTED"
+    },
+    {
+      "id": "D01",
+      "self_status": "NOT_TESTED",
+      "independent_status": "NOT_TESTED"
+    },
+    {
+      "id": "D02",
+      "self_status": "NOT_TESTED",
+      "independent_status": "NOT_TESTED"
+    },
+    {
+      "id": "S01",
+      "self_status": "NOT_TESTED",
+      "independent_status": "NOT_TESTED"
+    },
+    {
+      "id": "A01",
+      "self_status": "NOT_TESTED",
+      "independent_status": "NOT_TESTED"
+    },
+    {
+      "id": "T01",
+      "self_status": "NOT_TESTED",
+      "independent_status": "NOT_TESTED"
+    },
+    {
+      "id": "T02",
+      "self_status": "NOT_TESTED",
+      "independent_status": "NOT_TESTED"
+    },
+    {
+      "id": "B01",
+      "self_status": "NOT_TESTED",
+      "independent_status": "NOT_TESTED"
+    },
+    {
+      "id": "B02",
+      "self_status": "NOT_TESTED",
+      "independent_status": "NOT_TESTED"
+    },
+    {
+      "id": "B03",
+      "self_status": "NOT_TESTED",
+      "independent_status": "NOT_TESTED"
+    },
+    {
+      "id": "B04",
+      "self_status": "NOT_TESTED",
+      "independent_status": "NOT_TESTED"
+    },
+    {
+      "id": "B05",
+      "self_status": "NOT_TESTED",
+      "independent_status": "NOT_TESTED"
+    },
+    {
+      "id": "P01",
+      "self_status": "NOT_TESTED",
+      "independent_status": "NOT_TESTED"
+    },
+    {
+      "id": "P02",
+      "self_status": "NOT_TESTED",
+      "independent_status": "NOT_TESTED"
+    },
+    {
+      "id": "K01",
+      "self_status": "NOT_TESTED",
+      "independent_status": "NOT_TESTED"
+    },
+    {
+      "id": "R01",
+      "self_status": "NOT_TESTED",
+      "independent_status": "NOT_TESTED"
+    }
+  ],
+  "incidents": [
+    "Browser profile already in use. Stopped before implementation per PROTOCOL.md."
+  ],
+  "recorded_at_utc": "2026-09-07T14:56:16.284904+00:00",
+  "measurement_notes": {
+    "production_started": false,
+    "initial_snapshot": "Not applicable: no implementation produced",
+    "usage_reason": "Per-call token usage and billing unavailable in tool outputs",
+    "tool_versions": null,
+    "timings": "No production timing; shell preflight wall time 0.6128329 seconds. Exact preparation start/end and browser-call duration unavailable.",
+    "budget": "No explicit time/token budget supplied",
+    "prompt_capture": "Task message transcribed with LF normalization; hash refers to saved UTF-8 bytes."
+  }
+}

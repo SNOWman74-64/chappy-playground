@@ -1,0 +1,8 @@
+ENVIRONMENT_NOT_ESTABLISHED.
+
+- Browser tools unavailable: no browsers listed; `iab` creation failed.
+- Local server reachable: HTTP 200.
+- Environment checker: PASS.
+- No implementation or shared files changed.
+- UTC: 2026-09-07T15:34:42Z–15:36:17.5518760Z
+- Log: [worker-preflight-luna-01.md](C:/Users/user/Projects/新しいフォルダー/ui-lab/game-astra-luna-01/logs/worker-preflight-luna-01.md)

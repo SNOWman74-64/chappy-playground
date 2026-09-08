@@ -1,0 +1,124 @@
+- link "本文へ移動":
+  - /url: "#main-content"
+- banner:
+  - link "星環クロニクル攻略室 ホーム":
+    - /url: "#home"
+    - generic: ✦
+    - generic: 星環クロニクル攻略室
+    - generic: SEIKAN CHRONICLE / FIELD NOTES
+  - generic: サイト内検索
+  - searchbox "サイト内検索"
+  - button "検索": ⌕
+  - button "メニューを開く": ☰
+  - paragraph: ● 架空ゲームのローカルデモ / 基準時刻 2026.09.07 21:00 JST
+- main:
+  - navigation "パンくず":
+    - list:
+      - link "ホーム":
+        - /url: "#home"
+      - text: /
+      - listitem: 編成ツール
+  - paragraph: PARTY BUILDER / 4 SLOTS
+  - heading "編成ツール" [level=1]
+  - paragraph: 4枠にキャラを追加して、役割のバランスを確認します。同じキャラは一度だけ選べます。
+  - strong: 0 / 4
+  - text: 編成中
+  - heading "現在の編成" [level=2]
+  - generic: 4枠空き
+  - generic: "01"
+  - generic: キャラを選択
+  - generic: "02"
+  - generic: キャラを選択
+  - generic: "03"
+  - generic: キャラを選択
+  - generic: "04"
+  - generic: キャラを選択
+  - strong: 編成のルール
+  - paragraph: 同じキャラの重複追加はできません。4枠が埋まると、候補の追加ボタンは「満員」になります。1枠外すと、別のキャラを追加できます。
+  - button "編成URLをコピー" [disabled]
+  - generic: 共有URL（コピーできない場合は選択）
+  - textbox "共有URL（コピーできない場合は選択）": http://localhost:4173/ui-lab/game-astra-luna-01/#party?share=
+  - region "キャラを追加":
+    - heading "キャラを追加" [level=2]
+    - generic: 12体
+    - article:
+      - link "アカリのキャラクターアイコン アカリ火 / 攻撃":
+        - /url: "#character/c01"
+        - img "アカリのキャラクターアイコン"
+        - generic: アカリ火 / 攻撃
+      - button "編成に追加"
+    - article:
+      - link "ミナトのキャラクターアイコン ミナト水 / 防御":
+        - /url: "#character/c02"
+        - img "ミナトのキャラクターアイコン"
+        - generic: ミナト水 / 防御
+      - button "編成に追加"
+    - article:
+      - link "セナのキャラクターアイコン セナ風 / 支援":
+        - /url: "#character/c03"
+        - img "セナのキャラクターアイコン"
+        - generic: セナ風 / 支援
+      - button "編成に追加"
+    - article:
+      - link "ルクスのキャラクターアイコン ルクス光 / 攻撃":
+        - /url: "#character/c04"
+        - img "ルクスのキャラクターアイコン"
+        - generic: ルクス光 / 攻撃
+      - button "編成に追加"
+    - article:
+      - link "カエデのキャラクターアイコン カエデ火 / 支援":
+        - /url: "#character/c05"
+        - img "カエデのキャラクターアイコン"
+        - generic: カエデ火 / 支援
+      - button "編成に追加"
+    - article:
+      - link "シオンのキャラクターアイコン シオン水 / 攻撃":
+        - /url: "#character/c06"
+        - img "シオンのキャラクターアイコン"
+        - generic: シオン水 / 攻撃
+      - button "編成に追加"
+    - article:
+      - link "リーフのキャラクターアイコン リーフ風 / 防御":
+        - /url: "#character/c07"
+        - img "リーフのキャラクターアイコン"
+        - generic: リーフ風 / 防御
+      - button "編成に追加"
+    - article:
+      - link "ノアのキャラクターアイコン ノア光 / 支援":
+        - /url: "#character/c08"
+        - img "ノアのキャラクターアイコン"
+        - generic: ノア光 / 支援
+      - button "編成に追加"
+    - article:
+      - link "ホムラのキャラクターアイコン ホムラ火 / 防御":
+        - /url: "#character/c09"
+        - img "ホムラのキャラクターアイコン"
+        - generic: ホムラ火 / 防御
+      - button "編成に追加"
+    - article:
+      - link "ユキのキャラクターアイコン ユキ水 / 支援":
+        - /url: "#character/c10"
+        - img "ユキのキャラクターアイコン"
+        - generic: ユキ水 / 支援
+      - button "編成に追加"
+    - article:
+      - link "ハルのキャラクターアイコン ハル風 / 攻撃":
+        - /url: "#character/c11"
+        - img "ハルのキャラクターアイコン"
+        - generic: ハル風 / 攻撃
+      - button "編成に追加"
+    - article:
+      - link "レイのキャラクターアイコン レイ光 / 防御":
+        - /url: "#character/c12"
+        - img "レイのキャラクターアイコン"
+        - generic: レイ光 / 防御
+      - button "編成に追加"
+- contentinfo:
+  - paragraph: 星環クロニクル攻略室
+  - paragraph: 架空ゲームの学習用デモ。実在のゲーム・運営とは関係ありません。
+  - link "利用ルール":
+    - /url: "#bookmarks?panel=rules"
+  - link "プライバシー":
+    - /url: "#bookmarks?panel=privacy"
+  - link "素材出典":
+    - /url: "#bookmarks?panel=sources"

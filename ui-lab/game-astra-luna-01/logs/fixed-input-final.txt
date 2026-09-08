@@ -1,0 +1,2 @@
+PASS: fixed inputs, IDs, references and acceptance fixture expectations.
+Browser: NOT tested by this script; each implementation actor must open environment.html.

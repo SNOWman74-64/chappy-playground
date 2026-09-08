@@ -1,0 +1,102 @@
+{
+  "before_role_change": {
+    "timestamp": "2026-09-07T15:37:32.611Z",
+    "ordinal": 141,
+    "type": "event_msg",
+    "payload": {
+      "type": "token_count",
+      "info": {
+        "total_token_usage": {
+          "input_tokens": 1063005,
+          "cached_input_tokens": 990336,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 4597,
+          "reasoning_output_tokens": 215,
+          "total_tokens": 1067602
+        },
+        "last_token_usage": {
+          "input_tokens": 69323,
+          "cached_input_tokens": 67840,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 238,
+          "reasoning_output_tokens": 0,
+          "total_tokens": 69561
+        },
+        "model_context_window": 258400
+      },
+      "rate_limits": {
+        "limit_id": "codex_bengalfox",
+        "limit_name": "GPT-5.3-Codex-Spark",
+        "primary": {
+          "used_percent": 0.0,
+          "window_minutes": 300,
+          "resets_at": 1788813445
+        },
+        "secondary": {
+          "used_percent": 0.0,
+          "window_minutes": 10080,
+          "resets_at": 1789400245
+        },
+        "credits": {
+          "has_credits": false,
+          "unlimited": false,
+          "balance": "0"
+        },
+        "individual_limit": null,
+        "spend_control_reached": null,
+        "plan_type": null,
+        "rate_limit_reached_type": null
+      }
+    }
+  },
+  "latest": {
+    "timestamp": "2026-09-07T16:21:17.416Z",
+    "ordinal": 954,
+    "type": "event_msg",
+    "payload": {
+      "type": "token_count",
+      "info": {
+        "total_token_usage": {
+          "input_tokens": 17568573,
+          "cached_input_tokens": 17337856,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 35044,
+          "reasoning_output_tokens": 4039,
+          "total_tokens": 17603617
+        },
+        "last_token_usage": {
+          "input_tokens": 209414,
+          "cached_input_tokens": 208640,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 1942,
+          "reasoning_output_tokens": 418,
+          "total_tokens": 211356
+        },
+        "model_context_window": 258400
+      },
+      "rate_limits": {
+        "limit_id": "codex_bengalfox",
+        "limit_name": "GPT-5.3-Codex-Spark",
+        "primary": {
+          "used_percent": 0.0,
+          "window_minutes": 300,
+          "resets_at": 1788816012
+        },
+        "secondary": {
+          "used_percent": 0.0,
+          "window_minutes": 10080,
+          "resets_at": 1789402812
+        },
+        "credits": {
+          "has_credits": false,
+          "unlimited": false,
+          "balance": "0"
+        },
+        "individual_limit": null,
+        "spend_control_reached": null,
+        "plan_type": null,
+        "rate_limit_reached_type": null
+      }
+    }
+  }
+}

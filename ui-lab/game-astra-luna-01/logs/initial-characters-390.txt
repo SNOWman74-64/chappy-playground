@@ -1,0 +1,135 @@
+- link "本文へ移動":
+  - /url: "#main-content"
+- banner:
+  - link "星環クロニクル攻略室 ホーム":
+    - /url: "#home"
+    - generic: ✦
+    - generic: 星環クロニクル攻略室
+    - generic: SEIKAN CHRONICLE / FIELD NOTES
+  - generic: サイト内検索
+  - searchbox "サイト内検索"
+  - button "検索": ⌕
+  - button "メニューを開く": ☰
+  - paragraph: ● 架空ゲームのローカルデモ / 基準時刻 2026.09.07 21:00 JST
+- main:
+  - navigation "パンくず":
+    - list:
+      - link "ホーム":
+        - /url: "#home"
+      - text: /
+      - listitem: キャラ図鑑
+  - paragraph: CHARACTER ARCHIVE / 12 RECORDS
+  - heading "キャラ図鑑" [level=1]
+  - paragraph: 属性、役割、レア度から、いまの編成に必要な一人を探します。
+  - strong: "12"
+  - text: 件の記録
+  - region "キャラの絞り込み":
+    - generic: 名前・能力で検索
+    - searchbox "名前・能力で検索"
+    - generic: 属性
+    - combobox "属性":
+      - option "すべて" [selected]
+      - option "火"
+      - option "水"
+      - option "風"
+      - option "光"
+    - generic: 役割
+    - combobox "役割":
+      - option "すべて" [selected]
+      - option "攻撃"
+      - option "支援"
+      - option "防御"
+    - generic: レア度
+    - combobox "レア度":
+      - option "すべて" [selected]
+      - option "SSR"
+      - option "SR"
+    - generic: 並べ替え
+    - combobox "並べ替え":
+      - option "名前順" [selected]
+      - option "評価順"
+    - button "条件をリセット"
+  - paragraph:
+    - strong: 12件
+    - text: を表示中
+  - link "アカリのキャラクターアイコン アカリ 火 / 攻撃 / SSR ★ 9.8":
+    - /url: "#character/c01"
+    - img "アカリのキャラクターアイコン"
+    - text: アカリ
+    - generic: 火 / 攻撃 / SSR
+    - text: ★ 9.8
+  - link "カエデのキャラクターアイコン カエデ 火 / 支援 / SSR ★ 9.0":
+    - /url: "#character/c05"
+    - img "カエデのキャラクターアイコン"
+    - text: カエデ
+    - generic: 火 / 支援 / SSR
+    - text: ★ 9.0
+  - link "シオンのキャラクターアイコン シオン 水 / 攻撃 / SSR ★ 8.8":
+    - /url: "#character/c06"
+    - img "シオンのキャラクターアイコン"
+    - text: シオン
+    - generic: 水 / 攻撃 / SSR
+    - text: ★ 8.8
+  - link "セナのキャラクターアイコン セナ 風 / 支援 / SSR ★ 9.4":
+    - /url: "#character/c03"
+    - img "セナのキャラクターアイコン"
+    - text: セナ
+    - generic: 風 / 支援 / SSR
+    - text: ★ 9.4
+  - link "ノアのキャラクターアイコン ノア 光 / 支援 / SSR ★ 8.4":
+    - /url: "#character/c08"
+    - img "ノアのキャラクターアイコン"
+    - text: ノア
+    - generic: 光 / 支援 / SSR
+    - text: ★ 8.4
+  - link "ハルのキャラクターアイコン ハル 風 / 攻撃 / SR ★ 7.8":
+    - /url: "#character/c11"
+    - img "ハルのキャラクターアイコン"
+    - text: ハル
+    - generic: 風 / 攻撃 / SR
+    - text: ★ 7.8
+  - link "ホムラのキャラクターアイコン ホムラ 火 / 防御 / SR ★ 8.2":
+    - /url: "#character/c09"
+    - img "ホムラのキャラクターアイコン"
+    - text: ホムラ
+    - generic: 火 / 防御 / SR
+    - text: ★ 8.2
+  - link "ミナトのキャラクターアイコン ミナト 水 / 防御 / SSR ★ 9.6":
+    - /url: "#character/c02"
+    - img "ミナトのキャラクターアイコン"
+    - text: ミナト
+    - generic: 水 / 防御 / SSR
+    - text: ★ 9.6
+  - link "ユキのキャラクターアイコン ユキ 水 / 支援 / SR ★ 8.0":
+    - /url: "#character/c10"
+    - img "ユキのキャラクターアイコン"
+    - text: ユキ
+    - generic: 水 / 支援 / SR
+    - text: ★ 8.0
+  - link "リーフのキャラクターアイコン リーフ 風 / 防御 / SSR ★ 8.6":
+    - /url: "#character/c07"
+    - img "リーフのキャラクターアイコン"
+    - text: リーフ
+    - generic: 風 / 防御 / SSR
+    - text: ★ 8.6
+  - link "ルクスのキャラクターアイコン ルクス 光 / 攻撃 / SSR ★ 9.2":
+    - /url: "#character/c04"
+    - img "ルクスのキャラクターアイコン"
+    - text: ルクス
+    - generic: 光 / 攻撃 / SSR
+    - text: ★ 9.2
+  - link "レイのキャラクターアイコン レイ 光 / 防御 / SR ★ 7.6":
+    - /url: "#character/c12"
+    - img "レイのキャラクターアイコン"
+    - text: レイ
+    - generic: 光 / 防御 / SR
+    - text: ★ 7.6
+- contentinfo:
+  - paragraph: 星環クロニクル攻略室
+  - paragraph: 架空ゲームの学習用デモ。実在のゲーム・運営とは関係ありません。
+  - link "利用ルール":
+    - /url: "#bookmarks?panel=rules"
+  - link "プライバシー":
+    - /url: "#bookmarks?panel=privacy"
+  - link "素材出典":
+    - /url: "#bookmarks?panel=sources"

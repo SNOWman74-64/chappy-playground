@@ -1,0 +1,7 @@
+{
+  "chunk_id": "62a480",
+  "wall_time_seconds": 0.7589165,
+  "exit_code": 1,
+  "original_token_count": 22,
+  "output": "UI_STUDY_CHECK_FAIL\r\n- Study 'game-astra-solo-01' must have exactly one catalog entry\r\n"
+}

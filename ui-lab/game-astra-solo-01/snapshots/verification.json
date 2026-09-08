@@ -1,0 +1,18 @@
+{
+  "verified_utc": "2026-09-07T15:31:32.282669+00:00",
+  "archives": [
+    {
+      "stage": "initial",
+      "status": "PASS",
+      "files": 64,
+      "sha256": "50541bcb24425a23cb0b38a80df2db4f4537ee4164cdfc3666339e8096c19f47"
+    },
+    {
+      "stage": "final",
+      "status": "PASS",
+      "files": 107,
+      "sha256": "96b8cf5a8a014062fcf599d85ab1017c6b42d138d130b1855d6dd2cfb8cc959a"
+    }
+  ],
+  "note": "run.json inside ZIP cannot contain its own archive hash; authoritative archive SHA256 is in the external manifest and current run.json."
+}

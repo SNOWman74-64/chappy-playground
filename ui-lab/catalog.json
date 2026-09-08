@@ -485,6 +485,66 @@
         "実装と検証を単独で担当",
         "親からの修正指示なし"
       ]
+    },
+    {
+      "id": "game-astra-solo-01",
+      "title": "星環クロニクル — Astra単騎",
+      "shortTitle": "星環クロニクル — Astra単騎",
+      "summary": "Astra lowが設計・実装・自己検証を担当。",
+      "previewPath": "./game-astra-solo-01/",
+      "designPath": "./game-astra-solo-01/DESIGN.md",
+      "retrospectivePath": "./game-astra-solo-01/RETROSPECTIVE.md",
+      "referenceUrl": "./experiments/social-game/DESIGN.md",
+      "thumbnail": "./game-astra-solo-01/evidence/final/home-1440.png",
+      "tags": [
+        "GAME",
+        "HARNESS COMPARISON"
+      ],
+      "principles": [
+        "共通設計と固定素材",
+        "初回と最終を保存",
+        "検証範囲と計測境界を明示"
+      ]
+    },
+    {
+      "id": "game-astra-luna-01",
+      "title": "星環クロニクル — Astra＋Luna high",
+      "shortTitle": "星環クロニクル — Astra＋Luna high",
+      "summary": "Astraが設計・検証、Luna highが実装・修正。検証に未実施範囲あり。",
+      "previewPath": "./game-astra-luna-01/",
+      "designPath": "./game-astra-luna-01/DESIGN.md",
+      "retrospectivePath": "./game-astra-luna-01/RETROSPECTIVE.md",
+      "referenceUrl": "./experiments/social-game/DESIGN.md",
+      "thumbnail": "./game-astra-luna-01/logs/screenshots/final-home-1440.png",
+      "tags": [
+        "GAME",
+        "HARNESS COMPARISON"
+      ],
+      "principles": [
+        "共通設計と固定素材",
+        "初回と最終を保存",
+        "検証範囲と計測境界を明示"
+      ]
+    },
+    {
+      "id": "game-comparison",
+      "title": "星環クロニクル — 2案比較",
+      "shortTitle": "星環クロニクル — 2案比較",
+      "summary": "単騎とハイブリッドの画面、終了時使用量、検証範囲を比較。",
+      "previewPath": "./game-comparison/",
+      "designPath": "./game-comparison/DESIGN.md",
+      "retrospectivePath": "./game-comparison/RETROSPECTIVE.md",
+      "referenceUrl": "./experiments/social-game/DESIGN.md",
+      "thumbnail": "./game-astra-solo-01/evidence/final/home-1440.png",
+      "tags": [
+        "GAME",
+        "HARNESS COMPARISON"
+      ],
+      "principles": [
+        "共通設計と固定素材",
+        "初回と最終を保存",
+        "検証範囲と計測境界を明示"
+      ]
     }
   ]
 }

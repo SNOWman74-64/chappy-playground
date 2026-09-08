@@ -1,0 +1,18 @@
+Review2 corrections written.
+
+Changed only:
+
+- [app.js](C:/Users/user/Projects/新しいフォルダー/ui-lab/game-astra-luna-01/app.js)
+- [styles.css](C:/Users/user/Projects/新しいフォルダー/ui-lab/game-astra-luna-01/styles.css)
+
+Applied all seven fixes:
+
+1. Mobile directory toolbar overflow and control sizing.
+2. Same-hash reply deletion redraw.
+3. TOC routes preserve guide pages and scroll to sections.
+4. Deep validation for corrupted nested storage data and ownership.
+5. Truthful temporary-mode behavior for failed saves/resets.
+6. Post-render clipboard fallback selection.
+7. One-shot party `add`/`share` query consumption.
+
+Parent-owned files, logs, fixtures, and shared inputs were untouched. No browser or tests were run. Limitations: temporary-mode changes may disappear on reload, and clipboard copy depends on browser API availability.

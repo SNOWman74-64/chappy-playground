@@ -1,0 +1,32 @@
+﻿{
+    "name":  "final-after-corrections",
+    "created_utc":  "2026-09-07T16:22:22.0736037Z",
+    "archive_sha256":  "92B5BE2C6A23E83F2C6BA3CD96EFD8D38587D61DB8CBA2C731A77FA171960551",
+    "files":  [
+                  {
+                      "sha256":  "C6422E952CD0E2A70E1DA88A29EEA6EB1DD8E51CD959E4F35915B4E608F65060",
+                      "name":  "app.js"
+                  },
+                  {
+                      "sha256":  "DA5B114C7B6FD81A2E334AFB384CE31B616498DAA2B31EA75262850F559B403B",
+                      "name":  "DESIGN.md"
+                  },
+                  {
+                      "sha256":  "FCA0C97BB136171524FEB13C7FE60BCDD893657F4BB275CA6866C216FEC8A1A4",
+                      "name":  "index.html"
+                  },
+                  {
+                      "sha256":  "CD92081A064ADCFE53D5B7684EE2E2F59A8347EBDA26817CE73CC43E8302B195",
+                      "name":  "RETROSPECTIVE.md"
+                  },
+                  {
+                      "sha256":  "F8D244CFD824F65AC393E737A76BF75E74EB68B33ED975BE62470C5C913AE6D3",
+                      "name":  "styles.css"
+                  },
+                  {
+                      "sha256":  "CD1F0B708207F97DF1FEC30A451AF343D94D9FEA4A8C474674558A126BA60E6B",
+                      "name":  "TEST-REPORT.md"
+                  }
+              ],
+    "note":  "Read-only zip plus SHA256 detects modification; not a cryptographic WORM store. Fixture/assets referenced read-only outside archive."
+}

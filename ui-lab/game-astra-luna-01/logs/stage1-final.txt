@@ -1,0 +1,19 @@
+Stage 1 implementation complete. No browser tools or tests were used.
+
+Changed files:
+
+- [index.html](C:/Users/user/Projects/新しいフォルダー/ui-lab/game-astra-luna-01/index.html)
+- [styles.css](C:/Users/user/Projects/新しいフォルダー/ui-lab/game-astra-luna-01/styles.css)
+- [app.js](C:/Users/user/Projects/新しいフォルダー/ui-lab/game-astra-luna-01/app.js)
+
+Routes:
+
+- `#home` — complete homepage
+- `#characters` — data-driven 12-character directory
+- `#character/c01` — representative character detail
+- `#character/:id` — data-driven detail routes
+- `#search?q=...` — cross-content search
+- `#guides`, `#community`, `#party`, `#events`, `#bookmarks` — honest checkpoint states
+- `#guide/:id` — fixed-data guide draft state
+
+Existing fixture SVGs are referenced directly. Parent/Astra owns all verification and acceptance checks.

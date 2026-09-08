@@ -1,0 +1,35 @@
+Stage 2 implementation complete. No browser, tests, or static checks were run.
+
+Changed:
+
+- [app.js](C:/Users/user/Projects/新しいフォルダー/ui-lab/game-astra-luna-01/app.js)
+- [styles.css](C:/Users/user/Projects/新しいフォルダー/ui-lab/game-astra-luna-01/styles.css)
+
+Routes:
+
+- `#home`
+- `#characters`
+- `#character/:id`
+- `#guides`
+- `#guide/:id`
+- `#events`
+- `#event/:id`
+- `#community`
+- `#thread/:id`
+- `#new-thread`
+- `#new-thread/confirm`
+- `#party`
+- `#party?add=:id`
+- `#party?share=c01,c02,c03,c04`
+- `#bookmarks?panel=rules|privacy|sources`
+- `#search?q=...`
+- Unknown IDs show safe not-found states.
+
+Implemented full fixture-driven guides, events, characters, search, party sharing/restoration, boards, posting/edit/delete/report flows, bookmarks, reset/recovery handling, safe rendering, namespaced persistence, responsive corrections, and accessible navigation.
+
+Storage keys:
+
+- `seikan-chronicle-demo:v1`
+- `seikan-chronicle-demo:v1:owner`
+
+Limitations: clipboard copy depends on browser permissions/API availability and falls back to selectable URL text. Astra must perform all verification and acceptance checks.

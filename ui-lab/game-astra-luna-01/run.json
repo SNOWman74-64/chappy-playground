@@ -1,0 +1,303 @@
+{
+  "run_id": "astra-luna-01",
+  "status": "implemented_verified_with_unverified_items",
+  "baseline_commit": "16ba7663e9a584856d3c0b4b7ce707bf86715b87",
+  "baseline_manifest_sha256": "AA5D9C1B8E3F216B1AB24A0329B9C4AF1DE435E9EC22FCB73F05CFE1F985B0FB",
+  "prompt_sha256": "6ACF3B763A4DC31B1FBA35DE03EEF39EE930C9EA1DA71B7AE99E01D23B9F2DD9",
+  "output_directory": "ui-lab/game-astra-luna-01/",
+  "mode": "Astra design, all verification and visual review; Luna implementation and correction only",
+  "requested_settings": {
+    "service_tier": "fast",
+    "model": "gpt-5.6-luna",
+    "reasoning": "high"
+  },
+  "observed_settings": {
+    "note": "Fast requested through CLI; actual serving tier unobserved",
+    "model": "gpt-5.6-luna",
+    "reasoning": "high",
+    "service_tier": null,
+    "evidence": "logs/worker-observed-settings.json"
+  },
+  "browser_preflight": {
+    "evidence": "logs/screenshots/astra-preflight.png",
+    "scope": "Images, input, Tab, Enter and screenshot verified in parent browser",
+    "worker_original_status": "failed",
+    "status": "PASS_WITH_USER_APPROVED_ROLE_CHANGE",
+    "actor": "Astra"
+  },
+  "review_policy": {
+    "planned": 2,
+    "checkpoints": [
+      "first screen and representative detail",
+      "completed implementation"
+    ],
+    "actual": 2,
+    "budget": "90 minutes production planning budget; overruns recorded",
+    "correction_rounds_after_review2": 2
+  },
+  "stages": [
+    {
+      "stage": "worker-preflight",
+      "usage": {
+        "input_tokens": 419059,
+        "cached_input_tokens": 387584,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 5294,
+        "reasoning_output_tokens": 2930
+      },
+      "start_utc": "2026-09-07T15:34:42.048126Z",
+      "end_utc": "2026-09-07T15:36:38.9413589Z",
+      "wall_seconds": 116.893232
+    },
+    {
+      "stage": "stage1",
+      "usage": {
+        "input_tokens": 331358,
+        "cached_input_tokens": 295424,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 18772,
+        "reasoning_output_tokens": 2946
+      },
+      "start_utc": "2026-09-07T15:42:02.6089153Z",
+      "end_utc": "2026-09-07T15:46:07.3248238Z",
+      "wall_seconds": 244.715908
+    },
+    {
+      "stage": "stage2",
+      "usage": {
+        "input_tokens": 1960166,
+        "cached_input_tokens": 1875712,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 63165,
+        "reasoning_output_tokens": 16547
+      },
+      "start_utc": "2026-09-07T15:48:11.4008203Z",
+      "end_utc": "2026-09-07T16:01:52.9038473Z",
+      "wall_seconds": 821.503027
+    },
+    {
+      "stage": "corrections",
+      "usage": {
+        "input_tokens": 1114202,
+        "cached_input_tokens": 939264,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 28668,
+        "reasoning_output_tokens": 8198
+      },
+      "start_utc": "2026-09-07T16:09:37.8675315Z",
+      "end_utc": "2026-09-07T16:15:47.5120424Z",
+      "wall_seconds": 369.644511
+    },
+    {
+      "stage": "responsive-fix",
+      "usage": {
+        "input_tokens": 547914,
+        "cached_input_tokens": 541952,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1749,
+        "reasoning_output_tokens": 804
+      },
+      "start_utc": "2026-09-07T16:17:15.128077Z",
+      "end_utc": "2026-09-07T16:17:48.6764511Z",
+      "wall_seconds": 33.548374
+    }
+  ],
+  "initial_snapshot": "logs/snapshots/initial-complete-before-review.zip",
+  "final_snapshot": "logs/snapshots/final-after-corrections.zip",
+  "parent_usage": {
+    "input_tokens": 16505568,
+    "cached_input_tokens": 16347520,
+    "output_tokens": 30447,
+    "reasoning_output_tokens": 3824
+  },
+  "worker_usage": {
+    "input_tokens": 3953640,
+    "cached_input_tokens": 3652352,
+    "output_tokens": 112354,
+    "reasoning_output_tokens": 28495
+  },
+  "cost": null,
+  "acceptance": [
+    {
+      "id": "ENV",
+      "independent_review": "Astra; see TEST-REPORT.md for exact scope",
+      "status": "PASS_ROLE_AMENDED"
+    },
+    {
+      "id": "V01",
+      "independent_review": "Astra; see TEST-REPORT.md for exact scope",
+      "status": "PASS"
+    },
+    {
+      "id": "V02",
+      "independent_review": "Astra; see TEST-REPORT.md for exact scope",
+      "status": "SCORED"
+    },
+    {
+      "id": "D01",
+      "independent_review": "Astra; see TEST-REPORT.md for exact scope",
+      "status": "PASS"
+    },
+    {
+      "id": "D02",
+      "independent_review": "Astra; see TEST-REPORT.md for exact scope",
+      "status": "PASS"
+    },
+    {
+      "id": "S01",
+      "independent_review": "Astra; see TEST-REPORT.md for exact scope",
+      "status": "PASS"
+    },
+    {
+      "id": "A01",
+      "independent_review": "Astra; see TEST-REPORT.md for exact scope",
+      "status": "PASS"
+    },
+    {
+      "id": "T01",
+      "independent_review": "Astra; see TEST-REPORT.md for exact scope",
+      "status": "PASS"
+    },
+    {
+      "id": "T02",
+      "independent_review": "Astra; see TEST-REPORT.md for exact scope",
+      "status": "PASS"
+    },
+    {
+      "id": "B01",
+      "independent_review": "Astra; see TEST-REPORT.md for exact scope",
+      "status": "PASS"
+    },
+    {
+      "id": "B02",
+      "independent_review": "Astra; see TEST-REPORT.md for exact scope",
+      "status": "PASS"
+    },
+    {
+      "id": "B03",
+      "independent_review": "Astra; see TEST-REPORT.md for exact scope",
+      "status": "PASS"
+    },
+    {
+      "id": "B04",
+      "independent_review": "Astra; see TEST-REPORT.md for exact scope",
+      "status": "PASS"
+    },
+    {
+      "id": "B05",
+      "independent_review": "Astra; see TEST-REPORT.md for exact scope",
+      "status": "PASS"
+    },
+    {
+      "id": "P01",
+      "independent_review": "Astra; see TEST-REPORT.md for exact scope",
+      "status": "PARTIAL"
+    },
+    {
+      "id": "P02",
+      "independent_review": "Astra; see TEST-REPORT.md for exact scope",
+      "status": "PARTIAL"
+    },
+    {
+      "id": "K01",
+      "independent_review": "Astra; see TEST-REPORT.md for exact scope",
+      "status": "PARTIAL"
+    },
+    {
+      "id": "R01",
+      "independent_review": "Astra; see TEST-REPORT.md for exact scope",
+      "status": "PARTIAL"
+    }
+  ],
+  "incidents": [
+    "Worker browser preflight failed; production not started as required by PROTOCOL.md.",
+    "Parent exact time/usage not exposed through current tools; null, not zero. Total cannot be computed.",
+    "Requested Fast differs from independently confirmed serving tier; actual serving tier unavailable.",
+    "Initial/final snapshots and screenshots absent because implementation did not begin.",
+    "No other trial implementation/evaluation read; no commit, push or publication.",
+    "User changed verification owner to Astra on 2026-09-07T15:40:25.443Z; prior environment failure preserved in logs/run-before-role-change.json. This condition differs from original worker-self-verification protocol.",
+    "Review2 found mobile directory overflow, stale reply deletion UI, broken TOC and nested storage corruption; fixed and retested.",
+    "Responsive retest found820 header overlap and390 party truncation; CSS-only worker correction followed and visually verified.",
+    "Real-browser storage refusal/corruption and clipboard denial remain untested; supplemental VM checks are not a substitute PASS.",
+    "Parent usage later recovered from own raw rollout; previous null values remain preserved in pre-change record.",
+    "Static contract checker reports only expected gallery nonregistration; no shared catalog edits."
+  ],
+  "cli_version": "codex-cli 0.153.4",
+  "worker_session_id": "01a07c81-e405-7491-a534-010eb42789f8",
+  "worker_prompt_sha256": "086B4829F3E3131EFA986DB7CB8399AADF549BC086329DAEC0CA38344ECCF547",
+  "launch_command": "codex exec -m gpt-5.6-luna -c model_reasoning_effort=high -c service_tier=fast --json -o game-astra-luna-01/logs/worker-preflight-final.txt -",
+  "totals": {
+    "input_tokens": 20459208,
+    "cached_input_tokens": 19999872,
+    "output_tokens": 142801,
+    "reasoning_output_tokens": 32319
+  },
+  "production_time_seconds": {
+    "start_utc": "2026-09-07T15:40:25.443Z",
+    "end_utc": "2026-09-08T01:22:21.09658+09:00",
+    "parent_wall_seconds_including_wait": 2515.65358,
+    "worker_process_wall_seconds": 1469.41182,
+    "summed_process_seconds_including_overlap": 3985.0654000000004,
+    "elapsed_seconds": 2515.65358,
+    "parent_active_seconds": null,
+    "parent_exact_wait_seconds": null,
+    "reason": "Parent wall includes browser work, coordination, logs and worker waiting; parent/worker overlap. Active and waiting time cannot be exactly partitioned from these records."
+  },
+  "parent_preparation": {
+    "end_utc": "2026-09-07T15:42:02.6089153Z",
+    "note": "Window includes coordination and tools, not pure active reasoning",
+    "start_utc": "2026-09-07T15:40:25.443Z",
+    "scope": "Browser preflight, role amendment, design and worker dispatch"
+  },
+  "parent_phase_windows": [
+    {
+      "start": "2026-09-07T15:40:25.443Z",
+      "name": "preflight_design_dispatch",
+      "end": "2026-09-07T15:42:02.6089153Z"
+    },
+    {
+      "start": "2026-09-07T15:46:07.3248238Z",
+      "name": "review1_archive_dispatch",
+      "end": "2026-09-07T15:48:11.4008203Z"
+    },
+    {
+      "start": "2026-09-07T16:01:52.9038473Z",
+      "name": "review2_acceptance_archive_dispatch",
+      "end": "2026-09-07T16:09:37.8675315Z"
+    },
+    {
+      "start": "2026-09-07T16:15:47.5120424Z",
+      "name": "correction_retest_reporting",
+      "note": "Includes additional responsive worker invocation and overlapping parent tests",
+      "end": "2026-09-08T01:22:21.09658+09:00"
+    }
+  ],
+  "metrics_reference": "logs/metrics.json",
+  "usage_scope": "Since user-approved role change; prior failed preflight plus overall totals retained in metrics.json. Bookkeeping after cutoff excluded.",
+  "prompt_hashes": [
+    {
+      "file": "corrections-prompt.txt",
+      "sha256": "3292E2A5FE220B08E31FFF75D720461C565DE7095F291A534A2C034F56615C3B"
+    },
+    {
+      "file": "responsive-fix-prompt.txt",
+      "sha256": "D11419B8388281BD83063ACF77FA8F122B75C1C666375C8AD7E80AB6A4A69678"
+    },
+    {
+      "file": "stage1-prompt.txt",
+      "sha256": "030C79A40A9DF5EF4136F5F5AB72256DE3611AE9977F5A65EC101BA8FF13A13B"
+    },
+    {
+      "file": "stage2-prompt.txt",
+      "sha256": "A96CD3F5AF40982FB289866E94558244BCAF55B9FF89B7A1E615171504C2C36A"
+    },
+    {
+      "file": "user-prompt.txt",
+      "sha256": "6ACF3B763A4DC31B1FBA35DE03EEF39EE930C9EA1DA71B7AE99E01D23B9F2DD9"
+    },
+    {
+      "file": "worker-preflight-prompt.txt",
+      "sha256": "086B4829F3E3131EFA986DB7CB8399AADF549BC086329DAEC0CA38344ECCF547"
+    }
+  ]
+}

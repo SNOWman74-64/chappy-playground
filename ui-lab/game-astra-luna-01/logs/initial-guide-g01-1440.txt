@@ -1,0 +1,80 @@
+- link "本文へ移動":
+  - /url: "#main-content"
+- banner:
+  - link "星環クロニクル攻略室 ホーム":
+    - /url: "#home"
+    - generic: ✦
+    - generic: 星環クロニクル攻略室
+    - generic: SEIKAN CHRONICLE / FIELD NOTES
+  - navigation "主要メニュー":
+    - list:
+      - link "ホーム":
+        - /url: "#home"
+      - link "キャラ図鑑":
+        - /url: "#characters"
+      - link "攻略記事":
+        - /url: "#guides"
+      - link "掲示板":
+        - /url: "#community"
+      - link "編成ツール":
+        - /url: "#party"
+  - generic: サイト内検索
+  - searchbox "サイト内検索"
+  - button "検索": ⌕
+  - paragraph: ● 架空ゲームのローカルデモ / 基準時刻 2026.09.07 21:00 JST
+  - paragraph:
+    - link "保存一覧を見る →":
+      - /url: "#bookmarks"
+- main:
+  - navigation "パンくず":
+    - list:
+      - link "ホーム":
+        - /url: "#home"
+      - text: /
+      - link "攻略記事":
+        - /url: "#guides"
+      - text: /
+      - listitem: 初心者が最初の3日で進めること
+  - article:
+    - generic: 初心者
+    - time: 2026.09.07 更新
+    - heading "初心者が最初の3日で進めること" [level=1]
+    - paragraph: 初心者が最初の3日で進めることを手順と優先順位から解説します。
+    - button "☆ 記事を保存"
+    - heading "準備するもの" [level=2]
+    - paragraph: まず主力4人のレベルを揃えます。支援役と防御役を入れ、装備の不足を確認しましょう。星の結晶は育成に共通して使うため、必要数を決めてから周回します。
+    - heading "進め方" [level=2]
+    - paragraph: 最初のターンで支援スキルを使い、敵の予告攻撃に合わせて防御します。攻撃役のスキルは支援効果がある間に使います。回復資源が足りないときは一つ前の難度で素材を集めましょう。
+    - heading "よくある失敗" [level=2]
+    - paragraph: 攻撃役だけを育てると、長期戦で耐久力が不足します。4枠の役割と装備を見直してください。この記事の数値と仕様は架空ゲームのデモ設定です。
+    - heading "関連キャラ" [level=2]
+    - link "アカリ 攻撃":
+      - /url: "#character/c01"
+      - generic: アカリ 攻撃
+    - link "カエデ 支援":
+      - /url: "#character/c05"
+      - generic: カエデ 支援
+  - complementary:
+    - paragraph: CONTENTS
+    - heading "目次" [level=2]
+    - list:
+      - link "準備するもの":
+        - /url: "#guide-g01-section-0"
+      - link "進め方":
+        - /url: "#guide-g01-section-1"
+      - link "よくある失敗":
+        - /url: "#guide-g01-section-2"
+    - paragraph: NEXT STEP
+    - heading "キャラの使い方を見る" [level=3]
+    - paragraph: 関連キャラの能力と編成相性を確認できます。
+    - link "図鑑へ →":
+      - /url: "#characters"
+- contentinfo:
+  - paragraph: 星環クロニクル攻略室
+  - paragraph: 架空ゲームの学習用デモ。実在のゲーム・運営とは関係ありません。
+  - link "利用ルール":
+    - /url: "#bookmarks?panel=rules"
+  - link "プライバシー":
+    - /url: "#bookmarks?panel=privacy"
+  - link "素材出典":
+    - /url: "#bookmarks?panel=sources"

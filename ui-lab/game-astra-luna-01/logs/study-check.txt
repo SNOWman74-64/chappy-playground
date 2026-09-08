@@ -1,0 +1,2 @@
+UI_STUDY_CHECK_FAIL
+- Study 'game-astra-luna-01' must have exactly one catalog entry

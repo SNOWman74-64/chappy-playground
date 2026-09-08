@@ -1,0 +1,78 @@
+[
+  {
+    "path": "game-astra-luna-01/index.html",
+    "status": 200
+  },
+  {
+    "path": "game-astra-luna-01/app.js",
+    "status": 200
+  },
+  {
+    "path": "game-astra-luna-01/styles.css",
+    "status": 200
+  },
+  {
+    "path": "experiments/social-game/fixtures/content.json",
+    "status": 200
+  },
+  {
+    "path": "experiments/social-game/assets/c01.svg",
+    "status": 200
+  },
+  {
+    "path": "experiments/social-game/assets/c02.svg",
+    "status": 200
+  },
+  {
+    "path": "experiments/social-game/assets/c03.svg",
+    "status": 200
+  },
+  {
+    "path": "experiments/social-game/assets/c04.svg",
+    "status": 200
+  },
+  {
+    "path": "experiments/social-game/assets/c05.svg",
+    "status": 200
+  },
+  {
+    "path": "experiments/social-game/assets/c06.svg",
+    "status": 200
+  },
+  {
+    "path": "experiments/social-game/assets/c07.svg",
+    "status": 200
+  },
+  {
+    "path": "experiments/social-game/assets/c08.svg",
+    "status": 200
+  },
+  {
+    "path": "experiments/social-game/assets/c09.svg",
+    "status": 200
+  },
+  {
+    "path": "experiments/social-game/assets/c10.svg",
+    "status": 200
+  },
+  {
+    "path": "experiments/social-game/assets/c11.svg",
+    "status": 200
+  },
+  {
+    "path": "experiments/social-game/assets/c12.svg",
+    "status": 200
+  },
+  {
+    "path": "experiments/social-game/assets/e01.svg",
+    "status": 200
+  },
+  {
+    "path": "experiments/social-game/assets/e02.svg",
+    "status": 200
+  },
+  {
+    "path": "experiments/social-game/assets/e03.svg",
+    "status": 200
+  }
+]
