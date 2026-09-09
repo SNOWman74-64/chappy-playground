@@ -1,12 +1,12 @@
 <!doctype html>
-<html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#dcebef"><link rel="icon" href="data:,"><title>しろい散歩 — Snowbound</title><link rel="stylesheet" href="style.css"></head>
+<html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#dcebef"><link rel="icon" href="data:,"><title>しろい散歩 — Snowbound</title><link rel="stylesheet" href="style.css?v=2"></head>
 <body><canvas id="world" tabindex="0" aria-label="雪の森。矢印キーまたはWASDで移動、スペースで調べる。"></canvas>
 <header><div class="eyebrow">A LITTLE WINTER ESCAPE</div><h1>しろい散歩<span>SNOWBOUND</span></h1><p><i></i><span id="place">こもれびの雪原</span><span class="divider">/</span> −3°</p></header>
 <nav aria-label="世界の設定"><button id="sound" aria-label="環境音をオンにする" aria-pressed="false">♪<span>音 OFF</span></button><button id="mapButton" aria-label="地図を開く" aria-expanded="false">⌖<span>地図</span></button></nav>
 <aside id="mapPanel" hidden><h2>小さな冬の地図</h2><canvas id="map" width="220" height="220" aria-label="現在地と三つの発見場所"></canvas><p>● 現在地　◆ 冬のたからもの</p></aside>
-<div id="toast" role="status">雪の上に、あなたの道を。</div>
-<section id="journal"><span class="star">✧</span><div><small>冬のたからもの</small><p><b id="count">0</b><span> / 3 みつけた</span></p></div><div id="gems">◇ ◇ ◇</div></section>
+<div id="toast" role="status"></div>
+<section id="journal"><span class="star">✧</span><div><small>冬のたからもの</small><p><b id="count">0</b><span> / 3</span></p></div><div id="gems">◇ ◇ ◇</div></section>
 <div id="controls"><div id="stick" role="group" aria-label="ドラッグして歩く"><span class="north">↑</span><span class="west">←</span><span class="east">→</span><span class="south">↓</span><div id="knob"></div></div><div class="control-label">ゆっくり、歩こう</div></div>
 <div id="actionWrap"><button id="action" aria-label="近くを調べる">✧</button><span id="actionLabel">しらべる</span></div>
 <footer><span id="steps">0 歩の足あと</span><span>矢印キー / WASD でもお散歩できます</span></footer>
-<div id="loading">雪の世界をひらいています…</div><script src="world.js"></script></body></html>
+<div id="loading">雪の世界をひらいています…</div><script src="sprites.js?v=2"></script><script src="world.js?v=2"></script></body></html>
