@@ -4,19 +4,6 @@
   "sharedLearningsPath": "./LEARNINGS.md",
   "mocks": [
     {
-      "id": "winter-walk",
-      "title": "冬のさんぽ — 横歩きアニメーション",
-      "shortTitle": "冬のさんぽ",
-      "summary": "8コマの女の子と、左へ流れる雪の森。歩く速さを変えて眺める冬のアニメーション。",
-      "previewPath": "./winter-walk/",
-      "designPath": "./winter-walk/DESIGN.md",
-      "retrospectivePath": "./winter-walk/RETROSPECTIVE.md",
-      "referenceUrl": "./winter-walk/DESIGN.md#reference",
-      "thumbnail": "./winter-walk/assets/walking.gif",
-      "tags": ["ANIMATION", "PARALLAX", "MOBILE FIRST"],
-      "principles": ["元画像の歩行を保つ", "背景の速度差で奥行きを表す", "歩行と景色を同時に止める"]
-    },
-    {
       "id": "snow-walk",
       "title": "しろい散歩 — Snowbound",
       "shortTitle": "しろい散歩",
