@@ -4,6 +4,19 @@
   "sharedLearningsPath": "./LEARNINGS.md",
   "mocks": [
     {
+      "id": "snow-walk",
+      "title": "しろい散歩 — Snowbound",
+      "shortTitle": "しろい散歩",
+      "summary": "スプライトの女の子と雪の森を散歩。足跡、降雪、風と足音、小屋や凍った池をめぐるスマホ向けの小さな冬。",
+      "previewPath": "./snow-walk/",
+      "designPath": "./snow-walk/DESIGN.md",
+      "retrospectivePath": "./snow-walk/RETROSPECTIVE.md",
+      "referenceUrl": "./snow-walk/DESIGN.md#reference",
+      "thumbnail": "./snow-walk/desktop.png",
+      "tags": ["PIXEL ART", "MOBILE FIRST", "EXPLORATION"],
+      "principles": ["Let movement leave a trace", "Keep the world within thumb reach", "Preserve sprite whites"]
+    },
+    {
       "id": "paper-moon",
       "title": "PAPER MOON — Pocket Papercraft Café",
       "shortTitle": "paper moon",
