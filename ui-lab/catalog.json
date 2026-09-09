@@ -4,6 +4,19 @@
   "sharedLearningsPath": "./LEARNINGS.md",
   "mocks": [
     {
+      "id": "canal-city",
+      "title": "CANAL — 街の余白",
+      "shortTitle": "CANAL",
+      "summary": "BlenderとThree.jsでつくった運河の街。視点を動かし、時計塔・市場・木陰の庭をめぐる。昼夜の切替と走る路面電車。",
+      "previewPath": "./canal-city/",
+      "designPath": "./canal-city/DESIGN.md",
+      "retrospectivePath": "./canal-city/RETROSPECTIVE.md",
+      "referenceUrl": "./canal-city/DESIGN.md#reference",
+      "thumbnail": "./canal-city/evidence/desktop-day.png",
+      "tags": ["BLENDER", "THREE.JS", "INTERACTIVE CITY"],
+      "principles": ["街そのものを操作する", "寄り道で風景を見つける", "光で街の時間を変える"]
+    },
+    {
       "id": "snow-walk",
       "title": "しろい散歩 — Snowbound",
       "shortTitle": "しろい散歩",
