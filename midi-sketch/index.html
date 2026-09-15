@@ -39,23 +39,35 @@
     .back { color:var(--muted); text-decoration:none; font-size:13px; font-weight:750; }
     .badge { padding:6px 9px; border:1px solid var(--line); border-radius:999px; color:#b8c5ff; background:rgba(124,156,255,.08); font-size:10px; font-weight:900; letter-spacing:.11em; }
     h1 { margin:0; font-size:clamp(36px,9vw,72px); letter-spacing:-.06em; line-height:.92; }
-    .intro { margin:10px 0 22px; color:var(--muted); line-height:1.6; font-size:13px; max-width:660px; }
+    .intro { margin:10px 0 22px; color:var(--muted); line-height:1.6; font-size:13px; max-width:720px; }
+    .mode-line { display:flex; gap:6px; flex-wrap:wrap; margin:0 0 14px; }
+    .mode-chip { padding:7px 9px; border:1px solid var(--line); border-radius:999px; color:#aeb7c8; background:#0d121b; font-size:9px; font-weight:900; letter-spacing:.08em; }
+    .mode-chip.draw { color:#aef5d8; border-color:rgba(103,232,183,.22); background:rgba(103,232,183,.07); }
     .panel { border:1px solid var(--line); border-radius:22px; background:rgba(17,23,34,.86); overflow:hidden; box-shadow:0 22px 70px rgba(0,0,0,.22); }
     .panel + .panel { margin-top:14px; }
     .panel-head { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:15px 16px 12px; border-bottom:1px solid var(--line); }
     .panel-title { min-width:0; }
     .eyebrow { display:block; color:#9fb1ff; font-size:9px; font-weight:950; letter-spacing:.13em; }
+    .eyebrow.green { color:#8cf0ca; }
     .panel-title strong { display:block; margin-top:3px; font-size:16px; }
     .panel-title span { display:block; margin-top:2px; color:var(--muted); font-size:10px; line-height:1.4; }
     .transport { display:flex; flex-wrap:wrap; align-items:center; gap:8px; }
     .btn { min-height:42px; padding:0 13px; border:1px solid var(--line); border-radius:12px; background:#161e2b; font-size:12px; font-weight:850; cursor:pointer; }
     .btn:active { transform:scale(.98); }
     .btn.primary { background:var(--accent); border-color:transparent; color:#09101f; }
+    .btn.draw-primary { background:var(--accent-2); border-color:transparent; color:#071813; }
     .btn.rec.is-recording { background:var(--danger); border-color:transparent; color:#16050a; }
     .btn.ghost { color:var(--muted); }
     .bpm { display:flex; align-items:center; gap:6px; min-height:42px; padding:0 9px; border:1px solid var(--line); border-radius:12px; background:#0d121b; }
     .bpm label { color:var(--muted); font-size:10px; font-weight:850; }
     .bpm input { width:54px; border:0; outline:0; background:transparent; color:#fff; font-size:16px; font-weight:900; text-align:center; }
+    .draw-shell { padding:14px; }
+    .draw-stage { position:relative; border:1px solid rgba(103,232,183,.16); border-radius:17px; overflow:hidden; background:#0b1118; }
+    #drawCanvas { display:block; width:100%; height:290px; touch-action:none; cursor:crosshair; }
+    .draw-hint { pointer-events:none; position:absolute; left:12px; right:12px; bottom:10px; display:flex; justify-content:space-between; gap:8px; color:rgba(210,220,235,.46); font-size:9px; font-weight:800; }
+    .draw-meta { display:flex; flex-wrap:wrap; justify-content:space-between; gap:8px; margin-top:10px; color:var(--muted); font-size:10px; line-height:1.5; }
+    .draw-meta b { color:#bfeeda; }
+    .draw-tip { margin:10px 0 0; padding:10px 11px; border:1px solid rgba(255,255,255,.07); border-radius:13px; background:#0c1119; color:#8f9bad; font-size:10px; line-height:1.55; }
     .roll-wrap { overflow-x:auto; padding:14px; -webkit-overflow-scrolling:touch; }
     .roll { display:grid; grid-template-columns:46px repeat(16, minmax(33px, 1fr)); gap:4px; min-width:660px; }
     .corner, .step-no, .note-label { min-height:28px; display:grid; place-items:center; color:#667187; font-size:9px; font-weight:850; }
@@ -78,13 +90,14 @@
     .dot.live { background:var(--danger); box-shadow:0 0 0 5px rgba(255,110,134,.12); }
     .actions { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; padding:0 14px 14px; }
     .save-note { padding:0 14px 14px; color:var(--muted); font-size:10px; line-height:1.5; }
-    .toast { position:sticky; bottom:10px; margin:14px auto 0; width:max-content; max-width:calc(100% - 20px); padding:9px 12px; border:1px solid var(--line); border-radius:999px; background:rgba(10,13,20,.94); color:#d8deeb; font-size:10px; opacity:0; transform:translateY(6px); pointer-events:none; transition:.18s ease; }
+    .toast { position:sticky; bottom:10px; margin:14px auto 0; width:max-content; max-width:calc(100% - 20px); padding:9px 12px; border:1px solid var(--line); border-radius:999px; background:rgba(10,13,20,.94); color:#d8deeb; font-size:10px; opacity:0; transform:translateY(6px); pointer-events:none; transition:.18s ease; z-index:5; }
     .toast.show { opacity:1; transform:none; }
     @media (max-width:600px) {
       .panel-head { align-items:flex-start; flex-direction:column; }
       .transport { width:100%; }
       .transport .btn { flex:1; }
       .bpm { margin-left:auto; }
+      #drawCanvas { height:250px; }
       .keyboard { gap:3px; }
       .key { min-height:104px; padding-inline:2px; font-size:11px; }
       .actions { grid-template-columns:1fr; }
@@ -96,12 +109,40 @@
   <main>
     <div class="topbar">
       <a class="back" href="../">← Playground</a>
-      <span class="badge">POC · WEB AUDIO + MIDI</span>
+      <span class="badge">V0.2 · DRAW + WEB AUDIO + MIDI</span>
     </div>
-
     <h1>MIDI<br />Sketch</h1>
-    <p class="intro">思いついた音をセルにポチポチ置く、鍵盤で弾く、RECして残す。まずは「触ったらすぐ鳴る」を優先したブラウザだけのMIDIスケッチ帳。</p>
-
+    <p class="intro">音を「置く」「描く」「弾く」。Drawでは線そのものが楽譜になり、指の高さに追従して音程がその場で動く。あとから再生・量子化・MIDI保存までつなげる。</p>
+    <div class="mode-line" aria-label="入力モード">
+      <span class="mode-chip">STEP · ポチポチ</span>
+      <span class="mode-chip draw">DRAW · 線を描く</span>
+      <span class="mode-chip">PLAY · 鍵盤REC</span>
+    </div>
+    <section class="panel" aria-labelledby="draw-title">
+      <div class="panel-head">
+        <div class="panel-title">
+          <span class="eyebrow green">DRAW MODE · CANVAS INSTRUMENT</span>
+          <strong id="draw-title">線を描くと、そのまま鳴る</strong>
+          <span>横 = 1小節の時間 / 縦 = C4〜C5の音程。線は左→右に再生される。</span>
+        </div>
+        <div class="transport">
+          <button class="btn draw-primary" id="drawPlayBtn" type="button">DRAW ▶</button>
+          <button class="btn" id="drawToGridBtn" type="button">DRAW → GRID</button>
+          <button class="btn ghost" id="drawClearBtn" type="button">CLEAR</button>
+        </div>
+      </div>
+      <div class="draw-shell">
+        <div class="draw-stage">
+          <canvas id="drawCanvas" aria-label="線を描いて演奏するキャンバス"></canvas>
+          <div class="draw-hint"><span>C5 · HIGH</span><span>← TIME →</span><span>C4 · LOW</span></div>
+        </div>
+        <div class="draw-meta">
+          <span id="drawInfo">0 strokes · 指で線を描いてください</span>
+          <span><b>LIVE:</b> Yでピッチ / 速さ・筆圧でニュアンス</span>
+        </div>
+        <p class="draw-tip">同じX位置に複数の線を置けば和音っぽく重なる。MIDI書き出しでは連続ピッチを16分音符単位へ近似して保存する。</p>
+      </div>
+    </section>
     <section class="panel" aria-labelledby="roll-title">
       <div class="panel-head">
         <div class="panel-title">
@@ -115,12 +156,9 @@
           <div class="bpm"><label for="bpmInput">BPM</label><input id="bpmInput" type="number" inputmode="numeric" min="50" max="220" value="110" /></div>
         </div>
       </div>
-      <div class="roll-wrap">
-        <div class="roll" id="roll" aria-label="16ステップ ピアノロール"></div>
-      </div>
+      <div class="roll-wrap"><div class="roll" id="roll" aria-label="16ステップ ピアノロール"></div></div>
       <div class="roll-foot"><span>1 / 16 note loop</span><span id="gridCount">0 notes</span></div>
     </section>
-
     <section class="panel" aria-labelledby="keyboard-title">
       <div class="panel-head">
         <div class="panel-title">
@@ -148,28 +186,29 @@
         <button class="btn" id="exportMidiBtn" type="button">.mid 保存</button>
         <button class="btn ghost" id="resetTakeBtn" type="button">Take削除</button>
       </div>
-      <div class="save-note">ブラウザ保存はこの端末の localStorage。<b>.mid 保存</b>は、RECしたTakeがあればTakeを、なければ上のグリッドをStandard MIDI Fileとして書き出します。マイク録音やWAV書き出しは次段階。</div>
+      <div class="save-note">ブラウザ保存はこの端末の localStorage。MIDI書き出しは <b>REC Take → Draw → Grid</b> の順で、存在する演奏データを保存する。Drawの滑らかな線は16分音符へ近似。</div>
     </section>
-
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
   </main>
-
   <script>
     (() => {
       const NOTES = [
-        { name: 'C5', midi: 72, key: ';' },
-        { name: 'B4', midi: 71, key: 'l' },
-        { name: 'A4', midi: 69, key: 'k' },
-        { name: 'G4', midi: 67, key: 'j' },
-        { name: 'F4', midi: 65, key: 'f' },
-        { name: 'E4', midi: 64, key: 'd' },
-        { name: 'D4', midi: 62, key: 's' },
-        { name: 'C4', midi: 60, key: 'a' }
+        { name: 'C5', midi: 72, key: ';' }, { name: 'B4', midi: 71, key: 'l' },
+        { name: 'A4', midi: 69, key: 'k' }, { name: 'G4', midi: 67, key: 'j' },
+        { name: 'F4', midi: 65, key: 'f' }, { name: 'E4', midi: 64, key: 'd' },
+        { name: 'D4', midi: 62, key: 's' }, { name: 'C4', midi: 60, key: 'a' }
       ];
       const KEYBOARD_NOTES = [...NOTES].reverse();
       const STEPS = 16;
       const STORAGE_KEY = 'chappy-midi-sketch-v1';
-
+      const MAX_STROKES = 24;
+      const MAX_POINTS_PER_STROKE = 1200;
+      const drawCanvas = document.getElementById('drawCanvas');
+      const drawCtx = drawCanvas.getContext('2d');
+      const drawPlayBtn = document.getElementById('drawPlayBtn');
+      const drawToGridBtn = document.getElementById('drawToGridBtn');
+      const drawClearBtn = document.getElementById('drawClearBtn');
+      const drawInfo = document.getElementById('drawInfo');
       const roll = document.getElementById('roll');
       const keyboard = document.getElementById('keyboard');
       const playBtn = document.getElementById('playBtn');
@@ -186,9 +225,17 @@
       const exportMidiBtn = document.getElementById('exportMidiBtn');
       const resetTakeBtn = document.getElementById('resetTakeBtn');
       const toast = document.getElementById('toast');
-
       let audioCtx = null;
       let grid = NOTES.map(() => Array(STEPS).fill(false));
+      let strokes = [];
+      let currentStroke = null;
+      let drawPointerId = null;
+      let drawVoice = null;
+      let drawPlaying = false;
+      let drawStartedAt = 0;
+      let drawRaf = null;
+      let drawPlaybackVoices = [];
+      let drawPlayhead = null;
       let playing = false;
       let playStep = -1;
       let playTimer = null;
@@ -198,22 +245,17 @@
       let activeLive = new Map();
       let takeTimers = [];
       let toastTimer = null;
-
       function clampBpm(value) {
         const n = Number(value);
         return Number.isFinite(n) ? Math.max(50, Math.min(220, Math.round(n))) : 110;
       }
-
-      function midiToHz(midi) {
-        return 440 * Math.pow(2, (midi - 69) / 12);
-      }
-
+      function midiToHz(midi) { return 440 * Math.pow(2, (midi - 69) / 12); }
+      function yToMidi(y) { return 72 - Math.max(0, Math.min(1, y)) * 12; }
       function ensureAudio() {
         if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
         if (audioCtx.state === 'suspended') audioCtx.resume();
         return audioCtx;
       }
-
       function beep(midi, duration = 0.19, velocity = 0.18) {
         const ctx = ensureAudio();
         const now = ctx.currentTime;
@@ -228,405 +270,457 @@
         osc.start(now);
         osc.stop(now + Math.max(0.06, duration) + 0.03);
       }
-
-      function startLiveNote(midi) {
-        ensureAudio();
-        if (activeLive.has(midi)) return;
-        const ctx = audioCtx;
+      function createVoice(initialMidi = 60, level = 0.15) {
+        const ctx = ensureAudio();
         const now = ctx.currentTime;
         const osc = ctx.createOscillator();
         const gain = ctx.createGain();
         osc.type = 'triangle';
-        osc.frequency.value = midiToHz(midi);
+        osc.frequency.setValueAtTime(midiToHz(initialMidi), now);
         gain.gain.setValueAtTime(0.0001, now);
-        gain.gain.exponentialRampToValueAtTime(0.2, now + 0.01);
+        gain.gain.exponentialRampToValueAtTime(level, now + 0.012);
         osc.connect(gain).connect(ctx.destination);
         osc.start(now);
-        activeLive.set(midi, { osc, gain, startedAt: performance.now() });
-
+        return { osc, gain };
+      }
+      function stopVoice(voice, release = 0.06) {
+        if (!voice || !audioCtx) return;
+        const now = audioCtx.currentTime;
+        try {
+          voice.gain.gain.cancelScheduledValues(now);
+          voice.gain.gain.setValueAtTime(Math.max(0.0001, voice.gain.gain.value || 0.12), now);
+          voice.gain.gain.exponentialRampToValueAtTime(0.0001, now + release);
+          voice.osc.stop(now + release + 0.02);
+        } catch (_) {}
+      }
+      function startLiveNote(midi) {
+        ensureAudio();
+        if (activeLive.has(midi)) return;
+        const voice = createVoice(midi, 0.2);
+        activeLive.set(midi, { ...voice, startedAt: performance.now() });
         if (recording) {
           take.push({ type: 'on', midi, time: Math.max(0, performance.now() - recordStartedAt), velocity: 100 });
           updateTakeInfo();
         }
       }
-
       function stopLiveNote(midi) {
         const voice = activeLive.get(midi);
         if (!voice) return;
-        const now = audioCtx.currentTime;
-        voice.gain.gain.cancelScheduledValues(now);
-        voice.gain.gain.setValueAtTime(Math.max(0.0001, voice.gain.gain.value || 0.18), now);
-        voice.gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.06);
-        voice.osc.stop(now + 0.07);
+        stopVoice(voice);
         activeLive.delete(midi);
-
         if (recording) {
           take.push({ type: 'off', midi, time: Math.max(0, performance.now() - recordStartedAt), velocity: 0 });
           updateTakeInfo();
         }
       }
-
-      function stopAllLive() {
-        [...activeLive.keys()].forEach(stopLiveNote);
+      function stopAllLive() { [...activeLive.keys()].forEach(stopLiveNote); }
+      function canvasPoint(event) {
+        const rect = drawCanvas.getBoundingClientRect();
+        return {
+          x: Math.max(0, Math.min(1, (event.clientX - rect.left) / Math.max(1, rect.width))),
+          y: Math.max(0, Math.min(1, (event.clientY - rect.top) / Math.max(1, rect.height))),
+          p: event.pressure && event.pressure > 0 ? event.pressure : 0.45,
+          t: performance.now()
+        };
       }
-
+      function resizeCanvas() {
+        const rect = drawCanvas.getBoundingClientRect();
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        const w = Math.max(1, Math.round(rect.width * dpr));
+        const h = Math.max(1, Math.round(rect.height * dpr));
+        if (drawCanvas.width !== w || drawCanvas.height !== h) {
+          drawCanvas.width = w; drawCanvas.height = h;
+        }
+        drawCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        renderDraw();
+      }
+      function renderDraw() {
+        const rect = drawCanvas.getBoundingClientRect();
+        const w = rect.width, h = rect.height;
+        if (!w || !h) return;
+        drawCtx.clearRect(0, 0, w, h);
+        drawCtx.fillStyle = '#0b1118';
+        drawCtx.fillRect(0, 0, w, h);
+        drawCtx.lineWidth = 1;
+        for (let i = 0; i <= 16; i++) {
+          const x = (i / 16) * w;
+          drawCtx.strokeStyle = i % 4 === 0 ? 'rgba(124,156,255,.16)' : 'rgba(255,255,255,.045)';
+          drawCtx.beginPath(); drawCtx.moveTo(x, 0); drawCtx.lineTo(x, h); drawCtx.stroke();
+        }
+        NOTES.forEach((note, index) => {
+          const y = (index / (NOTES.length - 1)) * h;
+          drawCtx.strokeStyle = 'rgba(255,255,255,.055)';
+          drawCtx.beginPath(); drawCtx.moveTo(0, y); drawCtx.lineTo(w, y); drawCtx.stroke();
+          drawCtx.fillStyle = 'rgba(185,196,214,.42)';
+          drawCtx.font = '800 9px system-ui, sans-serif';
+          drawCtx.fillText(note.name, 7, Math.max(11, Math.min(h - 5, y + 3)));
+        });
+        const all = currentStroke ? [...strokes, currentStroke] : strokes;
+        all.forEach((stroke, index) => {
+          if (!stroke.points || stroke.points.length < 2) return;
+          drawCtx.lineCap = 'round'; drawCtx.lineJoin = 'round';
+          drawCtx.strokeStyle = index === all.length - 1 && currentStroke ? '#9cf1cf' : 'rgba(124,156,255,.86)';
+          drawCtx.lineWidth = 2.4;
+          drawCtx.beginPath();
+          stroke.points.forEach((point, i) => {
+            const x = point.x * w, y = point.y * h;
+            if (i === 0) drawCtx.moveTo(x, y); else drawCtx.lineTo(x, y);
+          });
+          drawCtx.stroke();
+        });
+        if (drawPlayhead !== null) {
+          const x = drawPlayhead * w;
+          drawCtx.strokeStyle = '#67e8b7'; drawCtx.lineWidth = 2;
+          drawCtx.beginPath(); drawCtx.moveTo(x, 0); drawCtx.lineTo(x, h); drawCtx.stroke();
+        }
+      }
+      function updateDrawInfo() {
+        const pointCount = strokes.reduce((sum, stroke) => sum + stroke.points.length, 0);
+        drawInfo.textContent = strokes.length ? `${strokes.length} stroke${strokes.length === 1 ? '' : 's'} · ${pointCount} points · 1 bar` : '0 strokes · 指で線を描いてください';
+      }
+      function beginDraw(event) {
+        if (drawPlaying) stopDrawPlayback();
+        event.preventDefault();
+        drawPointerId = event.pointerId;
+        drawCanvas.setPointerCapture?.(event.pointerId);
+        const point = canvasPoint(event);
+        currentStroke = { points: [point] };
+        drawVoice = createVoice(yToMidi(point.y), 0.13);
+        renderDraw();
+      }
+      function moveDraw(event) {
+        if (!currentStroke || event.pointerId !== drawPointerId) return;
+        event.preventDefault();
+        const point = canvasPoint(event);
+        const prev = currentStroke.points[currentStroke.points.length - 1];
+        const rect = drawCanvas.getBoundingClientRect();
+        const distancePx = Math.hypot((point.x - prev.x) * rect.width, (point.y - prev.y) * rect.height);
+        if (distancePx < 2.5 && currentStroke.points.length > 1) return;
+        if (currentStroke.points.length < MAX_POINTS_PER_STROKE) currentStroke.points.push(point);
+        if (drawVoice && audioCtx) {
+          const now = audioCtx.currentTime;
+          const dt = Math.max(1, point.t - prev.t);
+          const speed = Math.min(1, distancePx / dt / 1.4);
+          const level = Math.max(0.055, Math.min(0.22, 0.07 + speed * 0.10 + point.p * 0.05));
+          drawVoice.osc.frequency.cancelScheduledValues(now);
+          drawVoice.osc.frequency.linearRampToValueAtTime(midiToHz(yToMidi(point.y)), now + 0.025);
+          drawVoice.gain.gain.cancelScheduledValues(now);
+          drawVoice.gain.gain.linearRampToValueAtTime(level, now + 0.025);
+        }
+        renderDraw();
+      }
+      function endDraw(event) {
+        if (!currentStroke || (event && event.pointerId !== drawPointerId)) return;
+        event?.preventDefault();
+        stopVoice(drawVoice); drawVoice = null; drawPointerId = null;
+        if (currentStroke.points.length >= 2) {
+          strokes.push(currentStroke);
+          if (strokes.length > MAX_STROKES) strokes.shift();
+        }
+        currentStroke = null; updateDrawInfo(); renderDraw();
+      }
+      drawCanvas.addEventListener('pointerdown', beginDraw);
+      drawCanvas.addEventListener('pointermove', moveDraw);
+      drawCanvas.addEventListener('pointerup', endDraw);
+      drawCanvas.addEventListener('pointercancel', endDraw);
+      drawCanvas.addEventListener('lostpointercapture', endDraw);
+      function sampleStrokeAtX(stroke, x) {
+        if (!stroke.points || stroke.points.length < 2) return null;
+        const sorted = stroke._sorted || (stroke._sorted = [...stroke.points].sort((a,b) => a.x - b.x));
+        if (x < sorted[0].x || x > sorted[sorted.length - 1].x) return null;
+        let lo = 0, hi = sorted.length - 1;
+        while (hi - lo > 1) {
+          const mid = (lo + hi) >> 1;
+          if (sorted[mid].x <= x) lo = mid; else hi = mid;
+        }
+        const a = sorted[lo], b = sorted[hi];
+        const span = Math.max(0.0001, b.x - a.x);
+        const mix = Math.max(0, Math.min(1, (x - a.x) / span));
+        return { y: a.y + (b.y - a.y) * mix, p: a.p + (b.p - a.p) * mix };
+      }
+      function drawDurationMs() { return (60000 / clampBpm(bpmInput.value)) * 4; }
+      function stopDrawPlayback() {
+        drawPlaying = false;
+        cancelAnimationFrame(drawRaf); drawRaf = null;
+        drawPlaybackVoices.forEach(stopVoice); drawPlaybackVoices = [];
+        drawPlayhead = null; drawPlayBtn.textContent = 'DRAW ▶'; renderDraw();
+      }
+      function drawFrame(now) {
+        if (!drawPlaying) return;
+        const progress = Math.min(1, (now - drawStartedAt) / drawDurationMs());
+        drawPlayhead = progress;
+        const ctx = ensureAudio(); const at = ctx.currentTime;
+        strokes.forEach((stroke, index) => {
+          const sample = sampleStrokeAtX(stroke, progress);
+          const voice = drawPlaybackVoices[index];
+          if (!voice) return;
+          const targetGain = sample ? Math.max(0.05, Math.min(0.17, 0.09 + sample.p * 0.08)) : 0.0001;
+          voice.gain.gain.cancelScheduledValues(at);
+          voice.gain.gain.linearRampToValueAtTime(targetGain, at + 0.018);
+          if (sample) {
+            voice.osc.frequency.cancelScheduledValues(at);
+            voice.osc.frequency.linearRampToValueAtTime(midiToHz(yToMidi(sample.y)), at + 0.018);
+          }
+        });
+        renderDraw();
+        if (progress >= 1) { stopDrawPlayback(); return; }
+        drawRaf = requestAnimationFrame(drawFrame);
+      }
+      drawPlayBtn.addEventListener('click', () => {
+        if (!strokes.length) return showToast('先に線を描いてください');
+        if (drawPlaying) return stopDrawPlayback();
+        stopGridPlayback(); stopTakePlayback(); ensureAudio();
+        drawPlaybackVoices = strokes.map(stroke => {
+          const voice = createVoice(yToMidi(stroke.points[0].y), 0.0002);
+          voice.gain.gain.setValueAtTime(0.0001, audioCtx.currentTime);
+          return voice;
+        });
+        drawPlaying = true; drawStartedAt = performance.now(); drawPlayBtn.textContent = '■ STOP';
+        drawRaf = requestAnimationFrame(drawFrame);
+      });
+      drawClearBtn.addEventListener('click', () => {
+        stopDrawPlayback(); strokes = []; currentStroke = null; updateDrawInfo(); renderDraw(); showToast('Drawをクリアしました');
+      });
+      function nearestNoteRow(midi) {
+        let best = 0, bestDiff = Infinity;
+        NOTES.forEach((note, row) => {
+          const diff = Math.abs(note.midi - midi);
+          if (diff < bestDiff) { best = row; bestDiff = diff; }
+        });
+        return best;
+      }
+      function drawToGrid() {
+        if (!strokes.length) return showToast('先に線を描いてください');
+        let added = 0;
+        strokes.forEach(stroke => {
+          for (let step = 0; step < STEPS; step++) {
+            const sample = sampleStrokeAtX(stroke, (step + 0.5) / STEPS);
+            if (!sample) continue;
+            const row = nearestNoteRow(yToMidi(sample.y));
+            if (!grid[row][step]) added++;
+            grid[row][step] = true;
+          }
+        });
+        renderRoll(); updateGridCount(); showToast(`DrawをGridへ変換しました · ${added} notes`);
+      }
+      drawToGridBtn.addEventListener('click', drawToGrid);
       function renderRoll() {
         roll.innerHTML = '';
-        const corner = document.createElement('div');
-        corner.className = 'corner';
-        corner.textContent = 'NOTE';
-        roll.appendChild(corner);
+        const corner = document.createElement('div'); corner.className = 'corner'; corner.textContent = 'NOTE'; roll.appendChild(corner);
         for (let step = 0; step < STEPS; step++) {
-          const head = document.createElement('div');
-          head.className = 'step-no';
-          head.textContent = String(step + 1);
-          roll.appendChild(head);
+          const head = document.createElement('div'); head.className = 'step-no'; head.textContent = String(step + 1); roll.appendChild(head);
         }
-
         NOTES.forEach((note, row) => {
-          const label = document.createElement('div');
-          label.className = 'note-label';
-          label.textContent = note.name;
-          roll.appendChild(label);
+          const label = document.createElement('div'); label.className = 'note-label'; label.textContent = note.name; roll.appendChild(label);
           for (let step = 0; step < STEPS; step++) {
-            const cell = document.createElement('button');
-            cell.type = 'button';
+            const cell = document.createElement('button'); cell.type = 'button';
             cell.className = 'cell' + (step % 4 === 0 ? ' beat' : '') + (grid[row][step] ? ' on' : '') + (playStep === step ? ' playhead' : '');
-            cell.dataset.row = String(row);
-            cell.dataset.step = String(step);
-            cell.setAttribute('aria-label', `${note.name} step ${step + 1}`);
-            cell.setAttribute('aria-pressed', String(grid[row][step]));
-            cell.addEventListener('click', () => {
-              grid[row][step] = !grid[row][step];
-              beep(note.midi, 0.16);
-              renderRoll();
-              updateGridCount();
-            });
+            cell.dataset.row = String(row); cell.dataset.step = String(step);
+            cell.setAttribute('aria-label', `${note.name} step ${step + 1}`); cell.setAttribute('aria-pressed', String(grid[row][step]));
+            cell.addEventListener('click', () => { grid[row][step] = !grid[row][step]; beep(note.midi, 0.16); renderRoll(); updateGridCount(); });
             roll.appendChild(cell);
           }
         });
       }
-
       function updateGridCount() {
         const count = grid.flat().filter(Boolean).length;
         gridCount.textContent = `${count} note${count === 1 ? '' : 's'}`;
       }
-
       function scheduleNextStep() {
         if (!playing) return;
-        const bpm = clampBpm(bpmInput.value);
-        bpmInput.value = bpm;
+        const bpm = clampBpm(bpmInput.value); bpmInput.value = bpm;
         playStep = (playStep + 1) % STEPS;
-        NOTES.forEach((note, row) => {
-          if (grid[row][playStep]) beep(note.midi, (60 / bpm) * 0.22, 0.15);
-        });
-        renderRoll();
-        const stepMs = (60000 / bpm) / 4;
-        playTimer = setTimeout(scheduleNextStep, stepMs);
+        NOTES.forEach((note, row) => { if (grid[row][playStep]) beep(note.midi, (60 / bpm) * 0.22, 0.15); });
+        renderRoll(); playTimer = setTimeout(scheduleNextStep, (60000 / bpm) / 4);
       }
-
       function stopGridPlayback() {
-        playing = false;
-        clearTimeout(playTimer);
-        playTimer = null;
-        playStep = -1;
-        playBtn.textContent = '▶ PLAY';
-        renderRoll();
+        playing = false; clearTimeout(playTimer); playTimer = null; playStep = -1; playBtn.textContent = '▶ PLAY'; renderRoll();
       }
-
       playBtn.addEventListener('click', () => {
         ensureAudio();
-        if (playing) {
-          stopGridPlayback();
-        } else {
-          playing = true;
-          playStep = -1;
-          playBtn.textContent = '■ STOP';
-          scheduleNextStep();
-        }
+        if (playing) stopGridPlayback();
+        else { stopDrawPlayback(); stopTakePlayback(); playing = true; playStep = -1; playBtn.textContent = '■ STOP'; scheduleNextStep(); }
       });
-
       clearBtn.addEventListener('click', () => {
-        grid = NOTES.map(() => Array(STEPS).fill(false));
-        stopGridPlayback();
-        updateGridCount();
-        showToast('グリッドをクリアしました');
+        grid = NOTES.map(() => Array(STEPS).fill(false)); stopGridPlayback(); updateGridCount(); showToast('グリッドをクリアしました');
       });
-
-      bpmInput.addEventListener('change', () => {
-        bpmInput.value = clampBpm(bpmInput.value);
-      });
-
+      bpmInput.addEventListener('change', () => { bpmInput.value = clampBpm(bpmInput.value); });
       function renderKeyboard() {
         keyboard.innerHTML = '';
         KEYBOARD_NOTES.forEach(note => {
-          const key = document.createElement('button');
-          key.type = 'button';
-          key.className = 'key';
-          key.dataset.midi = String(note.midi);
+          const key = document.createElement('button'); key.type = 'button'; key.className = 'key'; key.dataset.midi = String(note.midi);
           key.innerHTML = `<span>${note.name}</span><small>${note.key.toUpperCase()}</small>`;
-
-          const down = (event) => {
-            event.preventDefault();
-            key.setPointerCapture?.(event.pointerId);
-            key.classList.add('active');
-            startLiveNote(note.midi);
-          };
-          const up = (event) => {
-            event.preventDefault();
-            key.classList.remove('active');
-            stopLiveNote(note.midi);
-          };
-          key.addEventListener('pointerdown', down);
-          key.addEventListener('pointerup', up);
-          key.addEventListener('pointercancel', up);
-          key.addEventListener('lostpointercapture', () => {
-            key.classList.remove('active');
-            stopLiveNote(note.midi);
-          });
+          const down = event => { event.preventDefault(); key.setPointerCapture?.(event.pointerId); key.classList.add('active'); startLiveNote(note.midi); };
+          const up = event => { event.preventDefault(); key.classList.remove('active'); stopLiveNote(note.midi); };
+          key.addEventListener('pointerdown', down); key.addEventListener('pointerup', up); key.addEventListener('pointercancel', up);
+          key.addEventListener('lostpointercapture', () => { key.classList.remove('active'); stopLiveNote(note.midi); });
           keyboard.appendChild(key);
         });
       }
-
       function setKeyActive(midi, active) {
         const key = keyboard.querySelector(`[data-midi="${midi}"]`);
         if (key) key.classList.toggle('active', active);
       }
-
       const physicalDown = new Set();
-      window.addEventListener('keydown', (event) => {
+      window.addEventListener('keydown', event => {
         if (event.repeat || event.target.matches('input,textarea,select')) return;
         const note = KEYBOARD_NOTES.find(n => n.key === event.key.toLowerCase());
         if (!note || physicalDown.has(note.midi)) return;
-        physicalDown.add(note.midi);
-        setKeyActive(note.midi, true);
-        startLiveNote(note.midi);
+        physicalDown.add(note.midi); setKeyActive(note.midi, true); startLiveNote(note.midi);
       });
-      window.addEventListener('keyup', (event) => {
+      window.addEventListener('keyup', event => {
         const note = KEYBOARD_NOTES.find(n => n.key === event.key.toLowerCase());
         if (!note) return;
-        physicalDown.delete(note.midi);
-        setKeyActive(note.midi, false);
-        stopLiveNote(note.midi);
+        physicalDown.delete(note.midi); setKeyActive(note.midi, false); stopLiveNote(note.midi);
       });
       window.addEventListener('blur', () => {
-        physicalDown.clear();
-        stopAllLive();
+        physicalDown.clear(); stopAllLive(); stopVoice(drawVoice); drawVoice = null;
         keyboard.querySelectorAll('.key').forEach(el => el.classList.remove('active'));
       });
-
       function toggleRecording() {
         ensureAudio();
         if (!recording) {
-          stopTakePlayback();
-          take = [];
-          recording = true;
-          recordStartedAt = performance.now();
-          recBtn.classList.add('is-recording');
-          recBtn.textContent = '■ STOP REC';
-          recDot.classList.add('live');
-          recLabel.textContent = 'Recording';
-          updateTakeInfo();
-          showToast('REC開始。鍵盤を弾いてください');
+          stopDrawPlayback(); stopGridPlayback(); stopTakePlayback(); take = []; recording = true; recordStartedAt = performance.now();
+          recBtn.classList.add('is-recording'); recBtn.textContent = '■ STOP REC'; recDot.classList.add('live'); recLabel.textContent = 'Recording';
+          updateTakeInfo(); showToast('REC開始。鍵盤を弾いてください');
         } else {
-          stopAllLive();
-          recording = false;
-          recBtn.classList.remove('is-recording');
-          recBtn.textContent = '● REC';
-          recDot.classList.remove('live');
-          recLabel.textContent = take.length ? 'Take ready' : 'Ready';
-          normalizeOpenNotes();
-          updateTakeInfo();
-          showToast('Takeを記録しました');
+          stopAllLive(); recording = false; recBtn.classList.remove('is-recording'); recBtn.textContent = '● REC'; recDot.classList.remove('live');
+          recLabel.textContent = take.length ? 'Take ready' : 'Ready'; normalizeOpenNotes(); updateTakeInfo(); showToast('Takeを記録しました');
         }
       }
-
       function normalizeOpenNotes() {
         const lastTime = take.length ? Math.max(...take.map(e => e.time)) : 0;
         const open = new Map();
-        take.forEach(event => {
-          if (event.type === 'on') open.set(event.midi, event);
-          if (event.type === 'off') open.delete(event.midi);
-        });
+        take.forEach(event => { if (event.type === 'on') open.set(event.midi, event); if (event.type === 'off') open.delete(event.midi); });
         open.forEach((_, midi) => take.push({ type: 'off', midi, time: lastTime + 140, velocity: 0 }));
         take.sort((a,b) => a.time - b.time || (a.type === 'off' ? -1 : 1));
       }
-
-      function takeDuration() {
-        return take.length ? Math.max(...take.map(e => e.time)) : 0;
-      }
-
+      function takeDuration() { return take.length ? Math.max(...take.map(e => e.time)) : 0; }
       function updateTakeInfo() {
         const noteOns = take.filter(e => e.type === 'on').length;
         const duration = recording ? Math.max(0, performance.now() - recordStartedAt) : takeDuration();
         takeInfo.textContent = noteOns ? `${noteOns} notes · ${(duration / 1000).toFixed(2)} sec` : (recording ? 'Listening…' : 'まだTakeはありません');
       }
-
       recBtn.addEventListener('click', toggleRecording);
-
       function stopTakePlayback() {
-        takeTimers.forEach(clearTimeout);
-        takeTimers = [];
-        stopAllLive();
-        takePlayBtn.textContent = 'TAKE ▶';
+        takeTimers.forEach(clearTimeout); takeTimers = []; stopAllLive(); takePlayBtn.textContent = 'TAKE ▶';
+        keyboard.querySelectorAll('.key').forEach(el => el.classList.remove('active'));
       }
-
       takePlayBtn.addEventListener('click', () => {
         if (!take.length) return showToast('先にRECしてください');
-        stopTakePlayback();
-        ensureAudio();
-        takePlayBtn.textContent = 'PLAYING…';
+        stopDrawPlayback(); stopGridPlayback(); stopTakePlayback(); ensureAudio(); takePlayBtn.textContent = 'PLAYING…';
         take.forEach(event => {
           const timer = setTimeout(() => {
-            if (event.type === 'on') {
-              setKeyActive(event.midi, true);
-              startLiveNote(event.midi);
-            } else {
-              setKeyActive(event.midi, false);
-              stopLiveNote(event.midi);
-            }
+            if (event.type === 'on') { setKeyActive(event.midi, true); startLiveNote(event.midi); }
+            else { setKeyActive(event.midi, false); stopLiveNote(event.midi); }
           }, event.time);
           takeTimers.push(timer);
         });
-        takeTimers.push(setTimeout(() => {
-          keyboard.querySelectorAll('.key').forEach(el => el.classList.remove('active'));
-          stopTakePlayback();
-        }, takeDuration() + 120));
+        takeTimers.push(setTimeout(() => { keyboard.querySelectorAll('.key').forEach(el => el.classList.remove('active')); stopTakePlayback(); }, takeDuration() + 120));
       });
-
       toGridBtn.addEventListener('click', () => {
         if (!take.length) return showToast('先にRECしてください');
-        const bpm = clampBpm(bpmInput.value);
-        const stepMs = (60000 / bpm) / 4;
+        const bpm = clampBpm(bpmInput.value); const stepMs = (60000 / bpm) / 4;
         take.filter(e => e.type === 'on').forEach(event => {
           const step = Math.min(STEPS - 1, Math.max(0, Math.round(event.time / stepMs) % STEPS));
-          const row = NOTES.findIndex(n => n.midi === event.midi);
-          if (row >= 0) grid[row][step] = true;
+          const row = NOTES.findIndex(n => n.midi === event.midi); if (row >= 0) grid[row][step] = true;
         });
-        renderRoll();
-        updateGridCount();
-        showToast('Takeを16ステップへ量子化しました');
+        renderRoll(); updateGridCount(); showToast('Takeを16ステップへ量子化しました');
       });
-
-      function saveProject() {
-        const payload = { version: 1, bpm: clampBpm(bpmInput.value), grid, take, savedAt: new Date().toISOString() };
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
-        showToast('このブラウザに保存しました');
+      function serializableStrokes() {
+        return strokes.map(stroke => ({ points: stroke.points.map(({x,y,p,t}) => ({ x, y, p, t })) }));
       }
-
+      function saveProject() {
+        const payload = { version: 2, bpm: clampBpm(bpmInput.value), grid, take, strokes: serializableStrokes(), savedAt: new Date().toISOString() };
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
+        showToast('Grid / Draw / Takeをこのブラウザに保存しました');
+      }
       function loadProject() {
         try {
-          const raw = localStorage.getItem(STORAGE_KEY);
-          if (!raw) return;
+          const raw = localStorage.getItem(STORAGE_KEY); if (!raw) return;
           const saved = JSON.parse(raw);
-          if (Array.isArray(saved.grid) && saved.grid.length === NOTES.length) {
-            grid = saved.grid.map(row => Array.from({length: STEPS}, (_, i) => Boolean(row?.[i])));
-          }
+          if (Array.isArray(saved.grid) && saved.grid.length === NOTES.length) grid = saved.grid.map(row => Array.from({length: STEPS}, (_, i) => Boolean(row?.[i])));
           if (Array.isArray(saved.take)) take = saved.take.filter(e => ['on','off'].includes(e.type) && Number.isFinite(e.midi) && Number.isFinite(e.time));
-          bpmInput.value = clampBpm(saved.bpm);
-          recLabel.textContent = take.length ? 'Take ready' : 'Ready';
-        } catch (error) {
-          console.warn('Could not load MIDI Sketch save', error);
-        }
+          if (Array.isArray(saved.strokes)) {
+            strokes = saved.strokes.slice(-MAX_STROKES).map(stroke => ({
+              points: Array.isArray(stroke.points) ? stroke.points.slice(0, MAX_POINTS_PER_STROKE).filter(p => Number.isFinite(p.x) && Number.isFinite(p.y)).map(p => ({
+                x: Math.max(0, Math.min(1, p.x)), y: Math.max(0, Math.min(1, p.y)), p: Number.isFinite(p.p) ? Math.max(0, Math.min(1, p.p)) : 0.45, t: Number.isFinite(p.t) ? p.t : 0
+              })) : []
+            })).filter(stroke => stroke.points.length >= 2);
+          }
+          bpmInput.value = clampBpm(saved.bpm); recLabel.textContent = take.length ? 'Take ready' : 'Ready';
+        } catch (error) { console.warn('Could not load MIDI Sketch save', error); }
       }
-
       saveBtn.addEventListener('click', saveProject);
-
-      resetTakeBtn.addEventListener('click', () => {
-        stopTakePlayback();
-        take = [];
-        recLabel.textContent = 'Ready';
-        updateTakeInfo();
-        showToast('Takeを削除しました');
-      });
-
+      resetTakeBtn.addEventListener('click', () => { stopTakePlayback(); take = []; recLabel.textContent = 'Ready'; updateTakeInfo(); showToast('Takeを削除しました'); });
       function encodeVarLen(value) {
-        let buffer = value & 0x7f;
-        const bytes = [];
-        while ((value >>= 7)) {
-          buffer <<= 8;
-          buffer |= ((value & 0x7f) | 0x80);
-        }
-        while (true) {
-          bytes.push(buffer & 0xff);
-          if (buffer & 0x80) buffer >>= 8;
-          else break;
-        }
+        let buffer = value & 0x7f; const bytes = [];
+        while ((value >>= 7)) { buffer <<= 8; buffer |= ((value & 0x7f) | 0x80); }
+        while (true) { bytes.push(buffer & 0xff); if (buffer & 0x80) buffer >>= 8; else break; }
         return bytes;
       }
-
-      function u32(value) {
-        return [(value >>> 24) & 255, (value >>> 16) & 255, (value >>> 8) & 255, value & 255];
+      function u32(value) { return [(value >>> 24) & 255, (value >>> 16) & 255, (value >>> 8) & 255, value & 255]; }
+      function makeDrawMidiEvents(ticksPerBeat) {
+        const events = []; const ticksPerStep = ticksPerBeat / 4;
+        strokes.forEach(stroke => {
+          for (let step = 0; step < STEPS; step++) {
+            const sample = sampleStrokeAtX(stroke, (step + 0.5) / STEPS); if (!sample) continue;
+            const row = nearestNoteRow(yToMidi(sample.y)); const midi = NOTES[row].midi;
+            const velocity = Math.max(50, Math.min(118, Math.round(72 + sample.p * 42)));
+            const start = Math.round(step * ticksPerStep); const end = Math.round(start + ticksPerStep * 0.82);
+            events.push({ tick: start, bytes: [0x90, midi, velocity] }); events.push({ tick: end, bytes: [0x80, midi, 0] });
+          }
+        });
+        return events;
       }
-
       function makeMidiEvents() {
-        const bpm = clampBpm(bpmInput.value);
-        const ticksPerBeat = 480;
-        const events = [];
+        const bpm = clampBpm(bpmInput.value); const ticksPerBeat = 480; const events = []; let source = 'grid';
         if (take.some(e => e.type === 'on')) {
-          const tickPerMs = ticksPerBeat * bpm / 60000;
-          take.forEach(event => {
-            events.push({ tick: Math.max(0, Math.round(event.time * tickPerMs)), bytes: [event.type === 'on' ? 0x90 : 0x80, event.midi & 0x7f, event.type === 'on' ? (event.velocity || 100) : 0] });
-          });
+          source = 'take'; const tickPerMs = ticksPerBeat * bpm / 60000;
+          take.forEach(event => events.push({ tick: Math.max(0, Math.round(event.time * tickPerMs)), bytes: [event.type === 'on' ? 0x90 : 0x80, event.midi & 0x7f, event.type === 'on' ? (event.velocity || 100) : 0] }));
+        } else if (strokes.length) {
+          source = 'draw'; events.push(...makeDrawMidiEvents(ticksPerBeat));
         } else {
           const ticksPerStep = ticksPerBeat / 4;
           NOTES.forEach((note, row) => {
             for (let step = 0; step < STEPS; step++) {
               if (!grid[row][step]) continue;
-              const start = Math.round(step * ticksPerStep);
-              const end = Math.round(start + ticksPerStep * 0.82);
-              events.push({ tick: start, bytes: [0x90, note.midi, 100] });
-              events.push({ tick: end, bytes: [0x80, note.midi, 0] });
+              const start = Math.round(step * ticksPerStep), end = Math.round(start + ticksPerStep * 0.82);
+              events.push({ tick: start, bytes: [0x90, note.midi, 100] }); events.push({ tick: end, bytes: [0x80, note.midi, 0] });
             }
           });
         }
-        return { bpm, ticksPerBeat, events };
+        return { bpm, ticksPerBeat, events, source };
       }
-
       function buildMidiBlob() {
-        const { bpm, ticksPerBeat, events } = makeMidiEvents();
+        const { bpm, ticksPerBeat, events, source } = makeMidiEvents();
         events.sort((a,b) => a.tick - b.tick || (a.bytes[0] === 0x80 ? -1 : 1));
         const tempo = Math.round(60000000 / bpm);
         const track = [0x00, 0xff, 0x51, 0x03, (tempo >> 16) & 255, (tempo >> 8) & 255, tempo & 255];
         let previousTick = 0;
-        events.forEach(event => {
-          const delta = Math.max(0, event.tick - previousTick);
-          track.push(...encodeVarLen(delta), ...event.bytes);
-          previousTick = event.tick;
-        });
+        events.forEach(event => { const delta = Math.max(0, event.tick - previousTick); track.push(...encodeVarLen(delta), ...event.bytes); previousTick = event.tick; });
         track.push(0x00, 0xff, 0x2f, 0x00);
         const header = [0x4d,0x54,0x68,0x64, 0x00,0x00,0x00,0x06, 0x00,0x00, 0x00,0x01, (ticksPerBeat >> 8) & 255, ticksPerBeat & 255];
         const chunk = [0x4d,0x54,0x72,0x6b, ...u32(track.length), ...track];
-        return new Blob([new Uint8Array([...header, ...chunk])], { type: 'audio/midi' });
+        return { blob: new Blob([new Uint8Array([...header, ...chunk])], { type: 'audio/midi' }), source };
       }
-
       exportMidiBtn.addEventListener('click', () => {
-        const hasData = take.some(e => e.type === 'on') || grid.flat().some(Boolean);
-        if (!hasData) return showToast('音を置くかRECしてから保存してください');
-        const blob = buildMidiBlob();
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = `midi-sketch-${new Date().toISOString().slice(0,19).replace(/[:T]/g,'-')}.mid`;
-        document.body.appendChild(a);
-        a.click();
-        a.remove();
-        setTimeout(() => URL.revokeObjectURL(url), 1000);
-        showToast(take.some(e => e.type === 'on') ? 'REC TakeをMIDI保存しました' : 'GridをMIDI保存しました');
+        const hasData = take.some(e => e.type === 'on') || strokes.length || grid.flat().some(Boolean);
+        if (!hasData) return showToast('音を描く・置く・RECしてから保存してください');
+        const { blob, source } = buildMidiBlob(); const url = URL.createObjectURL(blob); const a = document.createElement('a');
+        a.href = url; a.download = `midi-sketch-${new Date().toISOString().slice(0,19).replace(/[:T]/g,'-')}.mid`;
+        document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(url), 1000);
+        if (source === 'take') showToast('REC TakeをMIDI保存しました');
+        else if (source === 'draw') showToast('Drawを16分音符へ近似してMIDI保存しました');
+        else showToast('GridをMIDI保存しました');
       });
-
       function showToast(message) {
-        clearTimeout(toastTimer);
-        toast.textContent = message;
-        toast.classList.add('show');
+        clearTimeout(toastTimer); toast.textContent = message; toast.classList.add('show');
         toastTimer = setTimeout(() => toast.classList.remove('show'), 1800);
       }
-
-      loadProject();
-      renderRoll();
-      renderKeyboard();
-      updateGridCount();
-      updateTakeInfo();
+      loadProject(); renderRoll(); renderKeyboard(); updateGridCount(); updateTakeInfo(); updateDrawInfo(); resizeCanvas();
+      if ('ResizeObserver' in window) new ResizeObserver(resizeCanvas).observe(drawCanvas);
+      else window.addEventListener('resize', resizeCanvas);
     })();
   </script>
 </body>
