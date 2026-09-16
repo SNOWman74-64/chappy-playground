@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#f4f6f4" />
+  <title>LIFTLOG Tactile Lab</title>
+  <style>
+    :root{
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      color:#182019;background:#eef2ee;
+      --green:#2f7d51;--green2:#7ecb9b;--ink:#182019;--muted:#6d786f;
+    }
+    *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+    body{margin:0;min-height:100svh;background:linear-gradient(180deg,#f7f9f7,#edf2ee);padding:max(18px,env(safe-area-inset-top)) 16px max(24px,env(safe-area-inset-bottom))}
+    main{width:min(100%,430px);margin:0 auto}
+    header{padding:10px 4px 18px}
+    .eyebrow{font-size:11px;font-weight:850;letter-spacing:.13em;color:var(--green)}
+    h1{margin:6px 0 8px;font-size:34px;line-height:1;letter-spacing:-.045em}
+    .lead{margin:0;color:var(--muted);font-size:13px;line-height:1.65}
+    .card{position:relative;overflow:hidden;background:rgba(255,255,255,.88);border:1px solid rgba(31,53,39,.08);border-radius:26px;padding:18px;box-shadow:0 18px 50px rgba(52,76,59,.09),inset 0 1px #fff;transition:transform .28s cubic-bezier(.2,.8,.2,1),box-shadow .28s ease}
+    .card.locked{transform:scale(.985);box-shadow:0 7px 20px rgba(52,76,59,.08),inset 0 0 0 2px rgba(47,125,81,.14)}
+    .row{display:flex;justify-content:space-between;align-items:center;gap:12px}
+    .title{font-size:18px;font-weight:850;letter-spacing:-.03em}.sub{margin-top:4px;color:var(--muted);font-size:12px}
+    .badge{min-width:46px;text-align:center;border-radius:999px;padding:7px 9px;background:#edf7f0;color:var(--green);font-size:11px;font-weight:900}
+    .weight{margin:26px 0 18px;display:flex;align-items:end;gap:6px}.weight strong{font-size:58px;line-height:.85;letter-spacing:-.065em}.weight span{font-size:15px;font-weight:800;color:var(--muted);padding-bottom:5px}
+    .setline{display:grid;grid-template-columns:1fr auto;align-items:center;gap:12px;border-top:1px solid #edf0ed;padding:15px 0 0}
+    .setcopy strong{display:block;font-size:14px}.setcopy span{font-size:11px;color:var(--muted)}
+    button{border:0;font:inherit;cursor:pointer;touch-action:manipulation}
+    .check{position:relative;width:62px;height:62px;border-radius:20px;background:linear-gradient(180deg,#438d61,#2f7d51);color:white;font-size:25px;font-weight:1000;box-shadow:0 7px 0 #215f3d,0 14px 24px rgba(47,125,81,.2),inset 0 1px rgba(255,255,255,.28);transform:translateY(0);transition:transform .12s ease,box-shadow .12s ease,filter .2s ease}
+    .check:active,.check.press{transform:translateY(6px) scale(.97);box-shadow:0 1px 0 #215f3d,0 5px 12px rgba(47,125,81,.18),inset 0 1px rgba(255,255,255,.2)}
+    .check.done{filter:saturate(.72);background:linear-gradient(180deg,#6fa983,#538868)}
+    .rail{height:6px;border-radius:999px;background:#e6ece7;margin:20px 0 6px;overflow:hidden}.rail i{display:block;height:100%;width:25%;border-radius:inherit;background:var(--green);transition:width .38s cubic-bezier(.2,.8,.2,1)}
+    .status{height:17px;font-size:11px;font-weight:850;letter-spacing:.07em;color:var(--green);opacity:0;transform:translateY(5px);transition:.25s ease}.status.show{opacity:1;transform:none}
+    .actions{display:grid;gap:10px;margin-top:14px}.btn{min-height:52px;border-radius:18px;padding:0 16px;font-weight:850;letter-spacing:-.01em;transition:transform .14s ease,box-shadow .14s ease}.btn:active{transform:scale(.985)}
+    .secondary{background:#e6ebe7;color:#273129}.finish{position:relative;overflow:hidden;background:#182019;color:#f6faf7;box-shadow:0 7px 0 #0d130f,0 14px 28px rgba(16,27,19,.15)}
+    .finish:active{transform:translateY(5px);box-shadow:0 2px 0 #0d130f,0 6px 14px rgba(16,27,19,.13)}
+    .finish.done::after{content:"DONE";position:absolute;inset:0;display:grid;place-items:center;background:#2f7d51;font-size:15px;letter-spacing:.18em;animation:stamp .52s cubic-bezier(.2,.9,.2,1)}
+    @keyframes stamp{0%{transform:scale(1.45) rotate(-2deg);opacity:0}50%{transform:scale(.94) rotate(1deg);opacity:1}72%{transform:scale(1.03)}100%{transform:scale(1)}}
+    .shock{position:absolute;right:-42px;top:-42px;width:120px;aspect-ratio:1;border-radius:50%;border:16px solid rgba(126,203,155,.22);transform:scale(.2);opacity:0;pointer-events:none}.card.hit .shock{animation:shock .5s ease-out}
+    @keyframes shock{0%{opacity:.7;transform:scale(.2)}100%{opacity:0;transform:scale(1.35)}}
+    .note{margin:16px 4px 0;color:#7b857d;font-size:11px;line-height:1.65}
+    @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}}
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <div class="eyebrow">LIFTLOG · TACTILE INTERACTION LAB</div>
+    <h1>Quiet UI.<br>Physical feedback.</h1>
+    <p class="lead">画面は静かに。意味のある確定操作だけ、押す・沈む・固定される感触を返す。</p>
+  </header>
+
+  <section class="card" id="card">
+    <div class="shock"></div>
+    <div class="row">
+      <div><div class="title">Bench Press</div><div class="sub">Chest · Set 3 of 4</div></div>
+      <div class="badge" id="repBadge">8 REP</div>
+    </div>
+    <div class="weight"><strong>80</strong><span>kg</span></div>
+    <div class="setline">
+      <div class="setcopy"><strong id="setLabel">Set 3 ready</strong><span>tap once → short mechanical lock</span></div>
+      <button class="check" id="check" aria-label="セット完了">✓</button>
+    </div>
+    <div class="rail"><i id="progress"></i></div>
+    <div class="status" id="status">LOCKED IN · 3 / 4</div>
+  </section>
+
+  <div class="actions">
+    <button class="btn secondary" id="exercise">EXERCISE COMPLETE</button>
+    <button class="btn finish" id="finish">FINISH WORKOUT</button>
+    <button class="btn secondary" id="reset">RESET</button>
+  </div>
+  <p class="note">Set = 最小の触感 / Exercise = カード全体の確定 / Workout = その日だけの小さな儀式。頻度が低いほど演出を少し強くする。</p>
+</main>
+<script>
+  const card=document.querySelector('#card'),check=document.querySelector('#check'),status=document.querySelector('#status'),progress=document.querySelector('#progress'),setLabel=document.querySelector('#setLabel'),exercise=document.querySelector('#exercise'),finish=document.querySelector('#finish'),reset=document.querySelector('#reset');
+  let setDone=false,exerciseDone=false,workoutDone=false;
+  const hit=()=>{card.classList.remove('hit');void card.offsetWidth;card.classList.add('hit')};
+  check.addEventListener('click',()=>{
+    setDone=!setDone;check.classList.add('press');setTimeout(()=>check.classList.remove('press'),120);
+    check.classList.toggle('done',setDone);status.classList.toggle('show',setDone);
+    progress.style.width=setDone?'75%':'25%';setLabel.textContent=setDone?'Set 3 complete':'Set 3 ready';
+    if(setDone) hit();
+  });
+  exercise.addEventListener('click',()=>{
+    exerciseDone=!exerciseDone;card.classList.toggle('locked',exerciseDone);status.classList.add('show');status.textContent=exerciseDone?'EXERCISE COMPLETE · LOCKED IN':(setDone?'LOCKED IN · 3 / 4':'');
+    exercise.textContent=exerciseDone?'EXERCISE LOCKED ✓':'EXERCISE COMPLETE';progress.style.width=exerciseDone?'100%':(setDone?'75%':'25%');if(exerciseDone)hit();
+  });
+  finish.addEventListener('click',()=>{
+    workoutDone=true;finish.classList.remove('done');void finish.offsetWidth;finish.classList.add('done');
+    if(navigator.vibrate) navigator.vibrate([25,35,45]);
+  });
+  reset.addEventListener('click',()=>{
+    setDone=exerciseDone=workoutDone=false;card.classList.remove('locked','hit');check.classList.remove('done','press');status.classList.remove('show');status.textContent='LOCKED IN · 3 / 4';progress.style.width='25%';setLabel.textContent='Set 3 ready';exercise.textContent='EXERCISE COMPLETE';finish.classList.remove('done');
+  });
+</script>
+</body>
+</html>
