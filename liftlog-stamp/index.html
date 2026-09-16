@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#f4f6f5" />
+  <title>LIFTLOG Stamp Motion</title>
+  <style>
+    :root{
+      color-scheme:light;
+      --bg:#eef2ef;
+      --surface:#ffffff;
+      --ink:#17211b;
+      --muted:#728078;
+      --line:#d9e0db;
+      --accent:#168246;
+      --accent-soft:#e8f4eb;
+      --paper:#fffdf7;
+      --stamp:#17794a;
+      --stamp-soft:rgba(23,121,74,.12);
+      --shadow:0 24px 70px rgba(24,39,30,.14);
+      --ease:cubic-bezier(.2,.82,.24,1);
+    }
+    *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+    html,body{margin:0;min-height:100%;background:var(--bg);color:var(--ink);font-family:Inter,"Noto Sans JP",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+    body{min-height:100svh}
+    button{font:inherit;color:inherit}
+    .phone{width:min(100%,430px);min-height:100svh;margin:0 auto;background:#f8faf8;box-shadow:0 0 70px rgba(23,33,27,.08);position:relative;overflow:hidden}
+    .topbar{height:60px;padding:max(10px,env(safe-area-inset-top)) 18px 10px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);background:rgba(255,255,255,.82);backdrop-filter:blur(18px);position:sticky;top:0;z-index:3}
+    .brand{font-size:18px;font-weight:950;letter-spacing:-.04em}
+    .lab{font-size:9px;font-weight:900;letter-spacing:.12em;color:var(--accent)}
+    main{padding:18px 16px 110px}
+    .eyebrow{font-size:9px;font-weight:900;letter-spacing:.13em;color:var(--accent)}
+    h1{margin:5px 0 0;font-size:30px;line-height:1;letter-spacing:-.045em}
+    .lead{margin:9px 0 0;color:var(--muted);font-size:12px;line-height:1.6}
+    .session-card{margin-top:22px;border:1px solid var(--line);border-radius:22px;background:var(--surface);overflow:hidden;box-shadow:0 14px 42px rgba(33,54,41,.06)}
+    .session-head{padding:18px 18px 15px;display:flex;justify-content:space-between;gap:14px;align-items:flex-start;border-bottom:1px solid var(--line)}
+    .session-head h2{margin:4px 0 0;font-size:20px;letter-spacing:-.03em}
+    .timer{font-variant-numeric:tabular-nums;font-size:11px;font-weight:850;color:var(--muted);padding-top:3px}
+    .exercise{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;align-items:center;padding:15px 18px;border-bottom:1px solid var(--line)}
+    .exercise:last-child{border-bottom:0}
+    .exercise b{display:block;font-size:13px}
+    .exercise span{display:block;margin-top:4px;color:var(--muted);font-size:10px}
+    .exercise strong{font-size:12px;font-variant-numeric:tabular-nums}
+    .summary{display:grid;grid-template-columns:repeat(3,1fr);margin-top:16px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#f5f8f5}
+    .summary div{min-height:72px;display:grid;place-items:center;align-content:center}
+    .summary div+div{border-left:1px solid var(--line)}
+    .summary b{font-size:17px;letter-spacing:-.02em}
+    .summary span{margin-top:3px;color:var(--muted);font-size:9px;font-weight:800;letter-spacing:.05em}
+    .save{width:100%;min-height:58px;margin-top:18px;border:0;border-radius:16px;background:var(--ink);color:#fff;font-weight:900;display:flex;align-items:center;justify-content:center;gap:9px;box-shadow:0 12px 26px rgba(23,33,27,.14);transition:transform .12s ease,background .2s ease}
+    .save:active{transform:scale(.985)}
+    .save[disabled]{opacity:.74}
+    .save-dot{width:10px;height:10px;border:2px solid currentColor;border-radius:50%}
+    .note{margin-top:12px;text-align:center;color:var(--muted);font-size:9px;line-height:1.55}
+
+    .overlay{position:fixed;inset:0;z-index:20;display:grid;place-items:center;padding:18px;background:rgba(12,20,15,.48);backdrop-filter:blur(10px);opacity:0;visibility:hidden;transition:opacity .25s ease,visibility .25s ease}
+    .overlay.open{opacity:1;visibility:visible}
+    .perspective{width:min(100%,390px);perspective:1000px}
+    .result-stage{position:relative;transform-style:preserve-3d;transform:translateY(36px) rotateX(-6deg) scale(.965);opacity:0;transition:transform .52s var(--ease),opacity .35s ease}
+    .overlay.open .result-stage{transform:translateY(0) rotateX(0) scale(1);opacity:1}
+    .overlay.is-stamping .result-stage{transform:translateY(7px) rotateX(5deg) scale(.99)}
+    .sheet{position:relative;background:var(--paper);border-radius:22px;padding:20px 18px 18px;box-shadow:var(--shadow),inset 0 0 0 1px rgba(75,72,58,.08);overflow:hidden}
+    .sheet::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.38;background-image:linear-gradient(rgba(76,74,61,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(76,74,61,.018) 1px,transparent 1px);background-size:4px 4px}
+    .sheet-top{position:relative;z-index:1;display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding-bottom:15px;border-bottom:1px dashed #cfcabf}
+    .sheet-label{font-size:9px;font-weight:900;letter-spacing:.12em;color:var(--accent)}
+    .sheet h2{margin:4px 0 0;font-size:24px;line-height:1;letter-spacing:-.04em}
+    .date{font-size:10px;color:#7a786f;font-weight:800;text-align:right;line-height:1.5}
+    .result-metrics{position:relative;z-index:1;display:grid;grid-template-columns:repeat(3,1fr);margin-top:18px;border-top:1px solid #d8d2c5;border-bottom:1px solid #d8d2c5}
+    .result-metrics div{min-height:72px;display:grid;place-items:center;align-content:center}
+    .result-metrics div+div{border-left:1px solid #d8d2c5}
+    .result-metrics b{font-size:18px}
+    .result-metrics span{margin-top:3px;font-size:8px;font-weight:900;letter-spacing:.07em;color:#858075}
+    .pr-row{position:relative;z-index:1;margin-top:17px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .pr-row div{font-size:11px;color:#67655e;line-height:1.5}
+    .pr-row b{color:var(--ink)}
+    .pr-pill{flex:none;padding:7px 10px;border-radius:999px;background:#fff3d8;color:#9d6b12;font-size:9px;font-weight:950;letter-spacing:.06em}
+    .stamp-target{position:relative;z-index:1;height:115px;margin-top:8px;display:grid;place-items:center}
+    .ink-mark{width:206px;height:72px;border:4px solid var(--stamp);border-radius:8px;display:grid;place-items:center;align-content:center;color:var(--stamp);transform:rotate(-7deg) scale(1.25);opacity:0;filter:blur(.7px);mix-blend-mode:multiply;box-shadow:inset 0 0 0 2px rgba(23,121,74,.14);mask-image:linear-gradient(94deg,rgba(0,0,0,.92),rgba(0,0,0,.73) 28%,rgba(0,0,0,.98) 54%,rgba(0,0,0,.78));transition:opacity .08s ease,transform .32s cubic-bezier(.18,.9,.24,1.4),filter .28s ease}
+    .ink-mark b{font-size:19px;letter-spacing:.14em;line-height:1}
+    .ink-mark span{margin-top:6px;font:800 9px/1 ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.12em}
+    .sheet.stamped .ink-mark{opacity:.88;transform:rotate(-4deg) scale(1);filter:blur(.12px)}
+    .ink-fleck{position:absolute;width:4px;height:2px;border-radius:50%;background:var(--stamp);opacity:0}
+    .sheet.stamped .ink-fleck{animation:fleck .5s ease-out both}
+    .f1{right:68px;bottom:72px;--x:18px;--y:-12px}.f2{left:74px;bottom:83px;--x:-14px;--y:-8px}.f3{right:95px;bottom:47px;--x:12px;--y:10px}
+    @keyframes fleck{0%{opacity:.8;transform:translate(0,0) scale(.4)}100%{opacity:0;transform:translate(var(--x),var(--y)) scale(1)}}
+
+    .stamper{position:absolute;z-index:6;left:50%;top:224px;width:138px;height:176px;transform:translate(-50%,-150px) rotate(-5deg);transform-origin:50% 100%;filter:drop-shadow(0 16px 15px rgba(30,28,24,.22));pointer-events:none}
+    .handle{position:absolute;left:39px;top:0;width:60px;height:78px;border-radius:28px 28px 18px 18px;background:linear-gradient(90deg,#202421,#3d4540 42%,#171a18);box-shadow:inset 0 2px 2px rgba(255,255,255,.18),inset -7px 0 10px rgba(0,0,0,.28)}
+    .handle::before{content:"";position:absolute;left:12px;right:12px;top:10px;height:8px;border-radius:999px;background:rgba(255,255,255,.12)}
+    .stem{position:absolute;left:57px;top:70px;width:25px;height:42px;border-radius:6px;background:linear-gradient(90deg,#8d8f8a,#d6d5ce 48%,#777a75);box-shadow:inset 0 1px rgba(255,255,255,.8)}
+    .stamp-base{position:absolute;left:12px;top:103px;width:114px;height:54px;border-radius:12px 12px 8px 8px;background:linear-gradient(#303632,#181c19);box-shadow:inset 0 2px rgba(255,255,255,.13)}
+    .stamp-base::after{content:"";position:absolute;left:8px;right:8px;bottom:-7px;height:10px;border-radius:3px;background:#204c36;box-shadow:inset 0 -2px 0 #133124}
+    .overlay.is-stamping .stamper{animation:stampDrop .88s cubic-bezier(.22,.72,.2,1) both}
+    @keyframes stampDrop{
+      0%{transform:translate(-50%,-150px) rotate(-5deg)}
+      33%{transform:translate(-50%,-8px) rotate(1deg)}
+      43%{transform:translate(-50%,5px) rotate(.4deg) scaleY(.965)}
+      50%{transform:translate(-50%,-1px) rotate(-1deg) scaleY(1)}
+      72%{transform:translate(-50%,-82px) rotate(-6deg)}
+      100%{transform:translate(-50%,-150px) rotate(-5deg)}
+    }
+    .overlay.is-stamping .sheet{animation:paperHit .42s ease-out .30s both}
+    @keyframes paperHit{0%,100%{transform:translateY(0)}45%{transform:translateY(3px) scale(.996)}70%{transform:translateY(-1px)}}
+
+    .actions{display:grid;grid-template-columns:1fr auto;gap:10px;margin-top:12px}
+    .done,.replay{min-height:50px;border-radius:14px;font-weight:900}
+    .done{border:0;background:var(--ink);color:#fff}
+    .replay{width:54px;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.12);color:#fff;font-size:19px;backdrop-filter:blur(10px)}
+    .motion-caption{margin-top:10px;text-align:center;color:rgba(255,255,255,.72);font-size:9px;line-height:1.5}
+
+    @media (prefers-reduced-motion:reduce){
+      *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+    }
+  </style>
+</head>
+<body>
+  <div class="phone">
+    <header class="topbar"><div class="brand">LIFTLOG</div><div class="lab">STAMP MOTION LAB</div></header>
+    <main>
+      <span class="eyebrow">TODAY · PUSH DAY</span>
+      <h1>胸 / 肩</h1>
+      <p class="lead">セッションを保存すると、今日のリザルトに物理スタンプで完了印を押す。</p>
+
+      <section class="session-card" aria-label="トレーニング中のセッション">
+        <div class="session-head">
+          <div><span class="eyebrow">IN PROGRESS</span><h2>2026.09.16</h2></div>
+          <div class="timer">01:07:24</div>
+        </div>
+        <div class="exercise"><div><b>ベンチプレス</b><span>60kg × 10 / 10 / 8 / 8</span></div><strong>4 SET</strong></div>
+        <div class="exercise"><div><b>インクライン DB プレス</b><span>24kg × 10 / 9 / 8</span></div><strong>3 SET</strong></div>
+        <div class="exercise"><div><b>サイドレイズ</b><span>10kg × 15 / 15 / 13 / 12</span></div><strong>4 SET</strong></div>
+        <div class="exercise"><div><b>ケーブルフライ</b><span>17.5kg × 12 / 11 / 10</span></div><strong>3 SET</strong></div>
+        <div class="summary">
+          <div><b>14</b><span>SETS</span></div>
+          <div><b>6,420</b><span>VOLUME KG</span></div>
+          <div><b>2</b><span>PR</span></div>
+        </div>
+      </section>
+
+      <button class="save" id="saveButton"><span class="save-dot"></span><span id="saveLabel">セッションを保存</span></button>
+      <p class="note">Prototype · FeralUI Stamp の「押す → 衝撃 → インクが残る」感触をLIFTLOG向けに再構成</p>
+    </main>
+  </div>
+
+  <div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-labelledby="resultTitle">
+    <div class="perspective">
+      <div class="result-stage">
+        <div class="stamper" aria-hidden="true"><div class="handle"></div><div class="stem"></div><div class="stamp-base"></div></div>
+        <article class="sheet" id="sheet">
+          <div class="sheet-top">
+            <div><div class="sheet-label">SESSION RESULT</div><h2 id="resultTitle">胸 / 肩</h2></div>
+            <div class="date" id="resultDate">2026.09.16<br>WED</div>
+          </div>
+          <div class="result-metrics">
+            <div><b>67<span style="font-size:10px"> min</span></b><span>DURATION</span></div>
+            <div><b>14</b><span>SETS</span></div>
+            <div><b>6,420</b><span>VOLUME KG</span></div>
+          </div>
+          <div class="pr-row"><div><b>今日の自己ベスト</b><br>ベンチプレス / サイドレイズ</div><span class="pr-pill">PR × 2</span></div>
+          <div class="stamp-target"><div class="ink-mark"><b>COMPLETE</b><span id="stampDate">16 SEP 2026</span></div></div>
+          <i class="ink-fleck f1"></i><i class="ink-fleck f2"></i><i class="ink-fleck f3"></i>
+        </article>
+        <div class="actions"><button class="done" id="doneButton">記録を見る</button><button class="replay" id="replayButton" aria-label="スタンプをもう一度押す">↻</button></div>
+        <div class="motion-caption">保存完了を「チェック表示」ではなく、手触りのある達成イベントとして残す。</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const saveButton = document.getElementById('saveButton');
+    const saveLabel = document.getElementById('saveLabel');
+    const overlay = document.getElementById('overlay');
+    const sheet = document.getElementById('sheet');
+    const doneButton = document.getElementById('doneButton');
+    const replayButton = document.getElementById('replayButton');
+    const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
+    let audioContext = null;
+    let stampTimer = 0;
+    let markTimer = 0;
+
+    function prepareAudio(){
+      const AudioCtx = window.AudioContext || window.webkitAudioContext;
+      if (!AudioCtx) return;
+      if (!audioContext) audioContext = new AudioCtx();
+      if (audioContext.state === 'suspended') audioContext.resume();
+    }
+
+    function thump(){
+      if (!audioContext) return;
+      const now = audioContext.currentTime;
+      const gain = audioContext.createGain();
+      const osc = audioContext.createOscillator();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(92, now);
+      osc.frequency.exponentialRampToValueAtTime(48, now + .09);
+      gain.gain.setValueAtTime(.0001, now);
+      gain.gain.exponentialRampToValueAtTime(.34, now + .006);
+      gain.gain.exponentialRampToValueAtTime(.0001, now + .12);
+      osc.connect(gain).connect(audioContext.destination);
+      osc.start(now); osc.stop(now + .13);
+
+      const buffer = audioContext.createBuffer(1, Math.floor(audioContext.sampleRate * .055), audioContext.sampleRate);
+      const data = buffer.getChannelData(0);
+      for (let i = 0; i < data.length; i++) data[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / data.length, 3);
+      const noise = audioContext.createBufferSource();
+      const noiseGain = audioContext.createGain();
+      noise.buffer = buffer;
+      noiseGain.gain.setValueAtTime(.09, now);
+      noiseGain.gain.exponentialRampToValueAtTime(.0001, now + .055);
+      noise.connect(noiseGain).connect(audioContext.destination);
+      noise.start(now);
+    }
+
+    function runStamp(delay = 0){
+      clearTimeout(stampTimer); clearTimeout(markTimer);
+      sheet.classList.remove('stamped');
+      overlay.classList.remove('is-stamping');
+      void overlay.offsetWidth;
+      const quick = reduceMotion.matches;
+      stampTimer = setTimeout(() => {
+        overlay.classList.add('is-stamping');
+        markTimer = setTimeout(() => {
+          sheet.classList.add('stamped');
+          thump();
+          if (navigator.vibrate) navigator.vibrate(18);
+        }, quick ? 1 : 340);
+        setTimeout(() => overlay.classList.remove('is-stamping'), quick ? 5 : 920);
+      }, delay);
+    }
+
+    function openResult(){
+      prepareAudio();
+      saveButton.disabled = true;
+      saveLabel.textContent = '保存中…';
+      setTimeout(() => {
+        saveLabel.textContent = '保存しました';
+        overlay.classList.add('open');
+        runStamp(reduceMotion.matches ? 0 : 420);
+      }, reduceMotion.matches ? 10 : 260);
+    }
+
+    function closeResult(){
+      overlay.classList.remove('open','is-stamping');
+      sheet.classList.remove('stamped');
+      saveButton.disabled = false;
+      saveLabel.textContent = 'セッションを保存';
+    }
+
+    saveButton.addEventListener('click', openResult);
+    doneButton.addEventListener('click', closeResult);
+    replayButton.addEventListener('click', () => { prepareAudio(); runStamp(0); });
+    overlay.addEventListener('click', (event) => { if (event.target === overlay) closeResult(); });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && overlay.classList.contains('open')) closeResult();
+      if (event.key === 'Enter' && overlay.classList.contains('open')) { prepareAudio(); runStamp(0); }
+    });
+  </script>
+</body>
+</html>
