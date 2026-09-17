@@ -4,6 +4,19 @@
   "sharedLearningsPath": "./LEARNINGS.md",
   "mocks": [
     {
+      "id": "bad-apple",
+      "title": "Bad Apple!! — A study in silhouettes",
+      "shortTitle": "Bad Apple!!",
+      "summary": "動画ファイルを使わず、全6,572コマの輪郭をCanvasで描く影絵の上映室。音声同期・シーク・コマ送り・輪郭線モード。",
+      "previewPath": "./bad-apple/",
+      "designPath": "./bad-apple/DESIGN.md",
+      "retrospectivePath": "./bad-apple/RETROSPECTIVE.md",
+      "referenceUrl": "./bad-apple/SOURCES.md",
+      "thumbnail": "./bad-apple/assets/poster.svg",
+      "tags": ["CANVAS", "VECTOR ANIMATION", "NO VIDEO"],
+      "principles": ["全編を輪郭から描く", "再生を音声の時計に合わせる", "描画をコマ単位で観察できる"]
+    },
+    {
       "id": "canal-city",
       "title": "CANAL — 街の余白",
       "shortTitle": "CANAL",

@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ja">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bad Apple — local browser verification</title>
+<style>
+  body{margin:16px;font:13px system-ui;background:#e7e7e7;color:#111}
+  nav{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+  button{min-height:44px;padding:0 16px;cursor:pointer}
+  iframe{display:block;border:0;background:#f2f1ed;width:390px;height:844px}
+  pre{white-space:pre-wrap;max-width:1000px;line-height:1.6}
+</style>
+<nav aria-label="検証用の操作">
+  <button id="mobile" type="button">スマホ 390×844</button>
+  <button id="desktop" type="button">Desktop 1440×900</button>
+  <button id="run" type="button">動作チェックを実行</button>
+</nav>
+<iframe id="specimen" title="再現ページの検証用表示" src="../"></iframe>
+<pre id="report" role="status">画面を読み込み中です。</pre>
+<script type="module">
+const iframe=document.getElementById('specimen');
+const report=document.getElementById('report');
+const results=[];
+const wait=(ms)=>new Promise(resolve=>setTimeout(resolve,ms));
+const check=(name,ok,evidence)=>{results.push({name,result:ok?'PASS':'FAIL',evidence});report.textContent=JSON.stringify(results,null,2);if(!ok)throw new Error(name);};
+const doc=()=>iframe.contentDocument;
+const element=(id)=>doc().getElementById(id);
+const sample=()=>({state:doc().body.dataset.state,frame:Number(element('canvas').dataset.frame),time:element('audio').currentTime,paused:element('audio').paused});
+const seek=(index)=>{element('seek').value=index;element('seek').dispatchEvent(new iframe.contentWindow.Event('input',{bubbles:true}));};
+const whiteFraction=()=>{const c=element('canvas'),data=c.getContext('2d').getImageData(0,0,c.width,c.height).data;let white=0;for(let i=0;i<data.length;i+=4)if(data[i]>127)white++;return white/(data.length/4);};
+function size(width,height){iframe.style.width=width+'px';iframe.style.height=height+'px';}
+document.getElementById('mobile').onclick=()=>size(390,844);
+document.getElementById('desktop').onclick=()=>size(1440,900);
+iframe.addEventListener('load',()=>{report.textContent='検証ページを表示中。スマホとDesktopの切替は、このページのiframe内だけに適用されます。';});
+document.getElementById('run').onclick=async()=>{
+  const run=document.getElementById('run');run.disabled=true;results.length=0;
+  try{
+    const deadline=performance.now()+20000;
+    while(doc()?.body?.dataset.ready!=='true'){if(performance.now()>deadline)throw new Error('Loading timeout');await wait(50);}
+    const media=element('audio');
+    const seekable=Array.from({length:media.seekable.length},(_,i)=>[media.seekable.start(i),media.seekable.end(i)]);
+    check('Full audio is seekable before playback controls are enabled',media.readyState>=2&&seekable.some(([start,end])=>start===0&&end>=media.duration-0.01),{readyState:media.readyState,duration:media.duration,seekable});
+    const response=await fetch('../assets/frames.json.gz');
+    const data=await new Response(response.body.pipeThrough(new DecompressionStream('gzip'))).json();
+    let parsed=0;
+    for(const path of data.frames){new Path2D(path);parsed++;if(parsed%500===0)await wait(0);}
+    check('All 6,572 vector frames parse in browser',parsed===6572,{parsed,whiteFrames:data.frames.filter(p=>!p).length,fps:data.fps});
+    check('No video, embedded player, or video network request',!doc().querySelector('video,iframe,object,embed')&&!iframe.contentWindow.performance.getEntriesByType('resource').some(r=>/\.(mp4|webm|mov|m3u8)(?:$|\?)/i.test(r.name)),{resources:iframe.contentWindow.performance.getEntriesByType('resource').map(r=>r.name.split('/').pop())});
+    for(const [width,height] of [[390,844],[1440,900]]){
+      size(width,height);await wait(100);
+      const win=iframe.contentWindow;const screen=element('screen').getBoundingClientRect();
+      check(`Layout ${width}x${height}`,win.innerWidth===width&&doc().documentElement.scrollWidth<=doc().documentElement.clientWidth&&Math.abs(screen.width/screen.height-4/3)<0.01,{viewport:[win.innerWidth,win.innerHeight],documentWidth:doc().documentElement.scrollWidth,clientWidth:doc().documentElement.clientWidth,stage:[screen.width,screen.height]});
+    }
+    element('audio').muted=true;
+    seek(0);check('Opening full-black frame',whiteFraction()<0.001,{frame:sample().frame,whiteFraction:whiteFraction()});
+    const whiteIndex=data.frames.findIndex(path=>!path);
+    seek(whiteIndex);check('Empty path is a valid full-white frame',whiteFraction()>0.999,{frame:whiteIndex,whiteFraction:whiteFraction()});
+    seek(1400);const filled=whiteFraction();
+    doc().querySelector('[data-mode="outline"]').click();const outlined=whiteFraction();
+    check('Outline is drawn from the same frame',sample().frame===1400&&outlined>filled,{filledWhiteFraction:filled,outlineWhiteFraction:outlined,mode:element('canvas').dataset.mode});
+    doc().querySelector('[data-mode="silhouette"]').click();
+    element('next-frame').click();check('Next frame',sample().frame===1401&&sample().paused,sample());
+    element('previous-frame').click();check('Previous frame',sample().frame===1400&&sample().paused,sample());
+    for(const index of [30,900,2700,4500,6300,6571]){seek(index);check(`Seek frame ${index}`,sample().frame===index&&Math.abs(sample().time-index/30)<0.002,sample());}
+    seek(900);element('play').click();await wait(700);
+    const playing=sample();check('Playback advances and follows audio clock',playing.state==='playing'&&playing.frame>900&&Math.abs(playing.frame-playing.time*30)<2,playing);
+    element('play').click();const paused=sample();await wait(250);
+    check('Pause freezes frame and audio',sample().frame===paused.frame&&Math.abs(sample().time-paused.time)<0.002&&sample().paused,{before:paused,after:sample()});
+    element('speed').value='2';element('speed').dispatchEvent(new iframe.contentWindow.Event('change',{bubbles:true}));
+    check('Playback speed',element('audio').playbackRate===2,{rate:element('audio').playbackRate});
+    element('mute').click();check('Unmute',!element('audio').muted,{muted:element('audio').muted});
+    element('mute').click();check('Mute',element('audio').muted,{muted:element('audio').muted});
+    element('loop').checked=false;seek(6560);element('play').click();await wait(550);
+    check('End stops on last frame',sample().state==='ended'&&sample().frame===6571&&sample().paused,sample());
+    element('loop').checked=true;seek(6560);element('play').click();await wait(550);
+    check('Repeat restarts the sequence',sample().state==='playing'&&sample().time<2&&sample().frame<60,sample());
+    element('play').click();element('loop').checked=false;
+    element('speed').value='1';element('speed').dispatchEvent(new iframe.contentWindow.Event('change',{bubbles:true}));
+    seek(1400);
+    check('Accessible names for transport controls',['play','restart','mute','fullscreen','previous-frame','next-frame'].every(id=>element(id).getAttribute('aria-label')),{namedControls:6});
+    check('No horizontal overflow after interactions',doc().documentElement.scrollWidth<=doc().documentElement.clientWidth,{width:iframe.contentWindow.innerWidth});
+    report.textContent=JSON.stringify({completedAt:new Date().toISOString(),result:'PASS',checks:results},null,2);
+  }catch(error){report.textContent=JSON.stringify({result:'FAIL',error:error.message,checks:results},null,2);}
+  finally{run.disabled=false;}
+};
+</script>
+</html>

@@ -1,0 +1,263 @@
+{
+  "completedAt": "2026-09-17T12:20:44.104Z",
+  "result": "PASS",
+  "checks": [
+    {
+      "name": "Full audio is seekable before playback controls are enabled",
+      "result": "PASS",
+      "evidence": {
+        "readyState": 4,
+        "duration": 219.149932,
+        "seekable": [
+          [
+            0,
+            219.149932
+          ]
+        ]
+      }
+    },
+    {
+      "name": "All 6,572 vector frames parse in browser",
+      "result": "PASS",
+      "evidence": {
+        "parsed": 6572,
+        "whiteFrames": 65,
+        "fps": 30
+      }
+    },
+    {
+      "name": "No video, embedded player, or video network request",
+      "result": "PASS",
+      "evidence": {
+        "resources": [
+          "styles.css",
+          "app.js",
+          "poster.svg",
+          "soundtrack.wav",
+          "manifest.json",
+          "frames.json.gz"
+        ]
+      }
+    },
+    {
+      "name": "Layout 390x844",
+      "result": "PASS",
+      "evidence": {
+        "viewport": [
+          390,
+          844
+        ],
+        "documentWidth": 375,
+        "clientWidth": 375,
+        "stage": [
+          339,
+          254.25
+        ]
+      }
+    },
+    {
+      "name": "Layout 1440x900",
+      "result": "PASS",
+      "evidence": {
+        "viewport": [
+          1440,
+          900
+        ],
+        "documentWidth": 1425,
+        "clientWidth": 1425,
+        "stage": [
+          760,
+          570
+        ]
+      }
+    },
+    {
+      "name": "Opening full-black frame",
+      "result": "PASS",
+      "evidence": {
+        "frame": 0,
+        "whiteFraction": 0
+      }
+    },
+    {
+      "name": "Empty path is a valid full-white frame",
+      "result": "PASS",
+      "evidence": {
+        "frame": 364,
+        "whiteFraction": 1
+      }
+    },
+    {
+      "name": "Outline is drawn from the same frame",
+      "result": "PASS",
+      "evidence": {
+        "filledWhiteFraction": 0.14255309325946444,
+        "outlineWhiteFraction": 0.9883102493074792,
+        "mode": "outline"
+      }
+    },
+    {
+      "name": "Next frame",
+      "result": "PASS",
+      "evidence": {
+        "state": "paused",
+        "frame": 1401,
+        "time": 46.7,
+        "paused": true
+      }
+    },
+    {
+      "name": "Previous frame",
+      "result": "PASS",
+      "evidence": {
+        "state": "paused",
+        "frame": 1400,
+        "time": 46.666666,
+        "paused": true
+      }
+    },
+    {
+      "name": "Seek frame 30",
+      "result": "PASS",
+      "evidence": {
+        "state": "paused",
+        "frame": 30,
+        "time": 1,
+        "paused": true
+      }
+    },
+    {
+      "name": "Seek frame 900",
+      "result": "PASS",
+      "evidence": {
+        "state": "paused",
+        "frame": 900,
+        "time": 30,
+        "paused": true
+      }
+    },
+    {
+      "name": "Seek frame 2700",
+      "result": "PASS",
+      "evidence": {
+        "state": "paused",
+        "frame": 2700,
+        "time": 90,
+        "paused": true
+      }
+    },
+    {
+      "name": "Seek frame 4500",
+      "result": "PASS",
+      "evidence": {
+        "state": "paused",
+        "frame": 4500,
+        "time": 150,
+        "paused": true
+      }
+    },
+    {
+      "name": "Seek frame 6300",
+      "result": "PASS",
+      "evidence": {
+        "state": "paused",
+        "frame": 6300,
+        "time": 210,
+        "paused": true
+      }
+    },
+    {
+      "name": "Seek frame 6571",
+      "result": "PASS",
+      "evidence": {
+        "state": "paused",
+        "frame": 6571,
+        "time": 219.033333,
+        "paused": true
+      }
+    },
+    {
+      "name": "Playback advances and follows audio clock",
+      "result": "PASS",
+      "evidence": {
+        "state": "playing",
+        "frame": 919,
+        "time": 30.654214,
+        "paused": false
+      }
+    },
+    {
+      "name": "Pause freezes frame and audio",
+      "result": "PASS",
+      "evidence": {
+        "before": {
+          "state": "paused",
+          "frame": 919,
+          "time": 30.654353,
+          "paused": true
+        },
+        "after": {
+          "state": "paused",
+          "frame": 919,
+          "time": 30.654353,
+          "paused": true
+        }
+      }
+    },
+    {
+      "name": "Playback speed",
+      "result": "PASS",
+      "evidence": {
+        "rate": 2
+      }
+    },
+    {
+      "name": "Unmute",
+      "result": "PASS",
+      "evidence": {
+        "muted": false
+      }
+    },
+    {
+      "name": "Mute",
+      "result": "PASS",
+      "evidence": {
+        "muted": true
+      }
+    },
+    {
+      "name": "End stops on last frame",
+      "result": "PASS",
+      "evidence": {
+        "state": "ended",
+        "frame": 6571,
+        "time": 219.149932,
+        "paused": true
+      }
+    },
+    {
+      "name": "Repeat restarts the sequence",
+      "result": "PASS",
+      "evidence": {
+        "state": "playing",
+        "frame": 12,
+        "time": 0.423262,
+        "paused": false
+      }
+    },
+    {
+      "name": "Accessible names for transport controls",
+      "result": "PASS",
+      "evidence": {
+        "namedControls": 6
+      }
+    },
+    {
+      "name": "No horizontal overflow after interactions",
+      "result": "PASS",
+      "evidence": {
+        "width": 1440
+      }
+    }
+  ]
+}

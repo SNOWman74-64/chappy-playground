@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "width": 480,
+  "height": 360,
+  "fps": 30,
+  "frameCount": 6572,
+  "duration": 219.06666666666666,
+  "audioDuration": 219.14993197278912,
+  "audioSampleRate": 44100,
+  "audioChannels": 1,
+  "posterFrame": 360,
+  "framesBytes": 5618932,
+  "framesSha256": "dfb2932c697510fa3f7173e7ae45c63448efd50c7519da3f4f3b28c1234f3352",
+  "uncompressedFramesBytes": 15521208,
+  "audioBytes": 19329068,
+  "audioSha256": "4a241ee3960a46e11346a0b0e7641ca64f65b205883416e5a145209cba83a79c",
+  "sources": [
+    {
+      "kind": "vector",
+      "url": "https://raw.githubusercontent.com/toxxic407/badapplesvg/b79ba6796d66c224f901cf24c7faeb2954cd1c1a/bad_apple.svg",
+      "commit": "b79ba6796d66c224f901cf24c7faeb2954cd1c1a",
+      "sha256": "33600ac600a19038375139c2bd5e577ca9d1f0b2a41a06badffbd817289caddc"
+    },
+    {
+      "kind": "audio",
+      "url": "https://raw.githubusercontent.com/buzzbyte/BadApple.SVG/fd0c5ba5f4bf925c9110be5c6e2f1c13f3c0b98b/bad-apple.wav",
+      "commit": "fd0c5ba5f4bf925c9110be5c6e2f1c13f3c0b98b",
+      "sha256": "d3a6cd57df87d247ae42b7e1504e64b708ad9c4ca97b741b4c0af46fca8aa2ac"
+    }
+  ],
+  "notes": "Existing traced vector frames, not pixel-identical video. No video downloaded or decoded. No explicit upstream asset license supplied."
+}
