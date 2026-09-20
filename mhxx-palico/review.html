@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101722">
+  <title>猫をレビュー | MHXX Hub</title>
+  <link rel="stylesheet" href="./review.css">
+</head>
+<body>
+  <div class="review-shell">
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="./" aria-label="MHXX Hub ホーム">
+          <span class="brand-mark" aria-hidden="true">MH</span>
+          <span>
+            <span class="brand-name">MHXX Hub</span>
+            <span class="brand-section">オトモ猫 / review</span>
+          </span>
+        </a>
+        <nav class="breadcrumb" aria-label="現在地">
+          <a href="./">Inbox</a>
+          <span aria-hidden="true">/</span>
+          <span>猫をレビュー</span>
+        </nav>
+        <a class="back-link" href="./">一覧へ戻る</a>
+      </div>
+    </header>
+
+    <main class="review-main">
+      <section class="review-hero" aria-labelledby="page-title">
+        <div>
+          <p class="eyebrow">SINGLE CAT REVIEW</p>
+          <h1 id="page-title">スクリーンショットを <span>1匹ずつ確認</span></h1>
+          <p class="hero-copy">画像の読める範囲だけ記録します。分からない項目は「不明」のまま保存してください。</p>
+        </div>
+        <div class="queue-summary" aria-live="polite">
+          <span class="queue-label">INBOX QUEUE</span>
+          <strong id="queue-count">読み込み中…</strong>
+        </div>
+      </section>
+
+      <div class="review-status" id="review-status" role="status" aria-live="polite"></div>
+
+      <section class="secret-panel" id="secret-panel" aria-labelledby="secret-title">
+        <div>
+          <p class="eyebrow">AUTHENTICATION</p>
+          <h2 id="secret-title">共有シークレット</h2>
+          <p>保存時だけ使います。このブラウザのタブを閉じるまでのセッションに保存します。</p>
+        </div>
+        <label class="secret-input">
+          <span class="sr-only">共有シークレット</span>
+          <input id="review-secret" type="password" autocomplete="current-password" spellcheck="false" placeholder="共有アップロードシークレット">
+        </label>
+      </section>
+
+      <div class="review-loading" id="review-loading" aria-live="polite">猫を読み込んでいます…</div>
+
+      <section class="review-layout" id="review-content" hidden aria-labelledby="cat-heading">
+        <article class="image-panel panel-card" aria-labelledby="image-title">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">SOURCE IMAGE</p>
+              <h2 id="image-title">画像を確認</h2>
+            </div>
+            <a class="original-link" id="original-link" href="#" target="_blank" rel="noopener noreferrer">元画像を開く ↗</a>
+          </div>
+          <div class="image-viewport" id="image-viewport" tabindex="0" aria-label="画像表示。拡大時はスクロールできます">
+            <div class="image-loading" id="image-loading">画像を読み込んでいます…</div>
+            <img id="source-image" alt="レビュー対象のオトモ猫スクリーンショット">
+          </div>
+          <div class="image-tools" role="group" aria-label="画像サイズ">
+            <span class="tool-label">表示サイズ</span>
+            <button class="zoom-button" type="button" data-zoom="fit">画面に合わせる</button>
+            <button class="zoom-button" type="button" data-zoom="0.5">50%</button>
+            <button class="zoom-button" type="button" data-zoom="0.75">75%</button>
+            <button class="zoom-button" type="button" data-zoom="1">100%（原寸）</button>
+          </div>
+          <p class="image-note" id="image-note">画像の読み取りだけを行い、ゲーム内の分類は推測しません。</p>
+        </article>
+
+        <form class="review-form panel-card" id="review-form" novalidate>
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">READABLE FIELDS</p>
+              <h2 id="cat-heading">猫の情報</h2>
+            </div>
+            <span class="cat-id" id="cat-id">—</span>
+          </div>
+
+          <div class="form-grid">
+            <div class="form-field form-field-wide">
+              <label for="cat-name">名前 <span class="optional">任意</span></label>
+              <input id="cat-name" name="name" type="text" maxlength="100" autocomplete="off" placeholder="読み取れた名前">
+            </div>
+            <div class="form-field">
+              <label for="cat-level">レベル <span class="optional">1–99</span></label>
+              <input id="cat-level" name="level" type="number" inputmode="numeric" min="1" max="99" step="1" placeholder="—">
+            </div>
+            <div class="form-field">
+              <label for="cat-support-type">サポート傾向</label>
+              <select id="cat-support-type" name="supportType">
+                <option value="">未設定</option>
+                <option value="カリスマ">カリスマ</option>
+                <option value="ファイト">ファイト</option>
+                <option value="ガード">ガード</option>
+                <option value="アシスト">アシスト</option>
+                <option value="回復">回復</option>
+                <option value="ボマー">ボマー</option>
+                <option value="コレクト">コレクト</option>
+                <option value="ビースト">ビースト</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-field move-field">
+            <div class="field-heading">
+              <label>サポート行動 <span class="optional">読めた行だけ</span></label>
+              <button class="button button-quiet" id="add-support-move" type="button">＋ 行を追加</button>
+            </div>
+            <div class="move-list" id="support-moves" aria-live="polite"></div>
+          </div>
+
+          <div class="form-field move-field">
+            <div class="field-heading">
+              <label>オトモスキル <span class="optional">読めた行だけ</span></label>
+              <button class="button button-quiet" id="add-skill" type="button">＋ 行を追加</button>
+            </div>
+            <div class="move-list" id="skills" aria-live="polite"></div>
+          </div>
+
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="support-pattern">サポート配列 <span class="optional">任意</span></label>
+              <input id="support-pattern" name="supportPattern" type="text" maxlength="100" autocomplete="off" placeholder="分かる範囲で">
+            </div>
+            <div class="form-field">
+              <label for="skill-pattern">スキル配列 <span class="optional">任意</span></label>
+              <input id="skill-pattern" name="skillPattern" type="text" maxlength="100" autocomplete="off" placeholder="分かる範囲で">
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label for="cat-memo">メモ <span class="optional">任意</span></label>
+            <textarea id="cat-memo" name="memo" maxlength="2000" rows="4" placeholder="画像で確認できたこと、迷ったこと"></textarea>
+          </div>
+
+          <fieldset class="verdict-field">
+            <legend>判定</legend>
+            <div class="verdict-options">
+              <label><input type="radio" name="verdict" value="unreviewed"><span>未確認</span></label>
+              <label><input type="radio" name="verdict" value="keep"><span>採用</span></label>
+              <label><input type="radio" name="verdict" value="hold"><span>保留</span></label>
+              <label><input type="radio" name="verdict" value="reject"><span>見送り</span></label>
+            </div>
+          </fieldset>
+
+          <p class="unknown-note">分類に確信がないときは、行のグループを「unknown」にしてください。自動判定は行いません。</p>
+
+          <div class="form-actions">
+            <button class="button button-secondary" id="save-review" type="button">保存</button>
+            <button class="button button-primary" id="save-next" type="button">保存して次へ <span aria-hidden="true">→</span></button>
+          </div>
+        </form>
+      </section>
+
+      <section class="empty-review panel-card" id="review-empty" hidden aria-live="polite">
+        <p class="eyebrow">QUEUE COMPLETE</p>
+        <h2>Inboxの確認は完了です</h2>
+        <p>未確認の猫はありません。一覧に戻って別の判定タブも確認できます。</p>
+        <a class="button button-primary" href="./">一覧へ戻る</a>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>オトモ猫 review · 読み取れた情報だけ保存</span>
+      <a href="./">Inboxを開く</a>
+    </footer>
+  </div>
+  <script type="module" src="./review.js"></script>
+</body>
+</html>

@@ -11,6 +11,7 @@ const tabs = [
   { key: "inbox", label: "Inbox" },
   { key: "keep", label: "採用" },
   { key: "hold", label: "保留" },
+  { key: "reject", label: "見送り" },
   { key: "all", label: "全猫" },
 ];
 
@@ -114,6 +115,7 @@ function apiVerdictForTab(key) {
   if (key === "inbox") return "unreviewed";
   if (key === "keep") return "keep";
   if (key === "hold") return "hold";
+  if (key === "reject") return "reject";
   return "";
 }
 
@@ -243,6 +245,12 @@ function buildCard(palico) {
   const id = valueAt(palico, "id");
   if (id) details.append(detailItem("ID", id));
   if (details.childElementCount) body.append(details);
+
+  if (id) {
+    const reviewLink = createElement("a", "card-review-link", status === "inbox" ? "この猫をレビュー" : "レビュー内容を開く");
+    reviewLink.href = `./review.html?id=${encodeURIComponent(String(id))}`;
+    body.append(reviewLink);
+  }
 
   const memo = valueAt(palico, "memo", "note");
   if (memo) body.append(createElement("p", "card-memo", memo));

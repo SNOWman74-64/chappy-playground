@@ -57,6 +57,7 @@ a { color: inherit; }
 
 .main-content { padding: 58px 0 72px; }
 .hero { display: flex; align-items: end; justify-content: space-between; gap: 32px; padding: 8px 0 48px; }
+.hero-actions { display: flex; align-items: center; gap: 9px; flex: none; }
 .eyebrow { margin: 0 0 10px; color: var(--accent); font-size: 11px; font-weight: 800; letter-spacing: .18em; }
 h1, h2, p { margin-top: 0; }
 h1 { max-width: 700px; margin-bottom: 14px; font-size: clamp(32px, 6vw, 58px); line-height: 1.08; letter-spacing: -.045em; }
@@ -129,6 +130,8 @@ code { color: var(--accent); font-family: ui-monospace, SFMono-Regular, Consolas
 .detail-label { display: block; margin-bottom: 4px; color: var(--faint); font-size: 10px; letter-spacing: .03em; }
 .detail-value { display: block; overflow: hidden; color: #dce5ed; font-size: 12px; text-overflow: ellipsis; white-space: nowrap; }
 .review-data { margin-top: 14px; padding-top: 13px; border-top: 1px solid var(--line-soft); }
+.card-review-link { display: inline-flex; margin-top: 15px; color: var(--accent); font-size: 12px; font-weight: 750; text-underline-offset: 3px; }
+.card-review-link:hover { color: var(--accent-strong); }
 .review-data-title { margin: 0 0 8px; color: var(--faint); font-size: 10px; font-weight: 750; letter-spacing: .08em; }
 .review-row { display: flex; justify-content: space-between; gap: 12px; padding: 4px 0; color: var(--muted); font-size: 11px; }
 .review-row strong { overflow: hidden; color: #dce5ed; font-weight: 600; text-align: right; text-overflow: ellipsis; white-space: nowrap; }
@@ -199,7 +202,8 @@ textarea { resize: vertical; }
   .legacy-link { margin-left: auto; }
   .main-content { padding-top: 38px; }
   .hero { align-items: flex-start; flex-direction: column; padding-bottom: 34px; }
-  .add-button { width: 100%; }
+  .hero-actions { width: 100%; flex-direction: column-reverse; }
+  .hero-actions .button { width: 100%; }
   .card-grid { grid-template-columns: 1fr; }
   .inbox-panel { padding: 19px 15px; border-radius: 18px; }
 }
