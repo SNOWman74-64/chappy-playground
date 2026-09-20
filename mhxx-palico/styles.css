@@ -170,6 +170,24 @@ textarea { resize: vertical; }
 .secret-field { padding: 13px; border: 1px solid rgba(245, 180, 94, .24); border-radius: 12px; background: rgba(245, 180, 94, .055); }
 .secret-field input { background: #111a24; }
 .secret-field p { margin: 7px 0 0; color: var(--faint); font-size: 11px; line-height: 1.45; }
+.upload-queue-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-top: 13px; color: var(--muted); font-size: 11px; }
+.upload-queue-heading strong { color: var(--text); font-size: 12px; }
+.upload-queue { display: grid; gap: 8px; max-height: 250px; margin: 8px 0 0; padding: 0; overflow-y: auto; list-style: none; }
+.upload-item { display: grid; grid-template-columns: 56px minmax(0, 1fr) auto; align-items: center; gap: 10px; min-width: 0; padding: 8px; border: 1px solid var(--line-soft); border-radius: 10px; background: rgba(10, 16, 24, .3); }
+.upload-item[data-status="uploading"] { border-color: rgba(245, 180, 94, .5); }
+.upload-item[data-status="success"] { border-color: rgba(130, 211, 184, .35); }
+.upload-item[data-status="error"] { border-color: rgba(255, 157, 157, .42); }
+.upload-item img { width: 56px; height: 42px; border-radius: 7px; object-fit: cover; background: #0a1017; }
+.upload-item-meta { min-width: 0; }
+.upload-item-name { display: block; overflow: hidden; color: var(--text); font-size: 12px; font-weight: 650; text-overflow: ellipsis; white-space: nowrap; }
+.upload-item-status { display: block; margin-top: 4px; overflow: hidden; color: var(--muted); font-size: 11px; line-height: 1.35; text-overflow: ellipsis; white-space: nowrap; }
+.upload-item[data-status="success"] .upload-item-status { color: var(--mint); }
+.upload-item[data-status="error"] .upload-item-status { color: var(--danger); white-space: normal; }
+.upload-item-remove { min-width: 44px; min-height: 44px; padding: 7px 6px; border: 1px solid var(--line); border-radius: 8px; color: var(--muted); background: transparent; font-size: 11px; }
+.upload-item-remove:hover:not(:disabled) { color: var(--text); background: var(--panel-raised); }
+.upload-item-remove:disabled { cursor: not-allowed; opacity: .45; }
+.upload-batch-note, .upload-retry-note { margin: 10px 0 0; color: var(--faint); font-size: 11px; line-height: 1.5; }
+.upload-retry-note { color: var(--accent); }
 .dialog-status { min-height: 0; margin-top: 15px; color: var(--muted); font-size: 12px; line-height: 1.55; }
 .dialog-status.error { color: var(--danger); }
 .dialog-status.success { color: var(--mint); }

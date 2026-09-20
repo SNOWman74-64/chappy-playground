@@ -24,13 +24,12 @@ const state = {
   loadError: null,
 };
 
-let selectedFile = null;
-let selectedFileInfo = null;
-let previewUrl = null;
-let uploadKey = null;
-let uploadPayloadSignature = "";
+const MAX_UPLOAD_ITEMS = 20;
+let uploadQueue = [];
 let loadRun = 0;
+let selectionBusy = false;
 let uploadBusy = false;
+let metadataLocked = false;
 
 const $ = (selector) => document.querySelector(selector);
 
@@ -388,31 +387,6 @@ async function loadPalicos({ append = false } = {}) {
   }
 }
 
-function clearPreview() {
-  if (previewUrl) URL.revokeObjectURL(previewUrl);
-  previewUrl = null;
-  selectedFile = null;
-  selectedFileInfo = null;
-  $("#image-file").value = "";
-  $("#image-preview").hidden = true;
-  $("#preview-image").removeAttribute("src");
-  setText("#preview-name", "");
-  setText("#preview-details", "");
-  refreshUploadKey();
-}
-
-function selectedPayloadSignature() {
-  return [selectedFile?.name || "", selectedFile?.size || "", selectedFile?.lastModified || "", selectedFile?.type || "", $("#support-type")?.value || "", $("#memo")?.value || ""].join("\u001f");
-}
-
-function refreshUploadKey() {
-  const signature = selectedPayloadSignature();
-  if (signature !== uploadPayloadSignature) {
-    uploadPayloadSignature = signature;
-    uploadKey = null;
-  }
-}
-
 function setDialogStatus(message, kind = "") {
   const status = $("#dialog-status");
   status.className = `dialog-status${kind ? ` ${kind}` : ""}`;
@@ -454,74 +428,232 @@ async function prepareImage(file) {
   canvas.height = height;
   const context = canvas.getContext("2d", { alpha: true });
   if (!context) throw new Error("canvas-unavailable");
-  context.drawImage(image, 0, 0, width, height);
-  const blob = await new Promise((resolve) => canvas.toBlob(resolve, "image/png"));
-  if (!blob) throw new Error("image-encode-failed");
-  if (blob.size > MAX_IMAGE_BYTES) throw new Error("processed-image-too-large");
-  return { blob, width, height };
+  try {
+    context.drawImage(image, 0, 0, width, height);
+    const blob = await new Promise((resolve) => canvas.toBlob(resolve, "image/png"));
+    if (!blob) throw new Error("image-encode-failed");
+    if (blob.size > MAX_IMAGE_BYTES) throw new Error("processed-image-too-large");
+    return { blob, width, height };
+  } finally {
+    image.onload = null;
+    image.onerror = null;
+    image.src = "";
+    canvas.width = 0;
+    canvas.height = 0;
+  }
 }
 
-async function chooseImage(file) {
-  clearPreview();
-  if (!file) return;
-  if (!IMAGE_TYPES.has(file.type)) {
-    setDialogStatus("対応していない画像形式です。PNG、JPEG、WebPを選択してください。", "error");
-    return;
+function fileIdentity(file) {
+  return [file?.name || "", file?.size || 0, file?.lastModified || 0, file?.type || ""].join("\u001f");
+}
+
+function currentMetadata() {
+  return { supportType: $("#support-type").value, memo: $("#memo").value.trim() };
+}
+
+function firstMetadataSnapshot() {
+  return uploadQueue.find((entry) => entry.metadataSnapshot)?.metadataSnapshot || null;
+}
+
+function hasUnresolvedUploads() {
+  return uploadQueue.some((entry) => entry.status !== "success");
+}
+
+function statusLabel(entry) {
+  if (entry.status === "pending") return "送信待ち";
+  if (entry.status === "preparing") return "画像を準備中…";
+  if (entry.status === "uploading") return "アップロード中…";
+  if (entry.status === "success") return "追加済み";
+  return `失敗: ${entry.error || "再試行してください"}`;
+}
+
+function renderUploadQueue() {
+  const container = $("#upload-queue");
+  if (!container) return;
+  container.replaceChildren();
+  uploadQueue.forEach((entry) => {
+    const item = createElement("li", "upload-item");
+    item.dataset.status = entry.status === "preparing" ? "uploading" : entry.status;
+    item.dataset.itemId = entry.id;
+    const thumbnail = createElement("img");
+    thumbnail.src = entry.previewUrl;
+    thumbnail.alt = `${entry.name}のプレビュー`;
+    thumbnail.loading = "lazy";
+    const meta = createElement("div", "upload-item-meta");
+    meta.append(createElement("strong", "upload-item-name", entry.name));
+    meta.append(createElement("span", "upload-item-status", statusLabel(entry)));
+    const remove = createElement("button", "upload-item-remove", "除外");
+    remove.type = "button";
+    remove.setAttribute("aria-label", `${entry.name}を選択から除外`);
+    remove.disabled = uploadBusy || selectionBusy;
+    remove.addEventListener("click", () => removeUploadItem(entry.id));
+    item.append(thumbnail, meta, remove);
+    container.append(item);
+  });
+  const complete = uploadQueue.filter((entry) => entry.status === "success").length;
+  const total = uploadQueue.length;
+  setText("#upload-progress", `${complete} / ${total || MAX_UPLOAD_ITEMS}枚完了 · ${total} / ${MAX_UPLOAD_ITEMS}枚`);
+  setText("#upload-queue-hint", total ? "1枚ずつ別の猫として登録します。送信済みの猫は再送しません。" : "画像を追加すると、1枚ずつ別の猫として登録します。");
+  const retryNote = $("#upload-retry-note");
+  if (retryNote) retryNote.hidden = !hasUnresolvedUploads() || !metadataLocked;
+  syncControls();
+}
+
+function syncControls() {
+  const interactionBusy = uploadBusy || selectionBusy;
+  ["#close-dialog", "#cancel-dialog", "#image-file", "#upload-secret"].forEach((selector) => {
+    const element = $(selector);
+    if (element) element.disabled = interactionBusy;
+  });
+  ["#support-type", "#memo"].forEach((selector) => {
+    const element = $(selector);
+    if (element) element.disabled = interactionBusy || metadataLocked;
+  });
+  const submitButton = $("#submit-upload");
+  if (submitButton) submitButton.disabled = interactionBusy || !uploadQueue.some((entry) => entry.status !== "success");
+  document.querySelectorAll(".upload-item-remove").forEach((button) => { button.disabled = interactionBusy; });
+}
+
+function setUploadBusy(busy) {
+  uploadBusy = busy;
+  syncControls();
+}
+
+function resetUploadQueue() {
+  uploadQueue.forEach((entry) => {
+    if (entry.previewUrl) URL.revokeObjectURL(entry.previewUrl);
+    entry.previewUrl = null;
+    entry.file = null;
+    entry.preparedBlob = null;
+  });
+  uploadQueue = [];
+  metadataLocked = false;
+  const input = $("#image-file");
+  if (input) input.value = "";
+  $("#support-type").value = "";
+  $("#memo").value = "";
+  renderUploadQueue();
+}
+
+function removeUploadItem(itemId) {
+  if (uploadBusy || selectionBusy) return;
+  const index = uploadQueue.findIndex((entry) => entry.id === itemId);
+  if (index < 0) return;
+  const entry = uploadQueue[index];
+  if (entry.uncertain && !window.confirm("この画像はすでに保存されている可能性があります。選択から除外して再び登録すると、重複する場合があります。除外しますか？")) return;
+  if (entry.previewUrl) URL.revokeObjectURL(entry.previewUrl);
+  uploadQueue.splice(index, 1);
+  if (!hasUnresolvedUploads()) {
+    resetUploadQueue();
+  } else {
+    metadataLocked = Boolean(firstMetadataSnapshot());
+    renderUploadQueue();
   }
-  if (file.size > MAX_IMAGE_BYTES) {
-    setDialogStatus("画像が大きすぎます。15MB以下の画像を選択してください。", "error");
-    return;
-  }
+}
+
+async function chooseImages(files) {
+  const selected = Array.from(files || []);
+  if (!selected.length || uploadBusy || selectionBusy) return;
+  selectionBusy = true;
+  syncControls();
+  const known = new Set(uploadQueue.map((entry) => fileIdentity(entry.file || entry)));
+  const issues = [];
+  let added = 0;
+  let duplicate = 0;
+  let capped = 0;
   try {
-    const image = await decodeImage(file);
-    selectedFile = file;
-    selectedFileInfo = { width: image.naturalWidth, height: image.naturalHeight };
-    previewUrl = URL.createObjectURL(file);
-    $("#preview-image").src = previewUrl;
-    $("#image-preview").hidden = false;
-    setText("#preview-name", file.name);
-    setText("#preview-details", `${image.naturalWidth} × ${image.naturalHeight} · ${formatBytes(file.size)}`);
-    setDialogStatus("");
-    refreshUploadKey();
-  } catch {
-    setDialogStatus("画像を読み込めませんでした。PNG、JPEG、WebPの画像を選択してください。", "error");
+    for (const file of selected) {
+      if (uploadQueue.length >= MAX_UPLOAD_ITEMS) {
+        capped += 1;
+        continue;
+      }
+      const identity = fileIdentity(file);
+      if (known.has(identity)) {
+        duplicate += 1;
+        continue;
+      }
+      if (!IMAGE_TYPES.has(file.type)) {
+        issues.push(`${file.name}: PNG、JPEG、WebPのみ対応`);
+        continue;
+      }
+      if (file.size > MAX_IMAGE_BYTES) {
+        issues.push(`${file.name}: 15MB以下にしてください`);
+        continue;
+      }
+      let dimensions;
+      try {
+        const image = await decodeImage(file);
+        dimensions = { width: image.naturalWidth, height: image.naturalHeight };
+        image.onload = null;
+        image.onerror = null;
+        image.src = "";
+      } catch {
+        issues.push(`${file.name}: 画像を読み込めません`);
+        continue;
+      }
+      const entry = {
+        id: `upload-${newUploadKey()}`,
+        file,
+        name: file.name || "palico-image",
+        size: file.size,
+        type: file.type,
+        lastModified: file.lastModified,
+        width: dimensions.width,
+        height: dimensions.height,
+        previewUrl: URL.createObjectURL(file),
+        status: "pending",
+        error: "",
+        uncertain: false,
+        idempotencyKey: newUploadKey(),
+        preparedBlob: null,
+        preparedWidth: dimensions.width,
+        preparedHeight: dimensions.height,
+        metadataSnapshot: firstMetadataSnapshot(),
+      };
+      uploadQueue.push(entry);
+      known.add(identity);
+      added += 1;
+      renderUploadQueue();
+    }
+  } finally {
+    selectionBusy = false;
+    const input = $("#image-file");
+    if (input) input.value = "";
+    renderUploadQueue();
   }
+  const parts = [];
+  if (added) parts.push(`${added}枚を追加しました`);
+  if (issues.length) parts.push(`${issues.length}枚を追加できませんでした（${issues.slice(0, 2).join("、")}${issues.length > 2 ? "ほか" : ""}）`);
+  if (duplicate) parts.push(`${duplicate}枚は同じファイルのためスキップしました`);
+  if (capped) parts.push(`上限20枚のため${capped}枚は追加しませんでした`);
+  if (parts.length) setDialogStatus(parts.join("。") + "。", issues.length || capped ? "error" : "");
 }
 
 function openDialog() {
   const dialog = $("#add-dialog");
+  const snapshot = firstMetadataSnapshot();
+  if (snapshot && hasUnresolvedUploads()) {
+    $("#support-type").value = snapshot.supportType || "";
+    $("#memo").value = snapshot.memo || "";
+    metadataLocked = true;
+  }
   $("#upload-secret").value = getSessionSecret();
-  setDialogStatus(state.apiBase ? "" : "APIの接続先を設定するとアップロードできます。", state.apiBase ? "" : "error");
+  if (!state.apiBase) setDialogStatus("APIの接続先を設定するとアップロードできます。", "error");
+  else if (hasUnresolvedUploads()) setDialogStatus("未完了の画像だけを再試行できます。", "");
+  else setDialogStatus("");
+  renderUploadQueue();
   if (typeof dialog.showModal === "function") dialog.showModal();
   else dialog.setAttribute("open", "");
   window.setTimeout(() => $("#image-file").focus(), 0);
 }
 
 function closeDialog() {
+  if (uploadBusy || selectionBusy) return;
   const dialog = $("#add-dialog");
   if (typeof dialog.close === "function") dialog.close();
   else dialog.removeAttribute("open");
-  clearPreview();
-  $("#support-type").value = "";
-  $("#memo").value = "";
-  resetUploadButton();
-  setUploadBusy(false);
-  setDialogStatus("");
-}
-
-function resetUploadButton() {
-  const button = $("#submit-upload");
-  button.disabled = false;
-  button.textContent = "Inboxに追加";
-}
-
-function setUploadBusy(busy) {
-  uploadBusy = busy;
-  ["#close-dialog", "#cancel-dialog", "#clear-image", "#image-file", "#support-type", "#memo", "#upload-secret"].forEach((selector) => {
-    const element = $(selector);
-    if (element) element.disabled = busy;
-  });
-  $("#submit-upload").disabled = busy;
+  if (!hasUnresolvedUploads()) resetUploadQueue();
+  syncControls();
 }
 
 function uploadErrorMessage(error) {
@@ -541,14 +673,64 @@ function newUploadKey() {
   return `${Date.now()}-${Math.random().toString(16).slice(2)}`;
 }
 
+async function uploadEntry(entry, secret) {
+  if (!entry.preparedBlob) {
+    const prepared = await prepareImage(entry.file);
+    entry.preparedBlob = prepared.blob;
+    entry.preparedWidth = prepared.width;
+    entry.preparedHeight = prepared.height;
+  }
+  const payload = new FormData();
+  payload.append("image", entry.preparedBlob, "palico.png");
+  const snapshot = entry.metadataSnapshot || currentMetadata();
+  if (snapshot.supportType) payload.append("supportType", snapshot.supportType);
+  if (snapshot.memo) payload.append("memo", snapshot.memo);
+  const response = await fetchWithTimeout(apiUrl("/api/palicos"), {
+    method: "POST",
+    headers: { Authorization: `Bearer ${secret}`, "Idempotency-Key": entry.idempotencyKey },
+    body: payload,
+  });
+  if (!response.ok) {
+    const message = await responseMessage(response);
+    const uncertain = response.status === 408 || response.status === 425 || response.status >= 500;
+    throw Object.assign(new Error(message), { httpStatus: response.status, uncertain });
+  }
+  let result;
+  try {
+    result = await response.json();
+  } catch {
+    throw Object.assign(new Error("サーバーの応答を読み取れませんでした。"), { uncertain: true, code: "INVALID_SUCCESS" });
+  }
+  const palico = result?.palico && typeof result.palico === "object" ? result.palico : result;
+  if (!palico || typeof palico !== "object" || Array.isArray(palico) || !palico.id || !palico.verdict) {
+    throw Object.assign(new Error("サーバーの応答を読み取れませんでした。"), { uncertain: true, code: "INVALID_SUCCESS" });
+  }
+  return palico;
+}
+
+function markInboxImmediately(palico) {
+  state.activeTab = "inbox";
+  state.query = "";
+  const search = $("#search");
+  if (search) search.value = "";
+  state.nextCursor = null;
+  state.loadError = null;
+  state.loading = false;
+  state.loadingMore = false;
+  loadRun += 1;
+  mergePalicos([palico]);
+  render();
+}
+
 async function submitUpload(event) {
   event.preventDefault();
-  refreshUploadKey();
+  if (uploadBusy || selectionBusy) return;
   if (!state.apiBase) {
     setDialogStatus("APIの接続先が未設定です。config.js の API_BASE を設定してください。", "error");
     return;
   }
-  if (!selectedFile) {
+  const pending = uploadQueue.filter((entry) => entry.status !== "success");
+  if (!pending.length) {
     setDialogStatus("スクリーンショットを選択してください。", "error");
     $("#image-file").focus();
     return;
@@ -559,56 +741,62 @@ async function submitUpload(event) {
     $("#upload-secret").focus();
     return;
   }
-  const submitButton = $("#submit-upload");
+  const snapshot = currentMetadata();
+  pending.forEach((entry) => {
+    if (!entry.metadataSnapshot) entry.metadataSnapshot = { ...snapshot };
+  });
+  metadataLocked = true;
   setUploadBusy(true);
-  submitButton.textContent = "画像を準備中…";
-  setDialogStatus("画像を読み込んでいます…");
+  let stoppedMessage = "";
   try {
-    const prepared = await prepareImage(selectedFile);
-    if (!uploadKey) uploadKey = newUploadKey();
-    const payload = new FormData();
-    payload.append("image", prepared.blob, "palico.png");
-    const supportType = $("#support-type").value;
-    const memo = $("#memo").value.trim();
-    if (supportType) payload.append("supportType", supportType);
-    if (memo) payload.append("memo", memo);
-    submitButton.textContent = "アップロード中…";
-    setDialogStatus("Inboxに追加しています…");
-    const response = await fetchWithTimeout(apiUrl("/api/palicos"), { method: "POST", headers: { Authorization: `Bearer ${secret}`, "Idempotency-Key": uploadKey }, body: payload });
-    if (!response.ok) {
-      const message = await responseMessage(response);
-      const uncertain = response.status === 408 || response.status === 425 || response.status >= 500;
-      throw Object.assign(new Error(message), { httpStatus: response.status, uncertain });
+    for (const entry of pending) {
+      if (entry.status === "success") continue;
+      entry.status = "preparing";
+      entry.error = "";
+      renderUploadQueue();
+      setDialogStatus(`${uploadQueue.filter((item) => item.status === "success").length} / ${uploadQueue.length}枚を処理中…`);
+      try {
+        entry.status = "uploading";
+        renderUploadQueue();
+        const palico = await uploadEntry(entry, secret);
+        entry.status = "success";
+        entry.error = "";
+        entry.uncertain = false;
+        entry.file = null;
+        entry.preparedBlob = null;
+        markInboxImmediately(palico);
+        saveSessionSecret(secret);
+      } catch (error) {
+        const result = uploadErrorMessage(error);
+        entry.status = "error";
+        entry.error = result.message;
+        entry.uncertain = entry.uncertain || result.uncertain;
+        if (!result.uncertain) entry.preparedBlob = null;
+        if (error?.httpStatus === 401 || error?.httpStatus === 403) forgetSessionSecret();
+        renderUploadQueue();
+        if (error?.httpStatus === 401 || error?.httpStatus === 403 || error?.httpStatus === 429) {
+          stoppedMessage = `${result.message} 残りの画像は送信せず停止しました。${error.httpStatus === 401 ? "シークレットを確認して再試行してください。" : "原因が解消してから再試行してください。"}`;
+          break;
+        }
+      }
     }
-    let result;
-    try {
-      result = await response.json();
-    } catch {
-      throw Object.assign(new Error("サーバーの応答を読み取れませんでした。"), { uncertain: true, code: "INVALID_SUCCESS" });
-    }
-    const palico = result?.palico && typeof result.palico === "object" ? result.palico : result;
-    if (!palico || typeof palico !== "object" || Array.isArray(palico) || !palico.id || !palico.verdict) throw Object.assign(new Error("サーバーの応答を読み取れませんでした。"), { uncertain: true, code: "INVALID_SUCCESS" });
-    mergePalicos([palico]);
-    state.activeTab = "inbox";
-    state.palicos = [palico];
-    state.nextCursor = null;
-    loadRun += 1;
-    state.loadError = null;
-    render();
-    saveSessionSecret(secret);
-    uploadKey = null;
-    uploadPayloadSignature = "";
-    setDialogStatus("追加しました。Inboxに表示しています。", "success");
-    loadPalicos();
-    window.setTimeout(closeDialog, 500);
-  } catch (error) {
-    const result = uploadErrorMessage(error);
-    if (error?.httpStatus === 401 || error?.httpStatus === 403) forgetSessionSecret();
-    if (!result.uncertain && error?.httpStatus !== 408 && error?.httpStatus !== 425 && !(error?.httpStatus >= 500)) uploadKey = null;
+  } finally {
     setUploadBusy(false);
-    submitButton.textContent = result.uncertain ? "再試行" : "Inboxに追加";
-    setDialogStatus(result.message, "error");
   }
+  renderUploadQueue();
+  if (hasUnresolvedUploads()) {
+    const complete = uploadQueue.filter((entry) => entry.status === "success").length;
+    const message = stoppedMessage || `${complete} / ${uploadQueue.length}枚を追加しました。未完了の画像を再試行できます。`;
+    setDialogStatus(message, "error");
+    $("#submit-upload").textContent = "未完了を再試行";
+    return;
+  }
+  const total = uploadQueue.length;
+  resetUploadQueue();
+  setDialogStatus(`${total}匹を追加しました。Inboxに表示しています。`, "success");
+  $("#submit-upload").textContent = "Inboxに追加";
+  loadPalicos();
+  closeDialog();
 }
 
 function init() {
@@ -616,15 +804,15 @@ function init() {
   $("#open-add").addEventListener("click", openDialog);
   $("#close-dialog").addEventListener("click", closeDialog);
   $("#cancel-dialog").addEventListener("click", closeDialog);
-  $("#clear-image").addEventListener("click", () => { clearPreview(); $("#image-file").focus(); });
-  $("#image-file").addEventListener("change", (event) => chooseImage(event.target.files?.[0]));
-  $("#support-type").addEventListener("change", refreshUploadKey);
-  $("#memo").addEventListener("input", refreshUploadKey);
+  $("#image-file").addEventListener("change", (event) => chooseImages(event.target.files));
   $("#add-form").addEventListener("submit", submitUpload);
   $("#search").addEventListener("input", (event) => { state.query = event.target.value; render(); });
   $("#load-more").addEventListener("click", () => loadPalicos({ append: true }));
-  $("#add-dialog").addEventListener("cancel", (event) => { event.preventDefault(); if (!uploadBusy) closeDialog(); });
+  $("#add-dialog").addEventListener("cancel", (event) => { event.preventDefault(); if (!uploadBusy && !selectionBusy) closeDialog(); });
+  $("#support-type").addEventListener("change", () => { if (!metadataLocked) renderUploadQueue(); });
+  $("#memo").addEventListener("input", () => { if (!metadataLocked) renderUploadQueue(); });
   render();
+  renderUploadQueue();
   if (state.apiBase) loadPalicos();
 }
 
