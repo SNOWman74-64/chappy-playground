@@ -1,0 +1,12 @@
+{
+  "hunterType": "blademaster",
+  "weaponType": "SwordAndShield",
+  "gender": "male",
+  "rank": "G2",
+  "weaponSlots": 0,
+  "requiredSkills": ["弱点特効"],
+  "preferredSkills": ["業物"],
+  "minDefense": 500,
+  "useCharmLibrary": true,
+  "maxResults": 5
+}

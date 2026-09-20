@@ -29,6 +29,8 @@ jobs:
           node-version: '24'
       - name: Test read snapshot builder
         run: node --test mhxx-palico/scripts/*.test.mjs
+      - name: Validate MHXX equipment data and solver
+        run: node --test mhxx/test/*.test.mjs
       - name: Prepare existing site and fresh read snapshot
         shell: bash
         run: |

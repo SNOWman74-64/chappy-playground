@@ -1,0 +1,171 @@
+[
+  {
+    "rank": "LR",
+    "order": 3,
+    "aliases": [
+      "max3"
+    ],
+    "sourceIds": [
+      "athena-numericupdownhr-h",
+      "athena-armor-cpp"
+    ],
+    "confidence": "medium",
+    "notes": "UI最大値3に対応する下位別名。"
+  },
+  {
+    "rank": "HR1",
+    "order": 1,
+    "aliases": [],
+    "sourceIds": [
+      "athena-numericupdownhr-h",
+      "athena-armor-cpp"
+    ],
+    "confidence": "medium",
+    "notes": "Athena loaderのguild/HRマッピング。個別クエスト解禁は別条件。"
+  },
+  {
+    "rank": "HR2",
+    "order": 2,
+    "aliases": [],
+    "sourceIds": [
+      "athena-numericupdownhr-h",
+      "athena-armor-cpp"
+    ],
+    "confidence": "medium",
+    "notes": "Athena loaderのguild/HRマッピング。個別クエスト解禁は別条件。"
+  },
+  {
+    "rank": "HR3",
+    "order": 3,
+    "aliases": [],
+    "sourceIds": [
+      "athena-numericupdownhr-h",
+      "athena-armor-cpp"
+    ],
+    "confidence": "medium",
+    "notes": "Athena loaderのguild/HRマッピング。個別クエスト解禁は別条件。"
+  },
+  {
+    "rank": "HR4",
+    "order": 4,
+    "aliases": [],
+    "sourceIds": [
+      "athena-numericupdownhr-h",
+      "athena-armor-cpp"
+    ],
+    "confidence": "medium",
+    "notes": "Athena loaderのguild/HRマッピング。個別クエスト解禁は別条件。"
+  },
+  {
+    "rank": "HR5",
+    "order": 5,
+    "aliases": [],
+    "sourceIds": [
+      "athena-numericupdownhr-h",
+      "athena-armor-cpp"
+    ],
+    "confidence": "medium",
+    "notes": "Athena loaderのguild/HRマッピング。個別クエスト解禁は別条件。"
+  },
+  {
+    "rank": "HR6",
+    "order": 6,
+    "aliases": [],
+    "sourceIds": [
+      "athena-numericupdownhr-h",
+      "athena-armor-cpp"
+    ],
+    "confidence": "medium",
+    "notes": "Athena loaderのguild/HRマッピング。個別クエスト解禁は別条件。"
+  },
+  {
+    "rank": "HR7",
+    "order": 7,
+    "aliases": [],
+    "sourceIds": [
+      "athena-numericupdownhr-h",
+      "athena-armor-cpp"
+    ],
+    "confidence": "medium",
+    "notes": "Athena loaderのguild/HRマッピング。個別クエスト解禁は別条件。"
+  },
+  {
+    "rank": "HR8",
+    "order": 8,
+    "aliases": [],
+    "sourceIds": [
+      "athena-numericupdownhr-h",
+      "athena-armor-cpp"
+    ],
+    "confidence": "medium",
+    "notes": "Athena loaderのguild/HRマッピング。個別クエスト解禁は別条件。"
+  },
+  {
+    "rank": "HR",
+    "order": 8,
+    "aliases": [
+      "max8"
+    ],
+    "sourceIds": [
+      "athena-numericupdownhr-h",
+      "athena-armor-cpp"
+    ],
+    "confidence": "medium",
+    "notes": "UI最大値8に対応する上位別名。"
+  },
+  {
+    "rank": "G1",
+    "order": 9,
+    "aliases": [],
+    "sourceIds": [
+      "athena-numericupdownhr-h",
+      "athena-armor-cpp"
+    ],
+    "confidence": "medium",
+    "notes": "Athena loaderのguild/HRマッピング。個別クエスト解禁は別条件。"
+  },
+  {
+    "rank": "G2",
+    "order": 10,
+    "aliases": [],
+    "sourceIds": [
+      "athena-numericupdownhr-h",
+      "athena-armor-cpp"
+    ],
+    "confidence": "medium",
+    "notes": "Athena loaderのguild/HRマッピング。個別クエスト解禁は別条件。"
+  },
+  {
+    "rank": "G3",
+    "order": 11,
+    "aliases": [],
+    "sourceIds": [
+      "athena-numericupdownhr-h",
+      "athena-armor-cpp"
+    ],
+    "confidence": "medium",
+    "notes": "Athena loaderのguild/HRマッピング。個別クエスト解禁は別条件。"
+  },
+  {
+    "rank": "G4",
+    "order": 12,
+    "aliases": [],
+    "sourceIds": [
+      "athena-numericupdownhr-h",
+      "athena-armor-cpp"
+    ],
+    "confidence": "medium",
+    "notes": "Athena loaderのguild/HRマッピング。個別クエスト解禁は別条件。"
+  },
+  {
+    "rank": "HR解放",
+    "order": 13,
+    "aliases": [],
+    "sourceIds": [
+      "athena-numericupdownhr-h",
+      "athena-armor-cpp"
+    ],
+    "confidence": "medium",
+    "notes": "Athena loaderのguild/HRマッピング。個別クエスト解禁は別条件。"
+  }
+]

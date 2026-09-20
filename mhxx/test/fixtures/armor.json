@@ -1,0 +1,7 @@
+[
+ {"id":"h","name":"fixture head","slot":"head","gender":"both","hunterType":"both","rarity":1,"defense":{"base":100,"max":200},"slots":1,"skillPoints":{"攻撃":3},"rankRequirement":"G1","sourceIds":[]},
+ {"id":"c","name":"fixture chest","slot":"chest","gender":"both","hunterType":"both","rarity":1,"defense":{"base":100,"max":200},"slots":1,"skillPoints":{"攻撃":2},"rankRequirement":"G1","sourceIds":[]},
+ {"id":"a","name":"fixture arms","slot":"arms","gender":"both","hunterType":"both","rarity":1,"defense":{"base":100,"max":200},"slots":0,"skillPoints":{},"rankRequirement":"G1","sourceIds":[]},
+ {"id":"w","name":"fixture waist","slot":"waist","gender":"both","hunterType":"both","rarity":1,"defense":{"base":100,"max":200},"slots":0,"skillPoints":{},"rankRequirement":"G1","sourceIds":[]},
+ {"id":"l","name":"fixture legs","slot":"legs","gender":"both","hunterType":"both","rarity":1,"defense":{"base":100,"max":200},"slots":0,"skillPoints":{},"rankRequirement":"G1","sourceIds":[]}
+]

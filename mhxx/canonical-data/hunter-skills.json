@@ -1,0 +1,5096 @@
+[
+  {
+    "id": "skill-eccd942eed7f76fc229b",
+    "name": "毒耐性",
+    "tree": "毒",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [
+      "Resistance"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-1cb40de1991448538172",
+    "name": "毒倍加",
+    "tree": "毒",
+    "threshold": -10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-b855ff5665a121f60fa2",
+    "name": "麻痺無効",
+    "tree": "麻痺",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [
+      "Resistance"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-b6da9c5080aa3892a96f",
+    "name": "麻痺倍加",
+    "tree": "麻痺",
+    "threshold": -10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-e618b9ee00658992c2e1",
+    "name": "睡眠無効",
+    "tree": "睡眠",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [
+      "Resistance"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-ec7c8a6183e511edc21c",
+    "name": "睡眠倍加",
+    "tree": "睡眠",
+    "threshold": -10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-37605ffe35cfc786555f",
+    "name": "気絶無効",
+    "tree": "気絶",
+    "threshold": 15,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [
+      "Resistance"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-67cc66528b3a8a909c8a",
+    "name": "気絶確率半減",
+    "tree": "気絶",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-5dc52f239aca96dd2665",
+    "name": "気絶倍加",
+    "tree": "気絶",
+    "threshold": -10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-c7a7d723e8e427ad0d73",
+    "name": "高級耳栓",
+    "tree": "聴覚保護",
+    "threshold": 15,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [
+      "Resistance",
+      "Defensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-e3e72f145256258b3fb9",
+    "name": "耳栓",
+    "tree": "聴覚保護",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-24e6bf5142b9227cfa78",
+    "name": "風圧【大】無効",
+    "tree": "風圧",
+    "threshold": 15,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [
+      "Resistance"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-6c123765ac12decc2faa",
+    "name": "風圧【小】無効",
+    "tree": "風圧",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-a2947ba6c32b262d5693",
+    "name": "耐震",
+    "tree": "耐震",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [
+      "Resistance"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-e885727e09ff428924b5",
+    "name": "だるま無効",
+    "tree": "だるま",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [
+      "Resistance"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-ed6ec7fe218ac3fd3640",
+    "name": "暑さ無効",
+    "tree": "耐暑",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [
+      "Resistance"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-d17b8c6180272f137837",
+    "name": "暑さ倍加",
+    "tree": "耐暑",
+    "threshold": -10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-edbc34fe783d02105036",
+    "name": "寒さ無効",
+    "tree": "耐寒",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [
+      "Resistance"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-369b04a54ce00238e750",
+    "name": "寒さ倍加",
+    "tree": "耐寒",
+    "threshold": -10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-5015d3e27a0901704767",
+    "name": "北風の狩人",
+    "tree": "寒冷適応",
+    "threshold": 10,
+    "aliases": [],
+    "compoundEffects": [
+      "寒さ無効"
+    ],
+    "unsupported": true,
+    "hunterType": "both",
+    "tags": [
+      "Resistance"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ]
+  },
+  {
+    "id": "skill-be41ba70cf5839fb12c9",
+    "name": "南風の狩人",
+    "tree": "炎熱適応",
+    "threshold": 10,
+    "aliases": [],
+    "compoundEffects": [
+      "暑さ無効"
+    ],
+    "unsupported": true,
+    "hunterType": "both",
+    "tags": [
+      "Resistance"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ]
+  },
+  {
+    "id": "skill-9d30c842f21133ad8ed1",
+    "name": "盗み無効",
+    "tree": "盗み無効",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [
+      "Resistance"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-5bdac79a1b5d73643ae7",
+    "name": "鉄面皮",
+    "tree": "対防御DOWN",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [
+      "Resistance"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-e39e75e6f2e2650a2271",
+    "name": "無我の境地",
+    "tree": "狂撃耐性",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [
+      "Resistance"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-dbffb31b10113698039c",
+    "name": "バイオドクター",
+    "tree": "細菌学",
+    "threshold": 15,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [
+      "Resistance"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-ad6a6ebc90c465da7b49",
+    "name": "細菌研究家",
+    "tree": "細菌学",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-08c1fc6f442ba6152729",
+    "name": "裂傷無効",
+    "tree": "裂傷",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [
+      "Resistance"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-594528954b9ca7c3489d",
+    "name": "裂傷倍加",
+    "tree": "裂傷",
+    "threshold": -10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-12a384ef145deae23958",
+    "name": "攻撃力UP【大】",
+    "tree": "攻撃",
+    "threshold": 20,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [
+      "Offensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-0daf4253ed25470f712e",
+    "name": "攻撃力UP【中】",
+    "tree": "攻撃",
+    "threshold": 15,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-d3a3a3f041e7686016fc",
+    "name": "攻撃力UP【小】",
+    "tree": "攻撃",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-7508a8297051a6654b7b",
+    "name": "攻撃力DOWN【小】",
+    "tree": "攻撃",
+    "threshold": -10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-75bb12048b18ceaab729",
+    "name": "攻撃力DOWN【中】",
+    "tree": "攻撃",
+    "threshold": -15,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-0d797bdd02b1ca601191",
+    "name": "攻撃力DOWN【大】",
+    "tree": "攻撃",
+    "threshold": -20,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-8602db49ad3323a50829",
+    "name": "防御力UP【大】",
+    "tree": "防御",
+    "threshold": 20,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [
+      "Defensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-b73779635747b4111955",
+    "name": "防御力UP【中】",
+    "tree": "防御",
+    "threshold": 15,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-c36ba07457df21210ed6",
+    "name": "防御力UP【小】",
+    "tree": "防御",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-8c91a34225f4ece2b39a",
+    "name": "防御力DOWN【小】",
+    "tree": "防御",
+    "threshold": -10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-270c96122e01b19f92d1",
+    "name": "防御力DOWN【中】",
+    "tree": "防御",
+    "threshold": -15,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-ef3abfad68b0ade3c452",
+    "name": "防御力DOWN【大】",
+    "tree": "防御",
+    "threshold": -20,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-d1f44851b8d55301c9e8",
+    "name": "体力+50",
+    "tree": "体力",
+    "threshold": 15,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [
+      "Defensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-97b4e0551fdee7d0cb2a",
+    "name": "体力+20",
+    "tree": "体力",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-66345b74271d8b55a26e",
+    "name": "体力-10",
+    "tree": "体力",
+    "threshold": -10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-362ac018198039feea75",
+    "name": "体力-30",
+    "tree": "体力",
+    "threshold": -15,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-bf432cde62af16e0b037",
+    "name": "火耐性【大】",
+    "tree": "火耐性",
+    "threshold": 15,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [
+      "Resistance"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-1d77453226b1c97b3961",
+    "name": "火耐性【小】",
+    "tree": "火耐性",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-a62b7ddb517f87c884fa",
+    "name": "火耐性弱化",
+    "tree": "火耐性",
+    "threshold": -10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-773e0947410f0a00acaa",
+    "name": "水耐性【大】",
+    "tree": "水耐性",
+    "threshold": 15,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [
+      "Resistance"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-999ce9890c3ceb0cd150",
+    "name": "水耐性【小】",
+    "tree": "水耐性",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-d2b749a208bde6a986ff",
+    "name": "水耐性弱化",
+    "tree": "水耐性",
+    "threshold": -10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-bf5bc46d7899952b6c37",
+    "name": "雷耐性【大】",
+    "tree": "雷耐性",
+    "threshold": 15,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [
+      "Resistance"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-a8b8bd00478acb57ba0c",
+    "name": "雷耐性【小】",
+    "tree": "雷耐性",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-07c34930e169d4b8be9e",
+    "name": "雷耐性弱化",
+    "tree": "雷耐性",
+    "threshold": -10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-db3d47cb5edeb3f6c95a",
+    "name": "氷耐性【大】",
+    "tree": "氷耐性",
+    "threshold": 15,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [
+      "Resistance"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-b7c4a46364d1094d4c05",
+    "name": "氷耐性【小】",
+    "tree": "氷耐性",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-c375a16f63200a51da6d",
+    "name": "氷耐性弱化",
+    "tree": "氷耐性",
+    "threshold": -10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-fe6239a29acedadcbaf6",
+    "name": "龍耐性【大】",
+    "tree": "龍耐性",
+    "threshold": 15,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [
+      "Resistance"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-ae52995eebd7cf7d9def",
+    "name": "龍耐性【小】",
+    "tree": "龍耐性",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-e67e686ace6d8601b78d",
+    "name": "龍耐性弱化",
+    "tree": "龍耐性",
+    "threshold": -10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-1dac4abaa4588c2f919c",
+    "name": "属性やられ無効",
+    "tree": "属性耐性",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [
+      "Resistance"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-117595dcbadb0dfd7ea4",
+    "name": "火属性攻撃強化+2",
+    "tree": "火属性攻撃",
+    "threshold": 15,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [
+      "Offensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-d3d2212a5e22be550440",
+    "name": "火属性攻撃強化+1",
+    "tree": "火属性攻撃",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-097c8fd64d74aefdab3f",
+    "name": "火属性攻撃弱化",
+    "tree": "火属性攻撃",
+    "threshold": -10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-58f240a71846aff19662",
+    "name": "水属性攻撃強化+2",
+    "tree": "水属性攻撃",
+    "threshold": 15,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [
+      "Offensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-9b332c7b6690b2ed87b2",
+    "name": "水属性攻撃強化+1",
+    "tree": "水属性攻撃",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-802b7aa6f60e9f14cca2",
+    "name": "水属性攻撃弱化",
+    "tree": "水属性攻撃",
+    "threshold": -10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-02fc0b7819ede86bf5ae",
+    "name": "雷属性攻撃強化+2",
+    "tree": "雷属性攻撃",
+    "threshold": 15,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [
+      "Offensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-765f1ca55e960429c2e1",
+    "name": "雷属性攻撃強化+1",
+    "tree": "雷属性攻撃",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-dcc5b37da8cd1f847482",
+    "name": "雷属性攻撃弱化",
+    "tree": "雷属性攻撃",
+    "threshold": -10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-e2d91ed1dee620d624cd",
+    "name": "氷属性攻撃強化+2",
+    "tree": "氷属性攻撃",
+    "threshold": 15,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [
+      "Offensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-9ae1a578f1d67075daef",
+    "name": "氷属性攻撃強化+1",
+    "tree": "氷属性攻撃",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-d51ce600187c118a65fc",
+    "name": "氷属性攻撃弱化",
+    "tree": "氷属性攻撃",
+    "threshold": -10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-80f8878a27b0877524d2",
+    "name": "龍属性攻撃強化+2",
+    "tree": "龍属性攻撃",
+    "threshold": 15,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [
+      "Offensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-68c9df8160cbf2780540",
+    "name": "龍属性攻撃強化+1",
+    "tree": "龍属性攻撃",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-9bdc9baf622537ee9df1",
+    "name": "龍属性攻撃弱化",
+    "tree": "龍属性攻撃",
+    "threshold": -10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-d44e305022e9e600741b",
+    "name": "属性攻撃強化",
+    "tree": "属性攻撃",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [
+      "Offensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-1dbbc18b067832dd2430",
+    "name": "属性攻撃弱化",
+    "tree": "属性攻撃",
+    "threshold": -10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-a3fbdd27a2b970bebf07",
+    "name": "状態異常攻撃+2",
+    "tree": "特殊攻撃",
+    "threshold": 15,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [
+      "Offensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-546b820e31e392fe9a05",
+    "name": "状態異常攻撃+1",
+    "tree": "特殊攻撃",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-ac20f1e4c8bef26ae62f",
+    "name": "状態異常攻撃弱化",
+    "tree": "特殊攻撃",
+    "threshold": -10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-dd7a16db9e140debe5e1",
+    "name": "砥石使用高速化",
+    "tree": "研ぎ師",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [
+      "Blademaster"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-bfbb71e36baf8b21866c",
+    "name": "砥石使用低速化",
+    "tree": "研ぎ師",
+    "threshold": -10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-852a040af1abc39090e9",
+    "name": "斬れ味レベル+2",
+    "tree": "匠",
+    "threshold": 15,
+    "aliases": [],
+    "hunterType": "blademaster",
+    "tags": [
+      "Blademaster"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-77fd751706f56d5ac2c0",
+    "name": "斬れ味レベル+1",
+    "tree": "匠",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "blademaster",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-ebfc41878118521137ae",
+    "name": "業物",
+    "tree": "斬れ味",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "blademaster",
+    "tags": [
+      "Blademaster"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-55891419e75d64e00843",
+    "name": "なまくら",
+    "tree": "斬れ味",
+    "threshold": -10,
+    "aliases": [],
+    "hunterType": "blademaster",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-61f3c0deb8bb9eaca88a",
+    "name": "心眼",
+    "tree": "剣術",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "blademaster",
+    "tags": [
+      "Blademaster"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-b25e93eb23724c5feded",
+    "name": "未熟",
+    "tree": "剣術",
+    "threshold": -10,
+    "aliases": [],
+    "hunterType": "blademaster",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-2f72b87c5daed9a2c511",
+    "name": "剛刃研磨",
+    "tree": "研磨術",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [
+      "Blademaster"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-a25af45b4885d17fb526",
+    "name": "鈍器使い",
+    "tree": "鈍器",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "blademaster",
+    "tags": [
+      "Blademaster"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-fa6f6a227e72623e5ea5",
+    "name": "抜刀術【技】",
+    "tree": "抜刀会心",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "blademaster",
+    "tags": [
+      "Blademaster"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-483f476b0f3f1d9d4c02",
+    "name": "抜刀術【力】",
+    "tree": "抜刀減気",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "blademaster",
+    "tags": [
+      "Blademaster"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-fb6ce267bd836c5670a8",
+    "name": "納刀術",
+    "tree": "納刀",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-b7a11c3ceca7b93afa94",
+    "name": "挑戦者の納刀",
+    "tree": "納刀研磨",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "blademaster",
+    "tags": [
+      "Blademaster"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-874ffb70a56a5a4066ce",
+    "name": "刃鱗磨き",
+    "tree": "刃鱗",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-468db15433cec2bff493",
+    "name": "装填速度+3",
+    "tree": "装填速度",
+    "threshold": 20,
+    "aliases": [],
+    "hunterType": "gunner",
+    "tags": [
+      "Bow/Gunner"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-2d6eece45c34bf57fa6b",
+    "name": "装填速度+2",
+    "tree": "装填速度",
+    "threshold": 15,
+    "aliases": [],
+    "hunterType": "gunner",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-c00ad820cb41b8b4ba26",
+    "name": "装填速度+1",
+    "tree": "装填速度",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "gunner",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-d170129aa493fa693e9e",
+    "name": "装填速度-1",
+    "tree": "装填速度",
+    "threshold": -10,
+    "aliases": [],
+    "hunterType": "gunner",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-b1c913d2a5c402f62b8d",
+    "name": "装填速度-2",
+    "tree": "装填速度",
+    "threshold": -15,
+    "aliases": [],
+    "hunterType": "gunner",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-325fa3a4ff2edd0868cc",
+    "name": "装填速度-3",
+    "tree": "装填速度",
+    "threshold": -20,
+    "aliases": [],
+    "hunterType": "gunner",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-adb60e865b5ebeac547e",
+    "name": "反動軽減+3",
+    "tree": "反動",
+    "threshold": 20,
+    "aliases": [],
+    "hunterType": "gunner",
+    "tags": [
+      "Bow/Gunner"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-772cafec33de5abb1d01",
+    "name": "反動軽減+2",
+    "tree": "反動",
+    "threshold": 15,
+    "aliases": [],
+    "hunterType": "gunner",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-09c9940d107df424abb3",
+    "name": "反動軽減+1",
+    "tree": "反動",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "gunner",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-fe441c450da93d7a0b40",
+    "name": "反動軽減-1",
+    "tree": "反動",
+    "threshold": -10,
+    "aliases": [],
+    "hunterType": "gunner",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-ff1e8ba1dfb3d0fef378",
+    "name": "反動軽減-2",
+    "tree": "反動",
+    "threshold": -15,
+    "aliases": [],
+    "hunterType": "gunner",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-72d0816a956ac8d2779b",
+    "name": "反動軽減-3",
+    "tree": "反動",
+    "threshold": -20,
+    "aliases": [],
+    "hunterType": "gunner",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-ce31993d88d7dde827e5",
+    "name": "ブレ抑制+2",
+    "tree": "精密射撃",
+    "threshold": 15,
+    "aliases": [],
+    "hunterType": "gunner",
+    "tags": [
+      "Bow/Gunner"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-8dcbac8d783e1c9ebc47",
+    "name": "ブレ抑制+1",
+    "tree": "精密射撃",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "gunner",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-a1118514698100af2684",
+    "name": "ブレ抑制-1",
+    "tree": "精密射撃",
+    "threshold": -10,
+    "aliases": [],
+    "hunterType": "gunner",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-b77033c275ef5069f671",
+    "name": "ブレ抑制-2",
+    "tree": "精密射撃",
+    "threshold": -15,
+    "aliases": [],
+    "hunterType": "gunner",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-4766a8741b34321ed7f9",
+    "name": "通常弾・連射矢UP",
+    "tree": "通常弾強化",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "gunner",
+    "tags": [
+      "Bow/Gunner"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-80bbb1e1327e3b711cf5",
+    "name": "貫通弾・貫通矢UP",
+    "tree": "貫通弾強化",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "gunner",
+    "tags": [
+      "Bow/Gunner"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-9dad3408e105b179751e",
+    "name": "散弾・拡散矢UP",
+    "tree": "散弾強化",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "gunner",
+    "tags": [
+      "Bow/Gunner"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-cf1694a3d9abafa9031e",
+    "name": "重撃弾・重射矢UP",
+    "tree": "重撃弾強化",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "gunner",
+    "tags": [
+      "Bow/Gunner"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-3d878bc4c354cf76a84a",
+    "name": "通常弾全LV追加",
+    "tree": "通常弾追加",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "gunner",
+    "tags": [
+      "Bow/Gunner"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-f097fd5e7f3d53cba64f",
+    "name": "貫通弾全LV追加",
+    "tree": "貫通弾追加",
+    "threshold": 15,
+    "aliases": [],
+    "hunterType": "gunner",
+    "tags": [
+      "Bow/Gunner"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-a97148de785761d1a07e",
+    "name": "貫通弾LV1追加",
+    "tree": "貫通弾追加",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "gunner",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-86e51a206cfd020804ed",
+    "name": "散弾全LV追加",
+    "tree": "散弾追加",
+    "threshold": 15,
+    "aliases": [],
+    "hunterType": "gunner",
+    "tags": [
+      "Bow/Gunner"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-e1183bf2e9292cc347e3",
+    "name": "散弾LV1追加",
+    "tree": "散弾追加",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "gunner",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-83e7db4246fab84a0962",
+    "name": "徹甲榴弾全LV追加",
+    "tree": "榴弾追加",
+    "threshold": 15,
+    "aliases": [],
+    "hunterType": "gunner",
+    "tags": [
+      "Bow/Gunner"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-812ee436618664a4c279",
+    "name": "徹甲榴弾LV1追加",
+    "tree": "榴弾追加",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "gunner",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-c0fa0e7864c8ab185d26",
+    "name": "拡散弾全LV追加",
+    "tree": "拡散弾追加",
+    "threshold": 15,
+    "aliases": [],
+    "hunterType": "gunner",
+    "tags": [
+      "Bow/Gunner"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-23ce479996d1c2ab5ecc",
+    "name": "拡散弾LV1追加",
+    "tree": "拡散弾追加",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "gunner",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-504b64c9adf793810e68",
+    "name": "毒ビン追加",
+    "tree": "毒瓶追加",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "gunner",
+    "tags": [
+      "Bow/Gunner"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-dd2a34c50f4cbce73daf",
+    "name": "麻痺ビン追加",
+    "tree": "麻痺瓶追加",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "gunner",
+    "tags": [
+      "Bow/Gunner"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-129984d2e76b2648d565",
+    "name": "睡眠ビン追加",
+    "tree": "睡眠瓶追加",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "gunner",
+    "tags": [
+      "Bow/Gunner"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-6d433bd5cb4be456773d",
+    "name": "強撃ビン全LV追加",
+    "tree": "強撃瓶追加",
+    "threshold": 15,
+    "aliases": [],
+    "hunterType": "gunner",
+    "tags": [
+      "Bow/Gunner"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-2101d59fe93867f4f531",
+    "name": "強撃ビンLV1追加",
+    "tree": "強撃瓶追加",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "gunner",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-822dc9bdf3d50e387911",
+    "name": "属強ビン全LV追加",
+    "tree": "属強瓶追加",
+    "threshold": 15,
+    "aliases": [],
+    "hunterType": "gunner",
+    "tags": [
+      "Bow/Gunner"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-42c5b0b78e8742cb7a37",
+    "name": "属強ビンLV1追加",
+    "tree": "属強瓶追加",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "gunner",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-b9177736d85db33c66b0",
+    "name": "接撃ビン追加",
+    "tree": "接撃瓶追加",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "gunner",
+    "tags": [
+      "Bow/Gunner"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-ea1a32723eb2c67dbd59",
+    "name": "減気ビン追加",
+    "tree": "減気瓶追加",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "gunner",
+    "tags": [
+      "Bow/Gunner"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-177c982c4ac0814836ca",
+    "name": "爆破ビン追加",
+    "tree": "爆破瓶追加",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "gunner",
+    "tags": [
+      "Bow/Gunner"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-f90454b3308acb96ec57",
+    "name": "連発数+1",
+    "tree": "速射",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "gunner",
+    "tags": [
+      "Bow/Gunner"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-f46503abac1db8e78662",
+    "name": "弾導強化",
+    "tree": "射法",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "gunner",
+    "tags": [
+      "Bow/Gunner"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-cf632b53c15a48f53676",
+    "name": "装填数UP",
+    "tree": "装填数",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [
+      "Offensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-28ba033d3290d992877b",
+    "name": "特定射撃強化",
+    "tree": "変則射撃",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "gunner",
+    "tags": [
+      "Bow/Gunner"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-7a874aef54c3b96e14cd",
+    "name": "弾薬節約",
+    "tree": "弾薬節約",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "gunner",
+    "tags": [
+      "Bow/Gunner"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-7442edb2d900c49366bf",
+    "name": "見切り+3",
+    "tree": "達人",
+    "threshold": 20,
+    "aliases": [
+      "見切り3"
+    ],
+    "hunterType": "both",
+    "tags": [
+      "Offensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-72091693f9b2aa9512f0",
+    "name": "見切り+2",
+    "tree": "達人",
+    "threshold": 15,
+    "aliases": [
+      "見切り2"
+    ],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-b44d77aa803a74d05c85",
+    "name": "見切り+1",
+    "tree": "達人",
+    "threshold": 10,
+    "aliases": [
+      "見切り1"
+    ],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-66eef073bbce003ecc5a",
+    "name": "見切り-1",
+    "tree": "達人",
+    "threshold": -10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-0c00fa8aa02645b89067",
+    "name": "見切り-2",
+    "tree": "達人",
+    "threshold": -15,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-f37e835bb458c8523be4",
+    "name": "見切り-3",
+    "tree": "達人",
+    "threshold": -20,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-5fc7d7d4f56589ec817f",
+    "name": "弱点特効",
+    "tree": "痛撃",
+    "threshold": 10,
+    "aliases": [
+      "弱特"
+    ],
+    "hunterType": "both",
+    "tags": [
+      "Offensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-681998ef2e4e4f9aafd8",
+    "name": "連撃の心得",
+    "tree": "連撃",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [
+      "Offensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-1cc258ad430f494734bb",
+    "name": "会心撃【特殊】",
+    "tree": "特殊会心",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [
+      "Offensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-2c643bb076468b6aa35c",
+    "name": "会心撃【属性】",
+    "tree": "属性会心",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [
+      "Offensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-7fbcf91eb8db3393a311",
+    "name": "超会心",
+    "tree": "会心強化",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [
+      "Offensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-d626a483c19a514fa57b",
+    "name": "痛恨会心",
+    "tree": "裏会心",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [
+      "Offensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-26aaed64166f133c1997",
+    "name": "集中",
+    "tree": "溜め短縮",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [
+      "Offensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-1f919c30e48e508c689c",
+    "name": "雑念",
+    "tree": "溜め短縮",
+    "threshold": -10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-320d0ec9b42ba1af354a",
+    "name": "ランナー",
+    "tree": "スタミナ",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [
+      "Farming",
+      "Defensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-c28591a8c3e4994b23a7",
+    "name": "鈍足",
+    "tree": "スタミナ",
+    "threshold": -10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-c3826fc96d35bc50a666",
+    "name": "体術+2",
+    "tree": "体術",
+    "threshold": 15,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [
+      "Defensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-68801d0a4f64b45387b0",
+    "name": "体術+1",
+    "tree": "体術",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-d621e61ad6a7ebd9ddc7",
+    "name": "体術-1",
+    "tree": "体術",
+    "threshold": -10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-c15f86903ebccabef6fc",
+    "name": "体術-2",
+    "tree": "体術",
+    "threshold": -15,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-38642e513bb39b52cc51",
+    "name": "スタミナ急速回復",
+    "tree": "気力回復",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [
+      "Defensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-1754a06318ca9f4ebef4",
+    "name": "スタミナ回復遅延",
+    "tree": "気力回復",
+    "threshold": -10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-4eeb3a69257681198155",
+    "name": "キープラン",
+    "tree": "走行継続",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-e8f2093c20286f64bbdf",
+    "name": "回避性能+2",
+    "tree": "回避性能",
+    "threshold": 15,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [
+      "Defensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-ec7db2b540710501c050",
+    "name": "回避性能+1",
+    "tree": "回避性能",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-9947a2ffb42fa7e3780b",
+    "name": "回避性能DOWN",
+    "tree": "回避性能",
+    "threshold": -10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-f868e6f29851c374e4d3",
+    "name": "回避距離UP",
+    "tree": "回避距離",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [
+      "Defensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-e6ed3ba47fc2d94a7745",
+    "name": "泡沫の舞",
+    "tree": "泡沫",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [
+      "Defensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-730be920261e6aee2f14",
+    "name": "ガード性能+2",
+    "tree": "ガード性能",
+    "threshold": 15,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [
+      "Defensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-4dcde76d6ed8bac32c63",
+    "name": "ガード性能+1",
+    "tree": "ガード性能",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-2bef5a28c6d97b35eafb",
+    "name": "ガード性能-1",
+    "tree": "ガード性能",
+    "threshold": -10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-4be4f46e4da74d027bb2",
+    "name": "ガード強化",
+    "tree": "ガード強化",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [
+      "Defensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-49b8e3d5347b876db0a4",
+    "name": "KO術",
+    "tree": "KO",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [
+      "Offensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-a38902bb45a6d25f89a7",
+    "name": "スタミナ奪取",
+    "tree": "減気攻撃",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [
+      "Offensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-f5e52fd9a82302761d18",
+    "name": "笛吹き名人",
+    "tree": "笛",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [
+      "Blademaster"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-53b4817132dc240701b4",
+    "name": "砲術王",
+    "tree": "砲術",
+    "threshold": 15,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [
+      "Offensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-cf9213caa814a9f7b04f",
+    "name": "砲術師",
+    "tree": "砲術",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-f07d6275688b08ea33d7",
+    "name": "破壊王",
+    "tree": "重撃",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [
+      "Offensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-971abdaa145af31791b0",
+    "name": "ボマー",
+    "tree": "爆弾強化",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [
+      "Offensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-2d70e6b2d56332f38d66",
+    "name": "力の解放+2",
+    "tree": "本気",
+    "threshold": 15,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [
+      "Offensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-f5f9c46b6c6daf3dc0a9",
+    "name": "力の解放+1",
+    "tree": "本気",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-135a679464c76510d6ca",
+    "name": "挑戦者+2",
+    "tree": "闘魂",
+    "threshold": 15,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [
+      "Offensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-cac1ad7247721794a508",
+    "name": "挑戦者+1",
+    "tree": "闘魂",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-5493da8fb5dcc166af4d",
+    "name": "フルチャージ",
+    "tree": "無傷",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [
+      "Offensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-8bef8ca054b09bc0a973",
+    "name": "切り札",
+    "tree": "チャンス",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-c38da431155e6c6cfbe8",
+    "name": "龍気活性",
+    "tree": "龍気",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-7c0493acfebb47d5ff41",
+    "name": "火事場力+2",
+    "tree": "底力",
+    "threshold": 15,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [
+      "Offensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-a64adbb681bff0e3c14d",
+    "name": "火事場力+1",
+    "tree": "底力",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-e9004ebef777a3e74732",
+    "name": "心配性",
+    "tree": "底力",
+    "threshold": -10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-29edfbbcaf4c31933732",
+    "name": "不屈",
+    "tree": "逆境",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [
+      "Offensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-4df0e2ae7bb6eb5ff233",
+    "name": "逆恨み",
+    "tree": "逆上",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [
+      "Offensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-bfd3b69490555478eb69",
+    "name": "死中に活",
+    "tree": "窮地",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [
+      "Offensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-dea8cc78e7a1f611ddd2",
+    "name": "根性",
+    "tree": "根性",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [
+      "Defensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-0138a62b5ca420008fdc",
+    "name": "隠密",
+    "tree": "気配",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [
+      "Defensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-778921e802bb283eaecb",
+    "name": "挑発",
+    "tree": "気配",
+    "threshold": -10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-93f12f00d9b5e1221daa",
+    "name": "オトモへの采配",
+    "tree": "采配",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-e56d6fc6758999834367",
+    "name": "オトモへの号令",
+    "tree": "号令",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-1f32c83eb0bfe6fc93d2",
+    "name": "乗り名人",
+    "tree": "乗り",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-81bb405e31270d59254b",
+    "name": "乗り下手",
+    "tree": "乗り",
+    "threshold": -10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-73ba20e27ccd39bd441f",
+    "name": "飛燕",
+    "tree": "跳躍",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [
+      "Offensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-44f5b84728bade17a439",
+    "name": "明鏡止水",
+    "tree": "無心",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-cd5e94b1445eb910e7b6",
+    "name": "虎視眈々",
+    "tree": "我慢",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-16dad5a70b3b954e1177",
+    "name": "ＳＰ時間延長",
+    "tree": "ＳＰ延長",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-d1c0588cb2a4fc125d70",
+    "name": "自動マーキング",
+    "tree": "千里眼",
+    "threshold": 15,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [
+      "Farming"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-8c1f40096a63e8e317bd",
+    "name": "探知",
+    "tree": "千里眼",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-dde28235a77b45718962",
+    "name": "捕獲の見極め",
+    "tree": "観察眼",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [
+      "Farming"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-97d515c0c729120b621c",
+    "name": "ハンター生活",
+    "tree": "狩人",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [
+      "Farming"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-a706656f74a2cf6d6ee3",
+    "name": "運搬の達人",
+    "tree": "運搬",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [
+      "Farming"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-c2451169d0c6b8177dad",
+    "name": "精霊の加護",
+    "tree": "加護",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [
+      "Defensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-e6c77bd9379752406c61",
+    "name": "悪霊の加護",
+    "tree": "加護",
+    "threshold": -10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-86a6be910fc14bb3a65c",
+    "name": "英雄の護り",
+    "tree": "英雄の盾",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [
+      "Defensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-527a1938e839b16a282d",
+    "name": "体力回復量UP",
+    "tree": "回復量",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [
+      "Defensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-6db01dfa8ba16400592b",
+    "name": "体力回復量DOWN",
+    "tree": "回復量",
+    "threshold": -10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-07ed110d8bda79be77be",
+    "name": "回復速度+2",
+    "tree": "回復速度",
+    "threshold": 15,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [
+      "Defensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-06d08423279c05eea3ca",
+    "name": "回復速度+1",
+    "tree": "回復速度",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-0512dc24843ae35cf5ce",
+    "name": "回復速度-1",
+    "tree": "回復速度",
+    "threshold": -10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-7b8fbd48e807721ae5e4",
+    "name": "回復速度-2",
+    "tree": "回復速度",
+    "threshold": -15,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-aaa9e8cfd3e6d456e978",
+    "name": "アイテム使用強化",
+    "tree": "効果持続",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-4fb1647316637bdf060a",
+    "name": "アイテム使用弱化",
+    "tree": "効果持続",
+    "threshold": -10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-5ece8f06ab020dd82f57",
+    "name": "広域化+2",
+    "tree": "広域",
+    "threshold": 15,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-12d8f02741f34ac0af72",
+    "name": "広域化+1",
+    "tree": "広域",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-9b336d28330e38667196",
+    "name": "腹減り無効",
+    "tree": "腹減り",
+    "threshold": 15,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [
+      "Resistance"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-28172d4b104b30564986",
+    "name": "腹減り半減",
+    "tree": "腹減り",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-0f6a22993d069e959c55",
+    "name": "腹減り倍加【小】",
+    "tree": "腹減り",
+    "threshold": -10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-4252c3547ee23f0344a9",
+    "name": "腹減り倍加【大】",
+    "tree": "腹減り",
+    "threshold": -15,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-9cac5d5386c7727cd002",
+    "name": "拾い食い",
+    "tree": "食いしん坊",
+    "threshold": 15,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-b3b4e33be2488950964f",
+    "name": "まんぷく",
+    "tree": "食いしん坊",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-586b977f07b1d43a0059",
+    "name": "早食い+2",
+    "tree": "食事",
+    "threshold": 15,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-7b0028e0ad221b749c4b",
+    "name": "早食い+1",
+    "tree": "食事",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-3237d781b127b4160e0c",
+    "name": "スローライフ",
+    "tree": "食事",
+    "threshold": -10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-e1e5ecad2888424181ba",
+    "name": "満足感",
+    "tree": "節食",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-93b5aa6bc72860f03a05",
+    "name": "お肉大好き",
+    "tree": "肉食",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-0c3d9771d750dddbd23c",
+    "name": "キノコ大好き",
+    "tree": "茸食",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-2ff07cbc96097fe512cc",
+    "name": "薬草超強化",
+    "tree": "野草知識",
+    "threshold": 15,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-b290ea2e090e2362568a",
+    "name": "薬草強化",
+    "tree": "野草知識",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-d44f9ea32807ec5c6c8a",
+    "name": "調合成功率+45%",
+    "tree": "調合成功率",
+    "threshold": 15,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-0094ffeed9ad9db20589",
+    "name": "調合成功率+20%",
+    "tree": "調合成功率",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-af945f7e5c3cce8e8748",
+    "name": "調合成功率-10%",
+    "tree": "調合成功率",
+    "threshold": -10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-f55b151234d4fd3fe240",
+    "name": "調合成功率-20%",
+    "tree": "調合成功率",
+    "threshold": -15,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-e97a5636205819bf3732",
+    "name": "最大数生産",
+    "tree": "調合数",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-090c50154afaad590fc8",
+    "name": "罠師",
+    "tree": "高速設置",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-e28209d655da3ede1f05",
+    "name": "採取+2",
+    "tree": "採取",
+    "threshold": 15,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [
+      "Farming"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-a9b7bb4319601b4ece55",
+    "name": "採取+1",
+    "tree": "採取",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-7384a87e4585e03761b0",
+    "name": "採取-1",
+    "tree": "採取",
+    "threshold": -10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-7e923b0e82e9184bca18",
+    "name": "ハニーハンター",
+    "tree": "ハチミツ",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [
+      "Farming"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-4145b3f44de4b8dcfd22",
+    "name": "お守りハンター",
+    "tree": "護石王",
+    "threshold": 15,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [
+      "Farming"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-99e842ac1377a5bd8c49",
+    "name": "お守り収集",
+    "tree": "護石王",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-9c18445c7ab7fdf7d81f",
+    "name": "神の気まぐれ",
+    "tree": "気まぐれ",
+    "threshold": 15,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [
+      "Farming"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-e11d2cbd5f9cb9b81bdc",
+    "name": "精霊の気まぐれ",
+    "tree": "気まぐれ",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-9c32674d7066cdfd31ce",
+    "name": "悪霊の気まぐれ",
+    "tree": "気まぐれ",
+    "threshold": -10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-b45a419aeec3a68bab1a",
+    "name": "悪魔の気まぐれ",
+    "tree": "気まぐれ",
+    "threshold": -15,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-d399199d6e6bb78c577d",
+    "name": "激運",
+    "tree": "運気",
+    "threshold": 20,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [
+      "Farming"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-aee08461af4561b969b9",
+    "name": "強運",
+    "tree": "運気",
+    "threshold": 15,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-d8f7eb41b1363cbe6189",
+    "name": "幸運",
+    "tree": "運気",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-7f4d69d0f3ed7332ad9b",
+    "name": "不運",
+    "tree": "運気",
+    "threshold": -10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-4055aee5ca7bc3c29a5e",
+    "name": "災難",
+    "tree": "運気",
+    "threshold": -15,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-c764e84011f51f6957ff",
+    "name": "剥ぎ取り名人",
+    "tree": "剥ぎ取り",
+    "threshold": 15,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [
+      "Farming"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-63dd0c2bb2c30845a7c4",
+    "name": "剥ぎ取り鉄人",
+    "tree": "剥ぎ取り",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-045935284f1654d9734d",
+    "name": "捕獲名人",
+    "tree": "捕獲",
+    "threshold": 15,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [
+      "Farming"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-95d93ed8265a133f8396",
+    "name": "捕獲達人",
+    "tree": "捕獲",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-fe882d002d435d39aeba",
+    "name": "ベルナの心",
+    "tree": "ベルナ",
+    "threshold": 10,
+    "aliases": [],
+    "compoundEffects": [
+      "火耐性【小】",
+      "腹減り半減"
+    ],
+    "unsupported": true,
+    "hunterType": "both",
+    "tags": [
+      "Resistance"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ]
+  },
+  {
+    "id": "skill-97a4bdb091ac4ecc7cdd",
+    "name": "ココットの心",
+    "tree": "ココット",
+    "threshold": 10,
+    "aliases": [],
+    "compoundEffects": [
+      "雷耐性【小】",
+      "精霊の気まぐれ"
+    ],
+    "unsupported": true,
+    "hunterType": "both",
+    "tags": [
+      "Resistance",
+      "Farming"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ]
+  },
+  {
+    "id": "skill-c8921b6a61f37c51866c",
+    "name": "ポッケの心",
+    "tree": "ポッケ",
+    "threshold": 10,
+    "aliases": [],
+    "compoundEffects": [
+      "氷耐性【小】",
+      "まんぷく"
+    ],
+    "unsupported": true,
+    "hunterType": "both",
+    "tags": [
+      "Resistance"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ]
+  },
+  {
+    "id": "skill-98955b3cc3e8dd6623b1",
+    "name": "ユクモの心",
+    "tree": "ユクモ",
+    "threshold": 10,
+    "aliases": [],
+    "compoundEffects": [
+      "水耐性【小】",
+      "ハニーハンター"
+    ],
+    "unsupported": true,
+    "hunterType": "both",
+    "tags": [
+      "Resistance",
+      "Farming"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ]
+  },
+  {
+    "id": "skill-fed1d2580dc3617c62b5",
+    "name": "龍識船の心",
+    "tree": "龍識船",
+    "threshold": 10,
+    "aliases": [],
+    "compoundEffects": [
+      "龍耐性【小】",
+      "細菌研究家"
+    ],
+    "unsupported": true,
+    "hunterType": "both",
+    "tags": [
+      "Resistance"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ]
+  },
+  {
+    "id": "skill-fa3b3c859f8cecd15111",
+    "name": "飛行酒場の心",
+    "tree": "飛行酒場",
+    "threshold": 10,
+    "aliases": [],
+    "compoundEffects": [
+      "KO術",
+      "笛吹き名人"
+    ],
+    "unsupported": true,
+    "hunterType": "both",
+    "tags": [
+      "Blademaster"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ]
+  },
+  {
+    "id": "skill-2ca47f63faf0661b20eb",
+    "name": "紅兜の魂",
+    "tree": "紅兜",
+    "threshold": 10,
+    "aliases": [],
+    "compoundEffects": [
+      "逆恨み",
+      "集中"
+    ],
+    "unsupported": true,
+    "hunterType": "both",
+    "tags": [
+      "Offensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ]
+  },
+  {
+    "id": "skill-656f85d7096a689a4b3a",
+    "name": "大雪主の魂",
+    "tree": "大雪主",
+    "threshold": 10,
+    "aliases": [],
+    "compoundEffects": [
+      "回避距離UP",
+      "スタミナ急速回復"
+    ],
+    "unsupported": true,
+    "hunterType": "both",
+    "tags": [
+      "Defensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ]
+  },
+  {
+    "id": "skill-283bafca99833be5e6b5",
+    "name": "矛砕の魂",
+    "tree": "矛砕",
+    "threshold": 10,
+    "aliases": [],
+    "compoundEffects": [
+      "業物",
+      "反動軽減+2",
+      "精霊の加護"
+    ],
+    "unsupported": true,
+    "hunterType": "both",
+    "tags": [
+      "Blademaster",
+      "Bow/Gunner",
+      "Defensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ]
+  },
+  {
+    "id": "skill-e9cf45cfba2a7d06d454",
+    "name": "岩穿の魂",
+    "tree": "岩穿",
+    "threshold": 10,
+    "aliases": [],
+    "compoundEffects": [
+      "火事場力+2",
+      "拾い食い"
+    ],
+    "unsupported": true,
+    "hunterType": "both",
+    "tags": [
+      "Offensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ]
+  },
+  {
+    "id": "skill-4e9894edf541fed83cb0",
+    "name": "紫毒姫の魂",
+    "tree": "紫毒姫",
+    "threshold": 10,
+    "aliases": [],
+    "compoundEffects": [
+      "状態異常攻撃+2",
+      "広域化+2"
+    ],
+    "unsupported": true,
+    "hunterType": "both",
+    "tags": [
+      "Offensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ]
+  },
+  {
+    "id": "skill-4ed0cab25cfad73801c7",
+    "name": "宝纏の魂",
+    "tree": "宝纏",
+    "threshold": 10,
+    "aliases": [],
+    "compoundEffects": [
+      "お守りハンター",
+      "腹減り無効"
+    ],
+    "unsupported": true,
+    "hunterType": "both",
+    "tags": [
+      "Resistance",
+      "Farming"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ]
+  },
+  {
+    "id": "skill-e36ecc9b665b6d3526b4",
+    "name": "白疾風の魂",
+    "tree": "白疾風",
+    "threshold": 10,
+    "aliases": [],
+    "compoundEffects": [
+      "回避性能+2",
+      "見切り+3"
+    ],
+    "unsupported": true,
+    "hunterType": "both",
+    "tags": [
+      "Defensive",
+      "Offensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ]
+  },
+  {
+    "id": "skill-de0885057241da95db5a",
+    "name": "隻眼の魂",
+    "tree": "隻眼",
+    "threshold": 10,
+    "aliases": [],
+    "compoundEffects": [
+      "気絶無効",
+      "挑戦者+2"
+    ],
+    "unsupported": true,
+    "hunterType": "both",
+    "tags": [
+      "Resistance",
+      "Offensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ]
+  },
+  {
+    "id": "skill-cd437ad56b0dc495cff6",
+    "name": "黒炎王の魂",
+    "tree": "黒炎王",
+    "threshold": 10,
+    "aliases": [],
+    "compoundEffects": [
+      "風圧【大】無効",
+      "攻撃力UP【大】"
+    ],
+    "unsupported": true,
+    "hunterType": "both",
+    "tags": [
+      "Resistance",
+      "Offensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ]
+  },
+  {
+    "id": "skill-e16203e6a68b5d250fd4",
+    "name": "金雷公の魂",
+    "tree": "金雷公",
+    "threshold": 10,
+    "aliases": [],
+    "compoundEffects": [
+      "力の解放+2",
+      "体術+2"
+    ],
+    "unsupported": true,
+    "hunterType": "both",
+    "tags": [
+      "Defensive",
+      "Offensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ]
+  },
+  {
+    "id": "skill-3b84094f33466ab1393c",
+    "name": "荒鉤爪の魂",
+    "tree": "荒鉤爪",
+    "threshold": 10,
+    "aliases": [],
+    "compoundEffects": [
+      "早食い+2",
+      "高級耳栓"
+    ],
+    "unsupported": true,
+    "hunterType": "both",
+    "tags": [
+      "Defensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ]
+  },
+  {
+    "id": "skill-d410cca33326fe44f6e4",
+    "name": "燼滅刃の魂",
+    "tree": "燼滅刃",
+    "threshold": 10,
+    "aliases": [],
+    "compoundEffects": [
+      "斬れ味レベル+2",
+      "弾導強化",
+      "砥石使用高速化"
+    ],
+    "unsupported": true,
+    "hunterType": "both",
+    "tags": [
+      "Blademaster",
+      "Bow/Gunner"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ]
+  },
+  {
+    "id": "skill-a7d4419fe1ee859af81b",
+    "name": "朧隠の魂",
+    "tree": "朧隠",
+    "threshold": 10,
+    "aliases": [],
+    "compoundEffects": [
+      "高級耳栓",
+      "装填速度+3",
+      "心剣一体"
+    ],
+    "unsupported": true,
+    "hunterType": "both",
+    "tags": [
+      "Defensive",
+      "Bow/Gunner"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ]
+  },
+  {
+    "id": "skill-d4bdeeba2b638682d793",
+    "name": "鎧裂の魂",
+    "tree": "鎧裂",
+    "threshold": 10,
+    "aliases": [],
+    "compoundEffects": [
+      "ガード性能+2",
+      "納刀術"
+    ],
+    "unsupported": true,
+    "hunterType": "both",
+    "tags": [
+      "Defensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ]
+  },
+  {
+    "id": "skill-063ddc1e3f234a5ffdaa",
+    "name": "天眼の魂",
+    "tree": "天眼",
+    "threshold": 10,
+    "aliases": [],
+    "compoundEffects": [
+      "見切り+3",
+      "挑戦者+1"
+    ],
+    "unsupported": true,
+    "hunterType": "both",
+    "tags": [
+      "Offensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ]
+  },
+  {
+    "id": "skill-97326e9ea7a80d542026",
+    "name": "青電主の魂",
+    "tree": "青電主",
+    "threshold": 10,
+    "aliases": [],
+    "compoundEffects": [
+      "超会心",
+      "連発数+1",
+      "斬れ味レベル+1"
+    ],
+    "unsupported": true,
+    "hunterType": "both",
+    "tags": [
+      "Blademaster",
+      "Bow/Gunner",
+      "Offensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ]
+  },
+  {
+    "id": "skill-268a08458446b36391fb",
+    "name": "銀嶺の魂",
+    "tree": "銀嶺",
+    "threshold": 10,
+    "aliases": [],
+    "compoundEffects": [
+      "ランナー",
+      "鈍器使い",
+      "通常弾・連射矢UP"
+    ],
+    "unsupported": true,
+    "hunterType": "both",
+    "tags": [
+      "Blademaster",
+      "Bow/Gunner",
+      "Defensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ]
+  },
+  {
+    "id": "skill-eb3b31a80eee7379fe0d",
+    "name": "鏖魔の魂",
+    "tree": "鏖魔",
+    "threshold": 10,
+    "aliases": [],
+    "compoundEffects": [
+      "攻撃力UP【大】",
+      "回避性能+2"
+    ],
+    "unsupported": true,
+    "hunterType": "both",
+    "tags": [
+      "Offensive",
+      "Defensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ]
+  },
+  {
+    "id": "skill-caf55fa6b465cc17cd5e",
+    "name": "真・紅兜の魂",
+    "tree": "真・紅兜",
+    "threshold": 10,
+    "aliases": [],
+    "compoundEffects": [
+      "逆恨み",
+      "集中",
+      "ランナー"
+    ],
+    "unsupported": true,
+    "hunterType": "both",
+    "tags": [
+      "Offensive",
+      "Defensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ]
+  },
+  {
+    "id": "skill-dc93255dc3296d6f87ea",
+    "name": "真・大雪主の魂",
+    "tree": "真・大雪主",
+    "threshold": 10,
+    "aliases": [],
+    "compoundEffects": [
+      "回避距離UP",
+      "乗り名人",
+      "スタミナ急速回復"
+    ],
+    "unsupported": true,
+    "hunterType": "both",
+    "tags": [
+      "Defensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ]
+  },
+  {
+    "id": "skill-b9c1fbcb158e9b8ccca0",
+    "name": "真・矛砕の魂",
+    "tree": "真・矛砕",
+    "threshold": 10,
+    "aliases": [],
+    "compoundEffects": [
+      "業物",
+      "反動軽減+2",
+      "精霊の加護",
+      "体術+1"
+    ],
+    "unsupported": true,
+    "hunterType": "both",
+    "tags": [
+      "Blademaster",
+      "Bow/Gunner",
+      "Defensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ]
+  },
+  {
+    "id": "skill-24d254955a258a267daf",
+    "name": "真・岩穿の魂",
+    "tree": "真・岩穿",
+    "threshold": 10,
+    "aliases": [],
+    "compoundEffects": [
+      "火事場力+2",
+      "拾い食い",
+      "砲術王"
+    ],
+    "unsupported": true,
+    "hunterType": "both",
+    "tags": [
+      "Offensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ]
+  },
+  {
+    "id": "skill-f70f79f8676266d50305",
+    "name": "真・紫毒姫の魂",
+    "tree": "真・紫毒姫",
+    "threshold": 10,
+    "aliases": [],
+    "compoundEffects": [
+      "状態異常攻撃+2",
+      "広域化+2",
+      "薬草超強化"
+    ],
+    "unsupported": true,
+    "hunterType": "both",
+    "tags": [
+      "Offensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ]
+  },
+  {
+    "id": "skill-c54845af10387726f33e",
+    "name": "真・宝纏の魂",
+    "tree": "真・宝纏",
+    "threshold": 10,
+    "aliases": [],
+    "compoundEffects": [
+      "お守りハンター",
+      "英雄の護り",
+      "腹減り無効"
+    ],
+    "unsupported": true,
+    "hunterType": "both",
+    "tags": [
+      "Farming",
+      "Defensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ]
+  },
+  {
+    "id": "skill-f0b2515c643ae754d298",
+    "name": "真・白疾風の魂",
+    "tree": "真・白疾風",
+    "threshold": 10,
+    "aliases": [],
+    "compoundEffects": [
+      "回避性能+2",
+      "見切り+3",
+      "隠密"
+    ],
+    "unsupported": true,
+    "hunterType": "both",
+    "tags": [
+      "Offensive",
+      "Defensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ]
+  },
+  {
+    "id": "skill-3686da5efecd98559943",
+    "name": "真・隻眼の魂",
+    "tree": "真・隻眼",
+    "threshold": 10,
+    "aliases": [],
+    "compoundEffects": [
+      "気絶無効",
+      "挑戦者+2",
+      "不屈"
+    ],
+    "unsupported": true,
+    "hunterType": "both",
+    "tags": [
+      "Resistance",
+      "Offensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ]
+  },
+  {
+    "id": "skill-abaf14279f01b13b9717",
+    "name": "真・黒炎王の魂",
+    "tree": "真・黒炎王",
+    "threshold": 10,
+    "aliases": [],
+    "compoundEffects": [
+      "風圧【大】無効",
+      "攻撃力UP【大】",
+      "火事場力+1"
+    ],
+    "unsupported": true,
+    "hunterType": "both",
+    "tags": [
+      "Resistance",
+      "Offensive",
+      "Defensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ]
+  },
+  {
+    "id": "skill-e02971a74a8dd13a45fa",
+    "name": "真・金雷公の魂",
+    "tree": "真・金雷公",
+    "threshold": 10,
+    "aliases": [],
+    "compoundEffects": [
+      "力の解放+2",
+      "体術+2",
+      "集中"
+    ],
+    "unsupported": true,
+    "hunterType": "both",
+    "tags": [
+      "Offensive",
+      "Defensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ]
+  },
+  {
+    "id": "skill-6f726cd065ed31fe03aa",
+    "name": "真・荒鉤爪の魂",
+    "tree": "真・荒鉤爪",
+    "threshold": 10,
+    "aliases": [],
+    "compoundEffects": [
+      "早食い+2",
+      "高級耳栓",
+      "ＳＰ時間延長"
+    ],
+    "unsupported": true,
+    "hunterType": "both",
+    "tags": [
+      "Resistance",
+      "Defensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ]
+  },
+  {
+    "id": "skill-eb9cbf0f071d13bb9ff7",
+    "name": "真・燼滅刃の魂",
+    "tree": "真・燼滅刃",
+    "threshold": 10,
+    "aliases": [],
+    "compoundEffects": [
+      "斬れ味レベル+2",
+      "ボマー",
+      "弾導強化",
+      "砥石使用高速化"
+    ],
+    "unsupported": true,
+    "hunterType": "both",
+    "tags": [
+      "Blademaster",
+      "Bow/Gunner",
+      "Offensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ]
+  },
+  {
+    "id": "skill-01ec42c16c711603c7c5",
+    "name": "真・朧隠の魂",
+    "tree": "真・朧隠",
+    "threshold": 10,
+    "aliases": [],
+    "compoundEffects": [
+      "高級耳栓",
+      "装填速度+3",
+      "心剣一体",
+      "罠師"
+    ],
+    "unsupported": true,
+    "hunterType": "both",
+    "tags": [
+      "Bow/Gunner",
+      "Defensive",
+      "Resistance"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ]
+  },
+  {
+    "id": "skill-420858858633d245cb72",
+    "name": "真・鎧裂の魂",
+    "tree": "真・鎧裂",
+    "threshold": 10,
+    "aliases": [],
+    "compoundEffects": [
+      "ガード性能+2",
+      "納刀術",
+      "刃鱗磨き"
+    ],
+    "unsupported": true,
+    "hunterType": "both",
+    "tags": [
+      "Defensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ]
+  },
+  {
+    "id": "skill-5b5252f6f318fd26abb5",
+    "name": "真・天眼の魂",
+    "tree": "真・天眼",
+    "threshold": 10,
+    "aliases": [],
+    "compoundEffects": [
+      "見切り+3",
+      "挑戦者+2"
+    ],
+    "unsupported": true,
+    "hunterType": "both",
+    "tags": [
+      "Offensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ]
+  },
+  {
+    "id": "skill-e12d502665cdb09105e5",
+    "name": "真・青電主の魂",
+    "tree": "真・青電主",
+    "threshold": 10,
+    "aliases": [],
+    "compoundEffects": [
+      "超会心",
+      "連発数+1",
+      "斬れ味レベル+1",
+      "虎視眈々"
+    ],
+    "unsupported": true,
+    "hunterType": "both",
+    "tags": [
+      "Blademaster",
+      "Bow/Gunner",
+      "Offensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ]
+  },
+  {
+    "id": "skill-fe117a2b9c0a873562b7",
+    "name": "真・銀嶺の魂",
+    "tree": "真・銀嶺",
+    "threshold": 10,
+    "aliases": [],
+    "compoundEffects": [
+      "ランナー",
+      "鈍器使い",
+      "通常弾・連射矢UP",
+      "攻撃力UP【中】"
+    ],
+    "unsupported": true,
+    "hunterType": "both",
+    "tags": [
+      "Blademaster",
+      "Bow/Gunner",
+      "Offensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ]
+  },
+  {
+    "id": "skill-6a652a47441982f6f9b6",
+    "name": "真・鏖魔の魂",
+    "tree": "真・鏖魔",
+    "threshold": 10,
+    "aliases": [],
+    "compoundEffects": [
+      "攻撃力UP【大】",
+      "回避性能+2",
+      "明鏡止水"
+    ],
+    "unsupported": true,
+    "hunterType": "both",
+    "tags": [
+      "Offensive",
+      "Defensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ]
+  },
+  {
+    "id": "skill-63b1826466e01be3d103",
+    "name": "ネバネバ剣法",
+    "tree": "北辰納豆流",
+    "threshold": 10,
+    "aliases": [],
+    "compoundEffects": [
+      "不屈",
+      "ランナー",
+      "スタミナ奪取"
+    ],
+    "unsupported": true,
+    "hunterType": "both",
+    "tags": [
+      "Offensive",
+      "Defensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ]
+  },
+  {
+    "id": "skill-7e451c1dd9f056edbc29",
+    "name": "心剣一体",
+    "tree": "斬術",
+    "threshold": 10,
+    "aliases": [],
+    "compoundEffects": [
+      "心眼",
+      "業物"
+    ],
+    "unsupported": true,
+    "hunterType": "blademaster",
+    "tags": [
+      "Blademaster"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ]
+  },
+  {
+    "id": "skill-d8989251eb5bcb5bb82d",
+    "name": "グルメ",
+    "tree": "食欲",
+    "threshold": 10,
+    "aliases": [],
+    "compoundEffects": [
+      "早食い+2",
+      "お肉大好き",
+      "キノコ大好き"
+    ],
+    "unsupported": true,
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ]
+  },
+  {
+    "id": "skill-a8c29de5d83b37aa0f85",
+    "name": "トラップマスター",
+    "tree": "職工",
+    "threshold": 10,
+    "aliases": [],
+    "compoundEffects": [
+      "ボマー",
+      "罠師"
+    ],
+    "unsupported": true,
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ]
+  },
+  {
+    "id": "skill-5ef4416ab42ee70ae38a",
+    "name": "痛打",
+    "tree": "剛腕",
+    "threshold": 10,
+    "aliases": [],
+    "compoundEffects": [
+      "スタミナ奪取",
+      "KO術"
+    ],
+    "unsupported": true,
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ]
+  },
+  {
+    "id": "skill-3ff0c9b25f0538cd0f5c",
+    "name": "祝福",
+    "tree": "祈願",
+    "threshold": 10,
+    "aliases": [],
+    "compoundEffects": [
+      "体力回復量UP",
+      "精霊の加護"
+    ],
+    "unsupported": true,
+    "hunterType": "both",
+    "tags": [
+      "Defensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ]
+  },
+  {
+    "id": "skill-757c7f5d907ccd5ff2ca",
+    "name": "暗躍",
+    "tree": "裏稼業",
+    "threshold": 10,
+    "aliases": [],
+    "compoundEffects": [
+      "装填数UP",
+      "調合成功率+20%",
+      "隠密"
+    ],
+    "unsupported": true,
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ]
+  },
+  {
+    "id": "skill-0b56a1fea84aa90a5c42",
+    "name": "真打",
+    "tree": "刀匠",
+    "threshold": 10,
+    "aliases": [],
+    "compoundEffects": [
+      "斬れ味レベル+1",
+      "攻撃力UP【大】"
+    ],
+    "unsupported": true,
+    "hunterType": "blademaster",
+    "tags": [
+      "Blademaster",
+      "Offensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ]
+  },
+  {
+    "id": "skill-5dcc0febb6d7fa4161a3",
+    "name": "剛弾",
+    "tree": "射手",
+    "threshold": 10,
+    "aliases": [],
+    "compoundEffects": [
+      "通常弾・連射矢UP",
+      "貫通弾・貫通矢UP",
+      "散弾・拡散矢UP"
+    ],
+    "unsupported": true,
+    "hunterType": "gunner",
+    "tags": [
+      "Bow/Gunner"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ]
+  },
+  {
+    "id": "skill-1dd211e64abbf587cb12",
+    "name": "護法",
+    "tree": "状態耐性",
+    "threshold": 10,
+    "aliases": [],
+    "compoundEffects": [
+      "毒耐性",
+      "麻痺無効",
+      "睡眠無効",
+      "気絶無効"
+    ],
+    "unsupported": true,
+    "hunterType": "both",
+    "tags": [
+      "Resistance"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ]
+  },
+  {
+    "id": "skill-5c5990a7043f6faa6fa0",
+    "name": "逆鱗",
+    "tree": "怒",
+    "threshold": 10,
+    "aliases": [],
+    "compoundEffects": [
+      "火事場力+2",
+      "根性"
+    ],
+    "unsupported": true,
+    "hunterType": "both",
+    "tags": [
+      "Offensive",
+      "Defensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ]
+  },
+  {
+    "id": "skill-931468ee0e68350cb2bd",
+    "name": "軽業師",
+    "tree": "回避術",
+    "threshold": 10,
+    "aliases": [],
+    "compoundEffects": [
+      "体術+1",
+      "回避性能+1"
+    ],
+    "unsupported": true,
+    "hunterType": "both",
+    "tags": [
+      "Defensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ]
+  },
+  {
+    "id": "skill-481eac7d3ca7942fbfdf",
+    "name": "居合術【力】",
+    "tree": "居合",
+    "threshold": 10,
+    "aliases": [],
+    "compoundEffects": [
+      "抜刀術【力】",
+      "納刀術"
+    ],
+    "unsupported": true,
+    "hunterType": "both",
+    "tags": [
+      "Blademaster"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ]
+  },
+  {
+    "id": "skill-0f48e77663826cd0772f",
+    "name": "鉄壁",
+    "tree": "頑強",
+    "threshold": 10,
+    "aliases": [],
+    "compoundEffects": [
+      "防御力UP【中】",
+      "鉄面皮"
+    ],
+    "unsupported": true,
+    "hunterType": "both",
+    "tags": [
+      "Defensive",
+      "Resistance"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ]
+  },
+  {
+    "id": "skill-38c3f2e511ec8eea7275",
+    "name": "無慈悲",
+    "tree": "剛撃",
+    "threshold": 10,
+    "aliases": [],
+    "compoundEffects": [
+      "見切り+2",
+      "弱点特効"
+    ],
+    "unsupported": true,
+    "hunterType": "both",
+    "tags": [
+      "Offensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ]
+  },
+  {
+    "id": "skill-36a52296a2b6a217500a",
+    "name": "盾使い",
+    "tree": "盾持",
+    "threshold": 10,
+    "aliases": [],
+    "compoundEffects": [
+      "ガード強化",
+      "スタミナ急速回復"
+    ],
+    "unsupported": true,
+    "hunterType": "both",
+    "tags": [
+      "Defensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ]
+  },
+  {
+    "id": "skill-06adb6340c7895de6ba7",
+    "name": "舞闘家",
+    "tree": "潔癖",
+    "threshold": 10,
+    "aliases": [],
+    "compoundEffects": [
+      "フルチャージ",
+      "回避距離UP"
+    ],
+    "unsupported": true,
+    "hunterType": "both",
+    "tags": [
+      "Offensive",
+      "Defensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ]
+  },
+  {
+    "id": "skill-d2f826bd784b6c5ee086",
+    "name": "属物強化",
+    "tree": "増幅",
+    "threshold": 10,
+    "aliases": [],
+    "compoundEffects": [
+      "属性攻撃強化",
+      "アイテム使用強化"
+    ],
+    "unsupported": true,
+    "hunterType": "both",
+    "tags": [
+      "Offensive"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ]
+  },
+  {
+    "id": "skill-3fd1bdef75d4e987cc8e",
+    "name": "お守りマニア",
+    "tree": "護石収集",
+    "threshold": 10,
+    "aliases": [],
+    "compoundEffects": [
+      "お守りハンター",
+      "採取+1"
+    ],
+    "unsupported": true,
+    "hunterType": "both",
+    "tags": [
+      "Farming"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ]
+  },
+  {
+    "id": "skill-c24384a503c660211b1c",
+    "name": "増収",
+    "tree": "強欲",
+    "threshold": 10,
+    "aliases": [],
+    "compoundEffects": [
+      "強運",
+      "捕獲達人"
+    ],
+    "unsupported": true,
+    "hunterType": "both",
+    "tags": [
+      "Farming"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ]
+  },
+  {
+    "id": "skill-5e5f491e9218c3990b6a",
+    "name": "霞皮の護り",
+    "tree": "対鋼龍",
+    "threshold": 10,
+    "aliases": [],
+    "compoundEffects": [
+      "北風の狩人",
+      "風圧【大】無効",
+      "だるま無効"
+    ],
+    "unsupported": true,
+    "hunterType": "both",
+    "tags": [
+      "Resistance"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ]
+  },
+  {
+    "id": "skill-3db8c18f9ff5199e8a66",
+    "name": "炎鱗の護り",
+    "tree": "対霞龍",
+    "threshold": 10,
+    "aliases": [],
+    "compoundEffects": [
+      "毒耐性",
+      "盗み無効",
+      "自動マーキング"
+    ],
+    "unsupported": true,
+    "hunterType": "both",
+    "tags": [
+      "Farming",
+      "Resistance"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ]
+  },
+  {
+    "id": "skill-95dfdc262422b57bbda3",
+    "name": "鋼殻の護り",
+    "tree": "対炎龍",
+    "threshold": 10,
+    "aliases": [],
+    "compoundEffects": [
+      "南風の狩人",
+      "火耐性【大】",
+      "細菌研究家"
+    ],
+    "unsupported": true,
+    "hunterType": "both",
+    "tags": [
+      "Resistance"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ]
+  },
+  {
+    "id": "skill-cff6c8169ed46357bc84",
+    "name": "スキル加点+2",
+    "tree": "秘術",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-5ee9a73cbc8b32787208",
+    "name": "護石系統倍加",
+    "tree": "護石強化",
+    "threshold": 10,
+    "aliases": [],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "skill-torso-up",
+    "name": "胴系統倍加",
+    "tree": "胴系統倍加",
+    "threshold": null,
+    "aliases": [],
+    "special": true,
+    "effects": [
+      "torso-up"
+    ],
+    "hunterType": "both",
+    "tags": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  }
+]

@@ -1,0 +1,3178 @@
+{
+  "maxSkills": 2,
+  "maxSlots": 3,
+  "sourceIds": [
+    "athena-run-data-charm-generation-mystery-skill1-csv",
+    "athena-run-data-charm-generation-mystery-slots-csv",
+    "athena-charmdatabase-cpp",
+    "athena-run-data-charm-generation-shining-skill1-csv",
+    "athena-run-data-charm-generation-shining-skill2-csv",
+    "athena-run-data-charm-generation-shining-slots-csv",
+    "athena-run-data-charm-generation-ancient-skill1-csv",
+    "athena-run-data-charm-generation-ancient-skill2-csv",
+    "athena-run-data-charm-generation-ancient-slots-csv",
+    "athena-run-data-charm-generation-enduring-skill1-csv",
+    "athena-run-data-charm-generation-enduring-skill2-csv",
+    "athena-run-data-charm-generation-enduring-slots-csv"
+  ],
+  "skillPointRanges": {
+    "毒": {
+      "min": -10,
+      "max": 7,
+      "canBeNegative": true
+    },
+    "麻痺": {
+      "min": -10,
+      "max": 7,
+      "canBeNegative": true
+    },
+    "睡眠": {
+      "min": -10,
+      "max": 7,
+      "canBeNegative": true
+    },
+    "気絶": {
+      "min": -10,
+      "max": 13,
+      "canBeNegative": true
+    },
+    "耐震": {
+      "min": -10,
+      "max": 8,
+      "canBeNegative": true
+    },
+    "だるま": {
+      "min": -10,
+      "max": 8,
+      "canBeNegative": true
+    },
+    "耐暑": {
+      "min": -10,
+      "max": 10,
+      "canBeNegative": true
+    },
+    "耐寒": {
+      "min": -10,
+      "max": 10,
+      "canBeNegative": true
+    },
+    "盗み無効": {
+      "min": -10,
+      "max": 10,
+      "canBeNegative": true
+    },
+    "対防御DOWN": {
+      "min": -10,
+      "max": 8,
+      "canBeNegative": true
+    },
+    "狂撃耐性": {
+      "min": -5,
+      "max": 7,
+      "canBeNegative": true
+    },
+    "裂傷": {
+      "min": -10,
+      "max": 10,
+      "canBeNegative": true
+    },
+    "攻撃": {
+      "min": -10,
+      "max": 10,
+      "canBeNegative": true
+    },
+    "防御": {
+      "min": -10,
+      "max": 13,
+      "canBeNegative": true
+    },
+    "体力": {
+      "min": -10,
+      "max": 13,
+      "canBeNegative": true
+    },
+    "火耐性": {
+      "min": -10,
+      "max": 13,
+      "canBeNegative": true
+    },
+    "水耐性": {
+      "min": -10,
+      "max": 13,
+      "canBeNegative": true
+    },
+    "雷耐性": {
+      "min": -10,
+      "max": 13,
+      "canBeNegative": true
+    },
+    "氷耐性": {
+      "min": -10,
+      "max": 13,
+      "canBeNegative": true
+    },
+    "龍耐性": {
+      "min": -10,
+      "max": 13,
+      "canBeNegative": true
+    },
+    "精密射撃": {
+      "min": -10,
+      "max": 10,
+      "canBeNegative": true
+    },
+    "通常弾追加": {
+      "min": -8,
+      "max": 8,
+      "canBeNegative": true
+    },
+    "貫通弾追加": {
+      "min": -10,
+      "max": 10,
+      "canBeNegative": true
+    },
+    "散弾追加": {
+      "min": -10,
+      "max": 10,
+      "canBeNegative": true
+    },
+    "榴弾追加": {
+      "min": -10,
+      "max": 10,
+      "canBeNegative": true
+    },
+    "拡散弾追加": {
+      "min": -10,
+      "max": 10,
+      "canBeNegative": true
+    },
+    "毒瓶追加": {
+      "min": -10,
+      "max": 10,
+      "canBeNegative": true
+    },
+    "麻痺瓶追加": {
+      "min": -10,
+      "max": 10,
+      "canBeNegative": true
+    },
+    "睡眠瓶追加": {
+      "min": -10,
+      "max": 10,
+      "canBeNegative": true
+    },
+    "強撃瓶追加": {
+      "min": -10,
+      "max": 12,
+      "canBeNegative": true
+    },
+    "属強瓶追加": {
+      "min": -10,
+      "max": 12,
+      "canBeNegative": true
+    },
+    "接撃瓶追加": {
+      "min": -10,
+      "max": 10,
+      "canBeNegative": true
+    },
+    "減気瓶追加": {
+      "min": -10,
+      "max": 10,
+      "canBeNegative": true
+    },
+    "爆破瓶追加": {
+      "min": -10,
+      "max": 10,
+      "canBeNegative": true
+    },
+    "変則射撃": {
+      "min": -10,
+      "max": 10,
+      "canBeNegative": true
+    },
+    "達人": {
+      "min": -10,
+      "max": 10,
+      "canBeNegative": true
+    },
+    "笛": {
+      "min": -10,
+      "max": 10,
+      "canBeNegative": true
+    },
+    "砲術": {
+      "min": -10,
+      "max": 10,
+      "canBeNegative": true
+    },
+    "爆弾強化": {
+      "min": -10,
+      "max": 10,
+      "canBeNegative": true
+    },
+    "逆境": {
+      "min": -5,
+      "max": 5,
+      "canBeNegative": true
+    },
+    "気配": {
+      "min": -10,
+      "max": 10,
+      "canBeNegative": true
+    },
+    "采配": {
+      "min": -10,
+      "max": 10,
+      "canBeNegative": true
+    },
+    "号令": {
+      "min": -10,
+      "max": 10,
+      "canBeNegative": true
+    },
+    "乗り": {
+      "min": -8,
+      "max": 10,
+      "canBeNegative": true
+    },
+    "千里眼": {
+      "min": -10,
+      "max": 12,
+      "canBeNegative": true
+    },
+    "観察眼": {
+      "min": -10,
+      "max": 10,
+      "canBeNegative": true
+    },
+    "狩人": {
+      "min": -10,
+      "max": 10,
+      "canBeNegative": true
+    },
+    "運搬": {
+      "min": -10,
+      "max": 10,
+      "canBeNegative": true
+    },
+    "効果持続": {
+      "min": -10,
+      "max": 10,
+      "canBeNegative": true
+    },
+    "広域": {
+      "min": -10,
+      "max": 12,
+      "canBeNegative": true
+    },
+    "腹減り": {
+      "min": -10,
+      "max": 10,
+      "canBeNegative": true
+    },
+    "食いしん坊": {
+      "min": -10,
+      "max": 13,
+      "canBeNegative": true
+    },
+    "野草知識": {
+      "min": -10,
+      "max": 10,
+      "canBeNegative": true
+    },
+    "調合成功率": {
+      "min": -10,
+      "max": 13,
+      "canBeNegative": true
+    },
+    "調合数": {
+      "min": -10,
+      "max": 10,
+      "canBeNegative": true
+    },
+    "高速設置": {
+      "min": -10,
+      "max": 10,
+      "canBeNegative": true
+    },
+    "採取": {
+      "min": -10,
+      "max": 13,
+      "canBeNegative": true
+    },
+    "ハチミツ": {
+      "min": -10,
+      "max": 10,
+      "canBeNegative": true
+    },
+    "気まぐれ": {
+      "min": -10,
+      "max": 13,
+      "canBeNegative": true
+    },
+    "風圧": {
+      "min": -10,
+      "max": 10,
+      "canBeNegative": true
+    },
+    "火属性攻撃": {
+      "min": -10,
+      "max": 13,
+      "canBeNegative": true
+    },
+    "水属性攻撃": {
+      "min": -10,
+      "max": 13,
+      "canBeNegative": true
+    },
+    "雷属性攻撃": {
+      "min": -10,
+      "max": 13,
+      "canBeNegative": true
+    },
+    "氷属性攻撃": {
+      "min": -10,
+      "max": 13,
+      "canBeNegative": true
+    },
+    "龍属性攻撃": {
+      "min": -10,
+      "max": 13,
+      "canBeNegative": true
+    },
+    "特殊攻撃": {
+      "min": -10,
+      "max": 7,
+      "canBeNegative": true
+    },
+    "研ぎ師": {
+      "min": -10,
+      "max": 10,
+      "canBeNegative": true
+    },
+    "鈍器": {
+      "min": 1,
+      "max": 6
+    },
+    "納刀": {
+      "min": -10,
+      "max": 10,
+      "canBeNegative": true
+    },
+    "装填速度": {
+      "min": -5,
+      "max": 7,
+      "canBeNegative": true
+    },
+    "弾薬節約": {
+      "min": -5,
+      "max": 7,
+      "canBeNegative": true
+    },
+    "特殊会心": {
+      "min": -5,
+      "max": 6,
+      "canBeNegative": true
+    },
+    "属性会心": {
+      "min": -5,
+      "max": 6,
+      "canBeNegative": true
+    },
+    "体術": {
+      "min": -3,
+      "max": 7,
+      "canBeNegative": true
+    },
+    "気力回復": {
+      "min": -3,
+      "max": 7,
+      "canBeNegative": true
+    },
+    "回避性能": {
+      "min": -3,
+      "max": 6,
+      "canBeNegative": true
+    },
+    "ガード性能": {
+      "min": -3,
+      "max": 7,
+      "canBeNegative": true
+    },
+    "ガード強化": {
+      "min": -3,
+      "max": 7,
+      "canBeNegative": true
+    },
+    "KO": {
+      "min": -7,
+      "max": 10,
+      "canBeNegative": true
+    },
+    "減気攻撃": {
+      "min": -7,
+      "max": 10,
+      "canBeNegative": true
+    },
+    "底力": {
+      "min": -3,
+      "max": 6,
+      "canBeNegative": true
+    },
+    "逆上": {
+      "min": -5,
+      "max": 6,
+      "canBeNegative": true
+    },
+    "窮地": {
+      "min": -5,
+      "max": 6,
+      "canBeNegative": true
+    },
+    "跳躍": {
+      "min": -5,
+      "max": 6,
+      "canBeNegative": true
+    },
+    "我慢": {
+      "min": -5,
+      "max": 7,
+      "canBeNegative": true
+    },
+    "ＳＰ延長": {
+      "min": -5,
+      "max": 7,
+      "canBeNegative": true
+    },
+    "加護": {
+      "min": -10,
+      "max": 10,
+      "canBeNegative": true
+    },
+    "回復量": {
+      "min": -3,
+      "max": 7,
+      "canBeNegative": true
+    },
+    "回復速度": {
+      "min": -10,
+      "max": 12,
+      "canBeNegative": true
+    },
+    "食事": {
+      "min": -3,
+      "max": 6,
+      "canBeNegative": true
+    },
+    "節食": {
+      "min": -5,
+      "max": 7,
+      "canBeNegative": true
+    },
+    "肉食": {
+      "min": -5,
+      "max": 5,
+      "canBeNegative": true
+    },
+    "護石王": {
+      "min": -8,
+      "max": 10,
+      "canBeNegative": true
+    },
+    "細菌学": {
+      "min": -5,
+      "max": 10,
+      "canBeNegative": true
+    },
+    "抜刀減気": {
+      "min": -5,
+      "max": 8,
+      "canBeNegative": true
+    },
+    "射法": {
+      "min": -5,
+      "max": 5,
+      "canBeNegative": true
+    },
+    "聴覚保護": {
+      "min": -3,
+      "max": 7,
+      "canBeNegative": true
+    },
+    "寒冷適応": {
+      "min": 1,
+      "max": 7
+    },
+    "炎熱適応": {
+      "min": 1,
+      "max": 7
+    },
+    "属性耐性": {
+      "min": -5,
+      "max": 7,
+      "canBeNegative": true
+    },
+    "属性攻撃": {
+      "min": 1,
+      "max": 7
+    },
+    "斬れ味": {
+      "min": -5,
+      "max": 7,
+      "canBeNegative": true
+    },
+    "剣術": {
+      "min": -5,
+      "max": 7,
+      "canBeNegative": true
+    },
+    "納刀研磨": {
+      "min": -3,
+      "max": 10,
+      "canBeNegative": true
+    },
+    "反動": {
+      "min": -5,
+      "max": 7,
+      "canBeNegative": true
+    },
+    "通常弾強化": {
+      "min": -3,
+      "max": 6,
+      "canBeNegative": true
+    },
+    "貫通弾強化": {
+      "min": -3,
+      "max": 6,
+      "canBeNegative": true
+    },
+    "散弾強化": {
+      "min": -3,
+      "max": 6,
+      "canBeNegative": true
+    },
+    "重撃弾強化": {
+      "min": -3,
+      "max": 6,
+      "canBeNegative": true
+    },
+    "痛撃": {
+      "min": -3,
+      "max": 6,
+      "canBeNegative": true
+    },
+    "溜め短縮": {
+      "min": -3,
+      "max": 6,
+      "canBeNegative": true
+    },
+    "スタミナ": {
+      "min": -3,
+      "max": 6,
+      "canBeNegative": true
+    },
+    "回避距離": {
+      "min": -3,
+      "max": 6,
+      "canBeNegative": true
+    },
+    "重撃": {
+      "min": -3,
+      "max": 6,
+      "canBeNegative": true
+    },
+    "本気": {
+      "min": -3,
+      "max": 6,
+      "canBeNegative": true
+    },
+    "匠": {
+      "min": -5,
+      "max": 5,
+      "canBeNegative": true
+    },
+    "研磨術": {
+      "min": -3,
+      "max": 5,
+      "canBeNegative": true
+    },
+    "抜刀会心": {
+      "min": -5,
+      "max": 5,
+      "canBeNegative": true
+    },
+    "速射": {
+      "min": -3,
+      "max": 5,
+      "canBeNegative": true
+    },
+    "装填数": {
+      "min": -3,
+      "max": 5,
+      "canBeNegative": true
+    },
+    "連撃": {
+      "min": -3,
+      "max": 5,
+      "canBeNegative": true
+    },
+    "会心強化": {
+      "min": -3,
+      "max": 5,
+      "canBeNegative": true
+    },
+    "走行継続": {
+      "min": -5,
+      "max": 6,
+      "canBeNegative": true
+    },
+    "泡沫": {
+      "min": -3,
+      "max": 5,
+      "canBeNegative": true
+    },
+    "闘魂": {
+      "min": -3,
+      "max": 5,
+      "canBeNegative": true
+    },
+    "無傷": {
+      "min": -3,
+      "max": 5,
+      "canBeNegative": true
+    },
+    "チャンス": {
+      "min": -3,
+      "max": 5,
+      "canBeNegative": true
+    },
+    "根性": {
+      "min": -3,
+      "max": 5,
+      "canBeNegative": true
+    },
+    "無心": {
+      "min": -3,
+      "max": 5,
+      "canBeNegative": true
+    },
+    "英雄の盾": {
+      "min": -3,
+      "max": 5,
+      "canBeNegative": true
+    },
+    "茸食": {
+      "min": -3,
+      "max": 5,
+      "canBeNegative": true
+    },
+    "運気": {
+      "min": -5,
+      "max": 7,
+      "canBeNegative": true
+    },
+    "剥ぎ取り": {
+      "min": -3,
+      "max": 5,
+      "canBeNegative": true
+    },
+    "捕獲": {
+      "min": -5,
+      "max": 7,
+      "canBeNegative": true
+    },
+    "紅兜": {
+      "min": -3,
+      "max": 3,
+      "canBeNegative": true
+    },
+    "大雪主": {
+      "min": -3,
+      "max": 3,
+      "canBeNegative": true
+    },
+    "矛砕": {
+      "min": -3,
+      "max": 3,
+      "canBeNegative": true
+    },
+    "岩穿": {
+      "min": -3,
+      "max": 3,
+      "canBeNegative": true
+    },
+    "紫毒姫": {
+      "min": -3,
+      "max": 3,
+      "canBeNegative": true
+    },
+    "宝纏": {
+      "min": -3,
+      "max": 3,
+      "canBeNegative": true
+    },
+    "白疾風": {
+      "min": -3,
+      "max": 3,
+      "canBeNegative": true
+    },
+    "隻眼": {
+      "min": -3,
+      "max": 3,
+      "canBeNegative": true
+    },
+    "黒炎王": {
+      "min": -3,
+      "max": 3,
+      "canBeNegative": true
+    },
+    "金雷公": {
+      "min": -3,
+      "max": 3,
+      "canBeNegative": true
+    },
+    "荒鉤爪": {
+      "min": -3,
+      "max": 3,
+      "canBeNegative": true
+    },
+    "燼滅刃": {
+      "min": -3,
+      "max": 3,
+      "canBeNegative": true
+    },
+    "朧隠": {
+      "min": -3,
+      "max": 3,
+      "canBeNegative": true
+    },
+    "鎧裂": {
+      "min": -3,
+      "max": 3,
+      "canBeNegative": true
+    },
+    "天眼": {
+      "min": -3,
+      "max": 3,
+      "canBeNegative": true
+    },
+    "青電主": {
+      "min": -3,
+      "max": 3,
+      "canBeNegative": true
+    },
+    "銀嶺": {
+      "min": -3,
+      "max": 3,
+      "canBeNegative": true
+    },
+    "鏖魔": {
+      "min": -3,
+      "max": 3,
+      "canBeNegative": true
+    },
+    "刃鱗": {
+      "min": -3,
+      "max": 3,
+      "canBeNegative": true
+    },
+    "裏会心": {
+      "min": -3,
+      "max": 3,
+      "canBeNegative": true
+    },
+    "龍気": {
+      "min": -3,
+      "max": 3,
+      "canBeNegative": true
+    },
+    "真・紅兜": {
+      "min": -3,
+      "max": 3,
+      "canBeNegative": true
+    },
+    "真・大雪主": {
+      "min": -3,
+      "max": 3,
+      "canBeNegative": true
+    },
+    "真・矛砕": {
+      "min": -3,
+      "max": 3,
+      "canBeNegative": true
+    },
+    "真・岩穿": {
+      "min": -3,
+      "max": 3,
+      "canBeNegative": true
+    },
+    "真・紫毒姫": {
+      "min": -3,
+      "max": 3,
+      "canBeNegative": true
+    },
+    "真・宝纏": {
+      "min": -3,
+      "max": 3,
+      "canBeNegative": true
+    },
+    "真・白疾風": {
+      "min": -3,
+      "max": 3,
+      "canBeNegative": true
+    },
+    "真・隻眼": {
+      "min": -3,
+      "max": 3,
+      "canBeNegative": true
+    },
+    "真・黒炎王": {
+      "min": -3,
+      "max": 3,
+      "canBeNegative": true
+    },
+    "真・金雷公": {
+      "min": -3,
+      "max": 3,
+      "canBeNegative": true
+    },
+    "真・荒鉤爪": {
+      "min": -3,
+      "max": 3,
+      "canBeNegative": true
+    },
+    "真・燼滅刃": {
+      "min": -3,
+      "max": 3,
+      "canBeNegative": true
+    },
+    "真・朧隠": {
+      "min": -3,
+      "max": 3,
+      "canBeNegative": true
+    },
+    "真・鎧裂": {
+      "min": -3,
+      "max": 3,
+      "canBeNegative": true
+    },
+    "真・天眼": {
+      "min": -3,
+      "max": 3,
+      "canBeNegative": true
+    },
+    "真・青電主": {
+      "min": -3,
+      "max": 3,
+      "canBeNegative": true
+    },
+    "真・銀嶺": {
+      "min": -3,
+      "max": 3,
+      "canBeNegative": true
+    },
+    "真・鏖魔": {
+      "min": -3,
+      "max": 3,
+      "canBeNegative": true
+    }
+  },
+  "generationTypes": [
+    {
+      "id": "mystery",
+      "name": "謎のお守り",
+      "maxSkills": 1,
+      "maxSlots": 1,
+      "skill2ChancePercent": 100,
+      "skillPointRanges": {
+        "毒": {
+          "min": 1,
+          "max": 5
+        },
+        "麻痺": {
+          "min": 1,
+          "max": 5
+        },
+        "睡眠": {
+          "min": 1,
+          "max": 5
+        },
+        "気絶": {
+          "min": 1,
+          "max": 8
+        },
+        "耐震": {
+          "min": 1,
+          "max": 7
+        },
+        "だるま": {
+          "min": 1,
+          "max": 7
+        },
+        "耐暑": {
+          "min": 1,
+          "max": 10
+        },
+        "耐寒": {
+          "min": 1,
+          "max": 10
+        },
+        "盗み無効": {
+          "min": 1,
+          "max": 10
+        },
+        "対防御DOWN": {
+          "min": 1,
+          "max": 7
+        },
+        "狂撃耐性": {
+          "min": 1,
+          "max": 3
+        },
+        "裂傷": {
+          "min": 1,
+          "max": 5
+        },
+        "攻撃": {
+          "min": 1,
+          "max": 4
+        },
+        "防御": {
+          "min": 1,
+          "max": 4
+        },
+        "体力": {
+          "min": 1,
+          "max": 8
+        },
+        "火耐性": {
+          "min": 1,
+          "max": 6
+        },
+        "水耐性": {
+          "min": 1,
+          "max": 6
+        },
+        "雷耐性": {
+          "min": 1,
+          "max": 6
+        },
+        "氷耐性": {
+          "min": 1,
+          "max": 6
+        },
+        "龍耐性": {
+          "min": 1,
+          "max": 6
+        },
+        "精密射撃": {
+          "min": 1,
+          "max": 6
+        },
+        "通常弾追加": {
+          "min": 1,
+          "max": 8
+        },
+        "貫通弾追加": {
+          "min": 1,
+          "max": 8
+        },
+        "散弾追加": {
+          "min": 1,
+          "max": 8
+        },
+        "榴弾追加": {
+          "min": 1,
+          "max": 8
+        },
+        "拡散弾追加": {
+          "min": 1,
+          "max": 8
+        },
+        "毒瓶追加": {
+          "min": 1,
+          "max": 8
+        },
+        "麻痺瓶追加": {
+          "min": 1,
+          "max": 8
+        },
+        "睡眠瓶追加": {
+          "min": 1,
+          "max": 8
+        },
+        "強撃瓶追加": {
+          "min": 1,
+          "max": 8
+        },
+        "属強瓶追加": {
+          "min": 1,
+          "max": 8
+        },
+        "接撃瓶追加": {
+          "min": 1,
+          "max": 8
+        },
+        "減気瓶追加": {
+          "min": 1,
+          "max": 8
+        },
+        "爆破瓶追加": {
+          "min": 1,
+          "max": 8
+        },
+        "変則射撃": {
+          "min": 1,
+          "max": 5
+        },
+        "達人": {
+          "min": 1,
+          "max": 4
+        },
+        "笛": {
+          "min": 1,
+          "max": 6
+        },
+        "砲術": {
+          "min": 1,
+          "max": 6
+        },
+        "爆弾強化": {
+          "min": 1,
+          "max": 6
+        },
+        "逆境": {
+          "min": 1,
+          "max": 4
+        },
+        "気配": {
+          "min": 1,
+          "max": 8
+        },
+        "采配": {
+          "min": 1,
+          "max": 3
+        },
+        "号令": {
+          "min": 1,
+          "max": 3
+        },
+        "乗り": {
+          "min": 1,
+          "max": 10
+        },
+        "千里眼": {
+          "min": 1,
+          "max": 8
+        },
+        "観察眼": {
+          "min": 1,
+          "max": 8
+        },
+        "狩人": {
+          "min": 1,
+          "max": 8
+        },
+        "運搬": {
+          "min": 1,
+          "max": 8
+        },
+        "効果持続": {
+          "min": 1,
+          "max": 8
+        },
+        "広域": {
+          "min": 1,
+          "max": 8
+        },
+        "腹減り": {
+          "min": 1,
+          "max": 8
+        },
+        "食いしん坊": {
+          "min": 1,
+          "max": 10
+        },
+        "野草知識": {
+          "min": 1,
+          "max": 8
+        },
+        "調合成功率": {
+          "min": 1,
+          "max": 10
+        },
+        "調合数": {
+          "min": 1,
+          "max": 8
+        },
+        "高速設置": {
+          "min": 1,
+          "max": 8
+        },
+        "採取": {
+          "min": 1,
+          "max": 10
+        },
+        "ハチミツ": {
+          "min": 1,
+          "max": 8
+        },
+        "気まぐれ": {
+          "min": 1,
+          "max": 10
+        }
+      },
+      "slotThresholds": [
+        {
+          "sufficient": 2,
+          "slot1": 60,
+          "slot2": 100,
+          "slot3": 100
+        },
+        {
+          "sufficient": 3,
+          "slot1": 65,
+          "slot2": 100,
+          "slot3": 100
+        },
+        {
+          "sufficient": 4,
+          "slot1": 70,
+          "slot2": 100,
+          "slot3": 100
+        },
+        {
+          "sufficient": 5,
+          "slot1": 75,
+          "slot2": 100,
+          "slot3": 100
+        },
+        {
+          "sufficient": 6,
+          "slot1": 80,
+          "slot2": 100,
+          "slot3": 100
+        },
+        {
+          "sufficient": 7,
+          "slot1": 85,
+          "slot2": 100,
+          "slot3": 100
+        },
+        {
+          "sufficient": 8,
+          "slot1": 90,
+          "slot2": 100,
+          "slot3": 100
+        },
+        {
+          "sufficient": 9,
+          "slot1": 95,
+          "slot2": 100,
+          "slot3": 100
+        },
+        {
+          "sufficient": 10,
+          "slot1": 99,
+          "slot2": 100,
+          "slot3": 100
+        },
+        {
+          "sufficient": 11,
+          "slot1": 100,
+          "slot2": 100,
+          "slot3": 100
+        },
+        {
+          "sufficient": 12,
+          "slot1": 100,
+          "slot2": 100,
+          "slot3": 100
+        },
+        {
+          "sufficient": 13,
+          "slot1": 100,
+          "slot2": 100,
+          "slot3": 100
+        },
+        {
+          "sufficient": 14,
+          "slot1": 100,
+          "slot2": 100,
+          "slot3": 100
+        },
+        {
+          "sufficient": 15,
+          "slot1": 100,
+          "slot2": 100,
+          "slot3": 100
+        },
+        {
+          "sufficient": 16,
+          "slot1": 100,
+          "slot2": 100,
+          "slot3": 100
+        },
+        {
+          "sufficient": 17,
+          "slot1": 100,
+          "slot2": 100,
+          "slot3": 100
+        },
+        {
+          "sufficient": 18,
+          "slot1": 100,
+          "slot2": 100,
+          "slot3": 100
+        },
+        {
+          "sufficient": 19,
+          "slot1": 100,
+          "slot2": 100,
+          "slot3": 100
+        },
+        {
+          "sufficient": 20,
+          "slot1": 100,
+          "slot2": 100,
+          "slot3": 100
+        }
+      ],
+      "sourceIds": [
+        "athena-run-data-charm-generation-mystery-skill1-csv",
+        "athena-run-data-charm-generation-mystery-slots-csv",
+        "athena-charmdatabase-cpp"
+      ],
+      "notes": "第2スキルCSVがないため1スキル種のみ。"
+    },
+    {
+      "id": "shining",
+      "name": "光るお守り",
+      "maxSkills": 2,
+      "maxSlots": 2,
+      "skill2ChancePercent": 35,
+      "skillPointRanges": {
+        "毒": {
+          "min": -10,
+          "max": 7,
+          "canBeNegative": true
+        },
+        "麻痺": {
+          "min": -10,
+          "max": 7,
+          "canBeNegative": true
+        },
+        "睡眠": {
+          "min": -10,
+          "max": 7,
+          "canBeNegative": true
+        },
+        "気絶": {
+          "min": -10,
+          "max": 10,
+          "canBeNegative": true
+        },
+        "風圧": {
+          "min": 1,
+          "max": 4
+        },
+        "耐震": {
+          "min": -10,
+          "max": 8,
+          "canBeNegative": true
+        },
+        "だるま": {
+          "min": -10,
+          "max": 8,
+          "canBeNegative": true
+        },
+        "対防御DOWN": {
+          "min": -10,
+          "max": 8,
+          "canBeNegative": true
+        },
+        "攻撃": {
+          "min": -7,
+          "max": 7,
+          "canBeNegative": true
+        },
+        "防御": {
+          "min": -7,
+          "max": 7,
+          "canBeNegative": true
+        },
+        "体力": {
+          "min": -10,
+          "max": 10,
+          "canBeNegative": true
+        },
+        "火耐性": {
+          "min": -10,
+          "max": 10,
+          "canBeNegative": true
+        },
+        "水耐性": {
+          "min": -10,
+          "max": 10,
+          "canBeNegative": true
+        },
+        "雷耐性": {
+          "min": -10,
+          "max": 10,
+          "canBeNegative": true
+        },
+        "氷耐性": {
+          "min": -10,
+          "max": 10,
+          "canBeNegative": true
+        },
+        "龍耐性": {
+          "min": -10,
+          "max": 10,
+          "canBeNegative": true
+        },
+        "火属性攻撃": {
+          "min": 1,
+          "max": 7
+        },
+        "水属性攻撃": {
+          "min": 1,
+          "max": 7
+        },
+        "雷属性攻撃": {
+          "min": 1,
+          "max": 7
+        },
+        "氷属性攻撃": {
+          "min": 1,
+          "max": 7
+        },
+        "龍属性攻撃": {
+          "min": 1,
+          "max": 7
+        },
+        "特殊攻撃": {
+          "min": -4,
+          "max": 4,
+          "canBeNegative": true
+        },
+        "研ぎ師": {
+          "min": 1,
+          "max": 4
+        },
+        "鈍器": {
+          "min": 1,
+          "max": 4
+        },
+        "納刀": {
+          "min": 1,
+          "max": 6
+        },
+        "装填速度": {
+          "min": 1,
+          "max": 4
+        },
+        "精密射撃": {
+          "min": -10,
+          "max": 10,
+          "canBeNegative": true
+        },
+        "通常弾追加": {
+          "min": -8,
+          "max": 8,
+          "canBeNegative": true
+        },
+        "貫通弾追加": {
+          "min": -10,
+          "max": 10,
+          "canBeNegative": true
+        },
+        "散弾追加": {
+          "min": -10,
+          "max": 10,
+          "canBeNegative": true
+        },
+        "榴弾追加": {
+          "min": -10,
+          "max": 10,
+          "canBeNegative": true
+        },
+        "拡散弾追加": {
+          "min": -10,
+          "max": 10,
+          "canBeNegative": true
+        },
+        "減気瓶追加": {
+          "min": -10,
+          "max": 10,
+          "canBeNegative": true
+        },
+        "爆破瓶追加": {
+          "min": -10,
+          "max": 10,
+          "canBeNegative": true
+        },
+        "弾薬節約": {
+          "min": -5,
+          "max": 5,
+          "canBeNegative": true
+        },
+        "達人": {
+          "min": -7,
+          "max": 7,
+          "canBeNegative": true
+        },
+        "特殊会心": {
+          "min": -5,
+          "max": 5,
+          "canBeNegative": true
+        },
+        "属性会心": {
+          "min": -5,
+          "max": 5,
+          "canBeNegative": true
+        },
+        "体術": {
+          "min": 1,
+          "max": 6
+        },
+        "気力回復": {
+          "min": 1,
+          "max": 6
+        },
+        "回避性能": {
+          "min": 1,
+          "max": 6
+        },
+        "ガード性能": {
+          "min": 1,
+          "max": 6
+        },
+        "ガード強化": {
+          "min": 1,
+          "max": 4
+        },
+        "KO": {
+          "min": 1,
+          "max": 6
+        },
+        "減気攻撃": {
+          "min": 1,
+          "max": 6
+        },
+        "笛": {
+          "min": -8,
+          "max": 8,
+          "canBeNegative": true
+        },
+        "砲術": {
+          "min": -8,
+          "max": 8,
+          "canBeNegative": true
+        },
+        "爆弾強化": {
+          "min": -8,
+          "max": 8,
+          "canBeNegative": true
+        },
+        "底力": {
+          "min": 1,
+          "max": 6
+        },
+        "逆境": {
+          "min": -5,
+          "max": 5,
+          "canBeNegative": true
+        },
+        "逆上": {
+          "min": -5,
+          "max": 5,
+          "canBeNegative": true
+        },
+        "窮地": {
+          "min": -5,
+          "max": 5,
+          "canBeNegative": true
+        },
+        "采配": {
+          "min": -7,
+          "max": 7,
+          "canBeNegative": true
+        },
+        "号令": {
+          "min": -7,
+          "max": 7,
+          "canBeNegative": true
+        },
+        "跳躍": {
+          "min": -5,
+          "max": 5,
+          "canBeNegative": true
+        },
+        "我慢": {
+          "min": -5,
+          "max": 5,
+          "canBeNegative": true
+        },
+        "ＳＰ延長": {
+          "min": 1,
+          "max": 6
+        },
+        "千里眼": {
+          "min": -10,
+          "max": 10,
+          "canBeNegative": true
+        },
+        "運搬": {
+          "min": -10,
+          "max": 10,
+          "canBeNegative": true
+        },
+        "加護": {
+          "min": 1,
+          "max": 7
+        },
+        "回復量": {
+          "min": 1,
+          "max": 6
+        },
+        "回復速度": {
+          "min": -4,
+          "max": 7,
+          "canBeNegative": true
+        },
+        "広域": {
+          "min": -10,
+          "max": 10,
+          "canBeNegative": true
+        },
+        "腹減り": {
+          "min": -10,
+          "max": 10,
+          "canBeNegative": true
+        },
+        "食事": {
+          "min": 1,
+          "max": 4
+        },
+        "節食": {
+          "min": -5,
+          "max": 5,
+          "canBeNegative": true
+        },
+        "肉食": {
+          "min": -5,
+          "max": 5,
+          "canBeNegative": true
+        },
+        "野草知識": {
+          "min": -10,
+          "max": 10,
+          "canBeNegative": true
+        },
+        "高速設置": {
+          "min": -10,
+          "max": 10,
+          "canBeNegative": true
+        },
+        "ハチミツ": {
+          "min": -10,
+          "max": 10,
+          "canBeNegative": true
+        },
+        "護石王": {
+          "min": -5,
+          "max": 5,
+          "canBeNegative": true
+        },
+        "耐暑": {
+          "min": -10,
+          "max": 10,
+          "canBeNegative": true
+        },
+        "耐寒": {
+          "min": -10,
+          "max": 10,
+          "canBeNegative": true
+        },
+        "盗み無効": {
+          "min": -10,
+          "max": 10,
+          "canBeNegative": true
+        },
+        "狂撃耐性": {
+          "min": -5,
+          "max": 5,
+          "canBeNegative": true
+        },
+        "細菌学": {
+          "min": -5,
+          "max": 5,
+          "canBeNegative": true
+        },
+        "裂傷": {
+          "min": -10,
+          "max": 10,
+          "canBeNegative": true
+        },
+        "抜刀減気": {
+          "min": -5,
+          "max": 5,
+          "canBeNegative": true
+        },
+        "毒瓶追加": {
+          "min": -10,
+          "max": 10,
+          "canBeNegative": true
+        },
+        "麻痺瓶追加": {
+          "min": -10,
+          "max": 10,
+          "canBeNegative": true
+        },
+        "睡眠瓶追加": {
+          "min": -10,
+          "max": 10,
+          "canBeNegative": true
+        },
+        "強撃瓶追加": {
+          "min": -10,
+          "max": 12,
+          "canBeNegative": true
+        },
+        "属強瓶追加": {
+          "min": -10,
+          "max": 12,
+          "canBeNegative": true
+        },
+        "接撃瓶追加": {
+          "min": -10,
+          "max": 10,
+          "canBeNegative": true
+        },
+        "射法": {
+          "min": -3,
+          "max": 3,
+          "canBeNegative": true
+        },
+        "変則射撃": {
+          "min": -10,
+          "max": 10,
+          "canBeNegative": true
+        },
+        "気配": {
+          "min": -10,
+          "max": 10,
+          "canBeNegative": true
+        },
+        "乗り": {
+          "min": -8,
+          "max": 8,
+          "canBeNegative": true
+        },
+        "観察眼": {
+          "min": -10,
+          "max": 10,
+          "canBeNegative": true
+        },
+        "狩人": {
+          "min": -10,
+          "max": 10,
+          "canBeNegative": true
+        },
+        "効果持続": {
+          "min": -10,
+          "max": 10,
+          "canBeNegative": true
+        },
+        "食いしん坊": {
+          "min": -10,
+          "max": 13,
+          "canBeNegative": true
+        },
+        "調合成功率": {
+          "min": -10,
+          "max": 13,
+          "canBeNegative": true
+        },
+        "調合数": {
+          "min": -10,
+          "max": 10,
+          "canBeNegative": true
+        },
+        "採取": {
+          "min": -10,
+          "max": 13,
+          "canBeNegative": true
+        },
+        "気まぐれ": {
+          "min": -10,
+          "max": 13,
+          "canBeNegative": true
+        }
+      },
+      "slotThresholds": [
+        {
+          "sufficient": 2,
+          "slot1": 9,
+          "slot2": 74,
+          "slot3": 100
+        },
+        {
+          "sufficient": 3,
+          "slot1": 16,
+          "slot2": 76,
+          "slot3": 100
+        },
+        {
+          "sufficient": 4,
+          "slot1": 23,
+          "slot2": 78,
+          "slot3": 100
+        },
+        {
+          "sufficient": 5,
+          "slot1": 30,
+          "slot2": 80,
+          "slot3": 100
+        },
+        {
+          "sufficient": 6,
+          "slot1": 37,
+          "slot2": 82,
+          "slot3": 100
+        },
+        {
+          "sufficient": 7,
+          "slot1": 44,
+          "slot2": 84,
+          "slot3": 100
+        },
+        {
+          "sufficient": 8,
+          "slot1": 51,
+          "slot2": 86,
+          "slot3": 100
+        },
+        {
+          "sufficient": 9,
+          "slot1": 58,
+          "slot2": 88,
+          "slot3": 100
+        },
+        {
+          "sufficient": 10,
+          "slot1": 75,
+          "slot2": 90,
+          "slot3": 100
+        },
+        {
+          "sufficient": 11,
+          "slot1": 83,
+          "slot2": 92,
+          "slot3": 100
+        },
+        {
+          "sufficient": 12,
+          "slot1": 87,
+          "slot2": 95,
+          "slot3": 100
+        },
+        {
+          "sufficient": 13,
+          "slot1": 90,
+          "slot2": 97,
+          "slot3": 100
+        },
+        {
+          "sufficient": 14,
+          "slot1": 92,
+          "slot2": 98,
+          "slot3": 100
+        },
+        {
+          "sufficient": 15,
+          "slot1": 94,
+          "slot2": 99,
+          "slot3": 100
+        },
+        {
+          "sufficient": 16,
+          "slot1": 95,
+          "slot2": 99,
+          "slot3": 100
+        },
+        {
+          "sufficient": 17,
+          "slot1": 97,
+          "slot2": 100,
+          "slot3": 100
+        },
+        {
+          "sufficient": 18,
+          "slot1": 98,
+          "slot2": 100,
+          "slot3": 100
+        },
+        {
+          "sufficient": 19,
+          "slot1": 99,
+          "slot2": 100,
+          "slot3": 100
+        },
+        {
+          "sufficient": 20,
+          "slot1": 99,
+          "slot2": 100,
+          "slot3": 100
+        }
+      ],
+      "sourceIds": [
+        "athena-run-data-charm-generation-shining-skill1-csv",
+        "athena-run-data-charm-generation-shining-skill2-csv",
+        "athena-run-data-charm-generation-shining-slots-csv",
+        "athena-charmdatabase-cpp"
+      ],
+      "notes": "第2スキルはCSVの範囲と生成確率を保存。個別のseed・重複排除条件までは検証しない。"
+    },
+    {
+      "id": "ancient",
+      "name": "古びたお守り",
+      "maxSkills": 2,
+      "maxSlots": 3,
+      "skill2ChancePercent": 25,
+      "skillPointRanges": {
+        "聴覚保護": {
+          "min": -3,
+          "max": 5,
+          "canBeNegative": true
+        },
+        "風圧": {
+          "min": -10,
+          "max": 5,
+          "canBeNegative": true
+        },
+        "寒冷適応": {
+          "min": 1,
+          "max": 5
+        },
+        "炎熱適応": {
+          "min": 1,
+          "max": 5
+        },
+        "狂撃耐性": {
+          "min": 1,
+          "max": 5
+        },
+        "細菌学": {
+          "min": 1,
+          "max": 8
+        },
+        "属性耐性": {
+          "min": -3,
+          "max": 5,
+          "canBeNegative": true
+        },
+        "火属性攻撃": {
+          "min": -10,
+          "max": 13,
+          "canBeNegative": true
+        },
+        "水属性攻撃": {
+          "min": -10,
+          "max": 13,
+          "canBeNegative": true
+        },
+        "雷属性攻撃": {
+          "min": -10,
+          "max": 13,
+          "canBeNegative": true
+        },
+        "氷属性攻撃": {
+          "min": -10,
+          "max": 13,
+          "canBeNegative": true
+        },
+        "龍属性攻撃": {
+          "min": -10,
+          "max": 13,
+          "canBeNegative": true
+        },
+        "属性攻撃": {
+          "min": 1,
+          "max": 5
+        },
+        "特殊攻撃": {
+          "min": -10,
+          "max": 6,
+          "canBeNegative": true
+        },
+        "斬れ味": {
+          "min": -3,
+          "max": 5,
+          "canBeNegative": true
+        },
+        "剣術": {
+          "min": -3,
+          "max": 5,
+          "canBeNegative": true
+        },
+        "鈍器": {
+          "min": 1,
+          "max": 6
+        },
+        "納刀": {
+          "min": -10,
+          "max": 6,
+          "canBeNegative": true
+        },
+        "納刀研磨": {
+          "min": -3,
+          "max": 6,
+          "canBeNegative": true
+        },
+        "装填速度": {
+          "min": -3,
+          "max": 6,
+          "canBeNegative": true
+        },
+        "反動": {
+          "min": -3,
+          "max": 5,
+          "canBeNegative": true
+        },
+        "通常弾強化": {
+          "min": -3,
+          "max": 5,
+          "canBeNegative": true
+        },
+        "貫通弾強化": {
+          "min": -3,
+          "max": 5,
+          "canBeNegative": true
+        },
+        "散弾強化": {
+          "min": -3,
+          "max": 5,
+          "canBeNegative": true
+        },
+        "重撃弾強化": {
+          "min": -3,
+          "max": 5,
+          "canBeNegative": true
+        },
+        "射法": {
+          "min": -5,
+          "max": 5,
+          "canBeNegative": true
+        },
+        "弾薬節約": {
+          "min": -5,
+          "max": 5,
+          "canBeNegative": true
+        },
+        "痛撃": {
+          "min": -3,
+          "max": 5,
+          "canBeNegative": true
+        },
+        "特殊会心": {
+          "min": 1,
+          "max": 5
+        },
+        "属性会心": {
+          "min": 1,
+          "max": 5
+        },
+        "溜め短縮": {
+          "min": -3,
+          "max": 5,
+          "canBeNegative": true
+        },
+        "スタミナ": {
+          "min": -3,
+          "max": 5,
+          "canBeNegative": true
+        },
+        "体術": {
+          "min": -3,
+          "max": 6,
+          "canBeNegative": true
+        },
+        "気力回復": {
+          "min": -3,
+          "max": 6,
+          "canBeNegative": true
+        },
+        "回避性能": {
+          "min": -3,
+          "max": 6,
+          "canBeNegative": true
+        },
+        "回避距離": {
+          "min": -3,
+          "max": 6,
+          "canBeNegative": true
+        },
+        "ガード性能": {
+          "min": -3,
+          "max": 6,
+          "canBeNegative": true
+        },
+        "ガード強化": {
+          "min": -3,
+          "max": 6,
+          "canBeNegative": true
+        },
+        "KO": {
+          "min": -3,
+          "max": 6,
+          "canBeNegative": true
+        },
+        "減気攻撃": {
+          "min": -3,
+          "max": 6,
+          "canBeNegative": true
+        },
+        "重撃": {
+          "min": -3,
+          "max": 5,
+          "canBeNegative": true
+        },
+        "本気": {
+          "min": -3,
+          "max": 6,
+          "canBeNegative": true
+        },
+        "底力": {
+          "min": -3,
+          "max": 6,
+          "canBeNegative": true
+        },
+        "逆上": {
+          "min": -5,
+          "max": 5,
+          "canBeNegative": true
+        },
+        "窮地": {
+          "min": -5,
+          "max": 5,
+          "canBeNegative": true
+        },
+        "采配": {
+          "min": -10,
+          "max": 10,
+          "canBeNegative": true
+        },
+        "号令": {
+          "min": -10,
+          "max": 10,
+          "canBeNegative": true
+        },
+        "跳躍": {
+          "min": -5,
+          "max": 5,
+          "canBeNegative": true
+        },
+        "我慢": {
+          "min": -5,
+          "max": 5,
+          "canBeNegative": true
+        },
+        "ＳＰ延長": {
+          "min": -3,
+          "max": 6,
+          "canBeNegative": true
+        },
+        "加護": {
+          "min": -10,
+          "max": 9,
+          "canBeNegative": true
+        },
+        "回復量": {
+          "min": -3,
+          "max": 6,
+          "canBeNegative": true
+        },
+        "食事": {
+          "min": -3,
+          "max": 5,
+          "canBeNegative": true
+        },
+        "節食": {
+          "min": -5,
+          "max": 5,
+          "canBeNegative": true
+        },
+        "肉食": {
+          "min": -5,
+          "max": 5,
+          "canBeNegative": true
+        },
+        "護石王": {
+          "min": -8,
+          "max": 10,
+          "canBeNegative": true
+        },
+        "気絶": {
+          "min": -10,
+          "max": 13,
+          "canBeNegative": true
+        },
+        "攻撃": {
+          "min": -10,
+          "max": 10,
+          "canBeNegative": true
+        },
+        "防御": {
+          "min": -10,
+          "max": 10,
+          "canBeNegative": true
+        },
+        "体力": {
+          "min": -10,
+          "max": 13,
+          "canBeNegative": true
+        },
+        "火耐性": {
+          "min": -10,
+          "max": 13,
+          "canBeNegative": true
+        },
+        "水耐性": {
+          "min": -10,
+          "max": 13,
+          "canBeNegative": true
+        },
+        "雷耐性": {
+          "min": -10,
+          "max": 13,
+          "canBeNegative": true
+        },
+        "氷耐性": {
+          "min": -10,
+          "max": 13,
+          "canBeNegative": true
+        },
+        "龍耐性": {
+          "min": -10,
+          "max": 13,
+          "canBeNegative": true
+        },
+        "研ぎ師": {
+          "min": -10,
+          "max": 8,
+          "canBeNegative": true
+        },
+        "匠": {
+          "min": -5,
+          "max": 5,
+          "canBeNegative": true
+        },
+        "研磨術": {
+          "min": -3,
+          "max": 3,
+          "canBeNegative": true
+        },
+        "抜刀会心": {
+          "min": -3,
+          "max": 3,
+          "canBeNegative": true
+        },
+        "抜刀減気": {
+          "min": -5,
+          "max": 8,
+          "canBeNegative": true
+        },
+        "速射": {
+          "min": -3,
+          "max": 3,
+          "canBeNegative": true
+        },
+        "装填数": {
+          "min": -3,
+          "max": 3,
+          "canBeNegative": true
+        },
+        "達人": {
+          "min": -10,
+          "max": 10,
+          "canBeNegative": true
+        },
+        "連撃": {
+          "min": -3,
+          "max": 3,
+          "canBeNegative": true
+        },
+        "会心強化": {
+          "min": -3,
+          "max": 3,
+          "canBeNegative": true
+        },
+        "走行継続": {
+          "min": -5,
+          "max": 5,
+          "canBeNegative": true
+        },
+        "泡沫": {
+          "min": -3,
+          "max": 3,
+          "canBeNegative": true
+        },
+        "笛": {
+          "min": -10,
+          "max": 10,
+          "canBeNegative": true
+        },
+        "砲術": {
+          "min": -10,
+          "max": 10,
+          "canBeNegative": true
+        },
+        "爆弾強化": {
+          "min": -10,
+          "max": 10,
+          "canBeNegative": true
+        },
+        "闘魂": {
+          "min": -3,
+          "max": 3,
+          "canBeNegative": true
+        },
+        "無傷": {
+          "min": -3,
+          "max": 3,
+          "canBeNegative": true
+        },
+        "チャンス": {
+          "min": -3,
+          "max": 3,
+          "canBeNegative": true
+        },
+        "根性": {
+          "min": -3,
+          "max": 3,
+          "canBeNegative": true
+        },
+        "乗り": {
+          "min": -5,
+          "max": 5,
+          "canBeNegative": true
+        },
+        "無心": {
+          "min": -3,
+          "max": 3,
+          "canBeNegative": true
+        },
+        "千里眼": {
+          "min": -10,
+          "max": 12,
+          "canBeNegative": true
+        },
+        "英雄の盾": {
+          "min": -3,
+          "max": 3,
+          "canBeNegative": true
+        },
+        "回復速度": {
+          "min": -10,
+          "max": 12,
+          "canBeNegative": true
+        },
+        "広域": {
+          "min": -10,
+          "max": 12,
+          "canBeNegative": true
+        },
+        "腹減り": {
+          "min": -10,
+          "max": 10,
+          "canBeNegative": true
+        },
+        "茸食": {
+          "min": -3,
+          "max": 3,
+          "canBeNegative": true
+        },
+        "運気": {
+          "min": -3,
+          "max": 3,
+          "canBeNegative": true
+        },
+        "剥ぎ取り": {
+          "min": -3,
+          "max": 3,
+          "canBeNegative": true
+        },
+        "捕獲": {
+          "min": -3,
+          "max": 3,
+          "canBeNegative": true
+        },
+        "紅兜": {
+          "min": -3,
+          "max": 3,
+          "canBeNegative": true
+        },
+        "大雪主": {
+          "min": -3,
+          "max": 3,
+          "canBeNegative": true
+        },
+        "矛砕": {
+          "min": -3,
+          "max": 3,
+          "canBeNegative": true
+        },
+        "岩穿": {
+          "min": -3,
+          "max": 3,
+          "canBeNegative": true
+        },
+        "紫毒姫": {
+          "min": -3,
+          "max": 3,
+          "canBeNegative": true
+        },
+        "宝纏": {
+          "min": -3,
+          "max": 3,
+          "canBeNegative": true
+        },
+        "白疾風": {
+          "min": -3,
+          "max": 3,
+          "canBeNegative": true
+        },
+        "隻眼": {
+          "min": -3,
+          "max": 3,
+          "canBeNegative": true
+        },
+        "黒炎王": {
+          "min": -3,
+          "max": 3,
+          "canBeNegative": true
+        },
+        "金雷公": {
+          "min": -3,
+          "max": 3,
+          "canBeNegative": true
+        },
+        "荒鉤爪": {
+          "min": -3,
+          "max": 3,
+          "canBeNegative": true
+        },
+        "燼滅刃": {
+          "min": -3,
+          "max": 3,
+          "canBeNegative": true
+        },
+        "朧隠": {
+          "min": -3,
+          "max": 3,
+          "canBeNegative": true
+        },
+        "鎧裂": {
+          "min": -3,
+          "max": 3,
+          "canBeNegative": true
+        },
+        "天眼": {
+          "min": -3,
+          "max": 3,
+          "canBeNegative": true
+        },
+        "青電主": {
+          "min": -3,
+          "max": 3,
+          "canBeNegative": true
+        },
+        "銀嶺": {
+          "min": -3,
+          "max": 3,
+          "canBeNegative": true
+        },
+        "鏖魔": {
+          "min": -3,
+          "max": 3,
+          "canBeNegative": true
+        }
+      },
+      "slotThresholds": [
+        {
+          "sufficient": 2,
+          "slot1": 9,
+          "slot2": 59,
+          "slot3": 88
+        },
+        {
+          "sufficient": 3,
+          "slot1": 16,
+          "slot2": 61,
+          "slot3": 89
+        },
+        {
+          "sufficient": 4,
+          "slot1": 17,
+          "slot2": 62,
+          "slot3": 89
+        },
+        {
+          "sufficient": 5,
+          "slot1": 23,
+          "slot2": 63,
+          "slot3": 89
+        },
+        {
+          "sufficient": 6,
+          "slot1": 25,
+          "slot2": 65,
+          "slot3": 90
+        },
+        {
+          "sufficient": 7,
+          "slot1": 31,
+          "slot2": 66,
+          "slot3": 90
+        },
+        {
+          "sufficient": 8,
+          "slot1": 38,
+          "slot2": 68,
+          "slot3": 90
+        },
+        {
+          "sufficient": 9,
+          "slot1": 45,
+          "slot2": 71,
+          "slot3": 91
+        },
+        {
+          "sufficient": 10,
+          "slot1": 58,
+          "slot2": 76,
+          "slot3": 91
+        },
+        {
+          "sufficient": 11,
+          "slot1": 63,
+          "slot2": 79,
+          "slot3": 92
+        },
+        {
+          "sufficient": 12,
+          "slot1": 66,
+          "slot2": 80,
+          "slot3": 92
+        },
+        {
+          "sufficient": 13,
+          "slot1": 71,
+          "slot2": 83,
+          "slot3": 94
+        },
+        {
+          "sufficient": 14,
+          "slot1": 74,
+          "slot2": 84,
+          "slot3": 94
+        },
+        {
+          "sufficient": 15,
+          "slot1": 78,
+          "slot2": 87,
+          "slot3": 96
+        },
+        {
+          "sufficient": 16,
+          "slot1": 82,
+          "slot2": 90,
+          "slot3": 96
+        },
+        {
+          "sufficient": 17,
+          "slot1": 86,
+          "slot2": 93,
+          "slot3": 98
+        },
+        {
+          "sufficient": 18,
+          "slot1": 88,
+          "slot2": 94,
+          "slot3": 98
+        },
+        {
+          "sufficient": 19,
+          "slot1": 91,
+          "slot2": 96,
+          "slot3": 99
+        },
+        {
+          "sufficient": 20,
+          "slot1": 94,
+          "slot2": 97,
+          "slot3": 99
+        }
+      ],
+      "sourceIds": [
+        "athena-run-data-charm-generation-ancient-skill1-csv",
+        "athena-run-data-charm-generation-ancient-skill2-csv",
+        "athena-run-data-charm-generation-ancient-slots-csv",
+        "athena-charmdatabase-cpp"
+      ],
+      "notes": "第2スキルはCSVの範囲と生成確率を保存。個別のseed・重複排除条件までは検証しない。"
+    },
+    {
+      "id": "enduring",
+      "name": "風化したお守り",
+      "maxSkills": 2,
+      "maxSlots": 3,
+      "skill2ChancePercent": 20,
+      "skillPointRanges": {
+        "聴覚保護": {
+          "min": -3,
+          "max": 7,
+          "canBeNegative": true
+        },
+        "風圧": {
+          "min": -5,
+          "max": 10,
+          "canBeNegative": true
+        },
+        "寒冷適応": {
+          "min": 3,
+          "max": 7
+        },
+        "炎熱適応": {
+          "min": 3,
+          "max": 7
+        },
+        "狂撃耐性": {
+          "min": 3,
+          "max": 7
+        },
+        "細菌学": {
+          "min": 5,
+          "max": 10
+        },
+        "属性耐性": {
+          "min": -5,
+          "max": 7,
+          "canBeNegative": true
+        },
+        "属性攻撃": {
+          "min": 3,
+          "max": 7
+        },
+        "特殊攻撃": {
+          "min": -5,
+          "max": 7,
+          "canBeNegative": true
+        },
+        "斬れ味": {
+          "min": -5,
+          "max": 7,
+          "canBeNegative": true
+        },
+        "剣術": {
+          "min": -5,
+          "max": 7,
+          "canBeNegative": true
+        },
+        "研磨術": {
+          "min": -3,
+          "max": 5,
+          "canBeNegative": true
+        },
+        "鈍器": {
+          "min": 2,
+          "max": 6
+        },
+        "抜刀会心": {
+          "min": -5,
+          "max": 5,
+          "canBeNegative": true
+        },
+        "抜刀減気": {
+          "min": -2,
+          "max": 8,
+          "canBeNegative": true
+        },
+        "納刀": {
+          "min": -5,
+          "max": 10,
+          "canBeNegative": true
+        },
+        "納刀研磨": {
+          "min": 5,
+          "max": 10
+        },
+        "装填速度": {
+          "min": -5,
+          "max": 7,
+          "canBeNegative": true
+        },
+        "反動": {
+          "min": -5,
+          "max": 7,
+          "canBeNegative": true
+        },
+        "通常弾強化": {
+          "min": -3,
+          "max": 6,
+          "canBeNegative": true
+        },
+        "貫通弾強化": {
+          "min": -3,
+          "max": 6,
+          "canBeNegative": true
+        },
+        "散弾強化": {
+          "min": -3,
+          "max": 6,
+          "canBeNegative": true
+        },
+        "重撃弾強化": {
+          "min": -3,
+          "max": 6,
+          "canBeNegative": true
+        },
+        "速射": {
+          "min": -3,
+          "max": 5,
+          "canBeNegative": true
+        },
+        "射法": {
+          "min": -3,
+          "max": 5,
+          "canBeNegative": true
+        },
+        "装填数": {
+          "min": -3,
+          "max": 5,
+          "canBeNegative": true
+        },
+        "弾薬節約": {
+          "min": -5,
+          "max": 7,
+          "canBeNegative": true
+        },
+        "痛撃": {
+          "min": -3,
+          "max": 6,
+          "canBeNegative": true
+        },
+        "連撃": {
+          "min": -1,
+          "max": 5,
+          "canBeNegative": true
+        },
+        "特殊会心": {
+          "min": 2,
+          "max": 6
+        },
+        "属性会心": {
+          "min": 2,
+          "max": 6
+        },
+        "溜め短縮": {
+          "min": -3,
+          "max": 6,
+          "canBeNegative": true
+        },
+        "スタミナ": {
+          "min": -3,
+          "max": 6,
+          "canBeNegative": true
+        },
+        "体術": {
+          "min": -3,
+          "max": 7,
+          "canBeNegative": true
+        },
+        "気力回復": {
+          "min": -3,
+          "max": 7,
+          "canBeNegative": true
+        },
+        "走行継続": {
+          "min": -3,
+          "max": 6,
+          "canBeNegative": true
+        },
+        "回避性能": {
+          "min": -3,
+          "max": 6,
+          "canBeNegative": true
+        },
+        "回避距離": {
+          "min": -3,
+          "max": 6,
+          "canBeNegative": true
+        },
+        "泡沫": {
+          "min": -1,
+          "max": 5,
+          "canBeNegative": true
+        },
+        "ガード性能": {
+          "min": -3,
+          "max": 7,
+          "canBeNegative": true
+        },
+        "ガード強化": {
+          "min": -3,
+          "max": 7,
+          "canBeNegative": true
+        },
+        "KO": {
+          "min": -7,
+          "max": 10,
+          "canBeNegative": true
+        },
+        "減気攻撃": {
+          "min": -7,
+          "max": 10,
+          "canBeNegative": true
+        },
+        "重撃": {
+          "min": -3,
+          "max": 6,
+          "canBeNegative": true
+        },
+        "本気": {
+          "min": -3,
+          "max": 6,
+          "canBeNegative": true
+        },
+        "闘魂": {
+          "min": -1,
+          "max": 5,
+          "canBeNegative": true
+        },
+        "無傷": {
+          "min": -1,
+          "max": 5,
+          "canBeNegative": true
+        },
+        "チャンス": {
+          "min": -1,
+          "max": 5,
+          "canBeNegative": true
+        },
+        "底力": {
+          "min": -3,
+          "max": 6,
+          "canBeNegative": true
+        },
+        "逆上": {
+          "min": -3,
+          "max": 6,
+          "canBeNegative": true
+        },
+        "窮地": {
+          "min": -3,
+          "max": 6,
+          "canBeNegative": true
+        },
+        "根性": {
+          "min": -1,
+          "max": 5,
+          "canBeNegative": true
+        },
+        "跳躍": {
+          "min": -3,
+          "max": 6,
+          "canBeNegative": true
+        },
+        "無心": {
+          "min": -1,
+          "max": 5,
+          "canBeNegative": true
+        },
+        "我慢": {
+          "min": -5,
+          "max": 7,
+          "canBeNegative": true
+        },
+        "ＳＰ延長": {
+          "min": -5,
+          "max": 7,
+          "canBeNegative": true
+        },
+        "加護": {
+          "min": -7,
+          "max": 10,
+          "canBeNegative": true
+        },
+        "英雄の盾": {
+          "min": -1,
+          "max": 5,
+          "canBeNegative": true
+        },
+        "回復量": {
+          "min": -3,
+          "max": 7,
+          "canBeNegative": true
+        },
+        "食事": {
+          "min": -3,
+          "max": 6,
+          "canBeNegative": true
+        },
+        "節食": {
+          "min": -5,
+          "max": 7,
+          "canBeNegative": true
+        },
+        "護石王": {
+          "min": -7,
+          "max": 10,
+          "canBeNegative": true
+        },
+        "攻撃": {
+          "min": -7,
+          "max": 10,
+          "canBeNegative": true
+        },
+        "防御": {
+          "min": -5,
+          "max": 13,
+          "canBeNegative": true
+        },
+        "火属性攻撃": {
+          "min": -5,
+          "max": 13,
+          "canBeNegative": true
+        },
+        "水属性攻撃": {
+          "min": -5,
+          "max": 13,
+          "canBeNegative": true
+        },
+        "雷属性攻撃": {
+          "min": -5,
+          "max": 13,
+          "canBeNegative": true
+        },
+        "氷属性攻撃": {
+          "min": -5,
+          "max": 13,
+          "canBeNegative": true
+        },
+        "龍属性攻撃": {
+          "min": -5,
+          "max": 13,
+          "canBeNegative": true
+        },
+        "研ぎ師": {
+          "min": -7,
+          "max": 10,
+          "canBeNegative": true
+        },
+        "匠": {
+          "min": -3,
+          "max": 5,
+          "canBeNegative": true
+        },
+        "刃鱗": {
+          "min": -3,
+          "max": 3,
+          "canBeNegative": true
+        },
+        "達人": {
+          "min": -7,
+          "max": 10,
+          "canBeNegative": true
+        },
+        "会心強化": {
+          "min": -3,
+          "max": 5,
+          "canBeNegative": true
+        },
+        "裏会心": {
+          "min": -3,
+          "max": 3,
+          "canBeNegative": true
+        },
+        "笛": {
+          "min": -5,
+          "max": 10,
+          "canBeNegative": true
+        },
+        "砲術": {
+          "min": -5,
+          "max": 10,
+          "canBeNegative": true
+        },
+        "爆弾強化": {
+          "min": -5,
+          "max": 10,
+          "canBeNegative": true
+        },
+        "龍気": {
+          "min": -3,
+          "max": 3,
+          "canBeNegative": true
+        },
+        "乗り": {
+          "min": -7,
+          "max": 10,
+          "canBeNegative": true
+        },
+        "広域": {
+          "min": -5,
+          "max": 12,
+          "canBeNegative": true
+        },
+        "茸食": {
+          "min": -3,
+          "max": 5,
+          "canBeNegative": true
+        },
+        "運気": {
+          "min": -5,
+          "max": 7,
+          "canBeNegative": true
+        },
+        "剥ぎ取り": {
+          "min": -3,
+          "max": 5,
+          "canBeNegative": true
+        },
+        "捕獲": {
+          "min": -5,
+          "max": 7,
+          "canBeNegative": true
+        },
+        "真・紅兜": {
+          "min": -3,
+          "max": 3,
+          "canBeNegative": true
+        },
+        "真・大雪主": {
+          "min": -3,
+          "max": 3,
+          "canBeNegative": true
+        },
+        "真・矛砕": {
+          "min": -3,
+          "max": 3,
+          "canBeNegative": true
+        },
+        "真・岩穿": {
+          "min": -3,
+          "max": 3,
+          "canBeNegative": true
+        },
+        "真・紫毒姫": {
+          "min": -3,
+          "max": 3,
+          "canBeNegative": true
+        },
+        "真・宝纏": {
+          "min": -3,
+          "max": 3,
+          "canBeNegative": true
+        },
+        "真・白疾風": {
+          "min": -3,
+          "max": 3,
+          "canBeNegative": true
+        },
+        "真・隻眼": {
+          "min": -3,
+          "max": 3,
+          "canBeNegative": true
+        },
+        "真・黒炎王": {
+          "min": -3,
+          "max": 3,
+          "canBeNegative": true
+        },
+        "真・金雷公": {
+          "min": -3,
+          "max": 3,
+          "canBeNegative": true
+        },
+        "真・荒鉤爪": {
+          "min": -3,
+          "max": 3,
+          "canBeNegative": true
+        },
+        "真・燼滅刃": {
+          "min": -3,
+          "max": 3,
+          "canBeNegative": true
+        },
+        "真・朧隠": {
+          "min": -3,
+          "max": 3,
+          "canBeNegative": true
+        },
+        "真・鎧裂": {
+          "min": -3,
+          "max": 3,
+          "canBeNegative": true
+        },
+        "真・天眼": {
+          "min": -3,
+          "max": 3,
+          "canBeNegative": true
+        },
+        "真・青電主": {
+          "min": -3,
+          "max": 3,
+          "canBeNegative": true
+        },
+        "真・銀嶺": {
+          "min": -3,
+          "max": 3,
+          "canBeNegative": true
+        },
+        "真・鏖魔": {
+          "min": -3,
+          "max": 3,
+          "canBeNegative": true
+        }
+      },
+      "slotThresholds": [
+        {
+          "sufficient": 1,
+          "slot1": 3,
+          "slot2": 53,
+          "slot3": 88
+        },
+        {
+          "sufficient": 2,
+          "slot1": 3,
+          "slot2": 53,
+          "slot3": 88
+        },
+        {
+          "sufficient": 3,
+          "slot1": 5,
+          "slot2": 55,
+          "slot3": 89
+        },
+        {
+          "sufficient": 4,
+          "slot1": 7,
+          "slot2": 57,
+          "slot3": 89
+        },
+        {
+          "sufficient": 5,
+          "slot1": 13,
+          "slot2": 58,
+          "slot3": 89
+        },
+        {
+          "sufficient": 6,
+          "slot1": 16,
+          "slot2": 60,
+          "slot3": 90
+        },
+        {
+          "sufficient": 7,
+          "slot1": 22,
+          "slot2": 62,
+          "slot3": 90
+        },
+        {
+          "sufficient": 8,
+          "slot1": 30,
+          "slot2": 66,
+          "slot3": 90
+        },
+        {
+          "sufficient": 9,
+          "slot1": 38,
+          "slot2": 68,
+          "slot3": 91
+        },
+        {
+          "sufficient": 10,
+          "slot1": 50,
+          "slot2": 72,
+          "slot3": 91
+        },
+        {
+          "sufficient": 11,
+          "slot1": 55,
+          "slot2": 75,
+          "slot3": 92
+        },
+        {
+          "sufficient": 12,
+          "slot1": 59,
+          "slot2": 77,
+          "slot3": 92
+        },
+        {
+          "sufficient": 13,
+          "slot1": 64,
+          "slot2": 81,
+          "slot3": 94
+        },
+        {
+          "sufficient": 14,
+          "slot1": 67,
+          "slot2": 83,
+          "slot3": 94
+        },
+        {
+          "sufficient": 15,
+          "slot1": 71,
+          "slot2": 86,
+          "slot3": 96
+        },
+        {
+          "sufficient": 16,
+          "slot1": 74,
+          "slot2": 88,
+          "slot3": 96
+        },
+        {
+          "sufficient": 17,
+          "slot1": 79,
+          "slot2": 91,
+          "slot3": 98
+        },
+        {
+          "sufficient": 18,
+          "slot1": 82,
+          "slot2": 92,
+          "slot3": 98
+        },
+        {
+          "sufficient": 19,
+          "slot1": 86,
+          "slot2": 94,
+          "slot3": 99
+        },
+        {
+          "sufficient": 20,
+          "slot1": 90,
+          "slot2": 96,
+          "slot3": 99
+        }
+      ],
+      "sourceIds": [
+        "athena-run-data-charm-generation-enduring-skill1-csv",
+        "athena-run-data-charm-generation-enduring-skill2-csv",
+        "athena-run-data-charm-generation-enduring-slots-csv",
+        "athena-charmdatabase-cpp"
+      ],
+      "notes": "第2スキルはCSVの範囲と生成確率を保存。個別のseed・重複排除条件までは検証しない。"
+    }
+  ],
+  "legality": "ranges-and-slot-thresholds-preserved; exact seed legality and duplicate suppression are unsupported",
+  "unsupported": [
+    "seed-level generation legality",
+    "duplicate suppression across generated charms"
+  ]
+}

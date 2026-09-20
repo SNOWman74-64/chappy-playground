@@ -1,0 +1,20 @@
+[
+  {
+    "id": "kiranico-mhxx-hunter-knife",
+    "name": "Kiranico MHXX ハンターナイフ強化系統",
+    "url": "https://mhxx.kiranico.com/buki/40b60",
+    "type": "database",
+    "verifiedAt": "2026-09-21",
+    "sha256": "48c9ab83e440dcdc3506ab8081e5fdb41e1f43eb655b74520737cfb9be0a68f5",
+    "confidence": "medium",
+    "notes": "MHXX日本語ページから名前・段階・スロット・攻撃力を抽出。進行度はLV1以外未確認。HTMLは動的なためhashは取得時の照合用。"
+  },
+  {
+    "id": "kiranico-mhxx-iron-ore",
+    "name": "Kiranico MHXX 鉄鉱石 入手条件",
+    "url": "https://mhxx.kiranico.com/item/5d436",
+    "type": "database",
+    "verifiedAt": "2026-09-21",
+    "confidence": "medium"
+  }
+]

@@ -1,0 +1,7 @@
+[
+ {"id":"attack-1","name":"攻撃小","tree":"攻撃","threshold":10,"aliases":["攻撃UP小"],"sourceIds":[]},
+ {"id":"attack-2","name":"攻撃中","tree":"攻撃","threshold":15,"aliases":[],"sourceIds":[]},
+ {"id":"attack-down","name":"攻撃低下","tree":"攻撃","threshold":-10,"aliases":[],"sourceIds":[]},
+ {"id":"expert","name":"見切り","tree":"達人","threshold":10,"aliases":[],"sourceIds":[]},
+ {"id":"defense-down","name":"防御低下","tree":"防御","threshold":-10,"aliases":[],"sourceIds":[]}
+]

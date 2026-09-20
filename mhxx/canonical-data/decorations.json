@@ -1,0 +1,9450 @@
+[
+  {
+    "id": "decoration-390c43781e2440137093",
+    "name": "耐毒珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "毒": 1,
+      "気絶": -1
+    },
+    "rawUnlock": {
+      "guild": 2,
+      "village": 3,
+      "mode": 0
+    },
+    "rankRequirement": "HR2",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "水光原珠",
+        "amount": 1
+      },
+      {
+        "name": "イーオスの毒牙",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-292327acb19d8866000f",
+    "name": "耐毒珠【２】",
+    "rarity": 5,
+    "slotCost": 2,
+    "skillPoints": {
+      "毒": 3,
+      "気絶": -1
+    },
+    "rawUnlock": {
+      "guild": 2,
+      "village": 3,
+      "mode": 0
+    },
+    "rankRequirement": "HR2",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "陽翔原珠",
+        "amount": 1
+      },
+      {
+        "name": "イーオスの大皮",
+        "amount": 2
+      },
+      {
+        "name": "鳴き袋",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [
+      {
+        "name": "修羅原珠",
+        "amount": 1
+      },
+      {
+        "name": "猛毒袋",
+        "amount": 1
+      }
+    ],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-bcbefc5575d5aacc9818",
+    "name": "耐麻珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "麻痺": 1,
+      "毒": -1
+    },
+    "rawUnlock": {
+      "guild": 1,
+      "village": 2,
+      "mode": 0
+    },
+    "rankRequirement": "HR1",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "水光原珠",
+        "amount": 1
+      },
+      {
+        "name": "飛甲虫の甲殻",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-f5794ee4c8d7f9aace03",
+    "name": "耐麻珠【２】",
+    "rarity": 5,
+    "slotCost": 2,
+    "skillPoints": {
+      "麻痺": 3,
+      "毒": -1
+    },
+    "rawUnlock": {
+      "guild": 2,
+      "village": 3,
+      "mode": 0
+    },
+    "rankRequirement": "HR2",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "陽翔原珠",
+        "amount": 1
+      },
+      {
+        "name": "ゲネポスの大牙",
+        "amount": 2
+      },
+      {
+        "name": "モンスターの体液",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [
+      {
+        "name": "修羅原珠",
+        "amount": 1
+      },
+      {
+        "name": "ゲネポスの大尖牙",
+        "amount": 1
+      }
+    ],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-5d014d80d7cf6dc94354",
+    "name": "耐眠珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "睡眠": 1,
+      "だるま": -1
+    },
+    "rawUnlock": {
+      "guild": 2,
+      "village": 4,
+      "mode": 0
+    },
+    "rankRequirement": "HR2",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "水光原珠",
+        "amount": 1
+      },
+      {
+        "name": "夜鳥の羽鱗",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-f4e908429d6538508ad2",
+    "name": "耐眠珠【２】",
+    "rarity": 5,
+    "slotCost": 2,
+    "skillPoints": {
+      "睡眠": 3,
+      "だるま": -1
+    },
+    "rawUnlock": {
+      "guild": 2,
+      "village": 4,
+      "mode": 0
+    },
+    "rankRequirement": "HR2",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "陽翔原珠",
+        "amount": 1
+      },
+      {
+        "name": "夜鳥の翼爪",
+        "amount": 1
+      },
+      {
+        "name": "暖かい毛皮",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [
+      {
+        "name": "修羅原珠",
+        "amount": 1
+      },
+      {
+        "name": "夜鳥の金羽",
+        "amount": 1
+      }
+    ],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-ac9cb43863830ceffecb",
+    "name": "耐絶珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "気絶": 1,
+      "麻痺": -1
+    },
+    "rawUnlock": {
+      "guild": 1,
+      "village": 2,
+      "mode": 0
+    },
+    "rankRequirement": "HR1",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "水光原珠",
+        "amount": 1
+      },
+      {
+        "name": "鳥竜種の牙",
+        "amount": 3
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-f796e38c75922d56ab3f",
+    "name": "制絶珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "気絶": 2
+    },
+    "rawUnlock": {
+      "guild": 2,
+      "village": 3,
+      "mode": 0
+    },
+    "rankRequirement": "HR2",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "陽翔原珠",
+        "amount": 1
+      },
+      {
+        "name": "ランポスの大皮",
+        "amount": 1
+      },
+      {
+        "name": "青熊獣の毛",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [
+      {
+        "name": "修羅原珠",
+        "amount": 1
+      },
+      {
+        "name": "ランポスの大上皮",
+        "amount": 2
+      }
+    ],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-274c5cf4c095472f2a28",
+    "name": "防音珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "聴覚保護": 1,
+      "加護": -1
+    },
+    "rawUnlock": {
+      "guild": 2,
+      "village": 4,
+      "mode": 0
+    },
+    "rankRequirement": "HR2",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "陽翔原珠",
+        "amount": 1
+      },
+      {
+        "name": "雌火竜の翼膜",
+        "amount": 1
+      },
+      {
+        "name": "白兎獣の耳",
+        "amount": 1
+      }
+    ],
+    "secondaryMaterials": [
+      {
+        "name": "修羅原珠",
+        "amount": 1
+      },
+      {
+        "name": "轟竜の堅殻",
+        "amount": 2
+      }
+    ],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-fe4adf3af4c47ff0ee99",
+    "name": "防音珠【３】",
+    "rarity": 6,
+    "slotCost": 3,
+    "skillPoints": {
+      "聴覚保護": 4,
+      "加護": -2
+    },
+    "rawUnlock": {
+      "guild": 8,
+      "village": 99,
+      "mode": 0
+    },
+    "rankRequirement": "HR8",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "瑠璃原珠",
+        "amount": 1
+      },
+      {
+        "name": "霞龍の尖角",
+        "amount": 2
+      },
+      {
+        "name": "真珠色の柔皮",
+        "amount": 1
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-adc337221a30f9be0244",
+    "name": "防風珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "風圧": 1,
+      "運気": -1
+    },
+    "rawUnlock": {
+      "guild": 3,
+      "village": 6,
+      "mode": 0
+    },
+    "rankRequirement": "HR3",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "陽翔原珠",
+        "amount": 1
+      },
+      {
+        "name": "雷狼竜の爪",
+        "amount": 1
+      },
+      {
+        "name": "ドラグライト鉱石",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-231cc5d75682405104ce",
+    "name": "防風珠【２】",
+    "rarity": 5,
+    "slotCost": 2,
+    "skillPoints": {
+      "風圧": 3,
+      "運気": -1
+    },
+    "rawUnlock": {
+      "guild": 4,
+      "village": 99,
+      "mode": 0
+    },
+    "rankRequirement": "HR4",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "修羅原珠",
+        "amount": 1
+      },
+      {
+        "name": "鋼龍の翼膜",
+        "amount": 1
+      },
+      {
+        "name": "カブレライト鉱石",
+        "amount": 3
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-b67c9fa9b3255b108017",
+    "name": "耐震珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "耐震": 1,
+      "睡眠": -1
+    },
+    "rawUnlock": {
+      "guild": 1,
+      "village": 3,
+      "mode": 0
+    },
+    "rankRequirement": "HR1",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "水光原珠",
+        "amount": 1
+      },
+      {
+        "name": "カワズの油",
+        "amount": 1
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-58d64ac8f63bfa4c51c4",
+    "name": "抗震珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "耐震": 2
+    },
+    "rawUnlock": {
+      "guild": 2,
+      "village": 3,
+      "mode": 0
+    },
+    "rankRequirement": "HR2",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "陽翔原珠",
+        "amount": 1
+      },
+      {
+        "name": "厳めしい頭骨",
+        "amount": 1
+      },
+      {
+        "name": "キラビートル",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-380db1ef467087954280",
+    "name": "耐達磨珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "だるま": 1,
+      "睡眠": -1
+    },
+    "rawUnlock": {
+      "guild": 1,
+      "village": 2,
+      "mode": 0
+    },
+    "rankRequirement": "HR1",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "水光原珠",
+        "amount": 1
+      },
+      {
+        "name": "草食竜の甲殻",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-c1da375fcb0ebeaa8af1",
+    "name": "抗達磨珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "だるま": 2
+    },
+    "rawUnlock": {
+      "guild": 3,
+      "village": 4,
+      "mode": 0
+    },
+    "rankRequirement": "HR3",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "陽翔原珠",
+        "amount": 1
+      },
+      {
+        "name": "白兎獣の腹甲",
+        "amount": 1
+      },
+      {
+        "name": "ドラグライト鉱石",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-9d679fe32b992ca17f73",
+    "name": "耐暑珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "耐暑": 2
+    },
+    "rawUnlock": {
+      "guild": 1,
+      "village": 2,
+      "mode": 0
+    },
+    "rankRequirement": "HR1",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "水光原珠",
+        "amount": 1
+      },
+      {
+        "name": "氷結晶",
+        "amount": 3
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-267a689e7a1aeb1c685c",
+    "name": "耐寒珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "耐寒": 2
+    },
+    "rawUnlock": {
+      "guild": 1,
+      "village": 2,
+      "mode": 0
+    },
+    "rankRequirement": "HR1",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "水光原珠",
+        "amount": 1
+      },
+      {
+        "name": "暖かい毛皮",
+        "amount": 3
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-a5dd09c80a8d0a2e94c0",
+    "name": "北風珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "寒冷適応": 1,
+      "耐暑": -1
+    },
+    "compoundSkills": [
+      "寒冷適応"
+    ],
+    "unsupported": true,
+    "rawUnlock": {
+      "guild": 6,
+      "village": 9,
+      "mode": 0
+    },
+    "rankRequirement": "HR6",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "瑠璃原珠",
+        "amount": 1
+      },
+      {
+        "name": "巨獣の剛毛",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-c9592056cf125360ea6f",
+    "name": "北風珠【３】",
+    "rarity": 6,
+    "slotCost": 3,
+    "skillPoints": {
+      "寒冷適応": 4,
+      "耐暑": -2
+    },
+    "compoundSkills": [
+      "寒冷適応"
+    ],
+    "unsupported": true,
+    "rawUnlock": {
+      "guild": 11,
+      "village": 99,
+      "mode": 0
+    },
+    "rankRequirement": "G3",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "金剛原珠",
+        "amount": 1
+      },
+      {
+        "name": "巨獣の豪剛毛",
+        "amount": 2
+      },
+      {
+        "name": "ピュアクリスタル",
+        "amount": 1
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-85370cd8b85e85cdaa70",
+    "name": "南風珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "炎熱適応": 1,
+      "耐寒": -1
+    },
+    "compoundSkills": [
+      "炎熱適応"
+    ],
+    "unsupported": true,
+    "rawUnlock": {
+      "guild": 6,
+      "village": 9,
+      "mode": 0
+    },
+    "rankRequirement": "HR6",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "瑠璃原珠",
+        "amount": 1
+      },
+      {
+        "name": "炎戈竜の堅殻",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-bd33ae2de8a909984e1e",
+    "name": "南風珠【３】",
+    "rarity": 6,
+    "slotCost": 3,
+    "skillPoints": {
+      "炎熱適応": 4,
+      "耐寒": -2
+    },
+    "compoundSkills": [
+      "炎熱適応"
+    ],
+    "unsupported": true,
+    "rawUnlock": {
+      "guild": 12,
+      "village": 99,
+      "mode": 0
+    },
+    "rankRequirement": "G4",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "金剛原珠",
+        "amount": 1
+      },
+      {
+        "name": "炎戈竜の重殻",
+        "amount": 2
+      },
+      {
+        "name": "鎧竜の翼",
+        "amount": 1
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-dd4a1be9108b78204795",
+    "name": "耐盗珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "盗み無効": 2
+    },
+    "rawUnlock": {
+      "guild": 1,
+      "village": 2,
+      "mode": 0
+    },
+    "rankRequirement": "HR1",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "水光原珠",
+        "amount": 1
+      },
+      {
+        "name": "マタタビ",
+        "amount": 3
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-67b28b77442193325ed2",
+    "name": "耐防珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "対防御DOWN": 2
+    },
+    "rawUnlock": {
+      "guild": 1,
+      "village": 2,
+      "mode": 0
+    },
+    "rankRequirement": "HR1",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "水光原珠",
+        "amount": 1
+      },
+      {
+        "name": "忍耐の種",
+        "amount": 2
+      },
+      {
+        "name": "増強剤",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-96229e6863a86d61e534",
+    "name": "抗狂珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "狂撃耐性": 1,
+      "回避性能": -1
+    },
+    "rawUnlock": {
+      "guild": 3,
+      "village": 6,
+      "mode": 0
+    },
+    "rankRequirement": "HR3",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "陽翔原珠",
+        "amount": 1
+      },
+      {
+        "name": "黒蝕竜の惨爪",
+        "amount": 1
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-77887eef9559181eabe5",
+    "name": "抗狂珠【３】",
+    "rarity": 6,
+    "slotCost": 3,
+    "skillPoints": {
+      "狂撃耐性": 5,
+      "回避性能": -1
+    },
+    "rawUnlock": {
+      "guild": 6,
+      "village": 9,
+      "mode": 0
+    },
+    "rankRequirement": "HR6",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "瑠璃原珠",
+        "amount": 1
+      },
+      {
+        "name": "黒蝕竜の上暗翼",
+        "amount": 1
+      },
+      {
+        "name": "黒蝕竜の上鱗",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-180f8da5539c5c8f4a1c",
+    "name": "菌学珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "細菌学": 1,
+      "気配": -1
+    },
+    "rawUnlock": {
+      "guild": 2,
+      "village": 4,
+      "mode": 0
+    },
+    "rankRequirement": "HR2",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "陽翔原珠",
+        "amount": 1
+      },
+      {
+        "name": "赤甲獣の蛇腹甲",
+        "amount": 1
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-c369aa29b6d3b54b44de",
+    "name": "菌究珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "細菌学": 2
+    },
+    "rawUnlock": {
+      "guild": 7,
+      "village": 10,
+      "mode": 0
+    },
+    "rankRequirement": "HR7",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "修羅原珠",
+        "amount": 1
+      },
+      {
+        "name": "赤甲獣の堅殻",
+        "amount": 2
+      },
+      {
+        "name": "砕竜の堅黒曜甲",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-362a210ff5487653d751",
+    "name": "抗傷珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "裂傷": 2
+    },
+    "rawUnlock": {
+      "guild": 2,
+      "village": 4,
+      "mode": 0
+    },
+    "rankRequirement": "HR2",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "陽翔原珠",
+        "amount": 1
+      },
+      {
+        "name": "鎌蟹の爪",
+        "amount": 1
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-605710d334f757f0ce10",
+    "name": "攻撃珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "攻撃": 1,
+      "防御": -1
+    },
+    "rawUnlock": {
+      "guild": 1,
+      "village": 2,
+      "mode": 0
+    },
+    "rankRequirement": "HR1",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "水光原珠",
+        "amount": 1
+      },
+      {
+        "name": "ジャギィの鱗",
+        "amount": 2
+      },
+      {
+        "name": "怪力の種",
+        "amount": 1
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-787064f3802f7e3fe426",
+    "name": "攻撃珠【２】",
+    "rarity": 5,
+    "slotCost": 2,
+    "skillPoints": {
+      "攻撃": 3,
+      "防御": -1
+    },
+    "rawUnlock": {
+      "guild": 2,
+      "village": 4,
+      "mode": 0
+    },
+    "rankRequirement": "HR2",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "陽翔原珠",
+        "amount": 1
+      },
+      {
+        "name": "火竜の翼爪",
+        "amount": 2
+      },
+      {
+        "name": "鬼人薬",
+        "amount": 1
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-cd86353778629e05d60e",
+    "name": "攻撃珠【３】",
+    "rarity": 6,
+    "slotCost": 3,
+    "skillPoints": {
+      "攻撃": 5,
+      "防御": -1
+    },
+    "rawUnlock": {
+      "guild": 6,
+      "village": 9,
+      "mode": 0
+    },
+    "rankRequirement": "HR6",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "修羅原珠",
+        "amount": 1
+      },
+      {
+        "name": "火竜の延髄",
+        "amount": 1
+      },
+      {
+        "name": "鬼人薬グレート",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-3022d8af27fbf8638cca",
+    "name": "防御珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "防御": 1,
+      "攻撃": -1
+    },
+    "rawUnlock": {
+      "guild": 1,
+      "village": 3,
+      "mode": 0
+    },
+    "rankRequirement": "HR1",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "水光原珠",
+        "amount": 1
+      },
+      {
+        "name": "盾蟹の甲殻",
+        "amount": 1
+      },
+      {
+        "name": "忍耐の種",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-eb4f7d14bf7db2503fdf",
+    "name": "防御珠【２】",
+    "rarity": 5,
+    "slotCost": 2,
+    "skillPoints": {
+      "防御": 3,
+      "攻撃": -1
+    },
+    "rawUnlock": {
+      "guild": 3,
+      "village": 5,
+      "mode": 0
+    },
+    "rankRequirement": "HR3",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "陽翔原珠",
+        "amount": 1
+      },
+      {
+        "name": "爆鎚竜の耐熱殻",
+        "amount": 1
+      },
+      {
+        "name": "硬化薬",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [
+      {
+        "name": "修羅原珠",
+        "amount": 1
+      },
+      {
+        "name": "徹甲虫の堅殻",
+        "amount": 2
+      },
+      {
+        "name": "硬化薬グレート",
+        "amount": 2
+      }
+    ],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-02b9f20a5e00564016ea",
+    "name": "体力珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "体力": 2
+    },
+    "rawUnlock": {
+      "guild": 1,
+      "village": 2,
+      "mode": 0
+    },
+    "rankRequirement": "HR1",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "水光原珠",
+        "amount": 1
+      },
+      {
+        "name": "盾虫の甲殻",
+        "amount": 1
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-96f9d1612ad628c9b530",
+    "name": "耐火珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "火耐性": 1,
+      "水耐性": -1
+    },
+    "rawUnlock": {
+      "guild": 1,
+      "village": 2,
+      "mode": 0
+    },
+    "rankRequirement": "HR1",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "水光原珠",
+        "amount": 1
+      },
+      {
+        "name": "火薬草",
+        "amount": 5
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-82ad46a1b6945fa7b9e1",
+    "name": "制火珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "火耐性": 2
+    },
+    "rawUnlock": {
+      "guild": 2,
+      "village": 3,
+      "mode": 0
+    },
+    "rankRequirement": "HR2",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "陽翔原珠",
+        "amount": 1
+      },
+      {
+        "name": "火炎袋",
+        "amount": 2
+      },
+      {
+        "name": "竜骨【大】",
+        "amount": 3
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-ffd1609f553661dd662c",
+    "name": "耐水珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "水耐性": 1,
+      "雷耐性": -1
+    },
+    "rawUnlock": {
+      "guild": 1,
+      "village": 2,
+      "mode": 0
+    },
+    "rankRequirement": "HR1",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "水光原珠",
+        "amount": 1
+      },
+      {
+        "name": "キレアジ",
+        "amount": 3
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-d1b18eec14e3c3f8b814",
+    "name": "制水珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "水耐性": 2
+    },
+    "rawUnlock": {
+      "guild": 2,
+      "village": 3,
+      "mode": 0
+    },
+    "rankRequirement": "HR2",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "陽翔原珠",
+        "amount": 1
+      },
+      {
+        "name": "水袋",
+        "amount": 2
+      },
+      {
+        "name": "竜骨【大】",
+        "amount": 3
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-eb15dc4374a45045d510",
+    "name": "耐雷珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "雷耐性": 1,
+      "氷耐性": -1
+    },
+    "rawUnlock": {
+      "guild": 1,
+      "village": 2,
+      "mode": 0
+    },
+    "rankRequirement": "HR1",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "水光原珠",
+        "amount": 1
+      },
+      {
+        "name": "雷光虫",
+        "amount": 3
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-8270942554d99e9b5126",
+    "name": "制雷珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "雷耐性": 2
+    },
+    "rawUnlock": {
+      "guild": 2,
+      "village": 3,
+      "mode": 0
+    },
+    "rankRequirement": "HR2",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "陽翔原珠",
+        "amount": 1
+      },
+      {
+        "name": "電気袋",
+        "amount": 2
+      },
+      {
+        "name": "竜骨【大】",
+        "amount": 3
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-f63aa191e7a4ff254ee6",
+    "name": "耐氷珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "氷耐性": 1,
+      "火耐性": -1
+    },
+    "rawUnlock": {
+      "guild": 1,
+      "village": 2,
+      "mode": 0
+    },
+    "rankRequirement": "HR1",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "水光原珠",
+        "amount": 1
+      },
+      {
+        "name": "ギアノスの皮",
+        "amount": 3
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-b19e2d695d7464bf6a37",
+    "name": "制氷珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "氷耐性": 2
+    },
+    "rawUnlock": {
+      "guild": 2,
+      "village": 4,
+      "mode": 0
+    },
+    "rankRequirement": "HR2",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "陽翔原珠",
+        "amount": 1
+      },
+      {
+        "name": "雪獅子の髭",
+        "amount": 2
+      },
+      {
+        "name": "竜骨【大】",
+        "amount": 3
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-262b0899297c78110424",
+    "name": "耐龍珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "龍耐性": 1,
+      "毒": -1
+    },
+    "rawUnlock": {
+      "guild": 3,
+      "village": 4,
+      "mode": 0
+    },
+    "rankRequirement": "HR3",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "水光原珠",
+        "amount": 1
+      },
+      {
+        "name": "龍殺しの実",
+        "amount": 3
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-39bcdb56fbce1e0ea11a",
+    "name": "制龍珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "龍耐性": 2
+    },
+    "rawUnlock": {
+      "guild": 4,
+      "village": 7,
+      "mode": 0
+    },
+    "rankRequirement": "HR4",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "修羅原珠",
+        "amount": 1
+      },
+      {
+        "name": "いにしえの龍骨",
+        "amount": 1
+      },
+      {
+        "name": "尖竜骨",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-a18e66380e19e0682605",
+    "name": "属耐珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "属性耐性": 1,
+      "体力": -1
+    },
+    "rawUnlock": {
+      "guild": 6,
+      "village": 9,
+      "mode": 0
+    },
+    "rankRequirement": "HR6",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "修羅原珠",
+        "amount": 1
+      },
+      {
+        "name": "キリンの上皮",
+        "amount": 1
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-9beb8fd465021e9c85df",
+    "name": "属耐珠【３】",
+    "rarity": 6,
+    "slotCost": 3,
+    "skillPoints": {
+      "属性耐性": 4,
+      "体力": -2
+    },
+    "rawUnlock": {
+      "guild": 8,
+      "village": 99,
+      "mode": 0
+    },
+    "rankRequirement": "HR8",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "瑠璃原珠",
+        "amount": 1
+      },
+      {
+        "name": "砕けた天角",
+        "amount": 1
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-e0e63065111dd25fed9a",
+    "name": "火炎珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "火属性攻撃": 1,
+      "水属性攻撃": -1
+    },
+    "rawUnlock": {
+      "guild": 2,
+      "village": 4,
+      "mode": 0
+    },
+    "rankRequirement": "HR2",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "陽翔原珠",
+        "amount": 1
+      },
+      {
+        "name": "雌火竜の鱗",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-754381f880c1695abd41",
+    "name": "火炎珠【２】",
+    "rarity": 5,
+    "slotCost": 2,
+    "skillPoints": {
+      "火属性攻撃": 3,
+      "水属性攻撃": -1
+    },
+    "rawUnlock": {
+      "guild": 5,
+      "village": 8,
+      "mode": 0
+    },
+    "rankRequirement": "HR5",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "修羅原珠",
+        "amount": 1
+      },
+      {
+        "name": "爆炎袋",
+        "amount": 1
+      },
+      {
+        "name": "赤甲獣の堅殻",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-efc7b3c63da29a561bf9",
+    "name": "流水珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "水属性攻撃": 1,
+      "雷属性攻撃": -1
+    },
+    "rawUnlock": {
+      "guild": 2,
+      "village": 3,
+      "mode": 0
+    },
+    "rankRequirement": "HR2",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "陽翔原珠",
+        "amount": 1
+      },
+      {
+        "name": "海綿質の皮",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-f57e4b7467dafa6ec403",
+    "name": "流水珠【２】",
+    "rarity": 5,
+    "slotCost": 2,
+    "skillPoints": {
+      "水属性攻撃": 3,
+      "雷属性攻撃": -1
+    },
+    "rawUnlock": {
+      "guild": 6,
+      "village": 9,
+      "mode": 0
+    },
+    "rankRequirement": "HR6",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "修羅原珠",
+        "amount": 1
+      },
+      {
+        "name": "重甲エキス",
+        "amount": 1
+      },
+      {
+        "name": "水竜の上鱗",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-997e2973cd845022cd55",
+    "name": "雷光珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "雷属性攻撃": 1,
+      "氷属性攻撃": -1
+    },
+    "rawUnlock": {
+      "guild": 2,
+      "village": 3,
+      "mode": 0
+    },
+    "rankRequirement": "HR2",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "陽翔原珠",
+        "amount": 1
+      },
+      {
+        "name": "ブヨブヨした皮",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-9e25c038349d6de7e400",
+    "name": "雷光珠【２】",
+    "rarity": 5,
+    "slotCost": 2,
+    "skillPoints": {
+      "雷属性攻撃": 3,
+      "氷属性攻撃": -1
+    },
+    "rawUnlock": {
+      "guild": 6,
+      "village": 9,
+      "mode": 0
+    },
+    "rankRequirement": "HR6",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "修羅原珠",
+        "amount": 1
+      },
+      {
+        "name": "電撃袋",
+        "amount": 1
+      },
+      {
+        "name": "雷狼竜の堅殻",
+        "amount": 1
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-25c0bd336f68d9a151ad",
+    "name": "氷結珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "氷属性攻撃": 1,
+      "火属性攻撃": -1
+    },
+    "rawUnlock": {
+      "guild": 2,
+      "village": 3,
+      "mode": 0
+    },
+    "rankRequirement": "HR2",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "陽翔原珠",
+        "amount": 1
+      },
+      {
+        "name": "白兎獣の毛",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-0c12dc471688de00d2f8",
+    "name": "氷結珠【２】",
+    "rarity": 5,
+    "slotCost": 2,
+    "skillPoints": {
+      "氷属性攻撃": 3,
+      "火属性攻撃": -1
+    },
+    "rawUnlock": {
+      "guild": 5,
+      "village": 8,
+      "mode": 0
+    },
+    "rankRequirement": "HR5",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "修羅原珠",
+        "amount": 1
+      },
+      {
+        "name": "凍結袋",
+        "amount": 1
+      },
+      {
+        "name": "白兎獣の堅腹甲",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-5da0b62d80bb3f3a0b27",
+    "name": "破龍珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "龍属性攻撃": 1,
+      "特殊攻撃": -1
+    },
+    "rawUnlock": {
+      "guild": 3,
+      "village": 6,
+      "mode": 0
+    },
+    "rankRequirement": "HR3",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "陽翔原珠",
+        "amount": 1
+      },
+      {
+        "name": "穢れた竜鱗",
+        "amount": 1
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-4c53c3a59f1de3db8b7e",
+    "name": "破龍珠【２】",
+    "rarity": 5,
+    "slotCost": 2,
+    "skillPoints": {
+      "龍属性攻撃": 3,
+      "特殊攻撃": -1
+    },
+    "rawUnlock": {
+      "guild": 6,
+      "village": 9,
+      "mode": 0
+    },
+    "rankRequirement": "HR6",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "修羅原珠",
+        "amount": 1
+      },
+      {
+        "name": "いにしえの龍骨",
+        "amount": 2
+      },
+      {
+        "name": "火竜の堅殻",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-52309af1395e9864a686",
+    "name": "属攻珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "属性攻撃": 1,
+      "特殊攻撃": -1
+    },
+    "rawUnlock": {
+      "guild": 6,
+      "village": 9,
+      "mode": 0
+    },
+    "rankRequirement": "HR6",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "修羅原珠",
+        "amount": 1
+      },
+      {
+        "name": "キリンの雷尾",
+        "amount": 1
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-636dc02543d4f30307e0",
+    "name": "属攻珠【３】",
+    "rarity": 6,
+    "slotCost": 3,
+    "skillPoints": {
+      "属性攻撃": 4,
+      "特殊攻撃": -2
+    },
+    "rawUnlock": {
+      "guild": 8,
+      "village": 99,
+      "mode": 0
+    },
+    "rankRequirement": "HR8",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "瑠璃原珠",
+        "amount": 1
+      },
+      {
+        "name": "骸龍の口腕甲",
+        "amount": 2
+      },
+      {
+        "name": "雷狼竜の高電殻",
+        "amount": 1
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-f7e32420e7947eb3148b",
+    "name": "特攻珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "特殊攻撃": 1,
+      "属性攻撃": -1
+    },
+    "rawUnlock": {
+      "guild": 2,
+      "village": 3,
+      "mode": 0
+    },
+    "rankRequirement": "HR2",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "陽翔原珠",
+        "amount": 1
+      },
+      {
+        "name": "飛甲虫の羽",
+        "amount": 3
+      },
+      {
+        "name": "ゲネポスの麻痺牙",
+        "amount": 3
+      }
+    ],
+    "secondaryMaterials": [
+      {
+        "name": "修羅原珠",
+        "amount": 1
+      },
+      {
+        "name": "飛甲虫の堅殻",
+        "amount": 1
+      },
+      {
+        "name": "翼蛇竜の上皮",
+        "amount": 1
+      }
+    ],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-58808c0ec51f61607e96",
+    "name": "特攻珠【２】",
+    "rarity": 5,
+    "slotCost": 2,
+    "skillPoints": {
+      "特殊攻撃": 3,
+      "属性攻撃": -1
+    },
+    "rawUnlock": {
+      "guild": 5,
+      "village": 8,
+      "mode": 0
+    },
+    "rankRequirement": "HR5",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "修羅原珠",
+        "amount": 1
+      },
+      {
+        "name": "アルビノの霜降り",
+        "amount": 1
+      },
+      {
+        "name": "モンスターの濃汁",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-b8c93af4818f1a2f416f",
+    "name": "研磨珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "研ぎ師": 2
+    },
+    "rawUnlock": {
+      "guild": 1,
+      "village": 2,
+      "mode": 0
+    },
+    "rankRequirement": "HR1",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "水光原珠",
+        "amount": 1
+      },
+      {
+        "name": "跳狗竜の鱗",
+        "amount": 2
+      },
+      {
+        "name": "マカライト鉱石",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-f014ed38b9e4863900d6",
+    "name": "匠珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "匠": 1,
+      "斬れ味": -1
+    },
+    "rawUnlock": {
+      "guild": 3,
+      "village": 99,
+      "mode": 0
+    },
+    "rankRequirement": "HR3",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "陽翔原珠",
+        "amount": 1
+      },
+      {
+        "name": "骸棘殻",
+        "amount": 3
+      },
+      {
+        "name": "斬竜の尾刃片",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [
+      {
+        "name": "修羅原珠",
+        "amount": 1
+      },
+      {
+        "name": "斬竜の鋭牙",
+        "amount": 2
+      }
+    ],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-78b40589e4636a8e05f8",
+    "name": "匠珠【３】",
+    "rarity": 6,
+    "slotCost": 3,
+    "skillPoints": {
+      "匠": 4,
+      "斬れ味": -2
+    },
+    "rawUnlock": {
+      "guild": 8,
+      "village": 99,
+      "mode": 0
+    },
+    "rankRequirement": "HR8",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "瑠璃原珠",
+        "amount": 1
+      },
+      {
+        "name": "恐暴竜の唾液",
+        "amount": 2
+      },
+      {
+        "name": "崩竜の削顎",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-09aff06fafd858cbd418",
+    "name": "斬鉄珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "斬れ味": 1,
+      "匠": -1
+    },
+    "rawUnlock": {
+      "guild": 3,
+      "village": 6,
+      "mode": 0
+    },
+    "rankRequirement": "HR3",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "陽翔原珠",
+        "amount": 1
+      },
+      {
+        "name": "鎌蟹の脚",
+        "amount": 1
+      },
+      {
+        "name": "雷狼竜の甲殻",
+        "amount": 1
+      }
+    ],
+    "secondaryMaterials": [
+      {
+        "name": "修羅原珠",
+        "amount": 1
+      },
+      {
+        "name": "ランゴスタの薄羽",
+        "amount": 1
+      }
+    ],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-bb22331e947cd3027011",
+    "name": "斬鉄珠【３】",
+    "rarity": 6,
+    "slotCost": 3,
+    "skillPoints": {
+      "斬れ味": 4,
+      "匠": -2
+    },
+    "rawUnlock": {
+      "guild": 5,
+      "village": 8,
+      "mode": 0
+    },
+    "rankRequirement": "HR5",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "瑠璃原珠",
+        "amount": 1
+      },
+      {
+        "name": "爆鎚竜の堅殻",
+        "amount": 2
+      },
+      {
+        "name": "鎌蟹の堅脚",
+        "amount": 1
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-2dd736763dcc87e2b6b6",
+    "name": "剣豪珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "剣術": 1,
+      "匠": -1
+    },
+    "rawUnlock": {
+      "guild": 2,
+      "village": 5,
+      "mode": 0
+    },
+    "rankRequirement": "HR2",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "陽翔原珠",
+        "amount": 1
+      },
+      {
+        "name": "黒狼鳥の翼",
+        "amount": 1
+      }
+    ],
+    "secondaryMaterials": [
+      {
+        "name": "修羅原珠",
+        "amount": 1
+      },
+      {
+        "name": "モンスターの濃汁",
+        "amount": 1
+      }
+    ],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-1c90b52fe6f54e4d68e5",
+    "name": "剣豪珠【３】",
+    "rarity": 6,
+    "slotCost": 3,
+    "skillPoints": {
+      "剣術": 4,
+      "匠": -2
+    },
+    "rawUnlock": {
+      "guild": 6,
+      "village": 9,
+      "mode": 0
+    },
+    "rankRequirement": "HR6",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "瑠璃原珠",
+        "amount": 1
+      },
+      {
+        "name": "黒狼鳥の堅殻",
+        "amount": 2
+      },
+      {
+        "name": "轟竜のアギト",
+        "amount": 1
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-53dc0d020a141d0fe2ff",
+    "name": "剛刃珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "研磨術": 1,
+      "研ぎ師": -1
+    },
+    "rawUnlock": {
+      "guild": 4,
+      "village": 7,
+      "mode": 0
+    },
+    "rankRequirement": "HR4",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "修羅原珠",
+        "amount": 1
+      },
+      {
+        "name": "斬竜の牙",
+        "amount": 1
+      },
+      {
+        "name": "砥石",
+        "amount": 5
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-3aa806c40b0ef0a87f5e",
+    "name": "剛刃珠【３】",
+    "rarity": 6,
+    "slotCost": 3,
+    "skillPoints": {
+      "研磨術": 4,
+      "研ぎ師": -2
+    },
+    "rawUnlock": {
+      "guild": 8,
+      "village": 99,
+      "mode": 0
+    },
+    "rankRequirement": "HR8",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "瑠璃原珠",
+        "amount": 1
+      },
+      {
+        "name": "斬竜の鋭牙",
+        "amount": 2
+      },
+      {
+        "name": "覇竜の大牙",
+        "amount": 1
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-3e271d219b7e1550b1df",
+    "name": "鈍器珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "鈍器": 1,
+      "攻撃": -1
+    },
+    "rawUnlock": {
+      "guild": 4,
+      "village": 7,
+      "mode": 0
+    },
+    "rankRequirement": "HR4",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "修羅原珠",
+        "amount": 1
+      },
+      {
+        "name": "上竜骨",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-28464380f6d4e3faf67c",
+    "name": "鈍器珠【２】",
+    "rarity": 5,
+    "slotCost": 2,
+    "skillPoints": {
+      "鈍器": 3,
+      "攻撃": -2
+    },
+    "rawUnlock": {
+      "guild": 8,
+      "village": 99,
+      "mode": 0
+    },
+    "rankRequirement": "HR8",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "瑠璃原珠",
+        "amount": 1
+      },
+      {
+        "name": "覇竜の剛爪",
+        "amount": 1
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-9ad6f65bed6f8e107267",
+    "name": "抜刀珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "抜刀会心": 1,
+      "達人": -1
+    },
+    "rawUnlock": {
+      "guild": 3,
+      "village": 6,
+      "mode": 0
+    },
+    "rankRequirement": "HR3",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "陽翔原珠",
+        "amount": 1
+      },
+      {
+        "name": "千刃竜の刀角",
+        "amount": 1
+      }
+    ],
+    "secondaryMaterials": [
+      {
+        "name": "修羅原珠",
+        "amount": 1
+      },
+      {
+        "name": "千刃竜の翼爪",
+        "amount": 1
+      }
+    ],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-1b063cfd104919a40ce1",
+    "name": "抜刀珠【２】",
+    "rarity": 5,
+    "slotCost": 2,
+    "skillPoints": {
+      "抜刀会心": 3,
+      "達人": -1
+    },
+    "rawUnlock": {
+      "guild": 7,
+      "village": 10,
+      "mode": 0
+    },
+    "rankRequirement": "HR7",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "瑠璃原珠",
+        "amount": 1
+      },
+      {
+        "name": "千刃竜の刻爪",
+        "amount": 1
+      },
+      {
+        "name": "迅竜の鋭刃翼",
+        "amount": 1
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-d37ba48f675001a5d2da",
+    "name": "抜打珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "抜刀減気": 1,
+      "斬れ味": -1
+    },
+    "rawUnlock": {
+      "guild": 3,
+      "village": 5,
+      "mode": 0
+    },
+    "rankRequirement": "HR3",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "陽翔原珠",
+        "amount": 1
+      },
+      {
+        "name": "爆鎚竜の耐熱殻",
+        "amount": 1
+      },
+      {
+        "name": "上竜骨",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [
+      {
+        "name": "修羅原珠",
+        "amount": 1
+      },
+      {
+        "name": "鬼蛙の尖爪",
+        "amount": 1
+      }
+    ],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-61aec54e4d7da5e6fd2f",
+    "name": "抜打珠【３】",
+    "rarity": 6,
+    "slotCost": 3,
+    "skillPoints": {
+      "抜刀減気": 4,
+      "斬れ味": -2
+    },
+    "rawUnlock": {
+      "guild": 5,
+      "village": 8,
+      "mode": 0
+    },
+    "rankRequirement": "HR5",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "瑠璃原珠",
+        "amount": 1
+      },
+      {
+        "name": "爆鎚竜の堅殻",
+        "amount": 2
+      },
+      {
+        "name": "化け鮫の上皮",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-fc5251689e9de0e6aa43",
+    "name": "速納珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "納刀": 1,
+      "研ぎ師": -1
+    },
+    "rawUnlock": {
+      "guild": 2,
+      "village": 3,
+      "mode": 0
+    },
+    "rankRequirement": "HR2",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "陽翔原珠",
+        "amount": 1
+      },
+      {
+        "name": "大食いマグロ",
+        "amount": 2
+      },
+      {
+        "name": "甲虫の腹袋",
+        "amount": 1
+      }
+    ],
+    "secondaryMaterials": [
+      {
+        "name": "修羅原珠",
+        "amount": 1
+      },
+      {
+        "name": "ジャギィの上鱗",
+        "amount": 2
+      }
+    ],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-58446ce7920aaadc80b6",
+    "name": "速納珠【２】",
+    "rarity": 5,
+    "slotCost": 2,
+    "skillPoints": {
+      "納刀": 3,
+      "研ぎ師": -1
+    },
+    "rawUnlock": {
+      "guild": 4,
+      "village": 7,
+      "mode": 0
+    },
+    "rankRequirement": "HR4",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "修羅原珠",
+        "amount": 1
+      },
+      {
+        "name": "ランゴスタの堅殻",
+        "amount": 2
+      },
+      {
+        "name": "上質な腹袋",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-111984a8acb77b7602a7",
+    "name": "納研珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "納刀研磨": 2,
+      "納刀": -1
+    },
+    "rawUnlock": {
+      "guild": 5,
+      "village": 8,
+      "mode": 0
+    },
+    "rankRequirement": "HR5",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "瑠璃原珠",
+        "amount": 1
+      },
+      {
+        "name": "黒狼鳥の上鱗",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-de46c4ca940a96956640",
+    "name": "刃鱗珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "刃鱗": 1
+    },
+    "rawUnlock": {
+      "guild": 12,
+      "village": 99,
+      "mode": 0
+    },
+    "rankRequirement": "G4",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "金剛原珠",
+        "amount": 1
+      },
+      {
+        "name": "千刃竜の斬刃鱗",
+        "amount": 2
+      },
+      {
+        "name": "真紅蓮石",
+        "amount": 1
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-d39c509f227010df6460",
+    "name": "刃鱗珠【３】",
+    "rarity": 6,
+    "slotCost": 3,
+    "skillPoints": {
+      "刃鱗": 4
+    },
+    "rawUnlock": {
+      "guild": 12,
+      "village": 99,
+      "mode": 0
+    },
+    "rankRequirement": "G4",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "明王原珠",
+        "amount": 1
+      },
+      {
+        "name": "千刃竜の斬翼爪",
+        "amount": 2
+      },
+      {
+        "name": "アルティマ結晶",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-177ddd1130477428cdf9",
+    "name": "早填珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "装填速度": 1,
+      "反動": -1
+    },
+    "rawUnlock": {
+      "guild": 3,
+      "village": 4,
+      "mode": 0
+    },
+    "rankRequirement": "HR3",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "陽翔原珠",
+        "amount": 1
+      },
+      {
+        "name": "ドラグライト鉱石",
+        "amount": 3
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-4429307944cc3b8a0dc8",
+    "name": "早填珠【２】",
+    "rarity": 5,
+    "slotCost": 2,
+    "skillPoints": {
+      "装填速度": 3,
+      "反動": -1
+    },
+    "rawUnlock": {
+      "guild": 2,
+      "village": 4,
+      "mode": 0
+    },
+    "rankRequirement": "HR2",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "陽翔原珠",
+        "amount": 1
+      },
+      {
+        "name": "迅竜の刃翼",
+        "amount": 2
+      },
+      {
+        "name": "ライトクリスタル",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [
+      {
+        "name": "修羅原珠",
+        "amount": 1
+      },
+      {
+        "name": "真珠色の柔皮",
+        "amount": 2
+      }
+    ],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-077c160ca3263f264fa6",
+    "name": "抑反珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "反動": 1,
+      "装填速度": -1
+    },
+    "rawUnlock": {
+      "guild": 2,
+      "village": 3,
+      "mode": 0
+    },
+    "rankRequirement": "HR2",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "陽翔原珠",
+        "amount": 1
+      },
+      {
+        "name": "潜口竜の甲殻",
+        "amount": 2
+      },
+      {
+        "name": "水獣の爪",
+        "amount": 1
+      }
+    ],
+    "secondaryMaterials": [
+      {
+        "name": "修羅原珠",
+        "amount": 1
+      },
+      {
+        "name": "鬼蛙の堅殻",
+        "amount": 1
+      }
+    ],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-f73eebe2a7d6ed0cdb3f",
+    "name": "抑反珠【３】",
+    "rarity": 6,
+    "slotCost": 3,
+    "skillPoints": {
+      "反動": 4,
+      "装填速度": -2
+    },
+    "rawUnlock": {
+      "guild": 6,
+      "village": 9,
+      "mode": 0
+    },
+    "rankRequirement": "HR6",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "瑠璃原珠",
+        "amount": 1
+      },
+      {
+        "name": "化け鮫の上皮",
+        "amount": 2
+      },
+      {
+        "name": "巨獣の堅殻",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-a32d038b205c41bc60db",
+    "name": "点射珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "精密射撃": 2
+    },
+    "rawUnlock": {
+      "guild": 1,
+      "village": 2,
+      "mode": 0
+    },
+    "rankRequirement": "HR1",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "水光原珠",
+        "amount": 1
+      },
+      {
+        "name": "なぞの頭骨",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-e25d2ccffbbe46f553a8",
+    "name": "強弾珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "通常弾強化": 1,
+      "反動": -1
+    },
+    "rawUnlock": {
+      "guild": 3,
+      "village": 6,
+      "mode": 0
+    },
+    "rankRequirement": "HR3",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "陽翔原珠",
+        "amount": 1
+      },
+      {
+        "name": "天廻龍の甲殻",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-e08daa345a4601e91f2b",
+    "name": "強弾珠【３】",
+    "rarity": 6,
+    "slotCost": 3,
+    "skillPoints": {
+      "通常弾強化": 4,
+      "反動": -2
+    },
+    "rawUnlock": {
+      "guild": 7,
+      "village": 10,
+      "mode": 0
+    },
+    "rankRequirement": "HR7",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "瑠璃原珠",
+        "amount": 1
+      },
+      {
+        "name": "天廻龍の堅殻",
+        "amount": 3
+      },
+      {
+        "name": "堅竜骨",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-001c3da7734f01b68822",
+    "name": "貫通珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "貫通弾強化": 1,
+      "反動": -1
+    },
+    "rawUnlock": {
+      "guild": 3,
+      "village": 5,
+      "mode": 0
+    },
+    "rankRequirement": "HR3",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "陽翔原珠",
+        "amount": 1
+      },
+      {
+        "name": "海竜の角",
+        "amount": 1
+      },
+      {
+        "name": "ドスヘラクレス",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-086fb9b0b65ff2445b2c",
+    "name": "貫通珠【３】",
+    "rarity": 6,
+    "slotCost": 3,
+    "skillPoints": {
+      "貫通弾強化": 4,
+      "反動": -2
+    },
+    "rawUnlock": {
+      "guild": 6,
+      "village": 9,
+      "mode": 0
+    },
+    "rankRequirement": "HR6",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "瑠璃原珠",
+        "amount": 1
+      },
+      {
+        "name": "海竜の尖角",
+        "amount": 1
+      },
+      {
+        "name": "マレコガネ",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-3d947b856326549b00fb",
+    "name": "散弾珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "散弾強化": 1,
+      "反動": -1
+    },
+    "rawUnlock": {
+      "guild": 2,
+      "village": 3,
+      "mode": 0
+    },
+    "rankRequirement": "HR2",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "陽翔原珠",
+        "amount": 1
+      },
+      {
+        "name": "ライトクリスタル",
+        "amount": 1
+      },
+      {
+        "name": "竜の牙",
+        "amount": 5
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-cb38a7a412d922d4548e",
+    "name": "散弾珠【３】",
+    "rarity": 6,
+    "slotCost": 3,
+    "skillPoints": {
+      "散弾強化": 4,
+      "反動": -2
+    },
+    "rawUnlock": {
+      "guild": 6,
+      "village": 9,
+      "mode": 0
+    },
+    "rankRequirement": "HR6",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "瑠璃原珠",
+        "amount": 1
+      },
+      {
+        "name": "泡狐竜の紫上毛",
+        "amount": 1
+      },
+      {
+        "name": "ユニオン鉱石",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-40a0f05515a0090735f2",
+    "name": "重弾珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "重撃弾強化": 1,
+      "反動": -1
+    },
+    "rawUnlock": {
+      "guild": 3,
+      "village": 5,
+      "mode": 0
+    },
+    "rankRequirement": "HR3",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "陽翔原珠",
+        "amount": 1
+      },
+      {
+        "name": "巨獣の赤毛",
+        "amount": 1
+      },
+      {
+        "name": "ドラグライト鉱石",
+        "amount": 3
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-db00fc079e0bf36ba054",
+    "name": "重弾珠【３】",
+    "rarity": 6,
+    "slotCost": 3,
+    "skillPoints": {
+      "重撃弾強化": 4,
+      "反動": -2
+    },
+    "rawUnlock": {
+      "guild": 6,
+      "village": 9,
+      "mode": 0
+    },
+    "rankRequirement": "HR6",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "瑠璃原珠",
+        "amount": 1
+      },
+      {
+        "name": "巨獣の堅牙",
+        "amount": 1
+      },
+      {
+        "name": "堅牢な骨",
+        "amount": 3
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-b100b886fbcf29248087",
+    "name": "加弾珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "通常弾追加": 1,
+      "装填速度": -1
+    },
+    "rawUnlock": {
+      "guild": 1,
+      "village": 2,
+      "mode": 0
+    },
+    "rankRequirement": "HR1",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "水光原珠",
+        "amount": 1
+      },
+      {
+        "name": "竜骨【中】",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-806098c95f490d793376",
+    "name": "加弾珠【２】",
+    "rarity": 5,
+    "slotCost": 2,
+    "skillPoints": {
+      "通常弾追加": 3,
+      "装填速度": -1
+    },
+    "rawUnlock": {
+      "guild": 3,
+      "village": 5,
+      "mode": 0
+    },
+    "rankRequirement": "HR3",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "陽翔原珠",
+        "amount": 1
+      },
+      {
+        "name": "上竜骨",
+        "amount": 2
+      },
+      {
+        "name": "イチノタチウオ",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [
+      {
+        "name": "修羅原珠",
+        "amount": 1
+      },
+      {
+        "name": "上質な鳥竜骨",
+        "amount": 1
+      },
+      {
+        "name": "堅牢な骨",
+        "amount": 1
+      }
+    ],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-aa8eeaa536281267c9c4",
+    "name": "加貫珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "貫通弾追加": 2
+    },
+    "rawUnlock": {
+      "guild": 3,
+      "village": 4,
+      "mode": 0
+    },
+    "rankRequirement": "HR3",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "陽翔原珠",
+        "amount": 1
+      },
+      {
+        "name": "ドラグライト鉱石",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-88cf9784c14b628d3db6",
+    "name": "加散珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "散弾追加": 2
+    },
+    "rawUnlock": {
+      "guild": 2,
+      "village": 3,
+      "mode": 0
+    },
+    "rankRequirement": "HR2",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "陽翔原珠",
+        "amount": 1
+      },
+      {
+        "name": "潜口竜の皮",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-a33a5325a881d00cd7c9",
+    "name": "加榴珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "榴弾追加": 2
+    },
+    "rawUnlock": {
+      "guild": 3,
+      "village": 5,
+      "mode": 0
+    },
+    "rankRequirement": "HR3",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "陽翔原珠",
+        "amount": 1
+      },
+      {
+        "name": "火竜の甲殻",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-7edd6bcc5fe8a64c56d8",
+    "name": "加拡珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "拡散弾追加": 1,
+      "装填速度": -1
+    },
+    "rawUnlock": {
+      "guild": 3,
+      "village": 5,
+      "mode": 0
+    },
+    "rankRequirement": "HR3",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "陽翔原珠",
+        "amount": 1
+      },
+      {
+        "name": "爆鎚竜の顎",
+        "amount": 1
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-a9d36834ee22e1f92b54",
+    "name": "加拡珠【３】",
+    "rarity": 6,
+    "slotCost": 3,
+    "skillPoints": {
+      "拡散弾追加": 4,
+      "装填速度": -2
+    },
+    "rawUnlock": {
+      "guild": 9,
+      "village": 99,
+      "mode": 0
+    },
+    "rankRequirement": "G1",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "金剛原珠",
+        "amount": 1
+      },
+      {
+        "name": "カワズの大殿油",
+        "amount": 2
+      },
+      {
+        "name": "なぞの粘菌",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-2ecbbd31ed6a5328f9ed",
+    "name": "毒瓶珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "毒瓶追加": 2
+    },
+    "rawUnlock": {
+      "guild": 2,
+      "village": 3,
+      "mode": 0
+    },
+    "rankRequirement": "HR2",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "陽翔原珠",
+        "amount": 1
+      },
+      {
+        "name": "毒袋",
+        "amount": 1
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-3124e90440b12743011b",
+    "name": "痺瓶珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "麻痺瓶追加": 1,
+      "攻撃": -1
+    },
+    "rawUnlock": {
+      "guild": 2,
+      "village": 3,
+      "mode": 0
+    },
+    "rankRequirement": "HR2",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "陽翔原珠",
+        "amount": 1
+      },
+      {
+        "name": "麻痺袋",
+        "amount": 1
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-dc3153bd338fa8164beb",
+    "name": "痺瓶珠【２】",
+    "rarity": 5,
+    "slotCost": 2,
+    "skillPoints": {
+      "麻痺瓶追加": 3,
+      "攻撃": -1
+    },
+    "rawUnlock": {
+      "guild": 6,
+      "village": 9,
+      "mode": 0
+    },
+    "rankRequirement": "HR6",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "修羅原珠",
+        "amount": 1
+      },
+      {
+        "name": "電竜の堅棘殻",
+        "amount": 1
+      },
+      {
+        "name": "強力麻痺袋",
+        "amount": 1
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-4cb4be2ab37e3add9c92",
+    "name": "眠瓶珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "睡眠瓶追加": 2
+    },
+    "rawUnlock": {
+      "guild": 2,
+      "village": 4,
+      "mode": 0
+    },
+    "rankRequirement": "HR2",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "陽翔原珠",
+        "amount": 1
+      },
+      {
+        "name": "睡眠袋",
+        "amount": 1
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-298c2068ec161e6b82fe",
+    "name": "強瓶珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "強撃瓶追加": 1,
+      "達人": -1
+    },
+    "rawUnlock": {
+      "guild": 2,
+      "village": 3,
+      "mode": 0
+    },
+    "rankRequirement": "HR2",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "陽翔原珠",
+        "amount": 1
+      },
+      {
+        "name": "甲虫の大顎",
+        "amount": 1
+      },
+      {
+        "name": "ニトロダケ",
+        "amount": 5
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-8d2ac6d19093cc30bb71",
+    "name": "強瓶珠【２】",
+    "rarity": 5,
+    "slotCost": 2,
+    "skillPoints": {
+      "強撃瓶追加": 3,
+      "達人": -1
+    },
+    "rawUnlock": {
+      "guild": 6,
+      "village": 9,
+      "mode": 0
+    },
+    "rankRequirement": "HR6",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "修羅原珠",
+        "amount": 1
+      },
+      {
+        "name": "徹甲虫の堅殻",
+        "amount": 1
+      },
+      {
+        "name": "重甲虫の円月尾",
+        "amount": 1
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-ce9a7efaba3c68759976",
+    "name": "属瓶珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "属強瓶追加": 1,
+      "特殊攻撃": -1
+    },
+    "rawUnlock": {
+      "guild": 2,
+      "village": 3,
+      "mode": 0
+    },
+    "rankRequirement": "HR2",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "陽翔原珠",
+        "amount": 1
+      },
+      {
+        "name": "モンスターの体液",
+        "amount": 2
+      },
+      {
+        "name": "にが虫",
+        "amount": 5
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-ee55acdc2726906138be",
+    "name": "属瓶珠【２】",
+    "rarity": 5,
+    "slotCost": 2,
+    "skillPoints": {
+      "属強瓶追加": 3,
+      "特殊攻撃": -1
+    },
+    "rawUnlock": {
+      "guild": 6,
+      "village": 9,
+      "mode": 0
+    },
+    "rankRequirement": "HR6",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "修羅原珠",
+        "amount": 1
+      },
+      {
+        "name": "重甲エキス",
+        "amount": 1
+      },
+      {
+        "name": "高級なトサカ",
+        "amount": 1
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-ad0444017ac4a173f15d",
+    "name": "接瓶珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "接撃瓶追加": 2
+    },
+    "rawUnlock": {
+      "guild": 2,
+      "village": 3,
+      "mode": 0
+    },
+    "rankRequirement": "HR2",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "陽翔原珠",
+        "amount": 1
+      },
+      {
+        "name": "水獣の爪",
+        "amount": 1
+      },
+      {
+        "name": "海綿質の皮",
+        "amount": 1
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-c6c116ed3040fd603e2e",
+    "name": "減瓶珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "減気瓶追加": 2
+    },
+    "rawUnlock": {
+      "guild": 2,
+      "village": 3,
+      "mode": 0
+    },
+    "rankRequirement": "HR2",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "陽翔原珠",
+        "amount": 1
+      },
+      {
+        "name": "シンドイワシ",
+        "amount": 2
+      },
+      {
+        "name": "竜骨【大】",
+        "amount": 1
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-80d85aa71b42ea272924",
+    "name": "爆瓶珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "爆破瓶追加": 2
+    },
+    "rawUnlock": {
+      "guild": 4,
+      "village": 7,
+      "mode": 0
+    },
+    "rankRequirement": "HR4",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "修羅原珠",
+        "amount": 1
+      },
+      {
+        "name": "なぞの粘菌",
+        "amount": 1
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-46edf2e850e949949ef9",
+    "name": "速射珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "速射": 1,
+      "装填速度": -1
+    },
+    "rawUnlock": {
+      "guild": 3,
+      "village": 6,
+      "mode": 0
+    },
+    "rankRequirement": "HR3",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "陽翔原珠",
+        "amount": 1
+      },
+      {
+        "name": "轟竜の牙",
+        "amount": 2
+      },
+      {
+        "name": "雷狼竜の爪",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [
+      {
+        "name": "修羅原珠",
+        "amount": 1
+      },
+      {
+        "name": "火竜の延髄",
+        "amount": 1
+      }
+    ],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-f7e37c80496924f0cbad",
+    "name": "速射珠【３】",
+    "rarity": 6,
+    "slotCost": 3,
+    "skillPoints": {
+      "速射": 4,
+      "装填速度": -2
+    },
+    "rawUnlock": {
+      "guild": 8,
+      "village": 99,
+      "mode": 0
+    },
+    "rankRequirement": "HR8",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "瑠璃原珠",
+        "amount": 1
+      },
+      {
+        "name": "崩竜の削顎",
+        "amount": 1
+      },
+      {
+        "name": "覇竜の剛爪",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-0b2fd391108cde4c7b69",
+    "name": "射法珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "射法": 1,
+      "装填数": -1
+    },
+    "rawUnlock": {
+      "guild": 4,
+      "village": 7,
+      "mode": 0
+    },
+    "rankRequirement": "HR4",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "修羅原珠",
+        "amount": 1
+      },
+      {
+        "name": "千刃竜の刀角",
+        "amount": 1
+      },
+      {
+        "name": "上竜骨",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-6c26137af8d45d04a2aa",
+    "name": "射法珠【２】",
+    "rarity": 5,
+    "slotCost": 2,
+    "skillPoints": {
+      "射法": 3,
+      "装填数": -1
+    },
+    "rawUnlock": {
+      "guild": 7,
+      "village": 10,
+      "mode": 0
+    },
+    "rankRequirement": "HR7",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "瑠璃原珠",
+        "amount": 1
+      },
+      {
+        "name": "千刃竜の刻爪",
+        "amount": 1
+      },
+      {
+        "name": "電竜の高電膜",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-95725b3ff76960835d31",
+    "name": "装填珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "装填数": 1,
+      "装填速度": -1
+    },
+    "rawUnlock": {
+      "guild": 6,
+      "village": 10,
+      "mode": 0
+    },
+    "rankRequirement": "HR6",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "修羅原珠",
+        "amount": 1
+      },
+      {
+        "name": "恐暴竜の頭殻",
+        "amount": 1
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-cbda85da3fd34f14128f",
+    "name": "装填珠【３】",
+    "rarity": 6,
+    "slotCost": 3,
+    "skillPoints": {
+      "装填数": 4,
+      "装填速度": -2
+    },
+    "rawUnlock": {
+      "guild": 8,
+      "village": 99,
+      "mode": 0
+    },
+    "rankRequirement": "HR8",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "瑠璃原珠",
+        "amount": 1
+      },
+      {
+        "name": "嵐気胞",
+        "amount": 1
+      },
+      {
+        "name": "竜玉",
+        "amount": 1
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-2b2c71bc350f74dd6fc5",
+    "name": "変射珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "変則射撃": 2
+    },
+    "rawUnlock": {
+      "guild": 4,
+      "village": 7,
+      "mode": 0
+    },
+    "rankRequirement": "HR4",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "修羅原珠",
+        "amount": 1
+      },
+      {
+        "name": "迅竜の牙",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-8dfc88d9bec8c110dc7a",
+    "name": "節弾珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "弾薬節約": 1,
+      "精密射撃": -1
+    },
+    "rawUnlock": {
+      "guild": 2,
+      "village": 3,
+      "mode": 0
+    },
+    "rankRequirement": "HR2",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "陽翔原珠",
+        "amount": 1
+      },
+      {
+        "name": "ヨロイシダイ",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-431b61c2a26fd950971b",
+    "name": "節弾珠【２】",
+    "rarity": 5,
+    "slotCost": 2,
+    "skillPoints": {
+      "弾薬節約": 3,
+      "精密射撃": -1
+    },
+    "rawUnlock": {
+      "guild": 5,
+      "village": 8,
+      "mode": 0
+    },
+    "rankRequirement": "HR5",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "修羅原珠",
+        "amount": 1
+      },
+      {
+        "name": "鎌蟹の堅殻",
+        "amount": 2
+      },
+      {
+        "name": "飛甲虫の堅殻",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-61803546568fb9447d6d",
+    "name": "達人珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "達人": 1,
+      "龍耐性": -1
+    },
+    "rawUnlock": {
+      "guild": 1,
+      "village": 2,
+      "mode": 0
+    },
+    "rankRequirement": "HR1",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "水光原珠",
+        "amount": 1
+      },
+      {
+        "name": "とがった牙",
+        "amount": 2
+      },
+      {
+        "name": "鉄鉱石",
+        "amount": 1
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-897c7d22652e2cf7586d",
+    "name": "達人珠【２】",
+    "rarity": 5,
+    "slotCost": 2,
+    "skillPoints": {
+      "達人": 3,
+      "龍耐性": -1
+    },
+    "rawUnlock": {
+      "guild": 2,
+      "village": 4,
+      "mode": 0
+    },
+    "rankRequirement": "HR2",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "陽翔原珠",
+        "amount": 1
+      },
+      {
+        "name": "迅竜の刃翼",
+        "amount": 1
+      },
+      {
+        "name": "夜鳥の翼爪",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [
+      {
+        "name": "修羅原珠",
+        "amount": 1
+      },
+      {
+        "name": "夜鳥の鋭翼爪",
+        "amount": 1
+      }
+    ],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-c65eea372d4398e00906",
+    "name": "達人珠【３】",
+    "rarity": 6,
+    "slotCost": 3,
+    "skillPoints": {
+      "達人": 5,
+      "龍耐性": -1
+    },
+    "rawUnlock": {
+      "guild": 8,
+      "village": 99,
+      "mode": 0
+    },
+    "rankRequirement": "HR8",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "瑠璃原珠",
+        "amount": 1
+      },
+      {
+        "name": "覇竜の大棘",
+        "amount": 1
+      },
+      {
+        "name": "絞蛇竜の堅殻",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-62e2d09efb55e78e7f1a",
+    "name": "痛撃珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "痛撃": 1,
+      "体力": -1
+    },
+    "rawUnlock": {
+      "guild": 3,
+      "village": 5,
+      "mode": 0
+    },
+    "rankRequirement": "HR3",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "陽翔原珠",
+        "amount": 1
+      },
+      {
+        "name": "火竜の翼膜",
+        "amount": 1
+      },
+      {
+        "name": "雌火竜の棘",
+        "amount": 1
+      }
+    ],
+    "secondaryMaterials": [
+      {
+        "name": "修羅原珠",
+        "amount": 1
+      },
+      {
+        "name": "火竜の上鱗",
+        "amount": 2
+      }
+    ],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-c56cf9f4635113c78f7c",
+    "name": "痛撃珠【３】",
+    "rarity": 6,
+    "slotCost": 3,
+    "skillPoints": {
+      "痛撃": 4,
+      "体力": -2
+    },
+    "rawUnlock": {
+      "guild": 8,
+      "village": 99,
+      "mode": 0
+    },
+    "rankRequirement": "HR8",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "瑠璃原珠",
+        "amount": 1
+      },
+      {
+        "name": "覇竜の大牙",
+        "amount": 1
+      },
+      {
+        "name": "銀火竜の堅殻",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-fdd79c530de355d5a79a",
+    "name": "連撃珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "連撃": 1,
+      "加護": -1
+    },
+    "rawUnlock": {
+      "guild": 6,
+      "village": 9,
+      "mode": 0
+    },
+    "rankRequirement": "HR6",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "修羅原珠",
+        "amount": 1
+      },
+      {
+        "name": "電竜の上鱗",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-a28fdb2dedc3b97bf94d",
+    "name": "連撃珠【３】",
+    "rarity": 6,
+    "slotCost": 3,
+    "skillPoints": {
+      "連撃": 4,
+      "加護": -2
+    },
+    "rawUnlock": {
+      "guild": 8,
+      "village": 99,
+      "mode": 0
+    },
+    "rankRequirement": "HR8",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "瑠璃原珠",
+        "amount": 1
+      },
+      {
+        "name": "嵐龍の鋭爪",
+        "amount": 1
+      },
+      {
+        "name": "電竜の堅棘殻",
+        "amount": 3
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-0a99703b24e831c44f98",
+    "name": "特会珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "特殊会心": 1,
+      "攻撃": -1
+    },
+    "rawUnlock": {
+      "guild": 2,
+      "village": 4,
+      "mode": 0
+    },
+    "rankRequirement": "HR2",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "陽翔原珠",
+        "amount": 1
+      },
+      {
+        "name": "毒クモリ",
+        "amount": 2
+      },
+      {
+        "name": "絞蛇竜の牙",
+        "amount": 1
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-78b7b3aa5ef305f07a7a",
+    "name": "特会珠【２】",
+    "rarity": 5,
+    "slotCost": 2,
+    "skillPoints": {
+      "特殊会心": 3,
+      "攻撃": -1
+    },
+    "rawUnlock": {
+      "guild": 5,
+      "village": 8,
+      "mode": 0
+    },
+    "rankRequirement": "HR5",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "修羅原珠",
+        "amount": 1
+      },
+      {
+        "name": "絞蛇竜の堅殻",
+        "amount": 2
+      },
+      {
+        "name": "オオ毒クモリ",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-766761fa8168e12b42f2",
+    "name": "属会珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "属性会心": 1,
+      "攻撃": -1
+    },
+    "rawUnlock": {
+      "guild": 3,
+      "village": 5,
+      "mode": 0
+    },
+    "rankRequirement": "HR3",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "陽翔原珠",
+        "amount": 1
+      },
+      {
+        "name": "禍々しい布",
+        "amount": 2
+      },
+      {
+        "name": "電竜の冠甲",
+        "amount": 1
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-a8de650cc64cc9bf43ca",
+    "name": "属会珠【２】",
+    "rarity": 5,
+    "slotCost": 2,
+    "skillPoints": {
+      "属性会心": 3,
+      "攻撃": -1
+    },
+    "rawUnlock": {
+      "guild": 8,
+      "village": 99,
+      "mode": 0
+    },
+    "rankRequirement": "HR8",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "修羅原珠",
+        "amount": 1
+      },
+      {
+        "name": "鋼龍の堅殻",
+        "amount": 2
+      },
+      {
+        "name": "禍々しい闇布",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-601bc979d5d04b38b6dc",
+    "name": "会心珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "会心強化": 1,
+      "攻撃": -1
+    },
+    "rawUnlock": {
+      "guild": 6,
+      "village": 99,
+      "mode": 0
+    },
+    "rankRequirement": "HR6",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "修羅原珠",
+        "amount": 1
+      },
+      {
+        "name": "デンセツチケット",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-5876c6af83f5039ba388",
+    "name": "会心珠【３】",
+    "rarity": 6,
+    "slotCost": 3,
+    "skillPoints": {
+      "会心強化": 4,
+      "攻撃": -2
+    },
+    "rawUnlock": {
+      "guild": 10,
+      "village": 99,
+      "mode": 0
+    },
+    "rankRequirement": "G2",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "明王原珠",
+        "amount": 1
+      },
+      {
+        "name": "タツジンチケットＧ",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-411b9faf73727a6466ce",
+    "name": "裏会心珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "裏会心": 1,
+      "攻撃": -1
+    },
+    "rawUnlock": {
+      "guild": 11,
+      "village": 99,
+      "mode": 0
+    },
+    "rankRequirement": "G3",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "明王原珠",
+        "amount": 1
+      },
+      {
+        "name": "巨獣の重殻",
+        "amount": 1
+      },
+      {
+        "name": "マボロシチョウ",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-96a4ffcaa0ea18827621",
+    "name": "裏会心珠【３】",
+    "rarity": 6,
+    "slotCost": 3,
+    "skillPoints": {
+      "裏会心": 4,
+      "攻撃": -2
+    },
+    "rawUnlock": {
+      "guild": 12,
+      "village": 99,
+      "mode": 0
+    },
+    "rankRequirement": "G4",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "明王原珠",
+        "amount": 1
+      },
+      {
+        "name": "角竜の重甲",
+        "amount": 2
+      },
+      {
+        "name": "夜鳥の福耳",
+        "amount": 1
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-c518f3383abdb8fa7b85",
+    "name": "短縮珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "溜め短縮": 1,
+      "体術": -1
+    },
+    "rawUnlock": {
+      "guild": 2,
+      "village": 3,
+      "mode": 0
+    },
+    "rankRequirement": "HR2",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "陽翔原珠",
+        "amount": 1
+      },
+      {
+        "name": "鬼蛙の爪",
+        "amount": 1
+      },
+      {
+        "name": "潜口竜の甲殻",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [
+      {
+        "name": "修羅原珠",
+        "amount": 1
+      },
+      {
+        "name": "轟竜の上鱗",
+        "amount": 2
+      }
+    ],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-39d0d77705f1a1254ec8",
+    "name": "短縮珠【３】",
+    "rarity": 6,
+    "slotCost": 3,
+    "skillPoints": {
+      "溜め短縮": 4,
+      "体術": -2
+    },
+    "rawUnlock": {
+      "guild": 6,
+      "village": 10,
+      "mode": 0
+    },
+    "rankRequirement": "HR6",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "瑠璃原珠",
+        "amount": 1
+      },
+      {
+        "name": "金獅子の鋭牙",
+        "amount": 1
+      },
+      {
+        "name": "絞蛇竜の堅殻",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-1c9c2f8e426794cfadee",
+    "name": "強走珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "スタミナ": 1,
+      "腹減り": -1
+    },
+    "rawUnlock": {
+      "guild": 2,
+      "village": 3,
+      "mode": 0
+    },
+    "rankRequirement": "HR2",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "陽翔原珠",
+        "amount": 1
+      },
+      {
+        "name": "水獣の爪",
+        "amount": 1
+      },
+      {
+        "name": "強走薬グレート",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [
+      {
+        "name": "修羅原珠",
+        "amount": 1
+      },
+      {
+        "name": "ゴム質の上皮",
+        "amount": 2
+      }
+    ],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-b5e7d824720def73863f",
+    "name": "強走珠【３】",
+    "rarity": 6,
+    "slotCost": 3,
+    "skillPoints": {
+      "スタミナ": 4,
+      "腹減り": -2
+    },
+    "rawUnlock": {
+      "guild": 8,
+      "village": 99,
+      "mode": 0
+    },
+    "rankRequirement": "HR8",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "瑠璃原珠",
+        "amount": 1
+      },
+      {
+        "name": "炎龍の塵粉",
+        "amount": 1
+      },
+      {
+        "name": "水獣の鋭爪",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-d6410c0d0a9a7e388dfc",
+    "name": "体術珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "体術": 1,
+      "スタミナ": -1
+    },
+    "rawUnlock": {
+      "guild": 2,
+      "village": 3,
+      "mode": 0
+    },
+    "rankRequirement": "HR2",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "陽翔原珠",
+        "amount": 1
+      },
+      {
+        "name": "巨大なクチバシ",
+        "amount": 1
+      },
+      {
+        "name": "イーオスの鱗",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [
+      {
+        "name": "修羅原珠",
+        "amount": 1
+      },
+      {
+        "name": "怪鳥の堅殻",
+        "amount": 1
+      },
+      {
+        "name": "オオツノアゲハ",
+        "amount": 2
+      }
+    ],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-da339d216383ee8bfc48",
+    "name": "体術珠【２】",
+    "rarity": 5,
+    "slotCost": 2,
+    "skillPoints": {
+      "体術": 3,
+      "スタミナ": -1
+    },
+    "rawUnlock": {
+      "guild": 5,
+      "village": 8,
+      "mode": 0
+    },
+    "rankRequirement": "HR5",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "瑠璃原珠",
+        "amount": 1
+      },
+      {
+        "name": "雪獅子の鋭牙",
+        "amount": 2
+      },
+      {
+        "name": "イーオスの上皮",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-2cd341587ef2444a650b",
+    "name": "早気珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "気力回復": 1,
+      "回避性能": -1
+    },
+    "rawUnlock": {
+      "guild": 3,
+      "village": 6,
+      "mode": 0
+    },
+    "rankRequirement": "HR3",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "陽翔原珠",
+        "amount": 1
+      },
+      {
+        "name": "雷狼竜の甲殻",
+        "amount": 2
+      },
+      {
+        "name": "竜骨【中】",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [
+      {
+        "name": "修羅原珠",
+        "amount": 1
+      },
+      {
+        "name": "草食竜の堅殻",
+        "amount": 2
+      },
+      {
+        "name": "勇気の証",
+        "amount": 1
+      }
+    ],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-44e9f3a6f9be36562147",
+    "name": "早気珠【２】",
+    "rarity": 5,
+    "slotCost": 2,
+    "skillPoints": {
+      "気力回復": 3,
+      "回避性能": -1
+    },
+    "rawUnlock": {
+      "guild": 6,
+      "village": 9,
+      "mode": 0
+    },
+    "rankRequirement": "HR6",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "修羅原珠",
+        "amount": 1
+      },
+      {
+        "name": "雷狼竜の尖爪",
+        "amount": 1
+      },
+      {
+        "name": "尖竜骨",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-e0e3f58df5fb81a3a455",
+    "name": "走継珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "走行継続": 1,
+      "体術": -1
+    },
+    "rawUnlock": {
+      "guild": 6,
+      "village": 9,
+      "mode": 0
+    },
+    "rankRequirement": "HR6",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "瑠璃原珠",
+        "amount": 1
+      },
+      {
+        "name": "雷狼竜の尖爪",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-cd231173e35c9b49a72f",
+    "name": "走継珠【２】",
+    "rarity": 5,
+    "slotCost": 2,
+    "skillPoints": {
+      "走行継続": 3,
+      "体術": -1
+    },
+    "rawUnlock": {
+      "guild": 11,
+      "village": 99,
+      "mode": 0
+    },
+    "rankRequirement": "G3",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "明王原珠",
+        "amount": 1
+      },
+      {
+        "name": "雷狼竜の剛爪",
+        "amount": 2
+      },
+      {
+        "name": "重竜骨",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-2b219e417bedaa439ba9",
+    "name": "回避珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "回避性能": 1,
+      "体力": -1
+    },
+    "rawUnlock": {
+      "guild": 2,
+      "village": 3,
+      "mode": 0
+    },
+    "rankRequirement": "HR2",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "陽翔原珠",
+        "amount": 1
+      },
+      {
+        "name": "白兎獣の腹甲",
+        "amount": 2
+      },
+      {
+        "name": "オオクワアゲハ",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [
+      {
+        "name": "修羅原珠",
+        "amount": 1
+      },
+      {
+        "name": "泡狐竜の錦ヒレ",
+        "amount": 1
+      }
+    ],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-adad2d2cece641af3316",
+    "name": "回避珠【２】",
+    "rarity": 5,
+    "slotCost": 2,
+    "skillPoints": {
+      "回避性能": 3,
+      "体力": -1
+    },
+    "rawUnlock": {
+      "guild": 6,
+      "village": 9,
+      "mode": 0
+    },
+    "rankRequirement": "HR6",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "瑠璃原珠",
+        "amount": 1
+      },
+      {
+        "name": "泡狐竜の上錦ヒレ",
+        "amount": 1
+      },
+      {
+        "name": "白兎獣の剛毛",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-2d2d74df8a4ed787fc44",
+    "name": "跳躍珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "回避距離": 1,
+      "体力": -1
+    },
+    "rawUnlock": {
+      "guild": 2,
+      "village": 4,
+      "mode": 0
+    },
+    "rankRequirement": "HR2",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "陽翔原珠",
+        "amount": 1
+      },
+      {
+        "name": "迅竜の尾棘",
+        "amount": 1
+      },
+      {
+        "name": "飛甲虫の羽",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [
+      {
+        "name": "修羅原珠",
+        "amount": 1
+      },
+      {
+        "name": "ランゴスタの薄羽",
+        "amount": 2
+      },
+      {
+        "name": "迅竜の黒毛",
+        "amount": 2
+      }
+    ],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-ac8f27c0e1b8fbd802bd",
+    "name": "跳躍珠【３】",
+    "rarity": 6,
+    "slotCost": 3,
+    "skillPoints": {
+      "回避距離": 4,
+      "体力": -2
+    },
+    "rawUnlock": {
+      "guild": 10,
+      "village": 99,
+      "mode": 0
+    },
+    "rankRequirement": "G2",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "金剛原珠",
+        "amount": 1
+      },
+      {
+        "name": "跳狗竜の重尾棘",
+        "amount": 3
+      },
+      {
+        "name": "飛甲虫の斬羽",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-0585dc0e50cb6336a698",
+    "name": "泡沫珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "泡沫": 1,
+      "気力回復": -1
+    },
+    "rawUnlock": {
+      "guild": 6,
+      "village": 9,
+      "mode": 0
+    },
+    "rankRequirement": "HR6",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "瑠璃原珠",
+        "amount": 1
+      },
+      {
+        "name": "泡立つ上滑液",
+        "amount": 2
+      },
+      {
+        "name": "盾蟹の堅殻",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-d1018e36c2cfe42ef77e",
+    "name": "泡沫珠【３】",
+    "rarity": 6,
+    "slotCost": 3,
+    "skillPoints": {
+      "泡沫": 4,
+      "気力回復": -2
+    },
+    "rawUnlock": {
+      "guild": 11,
+      "village": 99,
+      "mode": 0
+    },
+    "rankRequirement": "G3",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "明王原珠",
+        "amount": 1
+      },
+      {
+        "name": "泡立つ濃滑液",
+        "amount": 2
+      },
+      {
+        "name": "盾蟹の重殻",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-fab2fccd5f7eb6d060cc",
+    "name": "鉄壁珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "ガード性能": 1,
+      "体術": -1
+    },
+    "rawUnlock": {
+      "guild": 2,
+      "village": 3,
+      "mode": 0
+    },
+    "rankRequirement": "HR2",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "陽翔原珠",
+        "amount": 1
+      },
+      {
+        "name": "盾蟹の甲殻",
+        "amount": 2
+      },
+      {
+        "name": "盾虫の甲殻",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-1a498893c651ffee2a2c",
+    "name": "鉄壁珠【２】",
+    "rarity": 5,
+    "slotCost": 2,
+    "skillPoints": {
+      "ガード性能": 3,
+      "体術": -1
+    },
+    "rawUnlock": {
+      "guild": 3,
+      "village": 6,
+      "mode": 0
+    },
+    "rankRequirement": "HR3",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "陽翔原珠",
+        "amount": 1
+      },
+      {
+        "name": "海竜の背電殻",
+        "amount": 2
+      },
+      {
+        "name": "斬竜の尾刃片",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [
+      {
+        "name": "修羅原珠",
+        "amount": 1
+      },
+      {
+        "name": "炎戈竜の堅殻",
+        "amount": 3
+      }
+    ],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-44d7217e15bf24a338b6",
+    "name": "強壁珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "ガード強化": 1,
+      "スタミナ": -1
+    },
+    "rawUnlock": {
+      "guild": 3,
+      "village": 4,
+      "mode": 0
+    },
+    "rankRequirement": "HR3",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "陽翔原珠",
+        "amount": 1
+      },
+      {
+        "name": "紅蓮石",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-90a7fc6a8bdf2e765caf",
+    "name": "強壁珠【２】",
+    "rarity": 5,
+    "slotCost": 2,
+    "skillPoints": {
+      "ガード強化": 3,
+      "スタミナ": -1
+    },
+    "rawUnlock": {
+      "guild": 6,
+      "village": 9,
+      "mode": 0
+    },
+    "rankRequirement": "HR6",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "修羅原珠",
+        "amount": 1
+      },
+      {
+        "name": "海竜の上皮",
+        "amount": 2
+      },
+      {
+        "name": "獄炎石",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-becc24c7861562a5563d",
+    "name": "ＫＯ珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "KO": 1,
+      "溜め短縮": -1
+    },
+    "rawUnlock": {
+      "guild": 2,
+      "village": 3,
+      "mode": 0
+    },
+    "rankRequirement": "HR2",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "陽翔原珠",
+        "amount": 1
+      },
+      {
+        "name": "竜骨【大】",
+        "amount": 2
+      },
+      {
+        "name": "草食竜の頭殻",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-6e1f138672c4bc710fd7",
+    "name": "ＫＯ珠【２】",
+    "rarity": 5,
+    "slotCost": 2,
+    "skillPoints": {
+      "KO": 3,
+      "溜め短縮": -1
+    },
+    "rawUnlock": {
+      "guild": 3,
+      "village": 5,
+      "mode": 0
+    },
+    "rankRequirement": "HR3",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "陽翔原珠",
+        "amount": 1
+      },
+      {
+        "name": "巨獣の甲殻",
+        "amount": 2
+      },
+      {
+        "name": "オオツノアゲハ",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [
+      {
+        "name": "修羅原珠",
+        "amount": 1
+      },
+      {
+        "name": "堅牢な骨",
+        "amount": 2
+      }
+    ],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-0a8bdba5e73074b2b165",
+    "name": "奪気珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "減気攻撃": 1,
+      "スタミナ": -1
+    },
+    "rawUnlock": {
+      "guild": 2,
+      "village": 3,
+      "mode": 0
+    },
+    "rankRequirement": "HR2",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "陽翔原珠",
+        "amount": 1
+      },
+      {
+        "name": "大猪の牙",
+        "amount": 1
+      },
+      {
+        "name": "竜骨【中】",
+        "amount": 1
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-50a02c121e9f257c0428",
+    "name": "奪気珠【２】",
+    "rarity": 5,
+    "slotCost": 2,
+    "skillPoints": {
+      "減気攻撃": 3,
+      "スタミナ": -1
+    },
+    "rawUnlock": {
+      "guild": 3,
+      "village": 5,
+      "mode": 0
+    },
+    "rankRequirement": "HR3",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "陽翔原珠",
+        "amount": 1
+      },
+      {
+        "name": "爆鎚竜の甲殻",
+        "amount": 3
+      }
+    ],
+    "secondaryMaterials": [
+      {
+        "name": "修羅原珠",
+        "amount": 1
+      },
+      {
+        "name": "大猪の大牙",
+        "amount": 3
+      }
+    ],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-bccc33e0ae191bef4bd0",
+    "name": "鼓笛珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "笛": 2
+    },
+    "rawUnlock": {
+      "guild": 1,
+      "village": 2,
+      "mode": 0
+    },
+    "rankRequirement": "HR1",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "水光原珠",
+        "amount": 1
+      },
+      {
+        "name": "鳴き袋",
+        "amount": 2
+      },
+      {
+        "name": "角笛",
+        "amount": 1
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-6d094125775366c11d9f",
+    "name": "砲術珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "砲術": 2
+    },
+    "rawUnlock": {
+      "guild": 2,
+      "village": 3,
+      "mode": 0
+    },
+    "rankRequirement": "HR2",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "陽翔原珠",
+        "amount": 1
+      },
+      {
+        "name": "カクサンデメキン",
+        "amount": 2
+      },
+      {
+        "name": "火炎袋",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-c00036ec559f73900eba",
+    "name": "重撃珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "重撃": 1,
+      "達人": -1
+    },
+    "rawUnlock": {
+      "guild": 3,
+      "village": 5,
+      "mode": 0
+    },
+    "rankRequirement": "HR3",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "陽翔原珠",
+        "amount": 1
+      },
+      {
+        "name": "溶岩塊",
+        "amount": 1
+      },
+      {
+        "name": "巨獣の甲殻",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [
+      {
+        "name": "修羅原珠",
+        "amount": 1
+      },
+      {
+        "name": "徹甲虫の尖角",
+        "amount": 1
+      }
+    ],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-4c60223f43d4aa615c4b",
+    "name": "重撃珠【３】",
+    "rarity": 6,
+    "slotCost": 3,
+    "skillPoints": {
+      "重撃": 4,
+      "達人": -2
+    },
+    "rawUnlock": {
+      "guild": 6,
+      "village": 9,
+      "mode": 0
+    },
+    "rankRequirement": "HR6",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "瑠璃原珠",
+        "amount": 1
+      },
+      {
+        "name": "尾槌竜の堅尾甲",
+        "amount": 2
+      },
+      {
+        "name": "重甲虫の堅殻",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-3a2d5d29f9d01187e355",
+    "name": "爆師珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "爆弾強化": 2
+    },
+    "rawUnlock": {
+      "guild": 2,
+      "village": 3,
+      "mode": 0
+    },
+    "rankRequirement": "HR2",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "陽翔原珠",
+        "amount": 1
+      },
+      {
+        "name": "大タル爆弾Ｇ",
+        "amount": 2
+      },
+      {
+        "name": "ランポスの大皮",
+        "amount": 1
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-779869e4680556ab1cc9",
+    "name": "全開珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "本気": 1,
+      "気配": -1
+    },
+    "rawUnlock": {
+      "guild": 3,
+      "village": 6,
+      "mode": 0
+    },
+    "rankRequirement": "HR3",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "陽翔原珠",
+        "amount": 1
+      },
+      {
+        "name": "雷狼竜の角",
+        "amount": 2
+      },
+      {
+        "name": "黒蝕竜の触角",
+        "amount": 1
+      }
+    ],
+    "secondaryMaterials": [
+      {
+        "name": "修羅原珠",
+        "amount": 1
+      },
+      {
+        "name": "雷狼竜の尖角",
+        "amount": 1
+      }
+    ],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-88ee5ef8cede1943bd9c",
+    "name": "全開珠【２】",
+    "rarity": 5,
+    "slotCost": 2,
+    "skillPoints": {
+      "本気": 3,
+      "気配": -1
+    },
+    "rawUnlock": {
+      "guild": 8,
+      "village": 99,
+      "mode": 0
+    },
+    "rankRequirement": "HR8",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "瑠璃原珠",
+        "amount": 1
+      },
+      {
+        "name": "嵐龍の角",
+        "amount": 1
+      },
+      {
+        "name": "雷狼竜の高電毛",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-4b066f7ddb7c965d276f",
+    "name": "闘魂珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "闘魂": 1,
+      "ガード性能": -1
+    },
+    "rawUnlock": {
+      "guild": 3,
+      "village": 6,
+      "mode": 0
+    },
+    "rankRequirement": "HR3",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "陽翔原珠",
+        "amount": 1
+      },
+      {
+        "name": "砕竜の頭殻",
+        "amount": 1
+      },
+      {
+        "name": "轟竜の爪",
+        "amount": 1
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-cb337f1579ab67ad01d5",
+    "name": "闘魂珠【２】",
+    "rarity": 5,
+    "slotCost": 2,
+    "skillPoints": {
+      "闘魂": 3,
+      "ガード性能": -1
+    },
+    "rawUnlock": {
+      "guild": 8,
+      "village": 99,
+      "mode": 0
+    },
+    "rankRequirement": "HR8",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "瑠璃原珠",
+        "amount": 1
+      },
+      {
+        "name": "砕竜の剛拳",
+        "amount": 1
+      },
+      {
+        "name": "覇竜の大棘",
+        "amount": 1
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-5582486dea8e7e25ab1e",
+    "name": "無傷珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "無傷": 1,
+      "回復速度": -1
+    },
+    "rawUnlock": {
+      "guild": 4,
+      "village": 7,
+      "mode": 0
+    },
+    "rankRequirement": "HR4",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "修羅原珠",
+        "amount": 1
+      },
+      {
+        "name": "天廻龍の角",
+        "amount": 1
+      },
+      {
+        "name": "天廻龍の甲殻",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-2778fa4dbcaf92a47aec",
+    "name": "無傷珠【２】",
+    "rarity": 5,
+    "slotCost": 2,
+    "skillPoints": {
+      "無傷": 3,
+      "回復速度": -1
+    },
+    "rawUnlock": {
+      "guild": 8,
+      "village": 99,
+      "mode": 0
+    },
+    "rankRequirement": "HR8",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "瑠璃原珠",
+        "amount": 1
+      },
+      {
+        "name": "天廻龍の鋭浄爪",
+        "amount": 1
+      },
+      {
+        "name": "崩竜の上ヒレ",
+        "amount": 1
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-40fa93f42639bc9357df",
+    "name": "好機珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "チャンス": 1,
+      "効果持続": -1
+    },
+    "rawUnlock": {
+      "guild": 8,
+      "village": 99,
+      "mode": 0
+    },
+    "rankRequirement": "HR8",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "瑠璃原珠",
+        "amount": 1
+      },
+      {
+        "name": "骸龍の喰砕牙",
+        "amount": 1
+      },
+      {
+        "name": "骸龍の青斑皮",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-9699a7feccf7c36d7a4c",
+    "name": "好機珠【３】",
+    "rarity": 6,
+    "slotCost": 3,
+    "skillPoints": {
+      "チャンス": 4,
+      "効果持続": -2
+    },
+    "rawUnlock": {
+      "guild": 13,
+      "village": 99,
+      "mode": 0
+    },
+    "rankRequirement": "HR解放",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "明王原珠",
+        "amount": 1
+      },
+      {
+        "name": "重骸体殻",
+        "amount": 2
+      },
+      {
+        "name": "骸龍の烏賊巨骨",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-84d3f649f7b58a92bade",
+    "name": "龍気珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "龍気": 1,
+      "防御": -1
+    },
+    "rawUnlock": {
+      "guild": 12,
+      "village": 99,
+      "mode": 0
+    },
+    "rankRequirement": "G4",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "明王原珠",
+        "amount": 1
+      },
+      {
+        "name": "天彗龍の重殻",
+        "amount": 2
+      },
+      {
+        "name": "いにしえの巨龍骨",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-b5cf0685415f53bb00fc",
+    "name": "龍気珠【３】",
+    "rarity": 6,
+    "slotCost": 3,
+    "skillPoints": {
+      "龍気": 4,
+      "防御": -2
+    },
+    "rawUnlock": {
+      "guild": 12,
+      "village": 99,
+      "mode": 0
+    },
+    "rankRequirement": "G4",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "明王原珠",
+        "amount": 1
+      },
+      {
+        "name": "天彗龍の剛爪",
+        "amount": 2
+      },
+      {
+        "name": "恐暴竜の重牙",
+        "amount": 1
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-51f2a9155779a48a8fa2",
+    "name": "底力珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "底力": 1,
+      "加護": -1
+    },
+    "rawUnlock": {
+      "guild": 2,
+      "village": 3,
+      "mode": 0
+    },
+    "rankRequirement": "HR2",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "陽翔原珠",
+        "amount": 1
+      },
+      {
+        "name": "朽ちた真紅の角",
+        "amount": 1
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-62055340886c4a93e370",
+    "name": "底力珠【２】",
+    "rarity": 5,
+    "slotCost": 2,
+    "skillPoints": {
+      "底力": 3,
+      "加護": -1
+    },
+    "rawUnlock": {
+      "guild": 5,
+      "village": 8,
+      "mode": 0
+    },
+    "rankRequirement": "HR5",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "修羅原珠",
+        "amount": 1
+      },
+      {
+        "name": "化け鮫の上鱗",
+        "amount": 3
+      },
+      {
+        "name": "白兎獣の大耳",
+        "amount": 1
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-dd53e9a00ecb8b6b9ac3",
+    "name": "逆境珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "逆境": 1,
+      "回復量": -1
+    },
+    "rawUnlock": {
+      "guild": 2,
+      "village": 3,
+      "mode": 0
+    },
+    "rankRequirement": "HR2",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "陽翔原珠",
+        "amount": 1
+      },
+      {
+        "name": "ペピポパンプキン",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-20b3b95117370d00cc58",
+    "name": "逆境珠【２】",
+    "rarity": 5,
+    "slotCost": 2,
+    "skillPoints": {
+      "逆境": 3,
+      "回復量": -1
+    },
+    "rawUnlock": {
+      "guild": 5,
+      "village": 99,
+      "mode": 0
+    },
+    "rankRequirement": "HR5",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "修羅原珠",
+        "amount": 1
+      },
+      {
+        "name": "化け鮫の上ヒレ",
+        "amount": 1
+      },
+      {
+        "name": "黒狼鳥の地獄耳",
+        "amount": 1
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-79cfeebf4fe7afc35587",
+    "name": "逆上珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "逆上": 1,
+      "体術": -1
+    },
+    "rawUnlock": {
+      "guild": 4,
+      "village": 99,
+      "mode": 0
+    },
+    "rankRequirement": "HR4",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "修羅原珠",
+        "amount": 1
+      },
+      {
+        "name": "骸体殻",
+        "amount": 1
+      },
+      {
+        "name": "骸頭骨",
+        "amount": 1
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-babe1b2d3552551538c1",
+    "name": "逆上珠【２】",
+    "rarity": 5,
+    "slotCost": 2,
+    "skillPoints": {
+      "逆上": 3,
+      "体術": -1
+    },
+    "rawUnlock": {
+      "guild": 8,
+      "village": 99,
+      "mode": 0
+    },
+    "rankRequirement": "HR8",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "瑠璃原珠",
+        "amount": 1
+      },
+      {
+        "name": "堅骸体殻",
+        "amount": 2
+      },
+      {
+        "name": "尖骸棘殻",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-5d38112f1310268c0afd",
+    "name": "窮地珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "窮地": 1,
+      "毒": -1
+    },
+    "rawUnlock": {
+      "guild": 5,
+      "village": 8,
+      "mode": 0
+    },
+    "rankRequirement": "HR5",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "修羅原珠",
+        "amount": 1
+      },
+      {
+        "name": "カンタロスの堅殻",
+        "amount": 2
+      },
+      {
+        "name": "マレコガネ",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-f4afa9ccf3fc22a6bfc5",
+    "name": "窮地珠【２】",
+    "rarity": 5,
+    "slotCost": 2,
+    "skillPoints": {
+      "窮地": 3,
+      "毒": -1
+    },
+    "rawUnlock": {
+      "guild": 6,
+      "village": 10,
+      "mode": 0
+    },
+    "rankRequirement": "HR6",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "瑠璃原珠",
+        "amount": 1
+      },
+      {
+        "name": "恐暴竜の頭殻",
+        "amount": 1
+      },
+      {
+        "name": "赤熱した紅焔嚢",
+        "amount": 1
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-5c1c10de757d4997e152",
+    "name": "根性珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "根性": 1,
+      "調合成功率": -1
+    },
+    "rawUnlock": {
+      "guild": 6,
+      "village": 10,
+      "mode": 0
+    },
+    "rankRequirement": "HR6",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "修羅原珠",
+        "amount": 1
+      },
+      {
+        "name": "金獅子の黒毛",
+        "amount": 2
+      },
+      {
+        "name": "金獅子の鋭牙",
+        "amount": 1
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-2bff166aae873afc047e",
+    "name": "根性珠【２】",
+    "rarity": 5,
+    "slotCost": 2,
+    "skillPoints": {
+      "根性": 3,
+      "調合成功率": -1
+    },
+    "rawUnlock": {
+      "guild": 8,
+      "village": 99,
+      "mode": 0
+    },
+    "rankRequirement": "HR8",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "瑠璃原珠",
+        "amount": 1
+      },
+      {
+        "name": "金獅子の闘魂",
+        "amount": 1
+      },
+      {
+        "name": "金獅子の尖角",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-a55c20370d29581b6e17",
+    "name": "忍脚珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "気配": 2
+    },
+    "rawUnlock": {
+      "guild": 1,
+      "village": 2,
+      "mode": 0
+    },
+    "rankRequirement": "HR1",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "水光原珠",
+        "amount": 1
+      },
+      {
+        "name": "雲羊鹿の角",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-969679ce269874b274cf",
+    "name": "采配珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "采配": 1,
+      "効果持続": -1
+    },
+    "rawUnlock": {
+      "guild": 1,
+      "village": 2,
+      "mode": 0
+    },
+    "rankRequirement": "HR1",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "水光原珠",
+        "amount": 1
+      },
+      {
+        "name": "オトモチケット",
+        "amount": 2
+      },
+      {
+        "name": "肉球のスタンプ",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-1d69a35446b846f74480",
+    "name": "名采配珠【１】",
+    "rarity": 5,
+    "slotCost": 1,
+    "skillPoints": {
+      "采配": 2
+    },
+    "rawUnlock": {
+      "guild": 4,
+      "village": 7,
+      "mode": 0
+    },
+    "rankRequirement": "HR4",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "修羅原珠",
+        "amount": 1
+      },
+      {
+        "name": "オトモチケット",
+        "amount": 3
+      },
+      {
+        "name": "跳狗竜の上赤皮",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-410f1b4ed5774996b823",
+    "name": "号令珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "号令": 1,
+      "採取": -1
+    },
+    "rawUnlock": {
+      "guild": 1,
+      "village": 2,
+      "mode": 0
+    },
+    "rankRequirement": "HR1",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "水光原珠",
+        "amount": 1
+      },
+      {
+        "name": "オトモチケット",
+        "amount": 3
+      },
+      {
+        "name": "増強剤",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-ac4b37f9297d9b38e976",
+    "name": "号令珠【２】",
+    "rarity": 5,
+    "slotCost": 2,
+    "skillPoints": {
+      "号令": 3,
+      "採取": -1
+    },
+    "rawUnlock": {
+      "guild": 5,
+      "village": 8,
+      "mode": 0
+    },
+    "rankRequirement": "HR5",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "瑠璃原珠",
+        "amount": 1
+      },
+      {
+        "name": "オトモチケット",
+        "amount": 4
+      },
+      {
+        "name": "ランポスの上鱗",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-811cd3f2e5d630401bcc",
+    "name": "乗慣珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "乗り": 2
+    },
+    "rawUnlock": {
+      "guild": 4,
+      "village": 7,
+      "mode": 0
+    },
+    "rankRequirement": "HR4",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "修羅原珠",
+        "amount": 1
+      },
+      {
+        "name": "奇猿狐の堅長骨",
+        "amount": 1
+      },
+      {
+        "name": "徹甲虫の薄羽",
+        "amount": 1
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-b8ca4eda75a3c29cf3f7",
+    "name": "飛燕珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "跳躍": 2
+    },
+    "rawUnlock": {
+      "guild": 4,
+      "village": 7,
+      "mode": 0
+    },
+    "rankRequirement": "HR4",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "修羅原珠",
+        "amount": 1
+      },
+      {
+        "name": "白兎獣の凍爪",
+        "amount": 1
+      },
+      {
+        "name": "奇猿狐の剛毛",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-a92d8f2702773235e758",
+    "name": "無心珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "無心": 1,
+      "気配": -1
+    },
+    "rawUnlock": {
+      "guild": 8,
+      "village": 99,
+      "mode": 0
+    },
+    "rankRequirement": "HR8",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "瑠璃原珠",
+        "amount": 1
+      },
+      {
+        "name": "古龍の浄血",
+        "amount": 1
+      },
+      {
+        "name": "銀火竜の上鱗",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-7c78ff3e141d31cecb5c",
+    "name": "無心珠【３】",
+    "rarity": 6,
+    "slotCost": 3,
+    "skillPoints": {
+      "無心": 4,
+      "気配": -2
+    },
+    "rawUnlock": {
+      "guild": 12,
+      "village": 99,
+      "mode": 0
+    },
+    "rankRequirement": "G4",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "金剛原珠",
+        "amount": 1
+      },
+      {
+        "name": "赫い龍液",
+        "amount": 2
+      },
+      {
+        "name": "太古龍骨",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-e93562d600a97955ab8b",
+    "name": "我慢珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "我慢": 2,
+      "無心": -1
+    },
+    "rawUnlock": {
+      "guild": 2,
+      "village": 4,
+      "mode": 0
+    },
+    "rankRequirement": "HR2",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "陽翔原珠",
+        "amount": 1
+      },
+      {
+        "name": "雌火竜の翼膜",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-a0912668da8244817597",
+    "name": "技延珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "ＳＰ延長": 1,
+      "無心": -1
+    },
+    "rawUnlock": {
+      "guild": 6,
+      "village": 99,
+      "mode": 0
+    },
+    "rankRequirement": "HR6",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "陽翔原珠",
+        "amount": 1
+      },
+      {
+        "name": "狩技ドリンク",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-df69ef7cc678bee333bc",
+    "name": "技延珠【２】",
+    "rarity": 5,
+    "slotCost": 2,
+    "skillPoints": {
+      "ＳＰ延長": 3,
+      "無心": -1
+    },
+    "rawUnlock": {
+      "guild": 10,
+      "village": 99,
+      "mode": 0
+    },
+    "rankRequirement": "G2",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "明王原珠",
+        "amount": 1
+      },
+      {
+        "name": "狩技ドリンク",
+        "amount": 2
+      },
+      {
+        "name": "異形の堅骨",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-17ec3cda815021153063",
+    "name": "千里珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "千里眼": 2
+    },
+    "rawUnlock": {
+      "guild": 2,
+      "village": 4,
+      "mode": 0
+    },
+    "rankRequirement": "HR2",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "水光原珠",
+        "amount": 1
+      },
+      {
+        "name": "夜鳥の尾羽",
+        "amount": 1
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-caef2586d5891945bbda",
+    "name": "観察珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "観察眼": 2
+    },
+    "rawUnlock": {
+      "guild": 1,
+      "village": 2,
+      "mode": 0
+    },
+    "rankRequirement": "HR1",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "水光原珠",
+        "amount": 1
+      },
+      {
+        "name": "丸鳥の羽",
+        "amount": 2
+      },
+      {
+        "name": "双眼鏡",
+        "amount": 1
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-c2ebe85970b2f8152f6e",
+    "name": "狩人珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "狩人": 2
+    },
+    "rawUnlock": {
+      "guild": 1,
+      "village": 2,
+      "mode": 0
+    },
+    "rankRequirement": "HR1",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "水光原珠",
+        "amount": 1
+      },
+      {
+        "name": "サシミウオ",
+        "amount": 1
+      },
+      {
+        "name": "生肉",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-a52b053b00ff61299831",
+    "name": "運搬珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "運搬": 2
+    },
+    "rawUnlock": {
+      "guild": 1,
+      "village": 3,
+      "mode": 0
+    },
+    "rankRequirement": "HR1",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "水光原珠",
+        "amount": 1
+      },
+      {
+        "name": "狂走エキス",
+        "amount": 1
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-67d614dbde3984f72741",
+    "name": "加護珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "加護": 1
+    },
+    "rawUnlock": {
+      "guild": 2,
+      "village": 4,
+      "mode": 0
+    },
+    "rankRequirement": "HR2",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "陽翔原珠",
+        "amount": 1
+      },
+      {
+        "name": "雌火竜の甲殻",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-0c35b92e7bad7d9326d7",
+    "name": "神護珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "加護": 2
+    },
+    "rawUnlock": {
+      "guild": 7,
+      "village": 99,
+      "mode": 0
+    },
+    "rankRequirement": "HR7",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "瑠璃原珠",
+        "amount": 1
+      },
+      {
+        "name": "金火竜の堅殻",
+        "amount": 2
+      },
+      {
+        "name": "勇気の証Ｇ",
+        "amount": 1
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-bbd9fb619fec1ab54a58",
+    "name": "英雄珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "英雄の盾": 1,
+      "運気": -1
+    },
+    "rawUnlock": {
+      "guild": 6,
+      "village": 9,
+      "mode": 0
+    },
+    "rankRequirement": "HR6",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "修羅原珠",
+        "amount": 1
+      },
+      {
+        "name": "火竜の翼",
+        "amount": 1
+      },
+      {
+        "name": "斬竜の焔状殻",
+        "amount": 1
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-b114c3e00d3c5f5ac61f",
+    "name": "英雄珠【３】",
+    "rarity": 6,
+    "slotCost": 3,
+    "skillPoints": {
+      "英雄の盾": 4,
+      "運気": -2
+    },
+    "rawUnlock": {
+      "guild": 7,
+      "village": 99,
+      "mode": 0
+    },
+    "rankRequirement": "HR7",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "瑠璃原珠",
+        "amount": 1
+      },
+      {
+        "name": "銀火竜の堅殻",
+        "amount": 3
+      },
+      {
+        "name": "金火竜の堅殻",
+        "amount": 3
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-017d41bea4c9f0e694ca",
+    "name": "治癒珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "回復量": 1,
+      "回復速度": -1
+    },
+    "rawUnlock": {
+      "guild": 2,
+      "village": 3,
+      "mode": 0
+    },
+    "rankRequirement": "HR2",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "陽翔原珠",
+        "amount": 1
+      },
+      {
+        "name": "ブヨブヨした皮",
+        "amount": 2
+      },
+      {
+        "name": "ケルビの角",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-50fa72f3e51dbd051911",
+    "name": "治癒珠【２】",
+    "rarity": 5,
+    "slotCost": 2,
+    "skillPoints": {
+      "回復量": 3,
+      "回復速度": -1
+    },
+    "rawUnlock": {
+      "guild": 5,
+      "village": 8,
+      "mode": 0
+    },
+    "rankRequirement": "HR5",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "修羅原珠",
+        "amount": 1
+      },
+      {
+        "name": "雌火竜の上棘",
+        "amount": 1
+      },
+      {
+        "name": "いにしえの秘薬",
+        "amount": 1
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-5de3231dacb4136707ac",
+    "name": "早復珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "回復速度": 1,
+      "食事": -1
+    },
+    "rawUnlock": {
+      "guild": 1,
+      "village": 2,
+      "mode": 0
+    },
+    "rankRequirement": "HR1",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "水光原珠",
+        "amount": 1
+      },
+      {
+        "name": "ジャギィの皮",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-2d44badc42166a5deb92",
+    "name": "早復珠【２】",
+    "rarity": 5,
+    "slotCost": 2,
+    "skillPoints": {
+      "回復速度": 3,
+      "食事": -1
+    },
+    "rawUnlock": {
+      "guild": 2,
+      "village": 3,
+      "mode": 0
+    },
+    "rankRequirement": "HR2",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "陽翔原珠",
+        "amount": 1
+      },
+      {
+        "name": "怪鳥の甲殻",
+        "amount": 1
+      },
+      {
+        "name": "アルビノエキス",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [
+      {
+        "name": "修羅原珠",
+        "amount": 1
+      },
+      {
+        "name": "イーオスの上紫鱗",
+        "amount": 2
+      }
+    ],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-d761593f1b0519462a6c",
+    "name": "持続珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "効果持続": 2
+    },
+    "rawUnlock": {
+      "guild": 3,
+      "village": 4,
+      "mode": 0
+    },
+    "rankRequirement": "HR3",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "水光原珠",
+        "amount": 1
+      },
+      {
+        "name": "翼蛇竜の皮",
+        "amount": 1
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-5271c49f7e5d56ec999b",
+    "name": "友愛珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "広域": 1,
+      "気配": -1
+    },
+    "rawUnlock": {
+      "guild": 1,
+      "village": 3,
+      "mode": 0
+    },
+    "rankRequirement": "HR1",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "水光原珠",
+        "amount": 1
+      },
+      {
+        "name": "怪鳥の翼膜",
+        "amount": 1
+      }
+    ],
+    "secondaryMaterials": [
+      {
+        "name": "陽翔原珠",
+        "amount": 1
+      },
+      {
+        "name": "オトモチケット",
+        "amount": 1
+      },
+      {
+        "name": "小金魚",
+        "amount": 2
+      }
+    ],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-170bcaf34e2fdce991fd",
+    "name": "友愛珠【２】",
+    "rarity": 5,
+    "slotCost": 2,
+    "skillPoints": {
+      "広域": 3,
+      "気配": -1
+    },
+    "rawUnlock": {
+      "guild": 4,
+      "village": 7,
+      "mode": 0
+    },
+    "rankRequirement": "HR4",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "修羅原珠",
+        "amount": 1
+      },
+      {
+        "name": "怪鳥の地獄耳",
+        "amount": 1
+      },
+      {
+        "name": "生命の粉塵",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-b20a22697c1fdc6c2d92",
+    "name": "無食珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "腹減り": 2
+    },
+    "rawUnlock": {
+      "guild": 2,
+      "village": 3,
+      "mode": 0
+    },
+    "rankRequirement": "HR2",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "水光原珠",
+        "amount": 1
+      },
+      {
+        "name": "キラビートル",
+        "amount": 1
+      },
+      {
+        "name": "こんがり肉",
+        "amount": 1
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-ff86f382eef016a5828a",
+    "name": "食漢珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "食いしん坊": 2
+    },
+    "rawUnlock": {
+      "guild": 1,
+      "village": 2,
+      "mode": 0
+    },
+    "rankRequirement": "HR1",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "水光原珠",
+        "amount": 1
+      },
+      {
+        "name": "大きな骨",
+        "amount": 1
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-9efb77343ebe5abdcb9a",
+    "name": "早食珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "食事": 1,
+      "回復量": -1
+    },
+    "rawUnlock": {
+      "guild": 2,
+      "village": 3,
+      "mode": 0
+    },
+    "rankRequirement": "HR2",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "陽翔原珠",
+        "amount": 1
+      },
+      {
+        "name": "潜口竜の皮",
+        "amount": 2
+      },
+      {
+        "name": "青熊獣の甲殻",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [
+      {
+        "name": "修羅原珠",
+        "amount": 1
+      },
+      {
+        "name": "化け鮫の上皮",
+        "amount": 1
+      }
+    ],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-9ec7f2636ea45e71248c",
+    "name": "早食珠【３】",
+    "rarity": 6,
+    "slotCost": 3,
+    "skillPoints": {
+      "食事": 4,
+      "回復量": -2
+    },
+    "rawUnlock": {
+      "guild": 6,
+      "village": 10,
+      "mode": 0
+    },
+    "rankRequirement": "HR6",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "瑠璃原珠",
+        "amount": 1
+      },
+      {
+        "name": "恐暴竜の大牙",
+        "amount": 2
+      },
+      {
+        "name": "轟竜の鋭牙",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-1151c76bae460db9a35f",
+    "name": "節食珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "節食": 2,
+      "気まぐれ": -1
+    },
+    "rawUnlock": {
+      "guild": 4,
+      "village": 7,
+      "mode": 0
+    },
+    "rankRequirement": "HR4",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "修羅原珠",
+        "amount": 1
+      },
+      {
+        "name": "砂竜の上ヒレ",
+        "amount": 1
+      },
+      {
+        "name": "竜の爪",
+        "amount": 3
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-a871740db1277651ea74",
+    "name": "肉食珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "肉食": 1,
+      "腹減り": -1
+    },
+    "rawUnlock": {
+      "guild": 3,
+      "village": 6,
+      "mode": 0
+    },
+    "rankRequirement": "HR3",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "陽翔原珠",
+        "amount": 1
+      },
+      {
+        "name": "轟竜の牙",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-25f83376f64238e25c96",
+    "name": "肉好珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "肉食": 2
+    },
+    "rawUnlock": {
+      "guild": 6,
+      "village": 10,
+      "mode": 0
+    },
+    "rankRequirement": "HR6",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "修羅原珠",
+        "amount": 1
+      },
+      {
+        "name": "恐暴竜の頭殻",
+        "amount": 1
+      },
+      {
+        "name": "カワズの油",
+        "amount": 1
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-72a1e7e475f4653c4470",
+    "name": "茸好珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "茸食": 2,
+      "肉食": -1
+    },
+    "rawUnlock": {
+      "guild": 4,
+      "village": 7,
+      "mode": 0
+    },
+    "rankRequirement": "HR4",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "修羅原珠",
+        "amount": 1
+      },
+      {
+        "name": "堅牢な骨",
+        "amount": 3
+      },
+      {
+        "name": "マンドラゴラ",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-5b2be954713081c458ee",
+    "name": "野草珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "野草知識": 2
+    },
+    "rawUnlock": {
+      "guild": 1,
+      "village": 2,
+      "mode": 0
+    },
+    "rankRequirement": "HR1",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "水光原珠",
+        "amount": 1
+      },
+      {
+        "name": "薬草",
+        "amount": 5
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-0da89fc18dca4c53c319",
+    "name": "博士珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "調合成功率": 2
+    },
+    "rawUnlock": {
+      "guild": 1,
+      "village": 2,
+      "mode": 0
+    },
+    "rankRequirement": "HR1",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "水光原珠",
+        "amount": 1
+      },
+      {
+        "name": "調合書①入門編",
+        "amount": 1
+      },
+      {
+        "name": "丸鳥の羽",
+        "amount": 1
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-867a452b5c1158bec8c5",
+    "name": "弾製珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "調合数": 2
+    },
+    "rawUnlock": {
+      "guild": 1,
+      "village": 2,
+      "mode": 0
+    },
+    "rankRequirement": "HR1",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "水光原珠",
+        "amount": 1
+      },
+      {
+        "name": "小金魚",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-2a09ee633576087295eb",
+    "name": "罠師珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "高速設置": 2
+    },
+    "rawUnlock": {
+      "guild": 2,
+      "village": 3,
+      "mode": 0
+    },
+    "rankRequirement": "HR2",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "陽翔原珠",
+        "amount": 1
+      },
+      {
+        "name": "潜口竜の皮",
+        "amount": 1
+      },
+      {
+        "name": "シビレ罠",
+        "amount": 1
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-36839da8fd7ced897a3b",
+    "name": "採取珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "採取": 2
+    },
+    "rawUnlock": {
+      "guild": 1,
+      "village": 2,
+      "mode": 0
+    },
+    "rankRequirement": "HR1",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "水光原珠",
+        "amount": 1
+      },
+      {
+        "name": "ペピポパンプキン",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-a32bdf4f0e11571dc927",
+    "name": "蜜集珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "ハチミツ": 1,
+      "気まぐれ": -1
+    },
+    "rawUnlock": {
+      "guild": 2,
+      "village": 2,
+      "mode": 0
+    },
+    "rankRequirement": "HR2",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "水光原珠",
+        "amount": 1
+      },
+      {
+        "name": "青熊獣の腕甲",
+        "amount": 1
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-2a4b0c468c6f65ebc73e",
+    "name": "蜜占珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "ハチミツ": 2
+    },
+    "rawUnlock": {
+      "guild": 4,
+      "village": 7,
+      "mode": 0
+    },
+    "rankRequirement": "HR4",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "修羅原珠",
+        "amount": 1
+      },
+      {
+        "name": "青熊獣の堅腕甲",
+        "amount": 1
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-2f8284274138ebada11a",
+    "name": "護石珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "護石王": 1
+    },
+    "rawUnlock": {
+      "guild": 7,
+      "village": 99,
+      "mode": 0
+    },
+    "rankRequirement": "HR7",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "瑠璃原珠",
+        "amount": 1
+      },
+      {
+        "name": "ノヴァクリスタル",
+        "amount": 1
+      },
+      {
+        "name": "火竜の煌液",
+        "amount": 1
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-2c19f988ec994773a0e5",
+    "name": "護石珠【３】",
+    "rarity": 6,
+    "slotCost": 3,
+    "skillPoints": {
+      "護石王": 4
+    },
+    "rawUnlock": {
+      "guild": 12,
+      "village": 99,
+      "mode": 0
+    },
+    "rankRequirement": "G4",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "明王原珠",
+        "amount": 1
+      },
+      {
+        "name": "ピュアクリスタル",
+        "amount": 1
+      },
+      {
+        "name": "砕竜の剛鉄拳",
+        "amount": 1
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-3c385dab3487bace7f0c",
+    "name": "祝福珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "気まぐれ": 2
+    },
+    "rawUnlock": {
+      "guild": 1,
+      "village": 2,
+      "mode": 0
+    },
+    "rankRequirement": "HR1",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "水光原珠",
+        "amount": 1
+      },
+      {
+        "name": "鉄鉱石",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-5a660ad8543f92b078a9",
+    "name": "運気珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "運気": 1,
+      "気まぐれ": -1
+    },
+    "rawUnlock": {
+      "guild": 4,
+      "village": 7,
+      "mode": 0
+    },
+    "rankRequirement": "HR4",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "修羅原珠",
+        "amount": 1
+      },
+      {
+        "name": "鳥竜玉",
+        "amount": 1
+      },
+      {
+        "name": "銀のたまご",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-c9417bf109df629ece33",
+    "name": "運気珠【３】",
+    "rarity": 6,
+    "slotCost": 3,
+    "skillPoints": {
+      "運気": 4,
+      "気まぐれ": -2
+    },
+    "rawUnlock": {
+      "guild": 7,
+      "village": 99,
+      "mode": 0
+    },
+    "rankRequirement": "HR7",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "瑠璃原珠",
+        "amount": 1
+      },
+      {
+        "name": "金火竜の上棘",
+        "amount": 2
+      },
+      {
+        "name": "金のたまご",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-8ed93546135f7d6eb904",
+    "name": "皮剥珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "剥ぎ取り": 1,
+      "運気": -1
+    },
+    "rawUnlock": {
+      "guild": 6,
+      "village": 10,
+      "mode": 0
+    },
+    "rankRequirement": "HR6",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "修羅原珠",
+        "amount": 1
+      },
+      {
+        "name": "恐暴竜の黒皮",
+        "amount": 1
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-6b6b764f3b898e20250f",
+    "name": "皮剥珠【３】",
+    "rarity": 6,
+    "slotCost": 3,
+    "skillPoints": {
+      "剥ぎ取り": 4,
+      "運気": -2
+    },
+    "rawUnlock": {
+      "guild": 8,
+      "village": 99,
+      "mode": 0
+    },
+    "rankRequirement": "HR8",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "瑠璃原珠",
+        "amount": 1
+      },
+      {
+        "name": "煌黒龍の翼膜",
+        "amount": 3
+      },
+      {
+        "name": "嵐龍の鋭爪",
+        "amount": 3
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-222aecf950817d8f7afd",
+    "name": "捕獲珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "捕獲": 1,
+      "運気": -1
+    },
+    "rawUnlock": {
+      "guild": 4,
+      "village": 7,
+      "mode": 0
+    },
+    "rankRequirement": "HR4",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "修羅原珠",
+        "amount": 1
+      },
+      {
+        "name": "勇気の証",
+        "amount": 1
+      },
+      {
+        "name": "雷狼竜の帯電毛",
+        "amount": 1
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-ca823e69d93ecedc82fd",
+    "name": "捕獲珠【３】",
+    "rarity": 6,
+    "slotCost": 3,
+    "skillPoints": {
+      "捕獲": 4,
+      "運気": -2
+    },
+    "rawUnlock": {
+      "guild": 8,
+      "village": 99,
+      "mode": 0
+    },
+    "rankRequirement": "HR8",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "瑠璃原珠",
+        "amount": 1
+      },
+      {
+        "name": "勇気の証Ｇ",
+        "amount": 2
+      },
+      {
+        "name": "炎龍の尖爪",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-acb03038bad478eaf8fb",
+    "name": "歴鈴珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "ベルナ": 2
+    },
+    "compoundSkills": [
+      "ベルナ"
+    ],
+    "unsupported": true,
+    "rawUnlock": {
+      "guild": 1,
+      "village": 2,
+      "mode": 0
+    },
+    "rankRequirement": "HR1",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "水光原珠",
+        "amount": 1
+      },
+      {
+        "name": "ベルナチケット",
+        "amount": 1
+      },
+      {
+        "name": "跳狗竜の鱗",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-a7729862e267a77fb496",
+    "name": "始猟珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "ココット": 2
+    },
+    "compoundSkills": [
+      "ココット"
+    ],
+    "unsupported": true,
+    "rawUnlock": {
+      "guild": 1,
+      "village": 3,
+      "mode": 0
+    },
+    "rankRequirement": "HR1",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "水光原珠",
+        "amount": 1
+      },
+      {
+        "name": "ココットチケット",
+        "amount": 1
+      },
+      {
+        "name": "怪鳥の鱗",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-311e6d68b30d6886f37a",
+    "name": "雪花珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "ポッケ": 2
+    },
+    "compoundSkills": [
+      "ポッケ"
+    ],
+    "unsupported": true,
+    "rawUnlock": {
+      "guild": 1,
+      "village": 2,
+      "mode": 0
+    },
+    "rankRequirement": "HR1",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "水光原珠",
+        "amount": 1
+      },
+      {
+        "name": "ポッケチケット",
+        "amount": 1
+      },
+      {
+        "name": "マカライト鉱石",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-897953f01375e3131558",
+    "name": "仙湯珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "ユクモ": 2
+    },
+    "compoundSkills": [
+      "ユクモ"
+    ],
+    "unsupported": true,
+    "rawUnlock": {
+      "guild": 2,
+      "village": 2,
+      "mode": 0
+    },
+    "rankRequirement": "HR2",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "水光原珠",
+        "amount": 1
+      },
+      {
+        "name": "ユクモチケット",
+        "amount": 1
+      },
+      {
+        "name": "青熊獣の毛",
+        "amount": 2
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  },
+  {
+    "id": "decoration-42c43feb758f78f3eb72",
+    "name": "識究珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "龍識船": 2
+    },
+    "compoundSkills": [
+      "龍識船"
+    ],
+    "unsupported": true,
+    "rawUnlock": {
+      "guild": 99,
+      "village": 7,
+      "mode": 0
+    },
+    "rankRequirement": null,
+    "unverifiedUnlock": true,
+    "confidence": "low",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "修羅原珠",
+        "amount": 1
+      },
+      {
+        "name": "龍識船チケット",
+        "amount": 1
+      },
+      {
+        "name": "なぞの粘菌",
+        "amount": 1
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ],
+    "notes": "ギルド条件だけでは解禁を保証できない村条件または未対応条件。solverでは除外。"
+  },
+  {
+    "id": "decoration-0eef884774fa988176cc",
+    "name": "空宴珠【１】",
+    "rarity": 4,
+    "slotCost": 1,
+    "skillPoints": {
+      "飛行酒場": 2
+    },
+    "compoundSkills": [
+      "飛行酒場"
+    ],
+    "unsupported": true,
+    "rawUnlock": {
+      "guild": 9,
+      "village": 99,
+      "mode": 0
+    },
+    "rankRequirement": "G1",
+    "unverifiedUnlock": false,
+    "confidence": "medium",
+    "eventOnly": false,
+    "materials": [
+      {
+        "name": "金剛原珠",
+        "amount": 1
+      },
+      {
+        "name": "酒場チケット",
+        "amount": 1
+      },
+      {
+        "name": "紫毒姫の上鱗",
+        "amount": 1
+      }
+    ],
+    "secondaryMaterials": [],
+    "sourceIds": [
+      "athena-run-data-decorations-txt",
+      "athena-decoration-cpp",
+      "athena-run-data-components-txt"
+    ]
+  }
+]

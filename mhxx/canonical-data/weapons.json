@@ -1,0 +1,157 @@
+[
+  {
+    "id": "sns-40b60-lv1",
+    "name": "ハンターナイフ LV1",
+    "weaponType": "SwordAndShield",
+    "slots": 0,
+    "rankRequirement": "HR1",
+    "confidence": "medium",
+    "sourceIds": [
+      "kiranico-mhxx-hunter-knife",
+      "kiranico-mhxx-iron-ore"
+    ],
+    "notes": "生産素材は鉄鉱石3個。集★1報酬・下位採掘の出典を併記。素材所持は別条件。",
+    "attack": 70,
+    "level": 1
+  },
+  {
+    "id": "sns-40b60-lv2",
+    "name": "ハンターナイフ LV2",
+    "weaponType": "SwordAndShield",
+    "slots": 0,
+    "rankRequirement": null,
+    "confidence": "low",
+    "sourceIds": [
+      "kiranico-mhxx-hunter-knife"
+    ],
+    "notes": "強化段階の解禁進行度は未確認。weaponId指定の進行度検索では除外。",
+    "attack": 80,
+    "level": 2
+  },
+  {
+    "id": "sns-40b60-lv3",
+    "name": "ハンターナイフ LV3",
+    "weaponType": "SwordAndShield",
+    "slots": 0,
+    "rankRequirement": null,
+    "confidence": "low",
+    "sourceIds": [
+      "kiranico-mhxx-hunter-knife"
+    ],
+    "notes": "強化段階の解禁進行度は未確認。weaponId指定の進行度検索では除外。",
+    "attack": 100,
+    "level": 3
+  },
+  {
+    "id": "sns-40b60-lv4",
+    "name": "ハンターナイフ LV4",
+    "weaponType": "SwordAndShield",
+    "slots": 0,
+    "rankRequirement": null,
+    "confidence": "low",
+    "sourceIds": [
+      "kiranico-mhxx-hunter-knife"
+    ],
+    "notes": "強化段階の解禁進行度は未確認。weaponId指定の進行度検索では除外。",
+    "attack": 110,
+    "level": 4
+  },
+  {
+    "id": "sns-40b60-lv5",
+    "name": "ハンターナイフ LV5",
+    "weaponType": "SwordAndShield",
+    "slots": 0,
+    "rankRequirement": null,
+    "confidence": "low",
+    "sourceIds": [
+      "kiranico-mhxx-hunter-knife"
+    ],
+    "notes": "強化段階の解禁進行度は未確認。weaponId指定の進行度検索では除外。",
+    "attack": 120,
+    "level": 5
+  },
+  {
+    "id": "sns-40b60-lv6",
+    "name": "ハンターナイフ LV6",
+    "weaponType": "SwordAndShield",
+    "slots": 0,
+    "rankRequirement": null,
+    "confidence": "low",
+    "sourceIds": [
+      "kiranico-mhxx-hunter-knife"
+    ],
+    "notes": "強化段階の解禁進行度は未確認。weaponId指定の進行度検索では除外。",
+    "attack": 150,
+    "level": 6
+  },
+  {
+    "id": "sns-40b60-lv7",
+    "name": "ハンターナイフ LV7",
+    "weaponType": "SwordAndShield",
+    "slots": 0,
+    "rankRequirement": null,
+    "confidence": "low",
+    "sourceIds": [
+      "kiranico-mhxx-hunter-knife"
+    ],
+    "notes": "強化段階の解禁進行度は未確認。weaponId指定の進行度検索では除外。",
+    "attack": 180,
+    "level": 7
+  },
+  {
+    "id": "sns-40b60-lv8",
+    "name": "闘士の剣 LV8",
+    "weaponType": "SwordAndShield",
+    "slots": 0,
+    "rankRequirement": null,
+    "confidence": "low",
+    "sourceIds": [
+      "kiranico-mhxx-hunter-knife"
+    ],
+    "notes": "強化段階の解禁進行度は未確認。weaponId指定の進行度検索では除外。",
+    "attack": 230,
+    "level": 8
+  },
+  {
+    "id": "sns-40b60-lv9",
+    "name": "闘士の剣 LV9",
+    "weaponType": "SwordAndShield",
+    "slots": 0,
+    "rankRequirement": null,
+    "confidence": "low",
+    "sourceIds": [
+      "kiranico-mhxx-hunter-knife"
+    ],
+    "notes": "強化段階の解禁進行度は未確認。weaponId指定の進行度検索では除外。",
+    "attack": 260,
+    "level": 9
+  },
+  {
+    "id": "sns-40b60-lv10",
+    "name": "闘士の剣 LV10",
+    "weaponType": "SwordAndShield",
+    "slots": 0,
+    "rankRequirement": null,
+    "confidence": "low",
+    "sourceIds": [
+      "kiranico-mhxx-hunter-knife"
+    ],
+    "notes": "強化段階の解禁進行度は未確認。weaponId指定の進行度検索では除外。",
+    "attack": 330,
+    "level": 10
+  },
+  {
+    "id": "sns-40b60-lv11",
+    "name": "一徹なる闘士の剣 LV11",
+    "weaponType": "SwordAndShield",
+    "slots": 0,
+    "rankRequirement": null,
+    "confidence": "low",
+    "sourceIds": [
+      "kiranico-mhxx-hunter-knife"
+    ],
+    "notes": "強化段階の解禁進行度は未確認。weaponId指定の進行度検索では除外。",
+    "attack": 360,
+    "level": 11
+  }
+]

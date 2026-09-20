@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0b1f2a">
+    <title>MHXX Hub | 装備検索とお守り</title>
+    <link rel="stylesheet" href="./styles.css">
+    <script type="module" src="./app.mjs"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">本文へ移動</a>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="./" aria-label="MHXX Hub ホーム">
+          <span class="brand-mark" aria-hidden="true">H</span>
+          <span>
+            <span class="brand-name">MHXX <em>Hub</em></span>
+            <span class="brand-caption">狩りの準備を、静かに整える</span>
+          </span>
+        </a>
+        <nav class="site-nav" aria-label="メインナビゲーション">
+          <a class="nav-link is-active" href="#equipment-search">装備検索</a>
+          <a class="nav-link" href="#charm-library">お守り</a>
+          <a class="nav-link nav-link-external" href="../mhxx-palico/">オトモ手帳<span aria-hidden="true">↗</span></a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content" class="page-shell">
+      <section class="intro" aria-labelledby="page-title">
+        <div class="eyebrow"><span aria-hidden="true">●</span> MHXX / BUILD DESK</div>
+        <h1 id="page-title">装備を、<br><span>狙いから組み立てる。</span></h1>
+        <p class="intro-copy">欲しいスキルと手持ちのお守りを入力すると、条件に合う装備案をローカルで探します。</p>
+        <div class="trust-note">
+          <span class="trust-icon" aria-hidden="true">⌘</span>
+          <span>データはこのブラウザ内で処理。検索内容を外部へ送信しません。</span>
+        </div>
+      </section>
+
+      <section id="equipment-search" class="panel search-panel" aria-labelledby="search-title">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">01 / SEARCH</p>
+            <h2 id="search-title">装備検索</h2>
+          </div>
+          <span id="canonical-status" class="status-chip" role="status">データを読み込み中…</span>
+        </div>
+        <p class="section-lead">条件を絞って、装備・装飾品・お守りの組み合わせを探します。</p>
+
+        <form id="search-form" novalidate>
+          <fieldset class="form-group">
+            <legend>ハンター設定</legend>
+            <div class="control-grid control-grid-2">
+              <div class="field">
+                <label for="hunter-type">ハンタータイプ</label>
+                <select id="hunter-type" name="hunterType">
+                  <option value="blademaster">剣士</option>
+                  <option value="gunner">ガンナー</option>
+                </select>
+              </div>
+              <div class="field">
+                <span class="field-label">性別</span>
+                <div class="segmented" role="group" aria-label="性別">
+                  <label class="segment"><input type="radio" name="gender" value="male" checked><span>男性</span></label>
+                  <label class="segment"><input type="radio" name="gender" value="female"><span>女性</span></label>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset class="form-group">
+            <legend>クエスト条件</legend>
+            <div class="control-grid control-grid-3">
+              <div class="field">
+                <label for="rank">ランク</label>
+                <select id="rank" name="rank" required aria-describedby="rank-help">
+                  <option value="G2" selected>G2</option>
+                </select>
+                <small id="rank-help" class="field-help">公開済みのランク情報を使用します。</small>
+              </div>
+              <div class="field">
+                <label for="weapon-slots">武器スロット</label>
+                <select id="weapon-slots" name="weaponSlots">
+                  <option value="0" selected>0</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="min-defense">最低防御力</label>
+                <input id="min-defense" name="minDefense" type="number" min="0" max="9999" step="1" value="500" inputmode="numeric">
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset class="form-group">
+            <legend>スキル条件</legend>
+            <div class="control-grid control-grid-2">
+              <div class="field">
+                <label for="required-skills">必須スキル</label>
+                <input id="required-skills" name="requiredSkills" type="text" list="skill-options" value="弱点特効" placeholder="例：斬れ味レベル+1, 業物" autocomplete="off" aria-describedby="required-help">
+                <small id="required-help" class="field-help">カンマ区切り。すべて発動する構成だけを返します。</small>
+              </div>
+              <div class="field">
+                <label for="preferred-skills">希望スキル</label>
+                <input id="preferred-skills" name="preferredSkills" type="text" list="skill-options" value="業物" placeholder="例：弱点特効, 超会心" autocomplete="off" aria-describedby="skills-help">
+                <small id="skills-help" class="field-help">候補に含まれるとスコアが上がります。</small>
+              </div>
+            </div>
+            <datalist id="skill-options"></datalist>
+          </fieldset>
+
+          <fieldset class="form-group charm-option">
+            <legend>お守りライブラリ</legend>
+            <label class="check-row" for="use-charm-library">
+              <input id="use-charm-library" name="useCharmLibrary" type="checkbox" checked>
+              <span>
+                <strong>登録済みのお守りを使う</strong>
+                <small>現在 <span id="charm-count-inline">0</span> 件。未登録でも検索できます。</small>
+              </span>
+            </label>
+          </fieldset>
+
+          <div class="form-actions">
+            <button id="search-button" class="button button-primary" type="submit"><span aria-hidden="true">⌕</span> 装備を探す</button>
+            <button id="cancel-button" class="button button-secondary" type="button" hidden>検索をキャンセル</button>
+            <span id="search-status" class="search-status" role="status" aria-live="polite"></span>
+          </div>
+        </form>
+      </section>
+
+      <section class="method-note" aria-labelledby="method-title">
+        <div class="method-icon" aria-hidden="true">i</div>
+        <div>
+          <h2 id="method-title">計算について</h2>
+          <p>表示する防御力は防具の基礎防御力を合算した値です。護符・爪・強化段階は含みません。ランク情報は確認できた範囲を保守的に扱うため、候補が少なく見える場合があります。</p>
+        </div>
+      </section>
+
+      <section id="search-results" class="results-section" aria-labelledby="results-title" aria-live="polite">
+        <div class="section-heading results-heading">
+          <div>
+            <p class="section-kicker">02 / RESULTS</p>
+            <h2 id="results-title">検索結果</h2>
+          </div>
+          <span id="result-meta" class="result-meta"></span>
+        </div>
+        <div id="search-error" class="inline-error" role="alert" hidden></div>
+        <div id="results-list" class="results-list">
+          <div id="results-empty" class="empty-state">
+            <span class="empty-mark" aria-hidden="true">◇</span>
+            <h3>まだ検索していません</h3>
+            <p>条件を入力して「装備を探す」を押すと、ここに候補が表示されます。</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="charm-library" class="panel charm-panel" aria-labelledby="charm-title">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">03 / CHARM LIBRARY</p>
+            <h2 id="charm-title">お守りライブラリ</h2>
+          </div>
+          <span id="library-count" class="status-chip">0 件</span>
+        </div>
+        <p class="section-lead">手持ちのお守りを登録すると、装備検索の候補に含められます。</p>
+        <aside class="local-notice" aria-label="保存について">
+          <span aria-hidden="true">▣</span>
+          <p><strong>この端末だけに保存</strong><br>お守り情報はこの端末のこのブラウザにのみ保存されます。共有端末では登録内容に注意してください。</p>
+        </aside>
+        <div id="library-error" class="inline-error" role="alert" hidden></div>
+        <button id="raw-export-button" class="button button-secondary raw-export-button" type="button" hidden>読み込めないJSONを退避</button>
+
+        <form id="charm-form" class="charm-form" novalidate>
+          <fieldset>
+            <legend>新しいお守りを登録</legend>
+            <div class="skill-entry-grid">
+              <div class="field">
+                <label for="charm-skill-1">スキル系統 1</label>
+                <input id="charm-skill-1" name="charmSkill1" type="text" list="skill-tree-options" placeholder="例：攻撃" autocomplete="off">
+              </div>
+              <div class="field points-field">
+                <label for="charm-points-1">ポイント</label>
+                <input id="charm-points-1" name="charmPoints1" type="number" min="-20" max="20" step="1" value="1" inputmode="numeric">
+              </div>
+              <div class="field">
+                <label for="charm-skill-2">スキル系統 2 <span class="optional">任意</span></label>
+                <input id="charm-skill-2" name="charmSkill2" type="text" list="skill-tree-options" placeholder="例：達人" autocomplete="off">
+              </div>
+              <div class="field points-field">
+                <label for="charm-points-2">ポイント</label>
+                <input id="charm-points-2" name="charmPoints2" type="number" min="-20" max="20" step="1" value="1" inputmode="numeric">
+              </div>
+            </div>
+            <div class="charm-form-bottom">
+              <div class="field slots-field">
+                <label for="charm-slots">スロット</label>
+                <select id="charm-slots" name="charmSlots">
+                  <option value="0" selected>0</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                </select>
+              </div>
+              <button id="charm-submit-button" class="button button-primary" type="submit">お守りを登録</button>
+              <button id="charm-cancel-edit" class="button button-secondary" type="button" hidden>編集をやめる</button>
+            </div>
+            <p class="validation-note">入力形式（スキル系統・ポイント・スロット）を確認します。ゲーム内で実在する護石かどうかは検証しません。</p>
+            <datalist id="skill-tree-options"></datalist>
+          </fieldset>
+        </form>
+
+        <div class="library-toolbar">
+          <h3>登録済み <span id="library-heading-count">0</span> 件</h3>
+          <div class="toolbar-actions">
+            <label id="import-label" class="button button-secondary file-button" for="import-file">JSONを読み込む</label>
+            <input id="import-file" type="file" accept="application/json,.json" hidden>
+            <button id="export-button" class="button button-secondary" type="button">JSONを書き出す</button>
+          </div>
+        </div>
+        <div id="charms-list" class="charms-list">
+          <div id="charms-empty" class="library-empty">
+            <span aria-hidden="true">＋</span>
+            <p>まだお守りがありません。上のフォームから登録できます。</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <span>MHXX Hub</span>
+        <span>ローカルビルドツール</span>
+      </div>
+    </footer>
+  </body>
+</html>

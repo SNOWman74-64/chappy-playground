@@ -1,0 +1,5 @@
+[
+ {"id":"one","name":"fixture 1","slotCost":1,"skillPoints":{"攻撃":1,"防御":-1},"rankRequirement":"G1","sourceIds":[]},
+ {"id":"two","name":"fixture 2","slotCost":2,"skillPoints":{"攻撃":3,"防御":-1},"rankRequirement":"G1","sourceIds":[]},
+ {"id":"three","name":"fixture 3","slotCost":3,"skillPoints":{"攻撃":5,"防御":-2},"rankRequirement":"G1","sourceIds":[]}
+]

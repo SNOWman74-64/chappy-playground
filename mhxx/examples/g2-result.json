@@ -1,0 +1,1873 @@
+{
+  "results": [
+    {
+      "armor": {
+        "head": "armor-1a6cd5824a91fff7b1c0",
+        "chest": "armor-403f872b0dad1237a43a",
+        "arms": "armor-c650ef504b8c4a03b4ef",
+        "waist": "armor-0d876886596338ea1edd",
+        "legs": "armor-022498fdb609581ca093"
+      },
+      "armorDetails": [
+        {
+          "id": "armor-1a6cd5824a91fff7b1c0",
+          "name": "ヴァイクＸヘルム",
+          "slot": "head",
+          "gender": "both",
+          "hunterType": "both",
+          "rarity": 8,
+          "defense": {
+            "base": 110,
+            "max": 152
+          },
+          "resistances": {
+            "fire": 0,
+            "water": 3,
+            "thunder": -2,
+            "ice": -1,
+            "dragon": 0
+          },
+          "slots": 2,
+          "skillPoints": {
+            "斬れ味": 3,
+            "水属性攻撃": 2
+          },
+          "rawUnlock": {
+            "guild": 10,
+            "village": 99,
+            "mode": 0
+          },
+          "rankRequirement": "G2",
+          "unverifiedUnlock": false,
+          "confidence": "medium",
+          "eventOnly": false,
+          "materials": [
+            {
+              "name": "メランジェ鉱石",
+              "amount": 2
+            },
+            {
+              "name": "ヨロイシダイ",
+              "amount": 3
+            },
+            {
+              "name": "水竜の特上ヒレ",
+              "amount": 3
+            },
+            {
+              "name": "ドス大食いマグロ",
+              "amount": 6
+            }
+          ],
+          "sourceIds": [
+            "athena-run-data-head-txt",
+            "athena-armor-cpp",
+            "athena-run-data-components-txt"
+          ]
+        },
+        {
+          "id": "armor-403f872b0dad1237a43a",
+          "name": "ザザミXRメイル",
+          "slot": "chest",
+          "gender": "both",
+          "hunterType": "blademaster",
+          "rarity": 8,
+          "defense": {
+            "base": 102,
+            "max": 144
+          },
+          "resistances": {
+            "fire": -1,
+            "water": 3,
+            "thunder": -3,
+            "ice": 0,
+            "dragon": 1
+          },
+          "slots": 3,
+          "skillPoints": {
+            "ガード性能": 1
+          },
+          "rawUnlock": {
+            "guild": 10,
+            "village": 99,
+            "mode": 0
+          },
+          "rankRequirement": "G2",
+          "unverifiedUnlock": false,
+          "confidence": "medium",
+          "eventOnly": false,
+          "materials": [
+            {
+              "name": "獰猛化盾蟹重殻",
+              "amount": 1
+            },
+            {
+              "name": "盾蟹の重殻",
+              "amount": 5
+            },
+            {
+              "name": "獰猛な強竜骨",
+              "amount": 1
+            },
+            {
+              "name": "盾蟹素材(上位pts)",
+              "amount": 8
+            }
+          ],
+          "sourceIds": [
+            "athena-run-data-body-txt",
+            "athena-armor-cpp",
+            "athena-run-data-components-txt"
+          ]
+        },
+        {
+          "id": "armor-c650ef504b8c4a03b4ef",
+          "name": "ギザミＸアーム",
+          "slot": "arms",
+          "gender": "both",
+          "hunterType": "blademaster",
+          "rarity": 8,
+          "defense": {
+            "base": 110,
+            "max": 152
+          },
+          "resistances": {
+            "fire": 1,
+            "water": 2,
+            "thunder": -1,
+            "ice": -1,
+            "dragon": 0
+          },
+          "slots": 2,
+          "skillPoints": {
+            "斬れ味": 4,
+            "達人": 1
+          },
+          "rawUnlock": {
+            "guild": 10,
+            "village": 99,
+            "mode": 0
+          },
+          "rankRequirement": "G2",
+          "unverifiedUnlock": false,
+          "confidence": "medium",
+          "eventOnly": false,
+          "materials": [
+            {
+              "name": "鎌蟹の剛爪",
+              "amount": 1
+            },
+            {
+              "name": "鎌蟹の重殻",
+              "amount": 4
+            },
+            {
+              "name": "メランジェ鉱石",
+              "amount": 2
+            },
+            {
+              "name": "皇帝バッタ",
+              "amount": 5
+            }
+          ],
+          "sourceIds": [
+            "athena-run-data-arms-txt",
+            "athena-armor-cpp",
+            "athena-run-data-components-txt"
+          ]
+        },
+        {
+          "id": "armor-0d876886596338ea1edd",
+          "name": "ヴァイクＸフォールド",
+          "slot": "waist",
+          "gender": "both",
+          "hunterType": "blademaster",
+          "rarity": 8,
+          "defense": {
+            "base": 110,
+            "max": 152
+          },
+          "resistances": {
+            "fire": 0,
+            "water": 3,
+            "thunder": -2,
+            "ice": -1,
+            "dragon": 0
+          },
+          "slots": 2,
+          "skillPoints": {
+            "斬れ味": 4,
+            "攻撃": 3
+          },
+          "rawUnlock": {
+            "guild": 10,
+            "village": 99,
+            "mode": 0
+          },
+          "rankRequirement": "G2",
+          "unverifiedUnlock": false,
+          "confidence": "medium",
+          "eventOnly": false,
+          "materials": [
+            {
+              "name": "メランジェ鉱石",
+              "amount": 2
+            },
+            {
+              "name": "ヨロイシダイ",
+              "amount": 3
+            },
+            {
+              "name": "砂竜の特上ヒレ",
+              "amount": 4
+            },
+            {
+              "name": "金剛魚",
+              "amount": 2
+            }
+          ],
+          "sourceIds": [
+            "athena-run-data-waist-txt",
+            "athena-armor-cpp",
+            "athena-run-data-components-txt"
+          ]
+        },
+        {
+          "id": "armor-022498fdb609581ca093",
+          "name": "GXギザミグリーヴ",
+          "slot": "legs",
+          "gender": "both",
+          "hunterType": "blademaster",
+          "rarity": 8,
+          "defense": {
+            "base": 118,
+            "max": 160
+          },
+          "resistances": {
+            "fire": 1,
+            "water": 2,
+            "thunder": -1,
+            "ice": -1,
+            "dragon": 0
+          },
+          "slots": 1,
+          "skillPoints": {
+            "達人": 3,
+            "匠": 2,
+            "連撃": 2
+          },
+          "rawUnlock": {
+            "guild": 10,
+            "village": 99,
+            "mode": 0
+          },
+          "rankRequirement": "G2",
+          "unverifiedUnlock": false,
+          "confidence": "medium",
+          "eventOnly": false,
+          "materials": [
+            {
+              "name": "高密度の研精石",
+              "amount": 1
+            },
+            {
+              "name": "鎌蟹の重殻",
+              "amount": 3
+            },
+            {
+              "name": "鎌蟹の重脚",
+              "amount": 4
+            },
+            {
+              "name": "鎌蟹の堅脚",
+              "amount": 5
+            }
+          ],
+          "sourceIds": [
+            "athena-run-data-legs-txt",
+            "athena-armor-cpp",
+            "athena-run-data-components-txt"
+          ]
+        }
+      ],
+      "decorations": [
+        {
+          "id": "decoration-62e2d09efb55e78e7f1a",
+          "name": "痛撃珠【１】",
+          "count": 6,
+          "placements": [
+            {
+              "location": "head",
+              "count": 2
+            },
+            {
+              "location": "arms",
+              "count": 2
+            },
+            {
+              "location": "waist",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "id": "decoration-c56cf9f4635113c78f7c",
+          "name": "痛撃珠【３】",
+          "count": 1,
+          "placements": [
+            {
+              "location": "chest",
+              "count": 1
+            }
+          ]
+        }
+      ],
+      "activatedSkills": [
+        "弱点特効",
+        "業物"
+      ],
+      "skillPoints": {
+        "斬れ味": 11,
+        "水属性攻撃": 2,
+        "ガード性能": 1,
+        "達人": 4,
+        "攻撃": 3,
+        "匠": 2,
+        "連撃": 2,
+        "痛撃": 10,
+        "体力": -8
+      },
+      "totalDefense": 550,
+      "remainingSlots": 1,
+      "remainingSlotsByLocation": {
+        "head": 0,
+        "chest": 0,
+        "arms": 0,
+        "waist": 0,
+        "legs": 1,
+        "weapon": 0,
+        "charm": 0
+      },
+      "rankRequirement": "G2",
+      "key": "armor-1a6cd5824a91fff7b1c0|armor-403f872b0dad1237a43a|armor-c650ef504b8c4a03b4ef|armor-0d876886596338ea1edd|armor-022498fdb609581ca093|",
+      "scoreBreakdown": {
+        "preferredCount": 1,
+        "defense": 550,
+        "remainingSlots": 1,
+        "decorationCount": 7,
+        "rankOrder": 10
+      },
+      "score": 1054993,
+      "features": [
+        "希望スキル 1/1",
+        "初期防御 550",
+        "空きスロット 1"
+      ]
+    },
+    {
+      "armor": {
+        "head": "armor-1a6cd5824a91fff7b1c0",
+        "chest": "armor-403f872b0dad1237a43a",
+        "arms": "armor-c650ef504b8c4a03b4ef",
+        "waist": "armor-655547ab0eeaa3ba3369",
+        "legs": "armor-e8680e6c291c54ac2393"
+      },
+      "armorDetails": [
+        {
+          "id": "armor-1a6cd5824a91fff7b1c0",
+          "name": "ヴァイクＸヘルム",
+          "slot": "head",
+          "gender": "both",
+          "hunterType": "both",
+          "rarity": 8,
+          "defense": {
+            "base": 110,
+            "max": 152
+          },
+          "resistances": {
+            "fire": 0,
+            "water": 3,
+            "thunder": -2,
+            "ice": -1,
+            "dragon": 0
+          },
+          "slots": 2,
+          "skillPoints": {
+            "斬れ味": 3,
+            "水属性攻撃": 2
+          },
+          "rawUnlock": {
+            "guild": 10,
+            "village": 99,
+            "mode": 0
+          },
+          "rankRequirement": "G2",
+          "unverifiedUnlock": false,
+          "confidence": "medium",
+          "eventOnly": false,
+          "materials": [
+            {
+              "name": "メランジェ鉱石",
+              "amount": 2
+            },
+            {
+              "name": "ヨロイシダイ",
+              "amount": 3
+            },
+            {
+              "name": "水竜の特上ヒレ",
+              "amount": 3
+            },
+            {
+              "name": "ドス大食いマグロ",
+              "amount": 6
+            }
+          ],
+          "sourceIds": [
+            "athena-run-data-head-txt",
+            "athena-armor-cpp",
+            "athena-run-data-components-txt"
+          ]
+        },
+        {
+          "id": "armor-403f872b0dad1237a43a",
+          "name": "ザザミXRメイル",
+          "slot": "chest",
+          "gender": "both",
+          "hunterType": "blademaster",
+          "rarity": 8,
+          "defense": {
+            "base": 102,
+            "max": 144
+          },
+          "resistances": {
+            "fire": -1,
+            "water": 3,
+            "thunder": -3,
+            "ice": 0,
+            "dragon": 1
+          },
+          "slots": 3,
+          "skillPoints": {
+            "ガード性能": 1
+          },
+          "rawUnlock": {
+            "guild": 10,
+            "village": 99,
+            "mode": 0
+          },
+          "rankRequirement": "G2",
+          "unverifiedUnlock": false,
+          "confidence": "medium",
+          "eventOnly": false,
+          "materials": [
+            {
+              "name": "獰猛化盾蟹重殻",
+              "amount": 1
+            },
+            {
+              "name": "盾蟹の重殻",
+              "amount": 5
+            },
+            {
+              "name": "獰猛な強竜骨",
+              "amount": 1
+            },
+            {
+              "name": "盾蟹素材(上位pts)",
+              "amount": 8
+            }
+          ],
+          "sourceIds": [
+            "athena-run-data-body-txt",
+            "athena-armor-cpp",
+            "athena-run-data-components-txt"
+          ]
+        },
+        {
+          "id": "armor-c650ef504b8c4a03b4ef",
+          "name": "ギザミＸアーム",
+          "slot": "arms",
+          "gender": "both",
+          "hunterType": "blademaster",
+          "rarity": 8,
+          "defense": {
+            "base": 110,
+            "max": 152
+          },
+          "resistances": {
+            "fire": 1,
+            "water": 2,
+            "thunder": -1,
+            "ice": -1,
+            "dragon": 0
+          },
+          "slots": 2,
+          "skillPoints": {
+            "斬れ味": 4,
+            "達人": 1
+          },
+          "rawUnlock": {
+            "guild": 10,
+            "village": 99,
+            "mode": 0
+          },
+          "rankRequirement": "G2",
+          "unverifiedUnlock": false,
+          "confidence": "medium",
+          "eventOnly": false,
+          "materials": [
+            {
+              "name": "鎌蟹の剛爪",
+              "amount": 1
+            },
+            {
+              "name": "鎌蟹の重殻",
+              "amount": 4
+            },
+            {
+              "name": "メランジェ鉱石",
+              "amount": 2
+            },
+            {
+              "name": "皇帝バッタ",
+              "amount": 5
+            }
+          ],
+          "sourceIds": [
+            "athena-run-data-arms-txt",
+            "athena-armor-cpp",
+            "athena-run-data-components-txt"
+          ]
+        },
+        {
+          "id": "armor-655547ab0eeaa3ba3369",
+          "name": "インゴットＸコイル",
+          "slot": "waist",
+          "gender": "both",
+          "hunterType": "blademaster",
+          "rarity": 8,
+          "defense": {
+            "base": 112,
+            "max": 154
+          },
+          "resistances": {
+            "fire": -1,
+            "water": -1,
+            "thunder": 1,
+            "ice": 0,
+            "dragon": 0
+          },
+          "slots": 3,
+          "skillPoints": {
+            "風圧": 2,
+            "氷属性攻撃": 1,
+            "運気": -1
+          },
+          "rawUnlock": {
+            "guild": 10,
+            "village": 99,
+            "mode": 0
+          },
+          "rankRequirement": "G2",
+          "unverifiedUnlock": false,
+          "confidence": "medium",
+          "eventOnly": false,
+          "materials": [
+            {
+              "name": "真紅蓮石",
+              "amount": 2
+            },
+            {
+              "name": "エルトライト鉱石",
+              "amount": 6
+            },
+            {
+              "name": "獄炎石",
+              "amount": 3
+            },
+            {
+              "name": "氷結晶",
+              "amount": 20
+            }
+          ],
+          "sourceIds": [
+            "athena-run-data-waist-txt",
+            "athena-armor-cpp",
+            "athena-run-data-components-txt"
+          ]
+        },
+        {
+          "id": "armor-e8680e6c291c54ac2393",
+          "name": "GXブランゴグリーヴ",
+          "slot": "legs",
+          "gender": "both",
+          "hunterType": "blademaster",
+          "rarity": 8,
+          "defense": {
+            "base": 116,
+            "max": 158
+          },
+          "resistances": {
+            "fire": -4,
+            "water": 1,
+            "thunder": 0,
+            "ice": 4,
+            "dragon": 0
+          },
+          "slots": 2,
+          "skillPoints": {
+            "溜め短縮": 4
+          },
+          "rawUnlock": {
+            "guild": 10,
+            "village": 99,
+            "mode": 0
+          },
+          "rankRequirement": "G2",
+          "unverifiedUnlock": false,
+          "confidence": "medium",
+          "eventOnly": false,
+          "materials": [
+            {
+              "name": "高密度の研精石",
+              "amount": 1
+            },
+            {
+              "name": "雪獅子の豪剛毛",
+              "amount": 2
+            },
+            {
+              "name": "ブランゴの豪剛毛",
+              "amount": 2
+            },
+            {
+              "name": "ゲネポスの大厚皮",
+              "amount": 2
+            }
+          ],
+          "sourceIds": [
+            "athena-run-data-legs-txt",
+            "athena-armor-cpp",
+            "athena-run-data-components-txt"
+          ]
+        }
+      ],
+      "decorations": [
+        {
+          "id": "decoration-09aff06fafd858cbd418",
+          "name": "斬鉄珠【１】",
+          "count": 3,
+          "placements": [
+            {
+              "location": "head",
+              "count": 2
+            },
+            {
+              "location": "arms",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "id": "decoration-62e2d09efb55e78e7f1a",
+          "name": "痛撃珠【１】",
+          "count": 2,
+          "placements": [
+            {
+              "location": "arms",
+              "count": 1
+            },
+            {
+              "location": "legs",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "id": "decoration-c56cf9f4635113c78f7c",
+          "name": "痛撃珠【３】",
+          "count": 2,
+          "placements": [
+            {
+              "location": "chest",
+              "count": 1
+            },
+            {
+              "location": "waist",
+              "count": 1
+            }
+          ]
+        }
+      ],
+      "activatedSkills": [
+        "弱点特効",
+        "業物"
+      ],
+      "skillPoints": {
+        "斬れ味": 10,
+        "水属性攻撃": 2,
+        "ガード性能": 1,
+        "達人": 1,
+        "風圧": 2,
+        "氷属性攻撃": 1,
+        "運気": -1,
+        "溜め短縮": 4,
+        "匠": -3,
+        "痛撃": 10,
+        "体力": -6
+      },
+      "totalDefense": 550,
+      "remainingSlots": 1,
+      "remainingSlotsByLocation": {
+        "head": 0,
+        "chest": 0,
+        "arms": 0,
+        "waist": 0,
+        "legs": 1,
+        "weapon": 0,
+        "charm": 0
+      },
+      "rankRequirement": "G2",
+      "key": "armor-1a6cd5824a91fff7b1c0|armor-403f872b0dad1237a43a|armor-c650ef504b8c4a03b4ef|armor-655547ab0eeaa3ba3369|armor-e8680e6c291c54ac2393|",
+      "scoreBreakdown": {
+        "preferredCount": 1,
+        "defense": 550,
+        "remainingSlots": 1,
+        "decorationCount": 7,
+        "rankOrder": 10
+      },
+      "score": 1054993,
+      "features": [
+        "希望スキル 1/1",
+        "初期防御 550",
+        "空きスロット 1"
+      ]
+    },
+    {
+      "armor": {
+        "head": "armor-1a6cd5824a91fff7b1c0",
+        "chest": "armor-403f872b0dad1237a43a",
+        "arms": "armor-c650ef504b8c4a03b4ef",
+        "waist": "armor-0d876886596338ea1edd",
+        "legs": "armor-e8680e6c291c54ac2393"
+      },
+      "armorDetails": [
+        {
+          "id": "armor-1a6cd5824a91fff7b1c0",
+          "name": "ヴァイクＸヘルム",
+          "slot": "head",
+          "gender": "both",
+          "hunterType": "both",
+          "rarity": 8,
+          "defense": {
+            "base": 110,
+            "max": 152
+          },
+          "resistances": {
+            "fire": 0,
+            "water": 3,
+            "thunder": -2,
+            "ice": -1,
+            "dragon": 0
+          },
+          "slots": 2,
+          "skillPoints": {
+            "斬れ味": 3,
+            "水属性攻撃": 2
+          },
+          "rawUnlock": {
+            "guild": 10,
+            "village": 99,
+            "mode": 0
+          },
+          "rankRequirement": "G2",
+          "unverifiedUnlock": false,
+          "confidence": "medium",
+          "eventOnly": false,
+          "materials": [
+            {
+              "name": "メランジェ鉱石",
+              "amount": 2
+            },
+            {
+              "name": "ヨロイシダイ",
+              "amount": 3
+            },
+            {
+              "name": "水竜の特上ヒレ",
+              "amount": 3
+            },
+            {
+              "name": "ドス大食いマグロ",
+              "amount": 6
+            }
+          ],
+          "sourceIds": [
+            "athena-run-data-head-txt",
+            "athena-armor-cpp",
+            "athena-run-data-components-txt"
+          ]
+        },
+        {
+          "id": "armor-403f872b0dad1237a43a",
+          "name": "ザザミXRメイル",
+          "slot": "chest",
+          "gender": "both",
+          "hunterType": "blademaster",
+          "rarity": 8,
+          "defense": {
+            "base": 102,
+            "max": 144
+          },
+          "resistances": {
+            "fire": -1,
+            "water": 3,
+            "thunder": -3,
+            "ice": 0,
+            "dragon": 1
+          },
+          "slots": 3,
+          "skillPoints": {
+            "ガード性能": 1
+          },
+          "rawUnlock": {
+            "guild": 10,
+            "village": 99,
+            "mode": 0
+          },
+          "rankRequirement": "G2",
+          "unverifiedUnlock": false,
+          "confidence": "medium",
+          "eventOnly": false,
+          "materials": [
+            {
+              "name": "獰猛化盾蟹重殻",
+              "amount": 1
+            },
+            {
+              "name": "盾蟹の重殻",
+              "amount": 5
+            },
+            {
+              "name": "獰猛な強竜骨",
+              "amount": 1
+            },
+            {
+              "name": "盾蟹素材(上位pts)",
+              "amount": 8
+            }
+          ],
+          "sourceIds": [
+            "athena-run-data-body-txt",
+            "athena-armor-cpp",
+            "athena-run-data-components-txt"
+          ]
+        },
+        {
+          "id": "armor-c650ef504b8c4a03b4ef",
+          "name": "ギザミＸアーム",
+          "slot": "arms",
+          "gender": "both",
+          "hunterType": "blademaster",
+          "rarity": 8,
+          "defense": {
+            "base": 110,
+            "max": 152
+          },
+          "resistances": {
+            "fire": 1,
+            "water": 2,
+            "thunder": -1,
+            "ice": -1,
+            "dragon": 0
+          },
+          "slots": 2,
+          "skillPoints": {
+            "斬れ味": 4,
+            "達人": 1
+          },
+          "rawUnlock": {
+            "guild": 10,
+            "village": 99,
+            "mode": 0
+          },
+          "rankRequirement": "G2",
+          "unverifiedUnlock": false,
+          "confidence": "medium",
+          "eventOnly": false,
+          "materials": [
+            {
+              "name": "鎌蟹の剛爪",
+              "amount": 1
+            },
+            {
+              "name": "鎌蟹の重殻",
+              "amount": 4
+            },
+            {
+              "name": "メランジェ鉱石",
+              "amount": 2
+            },
+            {
+              "name": "皇帝バッタ",
+              "amount": 5
+            }
+          ],
+          "sourceIds": [
+            "athena-run-data-arms-txt",
+            "athena-armor-cpp",
+            "athena-run-data-components-txt"
+          ]
+        },
+        {
+          "id": "armor-0d876886596338ea1edd",
+          "name": "ヴァイクＸフォールド",
+          "slot": "waist",
+          "gender": "both",
+          "hunterType": "blademaster",
+          "rarity": 8,
+          "defense": {
+            "base": 110,
+            "max": 152
+          },
+          "resistances": {
+            "fire": 0,
+            "water": 3,
+            "thunder": -2,
+            "ice": -1,
+            "dragon": 0
+          },
+          "slots": 2,
+          "skillPoints": {
+            "斬れ味": 4,
+            "攻撃": 3
+          },
+          "rawUnlock": {
+            "guild": 10,
+            "village": 99,
+            "mode": 0
+          },
+          "rankRequirement": "G2",
+          "unverifiedUnlock": false,
+          "confidence": "medium",
+          "eventOnly": false,
+          "materials": [
+            {
+              "name": "メランジェ鉱石",
+              "amount": 2
+            },
+            {
+              "name": "ヨロイシダイ",
+              "amount": 3
+            },
+            {
+              "name": "砂竜の特上ヒレ",
+              "amount": 4
+            },
+            {
+              "name": "金剛魚",
+              "amount": 2
+            }
+          ],
+          "sourceIds": [
+            "athena-run-data-waist-txt",
+            "athena-armor-cpp",
+            "athena-run-data-components-txt"
+          ]
+        },
+        {
+          "id": "armor-e8680e6c291c54ac2393",
+          "name": "GXブランゴグリーヴ",
+          "slot": "legs",
+          "gender": "both",
+          "hunterType": "blademaster",
+          "rarity": 8,
+          "defense": {
+            "base": 116,
+            "max": 158
+          },
+          "resistances": {
+            "fire": -4,
+            "water": 1,
+            "thunder": 0,
+            "ice": 4,
+            "dragon": 0
+          },
+          "slots": 2,
+          "skillPoints": {
+            "溜め短縮": 4
+          },
+          "rawUnlock": {
+            "guild": 10,
+            "village": 99,
+            "mode": 0
+          },
+          "rankRequirement": "G2",
+          "unverifiedUnlock": false,
+          "confidence": "medium",
+          "eventOnly": false,
+          "materials": [
+            {
+              "name": "高密度の研精石",
+              "amount": 1
+            },
+            {
+              "name": "雪獅子の豪剛毛",
+              "amount": 2
+            },
+            {
+              "name": "ブランゴの豪剛毛",
+              "amount": 2
+            },
+            {
+              "name": "ゲネポスの大厚皮",
+              "amount": 2
+            }
+          ],
+          "sourceIds": [
+            "athena-run-data-legs-txt",
+            "athena-armor-cpp",
+            "athena-run-data-components-txt"
+          ]
+        }
+      ],
+      "decorations": [
+        {
+          "id": "decoration-62e2d09efb55e78e7f1a",
+          "name": "痛撃珠【１】",
+          "count": 6,
+          "placements": [
+            {
+              "location": "head",
+              "count": 2
+            },
+            {
+              "location": "arms",
+              "count": 2
+            },
+            {
+              "location": "waist",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "id": "decoration-c56cf9f4635113c78f7c",
+          "name": "痛撃珠【３】",
+          "count": 1,
+          "placements": [
+            {
+              "location": "chest",
+              "count": 1
+            }
+          ]
+        }
+      ],
+      "activatedSkills": [
+        "弱点特効",
+        "業物"
+      ],
+      "skillPoints": {
+        "斬れ味": 11,
+        "水属性攻撃": 2,
+        "ガード性能": 1,
+        "達人": 1,
+        "攻撃": 3,
+        "溜め短縮": 4,
+        "痛撃": 10,
+        "体力": -8
+      },
+      "totalDefense": 548,
+      "remainingSlots": 2,
+      "remainingSlotsByLocation": {
+        "head": 0,
+        "chest": 0,
+        "arms": 0,
+        "waist": 0,
+        "legs": 2,
+        "weapon": 0,
+        "charm": 0
+      },
+      "rankRequirement": "G2",
+      "key": "armor-1a6cd5824a91fff7b1c0|armor-403f872b0dad1237a43a|armor-c650ef504b8c4a03b4ef|armor-0d876886596338ea1edd|armor-e8680e6c291c54ac2393|",
+      "scoreBreakdown": {
+        "preferredCount": 1,
+        "defense": 548,
+        "remainingSlots": 2,
+        "decorationCount": 7,
+        "rankOrder": 10
+      },
+      "score": 1054803,
+      "features": [
+        "希望スキル 1/1",
+        "初期防御 548",
+        "空きスロット 2"
+      ]
+    },
+    {
+      "armor": {
+        "head": "armor-1a6cd5824a91fff7b1c0",
+        "chest": "armor-403f872b0dad1237a43a",
+        "arms": "armor-c650ef504b8c4a03b4ef",
+        "waist": "armor-655547ab0eeaa3ba3369",
+        "legs": "armor-cb978a125fdea1c75c36"
+      },
+      "armorDetails": [
+        {
+          "id": "armor-1a6cd5824a91fff7b1c0",
+          "name": "ヴァイクＸヘルム",
+          "slot": "head",
+          "gender": "both",
+          "hunterType": "both",
+          "rarity": 8,
+          "defense": {
+            "base": 110,
+            "max": 152
+          },
+          "resistances": {
+            "fire": 0,
+            "water": 3,
+            "thunder": -2,
+            "ice": -1,
+            "dragon": 0
+          },
+          "slots": 2,
+          "skillPoints": {
+            "斬れ味": 3,
+            "水属性攻撃": 2
+          },
+          "rawUnlock": {
+            "guild": 10,
+            "village": 99,
+            "mode": 0
+          },
+          "rankRequirement": "G2",
+          "unverifiedUnlock": false,
+          "confidence": "medium",
+          "eventOnly": false,
+          "materials": [
+            {
+              "name": "メランジェ鉱石",
+              "amount": 2
+            },
+            {
+              "name": "ヨロイシダイ",
+              "amount": 3
+            },
+            {
+              "name": "水竜の特上ヒレ",
+              "amount": 3
+            },
+            {
+              "name": "ドス大食いマグロ",
+              "amount": 6
+            }
+          ],
+          "sourceIds": [
+            "athena-run-data-head-txt",
+            "athena-armor-cpp",
+            "athena-run-data-components-txt"
+          ]
+        },
+        {
+          "id": "armor-403f872b0dad1237a43a",
+          "name": "ザザミXRメイル",
+          "slot": "chest",
+          "gender": "both",
+          "hunterType": "blademaster",
+          "rarity": 8,
+          "defense": {
+            "base": 102,
+            "max": 144
+          },
+          "resistances": {
+            "fire": -1,
+            "water": 3,
+            "thunder": -3,
+            "ice": 0,
+            "dragon": 1
+          },
+          "slots": 3,
+          "skillPoints": {
+            "ガード性能": 1
+          },
+          "rawUnlock": {
+            "guild": 10,
+            "village": 99,
+            "mode": 0
+          },
+          "rankRequirement": "G2",
+          "unverifiedUnlock": false,
+          "confidence": "medium",
+          "eventOnly": false,
+          "materials": [
+            {
+              "name": "獰猛化盾蟹重殻",
+              "amount": 1
+            },
+            {
+              "name": "盾蟹の重殻",
+              "amount": 5
+            },
+            {
+              "name": "獰猛な強竜骨",
+              "amount": 1
+            },
+            {
+              "name": "盾蟹素材(上位pts)",
+              "amount": 8
+            }
+          ],
+          "sourceIds": [
+            "athena-run-data-body-txt",
+            "athena-armor-cpp",
+            "athena-run-data-components-txt"
+          ]
+        },
+        {
+          "id": "armor-c650ef504b8c4a03b4ef",
+          "name": "ギザミＸアーム",
+          "slot": "arms",
+          "gender": "both",
+          "hunterType": "blademaster",
+          "rarity": 8,
+          "defense": {
+            "base": 110,
+            "max": 152
+          },
+          "resistances": {
+            "fire": 1,
+            "water": 2,
+            "thunder": -1,
+            "ice": -1,
+            "dragon": 0
+          },
+          "slots": 2,
+          "skillPoints": {
+            "斬れ味": 4,
+            "達人": 1
+          },
+          "rawUnlock": {
+            "guild": 10,
+            "village": 99,
+            "mode": 0
+          },
+          "rankRequirement": "G2",
+          "unverifiedUnlock": false,
+          "confidence": "medium",
+          "eventOnly": false,
+          "materials": [
+            {
+              "name": "鎌蟹の剛爪",
+              "amount": 1
+            },
+            {
+              "name": "鎌蟹の重殻",
+              "amount": 4
+            },
+            {
+              "name": "メランジェ鉱石",
+              "amount": 2
+            },
+            {
+              "name": "皇帝バッタ",
+              "amount": 5
+            }
+          ],
+          "sourceIds": [
+            "athena-run-data-arms-txt",
+            "athena-armor-cpp",
+            "athena-run-data-components-txt"
+          ]
+        },
+        {
+          "id": "armor-655547ab0eeaa3ba3369",
+          "name": "インゴットＸコイル",
+          "slot": "waist",
+          "gender": "both",
+          "hunterType": "blademaster",
+          "rarity": 8,
+          "defense": {
+            "base": 112,
+            "max": 154
+          },
+          "resistances": {
+            "fire": -1,
+            "water": -1,
+            "thunder": 1,
+            "ice": 0,
+            "dragon": 0
+          },
+          "slots": 3,
+          "skillPoints": {
+            "風圧": 2,
+            "氷属性攻撃": 1,
+            "運気": -1
+          },
+          "rawUnlock": {
+            "guild": 10,
+            "village": 99,
+            "mode": 0
+          },
+          "rankRequirement": "G2",
+          "unverifiedUnlock": false,
+          "confidence": "medium",
+          "eventOnly": false,
+          "materials": [
+            {
+              "name": "真紅蓮石",
+              "amount": 2
+            },
+            {
+              "name": "エルトライト鉱石",
+              "amount": 6
+            },
+            {
+              "name": "獄炎石",
+              "amount": 3
+            },
+            {
+              "name": "氷結晶",
+              "amount": 20
+            }
+          ],
+          "sourceIds": [
+            "athena-run-data-waist-txt",
+            "athena-armor-cpp",
+            "athena-run-data-components-txt"
+          ]
+        },
+        {
+          "id": "armor-cb978a125fdea1c75c36",
+          "name": "ラヴァＸグリーヴ",
+          "slot": "legs",
+          "gender": "both",
+          "hunterType": "blademaster",
+          "rarity": 8,
+          "defense": {
+            "base": 114,
+            "max": 156
+          },
+          "resistances": {
+            "fire": 4,
+            "water": -4,
+            "thunder": 0,
+            "ice": 0,
+            "dragon": 1
+          },
+          "slots": 2,
+          "skillPoints": {
+            "攻撃": 4,
+            "根性": 2
+          },
+          "rawUnlock": {
+            "guild": 10,
+            "village": 99,
+            "mode": 0
+          },
+          "rankRequirement": "G2",
+          "unverifiedUnlock": false,
+          "confidence": "medium",
+          "eventOnly": false,
+          "materials": [
+            {
+              "name": "溶岩竜の重殻",
+              "amount": 3
+            },
+            {
+              "name": "溶岩竜の特上ヒレ",
+              "amount": 1
+            },
+            {
+              "name": "溶岩竜の鋭牙",
+              "amount": 4
+            },
+            {
+              "name": "イーオスの大上皮",
+              "amount": 4
+            }
+          ],
+          "sourceIds": [
+            "athena-run-data-legs-txt",
+            "athena-armor-cpp",
+            "athena-run-data-components-txt"
+          ]
+        }
+      ],
+      "decorations": [
+        {
+          "id": "decoration-09aff06fafd858cbd418",
+          "name": "斬鉄珠【１】",
+          "count": 3,
+          "placements": [
+            {
+              "location": "head",
+              "count": 2
+            },
+            {
+              "location": "arms",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "id": "decoration-62e2d09efb55e78e7f1a",
+          "name": "痛撃珠【１】",
+          "count": 2,
+          "placements": [
+            {
+              "location": "arms",
+              "count": 1
+            },
+            {
+              "location": "legs",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "id": "decoration-c56cf9f4635113c78f7c",
+          "name": "痛撃珠【３】",
+          "count": 2,
+          "placements": [
+            {
+              "location": "chest",
+              "count": 1
+            },
+            {
+              "location": "waist",
+              "count": 1
+            }
+          ]
+        }
+      ],
+      "activatedSkills": [
+        "弱点特効",
+        "業物"
+      ],
+      "skillPoints": {
+        "斬れ味": 10,
+        "水属性攻撃": 2,
+        "ガード性能": 1,
+        "達人": 1,
+        "風圧": 2,
+        "氷属性攻撃": 1,
+        "運気": -1,
+        "攻撃": 4,
+        "根性": 2,
+        "匠": -3,
+        "痛撃": 10,
+        "体力": -6
+      },
+      "totalDefense": 548,
+      "remainingSlots": 1,
+      "remainingSlotsByLocation": {
+        "head": 0,
+        "chest": 0,
+        "arms": 0,
+        "waist": 0,
+        "legs": 1,
+        "weapon": 0,
+        "charm": 0
+      },
+      "rankRequirement": "G2",
+      "key": "armor-1a6cd5824a91fff7b1c0|armor-403f872b0dad1237a43a|armor-c650ef504b8c4a03b4ef|armor-655547ab0eeaa3ba3369|armor-cb978a125fdea1c75c36|",
+      "scoreBreakdown": {
+        "preferredCount": 1,
+        "defense": 548,
+        "remainingSlots": 1,
+        "decorationCount": 7,
+        "rankOrder": 10
+      },
+      "score": 1054793,
+      "features": [
+        "希望スキル 1/1",
+        "初期防御 548",
+        "空きスロット 1"
+      ]
+    },
+    {
+      "armor": {
+        "head": "armor-1a6cd5824a91fff7b1c0",
+        "chest": "armor-403f872b0dad1237a43a",
+        "arms": "armor-c650ef504b8c4a03b4ef",
+        "waist": "armor-0d876886596338ea1edd",
+        "legs": "armor-cb978a125fdea1c75c36"
+      },
+      "armorDetails": [
+        {
+          "id": "armor-1a6cd5824a91fff7b1c0",
+          "name": "ヴァイクＸヘルム",
+          "slot": "head",
+          "gender": "both",
+          "hunterType": "both",
+          "rarity": 8,
+          "defense": {
+            "base": 110,
+            "max": 152
+          },
+          "resistances": {
+            "fire": 0,
+            "water": 3,
+            "thunder": -2,
+            "ice": -1,
+            "dragon": 0
+          },
+          "slots": 2,
+          "skillPoints": {
+            "斬れ味": 3,
+            "水属性攻撃": 2
+          },
+          "rawUnlock": {
+            "guild": 10,
+            "village": 99,
+            "mode": 0
+          },
+          "rankRequirement": "G2",
+          "unverifiedUnlock": false,
+          "confidence": "medium",
+          "eventOnly": false,
+          "materials": [
+            {
+              "name": "メランジェ鉱石",
+              "amount": 2
+            },
+            {
+              "name": "ヨロイシダイ",
+              "amount": 3
+            },
+            {
+              "name": "水竜の特上ヒレ",
+              "amount": 3
+            },
+            {
+              "name": "ドス大食いマグロ",
+              "amount": 6
+            }
+          ],
+          "sourceIds": [
+            "athena-run-data-head-txt",
+            "athena-armor-cpp",
+            "athena-run-data-components-txt"
+          ]
+        },
+        {
+          "id": "armor-403f872b0dad1237a43a",
+          "name": "ザザミXRメイル",
+          "slot": "chest",
+          "gender": "both",
+          "hunterType": "blademaster",
+          "rarity": 8,
+          "defense": {
+            "base": 102,
+            "max": 144
+          },
+          "resistances": {
+            "fire": -1,
+            "water": 3,
+            "thunder": -3,
+            "ice": 0,
+            "dragon": 1
+          },
+          "slots": 3,
+          "skillPoints": {
+            "ガード性能": 1
+          },
+          "rawUnlock": {
+            "guild": 10,
+            "village": 99,
+            "mode": 0
+          },
+          "rankRequirement": "G2",
+          "unverifiedUnlock": false,
+          "confidence": "medium",
+          "eventOnly": false,
+          "materials": [
+            {
+              "name": "獰猛化盾蟹重殻",
+              "amount": 1
+            },
+            {
+              "name": "盾蟹の重殻",
+              "amount": 5
+            },
+            {
+              "name": "獰猛な強竜骨",
+              "amount": 1
+            },
+            {
+              "name": "盾蟹素材(上位pts)",
+              "amount": 8
+            }
+          ],
+          "sourceIds": [
+            "athena-run-data-body-txt",
+            "athena-armor-cpp",
+            "athena-run-data-components-txt"
+          ]
+        },
+        {
+          "id": "armor-c650ef504b8c4a03b4ef",
+          "name": "ギザミＸアーム",
+          "slot": "arms",
+          "gender": "both",
+          "hunterType": "blademaster",
+          "rarity": 8,
+          "defense": {
+            "base": 110,
+            "max": 152
+          },
+          "resistances": {
+            "fire": 1,
+            "water": 2,
+            "thunder": -1,
+            "ice": -1,
+            "dragon": 0
+          },
+          "slots": 2,
+          "skillPoints": {
+            "斬れ味": 4,
+            "達人": 1
+          },
+          "rawUnlock": {
+            "guild": 10,
+            "village": 99,
+            "mode": 0
+          },
+          "rankRequirement": "G2",
+          "unverifiedUnlock": false,
+          "confidence": "medium",
+          "eventOnly": false,
+          "materials": [
+            {
+              "name": "鎌蟹の剛爪",
+              "amount": 1
+            },
+            {
+              "name": "鎌蟹の重殻",
+              "amount": 4
+            },
+            {
+              "name": "メランジェ鉱石",
+              "amount": 2
+            },
+            {
+              "name": "皇帝バッタ",
+              "amount": 5
+            }
+          ],
+          "sourceIds": [
+            "athena-run-data-arms-txt",
+            "athena-armor-cpp",
+            "athena-run-data-components-txt"
+          ]
+        },
+        {
+          "id": "armor-0d876886596338ea1edd",
+          "name": "ヴァイクＸフォールド",
+          "slot": "waist",
+          "gender": "both",
+          "hunterType": "blademaster",
+          "rarity": 8,
+          "defense": {
+            "base": 110,
+            "max": 152
+          },
+          "resistances": {
+            "fire": 0,
+            "water": 3,
+            "thunder": -2,
+            "ice": -1,
+            "dragon": 0
+          },
+          "slots": 2,
+          "skillPoints": {
+            "斬れ味": 4,
+            "攻撃": 3
+          },
+          "rawUnlock": {
+            "guild": 10,
+            "village": 99,
+            "mode": 0
+          },
+          "rankRequirement": "G2",
+          "unverifiedUnlock": false,
+          "confidence": "medium",
+          "eventOnly": false,
+          "materials": [
+            {
+              "name": "メランジェ鉱石",
+              "amount": 2
+            },
+            {
+              "name": "ヨロイシダイ",
+              "amount": 3
+            },
+            {
+              "name": "砂竜の特上ヒレ",
+              "amount": 4
+            },
+            {
+              "name": "金剛魚",
+              "amount": 2
+            }
+          ],
+          "sourceIds": [
+            "athena-run-data-waist-txt",
+            "athena-armor-cpp",
+            "athena-run-data-components-txt"
+          ]
+        },
+        {
+          "id": "armor-cb978a125fdea1c75c36",
+          "name": "ラヴァＸグリーヴ",
+          "slot": "legs",
+          "gender": "both",
+          "hunterType": "blademaster",
+          "rarity": 8,
+          "defense": {
+            "base": 114,
+            "max": 156
+          },
+          "resistances": {
+            "fire": 4,
+            "water": -4,
+            "thunder": 0,
+            "ice": 0,
+            "dragon": 1
+          },
+          "slots": 2,
+          "skillPoints": {
+            "攻撃": 4,
+            "根性": 2
+          },
+          "rawUnlock": {
+            "guild": 10,
+            "village": 99,
+            "mode": 0
+          },
+          "rankRequirement": "G2",
+          "unverifiedUnlock": false,
+          "confidence": "medium",
+          "eventOnly": false,
+          "materials": [
+            {
+              "name": "溶岩竜の重殻",
+              "amount": 3
+            },
+            {
+              "name": "溶岩竜の特上ヒレ",
+              "amount": 1
+            },
+            {
+              "name": "溶岩竜の鋭牙",
+              "amount": 4
+            },
+            {
+              "name": "イーオスの大上皮",
+              "amount": 4
+            }
+          ],
+          "sourceIds": [
+            "athena-run-data-legs-txt",
+            "athena-armor-cpp",
+            "athena-run-data-components-txt"
+          ]
+        }
+      ],
+      "decorations": [
+        {
+          "id": "decoration-62e2d09efb55e78e7f1a",
+          "name": "痛撃珠【１】",
+          "count": 6,
+          "placements": [
+            {
+              "location": "head",
+              "count": 2
+            },
+            {
+              "location": "arms",
+              "count": 2
+            },
+            {
+              "location": "waist",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "id": "decoration-c56cf9f4635113c78f7c",
+          "name": "痛撃珠【３】",
+          "count": 1,
+          "placements": [
+            {
+              "location": "chest",
+              "count": 1
+            }
+          ]
+        }
+      ],
+      "activatedSkills": [
+        "弱点特効",
+        "業物"
+      ],
+      "skillPoints": {
+        "斬れ味": 11,
+        "水属性攻撃": 2,
+        "ガード性能": 1,
+        "達人": 1,
+        "攻撃": 7,
+        "根性": 2,
+        "痛撃": 10,
+        "体力": -8
+      },
+      "totalDefense": 546,
+      "remainingSlots": 2,
+      "remainingSlotsByLocation": {
+        "head": 0,
+        "chest": 0,
+        "arms": 0,
+        "waist": 0,
+        "legs": 2,
+        "weapon": 0,
+        "charm": 0
+      },
+      "rankRequirement": "G2",
+      "key": "armor-1a6cd5824a91fff7b1c0|armor-403f872b0dad1237a43a|armor-c650ef504b8c4a03b4ef|armor-0d876886596338ea1edd|armor-cb978a125fdea1c75c36|",
+      "scoreBreakdown": {
+        "preferredCount": 1,
+        "defense": 546,
+        "remainingSlots": 2,
+        "decorationCount": 7,
+        "rankOrder": 10
+      },
+      "score": 1054603,
+      "features": [
+        "希望スキル 1/1",
+        "初期防御 546",
+        "空きスロット 2"
+      ]
+    }
+  ],
+  "searchedCombinations": 134,
+  "elapsedMs": 510.14,
+  "warnings": [
+    "出典の数値に矛盾がある防具5件を除外しました",
+    "解禁条件未確認の防具526件を除外しました",
+    "未対応の特殊・複合効果を持つ防具1005件を除外しました（護石強化・秘術など）",
+    "イベント・闘技大会の追加条件がある装備は、明示的に許可した区分以外を除外します",
+    "防御は未強化の初期値です。解禁ランクはデータ出典の条件で、素材所持・個別クエストクリアは保証しません",
+    "登録済みのお守りがありません。お守りなしで検索します",
+    "探索上限に達しました。結果は検証済みの途中候補です。解の不存在や全候補の順位は確定していません"
+  ],
+  "complete": false,
+  "visitedNodes": 250000,
+  "candidateCounts": {
+    "head": 635,
+    "chest": 325,
+    "arms": 317,
+    "waist": 311,
+    "legs": 319
+  }
+}

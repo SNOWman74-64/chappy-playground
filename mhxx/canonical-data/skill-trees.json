@@ -1,0 +1,4801 @@
+[
+  {
+    "id": "tree-849af174c5b12dfa8818",
+    "name": "KO",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "KO術",
+        "skillId": "skill-49b8e3d5347b876db0a4"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-fb92e3ccef6043599f89",
+    "name": "ＳＰ延長",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "ＳＰ時間延長",
+        "skillId": "skill-16dad5a70b3b954e1177"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-79644da96e22b2db3b7e",
+    "name": "ガード強化",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "ガード強化",
+        "skillId": "skill-4be4f46e4da74d027bb2"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-5d999b8a7b10d1508526",
+    "name": "ガード性能",
+    "activations": [
+      {
+        "points": -10,
+        "skill": "ガード性能-1",
+        "skillId": "skill-2bef5a28c6d97b35eafb"
+      },
+      {
+        "points": 10,
+        "skill": "ガード性能+1",
+        "skillId": "skill-4dcde76d6ed8bac32c63"
+      },
+      {
+        "points": 15,
+        "skill": "ガード性能+2",
+        "skillId": "skill-730be920261e6aee2f14"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-3c5ed44030122ba5cc54",
+    "name": "ココット",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "ココットの心",
+        "skillId": "skill-97a4bdb091ac4ecc7cdd"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ],
+    "compound": {
+      "skill": "ココットの心",
+      "subskills": [
+        "雷耐性【小】",
+        "精霊の気まぐれ"
+      ],
+      "unsupported": true,
+      "sourceIds": [
+        "athena-run-data-compound-skills-txt"
+      ]
+    },
+    "unsupported": true
+  },
+  {
+    "id": "tree-ffb1081ec146d67ae4a2",
+    "name": "スタミナ",
+    "activations": [
+      {
+        "points": -10,
+        "skill": "鈍足",
+        "skillId": "skill-c28591a8c3e4994b23a7"
+      },
+      {
+        "points": 10,
+        "skill": "ランナー",
+        "skillId": "skill-320d0ec9b42ba1af354a"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-0b782c2b95d5d82b5157",
+    "name": "だるま",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "だるま無効",
+        "skillId": "skill-e885727e09ff428924b5"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-07d67f477025a465d4fa",
+    "name": "チャンス",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "切り札",
+        "skillId": "skill-8bef8ca054b09bc0a973"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-0b213ba94bd8416ee933",
+    "name": "ハチミツ",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "ハニーハンター",
+        "skillId": "skill-7e923b0e82e9184bca18"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-171a2f15846f910a96fa",
+    "name": "ベルナ",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "ベルナの心",
+        "skillId": "skill-fe882d002d435d39aeba"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ],
+    "compound": {
+      "skill": "ベルナの心",
+      "subskills": [
+        "火耐性【小】",
+        "腹減り半減"
+      ],
+      "unsupported": true,
+      "sourceIds": [
+        "athena-run-data-compound-skills-txt"
+      ]
+    },
+    "unsupported": true
+  },
+  {
+    "id": "tree-38346471f78c0856a24d",
+    "name": "ポッケ",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "ポッケの心",
+        "skillId": "skill-c8921b6a61f37c51866c"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ],
+    "compound": {
+      "skill": "ポッケの心",
+      "subskills": [
+        "氷耐性【小】",
+        "まんぷく"
+      ],
+      "unsupported": true,
+      "sourceIds": [
+        "athena-run-data-compound-skills-txt"
+      ]
+    },
+    "unsupported": true
+  },
+  {
+    "id": "tree-49c49bdc923889374d93",
+    "name": "ユクモ",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "ユクモの心",
+        "skillId": "skill-98955b3cc3e8dd6623b1"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ],
+    "compound": {
+      "skill": "ユクモの心",
+      "subskills": [
+        "水耐性【小】",
+        "ハニーハンター"
+      ],
+      "unsupported": true,
+      "sourceIds": [
+        "athena-run-data-compound-skills-txt"
+      ]
+    },
+    "unsupported": true
+  },
+  {
+    "id": "tree-d2baea9f86b92d610cdf",
+    "name": "運気",
+    "activations": [
+      {
+        "points": -15,
+        "skill": "災難",
+        "skillId": "skill-4055aee5ca7bc3c29a5e"
+      },
+      {
+        "points": -10,
+        "skill": "不運",
+        "skillId": "skill-7f4d69d0f3ed7332ad9b"
+      },
+      {
+        "points": 10,
+        "skill": "幸運",
+        "skillId": "skill-d8f7eb41b1363cbe6189"
+      },
+      {
+        "points": 15,
+        "skill": "強運",
+        "skillId": "skill-aee08461af4561b969b9"
+      },
+      {
+        "points": 20,
+        "skill": "激運",
+        "skillId": "skill-d399199d6e6bb78c577d"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-7b5911bc8bcbe92644f9",
+    "name": "運搬",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "運搬の達人",
+        "skillId": "skill-a706656f74a2cf6d6ee3"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-d6c1377089aad4d2d832",
+    "name": "英雄の盾",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "英雄の護り",
+        "skillId": "skill-86a6be910fc14bb3a65c"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-2fa7a29d875eb6fcc440",
+    "name": "炎熱適応",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "南風の狩人",
+        "skillId": "skill-be41ba70cf5839fb12c9"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ],
+    "compound": {
+      "skill": "南風の狩人",
+      "subskills": [
+        "暑さ無効"
+      ],
+      "unsupported": true,
+      "sourceIds": [
+        "athena-run-data-compound-skills-txt"
+      ]
+    },
+    "unsupported": true
+  },
+  {
+    "id": "tree-5071d7fe0a6d1fb7441b",
+    "name": "加護",
+    "activations": [
+      {
+        "points": -10,
+        "skill": "悪霊の加護",
+        "skillId": "skill-e6c77bd9379752406c61"
+      },
+      {
+        "points": 10,
+        "skill": "精霊の加護",
+        "skillId": "skill-c2451169d0c6b8177dad"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-1dcee71a2c898216bd86",
+    "name": "火属性攻撃",
+    "activations": [
+      {
+        "points": -10,
+        "skill": "火属性攻撃弱化",
+        "skillId": "skill-097c8fd64d74aefdab3f"
+      },
+      {
+        "points": 10,
+        "skill": "火属性攻撃強化+1",
+        "skillId": "skill-d3d2212a5e22be550440"
+      },
+      {
+        "points": 15,
+        "skill": "火属性攻撃強化+2",
+        "skillId": "skill-117595dcbadb0dfd7ea4"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-386588229195d920d3a2",
+    "name": "火耐性",
+    "activations": [
+      {
+        "points": -10,
+        "skill": "火耐性弱化",
+        "skillId": "skill-a62b7ddb517f87c884fa"
+      },
+      {
+        "points": 10,
+        "skill": "火耐性【小】",
+        "skillId": "skill-1d77453226b1c97b3961"
+      },
+      {
+        "points": 15,
+        "skill": "火耐性【大】",
+        "skillId": "skill-bf432cde62af16e0b037"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-d74ec8a2362f8812bb4d",
+    "name": "我慢",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "虎視眈々",
+        "skillId": "skill-cd5e94b1445eb910e7b6"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-084c4997c3ae7a8017c4",
+    "name": "会心強化",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "超会心",
+        "skillId": "skill-7fbcf91eb8db3393a311"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-21c3daf01708589bdbaf",
+    "name": "回避距離",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "回避距離UP",
+        "skillId": "skill-f868e6f29851c374e4d3"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-49a92c8e16f986859f46",
+    "name": "回避術",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "軽業師",
+        "skillId": "skill-931468ee0e68350cb2bd"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ],
+    "compound": {
+      "skill": "軽業師",
+      "subskills": [
+        "体術+1",
+        "回避性能+1"
+      ],
+      "unsupported": true,
+      "sourceIds": [
+        "athena-run-data-compound-skills-txt"
+      ]
+    },
+    "unsupported": true
+  },
+  {
+    "id": "tree-53a5e649865d0ed8df41",
+    "name": "回避性能",
+    "activations": [
+      {
+        "points": -10,
+        "skill": "回避性能DOWN",
+        "skillId": "skill-9947a2ffb42fa7e3780b"
+      },
+      {
+        "points": 10,
+        "skill": "回避性能+1",
+        "skillId": "skill-ec7db2b540710501c050"
+      },
+      {
+        "points": 15,
+        "skill": "回避性能+2",
+        "skillId": "skill-e8f2093c20286f64bbdf"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-6d332f10e17bf2cc60ab",
+    "name": "回復速度",
+    "activations": [
+      {
+        "points": -15,
+        "skill": "回復速度-2",
+        "skillId": "skill-7b8fbd48e807721ae5e4"
+      },
+      {
+        "points": -10,
+        "skill": "回復速度-1",
+        "skillId": "skill-0512dc24843ae35cf5ce"
+      },
+      {
+        "points": 10,
+        "skill": "回復速度+1",
+        "skillId": "skill-06d08423279c05eea3ca"
+      },
+      {
+        "points": 15,
+        "skill": "回復速度+2",
+        "skillId": "skill-07ed110d8bda79be77be"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-db5cee4e946eda07ff9f",
+    "name": "回復量",
+    "activations": [
+      {
+        "points": -10,
+        "skill": "体力回復量DOWN",
+        "skillId": "skill-6db01dfa8ba16400592b"
+      },
+      {
+        "points": 10,
+        "skill": "体力回復量UP",
+        "skillId": "skill-527a1938e839b16a282d"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-44441c0d546a49803c5a",
+    "name": "鎧裂",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "鎧裂の魂",
+        "skillId": "skill-d4bdeeba2b638682d793"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ],
+    "compound": {
+      "skill": "鎧裂の魂",
+      "subskills": [
+        "ガード性能+2",
+        "納刀術"
+      ],
+      "unsupported": true,
+      "sourceIds": [
+        "athena-run-data-compound-skills-txt"
+      ]
+    },
+    "unsupported": true
+  },
+  {
+    "id": "tree-108399434811d6a149d9",
+    "name": "拡散弾追加",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "拡散弾LV1追加",
+        "skillId": "skill-23ce479996d1c2ab5ecc"
+      },
+      {
+        "points": 15,
+        "skill": "拡散弾全LV追加",
+        "skillId": "skill-c0fa0e7864c8ab185d26"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-3e711e5bc874e1d0d8fd",
+    "name": "寒冷適応",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "北風の狩人",
+        "skillId": "skill-5015d3e27a0901704767"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ],
+    "compound": {
+      "skill": "北風の狩人",
+      "subskills": [
+        "寒さ無効"
+      ],
+      "unsupported": true,
+      "sourceIds": [
+        "athena-run-data-compound-skills-txt"
+      ]
+    },
+    "unsupported": true
+  },
+  {
+    "id": "tree-831b6caf7420b5e03f26",
+    "name": "観察眼",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "捕獲の見極め",
+        "skillId": "skill-dde28235a77b45718962"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-49a5ebf5f23dba9d50b5",
+    "name": "貫通弾強化",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "貫通弾・貫通矢UP",
+        "skillId": "skill-80bbb1e1327e3b711cf5"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-4e7e521d029089e58b02",
+    "name": "貫通弾追加",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "貫通弾LV1追加",
+        "skillId": "skill-a97148de785761d1a07e"
+      },
+      {
+        "points": 15,
+        "skill": "貫通弾全LV追加",
+        "skillId": "skill-f097fd5e7f3d53cba64f"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-3226eff31b411bf190be",
+    "name": "岩穿",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "岩穿の魂",
+        "skillId": "skill-e9cf45cfba2a7d06d454"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ],
+    "compound": {
+      "skill": "岩穿の魂",
+      "subskills": [
+        "火事場力+2",
+        "拾い食い"
+      ],
+      "unsupported": true,
+      "sourceIds": [
+        "athena-run-data-compound-skills-txt"
+      ]
+    },
+    "unsupported": true
+  },
+  {
+    "id": "tree-615e625ad5683d72d160",
+    "name": "頑強",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "鉄壁",
+        "skillId": "skill-0f48e77663826cd0772f"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ],
+    "compound": {
+      "skill": "鉄壁",
+      "subskills": [
+        "防御力UP【中】",
+        "鉄面皮"
+      ],
+      "unsupported": true,
+      "sourceIds": [
+        "athena-run-data-compound-skills-txt"
+      ]
+    },
+    "unsupported": true
+  },
+  {
+    "id": "tree-595a9db15926c650f940",
+    "name": "気まぐれ",
+    "activations": [
+      {
+        "points": -15,
+        "skill": "悪魔の気まぐれ",
+        "skillId": "skill-b45a419aeec3a68bab1a"
+      },
+      {
+        "points": -10,
+        "skill": "悪霊の気まぐれ",
+        "skillId": "skill-9c32674d7066cdfd31ce"
+      },
+      {
+        "points": 10,
+        "skill": "精霊の気まぐれ",
+        "skillId": "skill-e11d2cbd5f9cb9b81bdc"
+      },
+      {
+        "points": 15,
+        "skill": "神の気まぐれ",
+        "skillId": "skill-9c18445c7ab7fdf7d81f"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-7034956b65424c2e80c2",
+    "name": "気絶",
+    "activations": [
+      {
+        "points": -10,
+        "skill": "気絶倍加",
+        "skillId": "skill-5dc52f239aca96dd2665"
+      },
+      {
+        "points": 10,
+        "skill": "気絶確率半減",
+        "skillId": "skill-67cc66528b3a8a909c8a"
+      },
+      {
+        "points": 15,
+        "skill": "気絶無効",
+        "skillId": "skill-37605ffe35cfc786555f"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-8e9135457fe9bc4ca3dc",
+    "name": "気配",
+    "activations": [
+      {
+        "points": -10,
+        "skill": "挑発",
+        "skillId": "skill-778921e802bb283eaecb"
+      },
+      {
+        "points": 10,
+        "skill": "隠密",
+        "skillId": "skill-0138a62b5ca420008fdc"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-324dbe20d5f99d928314",
+    "name": "気力回復",
+    "activations": [
+      {
+        "points": -10,
+        "skill": "スタミナ回復遅延",
+        "skillId": "skill-1754a06318ca9f4ebef4"
+      },
+      {
+        "points": 10,
+        "skill": "スタミナ急速回復",
+        "skillId": "skill-38642e513bb39b52cc51"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-c7a4ad2f7fea8005ef57",
+    "name": "祈願",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "祝福",
+        "skillId": "skill-3ff0c9b25f0538cd0f5c"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ],
+    "compound": {
+      "skill": "祝福",
+      "subskills": [
+        "体力回復量UP",
+        "精霊の加護"
+      ],
+      "unsupported": true,
+      "sourceIds": [
+        "athena-run-data-compound-skills-txt"
+      ]
+    },
+    "unsupported": true
+  },
+  {
+    "id": "tree-de37d0f3e3b304d7fe00",
+    "name": "逆境",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "不屈",
+        "skillId": "skill-29edfbbcaf4c31933732"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-e4996d22e668bcd1a70b",
+    "name": "逆上",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "逆恨み",
+        "skillId": "skill-4df0e2ae7bb6eb5ff233"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-0051efba2d3e1d578872",
+    "name": "窮地",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "死中に活",
+        "skillId": "skill-bfd3b69490555478eb69"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-264d74b4823d81441bf7",
+    "name": "居合",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "居合術【力】",
+        "skillId": "skill-481eac7d3ca7942fbfdf"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ],
+    "compound": {
+      "skill": "居合術【力】",
+      "subskills": [
+        "抜刀術【力】",
+        "納刀術"
+      ],
+      "unsupported": true,
+      "sourceIds": [
+        "athena-run-data-compound-skills-txt"
+      ]
+    },
+    "unsupported": true
+  },
+  {
+    "id": "tree-f7df7de47bd133c038dd",
+    "name": "強撃瓶追加",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "強撃ビンLV1追加",
+        "skillId": "skill-2101d59fe93867f4f531"
+      },
+      {
+        "points": 15,
+        "skill": "強撃ビン全LV追加",
+        "skillId": "skill-6d433bd5cb4be456773d"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-076ea684c378cd9991aa",
+    "name": "強欲",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "増収",
+        "skillId": "skill-c24384a503c660211b1c"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ],
+    "compound": {
+      "skill": "増収",
+      "subskills": [
+        "強運",
+        "捕獲達人"
+      ],
+      "unsupported": true,
+      "sourceIds": [
+        "athena-run-data-compound-skills-txt"
+      ]
+    },
+    "unsupported": true
+  },
+  {
+    "id": "tree-fdce6d17ce0c644b310d",
+    "name": "狂撃耐性",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "無我の境地",
+        "skillId": "skill-e39e75e6f2e2650a2271"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-018c69d106db65e9c5d2",
+    "name": "金雷公",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "金雷公の魂",
+        "skillId": "skill-e16203e6a68b5d250fd4"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ],
+    "compound": {
+      "skill": "金雷公の魂",
+      "subskills": [
+        "力の解放+2",
+        "体術+2"
+      ],
+      "unsupported": true,
+      "sourceIds": [
+        "athena-run-data-compound-skills-txt"
+      ]
+    },
+    "unsupported": true
+  },
+  {
+    "id": "tree-3cb028db0ca359b3a4a9",
+    "name": "銀嶺",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "銀嶺の魂",
+        "skillId": "skill-268a08458446b36391fb"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ],
+    "compound": {
+      "skill": "銀嶺の魂",
+      "subskills": [
+        "ランナー",
+        "鈍器使い",
+        "通常弾・連射矢UP"
+      ],
+      "unsupported": true,
+      "sourceIds": [
+        "athena-run-data-compound-skills-txt"
+      ]
+    },
+    "unsupported": true
+  },
+  {
+    "id": "tree-278caadc6e3fa77c482e",
+    "name": "潔癖",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "舞闘家",
+        "skillId": "skill-06adb6340c7895de6ba7"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ],
+    "compound": {
+      "skill": "舞闘家",
+      "subskills": [
+        "フルチャージ",
+        "回避距離UP"
+      ],
+      "unsupported": true,
+      "sourceIds": [
+        "athena-run-data-compound-skills-txt"
+      ]
+    },
+    "unsupported": true
+  },
+  {
+    "id": "tree-56424b726d3777d4f2b4",
+    "name": "剣術",
+    "activations": [
+      {
+        "points": -10,
+        "skill": "未熟",
+        "skillId": "skill-b25e93eb23724c5feded"
+      },
+      {
+        "points": 10,
+        "skill": "心眼",
+        "skillId": "skill-61f3c0deb8bb9eaca88a"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-ebf246c17bf4cd7dccb0",
+    "name": "研ぎ師",
+    "activations": [
+      {
+        "points": -10,
+        "skill": "砥石使用低速化",
+        "skillId": "skill-bfbb71e36baf8b21866c"
+      },
+      {
+        "points": 10,
+        "skill": "砥石使用高速化",
+        "skillId": "skill-dd7a16db9e140debe5e1"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-0c9d6064768eb063be7d",
+    "name": "研磨術",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "剛刃研磨",
+        "skillId": "skill-2f72b87c5daed9a2c511"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-608a9e3acb2c89fb4f8e",
+    "name": "減気攻撃",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "スタミナ奪取",
+        "skillId": "skill-a38902bb45a6d25f89a7"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-753ebf1e5afd9eba1501",
+    "name": "減気瓶追加",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "減気ビン追加",
+        "skillId": "skill-ea1a32723eb2c67dbd59"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-d544a186e04e809b7ca7",
+    "name": "護石王",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "お守り収集",
+        "skillId": "skill-99e842ac1377a5bd8c49"
+      },
+      {
+        "points": 15,
+        "skill": "お守りハンター",
+        "skillId": "skill-4145b3f44de4b8dcfd22"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-8bb40d064e9d424084cb",
+    "name": "護石強化",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "護石系統倍加",
+        "skillId": "skill-5ee9a73cbc8b32787208"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-1a9b192d9792942ff05e",
+    "name": "護石収集",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "お守りマニア",
+        "skillId": "skill-3fd1bdef75d4e987cc8e"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ],
+    "compound": {
+      "skill": "お守りマニア",
+      "subskills": [
+        "お守りハンター",
+        "採取+1"
+      ],
+      "unsupported": true,
+      "sourceIds": [
+        "athena-run-data-compound-skills-txt"
+      ]
+    },
+    "unsupported": true
+  },
+  {
+    "id": "tree-815194b12dda677c0712",
+    "name": "効果持続",
+    "activations": [
+      {
+        "points": -10,
+        "skill": "アイテム使用弱化",
+        "skillId": "skill-4fb1647316637bdf060a"
+      },
+      {
+        "points": 10,
+        "skill": "アイテム使用強化",
+        "skillId": "skill-aaa9e8cfd3e6d456e978"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-6b704d25652b0a556540",
+    "name": "広域",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "広域化+1",
+        "skillId": "skill-12d8f02741f34ac0af72"
+      },
+      {
+        "points": 15,
+        "skill": "広域化+2",
+        "skillId": "skill-5ece8f06ab020dd82f57"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-c62991e857bf6db8df7b",
+    "name": "攻撃",
+    "activations": [
+      {
+        "points": -20,
+        "skill": "攻撃力DOWN【大】",
+        "skillId": "skill-0d797bdd02b1ca601191"
+      },
+      {
+        "points": -15,
+        "skill": "攻撃力DOWN【中】",
+        "skillId": "skill-75bb12048b18ceaab729"
+      },
+      {
+        "points": -10,
+        "skill": "攻撃力DOWN【小】",
+        "skillId": "skill-7508a8297051a6654b7b"
+      },
+      {
+        "points": 10,
+        "skill": "攻撃力UP【小】",
+        "skillId": "skill-d3a3a3f041e7686016fc"
+      },
+      {
+        "points": 15,
+        "skill": "攻撃力UP【中】",
+        "skillId": "skill-0daf4253ed25470f712e"
+      },
+      {
+        "points": 20,
+        "skill": "攻撃力UP【大】",
+        "skillId": "skill-12a384ef145deae23958"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-e936d25175a7fe1001d4",
+    "name": "紅兜",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "紅兜の魂",
+        "skillId": "skill-2ca47f63faf0661b20eb"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ],
+    "compound": {
+      "skill": "紅兜の魂",
+      "subskills": [
+        "逆恨み",
+        "集中"
+      ],
+      "unsupported": true,
+      "sourceIds": [
+        "athena-run-data-compound-skills-txt"
+      ]
+    },
+    "unsupported": true
+  },
+  {
+    "id": "tree-af54775615e85a579626",
+    "name": "荒鉤爪",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "荒鉤爪の魂",
+        "skillId": "skill-3b84094f33466ab1393c"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ],
+    "compound": {
+      "skill": "荒鉤爪の魂",
+      "subskills": [
+        "早食い+2",
+        "高級耳栓"
+      ],
+      "unsupported": true,
+      "sourceIds": [
+        "athena-run-data-compound-skills-txt"
+      ]
+    },
+    "unsupported": true
+  },
+  {
+    "id": "tree-c8626ecf3a66bd264261",
+    "name": "高速設置",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "罠師",
+        "skillId": "skill-090c50154afaad590fc8"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-eed891a74961d5567f18",
+    "name": "剛撃",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "無慈悲",
+        "skillId": "skill-38c3f2e511ec8eea7275"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ],
+    "compound": {
+      "skill": "無慈悲",
+      "subskills": [
+        "見切り+2",
+        "弱点特効"
+      ],
+      "unsupported": true,
+      "sourceIds": [
+        "athena-run-data-compound-skills-txt"
+      ]
+    },
+    "unsupported": true
+  },
+  {
+    "id": "tree-51621f6038a6962563e9",
+    "name": "剛腕",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "痛打",
+        "skillId": "skill-5ef4416ab42ee70ae38a"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ],
+    "compound": {
+      "skill": "痛打",
+      "subskills": [
+        "スタミナ奪取",
+        "KO術"
+      ],
+      "unsupported": true,
+      "sourceIds": [
+        "athena-run-data-compound-skills-txt"
+      ]
+    },
+    "unsupported": true
+  },
+  {
+    "id": "tree-d98844131218c0bb3aa9",
+    "name": "号令",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "オトモへの号令",
+        "skillId": "skill-e56d6fc6758999834367"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-d985dc1d2e98493d4caa",
+    "name": "黒炎王",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "黒炎王の魂",
+        "skillId": "skill-cd437ad56b0dc495cff6"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ],
+    "compound": {
+      "skill": "黒炎王の魂",
+      "subskills": [
+        "風圧【大】無効",
+        "攻撃力UP【大】"
+      ],
+      "unsupported": true,
+      "sourceIds": [
+        "athena-run-data-compound-skills-txt"
+      ]
+    },
+    "unsupported": true
+  },
+  {
+    "id": "tree-f42efdb38f3aa9dfb949",
+    "name": "根性",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "根性",
+        "skillId": "skill-dea8cc78e7a1f611ddd2"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-79860b0110cff7f39d60",
+    "name": "採取",
+    "activations": [
+      {
+        "points": -10,
+        "skill": "採取-1",
+        "skillId": "skill-7384a87e4585e03761b0"
+      },
+      {
+        "points": 10,
+        "skill": "採取+1",
+        "skillId": "skill-a9b7bb4319601b4ece55"
+      },
+      {
+        "points": 15,
+        "skill": "採取+2",
+        "skillId": "skill-e28209d655da3ede1f05"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-1b5432611e0661d01e15",
+    "name": "采配",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "オトモへの采配",
+        "skillId": "skill-93f12f00d9b5e1221daa"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-1d9cbfdcd619db113eed",
+    "name": "細菌学",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "細菌研究家",
+        "skillId": "skill-ad6a6ebc90c465da7b49"
+      },
+      {
+        "points": 15,
+        "skill": "バイオドクター",
+        "skillId": "skill-dbffb31b10113698039c"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-186baee9952cbebd88d3",
+    "name": "散弾強化",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "散弾・拡散矢UP",
+        "skillId": "skill-9dad3408e105b179751e"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-864103d46981f083a2ff",
+    "name": "散弾追加",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "散弾LV1追加",
+        "skillId": "skill-e1183bf2e9292cc347e3"
+      },
+      {
+        "points": 15,
+        "skill": "散弾全LV追加",
+        "skillId": "skill-86e51a206cfd020804ed"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-05ec019e5461dfc1579b",
+    "name": "斬れ味",
+    "activations": [
+      {
+        "points": -10,
+        "skill": "なまくら",
+        "skillId": "skill-55891419e75d64e00843"
+      },
+      {
+        "points": 10,
+        "skill": "業物",
+        "skillId": "skill-ebfc41878118521137ae"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-0f74f88ed1a84f53dcea",
+    "name": "斬術",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "心剣一体",
+        "skillId": "skill-7e451c1dd9f056edbc29"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ],
+    "compound": {
+      "skill": "心剣一体",
+      "subskills": [
+        "心眼",
+        "業物"
+      ],
+      "unsupported": true,
+      "sourceIds": [
+        "athena-run-data-compound-skills-txt"
+      ]
+    },
+    "unsupported": true
+  },
+  {
+    "id": "tree-10f178936b65ab4f7752",
+    "name": "紫毒姫",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "紫毒姫の魂",
+        "skillId": "skill-4e9894edf541fed83cb0"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ],
+    "compound": {
+      "skill": "紫毒姫の魂",
+      "subskills": [
+        "状態異常攻撃+2",
+        "広域化+2"
+      ],
+      "unsupported": true,
+      "sourceIds": [
+        "athena-run-data-compound-skills-txt"
+      ]
+    },
+    "unsupported": true
+  },
+  {
+    "id": "tree-9844debaf0675af36a2d",
+    "name": "射手",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "剛弾",
+        "skillId": "skill-5dcc0febb6d7fa4161a3"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ],
+    "compound": {
+      "skill": "剛弾",
+      "subskills": [
+        "通常弾・連射矢UP",
+        "貫通弾・貫通矢UP",
+        "散弾・拡散矢UP"
+      ],
+      "unsupported": true,
+      "sourceIds": [
+        "athena-run-data-compound-skills-txt"
+      ]
+    },
+    "unsupported": true
+  },
+  {
+    "id": "tree-be918bc7ae6f5bfed018",
+    "name": "射法",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "弾導強化",
+        "skillId": "skill-f46503abac1db8e78662"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-8c39864fadaa7c80beee",
+    "name": "狩人",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "ハンター生活",
+        "skillId": "skill-97d515c0c729120b621c"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-8763080401053ffff4ed",
+    "name": "重撃",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "破壊王",
+        "skillId": "skill-f07d6275688b08ea33d7"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-50b2ee20ff0cdfe46f68",
+    "name": "重撃弾強化",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "重撃弾・重射矢UP",
+        "skillId": "skill-cf1694a3d9abafa9031e"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-8a3259ddf7807c122f31",
+    "name": "盾持",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "盾使い",
+        "skillId": "skill-36a52296a2b6a217500a"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ],
+    "compound": {
+      "skill": "盾使い",
+      "subskills": [
+        "ガード強化",
+        "スタミナ急速回復"
+      ],
+      "unsupported": true,
+      "sourceIds": [
+        "athena-run-data-compound-skills-txt"
+      ]
+    },
+    "unsupported": true
+  },
+  {
+    "id": "tree-c26c752a9d54f31f4289",
+    "name": "匠",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "斬れ味レベル+1",
+        "skillId": "skill-77fd751706f56d5ac2c0"
+      },
+      {
+        "points": 15,
+        "skill": "斬れ味レベル+2",
+        "skillId": "skill-852a040af1abc39090e9"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-e1395928cb8d4add512f",
+    "name": "乗り",
+    "activations": [
+      {
+        "points": -10,
+        "skill": "乗り下手",
+        "skillId": "skill-81bb405e31270d59254b"
+      },
+      {
+        "points": 10,
+        "skill": "乗り名人",
+        "skillId": "skill-1f32c83eb0bfe6fc93d2"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-cff5c37a91fa1956ca3e",
+    "name": "状態耐性",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "護法",
+        "skillId": "skill-1dd211e64abbf587cb12"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ],
+    "compound": {
+      "skill": "護法",
+      "subskills": [
+        "毒耐性",
+        "麻痺無効",
+        "睡眠無効",
+        "気絶無効"
+      ],
+      "unsupported": true,
+      "sourceIds": [
+        "athena-run-data-compound-skills-txt"
+      ]
+    },
+    "unsupported": true
+  },
+  {
+    "id": "tree-3df1dcfe0f62c188efb0",
+    "name": "職工",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "トラップマスター",
+        "skillId": "skill-a8c29de5d83b37aa0f85"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ],
+    "compound": {
+      "skill": "トラップマスター",
+      "subskills": [
+        "ボマー",
+        "罠師"
+      ],
+      "unsupported": true,
+      "sourceIds": [
+        "athena-run-data-compound-skills-txt"
+      ]
+    },
+    "unsupported": true
+  },
+  {
+    "id": "tree-7a26a46565140ea4ceed",
+    "name": "食いしん坊",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "まんぷく",
+        "skillId": "skill-b3b4e33be2488950964f"
+      },
+      {
+        "points": 15,
+        "skill": "拾い食い",
+        "skillId": "skill-9cac5d5386c7727cd002"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-0061e563a0140850c56a",
+    "name": "食事",
+    "activations": [
+      {
+        "points": -10,
+        "skill": "スローライフ",
+        "skillId": "skill-3237d781b127b4160e0c"
+      },
+      {
+        "points": 10,
+        "skill": "早食い+1",
+        "skillId": "skill-7b0028e0ad221b749c4b"
+      },
+      {
+        "points": 15,
+        "skill": "早食い+2",
+        "skillId": "skill-586b977f07b1d43a0059"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-117a11f581c7f9f8db58",
+    "name": "食欲",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "グルメ",
+        "skillId": "skill-d8989251eb5bcb5bb82d"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ],
+    "compound": {
+      "skill": "グルメ",
+      "subskills": [
+        "早食い+2",
+        "お肉大好き",
+        "キノコ大好き"
+      ],
+      "unsupported": true,
+      "sourceIds": [
+        "athena-run-data-compound-skills-txt"
+      ]
+    },
+    "unsupported": true
+  },
+  {
+    "id": "tree-b5b3f3c45198477cffc7",
+    "name": "真・鎧裂",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "真・鎧裂の魂",
+        "skillId": "skill-420858858633d245cb72"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ],
+    "compound": {
+      "skill": "真・鎧裂の魂",
+      "subskills": [
+        "ガード性能+2",
+        "納刀術",
+        "刃鱗磨き"
+      ],
+      "unsupported": true,
+      "sourceIds": [
+        "athena-run-data-compound-skills-txt"
+      ]
+    },
+    "unsupported": true
+  },
+  {
+    "id": "tree-a275eb89f7a42fbca030",
+    "name": "真・岩穿",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "真・岩穿の魂",
+        "skillId": "skill-24d254955a258a267daf"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ],
+    "compound": {
+      "skill": "真・岩穿の魂",
+      "subskills": [
+        "火事場力+2",
+        "拾い食い",
+        "砲術王"
+      ],
+      "unsupported": true,
+      "sourceIds": [
+        "athena-run-data-compound-skills-txt"
+      ]
+    },
+    "unsupported": true
+  },
+  {
+    "id": "tree-95bfdd073e9c459ed17d",
+    "name": "真・金雷公",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "真・金雷公の魂",
+        "skillId": "skill-e02971a74a8dd13a45fa"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ],
+    "compound": {
+      "skill": "真・金雷公の魂",
+      "subskills": [
+        "力の解放+2",
+        "体術+2",
+        "集中"
+      ],
+      "unsupported": true,
+      "sourceIds": [
+        "athena-run-data-compound-skills-txt"
+      ]
+    },
+    "unsupported": true
+  },
+  {
+    "id": "tree-10df16063bd3630ae27a",
+    "name": "真・銀嶺",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "真・銀嶺の魂",
+        "skillId": "skill-fe117a2b9c0a873562b7"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ],
+    "compound": {
+      "skill": "真・銀嶺の魂",
+      "subskills": [
+        "ランナー",
+        "鈍器使い",
+        "通常弾・連射矢UP",
+        "攻撃力UP【中】"
+      ],
+      "unsupported": true,
+      "sourceIds": [
+        "athena-run-data-compound-skills-txt"
+      ]
+    },
+    "unsupported": true
+  },
+  {
+    "id": "tree-efbb6c80c79c836a5554",
+    "name": "真・紅兜",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "真・紅兜の魂",
+        "skillId": "skill-caf55fa6b465cc17cd5e"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ],
+    "compound": {
+      "skill": "真・紅兜の魂",
+      "subskills": [
+        "逆恨み",
+        "集中",
+        "ランナー"
+      ],
+      "unsupported": true,
+      "sourceIds": [
+        "athena-run-data-compound-skills-txt"
+      ]
+    },
+    "unsupported": true
+  },
+  {
+    "id": "tree-8b5c084bd130efde8493",
+    "name": "真・荒鉤爪",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "真・荒鉤爪の魂",
+        "skillId": "skill-6f726cd065ed31fe03aa"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ],
+    "compound": {
+      "skill": "真・荒鉤爪の魂",
+      "subskills": [
+        "早食い+2",
+        "高級耳栓",
+        "ＳＰ時間延長"
+      ],
+      "unsupported": true,
+      "sourceIds": [
+        "athena-run-data-compound-skills-txt"
+      ]
+    },
+    "unsupported": true
+  },
+  {
+    "id": "tree-74001b384c6f4f8076f7",
+    "name": "真・黒炎王",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "真・黒炎王の魂",
+        "skillId": "skill-abaf14279f01b13b9717"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ],
+    "compound": {
+      "skill": "真・黒炎王の魂",
+      "subskills": [
+        "風圧【大】無効",
+        "攻撃力UP【大】",
+        "火事場力+1"
+      ],
+      "unsupported": true,
+      "sourceIds": [
+        "athena-run-data-compound-skills-txt"
+      ]
+    },
+    "unsupported": true
+  },
+  {
+    "id": "tree-c6fa07541003475a2d38",
+    "name": "真・紫毒姫",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "真・紫毒姫の魂",
+        "skillId": "skill-f70f79f8676266d50305"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ],
+    "compound": {
+      "skill": "真・紫毒姫の魂",
+      "subskills": [
+        "状態異常攻撃+2",
+        "広域化+2",
+        "薬草超強化"
+      ],
+      "unsupported": true,
+      "sourceIds": [
+        "athena-run-data-compound-skills-txt"
+      ]
+    },
+    "unsupported": true
+  },
+  {
+    "id": "tree-e6d98dfd1295a9d2c428",
+    "name": "真・青電主",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "真・青電主の魂",
+        "skillId": "skill-e12d502665cdb09105e5"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ],
+    "compound": {
+      "skill": "真・青電主の魂",
+      "subskills": [
+        "超会心",
+        "連発数+1",
+        "斬れ味レベル+1",
+        "虎視眈々"
+      ],
+      "unsupported": true,
+      "sourceIds": [
+        "athena-run-data-compound-skills-txt"
+      ]
+    },
+    "unsupported": true
+  },
+  {
+    "id": "tree-66c1841b5fde805e6be9",
+    "name": "真・隻眼",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "真・隻眼の魂",
+        "skillId": "skill-3686da5efecd98559943"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ],
+    "compound": {
+      "skill": "真・隻眼の魂",
+      "subskills": [
+        "気絶無効",
+        "挑戦者+2",
+        "不屈"
+      ],
+      "unsupported": true,
+      "sourceIds": [
+        "athena-run-data-compound-skills-txt"
+      ]
+    },
+    "unsupported": true
+  },
+  {
+    "id": "tree-ce2ecf163a0d1ba65bba",
+    "name": "真・大雪主",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "真・大雪主の魂",
+        "skillId": "skill-dc93255dc3296d6f87ea"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ],
+    "compound": {
+      "skill": "真・大雪主の魂",
+      "subskills": [
+        "回避距離UP",
+        "乗り名人",
+        "スタミナ急速回復"
+      ],
+      "unsupported": true,
+      "sourceIds": [
+        "athena-run-data-compound-skills-txt"
+      ]
+    },
+    "unsupported": true
+  },
+  {
+    "id": "tree-b3ade26d206a9f38e94c",
+    "name": "真・天眼",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "真・天眼の魂",
+        "skillId": "skill-5b5252f6f318fd26abb5"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ],
+    "compound": {
+      "skill": "真・天眼の魂",
+      "subskills": [
+        "見切り+3",
+        "挑戦者+2"
+      ],
+      "unsupported": true,
+      "sourceIds": [
+        "athena-run-data-compound-skills-txt"
+      ]
+    },
+    "unsupported": true
+  },
+  {
+    "id": "tree-f4cb5654472e5b768c32",
+    "name": "真・白疾風",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "真・白疾風の魂",
+        "skillId": "skill-f0b2515c643ae754d298"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ],
+    "compound": {
+      "skill": "真・白疾風の魂",
+      "subskills": [
+        "回避性能+2",
+        "見切り+3",
+        "隠密"
+      ],
+      "unsupported": true,
+      "sourceIds": [
+        "athena-run-data-compound-skills-txt"
+      ]
+    },
+    "unsupported": true
+  },
+  {
+    "id": "tree-883555b21222a7195c20",
+    "name": "真・宝纏",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "真・宝纏の魂",
+        "skillId": "skill-c54845af10387726f33e"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ],
+    "compound": {
+      "skill": "真・宝纏の魂",
+      "subskills": [
+        "お守りハンター",
+        "英雄の護り",
+        "腹減り無効"
+      ],
+      "unsupported": true,
+      "sourceIds": [
+        "athena-run-data-compound-skills-txt"
+      ]
+    },
+    "unsupported": true
+  },
+  {
+    "id": "tree-709d38e25f0d2751ff75",
+    "name": "真・矛砕",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "真・矛砕の魂",
+        "skillId": "skill-b9c1fbcb158e9b8ccca0"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ],
+    "compound": {
+      "skill": "真・矛砕の魂",
+      "subskills": [
+        "業物",
+        "反動軽減+2",
+        "精霊の加護",
+        "体術+1"
+      ],
+      "unsupported": true,
+      "sourceIds": [
+        "athena-run-data-compound-skills-txt"
+      ]
+    },
+    "unsupported": true
+  },
+  {
+    "id": "tree-3424572041eedc9c8fe7",
+    "name": "真・朧隠",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "真・朧隠の魂",
+        "skillId": "skill-01ec42c16c711603c7c5"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ],
+    "compound": {
+      "skill": "真・朧隠の魂",
+      "subskills": [
+        "高級耳栓",
+        "装填速度+3",
+        "心剣一体",
+        "罠師"
+      ],
+      "unsupported": true,
+      "sourceIds": [
+        "athena-run-data-compound-skills-txt"
+      ]
+    },
+    "unsupported": true
+  },
+  {
+    "id": "tree-43ef71f8ac595197a7c3",
+    "name": "真・燼滅刃",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "真・燼滅刃の魂",
+        "skillId": "skill-eb9cbf0f071d13bb9ff7"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ],
+    "compound": {
+      "skill": "真・燼滅刃の魂",
+      "subskills": [
+        "斬れ味レベル+2",
+        "ボマー",
+        "弾導強化",
+        "砥石使用高速化"
+      ],
+      "unsupported": true,
+      "sourceIds": [
+        "athena-run-data-compound-skills-txt"
+      ]
+    },
+    "unsupported": true
+  },
+  {
+    "id": "tree-daea4ff9c4a068a11b51",
+    "name": "真・鏖魔",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "真・鏖魔の魂",
+        "skillId": "skill-6a652a47441982f6f9b6"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ],
+    "compound": {
+      "skill": "真・鏖魔の魂",
+      "subskills": [
+        "攻撃力UP【大】",
+        "回避性能+2",
+        "明鏡止水"
+      ],
+      "unsupported": true,
+      "sourceIds": [
+        "athena-run-data-compound-skills-txt"
+      ]
+    },
+    "unsupported": true
+  },
+  {
+    "id": "tree-b5964bcf72cfb67b3ca2",
+    "name": "刃鱗",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "刃鱗磨き",
+        "skillId": "skill-874ffb70a56a5a4066ce"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-43c517a2d8459c5628c9",
+    "name": "水属性攻撃",
+    "activations": [
+      {
+        "points": -10,
+        "skill": "水属性攻撃弱化",
+        "skillId": "skill-802b7aa6f60e9f14cca2"
+      },
+      {
+        "points": 10,
+        "skill": "水属性攻撃強化+1",
+        "skillId": "skill-9b332c7b6690b2ed87b2"
+      },
+      {
+        "points": 15,
+        "skill": "水属性攻撃強化+2",
+        "skillId": "skill-58f240a71846aff19662"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-fea11227e4ac338fd471",
+    "name": "水耐性",
+    "activations": [
+      {
+        "points": -10,
+        "skill": "水耐性弱化",
+        "skillId": "skill-d2b749a208bde6a986ff"
+      },
+      {
+        "points": 10,
+        "skill": "水耐性【小】",
+        "skillId": "skill-999ce9890c3ceb0cd150"
+      },
+      {
+        "points": 15,
+        "skill": "水耐性【大】",
+        "skillId": "skill-773e0947410f0a00acaa"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-01324e540d059cfc7acd",
+    "name": "睡眠",
+    "activations": [
+      {
+        "points": -10,
+        "skill": "睡眠倍加",
+        "skillId": "skill-ec7c8a6183e511edc21c"
+      },
+      {
+        "points": 10,
+        "skill": "睡眠無効",
+        "skillId": "skill-e618b9ee00658992c2e1"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-40b838c7f0eac1d08f59",
+    "name": "睡眠瓶追加",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "睡眠ビン追加",
+        "skillId": "skill-129984d2e76b2648d565"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-494ff866d40e1dcc5526",
+    "name": "精密射撃",
+    "activations": [
+      {
+        "points": -15,
+        "skill": "ブレ抑制-2",
+        "skillId": "skill-b77033c275ef5069f671"
+      },
+      {
+        "points": -10,
+        "skill": "ブレ抑制-1",
+        "skillId": "skill-a1118514698100af2684"
+      },
+      {
+        "points": 10,
+        "skill": "ブレ抑制+1",
+        "skillId": "skill-8dcbac8d783e1c9ebc47"
+      },
+      {
+        "points": 15,
+        "skill": "ブレ抑制+2",
+        "skillId": "skill-ce31993d88d7dde827e5"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-2ad8a1806b448eb53c5f",
+    "name": "青電主",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "青電主の魂",
+        "skillId": "skill-97326e9ea7a80d542026"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ],
+    "compound": {
+      "skill": "青電主の魂",
+      "subskills": [
+        "超会心",
+        "連発数+1",
+        "斬れ味レベル+1"
+      ],
+      "unsupported": true,
+      "sourceIds": [
+        "athena-run-data-compound-skills-txt"
+      ]
+    },
+    "unsupported": true
+  },
+  {
+    "id": "tree-39d88e8cc5331632b09a",
+    "name": "隻眼",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "隻眼の魂",
+        "skillId": "skill-de0885057241da95db5a"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ],
+    "compound": {
+      "skill": "隻眼の魂",
+      "subskills": [
+        "気絶無効",
+        "挑戦者+2"
+      ],
+      "unsupported": true,
+      "sourceIds": [
+        "athena-run-data-compound-skills-txt"
+      ]
+    },
+    "unsupported": true
+  },
+  {
+    "id": "tree-a878a4893f2552f8ff65",
+    "name": "接撃瓶追加",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "接撃ビン追加",
+        "skillId": "skill-b9177736d85db33c66b0"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-908748fac436335e924c",
+    "name": "節食",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "満足感",
+        "skillId": "skill-e1e5ecad2888424181ba"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-f2e3aa480be34ffd1f21",
+    "name": "千里眼",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "探知",
+        "skillId": "skill-8c1f40096a63e8e317bd"
+      },
+      {
+        "points": 15,
+        "skill": "自動マーキング",
+        "skillId": "skill-d1c0588cb2a4fc125d70"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-07248723a38135ac5313",
+    "name": "装填数",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "装填数UP",
+        "skillId": "skill-cf632b53c15a48f53676"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-d24c0a4602562ab340be",
+    "name": "装填速度",
+    "activations": [
+      {
+        "points": -20,
+        "skill": "装填速度-3",
+        "skillId": "skill-325fa3a4ff2edd0868cc"
+      },
+      {
+        "points": -15,
+        "skill": "装填速度-2",
+        "skillId": "skill-b1c913d2a5c402f62b8d"
+      },
+      {
+        "points": -10,
+        "skill": "装填速度-1",
+        "skillId": "skill-d170129aa493fa693e9e"
+      },
+      {
+        "points": 10,
+        "skill": "装填速度+1",
+        "skillId": "skill-c00ad820cb41b8b4ba26"
+      },
+      {
+        "points": 15,
+        "skill": "装填速度+2",
+        "skillId": "skill-2d6eece45c34bf57fa6b"
+      },
+      {
+        "points": 20,
+        "skill": "装填速度+3",
+        "skillId": "skill-468db15433cec2bff493"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-405c5b97812b8b281c91",
+    "name": "走行継続",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "キープラン",
+        "skillId": "skill-4eeb3a69257681198155"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-29c10ea587db88016bf9",
+    "name": "増幅",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "属物強化",
+        "skillId": "skill-d2f826bd784b6c5ee086"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ],
+    "compound": {
+      "skill": "属物強化",
+      "subskills": [
+        "属性攻撃強化",
+        "アイテム使用強化"
+      ],
+      "unsupported": true,
+      "sourceIds": [
+        "athena-run-data-compound-skills-txt"
+      ]
+    },
+    "unsupported": true
+  },
+  {
+    "id": "tree-862eb5a36d5eb4a3e9d6",
+    "name": "速射",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "連発数+1",
+        "skillId": "skill-f90454b3308acb96ec57"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-754cd7bd6d690e5fe196",
+    "name": "属強瓶追加",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "属強ビンLV1追加",
+        "skillId": "skill-42c5b0b78e8742cb7a37"
+      },
+      {
+        "points": 15,
+        "skill": "属強ビン全LV追加",
+        "skillId": "skill-822dc9bdf3d50e387911"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-5d6c83f0adc9cb825ed5",
+    "name": "属性会心",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "会心撃【属性】",
+        "skillId": "skill-2c643bb076468b6aa35c"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-b90de75f8d758bcb8ccc",
+    "name": "属性攻撃",
+    "activations": [
+      {
+        "points": -10,
+        "skill": "属性攻撃弱化",
+        "skillId": "skill-1dbbc18b067832dd2430"
+      },
+      {
+        "points": 10,
+        "skill": "属性攻撃強化",
+        "skillId": "skill-d44e305022e9e600741b"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-0535eaa0f98c89fee815",
+    "name": "属性耐性",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "属性やられ無効",
+        "skillId": "skill-1dac4abaa4588c2f919c"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-c52a87622d8be49d3508",
+    "name": "体術",
+    "activations": [
+      {
+        "points": -15,
+        "skill": "体術-2",
+        "skillId": "skill-c15f86903ebccabef6fc"
+      },
+      {
+        "points": -10,
+        "skill": "体術-1",
+        "skillId": "skill-d621e61ad6a7ebd9ddc7"
+      },
+      {
+        "points": 10,
+        "skill": "体術+1",
+        "skillId": "skill-68801d0a4f64b45387b0"
+      },
+      {
+        "points": 15,
+        "skill": "体術+2",
+        "skillId": "skill-c3826fc96d35bc50a666"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-d6d2aa99fd698da376bf",
+    "name": "体力",
+    "activations": [
+      {
+        "points": -15,
+        "skill": "体力-30",
+        "skillId": "skill-362ac018198039feea75"
+      },
+      {
+        "points": -10,
+        "skill": "体力-10",
+        "skillId": "skill-66345b74271d8b55a26e"
+      },
+      {
+        "points": 10,
+        "skill": "体力+20",
+        "skillId": "skill-97b4e0551fdee7d0cb2a"
+      },
+      {
+        "points": 15,
+        "skill": "体力+50",
+        "skillId": "skill-d1f44851b8d55301c9e8"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-d6df2dd7a14409736c9a",
+    "name": "対炎龍",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "鋼殻の護り",
+        "skillId": "skill-95dfdc262422b57bbda3"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ],
+    "compound": {
+      "skill": "鋼殻の護り",
+      "subskills": [
+        "南風の狩人",
+        "火耐性【大】",
+        "細菌研究家"
+      ],
+      "unsupported": true,
+      "sourceIds": [
+        "athena-run-data-compound-skills-txt"
+      ]
+    },
+    "unsupported": true
+  },
+  {
+    "id": "tree-dcc45435b90e65769a27",
+    "name": "対霞龍",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "炎鱗の護り",
+        "skillId": "skill-3db8c18f9ff5199e8a66"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ],
+    "compound": {
+      "skill": "炎鱗の護り",
+      "subskills": [
+        "毒耐性",
+        "盗み無効",
+        "自動マーキング"
+      ],
+      "unsupported": true,
+      "sourceIds": [
+        "athena-run-data-compound-skills-txt"
+      ]
+    },
+    "unsupported": true
+  },
+  {
+    "id": "tree-6e8cc1bd9a0f842e7157",
+    "name": "対鋼龍",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "霞皮の護り",
+        "skillId": "skill-5e5f491e9218c3990b6a"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ],
+    "compound": {
+      "skill": "霞皮の護り",
+      "subskills": [
+        "北風の狩人",
+        "風圧【大】無効",
+        "だるま無効"
+      ],
+      "unsupported": true,
+      "sourceIds": [
+        "athena-run-data-compound-skills-txt"
+      ]
+    },
+    "unsupported": true
+  },
+  {
+    "id": "tree-d6b574d035fc2d35d2ad",
+    "name": "対防御DOWN",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "鉄面皮",
+        "skillId": "skill-5bdac79a1b5d73643ae7"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-a2973384308b1d091de1",
+    "name": "耐寒",
+    "activations": [
+      {
+        "points": -10,
+        "skill": "寒さ倍加",
+        "skillId": "skill-369b04a54ce00238e750"
+      },
+      {
+        "points": 10,
+        "skill": "寒さ無効",
+        "skillId": "skill-edbc34fe783d02105036"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-cd3e04cd10a87a3b5856",
+    "name": "耐暑",
+    "activations": [
+      {
+        "points": -10,
+        "skill": "暑さ倍加",
+        "skillId": "skill-d17b8c6180272f137837"
+      },
+      {
+        "points": 10,
+        "skill": "暑さ無効",
+        "skillId": "skill-ed6ec7fe218ac3fd3640"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-d22baa8bdfb0b7ea7b62",
+    "name": "耐震",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "耐震",
+        "skillId": "skill-a2947ba6c32b262d5693"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-7c4c7559874ff86cd5b4",
+    "name": "大雪主",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "大雪主の魂",
+        "skillId": "skill-656f85d7096a689a4b3a"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ],
+    "compound": {
+      "skill": "大雪主の魂",
+      "subskills": [
+        "回避距離UP",
+        "スタミナ急速回復"
+      ],
+      "unsupported": true,
+      "sourceIds": [
+        "athena-run-data-compound-skills-txt"
+      ]
+    },
+    "unsupported": true
+  },
+  {
+    "id": "tree-e9c309de27355f099542",
+    "name": "茸食",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "キノコ大好き",
+        "skillId": "skill-0c3d9771d750dddbd23c"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-20b9ad031a1f9ed73a1c",
+    "name": "達人",
+    "activations": [
+      {
+        "points": -20,
+        "skill": "見切り-3",
+        "skillId": "skill-f37e835bb458c8523be4"
+      },
+      {
+        "points": -15,
+        "skill": "見切り-2",
+        "skillId": "skill-0c00fa8aa02645b89067"
+      },
+      {
+        "points": -10,
+        "skill": "見切り-1",
+        "skillId": "skill-66eef073bbce003ecc5a"
+      },
+      {
+        "points": 10,
+        "skill": "見切り+1",
+        "skillId": "skill-b44d77aa803a74d05c85"
+      },
+      {
+        "points": 15,
+        "skill": "見切り+2",
+        "skillId": "skill-72091693f9b2aa9512f0"
+      },
+      {
+        "points": 20,
+        "skill": "見切り+3",
+        "skillId": "skill-7442edb2d900c49366bf"
+      }
+    ],
+    "aliases": [
+      "見切り3",
+      "見切り2",
+      "見切り1"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-373a5a9a2ab03a4e5670",
+    "name": "弾薬節約",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "弾薬節約",
+        "skillId": "skill-7a874aef54c3b96e14cd"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-f997610ab2291afb73a0",
+    "name": "聴覚保護",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "耳栓",
+        "skillId": "skill-e3e72f145256258b3fb9"
+      },
+      {
+        "points": 15,
+        "skill": "高級耳栓",
+        "skillId": "skill-c7a7d723e8e427ad0d73"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-c1027b92328ef963f90a",
+    "name": "調合数",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "最大数生産",
+        "skillId": "skill-e97a5636205819bf3732"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-6a5e8d141927d8be4a24",
+    "name": "調合成功率",
+    "activations": [
+      {
+        "points": -15,
+        "skill": "調合成功率-20%",
+        "skillId": "skill-f55b151234d4fd3fe240"
+      },
+      {
+        "points": -10,
+        "skill": "調合成功率-10%",
+        "skillId": "skill-af945f7e5c3cce8e8748"
+      },
+      {
+        "points": 10,
+        "skill": "調合成功率+20%",
+        "skillId": "skill-0094ffeed9ad9db20589"
+      },
+      {
+        "points": 15,
+        "skill": "調合成功率+45%",
+        "skillId": "skill-d44f9ea32807ec5c6c8a"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-e9fdccc4e6918adbed3a",
+    "name": "跳躍",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "飛燕",
+        "skillId": "skill-73ba20e27ccd39bd441f"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-471bf4ce3ea9d84b6ea1",
+    "name": "痛撃",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "弱点特効",
+        "skillId": "skill-5fc7d7d4f56589ec817f"
+      }
+    ],
+    "aliases": [
+      "弱特"
+    ],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-ae6ac9cb514d9a51aa0f",
+    "name": "通常弾強化",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "通常弾・連射矢UP",
+        "skillId": "skill-4766a8741b34321ed7f9"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-e7e2a2e548edadcc0082",
+    "name": "通常弾追加",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "通常弾全LV追加",
+        "skillId": "skill-3d878bc4c354cf76a84a"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-24158a29c0a80cf6acd4",
+    "name": "底力",
+    "activations": [
+      {
+        "points": -10,
+        "skill": "心配性",
+        "skillId": "skill-e9004ebef777a3e74732"
+      },
+      {
+        "points": 10,
+        "skill": "火事場力+1",
+        "skillId": "skill-a64adbb681bff0e3c14d"
+      },
+      {
+        "points": 15,
+        "skill": "火事場力+2",
+        "skillId": "skill-7c0493acfebb47d5ff41"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-f1bca2dcef6ab58db0e2",
+    "name": "笛",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "笛吹き名人",
+        "skillId": "skill-f5e52fd9a82302761d18"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-9a5282c7dd65db87c967",
+    "name": "天眼",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "天眼の魂",
+        "skillId": "skill-063ddc1e3f234a5ffdaa"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ],
+    "compound": {
+      "skill": "天眼の魂",
+      "subskills": [
+        "見切り+3",
+        "挑戦者+1"
+      ],
+      "unsupported": true,
+      "sourceIds": [
+        "athena-run-data-compound-skills-txt"
+      ]
+    },
+    "unsupported": true
+  },
+  {
+    "id": "tree-cf22bc1bd07ece3e7cf7",
+    "name": "怒",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "逆鱗",
+        "skillId": "skill-5c5990a7043f6faa6fa0"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ],
+    "compound": {
+      "skill": "逆鱗",
+      "subskills": [
+        "火事場力+2",
+        "根性"
+      ],
+      "unsupported": true,
+      "sourceIds": [
+        "athena-run-data-compound-skills-txt"
+      ]
+    },
+    "unsupported": true
+  },
+  {
+    "id": "tree-9b945a1699c340323d6a",
+    "name": "刀匠",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "真打",
+        "skillId": "skill-0b56a1fea84aa90a5c42"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ],
+    "compound": {
+      "skill": "真打",
+      "subskills": [
+        "斬れ味レベル+1",
+        "攻撃力UP【大】"
+      ],
+      "unsupported": true,
+      "sourceIds": [
+        "athena-run-data-compound-skills-txt"
+      ]
+    },
+    "unsupported": true
+  },
+  {
+    "id": "tree-7d9f18ef123984c5b06d",
+    "name": "盗み無効",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "盗み無効",
+        "skillId": "skill-9d30c842f21133ad8ed1"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-fed53b8cf0995d1d615e",
+    "name": "闘魂",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "挑戦者+1",
+        "skillId": "skill-cac1ad7247721794a508"
+      },
+      {
+        "points": 15,
+        "skill": "挑戦者+2",
+        "skillId": "skill-135a679464c76510d6ca"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-d3dbb07ef1baa7891219",
+    "name": "胴系統倍加",
+    "activations": [],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ],
+    "special": true,
+    "effects": [
+      "torso-up"
+    ]
+  },
+  {
+    "id": "tree-736a8793b6de118c8d91",
+    "name": "特殊会心",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "会心撃【特殊】",
+        "skillId": "skill-1cc258ad430f494734bb"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-64cfa3cc10910790b681",
+    "name": "特殊攻撃",
+    "activations": [
+      {
+        "points": -10,
+        "skill": "状態異常攻撃弱化",
+        "skillId": "skill-ac20f1e4c8bef26ae62f"
+      },
+      {
+        "points": 10,
+        "skill": "状態異常攻撃+1",
+        "skillId": "skill-546b820e31e392fe9a05"
+      },
+      {
+        "points": 15,
+        "skill": "状態異常攻撃+2",
+        "skillId": "skill-a3fbdd27a2b970bebf07"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-3a5608f2697821a0126a",
+    "name": "毒",
+    "activations": [
+      {
+        "points": -10,
+        "skill": "毒倍加",
+        "skillId": "skill-1cb40de1991448538172"
+      },
+      {
+        "points": 10,
+        "skill": "毒耐性",
+        "skillId": "skill-eccd942eed7f76fc229b"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-0f71b89691ebc20a85d2",
+    "name": "毒瓶追加",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "毒ビン追加",
+        "skillId": "skill-504b64c9adf793810e68"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-355c238b986305350323",
+    "name": "鈍器",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "鈍器使い",
+        "skillId": "skill-a25af45b4885d17fb526"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-53e826c98df6972edb88",
+    "name": "肉食",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "お肉大好き",
+        "skillId": "skill-93b5aa6bc72860f03a05"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-87327121ab2eea21dafa",
+    "name": "納刀",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "納刀術",
+        "skillId": "skill-fb6ce267bd836c5670a8"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-9e6c56c8d83d25c3dc61",
+    "name": "納刀研磨",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "挑戦者の納刀",
+        "skillId": "skill-b7a11c3ceca7b93afa94"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-d0c9714f4c1846c2ad6e",
+    "name": "剥ぎ取り",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "剥ぎ取り鉄人",
+        "skillId": "skill-63dd0c2bb2c30845a7c4"
+      },
+      {
+        "points": 15,
+        "skill": "剥ぎ取り名人",
+        "skillId": "skill-c764e84011f51f6957ff"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-187e5db93de26b475bab",
+    "name": "白疾風",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "白疾風の魂",
+        "skillId": "skill-e36ecc9b665b6d3526b4"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ],
+    "compound": {
+      "skill": "白疾風の魂",
+      "subskills": [
+        "回避性能+2",
+        "見切り+3"
+      ],
+      "unsupported": true,
+      "sourceIds": [
+        "athena-run-data-compound-skills-txt"
+      ]
+    },
+    "unsupported": true
+  },
+  {
+    "id": "tree-c10471bec63fc2b20ba3",
+    "name": "爆弾強化",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "ボマー",
+        "skillId": "skill-971abdaa145af31791b0"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-47dfa7da9481a3b0e9de",
+    "name": "爆破瓶追加",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "爆破ビン追加",
+        "skillId": "skill-177c982c4ac0814836ca"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-8d776997c93b76d4971f",
+    "name": "抜刀会心",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "抜刀術【技】",
+        "skillId": "skill-fa6f6a227e72623e5ea5"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-5ab363b9e6de3d92bbb1",
+    "name": "抜刀減気",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "抜刀術【力】",
+        "skillId": "skill-483f476b0f3f1d9d4c02"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-589e0c7c0fc5d8da8652",
+    "name": "反動",
+    "activations": [
+      {
+        "points": -20,
+        "skill": "反動軽減-3",
+        "skillId": "skill-72d0816a956ac8d2779b"
+      },
+      {
+        "points": -15,
+        "skill": "反動軽減-2",
+        "skillId": "skill-ff1e8ba1dfb3d0fef378"
+      },
+      {
+        "points": -10,
+        "skill": "反動軽減-1",
+        "skillId": "skill-fe441c450da93d7a0b40"
+      },
+      {
+        "points": 10,
+        "skill": "反動軽減+1",
+        "skillId": "skill-09c9940d107df424abb3"
+      },
+      {
+        "points": 15,
+        "skill": "反動軽減+2",
+        "skillId": "skill-772cafec33de5abb1d01"
+      },
+      {
+        "points": 20,
+        "skill": "反動軽減+3",
+        "skillId": "skill-adb60e865b5ebeac547e"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-9c10bf2c9674a7e1da30",
+    "name": "秘術",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "スキル加点+2",
+        "skillId": "skill-cff6c8169ed46357bc84"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-f518514ae133aac7ac54",
+    "name": "飛行酒場",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "飛行酒場の心",
+        "skillId": "skill-fa3b3c859f8cecd15111"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ],
+    "compound": {
+      "skill": "飛行酒場の心",
+      "subskills": [
+        "KO術",
+        "笛吹き名人"
+      ],
+      "unsupported": true,
+      "sourceIds": [
+        "athena-run-data-compound-skills-txt"
+      ]
+    },
+    "unsupported": true
+  },
+  {
+    "id": "tree-3d79260c4993482d237e",
+    "name": "氷属性攻撃",
+    "activations": [
+      {
+        "points": -10,
+        "skill": "氷属性攻撃弱化",
+        "skillId": "skill-d51ce600187c118a65fc"
+      },
+      {
+        "points": 10,
+        "skill": "氷属性攻撃強化+1",
+        "skillId": "skill-9ae1a578f1d67075daef"
+      },
+      {
+        "points": 15,
+        "skill": "氷属性攻撃強化+2",
+        "skillId": "skill-e2d91ed1dee620d624cd"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-f393db8dd889b5bed573",
+    "name": "氷耐性",
+    "activations": [
+      {
+        "points": -10,
+        "skill": "氷耐性弱化",
+        "skillId": "skill-c375a16f63200a51da6d"
+      },
+      {
+        "points": 10,
+        "skill": "氷耐性【小】",
+        "skillId": "skill-b7c4a46364d1094d4c05"
+      },
+      {
+        "points": 15,
+        "skill": "氷耐性【大】",
+        "skillId": "skill-db3d47cb5edeb3f6c95a"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-225581e60ce9622168cb",
+    "name": "風圧",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "風圧【小】無効",
+        "skillId": "skill-6c123765ac12decc2faa"
+      },
+      {
+        "points": 15,
+        "skill": "風圧【大】無効",
+        "skillId": "skill-24e6bf5142b9227cfa78"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-23182602317e2548d03c",
+    "name": "腹減り",
+    "activations": [
+      {
+        "points": -15,
+        "skill": "腹減り倍加【大】",
+        "skillId": "skill-4252c3547ee23f0344a9"
+      },
+      {
+        "points": -10,
+        "skill": "腹減り倍加【小】",
+        "skillId": "skill-0f6a22993d069e959c55"
+      },
+      {
+        "points": 10,
+        "skill": "腹減り半減",
+        "skillId": "skill-28172d4b104b30564986"
+      },
+      {
+        "points": 15,
+        "skill": "腹減り無効",
+        "skillId": "skill-9b336d28330e38667196"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-c39817c73ed35aa9275c",
+    "name": "変則射撃",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "特定射撃強化",
+        "skillId": "skill-28ba033d3290d992877b"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-a61fbfdfb4fd81a3fa12",
+    "name": "捕獲",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "捕獲達人",
+        "skillId": "skill-95d93ed8265a133f8396"
+      },
+      {
+        "points": 15,
+        "skill": "捕獲名人",
+        "skillId": "skill-045935284f1654d9734d"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-4657b14f07cf33a507d5",
+    "name": "宝纏",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "宝纏の魂",
+        "skillId": "skill-4ed0cab25cfad73801c7"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ],
+    "compound": {
+      "skill": "宝纏の魂",
+      "subskills": [
+        "お守りハンター",
+        "腹減り無効"
+      ],
+      "unsupported": true,
+      "sourceIds": [
+        "athena-run-data-compound-skills-txt"
+      ]
+    },
+    "unsupported": true
+  },
+  {
+    "id": "tree-80ed49d9841e5392051a",
+    "name": "泡沫",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "泡沫の舞",
+        "skillId": "skill-e6ed3ba47fc2d94a7745"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-fb6a3c8416bfba3a6837",
+    "name": "砲術",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "砲術師",
+        "skillId": "skill-cf9213caa814a9f7b04f"
+      },
+      {
+        "points": 15,
+        "skill": "砲術王",
+        "skillId": "skill-53b4817132dc240701b4"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-75ba7a572706c98eaf57",
+    "name": "防御",
+    "activations": [
+      {
+        "points": -20,
+        "skill": "防御力DOWN【大】",
+        "skillId": "skill-ef3abfad68b0ade3c452"
+      },
+      {
+        "points": -15,
+        "skill": "防御力DOWN【中】",
+        "skillId": "skill-270c96122e01b19f92d1"
+      },
+      {
+        "points": -10,
+        "skill": "防御力DOWN【小】",
+        "skillId": "skill-8c91a34225f4ece2b39a"
+      },
+      {
+        "points": 10,
+        "skill": "防御力UP【小】",
+        "skillId": "skill-c36ba07457df21210ed6"
+      },
+      {
+        "points": 15,
+        "skill": "防御力UP【中】",
+        "skillId": "skill-b73779635747b4111955"
+      },
+      {
+        "points": 20,
+        "skill": "防御力UP【大】",
+        "skillId": "skill-8602db49ad3323a50829"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-b818614931a58807fae1",
+    "name": "北辰納豆流",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "ネバネバ剣法",
+        "skillId": "skill-63b1826466e01be3d103"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ],
+    "compound": {
+      "skill": "ネバネバ剣法",
+      "subskills": [
+        "不屈",
+        "ランナー",
+        "スタミナ奪取"
+      ],
+      "unsupported": true,
+      "sourceIds": [
+        "athena-run-data-compound-skills-txt"
+      ]
+    },
+    "unsupported": true
+  },
+  {
+    "id": "tree-c4e01e2b12c7488e0aa5",
+    "name": "本気",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "力の解放+1",
+        "skillId": "skill-f5f9c46b6c6daf3dc0a9"
+      },
+      {
+        "points": 15,
+        "skill": "力の解放+2",
+        "skillId": "skill-2d70e6b2d56332f38d66"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-047d5cfcee7e634a7857",
+    "name": "麻痺",
+    "activations": [
+      {
+        "points": -10,
+        "skill": "麻痺倍加",
+        "skillId": "skill-b6da9c5080aa3892a96f"
+      },
+      {
+        "points": 10,
+        "skill": "麻痺無効",
+        "skillId": "skill-b855ff5665a121f60fa2"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-c88f7c9724d9d7ce971d",
+    "name": "麻痺瓶追加",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "麻痺ビン追加",
+        "skillId": "skill-dd2a34c50f4cbce73daf"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-3363caef873969a4df9c",
+    "name": "無傷",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "フルチャージ",
+        "skillId": "skill-5493da8fb5dcc166af4d"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-041f65670cd4aa9880a4",
+    "name": "無心",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "明鏡止水",
+        "skillId": "skill-44f5b84728bade17a439"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-702a96bcb8d214e0647c",
+    "name": "矛砕",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "矛砕の魂",
+        "skillId": "skill-283bafca99833be5e6b5"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ],
+    "compound": {
+      "skill": "矛砕の魂",
+      "subskills": [
+        "業物",
+        "反動軽減+2",
+        "精霊の加護"
+      ],
+      "unsupported": true,
+      "sourceIds": [
+        "athena-run-data-compound-skills-txt"
+      ]
+    },
+    "unsupported": true
+  },
+  {
+    "id": "tree-cf75833b9b23f1a0eb16",
+    "name": "野草知識",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "薬草強化",
+        "skillId": "skill-b290ea2e090e2362568a"
+      },
+      {
+        "points": 15,
+        "skill": "薬草超強化",
+        "skillId": "skill-2ff07cbc96097fe512cc"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-d03babbf4acb8f84c7bd",
+    "name": "雷属性攻撃",
+    "activations": [
+      {
+        "points": -10,
+        "skill": "雷属性攻撃弱化",
+        "skillId": "skill-dcc5b37da8cd1f847482"
+      },
+      {
+        "points": 10,
+        "skill": "雷属性攻撃強化+1",
+        "skillId": "skill-765f1ca55e960429c2e1"
+      },
+      {
+        "points": 15,
+        "skill": "雷属性攻撃強化+2",
+        "skillId": "skill-02fc0b7819ede86bf5ae"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-9d0d2291f679ff2463f1",
+    "name": "雷耐性",
+    "activations": [
+      {
+        "points": -10,
+        "skill": "雷耐性弱化",
+        "skillId": "skill-07c34930e169d4b8be9e"
+      },
+      {
+        "points": 10,
+        "skill": "雷耐性【小】",
+        "skillId": "skill-a8b8bd00478acb57ba0c"
+      },
+      {
+        "points": 15,
+        "skill": "雷耐性【大】",
+        "skillId": "skill-bf5bc46d7899952b6c37"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-9adb8070673e285f9928",
+    "name": "裏稼業",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "暗躍",
+        "skillId": "skill-757c7f5d907ccd5ff2ca"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ],
+    "compound": {
+      "skill": "暗躍",
+      "subskills": [
+        "装填数UP",
+        "調合成功率+20%",
+        "隠密"
+      ],
+      "unsupported": true,
+      "sourceIds": [
+        "athena-run-data-compound-skills-txt"
+      ]
+    },
+    "unsupported": true
+  },
+  {
+    "id": "tree-f78b934b110fe1d0980d",
+    "name": "裏会心",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "痛恨会心",
+        "skillId": "skill-d626a483c19a514fa57b"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-228c86e621b8441be1a6",
+    "name": "溜め短縮",
+    "activations": [
+      {
+        "points": -10,
+        "skill": "雑念",
+        "skillId": "skill-1f919c30e48e508c689c"
+      },
+      {
+        "points": 10,
+        "skill": "集中",
+        "skillId": "skill-26aaed64166f133c1997"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-705cf329d8c8807ab821",
+    "name": "龍気",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "龍気活性",
+        "skillId": "skill-c38da431155e6c6cfbe8"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-700a10a0148121cd26e7",
+    "name": "龍識船",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "龍識船の心",
+        "skillId": "skill-fed1d2580dc3617c62b5"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ],
+    "compound": {
+      "skill": "龍識船の心",
+      "subskills": [
+        "龍耐性【小】",
+        "細菌研究家"
+      ],
+      "unsupported": true,
+      "sourceIds": [
+        "athena-run-data-compound-skills-txt"
+      ]
+    },
+    "unsupported": true
+  },
+  {
+    "id": "tree-29cf0f14587d9e54eba3",
+    "name": "龍属性攻撃",
+    "activations": [
+      {
+        "points": -10,
+        "skill": "龍属性攻撃弱化",
+        "skillId": "skill-9bdc9baf622537ee9df1"
+      },
+      {
+        "points": 10,
+        "skill": "龍属性攻撃強化+1",
+        "skillId": "skill-68c9df8160cbf2780540"
+      },
+      {
+        "points": 15,
+        "skill": "龍属性攻撃強化+2",
+        "skillId": "skill-80f8878a27b0877524d2"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-9b599d6cf32f543dbe10",
+    "name": "龍耐性",
+    "activations": [
+      {
+        "points": -10,
+        "skill": "龍耐性弱化",
+        "skillId": "skill-e67e686ace6d8601b78d"
+      },
+      {
+        "points": 10,
+        "skill": "龍耐性【小】",
+        "skillId": "skill-ae52995eebd7cf7d9def"
+      },
+      {
+        "points": 15,
+        "skill": "龍耐性【大】",
+        "skillId": "skill-fe6239a29acedadcbaf6"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-ce4be24d8fd3826416a7",
+    "name": "裂傷",
+    "activations": [
+      {
+        "points": -10,
+        "skill": "裂傷倍加",
+        "skillId": "skill-594528954b9ca7c3489d"
+      },
+      {
+        "points": 10,
+        "skill": "裂傷無効",
+        "skillId": "skill-08c1fc6f442ba6152729"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-ff9c4da09f8c40b86577",
+    "name": "連撃",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "連撃の心得",
+        "skillId": "skill-681998ef2e4e4f9aafd8"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-5f8bec52e406c960dde0",
+    "name": "朧隠",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "朧隠の魂",
+        "skillId": "skill-a7d4419fe1ee859af81b"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ],
+    "compound": {
+      "skill": "朧隠の魂",
+      "subskills": [
+        "高級耳栓",
+        "装填速度+3",
+        "心剣一体"
+      ],
+      "unsupported": true,
+      "sourceIds": [
+        "athena-run-data-compound-skills-txt"
+      ]
+    },
+    "unsupported": true
+  },
+  {
+    "id": "tree-61f714caca13624a1735",
+    "name": "榴弾追加",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "徹甲榴弾LV1追加",
+        "skillId": "skill-812ee436618664a4c279"
+      },
+      {
+        "points": 15,
+        "skill": "徹甲榴弾全LV追加",
+        "skillId": "skill-83e7db4246fab84a0962"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp"
+    ]
+  },
+  {
+    "id": "tree-5e4160f325aa684990b3",
+    "name": "燼滅刃",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "燼滅刃の魂",
+        "skillId": "skill-d410cca33326fe44f6e4"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ],
+    "compound": {
+      "skill": "燼滅刃の魂",
+      "subskills": [
+        "斬れ味レベル+2",
+        "弾導強化",
+        "砥石使用高速化"
+      ],
+      "unsupported": true,
+      "sourceIds": [
+        "athena-run-data-compound-skills-txt"
+      ]
+    },
+    "unsupported": true
+  },
+  {
+    "id": "tree-53df9c7c06a82ef1ac5e",
+    "name": "鏖魔",
+    "activations": [
+      {
+        "points": 10,
+        "skill": "鏖魔の魂",
+        "skillId": "skill-eb3b31a80eee7379fe0d"
+      }
+    ],
+    "aliases": [],
+    "sourceIds": [
+      "athena-run-data-skills-txt",
+      "athena-skill-cpp",
+      "athena-run-data-compound-skills-txt"
+    ],
+    "compound": {
+      "skill": "鏖魔の魂",
+      "subskills": [
+        "攻撃力UP【大】",
+        "回避性能+2"
+      ],
+      "unsupported": true,
+      "sourceIds": [
+        "athena-run-data-compound-skills-txt"
+      ]
+    },
+    "unsupported": true
+  }
+]
