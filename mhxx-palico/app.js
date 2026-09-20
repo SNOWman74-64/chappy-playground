@@ -1,6 +1,7 @@
 import { API_BASE } from "./config.js";
 
 const MAX_IMAGE_BYTES = 15 * 1024 * 1024;
+const MAX_SOURCE_BYTES = 100 * 1024 * 1024;
 const MAX_IMAGE_EDGE = 4096;
 const REQUEST_TIMEOUT_MS = 20_000;
 const SECRET_STORAGE_KEY = "mhxx-palico-upload-secret";
@@ -417,23 +418,36 @@ function decodeImage(file) {
 
 async function prepareImage(file) {
   if (!IMAGE_TYPES.has(file.type)) throw new Error("unsupported-image");
-  if (file.size > MAX_IMAGE_BYTES) throw new Error("image-too-large");
+  if (file.size > MAX_SOURCE_BYTES) throw new Error("image-too-large");
   const image = await decodeImage(file);
   const longestEdge = Math.max(image.naturalWidth, image.naturalHeight);
   const scale = longestEdge > MAX_IMAGE_EDGE ? MAX_IMAGE_EDGE / longestEdge : 1;
-  const width = Math.max(1, Math.round(image.naturalWidth * scale));
-  const height = Math.max(1, Math.round(image.naturalHeight * scale));
+  let width = Math.max(1, Math.round(image.naturalWidth * scale));
+  let height = Math.max(1, Math.round(image.naturalHeight * scale));
   const canvas = document.createElement("canvas");
   canvas.width = width;
   canvas.height = height;
   const context = canvas.getContext("2d", { alpha: true });
   if (!context) throw new Error("canvas-unavailable");
   try {
-    context.drawImage(image, 0, 0, width, height);
-    const blob = await new Promise((resolve) => canvas.toBlob(resolve, "image/png"));
-    if (!blob) throw new Error("image-encode-failed");
-    if (blob.size > MAX_IMAGE_BYTES) throw new Error("processed-image-too-large");
-    return { blob, width, height };
+    // Prefer lossless PNG. Only oversized results use high-quality JPEG;
+    // preserve dimensions first, then reduce them gradually if still needed.
+    for (let attempt = 0; attempt < 8; attempt += 1) {
+      canvas.width = width;
+      canvas.height = height;
+      context.drawImage(image, 0, 0, width, height);
+      const png = await new Promise((resolve) => canvas.toBlob(resolve, "image/png"));
+      if (!png) throw new Error("image-encode-failed");
+      if (png.size <= MAX_IMAGE_BYTES) return { blob: png, width, height };
+      context.fillStyle = "#ffffff";
+      context.fillRect(0, 0, width, height);
+      context.drawImage(image, 0, 0, width, height);
+      const jpeg = await new Promise((resolve) => canvas.toBlob(resolve, "image/jpeg", 0.95));
+      if (jpeg && jpeg.size <= MAX_IMAGE_BYTES) return { blob: jpeg, width, height };
+      width = Math.max(1, Math.floor(width * 0.85));
+      height = Math.max(1, Math.floor(height * 0.85));
+    }
+    throw new Error("processed-image-too-large");
   } finally {
     image.onload = null;
     image.onerror = null;
@@ -576,8 +590,8 @@ async function chooseImages(files) {
         issues.push(`${file.name}: PNG、JPEG、WebPのみ対応`);
         continue;
       }
-      if (file.size > MAX_IMAGE_BYTES) {
-        issues.push(`${file.name}: 15MB以下にしてください`);
+      if (file.size > MAX_SOURCE_BYTES) {
+        issues.push(`${file.name}: 元画像は100MB以下にしてください`);
         continue;
       }
       let dimensions;
@@ -658,7 +672,8 @@ function closeDialog() {
 
 function uploadErrorMessage(error) {
   if (error?.message === "unsupported-image") return { message: "対応していない画像形式です。PNG、JPEG、WebPを選択してください。", uncertain: false };
-  if (error?.message === "image-too-large" || error?.message === "processed-image-too-large") return { message: "画像が大きすぎます。15MB以下の画像を選択してください。", uncertain: false };
+  if (error?.message === "image-too-large") return { message: "元画像が大きすぎます。100MB以下の画像を選択してください。", uncertain: false };
+  if (error?.message === "processed-image-too-large") return { message: "画像を送信できるサイズに調整できませんでした。必要な部分を切り取って再試行してください。", uncertain: false };
   if (error?.message === "invalid-image") return { message: "画像を読み込めませんでした。PNG、JPEG、WebPの画像を選択してください。", uncertain: false };
   if (error?.message === "canvas-unavailable" || error?.message === "image-encode-failed") return { message: "画像の準備に失敗しました。別の画像で試してください。", uncertain: false };
   if (error?.code === "TIMEOUT") return { message: "アップロードがタイムアウトしました。同じ内容で再試行できます。", uncertain: true };
@@ -681,7 +696,7 @@ async function uploadEntry(entry, secret) {
     entry.preparedHeight = prepared.height;
   }
   const payload = new FormData();
-  payload.append("image", entry.preparedBlob, "palico.png");
+  payload.append("image", entry.preparedBlob, entry.preparedBlob.type === "image/jpeg" ? "palico.jpg" : "palico.png");
   const snapshot = entry.metadataSnapshot || currentMetadata();
   if (snapshot.supportType) payload.append("supportType", snapshot.supportType);
   if (snapshot.memo) payload.append("memo", snapshot.memo);
