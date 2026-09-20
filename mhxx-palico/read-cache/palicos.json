@@ -1,13 +1,53 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-20T15:44:09.370Z",
+  "generatedAt": "2026-09-20T17:56:35.437Z",
   "isSnapshot": true,
   "refreshIntervalMinutes": 30,
   "refreshNote": "約30分間隔で更新。GitHub Actionsの遅延・停止時は古いコピーが残ります。generatedAtを確認してください。",
   "sourceUrl": "https://mhxx-palico-api.x-reader.workers.dev/api/palicos",
-  "total": 25,
+  "total": 29,
   "nextCursor": null,
   "palicos": [
+    {
+      "id": "MHXX-20260921-029",
+      "createdAt": "2026-09-20T16:48:17.174Z",
+      "updatedAt": "2026-09-20T16:48:17.174Z",
+      "imageKey": "palicos/20260921/MHXX-20260921-029-5a2657ac-f0ca-4479-bf8d-d78c6a538930.png",
+      "verdict": "unreviewed",
+      "detailUrl": "https://snowman74-64.github.io/chappy-playground/mhxx-palico/read/palicos/MHXX-20260921-029.json",
+      "liveDetailUrl": "https://mhxx-palico-api.x-reader.workers.dev/api/palicos/MHXX-20260921-029",
+      "imageUrl": "https://mhxx-palico-api.x-reader.workers.dev/api/palicos/MHXX-20260921-029/image"
+    },
+    {
+      "id": "MHXX-20260921-028",
+      "createdAt": "2026-09-20T16:48:00.958Z",
+      "updatedAt": "2026-09-20T16:48:00.958Z",
+      "imageKey": "palicos/20260921/MHXX-20260921-028-4a8f1663-6aab-4a21-b956-67ca3d424ad4.jpg",
+      "verdict": "unreviewed",
+      "detailUrl": "https://snowman74-64.github.io/chappy-playground/mhxx-palico/read/palicos/MHXX-20260921-028.json",
+      "liveDetailUrl": "https://mhxx-palico-api.x-reader.workers.dev/api/palicos/MHXX-20260921-028",
+      "imageUrl": "https://mhxx-palico-api.x-reader.workers.dev/api/palicos/MHXX-20260921-028/image"
+    },
+    {
+      "id": "MHXX-20260921-027",
+      "createdAt": "2026-09-20T16:42:54.365Z",
+      "updatedAt": "2026-09-20T16:42:54.365Z",
+      "imageKey": "palicos/20260921/MHXX-20260921-027-472118a4-639a-45b6-b195-7b23ced846cf.png",
+      "verdict": "unreviewed",
+      "detailUrl": "https://snowman74-64.github.io/chappy-playground/mhxx-palico/read/palicos/MHXX-20260921-027.json",
+      "liveDetailUrl": "https://mhxx-palico-api.x-reader.workers.dev/api/palicos/MHXX-20260921-027",
+      "imageUrl": "https://mhxx-palico-api.x-reader.workers.dev/api/palicos/MHXX-20260921-027/image"
+    },
+    {
+      "id": "MHXX-20260921-026",
+      "createdAt": "2026-09-20T16:42:39.788Z",
+      "updatedAt": "2026-09-20T16:42:39.788Z",
+      "imageKey": "palicos/20260921/MHXX-20260921-026-2d6ee18c-ec2c-4ce6-9a69-e4fefe61fabf.png",
+      "verdict": "unreviewed",
+      "detailUrl": "https://snowman74-64.github.io/chappy-playground/mhxx-palico/read/palicos/MHXX-20260921-026.json",
+      "liveDetailUrl": "https://mhxx-palico-api.x-reader.workers.dev/api/palicos/MHXX-20260921-026",
+      "imageUrl": "https://mhxx-palico-api.x-reader.workers.dev/api/palicos/MHXX-20260921-026/image"
+    },
     {
       "id": "MHXX-20260921-025",
       "createdAt": "2026-09-20T15:27:01.962Z",
