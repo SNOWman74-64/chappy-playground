@@ -3,9 +3,9 @@
   --ink: #e7f0f3;
   --ink-soft: #bacbd2;
   --ink-muted: #9dafb8;
-  --paper: #0b121b;
-  --panel: #141f2b;
-  --line: #2b3d4b;
+  --paper: #101317;
+  --panel: #191e24;
+  --line: #2a3038;
   --line-strong: #48606e;
   --accent: #65d6c5;
   --accent-dark: #95e9db;
@@ -14,10 +14,7 @@
   --amber-pale: #352b1d;
   --danger: #ffaaa4;
   --danger-pale: #382429;
-  --shadow: 0 16px 50px rgba(0, 0, 0, .24);
-  --radius: 18px;
   --font-sans: "Hiragino Kaku Gothic ProN", "Yu Gothic", YuGothic, Meiryo, sans-serif;
-  --font-display: "Hiragino Mincho ProN", "Yu Mincho", YuMincho, serif;
 }
 
 * {
@@ -90,7 +87,8 @@ a {
 }
 
 .site-header {
-  background: #0e1924;
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
   color: #f6fbf9;
 }
 
@@ -209,8 +207,8 @@ a {
 }
 
 .intro {
-  max-width: 760px;
-  padding: 1rem 0 2.7rem;
+  max-width: 860px;
+  padding: 0 0 2.5rem;
 }
 
 .eyebrow,
@@ -241,11 +239,10 @@ p {
 
 h1 {
   margin-bottom: 1.2rem;
-  font-family: var(--font-display);
-  font-size: clamp(2.55rem, 9vw, 5rem);
-  font-weight: 500;
-  letter-spacing: .02em;
-  line-height: 1.2;
+  font-size: clamp(1.8rem, 4.5vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -.035em;
+  line-height: 1.4;
 }
 
 h1 span {
@@ -262,11 +259,8 @@ h1 span {
   display: inline-flex;
   align-items: center;
   gap: .55rem;
-  margin-top: 1.2rem;
-  padding: .55rem .8rem;
-  color: var(--accent-dark);
-  background: var(--accent-pale);
-  border-radius: 999px;
+  margin-top: .4rem;
+  color: var(--ink-muted);
   font-size: .72rem;
 }
 
@@ -282,15 +276,13 @@ h1 span {
 }
 
 .panel {
-  background: var(--panel);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
+  border-top: 1px solid var(--line);
 }
 
 .search-panel,
 .charm-panel {
-  padding: 1.25rem;
+  padding: 1.75rem 0 0;
+  scroll-margin-top: 1.5rem;
 }
 
 .section-heading {
@@ -307,8 +299,8 @@ h1 span {
 
 h2 {
   margin-bottom: .35rem;
-  font-size: clamp(1.4rem, 4vw, 2rem);
-  letter-spacing: .03em;
+  font-size: clamp(1.3rem, 3vw, 1.65rem);
+  letter-spacing: -.02em;
   line-height: 1.25;
 }
 
@@ -321,10 +313,8 @@ h2 {
 .status-chip {
   display: inline-block;
   flex: 0 0 auto;
-  padding: .25rem .55rem;
+  padding: .3rem 0;
   color: var(--accent-dark);
-  background: var(--accent-pale);
-  border-radius: 999px;
   font-size: .67rem;
   font-weight: 700;
   line-height: 1.35;
@@ -383,9 +373,9 @@ input[type="number"] {
   min-height: 44px;
   padding: .65rem .75rem;
   color: var(--ink);
-  background: #0e1822;
+  background: var(--panel);
   border: 1px solid var(--line-strong);
-  border-radius: 9px;
+  border-radius: 6px;
   transition: border-color .15s ease, box-shadow .15s ease, background .15s ease;
 }
 
@@ -574,11 +564,8 @@ input[type="number"]:focus {
   display: flex;
   gap: .75rem;
   margin: 1.15rem 0 3rem;
-  padding: .9rem 1rem;
+  padding: .9rem 0;
   color: var(--ink-soft);
-  background: #13252d;
-  border: 1px solid var(--line);
-  border-radius: 12px;
 }
 
 .method-icon {
@@ -608,6 +595,8 @@ input[type="number"]:focus {
 .results-section {
   scroll-margin-top: 1.5rem;
   margin-bottom: 3.25rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--line);
 }
 
 .results-heading {
@@ -642,8 +631,7 @@ input[type="number"]:focus {
   padding: 2.8rem 1.25rem;
   color: var(--ink-muted);
   text-align: center;
-  border: 1px dashed var(--line-strong);
-  border-radius: 12px;
+  border-top: 1px solid var(--line);
 }
 
 .empty-mark {
@@ -667,15 +655,13 @@ input[type="number"]:focus {
 
 .results-list {
   display: grid;
-  gap: 1rem;
+  gap: 0;
 }
 
 .result-card {
-  overflow: hidden;
-  background: var(--panel);
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  box-shadow: 0 8px 28px rgba(25, 58, 62, .055);
+  min-width: 0;
+  padding-bottom: 1.5rem;
+  border-top: 1px solid var(--line);
 }
 
 .result-card-header {
@@ -683,9 +669,7 @@ input[type="number"]:focus {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: .9rem 1rem;
-  background: #192b36;
-  border-bottom: 1px solid var(--line);
+  padding: 1.25rem 0;
 }
 
 .result-card-header h3 {
@@ -706,7 +690,7 @@ input[type="number"]:focus {
 .result-card-body {
   display: grid;
   gap: 1rem;
-  padding: 1rem;
+  padding: 0;
 }
 
 .result-stats {
@@ -717,9 +701,8 @@ input[type="number"]:focus {
 }
 
 .stat {
-  padding: .6rem;
-  background: #0e1924;
-  border-radius: 8px;
+  padding: .3rem .75rem .3rem 0;
+  border-bottom: 1px solid var(--line);
 }
 
 .stat dt {
@@ -730,7 +713,7 @@ input[type="number"]:focus {
 .stat dd {
   margin: .15rem 0 0;
   color: var(--ink);
-  font-size: 1rem;
+  font-size: 1.35rem;
   font-weight: 800;
 }
 
@@ -760,9 +743,8 @@ input[type="number"]:focus {
   display: flex;
   justify-content: space-between;
   gap: .75rem;
-  padding: .42rem .55rem;
-  background: #172530;
-  border-bottom: 1px solid #2b3d4b;
+  padding: .5rem 0;
+  border-bottom: 1px solid var(--line);
   font-size: .74rem;
 }
 
@@ -806,11 +788,9 @@ input[type="number"]:focus {
   display: flex;
   gap: .65rem;
   margin: .2rem 0 1.3rem;
-  padding: .75rem .85rem;
+  padding: .15rem 0 .15rem .85rem;
   color: #e1c69c;
-  background: var(--amber-pale);
-  border: 1px solid #635137;
-  border-radius: 10px;
+  border-left: 2px solid #635137;
 }
 
 .local-notice > span {
@@ -829,10 +809,9 @@ input[type="number"]:focus {
 }
 
 .charm-form {
-  padding: 1rem;
-  background: #101a25;
-  border: 1px solid var(--line);
-  border-radius: 12px;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
 }
 
 .charm-form fieldset {
@@ -900,7 +879,7 @@ input[type="number"]:focus {
 
 .charms-list {
   display: grid;
-  gap: .6rem;
+  gap: 0;
 }
 
 .charm-item {
@@ -908,10 +887,8 @@ input[type="number"]:focus {
   align-items: center;
   justify-content: space-between;
   gap: .8rem;
-  padding: .75rem;
-  background: #1b2a37;
-  border: 1px solid var(--line);
-  border-radius: 10px;
+  padding: 1rem 0;
+  border-top: 1px solid var(--line);
 }
 
 .charm-item-actions {
@@ -959,7 +936,7 @@ input[type="number"]:focus {
 
 .site-footer {
   color: #b7c8c9;
-  background: #0e1924;
+  border-top: 1px solid var(--line);
 }
 
 .footer-inner {
@@ -979,7 +956,7 @@ input[type="number"]:focus {
 
   .search-panel,
   .charm-panel {
-    padding: 2rem;
+    padding: 2rem 0 0;
   }
 
   .control-grid-2 {
@@ -1002,16 +979,16 @@ input[type="number"]:focus {
 
 @media (min-width: 900px) {
   .page-shell {
-    padding-top: 4.8rem;
+    padding-top: 3rem;
   }
 
   .intro {
-    padding-bottom: 4rem;
+    padding-bottom: 2.5rem;
   }
 
   .search-panel,
   .charm-panel {
-    padding: 2.25rem 2.5rem;
+    padding: 2rem 0 0;
   }
 
   .result-card-body {
