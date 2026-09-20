@@ -1,0 +1,16 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "mhxx-palico-api",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-09-20",
+  "workers_dev": true,
+  "preview_urls": false,
+  "vars": {
+    "ALLOWED_ORIGINS": "https://snowman74-64.github.io,http://localhost:8080,http://127.0.0.1:8080"
+  },
+  "r2_buckets": [{ "binding": "IMAGES", "bucket_name": "mhxx-palico-images" }],
+  "d1_databases": [{
+    "binding": "DB", "database_name": "mhxx-palico", "database_id": "a8b2ae62-6782-4ab3-a2c3-03ae508460e0",
+    "migrations_dir": "migrations"
+  }]
+}

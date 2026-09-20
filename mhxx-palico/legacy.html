@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MHXX Palico Archive</title>
+<style>
+:root{color-scheme:dark;--bg:#0b0d10;--panel:#141820;--muted:#8f9bad;--line:#252c37;--text:#edf2f7;--good:#7ee2a8;--hold:#ffd479;--bad:#ff8d8d}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:linear-gradient(180deg,#0b0d10,#10141a);color:var(--text)}
+main{max-width:1080px;margin:auto;padding:28px 16px 56px}
+h1{font-size:clamp(28px,6vw,48px);margin:0 0 8px}.lead{color:var(--muted);margin:0 0 24px}
+.toolbar{display:grid;grid-template-columns:1fr auto;gap:10px;margin:18px 0 24px}.toolbar input,.toolbar select{width:100%;background:#10141a;border:1px solid var(--line);color:var(--text);padding:12px 14px;border-radius:12px}
+.summary{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 18px}.chip{border:1px solid var(--line);background:#11161d;padding:7px 10px;border-radius:999px;color:var(--muted);font-size:13px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.card{background:rgba(20,24,32,.94);border:1px solid var(--line);border-radius:18px;overflow:hidden}.photo{aspect-ratio:16/10;background:#0f1319;display:grid;place-items:center;color:var(--muted);overflow:hidden}.photo img{width:100%;height:100%;object-fit:cover}
+.body{padding:16px}.top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}.name{font-size:22px;font-weight:700}.meta{color:var(--muted);font-size:13px}.verdict{font-size:12px;font-weight:700;border-radius:999px;padding:6px 9px;border:1px solid var(--line)}.採用{color:var(--good)}.保留{color:var(--hold)}.見送り{color:var(--bad)}
+.patterns{display:flex;gap:8px;margin:14px 0;flex-wrap:wrap}.pattern{background:#0f1319;border:1px solid var(--line);padding:8px 10px;border-radius:10px;font-size:13px}.pattern b{font-size:15px}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:10px}.section{background:#10141a;border:1px solid var(--line);border-radius:12px;padding:11px}.section h3{font-size:12px;color:var(--muted);margin:0 0 8px}.item{display:flex;justify-content:space-between;gap:8px;padding:5px 0;border-top:1px solid #1c222c;font-size:13px}.item:first-of-type{border-top:0}.group{font-weight:800}.gA{color:#ffb86b}.gB{color:#78c8ff}.gC{color:#9be59b}.gQ{color:var(--muted)}
+.memo{margin-top:12px;color:#c8d0db;font-size:13px;line-height:1.55}.empty{border:1px dashed var(--line);padding:32px;border-radius:16px;color:var(--muted);text-align:center}
+footer{margin-top:28px;color:var(--muted);font-size:12px}
+@media(max-width:560px){.toolbar{grid-template-columns:1fr}.cols{grid-template-columns:1fr}}
+</style>
+</head>
+<body><main>
+<h1>MHXX Palico Archive</h1>
+<p class="lead">オトモ猫の写真・サポート行動・スキル・推定A/B/C配列を、Git経由で見返すための独立データ置き場。</p>
+<div class="summary" id="summary"></div>
+<div class="toolbar">
+<input id="q" placeholder="名前 / 傾向 / メモ / 技・スキルを検索">
+<select id="verdict"><option value="">判定すべて</option><option>採用</option><option>保留</option><option>見送り</option></select>
+</div>
+<div id="grid" class="grid"></div>
+<footer>データ: <code>./data/cats.json</code> / 写真: <code>./assets/</code></footer>
+</main>
+<script>
+const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[m]));
+let data={cats:[]};
+function items(xs=[]){return xs.map(x=>'<div class="item"><span>'+esc(x.name)+'</span><span class="group g'+(x.group==="?"?"Q":esc(x.group))+'">'+esc(x.group||"?")+'</span></div>').join("")}
+function card(c){
+ const photo=c.photo?'<img src="'+esc(c.photo)+'" alt="'+esc(c.name)+'">':'写真未登録';
+ return '<article class="card"><div class="photo">'+photo+'</div><div class="body"><div class="top"><div><div class="name">'+esc(c.name||"名前未設定")+'</div><div class="meta">Lv.'+esc(c.level??"?")+' ・ '+esc(c.supportType||"傾向未設定")+'</div></div><div class="verdict '+esc(c.verdict||"保留")+'">'+esc(c.verdict||"保留")+'</div></div><div class="patterns"><div class="pattern">サポ <b>'+esc(c.supportPattern||"?")+'</b></div><div class="pattern">スキル <b>'+esc(c.skillPattern||"?")+'</b></div></div><div class="cols"><section class="section"><h3>サポート行動</h3>'+items(c.supportMoves)+'</section><section class="section"><h3>オトモスキル</h3>'+items(c.skills)+'</section></div>'+(c.memo?'<div class="memo">'+esc(c.memo)+'</div>':"")+'</div></article>'
+}
+function render(){
+ const q=document.querySelector("#q").value.trim().toLowerCase(),v=document.querySelector("#verdict").value;
+ const cats=data.cats.filter(c=>{const hay=JSON.stringify(c).toLowerCase();return(!q||hay.includes(q))&&(!v||c.verdict===v)});
+ document.querySelector("#grid").innerHTML=cats.length?cats.map(card).join(""):'<div class="empty">まだ猫データがありません。写真を送ってくれれば、ここに登録していけます。</div>';
+ document.querySelector("#summary").innerHTML='<span class="chip">登録 '+data.cats.length+'匹</span><span class="chip">表示 '+cats.length+'匹</span><span class="chip">更新 '+esc(data.updatedAt||"-")+'</span>';
+}
+fetch("./data/cats.json",{cache:"no-store"}).then(r=>r.json()).then(j=>{data=j;render()}).catch(e=>{document.querySelector("#grid").innerHTML='<div class="empty">cats.json の読み込みに失敗しました。</div>'});
+document.querySelector("#q").addEventListener("input",render);document.querySelector("#verdict").addEventListener("change",render);
+</script>
+</body></html>
