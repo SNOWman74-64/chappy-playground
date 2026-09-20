@@ -1,0 +1,262 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-09-20T15:44:09.370Z",
+  "isSnapshot": true,
+  "refreshIntervalMinutes": 30,
+  "refreshNote": "約30分間隔で更新。GitHub Actionsの遅延・停止時は古いコピーが残ります。generatedAtを確認してください。",
+  "sourceUrl": "https://mhxx-palico-api.x-reader.workers.dev/api/palicos",
+  "total": 25,
+  "nextCursor": null,
+  "palicos": [
+    {
+      "id": "MHXX-20260921-025",
+      "createdAt": "2026-09-20T15:27:01.962Z",
+      "updatedAt": "2026-09-20T15:27:01.962Z",
+      "imageKey": "palicos/20260921/MHXX-20260921-025-22e31209-7253-4e6c-88de-a154c7abc12a.png",
+      "verdict": "unreviewed",
+      "detailUrl": "https://snowman74-64.github.io/chappy-playground/mhxx-palico/read/palicos/MHXX-20260921-025.json",
+      "liveDetailUrl": "https://mhxx-palico-api.x-reader.workers.dev/api/palicos/MHXX-20260921-025",
+      "imageUrl": "https://mhxx-palico-api.x-reader.workers.dev/api/palicos/MHXX-20260921-025/image"
+    },
+    {
+      "id": "MHXX-20260921-024",
+      "createdAt": "2026-09-20T15:26:45.546Z",
+      "updatedAt": "2026-09-20T15:26:45.546Z",
+      "imageKey": "palicos/20260921/MHXX-20260921-024-c0bdef64-2524-49fc-86a6-4eae4d161e8d.jpg",
+      "verdict": "unreviewed",
+      "detailUrl": "https://snowman74-64.github.io/chappy-playground/mhxx-palico/read/palicos/MHXX-20260921-024.json",
+      "liveDetailUrl": "https://mhxx-palico-api.x-reader.workers.dev/api/palicos/MHXX-20260921-024",
+      "imageUrl": "https://mhxx-palico-api.x-reader.workers.dev/api/palicos/MHXX-20260921-024/image"
+    },
+    {
+      "id": "MHXX-20260921-023",
+      "createdAt": "2026-09-20T15:26:39.897Z",
+      "updatedAt": "2026-09-20T15:26:39.897Z",
+      "imageKey": "palicos/20260921/MHXX-20260921-023-f9254382-8fb5-4d3d-959e-9894f239e22f.jpg",
+      "verdict": "unreviewed",
+      "detailUrl": "https://snowman74-64.github.io/chappy-playground/mhxx-palico/read/palicos/MHXX-20260921-023.json",
+      "liveDetailUrl": "https://mhxx-palico-api.x-reader.workers.dev/api/palicos/MHXX-20260921-023",
+      "imageUrl": "https://mhxx-palico-api.x-reader.workers.dev/api/palicos/MHXX-20260921-023/image"
+    },
+    {
+      "id": "MHXX-20260921-022",
+      "createdAt": "2026-09-20T15:26:34.472Z",
+      "updatedAt": "2026-09-20T15:26:34.472Z",
+      "imageKey": "palicos/20260921/MHXX-20260921-022-84033021-6906-445e-8547-6415a0240f60.jpg",
+      "verdict": "unreviewed",
+      "detailUrl": "https://snowman74-64.github.io/chappy-playground/mhxx-palico/read/palicos/MHXX-20260921-022.json",
+      "liveDetailUrl": "https://mhxx-palico-api.x-reader.workers.dev/api/palicos/MHXX-20260921-022",
+      "imageUrl": "https://mhxx-palico-api.x-reader.workers.dev/api/palicos/MHXX-20260921-022/image"
+    },
+    {
+      "id": "MHXX-20260921-021",
+      "createdAt": "2026-09-20T15:26:29.074Z",
+      "updatedAt": "2026-09-20T15:26:29.074Z",
+      "imageKey": "palicos/20260921/MHXX-20260921-021-d755c71e-027b-46d3-ab6a-1c1729b7e17b.jpg",
+      "verdict": "unreviewed",
+      "detailUrl": "https://snowman74-64.github.io/chappy-playground/mhxx-palico/read/palicos/MHXX-20260921-021.json",
+      "liveDetailUrl": "https://mhxx-palico-api.x-reader.workers.dev/api/palicos/MHXX-20260921-021",
+      "imageUrl": "https://mhxx-palico-api.x-reader.workers.dev/api/palicos/MHXX-20260921-021/image"
+    },
+    {
+      "id": "MHXX-20260921-020",
+      "createdAt": "2026-09-20T15:26:10.832Z",
+      "updatedAt": "2026-09-20T15:26:10.832Z",
+      "imageKey": "palicos/20260921/MHXX-20260921-020-c8a34cae-e50f-4b40-b212-abbf850773ea.jpg",
+      "verdict": "unreviewed",
+      "detailUrl": "https://snowman74-64.github.io/chappy-playground/mhxx-palico/read/palicos/MHXX-20260921-020.json",
+      "liveDetailUrl": "https://mhxx-palico-api.x-reader.workers.dev/api/palicos/MHXX-20260921-020",
+      "imageUrl": "https://mhxx-palico-api.x-reader.workers.dev/api/palicos/MHXX-20260921-020/image"
+    },
+    {
+      "id": "MHXX-20260921-019",
+      "createdAt": "2026-09-20T15:26:05.138Z",
+      "updatedAt": "2026-09-20T15:26:05.138Z",
+      "imageKey": "palicos/20260921/MHXX-20260921-019-371b9d36-90ea-44cc-a904-b605442d4e7f.jpg",
+      "verdict": "unreviewed",
+      "detailUrl": "https://snowman74-64.github.io/chappy-playground/mhxx-palico/read/palicos/MHXX-20260921-019.json",
+      "liveDetailUrl": "https://mhxx-palico-api.x-reader.workers.dev/api/palicos/MHXX-20260921-019",
+      "imageUrl": "https://mhxx-palico-api.x-reader.workers.dev/api/palicos/MHXX-20260921-019/image"
+    },
+    {
+      "id": "MHXX-20260921-018",
+      "createdAt": "2026-09-20T15:26:00.000Z",
+      "updatedAt": "2026-09-20T15:26:00.000Z",
+      "imageKey": "palicos/20260921/MHXX-20260921-018-aa9f3aaa-2988-4564-b7cb-474cd7291dac.jpg",
+      "verdict": "unreviewed",
+      "detailUrl": "https://snowman74-64.github.io/chappy-playground/mhxx-palico/read/palicos/MHXX-20260921-018.json",
+      "liveDetailUrl": "https://mhxx-palico-api.x-reader.workers.dev/api/palicos/MHXX-20260921-018",
+      "imageUrl": "https://mhxx-palico-api.x-reader.workers.dev/api/palicos/MHXX-20260921-018/image"
+    },
+    {
+      "id": "MHXX-20260921-017",
+      "createdAt": "2026-09-20T15:25:55.059Z",
+      "updatedAt": "2026-09-20T15:25:55.059Z",
+      "imageKey": "palicos/20260921/MHXX-20260921-017-2a53629a-64b8-46f9-845e-f7ddbe064cb9.jpg",
+      "verdict": "unreviewed",
+      "detailUrl": "https://snowman74-64.github.io/chappy-playground/mhxx-palico/read/palicos/MHXX-20260921-017.json",
+      "liveDetailUrl": "https://mhxx-palico-api.x-reader.workers.dev/api/palicos/MHXX-20260921-017",
+      "imageUrl": "https://mhxx-palico-api.x-reader.workers.dev/api/palicos/MHXX-20260921-017/image"
+    },
+    {
+      "id": "MHXX-20260921-016",
+      "createdAt": "2026-09-20T15:25:49.524Z",
+      "updatedAt": "2026-09-20T15:25:49.524Z",
+      "imageKey": "palicos/20260921/MHXX-20260921-016-e752c3c2-45b1-486a-a0a0-e5169c45cb75.jpg",
+      "verdict": "unreviewed",
+      "detailUrl": "https://snowman74-64.github.io/chappy-playground/mhxx-palico/read/palicos/MHXX-20260921-016.json",
+      "liveDetailUrl": "https://mhxx-palico-api.x-reader.workers.dev/api/palicos/MHXX-20260921-016",
+      "imageUrl": "https://mhxx-palico-api.x-reader.workers.dev/api/palicos/MHXX-20260921-016/image"
+    },
+    {
+      "id": "MHXX-20260921-015",
+      "createdAt": "2026-09-20T15:25:44.281Z",
+      "updatedAt": "2026-09-20T15:25:44.281Z",
+      "imageKey": "palicos/20260921/MHXX-20260921-015-f11a9ec3-f7ce-4334-b205-d3925240246a.jpg",
+      "verdict": "unreviewed",
+      "detailUrl": "https://snowman74-64.github.io/chappy-playground/mhxx-palico/read/palicos/MHXX-20260921-015.json",
+      "liveDetailUrl": "https://mhxx-palico-api.x-reader.workers.dev/api/palicos/MHXX-20260921-015",
+      "imageUrl": "https://mhxx-palico-api.x-reader.workers.dev/api/palicos/MHXX-20260921-015/image"
+    },
+    {
+      "id": "MHXX-20260921-014",
+      "createdAt": "2026-09-20T15:25:38.978Z",
+      "updatedAt": "2026-09-20T15:25:38.978Z",
+      "imageKey": "palicos/20260921/MHXX-20260921-014-72df8d42-fcec-4086-b17c-322a66aef666.jpg",
+      "verdict": "unreviewed",
+      "detailUrl": "https://snowman74-64.github.io/chappy-playground/mhxx-palico/read/palicos/MHXX-20260921-014.json",
+      "liveDetailUrl": "https://mhxx-palico-api.x-reader.workers.dev/api/palicos/MHXX-20260921-014",
+      "imageUrl": "https://mhxx-palico-api.x-reader.workers.dev/api/palicos/MHXX-20260921-014/image"
+    },
+    {
+      "id": "MHXX-20260921-013",
+      "createdAt": "2026-09-20T15:25:33.708Z",
+      "updatedAt": "2026-09-20T15:25:33.708Z",
+      "imageKey": "palicos/20260921/MHXX-20260921-013-b8e48b9e-a765-4643-b543-269251a543e0.jpg",
+      "verdict": "unreviewed",
+      "detailUrl": "https://snowman74-64.github.io/chappy-playground/mhxx-palico/read/palicos/MHXX-20260921-013.json",
+      "liveDetailUrl": "https://mhxx-palico-api.x-reader.workers.dev/api/palicos/MHXX-20260921-013",
+      "imageUrl": "https://mhxx-palico-api.x-reader.workers.dev/api/palicos/MHXX-20260921-013/image"
+    },
+    {
+      "id": "MHXX-20260921-012",
+      "createdAt": "2026-09-20T15:25:28.617Z",
+      "updatedAt": "2026-09-20T15:25:28.617Z",
+      "imageKey": "palicos/20260921/MHXX-20260921-012-86ebe37d-a573-4f24-847d-5dceb60c1dfa.jpg",
+      "verdict": "unreviewed",
+      "detailUrl": "https://snowman74-64.github.io/chappy-playground/mhxx-palico/read/palicos/MHXX-20260921-012.json",
+      "liveDetailUrl": "https://mhxx-palico-api.x-reader.workers.dev/api/palicos/MHXX-20260921-012",
+      "imageUrl": "https://mhxx-palico-api.x-reader.workers.dev/api/palicos/MHXX-20260921-012/image"
+    },
+    {
+      "id": "MHXX-20260921-011",
+      "createdAt": "2026-09-20T15:25:23.664Z",
+      "updatedAt": "2026-09-20T15:25:23.664Z",
+      "imageKey": "palicos/20260921/MHXX-20260921-011-fa430c29-81e2-4485-9425-c9ecbe605bed.jpg",
+      "verdict": "unreviewed",
+      "detailUrl": "https://snowman74-64.github.io/chappy-playground/mhxx-palico/read/palicos/MHXX-20260921-011.json",
+      "liveDetailUrl": "https://mhxx-palico-api.x-reader.workers.dev/api/palicos/MHXX-20260921-011",
+      "imageUrl": "https://mhxx-palico-api.x-reader.workers.dev/api/palicos/MHXX-20260921-011/image"
+    },
+    {
+      "id": "MHXX-20260921-010",
+      "createdAt": "2026-09-20T15:25:18.396Z",
+      "updatedAt": "2026-09-20T15:25:18.396Z",
+      "imageKey": "palicos/20260921/MHXX-20260921-010-38cb2f61-167b-45db-a41e-012e5e5015db.jpg",
+      "verdict": "unreviewed",
+      "detailUrl": "https://snowman74-64.github.io/chappy-playground/mhxx-palico/read/palicos/MHXX-20260921-010.json",
+      "liveDetailUrl": "https://mhxx-palico-api.x-reader.workers.dev/api/palicos/MHXX-20260921-010",
+      "imageUrl": "https://mhxx-palico-api.x-reader.workers.dev/api/palicos/MHXX-20260921-010/image"
+    },
+    {
+      "id": "MHXX-20260921-009",
+      "createdAt": "2026-09-20T15:25:12.755Z",
+      "updatedAt": "2026-09-20T15:25:12.755Z",
+      "imageKey": "palicos/20260921/MHXX-20260921-009-3a9f2a20-ce23-48cf-a082-e034e7188936.jpg",
+      "verdict": "unreviewed",
+      "detailUrl": "https://snowman74-64.github.io/chappy-playground/mhxx-palico/read/palicos/MHXX-20260921-009.json",
+      "liveDetailUrl": "https://mhxx-palico-api.x-reader.workers.dev/api/palicos/MHXX-20260921-009",
+      "imageUrl": "https://mhxx-palico-api.x-reader.workers.dev/api/palicos/MHXX-20260921-009/image"
+    },
+    {
+      "id": "MHXX-20260921-008",
+      "createdAt": "2026-09-20T15:25:07.385Z",
+      "updatedAt": "2026-09-20T15:25:07.385Z",
+      "imageKey": "palicos/20260921/MHXX-20260921-008-3c5bc89d-c319-468b-a56a-4d1ab7a0d7c7.jpg",
+      "verdict": "unreviewed",
+      "detailUrl": "https://snowman74-64.github.io/chappy-playground/mhxx-palico/read/palicos/MHXX-20260921-008.json",
+      "liveDetailUrl": "https://mhxx-palico-api.x-reader.workers.dev/api/palicos/MHXX-20260921-008",
+      "imageUrl": "https://mhxx-palico-api.x-reader.workers.dev/api/palicos/MHXX-20260921-008/image"
+    },
+    {
+      "id": "MHXX-20260921-007",
+      "createdAt": "2026-09-20T15:25:01.672Z",
+      "updatedAt": "2026-09-20T15:25:01.672Z",
+      "imageKey": "palicos/20260921/MHXX-20260921-007-81371322-33b3-4733-b503-9c9a46e893db.jpg",
+      "verdict": "unreviewed",
+      "detailUrl": "https://snowman74-64.github.io/chappy-playground/mhxx-palico/read/palicos/MHXX-20260921-007.json",
+      "liveDetailUrl": "https://mhxx-palico-api.x-reader.workers.dev/api/palicos/MHXX-20260921-007",
+      "imageUrl": "https://mhxx-palico-api.x-reader.workers.dev/api/palicos/MHXX-20260921-007/image"
+    },
+    {
+      "id": "MHXX-20260921-006",
+      "createdAt": "2026-09-20T15:24:56.459Z",
+      "updatedAt": "2026-09-20T15:24:56.459Z",
+      "imageKey": "palicos/20260921/MHXX-20260921-006-b4f9a9c8-3997-44e9-ac33-4d415d8cd588.jpg",
+      "verdict": "unreviewed",
+      "detailUrl": "https://snowman74-64.github.io/chappy-playground/mhxx-palico/read/palicos/MHXX-20260921-006.json",
+      "liveDetailUrl": "https://mhxx-palico-api.x-reader.workers.dev/api/palicos/MHXX-20260921-006",
+      "imageUrl": "https://mhxx-palico-api.x-reader.workers.dev/api/palicos/MHXX-20260921-006/image"
+    },
+    {
+      "id": "MHXX-20260921-005",
+      "createdAt": "2026-09-20T15:24:51.055Z",
+      "updatedAt": "2026-09-20T15:24:51.055Z",
+      "imageKey": "palicos/20260921/MHXX-20260921-005-282229eb-0965-4899-baea-0752267e5403.jpg",
+      "verdict": "unreviewed",
+      "detailUrl": "https://snowman74-64.github.io/chappy-playground/mhxx-palico/read/palicos/MHXX-20260921-005.json",
+      "liveDetailUrl": "https://mhxx-palico-api.x-reader.workers.dev/api/palicos/MHXX-20260921-005",
+      "imageUrl": "https://mhxx-palico-api.x-reader.workers.dev/api/palicos/MHXX-20260921-005/image"
+    },
+    {
+      "id": "MHXX-20260921-004",
+      "createdAt": "2026-09-20T15:24:45.631Z",
+      "updatedAt": "2026-09-20T15:24:45.631Z",
+      "imageKey": "palicos/20260921/MHXX-20260921-004-47ed6241-3e89-4f56-87a3-76815bc9e557.jpg",
+      "verdict": "unreviewed",
+      "detailUrl": "https://snowman74-64.github.io/chappy-playground/mhxx-palico/read/palicos/MHXX-20260921-004.json",
+      "liveDetailUrl": "https://mhxx-palico-api.x-reader.workers.dev/api/palicos/MHXX-20260921-004",
+      "imageUrl": "https://mhxx-palico-api.x-reader.workers.dev/api/palicos/MHXX-20260921-004/image"
+    },
+    {
+      "id": "MHXX-20260921-003",
+      "createdAt": "2026-09-20T15:24:40.542Z",
+      "updatedAt": "2026-09-20T15:24:40.542Z",
+      "imageKey": "palicos/20260921/MHXX-20260921-003-db3e5d3f-b74c-4a39-bd16-bb5fe4d8374d.jpg",
+      "verdict": "unreviewed",
+      "detailUrl": "https://snowman74-64.github.io/chappy-playground/mhxx-palico/read/palicos/MHXX-20260921-003.json",
+      "liveDetailUrl": "https://mhxx-palico-api.x-reader.workers.dev/api/palicos/MHXX-20260921-003",
+      "imageUrl": "https://mhxx-palico-api.x-reader.workers.dev/api/palicos/MHXX-20260921-003/image"
+    },
+    {
+      "id": "MHXX-20260921-002",
+      "createdAt": "2026-09-20T15:24:35.112Z",
+      "updatedAt": "2026-09-20T15:24:35.112Z",
+      "imageKey": "palicos/20260921/MHXX-20260921-002-7080125b-832e-413a-8289-3c56212852ca.jpg",
+      "verdict": "unreviewed",
+      "detailUrl": "https://snowman74-64.github.io/chappy-playground/mhxx-palico/read/palicos/MHXX-20260921-002.json",
+      "liveDetailUrl": "https://mhxx-palico-api.x-reader.workers.dev/api/palicos/MHXX-20260921-002",
+      "imageUrl": "https://mhxx-palico-api.x-reader.workers.dev/api/palicos/MHXX-20260921-002/image"
+    },
+    {
+      "id": "MHXX-20260921-001",
+      "createdAt": "2026-09-20T15:24:29.762Z",
+      "updatedAt": "2026-09-20T15:24:29.762Z",
+      "imageKey": "palicos/20260921/MHXX-20260921-001-88922bb8-ed37-4977-a33a-a901cc0512e8.jpg",
+      "verdict": "unreviewed",
+      "detailUrl": "https://snowman74-64.github.io/chappy-playground/mhxx-palico/read/palicos/MHXX-20260921-001.json",
+      "liveDetailUrl": "https://mhxx-palico-api.x-reader.workers.dev/api/palicos/MHXX-20260921-001",
+      "imageUrl": "https://mhxx-palico-api.x-reader.workers.dev/api/palicos/MHXX-20260921-001/image"
+    }
+  ]
+}
