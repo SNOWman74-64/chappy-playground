@@ -1,0 +1,53 @@
+name: Publish Pages and Palico read snapshot
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+  schedule:
+    - cron: '17,47 * * * *'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v7.0.0
+        with:
+          node-version: '24'
+      - name: Test read snapshot builder
+        run: node --test mhxx-palico/scripts/build-read-snapshot.test.mjs
+      - name: Prepare existing site and fresh read snapshot
+        shell: bash
+        run: |
+          mkdir -p "$RUNNER_TEMP/pages-site"
+          git archive HEAD | tar -x -C "$RUNNER_TEMP/pages-site"
+          node mhxx-palico/scripts/build-read-snapshot.mjs "$RUNNER_TEMP/pages-site/mhxx-palico/read"
+      - uses: actions/upload-pages-artifact@v5.0.0
+        with:
+          path: ${{ runner.temp }}/pages-site
+          retention-days: 1
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy existing site and read snapshot
+        id: deployment
+        uses: actions/deploy-pages@v5.0.1

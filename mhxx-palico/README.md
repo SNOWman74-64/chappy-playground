@@ -10,6 +10,28 @@
 - 書き込み認証: Wrangler Secret `UPLOAD_SECRET`
 - 旧アーカイブ: `legacy.html`。既存の `data/`・`assets/` は保持
 
+## 外部確認用のGitHub Pagesエンドポイント
+
+JavaScriptを実行しない外部ツール向けに、Workerの読み取りデータをGitHub Pagesへ定期的にコピーします。
+
+- 確認ページ: https://snowman74-64.github.io/chappy-playground/mhxx-palico/read/
+- 全猫JSON: https://snowman74-64.github.io/chappy-playground/mhxx-palico/read/palicos.json
+- エンドポイント一覧: https://snowman74-64.github.io/chappy-playground/mhxx-palico/read/index.json
+- 個体JSON: `https://snowman74-64.github.io/chappy-playground/mhxx-palico/read/palicos/{id}.json`
+
+認証不要の公開データで、メモも含みます。全猫JSONは `{schemaVersion, generatedAt, isSnapshot, refreshIntervalMinutes, sourceUrl, total, nextCursor: null, palicos}`。全ページを収録し、外部ツール側でのページ送りは不要です。各Palicoに `detailUrl`（Pagesの個体JSON）、`liveDetailUrl`（Workerの最新個体JSON）、`imageUrl`（Workerから配信するR2画像）を追加します。個体JSONには `snapshotGeneratedAt` と `isSnapshot: true` も含めます。`generatedAt` はUTC ISO 8601で、コピー作成時点を示します。
+
+`.github/workflows/pages.yml` が毎時17分・47分（UTC）、mainへのpush、手動実行でサイトとコピーを公開します。**約30分間隔ですが、GitHub Actionsの混雑・停止等で遅れるため、必ず生成日時を確認してください。** 最新の登録は従来のWorker APIから即時取得できます。元APIのエラー・ページング不整合・安全上限超過ではビルドを失敗させ、不完全なデータを公開しません。前回の公開サイト・生成日時がそのまま残ります。
+
+写真はダウンロード・複製しません。定期処理が呼ぶのは一覧GETのみなので、R2の画像取得上限を消費しません。Cloudflare Token・アップロードシークレットは不要です。コピーはデプロイ成果物にのみ含め、画像・猫メタデータをGit履歴へコミットしません。標準の公開リポジトリ用GitHubホストランナーを使い、有料ランナー・キャッシュ追加容量は利用しません。
+
+今すぐ同期したいときはGitHubのActionsから `Publish Pages and Palico read snapshot` → `Run workflow`。CLIでは `gh workflow run pages.yml`。Pagesの公開元はカスタムActions workflowへ設定します。リポジトリ全体を公開するため、他のPlaygroundページのURL・内容は維持されます。
+
+生成器のテスト: `node --test mhxx-palico/scripts/build-read-snapshot.test.mjs`。
+ローカル生成: `node mhxx-palico/scripts/build-read-snapshot.mjs <空の出力ディレクトリ>`。生成したJSONをGitへ追加しないでください。
+
+参考: [GitHub Pagesは静的配信](https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages)、[カスタム公開workflow](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages)、[GitHub Actionsの料金](https://docs.github.com/en/billing/concepts/product-billing/github-actions)。
+
 ## 利用
 
 「猫を追加」→スクリーンショットを1枚以上選択→必要なら傾向とメモ→送信。最大20枚まで選べ、1枚の画像が1匹の猫として個別に登録されます。サポート傾向とメモは選択した全画像に共通して適用されます。初回は共有シークレットを入力します。値はそのタブのsessionStorageに保持し、タブを閉じた場合などは再入力が必要です。CloudflareやGitHubのAPI Tokenを入力する画面ではありません。
@@ -108,7 +130,7 @@ npx wrangler secret put UPLOAD_SECRET
 npm run deploy
 ```
 
-secret putの入力プロンプトへ長いランダム文字列を入力。出力されたWorker URLをconfig.jsのAPI_BASEへ設定します。フロントはmainブランチのルートを公開元とするGitHub Pagesで配信。Playgroundトップの変更は不要です。
+secret putの入力プロンプトへ長いランダム文字列を入力。出力されたWorker URLをconfig.jsのAPI_BASEへ設定します。フロントはmainブランチの内容をカスタムGitHub Actions workflowでGitHub Pagesへ配信します。Playgroundトップの変更は不要です。
 
 更新時: npm ci → npm run check → npm test → 必要なmigration適用 → npm run deploy。秘密値を変更するときは再度 `wrangler secret put UPLOAD_SECRET` を実行し、端末にも新しい値を入力します。
 
