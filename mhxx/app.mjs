@@ -11,6 +11,7 @@ const DEFAULT_RANK = { rank: "G2", order: 2 };
 const CHARM_STORAGE_KEY = "mhxx-hub-charms-v1";
 
 const state = {
+  selectedSkills: {required: ['弱点特効'], preferred: ['業物']},
   canonical: {
     hunterSkills: [],
     skillTrees: [],
@@ -33,7 +34,6 @@ const partNames={head:'頭',chest:'胴',arms:'腕',waist:'腰',legs:'脚',weapon
 const els = {
   canonicalStatus: $("canonical-status"),
   rank: $("rank"),
-  skillOptions: $("skill-options"),
   skillTreeOptions: $("skill-tree-options"),
   searchForm: $("search-form"),
   searchButton: $("search-button"),
@@ -161,7 +161,7 @@ function populateSkillOptions() {
       target.append(option);
     });
   };
-  fill(els.skillOptions, state.canonical.hunterSkills.filter(s=>!s.special&&!s.unsupported&&!['秘術','護石強化'].includes(s.tree)).flatMap(s=>[s.name,...s.aliases]));
+  for (const kind of ['required','preferred']) renderSkillSelection(kind);
   fill(els.skillTreeOptions, Object.keys(state.canonical.charmRules.skillPointRanges??{}));
 }
 
@@ -510,8 +510,40 @@ function exportCharms() {
   }
 }
 
-function parseSkillInput(value) {
-  return [...new Set(String(value || "").split(/[,、]/).map((item) => item.trim()).filter(Boolean))];
+function renderSkillSelection(kind) {
+  const label=kind==='required'?'必須':'希望';
+  const select=$(`${kind}-skills`), list=$(`selected-${kind}-skills`);
+  const previous=select.value;
+  select.replaceChildren(new Option('スキルを選択',''));
+  for(const skill of state.canonical.hunterSkills) {
+    if(skill.special||skill.unsupported||['秘術','護石強化'].includes(skill.tree)||state.selectedSkills[kind].includes(skill.name))continue;
+    select.add(new Option(skill.name,skill.name));
+  }
+  select.value=[...select.options].some(o=>o.value===previous)?previous:'';
+  list.replaceChildren();
+  for(const name of state.selectedSkills[kind]) {
+    const item=node('li','selected-skill');
+    item.append(node('span','',name));
+    const remove=node('button','remove-skill','×');
+    remove.type='button';remove.setAttribute('aria-label',`${label}スキルの${name}を削除`);
+    remove.disabled=!state.canonicalReady;
+    remove.addEventListener('click',()=>{
+      state.selectedSkills[kind]=state.selectedSkills[kind].filter(s=>s!==name);
+      renderSkillSelection(kind);
+      select.focus();
+      $('skill-selection-status').textContent=`${label}スキルから${name}を削除しました。`;
+    });
+    item.append(remove);list.append(item);
+  }
+  if(!state.selectedSkills[kind].length)list.append(node('li','field-help','指定なし'));
+}
+
+function addSelectedSkill(kind) {
+  const select=$(`${kind}-skills`), name=select.value;
+  if(!name)return;
+  if(!state.selectedSkills[kind].includes(name))state.selectedSkills[kind].push(name);
+  select.value='';renderSkillSelection(kind);select.focus();
+  $('skill-selection-status').textContent=`${kind==='required'?'必須':'希望'}スキルに${name}を追加しました。`;
 }
 
 function buildQuery() {
@@ -523,8 +555,8 @@ function buildQuery() {
     gender: text(form.get("gender"), "male"),
     rank: text(form.get("rank"), DEFAULT_RANK.rank),
     weaponSlots: Number(form.get("weaponSlots")) || 0,
-    requiredSkills: parseSkillInput(form.get("requiredSkills")),
-    preferredSkills: parseSkillInput(form.get("preferredSkills")),
+    requiredSkills: [...state.selectedSkills.required],
+    preferredSkills: [...state.selectedSkills.preferred],
     minDefense: Number.isFinite(minDefense) ? Math.trunc(Math.max(0, minDefense)) : 0,
     useCharmLibrary,
     charms: useCharmLibrary ? state.charms.map((charm) => ({ ...charm, skills: { ...charm.skills } })) : []
@@ -559,6 +591,8 @@ function cancelSearch() {
 
 function startSearch(event) {
   event.preventDefault();
+  addSelectedSkill('required');
+  addSelectedSkill('preferred');
   clearSearchError();
   stopWorker();
   const requestId = makeRequestId();
@@ -754,6 +788,7 @@ function renderResults(response) {
 }
 
 els.searchForm.addEventListener("submit", startSearch);
+for(const kind of ['required','preferred'])$(`add-${kind}-skill`).addEventListener('click',()=>addSelectedSkill(kind));
 els.cancelButton.addEventListener("click", cancelSearch);
 els.charmForm.addEventListener("submit", addCharm);
 els.importFile.addEventListener("change", () => {

@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#0b121b">
     <title>MHXX Hub | 装備検索とお守り</title>
-    <link rel="stylesheet" href="./styles.css?v=dark-1">
-    <script type="module" src="./app.mjs"></script>
+    <link rel="stylesheet" href="./styles.css?v=skills-2">
+    <script type="module" src="./app.mjs?v=skills-2"></script>
   </head>
   <body>
     <a class="skip-link" href="#main-content">本文へ移動</a>
@@ -100,16 +100,24 @@
             <div class="control-grid control-grid-2">
               <div class="field">
                 <label for="required-skills">必須スキル</label>
-                <input id="required-skills" name="requiredSkills" type="text" list="skill-options" value="弱点特効" placeholder="例：斬れ味レベル+1, 業物" autocomplete="off" aria-describedby="required-help">
-                <small id="required-help" class="field-help">カンマ区切り。すべて発動する構成だけを返します。</small>
+                <div class="skill-picker">
+                  <select id="required-skills" aria-describedby="required-help"><option value="">スキルを選択</option></select>
+                  <button id="add-required-skill" type="button" class="button button-secondary" aria-label="必須スキルを追加">追加</button>
+                </div>
+                <ul id="selected-required-skills" class="selected-skills" aria-label="選択済みの必須スキル"></ul>
+                <small id="required-help" class="field-help">いくつでも追加できます。すべて発動する構成だけを返します。</small>
               </div>
               <div class="field">
                 <label for="preferred-skills">希望スキル</label>
-                <input id="preferred-skills" name="preferredSkills" type="text" list="skill-options" value="業物" placeholder="例：弱点特効, 超会心" autocomplete="off" aria-describedby="skills-help">
-                <small id="skills-help" class="field-help">候補に含まれるとスコアが上がります。</small>
+                <div class="skill-picker">
+                  <select id="preferred-skills" aria-describedby="skills-help"><option value="">スキルを選択</option></select>
+                  <button id="add-preferred-skill" type="button" class="button button-secondary" aria-label="希望スキルを追加">追加</button>
+                </div>
+                <ul id="selected-preferred-skills" class="selected-skills" aria-label="選択済みの希望スキル"></ul>
+                <small id="skills-help" class="field-help">いくつでも追加できます。未達でも候補を除外しません。</small>
               </div>
             </div>
-            <datalist id="skill-options"></datalist>
+            <p id="skill-selection-status" class="field-help" role="status" aria-live="polite"></p>
           </fieldset>
 
           <fieldset class="form-group charm-option">
