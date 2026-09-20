@@ -1,0 +1,22 @@
+{
+  "updatedAt": "2026-09-20",
+  "cats": [],
+  "supportPatterns": [
+    "ABBC",
+    "ABCCC",
+    "ACCCCC",
+    "BBBB",
+    "BBBCC",
+    "BBCCCC",
+    "CCCCCCCC"
+  ],
+  "skillPatterns": [
+    "ABBC",
+    "ABCCC",
+    "ACCCCC",
+    "BBBB",
+    "BBBCC",
+    "BBCCCC",
+    "CCCCCCCC"
+  ]
+}
