@@ -23,12 +23,20 @@ JavaScriptを実行しない外部ツール向けに、Workerの読み取りデ�
 
 `.github/workflows/pages.yml` が毎時17分・47分（UTC）、mainへのpush、手動実行でサイトとコピーを公開します。**約30分間隔ですが、GitHub Actionsの混雑・停止等で遅れるため、必ず生成日時を確認してください。** 最新の登録は従来のWorker APIから即時取得できます。元APIのエラー・ページング不整合・安全上限超過ではビルドを失敗させ、不完全なデータを公開しません。前回の公開サイト・生成日時がそのまま残ります。
 
-写真はダウンロード・複製しません。定期処理が呼ぶのは一覧GETのみなので、R2の画像取得上限を消費しません。Cloudflare Token・アップロードシークレットは不要です。コピーはデプロイ成果物にのみ含め、画像・猫メタデータをGit履歴へコミットしません。標準の公開リポジトリ用GitHubホストランナーを使い、有料ランナー・キャッシュ追加容量は利用しません。
+写真はダウンロード・複製しません。定期処理が呼ぶのは一覧GETのみなので、R2の画像取得上限を消費しません。Cloudflare Token・アップロードシークレットは不要です。標準の公開リポジトリ用GitHubホストランナーを使い、有料ランナー・キャッシュ追加容量は利用しません。
+
+### GitHubコネクタ向けJSONキャッシュ
+
+同じActions実行で、全猫JSONを `mhxx-palico/read-cache/palicos.json` にも同期します。[GitHub上のJSON](https://github.com/SNOWman74-64/chappy-playground/blob/main/mhxx-palico/read-cache/palicos.json)をGitHubコネクタから取得できます。JSONにはメモと画像URLが含まれますが、画像バイトや認証情報は含みません。画像は引き続きR2に保存し、Workerから配信します。
+
+データの変更があったときだけ `github-actions[bot]` がmainへコミットします。生成日時だけの変更ではコミットせず、キャッシュの `generatedAt` はその内容を取得した時刻のままにします。最新の実行時刻はActionsで確認してください。公開Git履歴には過去のJSONも残ります。
+
+書き込みにはActions標準の `GITHUB_TOKEN` とbuildジョブの `contents: write` だけを利用します。PATや追加Secretは不要です。このトークンによるpushは新しいpush workflowを起動しないため、自己更新ループは発生しません。同じ実行がPagesも公開します。通常のfast-forward pushのみを使い、mainへの並行更新で競合した場合は強制上書きせず失敗します。次の定期実行または手動実行で再同期できます。
 
 今すぐ同期したいときはGitHubのActionsから `Publish Pages and Palico read snapshot` → `Run workflow`。CLIでは `gh workflow run pages.yml`。Pagesの公開元はカスタムActions workflowへ設定します。リポジトリ全体を公開するため、他のPlaygroundページのURL・内容は維持されます。
 
-生成器のテスト: `node --test mhxx-palico/scripts/build-read-snapshot.test.mjs`。
-ローカル生成: `node mhxx-palico/scripts/build-read-snapshot.mjs <空の出力ディレクトリ>`。生成したJSONをGitへ追加しないでください。
+生成器・キャッシュのテスト: `node --test mhxx-palico/scripts/*.test.mjs`。
+ローカル生成: `node mhxx-palico/scripts/build-read-snapshot.mjs <空の出力ディレクトリ>`。Gitへ同期する生成物は `read-cache/palicos.json` のみです。
 
 参考: [GitHub Pagesは静的配信](https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages)、[カスタム公開workflow](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages)、[GitHub Actionsの料金](https://docs.github.com/en/billing/concepts/product-billing/github-actions)。
 

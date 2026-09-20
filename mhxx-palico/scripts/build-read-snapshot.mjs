@@ -76,6 +76,7 @@ export function renderReadPage(snapshot) {
 <p>約30分間隔で更新します。反映には遅延があり、更新に失敗した場合は前回分が残ります。最新の登録内容はWorker APIを確認してください。画像はWorker経由で取得します。</p></div>
 <dl><dt>猫一覧JSON（Pages・全件）</dt><dd><a href="./palicos.json">palicos.json</a></dd>
 <dt>エンドポイント一覧（Pages）</dt><dd><a href="./index.json">index.json</a></dd>
+<dt>GitHubコネクタ用・リポジトリ内JSON</dt><dd><a href="https://github.com/SNOWman74-64/chappy-playground/blob/main/mhxx-palico/read-cache/palicos.json">mhxx-palico/read-cache/palicos.json</a></dd>
 <dt>最新の猫一覧JSON（Worker）</dt><dd><a href="${escapeHtml(snapshot.sourceUrl)}">${escapeHtml(snapshot.sourceUrl)}</a></dd></dl>
 <p>認証・JavaScriptは不要です。公開データにはメモも含まれます。外部ツールはまず <code>palicos.json</code> を読み、各猫の <code>detailUrl</code>・<code>imageUrl</code> を利用してください。Pages版は全件を収録し、ページ送りは不要です。</p>
 ${cards || '<p>このコピーにはまだ猫が登録されていません。</p>'}

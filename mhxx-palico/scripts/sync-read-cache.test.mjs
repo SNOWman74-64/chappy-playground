@@ -1,0 +1,31 @@
+import { test } from 'node:test';
+import assert from 'node:assert/strict';
+import { mkdtemp, writeFile, readFile } from 'node:fs/promises';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
+import { syncReadCache } from './sync-read-cache.mjs';
+import { makeSnapshot } from './build-read-snapshot.mjs';
+
+test('cache updates on data changes only; timestamp-only changes do not create diffs', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'palico-cache-test-'));
+  const source = join(root, 'snapshot.json'), target = join(root, 'read-cache', 'palicos.json');
+  const cats = [{ id:'MHXX-20260921-001', verdict:'unreviewed', memo:'original' }];
+  const first = makeSnapshot(cats,{generatedAt:'2026-09-21T01:00:00.000Z'});
+  await writeFile(source,JSON.stringify(first));
+  assert.equal(await syncReadCache(source,target),true);
+  const original = await readFile(target,'utf8');
+  await writeFile(source,JSON.stringify({...first,generatedAt:'2026-09-21T01:30:00.000Z'}));
+  assert.equal(await syncReadCache(source,target),false);
+  assert.equal(await readFile(target,'utf8'),original);
+  const changed = makeSnapshot([{...cats[0],memo:'reviewed'}]);
+  await writeFile(source,JSON.stringify(changed));
+  assert.equal(await syncReadCache(source,target),true);
+  assert.equal(JSON.parse(await readFile(target,'utf8')).palicos[0].memo,'reviewed');
+  const saved = await readFile(target,'utf8');
+  await writeFile(source,JSON.stringify({...changed,total:99}));
+  await assert.rejects(syncReadCache(source,target),/Invalid snapshot/);
+  assert.equal(await readFile(target,'utf8'),saved);
+  await writeFile(source,JSON.stringify(makeSnapshot([])));
+  assert.equal(await syncReadCache(source,target),true);
+  assert.equal(JSON.parse(await readFile(target,'utf8')).total,0);
+});
